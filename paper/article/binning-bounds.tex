@@ -1,7 +1,7 @@
 \subsection{Bounding labour at a bin boundary}
 \label{sec:binning-bounds}
 
-A conditional bound can connect binned observations to the continuous labour target without interpolating within a bin. Suppose a fixed cohort's labour is partitioned into complete, nonduplicated contributions on task-relative age intervals $[\ell_j,u_j)$, with $0\leq\ell_j<u_j$. Attribute shared work once. Each contribution arises from a nonnegative allocation integral with absolutely continuous cumulative labour and known total mass $v_j$ in person-hours. These premises include coverage and attribution; records alone do not establish them. Ages and cutoffs use a common declared time unit. Masses must be exact after unit conversion; rounded weights require separate error bounds.
+Exact bin masses can bound the continuous labour target even when the distribution of work within each bin is unknown. Suppose a fixed cohort's labour is partitioned into complete, nonduplicated contributions on task-relative age intervals $[\ell_j,u_j)$, with $0\leq\ell_j<u_j$. Attribute shared work once. Each contribution arises from a nonnegative allocation integral with absolutely continuous cumulative labour and known total mass $v_j$ in person-hours. Coverage and attribution are premises of the bound, not facts established by the records alone. Ages and cutoffs use a common declared time unit, and masses must remain exact after conversion. Rounded weights require separate error bounds.
 
 \begin{proposition}[A continuous labour envelope]
 \label{prop:binning-bounds}
@@ -29,4 +29,4 @@ When $H_-=0$, the bounds need not establish a positive denominator or a finite u
 One person's bin $[0,2)$ contains one person-hour. At $c=1$, work entirely in the first hour gives labour 1, whereas work entirely in the second gives 0. Both respect the allocation constraint. Uniform interpolation gives $1/2$, but the known bin mass alone supports the interval $[0,1]$.
 \end{example}
 
-If ledger ages satisfy $b_j=u_j$ and their weights represent these exact masses, the unchanged Rust labour sum equals $H_-$ after unit conversion. That index stores no start keys and does not compute $H_+$. A companion index could sort starts and ends separately, using inclusive end and strict start prefix lookups: $O(m\log(m+1))$ preprocessing, $O(m)$ storage and $O(1+\log(m+1))$ time per cutoff. This adds a conditional certificate; no runtime advantage for the companion calculation has been measured.
+If ledger ages satisfy $b_j=u_j$ and their weights represent these exact masses, the unchanged Rust labour sum equals $H_-$ after unit conversion. That index stores no start keys and does not compute $H_+$. A companion index could sort starts and ends separately, using inclusive end and strict start prefix lookups: $O(m\log(m+1))$ preprocessing, $O(m)$ storage and $O(1+\log(m+1))$ time per cutoff. This adds a conditional certificate. No runtime advantage for the companion calculation has been measured.
