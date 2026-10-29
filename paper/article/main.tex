@@ -56,7 +56,9 @@ The case for several measures is established in software-engineering research. T
 
 Existing AI studies also illustrate why the endpoint matters. Peng et al.\ compare completion time among completers of a specified programming exercise \cite{peng2023}. Becker et al.\ study experienced maintainers in familiar repositories, reporting a forecast-adjusted contrast from a log-time model \cite{becker2025}. Cui et al.\ study weekly completed pull requests in three organisational experiments \cite{cui2026}; their June 2025 manuscript uses random assignment as an instrument for adoption in a weighted instrumental-variable analysis \cite[Section 4.1 and Table 3]{cui2025manuscript}. Their interventions, populations and outcome definitions differ. Their estimates therefore cannot supply interchangeable parameters for a universal productivity equation. METR's subsequent account of selection and concurrent-agent measurement difficulties gives a further reason to record work and elapsed time separately \cite{metr2026}. These studies motivate the question; their effects are not re-estimated here.
 
-The argument has three parts. First, an observation model exposes what event telemetry cannot identify without an external anchor. Secondly, task accounting fixes the units and observation horizons before a small execution model explains how effort and speed can diverge. Thirdly, a proposed study measures those endpoints under a common acceptance and follow-up procedure. The mathematical ingredients---finite probability, conditional expectation, sampling weights, dependency paths and renewal rewards---are standard. The practical contribution is their explicit alignment with the measurement problem, including failure cases that prevent an index from being mistaken for an observed outcome. No claim is made that this synthesis is an exhaustive literature review or a validated forecasting system. Section~\ref{sec:performance} adds a bounded implementation experiment: speeding up repeated accounting queries while preserving their integer totals. Its machine-runtime measurements do not measure human productivity or an AI policy effect.
+The argument moves from identification to accounting and then to a study design. The observation model first shows why identifying human activity from event telemetry requires stated restrictions or independent observations. Task accounting fixes the units and observation horizons. Small execution models then explain how effort and speed can diverge. The proposed study then measures the endpoints under a common acceptance and follow-up procedure. The mathematical ingredients---finite probability, conditional expectation, sampling weights, dependency paths and renewal rewards---are standard. Their contribution here is to align the observations with the quantities a policy comparison needs, while exposing cases in which an index leaves the outcome unresolved. This methodological synthesis is neither an exhaustive literature review nor a validated forecasting system.
+
+Section~\ref{sec:performance} adds an implementation experiment that examines when an index accelerates repeated accounting queries while preserving their integer totals. It measures the cost of computing the summaries, not human productivity or an AI policy effect.
 
 \section{An event history is an observation of work}
 \label{sec:observation}
@@ -83,7 +85,7 @@ Both parameter pairs give $\theta=1/10$. In contrast,
 which is $n/2$ minutes in the first model and $n/4$ in the second. Thus the same observable distribution corresponds to two different target values.
 \end{proof}
 
-This construction belongs to the independent-state subfamily of a two-state hidden Markov model: both transition rows give the same next-state probability. It disproves identification throughout an unrestricted family, not identification in every persistent or otherwise restricted model. Additional restrictions, informative code marks or independent activity observations may distinguish the relevant cases. A guarantee must state which of those restrictions or observations supplies the information. AI makes the question more immediate because commit production can continue while human attention is elsewhere.
+This construction belongs to the independent-state subfamily of a two-state hidden Markov model: both transition rows give the same next-state probability. It shows that the unrestricted family is not globally identifiable. Persistent or otherwise restricted models may still be identifiable. Additional restrictions, informative code marks or independent activity observations may distinguish the relevant cases. A guarantee must state which of those restrictions or observations supplies the information. AI makes the question more immediate because commit production can continue while human attention is elsewhere.
 
 Internal agreement between two estimates of the state cannot replace that information.
 
@@ -108,7 +110,9 @@ Such a diagnostic can find incompatibilities within a model, but passing it does
 
 \subsection{The task, the policy and the person-hour}
 
-Enrol task $i$ at time $s_i$, when its requested behaviour, eligibility and acceptance criteria are recorded. Task identity follows the requirement, rather than a commit or pull request. Before observing outcomes, define how split tasks, merged tasks and scope changes will be handled. A parent requirement can retain its original identity while children record implementation activity; adding the parent and its children as separate delivered output would count the same work twice. Material changes of scope require a versioned record and a stated analysis rule. Task granularity, acceptance credit and the follow-up clock are part of that rule. Even additive reference scores can yield different deadline output when separately accepted components are regrouped into a parent accepted only after its last component. Freeze these choices before comparing policies.
+Enrol task $i$ at time $s_i$, when its requested behaviour, eligibility and acceptance criteria are recorded. Task identity follows the requirement, rather than a commit or pull request. Before observing outcomes, define how split tasks, merged tasks and scope changes will be handled. A parent requirement can retain its original identity while children record implementation activity. Counting both the parent and its children as delivered output would count the same work twice. Material changes of scope require a versioned record and a stated analysis rule.
+
+That rule must also fix task granularity, acceptance credit and the follow-up clock before policies are compared. Even additive reference scores can yield different deadline output when separately accepted components are regrouped into a parent accepted only after its last component. Freezing the score alone therefore leaves part of the comparison unspecified.
 
 An \emph{AI policy} specifies available tools and model versions, permitted autonomy, eligible tasks, review responsibilities and release rules. Assignment to such a policy is different from actual use. Difficult tasks may elicit more use, and people may decline an assigned tool. The assigned policy is the intervention in the proposed experiment; actual exposure remains a recorded behaviour.
 
@@ -219,6 +223,8 @@ The maximum is justified by independent parallel branches. If a human stage need
 
 \subsection{First acceptance under repeated attempts}
 
+The cycle rates below describe eventual first acceptance and provide sensitivity comparisons. The proposed study continues to measure the fixed-horizon cohort totals. This change of boundary matters because a task may consume labour without meeting the cohort's acceptance deadline.
+
 Assume independent, identically distributed pass/fail attempts with pass probability $p\in(0,1]$, deterministic per-attempt labour $h>0$ and duration $t>0$. Attempts execute sequentially until the first pass; $N$ is their number. A one-off initial wait is $w\geq0$. Write $H^A=hN$ for labour to first acceptance and $L=w+tN$ for elapsed time. These quantities exclude later repair.
 
 \begin{proposition}[Retry moments and cycle rates]
@@ -247,8 +253,7 @@ These are elementary renewal-reward calculations \cite{gallager2011}. They are r
 The eventual first-acceptance model also differs from \eqref{eq:cohort-productivity} through its deadline: every modelled task eventually passes, whereas the cohort numerator credits only acceptance by $\tau$. \begin{example}[A horizon changes the ratio]\label{ex:horizon}
 Set $p=1/2$, $h=t=S^0=R=1$, $w=0$ and $\tau=\Delta=1$, with one person working continuously on sequential attempts until acceptance and no repair. Then $\E[Q]=1/2$ and $\E[H(2)]=\E[\min(N,2)]=3/2$, so their ratio is $1/3$, while eventual-cycle productivity is $1/2$. These expectations follow from the probabilities of first-attempt success and second-attempt execution, each $1/2$.
 \end{example}
-The retry formula is a sensitivity model, not a plug-in formula for a finite cohort. A calendar deadline also need not equal an attempt cap when durations or waits vary.\par
-The first-acceptance labour boundary is deliberately narrower than \eqref{eq:cohort-productivity}. If $B_\Delta\geq0$ is attributable labour during a specified post-acceptance follow-up with finite expectation, then the corresponding cycle productivity has denominator $h/p+\E[B_\Delta]$. That extension does not capture all labour in a fixed enrolment horizon automatically. Neither quantity includes unallocated shared overhead unless the measurement protocol adds it.
+A calendar deadline can also differ from an attempt cap when durations or waits vary. The first-acceptance labour boundary is narrower than \eqref{eq:cohort-productivity}. If $B_\Delta\geq0$ is attributable labour during a specified post-acceptance follow-up with finite expectation, then the corresponding cycle productivity has denominator $h/p+\E[B_\Delta]$. That extension does not capture all labour in a fixed enrolment horizon automatically. Neither quantity includes unallocated shared overhead unless the measurement protocol adds it.
 
 \begin{corollary}[Separate improvement conditions]
 \label{cor:improvements}
@@ -363,7 +368,7 @@ AI: greater verification & 10.67 & 12.67 & 0.844\\
 \begin{figure}[tb]
 \centering
 \EffortTimeFigure
-\caption{Synthetic expected human labour and elapsed time relative to the human baseline. The two equal-labour AI cases differ only in agent duration. They demonstrate that lower human effort does not imply faster acceptance. The plotted values are exact model expectations, with decimal rendering; they are not effect estimates or uncertainty intervals.}
+\caption{Synthetic expected human labour and elapsed time relative to the human baseline. The two equal-labour AI cases differ only in agent duration. They demonstrate that lower human effort does not imply faster acceptance. The plotted values are exact model expectations, with decimal rendering, rather than effect estimates or uncertainty intervals. The plot labels ``Fast agent'', ``Slow agent'' and ``Heavy review'' correspond to shorter production, a slower agent branch and greater verification, respectively.}
 \label{fig:scenarios}
 \end{figure}
 
@@ -382,7 +387,7 @@ The mathematical proofs, finite computations and empirical questions have differ
 \section{A study that could test the measurement proposal}
 \label{sec:study}
 
-The immediate empirical objective is to test whether the proposed observations can be collected reliably and whether a frozen change index is calibrated to labour under each policy. Estimating an AI effect is a subsequent inferential objective whose precision depends on the available independent teams, task variation and measurement error. A small pilot can settle feasibility without pretending to settle effectiveness.
+The first empirical question is whether the proposed observations can be collected reliably and whether a frozen change index is calibrated to labour under each policy. A pilot can answer the feasibility question and inform a later effect study. The precision of that study will depend on the number of independent teams, variation between tasks and measurement error.
 
 \subsection{A bounded prospective protocol}
 
@@ -448,7 +453,9 @@ Smaller $M_A$ means less time spent without acceptance during the specified hori
 
 Administrative censoring before $\tau$ requires additional assumptions. Unconditional independent censoring permits ordinary survival estimation when there is no terminal competing event and observation support extends through the target horizon. Conditional independence requires the corresponding support within relevant at-risk covariate strata, together with conditioning or appropriate weighting before marginal standardisation. Support means a positive probability of remaining observed wherever unaccepted tasks contribute to the target, including its endpoint. If support ends earlier, shorten the target horizon or state explicit extrapolation assumptions or bounds. Informative loss to follow-up requires a sensitivity analysis or bounds. A task that has not yet reached its follow-up date is not evidence of zero repair or perfect retention. The planned full follow-up reduces these problems but does not guarantee that losses will be absent.
 
-\subsection{Analysis, measurement reliability and a decision}
+\subsection{Analysis under the assigned policy}
+
+Randomisation can support a causal policy contrast only for the implemented assignment and its interference assumptions. Shared reviewers, reusable AI-generated components and changes to colleagues' queues create spillovers. Cluster at a boundary that contains the main shared resources, record cross-boundary dependencies and describe residual interference.
 
 Analyse all eligible tasks under their assigned policy. Unequal team backlog sizes require care: a difference of pooled arm task means need not be design-unbiased for the fixed task-weighted contrast. For a locked backlog of known size $n_0>0$, let $\mathcal I_g$ be the fixed task set of team $g$, $A_g$ its assignment, and $\pi_g(a)=\Prb(A_g=a)=1/2$. For an observed task outcome $Y_i$, use the assignment-weighted mean
 \begin{equation}
@@ -460,13 +467,17 @@ Under consistency and the stated absence of cross-team interference, its assignm
 
 Respect the matched-pair assignment and retain numerator--denominator dependence and assignment clusters in inference; thousands of commits do not create thousands of independent treatment assignments. With only six pairs, randomisation-based comparisons are coarse and intervals may be wide. Report feasibility and measurement results even if an effect estimate is inconclusive. Use run-in and pilot estimates of clustering, outcome dispersion, attrition and assessment error to design a larger trial around a prespecified precision or power target. No claim of adequate power follows from the illustrative recruitment count.
 
+\subsection{Validating measurements and making a decision}
+
 \input{sampling-validation}
 
-Start prediction with direct accounting and a small task-class baseline. More elaborate models should earn their complexity through held-out performance. Features must exist at the declared prediction time. A model for the mean of log labour does not directly predict arithmetic mean labour after exponentiation; retransformation depends on the residual distribution. Zero-human-effort tasks need an explicit treatment, and marginal effort and time predictions do not determine the probability of meeting both a budget and a deadline without their dependence. Even a randomised comparison of arm means does not identify the cross-policy probability that the same task would improve under both unobserved counterfactuals. These qualifications matter before a forecasting model is used for staffing.
-
-Randomisation can support a causal policy contrast only for the implemented assignment and its interference assumptions. Shared reviewers, reusable AI-generated components and changes to colleagues' queues create spillovers. Cluster at a boundary that contains the main shared resources, record cross-boundary dependencies and describe residual interference. If randomisation is unavailable, a staggered adoption design may use the cohort-specific estimands of Callaway and Sant'Anna \cite{callaway2021}, subject to its comparison-group, no-anticipation, overlap and conditional parallel-trends assumptions. A step in SCH must not itself define adoption timing. Reversible or changing use is not automatically a persistent adoption treatment.
-
 Before examining outcomes, define the practical labour or timing improvement sought and a domain-justified quality margin. Report both intention-to-treat endpoint contrasts and their uncertainty. Failure to detect a quality reduction is not evidence that a noninferiority margin is met. A policy can be supported for labour saving while leaving delivery speed unresolved, or can create an explicit trade-off. Retained-output productivity is informative only with its numerator and denominator also reported. A favourable index movement alone is insufficient for a staffing, quality or delivery claim.
+
+\subsection{Further modelling and observational alternatives}
+
+For later forecasting, start with direct accounting and a small task-class baseline. More elaborate models should earn their complexity through held-out performance. Features must exist at the declared prediction time. A model for the mean of log labour does not directly predict arithmetic mean labour after exponentiation; retransformation depends on the residual distribution. Zero-human-effort tasks need an explicit treatment, and marginal effort and time predictions do not determine the probability of meeting both a budget and a deadline without their dependence. Even a randomised comparison of arm means does not identify the cross-policy probability that the same task would improve under both unobserved counterfactuals. These qualifications matter before a forecasting model is used for staffing.
+
+If randomisation is unavailable, a staggered adoption design may use the cohort-specific estimands of Callaway and Sant'Anna \cite{callaway2021}, subject to its comparison-group, no-anticipation, overlap and conditional parallel-trends assumptions. A step in SCH must not itself define adoption timing. Reversible or changing use is not automatically a persistent adoption treatment.
 
 \input{performance}
 
@@ -518,7 +529,6 @@ Consequently, the residual fraction $1-r^2$ cannot in general upper-bound the va
 
 Two reporting issues remain separate from these deductions. Figure 6's caption reverses the timing and code-feature provenance of target and prediction. Its approximate bin counts also imply about 1.2 million examples, compared with about 500,000 commits in the dataset description. An alternative counting unit or a typographical error could reconcile the latter; the unavailable manifest is needed to decide. Neither issue proves that the underlying observations or implementation are invalid. Feature substitutions in a fitted predictor are sensitivity calculations and need a separate identification argument before being interpreted causally.
 
-\clearpage
 \section{Proof coverage and reproducibility}
 \label{app:coverage}
 
