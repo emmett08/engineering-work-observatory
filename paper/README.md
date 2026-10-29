@@ -1,9 +1,21 @@
-# What software-work telemetry identifies
+# Papers and reproducibility
+
+For automatic, label-free team-throughput prediction, read the new
+[operational forecasting companion](forecasting/automatic-throughput-forecasting.pdf),
+its [source and reproduction guide](forecasting/README.md), and the
+[three ranked model alternatives](review/ranked-automatic-model-alternatives.md).
+The [fully connected Astra ultra mesh record](review/mesh-forecasting-2026-10-29/README.md)
+retains the research, source contracts, frozen comparison and adverse result.
+Current queue pressure is observed; future bottlenecks and causal capacity remain
+unestablished. The automatic workflow is independent of the labour observations
+required by the following manuscript.
+
+## What software-work telemetry identifies
 
 Read the [extended article](ai-assisted-software-engineering.pdf), built from
 [`article/main.tex`](article/main.tex) and
 [`article/references.bib`](article/references.bib). The revised paper centres on
-sharp labour identification from interval observations and bounded attention,
+labour bounds from interval observations and bounded attention,
 an exact finite-cell reduction, and model-assisted design-based estimation.
 A compact marked-history representation preserves the separate acceptance,
 retention and labour horizons. The elementary execution examples and retained
@@ -66,13 +78,16 @@ Run from this directory:
 
 ```sh
 make article
+make forecasting
 make baseline
 ```
 
 `make article` compiles the extended source to `build/main.pdf` and copies it to
 `ai-assisted-software-engineering.pdf`. `make baseline` builds the original
 source to `effort-speed-ai/.build/article/main.pdf`; it does not overwrite the
-attached PDF. Both use pdfLaTeX, BibTeX and latexmk.
+attached PDF. These use pdfLaTeX, BibTeX and latexmk. `make forecasting` builds the separate
+automatic-throughput companion under `forecasting/` without changing either
+labour paper.
 
 On Debian/Ubuntu the TeX dependencies are available through:
 
@@ -87,7 +102,7 @@ are numbered continuously because the article class has no chapter counter.
 Rust and Python requirements and benchmark commands are documented in
 [`performance/README.md`](performance/README.md).
 
-`make check` validates the preserved package, exact measurement and sharp-bound
+`make check` validates the preserved package, exact measurement and interval-bound
 examples, Rust kernel and successor-collector tests. Application estimator and
 bound integration tests run through the root Cargo checks. `make performance` writes a separate fresh
 collection under `reports/performance/<UTC>/` at the repository root. The recorded

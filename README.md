@@ -1,25 +1,28 @@
 # Engineering Work Observatory
 
-A local Rust application for collecting evidence from `emmett08/eal-mcp` and
-`emmett08/engarg`, then measuring human effort, elapsed acceptance time and retained
-requirement output. Its accounting and study contracts accompany *What
-software-work telemetry identifies: sharp labour bounds and design-based
-estimation*, developed from the preserved 13 October 2026 methodological draft.
+A local Rust application that automatically collects GitHub pull requests,
+forecasts team merge counts and reports observed queue pressure. The default
+portfolio is `emmett08/eal-mcp` plus `emmett08/engarg`; other repositories can be
+selected. Forecasting needs no task labels, time diaries, AI-use classifications
+or manual completeness attestations.
 
-The [paper and reproducibility files](paper/README.md) include that original draft,
-its LaTeX and Lean evidence, and the revised article with sharp identification
-results, model-assisted estimation and editable TikZ figures. The retained
-performance algorithms and Rust query benchmark now support an appendix.
+The forecast counts merged PRs. Current open, draft, requested-review and aged-PR
+counts help inspect the queue, but do not identify its causal bottleneck. The
+default model is an expanding empirical reference; predictive skill on a new
+team remains unestablished. See [automatic forecasting](docs/automatic-forecasting.md)
+for the assumptions, source boundaries and scoring workflow.
 
-The software implements descriptive accounting. Repository activity does not
-establish human labour, AI exposure, acceptance, or retained correctness. Those
-outcomes need explicit task records and independently collected measurements.
-There is no automatic causal AI-effect estimator or staffing predictor.
+The [papers and reproducibility files](paper/README.md) include the new
+[automatic forecasting companion](paper/forecasting/automatic-throughput-forecasting.pdf)
+and [three ranked alternatives](paper/review/ranked-automatic-model-alternatives.md).
+They also preserve the original measurement draft, its Lean evidence, and the
+separate article on labour identification and design-based estimation.
 
-The default scope rule assigns zero protocol credit when scope changes before
-the fixed labour horizon closes. This predeclared penalty is separate from the
-paper's retention endpoint. The [measurement protocol](docs/measurement-protocol.md)
-defines the distinction and the original-scope reporting option.
+The separate study-accounting path measures human effort, elapsed acceptance
+time and retained requirement output from explicit observations. Repository
+activity alone does not establish those quantities, an AI causal effect or a
+staffing requirement. The [measurement protocol](docs/measurement-protocol.md)
+defines that path; it is not a prerequisite for automatic forecasting.
 
 ## Install and run
 
@@ -35,6 +38,48 @@ cargo build --locked --release
 Commands default to a private `.observatory/` directory. Use `--state PATH` to
 choose another directory. Keep it and exported reports out of source control:
 they can contain private requirements, source comments and raw run data.
+
+## Forecast team throughput automatically
+
+For private repositories, provide a read-only `GH_TOKEN` through your shell's
+secret mechanism. Public unauthenticated collection is also supported.
+
+```sh
+cargo run --locked -- forecast-team
+cargo run --locked -- forecast-team --repository owner/repository --horizon week
+```
+
+Each run collects repository metadata and every PR-list page, retains source
+evidence, freezes a snapshot and saves an immutable forecast bundle under
+`.observatory/forecasts/`. It also scores earlier archived forecasts when their
+entire target period is observable; scoring results are appended under
+`.observatory/forecast-scores/`. The command prints the forecast, current queue
+pressure and prior-forecast score statuses. Run it from an existing scheduler
+for continuing collection and evaluation. No per-PR input is needed.
+
+The default target is the next full UTC day. `--horizon week` forecasts the next
+Monday-based week; `--horizon fortnight` forecasts a 14-day period beginning on
+the next Monday. Four complete target-width bins are required: four days, four
+weeks or eight weeks, respectively. Insufficient history produces an unavailable
+forecast. Daily counts are never scaled into weekly predictions.
+
+The reference distribution uses all supported complete bins in the selected
+portfolio's history. Its reported quantiles are empirical ranges, without a
+guarantee of future coverage. Optional `--output FILE` exports the same immutable
+bundle while retaining the normal archive. Earlier bundles are never rewritten.
+
+For offline verification and scoring:
+
+```sh
+cargo run --locked -- snapshot --output reports/later-snapshot.json
+cargo run --locked -- score-forecast \
+  .observatory/forecasts/FORECAST.json reports/later-snapshot.json
+```
+
+The later snapshot must contain a successful collection covering the complete
+target. Taking a new snapshot without collecting does not extend observation.
+See [automatic forecasting](docs/automatic-forecasting.md) for replay, historical
+comparison, missing-data behaviour and the initial evidence.
 
 ## Try a complete synthetic study
 
@@ -59,6 +104,7 @@ Public unauthenticated collection is supported with a smaller API allowance.
 ```sh
 cargo run --locked -- collect-github
 cargo run --locked -- collect-github --repository emmett08/engarg
+cargo run --locked -- collect-github --profile throughput --repository emmett08/engarg
 cargo run --locked -- collect-git /path/to/eal-mcp --repository emmett08/eal-mcp
 cargo run --locked -- collect-git /path/to/engarg --repository emmett08/engarg
 ```
@@ -70,6 +116,9 @@ Refreshes use validated, credential-scoped ETag/Last-Modified caches, revisiting
 every page instead of assuming a PR timestamp covers all related events.
 Rate, page, attempt, body and request bounds never become complete-history claims.
 The collector does not download binary workflow artifact ZIPs or all job logs.
+The `throughput` profile collects only repository metadata and PR inventories,
+with an automatic summary of required-source coverage. This is the profile used
+by `forecast-team`; review submissions, CI and timeline history are not collected.
 
 Local Git collection retains refs, the reachable graph, commit objects,
 per-parent patches and Cargo/workflow definitions across revisions. It reads Git
@@ -116,6 +165,11 @@ never become development-session identities.
 
 ## Record a real study
 
+These measurements belong to the optional study-accounting path. The default
+scope rule assigns zero protocol credit when scope changes before the fixed
+labour horizon closes; the measurement protocol explains the original-scope
+reporting option and its distinction from the paper's retention endpoint.
+
 Each JSONL row follows `{"id":"stable-id","kind":"task","data":{...}}`.
 `{"schema":"observatory.bundle/1","records":[...]}` JSON is also accepted.
 Use `examples/study.jsonl` as the executable reference. Import related records
@@ -158,9 +212,11 @@ a conditional cohort productivity range. An unavailable exact total remains
 unavailable; exported bounds disclose floating-point approximation without
 outward rounding.
 
-This descriptive implementation audits every counted accepted requirement.
-Quality subsampling, assignment-weighted causal inference and prediction are
-outside its contract. See [measurement protocol](docs/measurement-protocol.md).
+This descriptive study path audits every counted accepted requirement. Quality
+subsampling, assignment-weighted causal inference and prediction of labour or
+retained output are outside its contract. The automatic forecasting module has
+its own observable PR-count endpoint. See the
+[measurement protocol](docs/measurement-protocol.md).
 
 ## Estimate labour with frozen predictions
 

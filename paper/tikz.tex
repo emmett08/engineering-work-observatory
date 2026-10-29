@@ -76,7 +76,7 @@
   \node[ewo label,anchor=base,text=EWOteal] at (236.52,97.857)
     {Area = 3.5 person-hours};
   \node at (62.64,12.550)
-    {Independent production branches; verification follows both. Finish: 9.5 h.};
+    {Independent production branches. Verification follows both. Finish: 9.5 h.};
 \end{tikzpicture}%
 }
 
@@ -84,12 +84,12 @@
 \begin{tikzpicture}[ewo figure]
   \path[use as bounding box] (0,0) rectangle (432,259.2);
   \node[ewo title] at (45.36,241.509)
-    {A weaker gate can raise recorded throughput};
+    {Lower sensitivity raises the recorded rate};
   \node[text=EWOgrey] at (45.36,228.769)
     {Synthetic derivation \textperiodcentered\ defect probability 0.4
      \textperiodcentered\ no queue or repair};
   \node[ewo panel] at (51.84,213.768) {a\ \ Output rate};
-  \node[ewo panel] at (267.84,213.768) {b\ \ Accepted correctness};
+  \node[ewo panel] at (267.84,213.768) {b\ \ Correctness probability};
 
   % Both axes: x in [0,1], left rate in [0,5.5], right fraction in [0,1.1].
   \foreach \xorigin in {51.84,267.84}{
@@ -115,7 +115,7 @@
   \node[ewo label,anchor=base,rotate=90] at (34.059,128.304)
     {Reference units per elapsed hour};
   \node[ewo label,anchor=base,rotate=90] at (231.168,128.304)
-    {Correctness among accepted tasks};
+    {Probability correct given a pass};
 
   % S^0=10, t=2, d=.4: recorded=5-2s; correct=3; rho=.6/(1-.4s).
   \draw[EWOrust,line width=1.8bp]
@@ -124,10 +124,10 @@
     (51.84,135.255273)--(200.88,135.255273);
   \draw[EWOink,line width=1.8bp]
     plot[domain=0:1,samples=101] ({267.84+149.04*\x},{51.84+139.025455*(.6/(1-.4*\x))});
-  \node[ewo label,text=EWOrust] at (62.273,188.919) {Recorded};
-  \node[ewo label,text=EWOteal] at (62.273,123.299) {Correct};
+  \node[ewo label,text=EWOrust] at (62.273,188.919) {Recorded output};
+  \node[ewo label,text=EWOteal] at (62.273,123.299) {Correct output};
   \node at (51.84,9.072)
-    {Ten reference units per task; two-hour attempts; no false-positive rejection.};
+    {Ten reference units per task. Two-hour attempts. No false-positive rejection.};
 \end{tikzpicture}%
 }
 
@@ -153,9 +153,9 @@
     (271.337143,53.244)--(271.337143,261.522)
     (60.48,177.219)--(414.72,177.219);
   \node[ewo label,anchor=base] at (237.6,26.682)
-    {Expected human labour / baseline labour};
+    {Expected human labour / baseline mean};
   \node[ewo label,anchor=base,rotate=90] at (34.089,157.383)
-    {Expected elapsed time / baseline time};
+    {Expected elapsed time / baseline mean};
   \node[text=EWOgrey] at (71.107,249.471) {Longer elapsed time};
 
   % Baseline: h=t=7, p=.95; fast: h=t=3.5, p=.9;
@@ -175,11 +175,11 @@
     --({\eworeviewX-3.817},{\eworeviewY-3.817})
     --({\eworeviewX+3.817},{\eworeviewY-3.817})--cycle;
   \node[ewo label] at (279.337143,161.219) {Human baseline};
-  \node[ewo label] at ({\ewofastX+8},{\ewofastY-16}) {Fast agent};
-  \node[ewo label] at ({\ewofastX+8},{\ewoslowY+10}) {Slow agent};
+  \node[ewo label] at ({\ewofastX+8},{\ewofastY-16}) {Shorter production};
+  \node[ewo label] at ({\ewofastX+8},{\ewoslowY+10}) {Slower agent branch};
   \node[ewo label,anchor=base east] at ({\eworeviewX-8},{\eworeviewY-18})
-    {Heavy review};
+    {Greater verification};
   \node at (60.48,11.588)
-    {Same 2-hour initial wait in every case; no follow-up repair labour.};
+    {Same 2-hour initial wait in every case. No follow-up repair labour.};
 \end{tikzpicture}%
 }

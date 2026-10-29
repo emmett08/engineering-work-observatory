@@ -1,7 +1,7 @@
 \subsection{Bounding labour at a bin boundary}
 \label{sec:binning-bounds}
 
-Exact bin masses can bound the continuous labour target even when the distribution of work within each bin is unknown. Suppose a fixed cohort's labour is partitioned into complete, nonduplicated contributions on task-relative age intervals $[\ell_j,u_j)$, with $0\leq\ell_j<u_j$. Attribute shared work once. Each contribution arises from a nonnegative allocation integral with absolutely continuous cumulative labour and known total mass $v_j$ in person-hours. Coverage and attribution are premises of the bound, not facts established by the records alone. Ages and cutoffs use a common declared time unit, and masses must remain exact after conversion. Rounded weights require separate error bounds.
+Exact bin masses can bound the continuous labour target even when the distribution of work within each bin is unknown. Suppose a fixed cohort's labour is partitioned into complete, nonduplicated contributions on task-relative age intervals $[\ell_j,u_j)$, with $0\leq\ell_j<u_j$. Attribute shared work once. Each contribution arises from a nonnegative allocation integral with absolutely continuous cumulative labour and known total mass $v_j$ in person-hours. Applying the bound requires complete coverage and nonduplicated attribution, which must be established independently of the interval totals. Ages and cutoffs use a common declared time unit, and masses must remain exact after conversion. Rounded weights require separate error bounds.
 
 \begin{proposition}[A continuous labour envelope]
 \label{prop:binning-bounds}
@@ -19,10 +19,10 @@ The gap is $H_+(c)-H_-(c)=\sum_{j:\,\ell_j<c<u_j}v_j$. If $H_-(c)>0$ and retaine
 \end{equation}
 \end{proposition}
 \begin{proof}
-A bin ending by $c$ contributes its full mass. A bin starting at or after $c$ contributes zero; absolute continuity excludes endpoint atoms. Every crossing bin contributes between zero and its mass. Summing gives \eqref{eq:binning-envelope} and the gap. Nonnegative $Q$ and positive bounding denominators give \eqref{eq:binning-ratio} by division.
+A bin ending by $c$ contributes its full mass. A bin starting at or after $c$ contributes zero. Absolute continuity excludes endpoint atoms. Every crossing bin contributes between zero and its mass. Summing gives \eqref{eq:binning-envelope} and the gap. Nonnegative $Q$ and positive bounding denominators give \eqref{eq:binning-ratio} by division.
 \end{proof}
 
-When $H_-=0$, the bounds need not establish a positive denominator or a finite upper productivity bound. If output instead has justified bounds $Q_-\leq Q\leq Q_+$, positive $H_-$ gives $Q_-/H_+\leq P_H\leq Q_+/H_-$. These are deterministic binning bounds, not causal confidence intervals. They do not guarantee sampling accuracy, remove nonresponse or establish that Horvitz--Thompson estimates equal complete-population bin masses.
+When $H_-=0$, the bounds need not establish a positive denominator or a finite upper productivity bound. If output instead has justified bounds $Q_-\leq Q\leq Q_+$, positive $H_-$ gives $Q_-/H_+\leq P_H\leq Q_+/H_-$. These bounds are conditional on exact bin masses. Sampling accuracy and nonresponse require separate assessment, and Horvitz--Thompson estimates need not equal complete-population bin masses. Causal confidence intervals require an additional comparison of interventions.
 
 \begin{example}[An interior cutoff]
 \label{ex:binning-cutoff}

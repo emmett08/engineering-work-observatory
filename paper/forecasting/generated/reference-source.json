@@ -1,0 +1,15 @@
+{
+  "snapshot_sha256": "00c506a39f120b004b9e6b3e41ad78b5fe1d88f49238bf0499ee7d00a54de4ef",
+  "input_file": {
+    "file": "public-snapshot.json",
+    "sha256": "5e0580a0aa44a8c3e8447148f83d5d803f7aaddc6bd4893af2c4246cb2e1c20e"
+  },
+  "repositories": [
+    {
+      "id": 100869457,
+      "full_name": "CPMpy/cpmpy",
+      "created_at": "2017-08-20T15:08:56Z"
+    }
+  ],
+  "snapshot_records": 762
+}

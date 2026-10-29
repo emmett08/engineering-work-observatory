@@ -25,3 +25,4 @@ jobs:
         run: |
           python3 paper/check_measurement_examples.py
           python3 paper/check_sharp_identification.py
+          python3 paper/forecasting/check_reference_results.py --self-test

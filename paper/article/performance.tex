@@ -3,7 +3,7 @@
 
 The accounting definition in \eqref{eq:cohort-productivity} also determines a small computational problem. An analyst may compare many acceptance horizons on the same observed cohort while keeping the follow-up duration $\Delta$ fixed. Repeatedly scanning every record gives a simple reference implementation. Sorting the records once and storing cumulative totals replaces each subsequent scan with two binary searches. The optimisation preserves the reported quantities while changing their computational cost. Its runtime measurements do not establish an effect of AI assistance on human labour.
 
-\subsection{A discrete input contract}
+\subsection{Discrete input records and units}
 
 The index receives two streams with different accounting roles. Let $A=((a_i,w_i))_{i=1}^{n}$ contain one accepted-output record per accepted requirement. Each record gives an acceptance age $a_i$ measured from that requirement's enrolment and a retained weight $w_i$ assessed at the common follow-up $\Delta$. Let $B=((b_j,v_j))_{j=1}^{m}$ contain task-attributable labour contributions, including contributions from unfinished, rejected and abandoned tasks. Each $b_j$ is the elapsed age from the associated task's enrolment to its contribution's integration boundary. Shared work is attributed before these records are formed.
 
@@ -16,11 +16,11 @@ For nonnegative \texttt{u64} horizons $\tau$ and $\Delta$ in that time unit, the
  \qquad
  H_{\mathrm{d}}(\tau,\Delta)=\sum_{j=1}^{m}v_j\ind\{b_j\leq\tau+\Delta\}.
 \end{equation}
-The result is the exact integer pair $(Q_{\mathrm{d}},H_{\mathrm{d}})$. Their common scale cancels in the productivity ratio, which is defined only when $H_{\mathrm{d}}>0$. A zero denominator remains an explicit zero in the pair. The Rust convenience method \texttt{ratio()} returns \texttt{None} in that case. Its floating-point result when the denominator is positive is a display approximation, not the canonical stored value.
+The result is the exact integer pair $(Q_{\mathrm{d}},H_{\mathrm{d}})$. Their common scale cancels in the productivity ratio, which is defined only when $H_{\mathrm{d}}>0$. A zero denominator remains an explicit zero in the pair. The Rust convenience method \texttt{ratio()} returns \texttt{None} in that case. With a positive denominator it returns a floating-point approximation for display. The integer pair remains the exact stored value.
 
-To relate these records to the continuous integral in \eqref{eq:labour}, the observation and integration rule must supply the correct contributions at each queried boundary. Cutoffs aligned with already integrated bins are one example. Assigning a whole contribution to the end of a sampled interval or time bin instead approximates an interior cutoff.
+For the discrete labour total to equal the continuous integral in \eqref{eq:labour}, the selected contributions must sum to the labour accumulated by each queried cutoff. This equality holds when the contributions partition the cohort's labour into exact bin totals and no bin crosses a queried cutoff. Assigning a whole contribution to the end of a sampled interval or time bin instead approximates an interior cutoff.
 
-The measurement protocol must also resolve missing labour, unobserved retention, duplicated tasks and scope changes, which the index cannot diagnose. Retained weights apply to the particular $\Delta$ at which they were assessed. A change to $\Delta$, the cohort or its assessed weights requires corresponding input data and a rebuilt index. Section~\ref{sec:sharp-identification} states what exact interval masses and capacity restrictions establish at an interior cutoff. The discrete index below computes the supplied ledger totals; it does not solve the continuous sharp-bounds programme.
+The measurement protocol must also resolve missing labour, unobserved retention, duplicated tasks and scope changes, which the index cannot diagnose. Retained weights apply to the particular $\Delta$ at which they were assessed. A change to $\Delta$, the cohort or its assessed weights requires corresponding input data and a rebuilt index. Section~\ref{sec:sharp-identification} states what exact interval masses and capacity restrictions establish at an interior cutoff. The discrete index below computes the supplied record totals. It does not solve the continuous optimisation for attainable labour bounds.
 
 If the labour records contain exact, nonduplicated bin masses $v_j$ on $[\ell_j,u_j)$ with end ages $b_j=u_j$, the Rust labour sum equals $H_-$ in \eqref{eq:binning-envelope} after unit conversion. That index stores no start keys and does not compute $H_+$. A companion index could sort starts and ends separately, using inclusive end and strict start prefix lookups: $O(m\log(m+1))$ preprocessing, $O(m)$ storage and $O(1+\log(m+1))$ time per cutoff. The two totals then give the deterministic envelope under the stated observation premises. No runtime advantage for the companion calculation has been measured.
 
@@ -43,7 +43,7 @@ The sorted prefix-index constructor, \autoref{alg:build-horizon-index}, is a det
 \caption[Build a cohort horizon index]{Build exact cumulative totals for a fixed cohort and follow-up}
 \label{alg:build-horizon-index}
 \begin{algorithmic}[1]
-\Require{Accepted-output records $A$ and labour records $B$ under the stated contract.}
+\Require{Accepted-output records $A$ and labour records $B$ as defined above, with ages and weights in the specified integer units.}
 \Ensure{Sorted keys and exact prefix totals, or \texttt{TotalOverflow}.}
 \ForAll{stream names $S$ in the ordered list $(A,B)$}
   \State $X_S\gets\Call{SortCopyByAge}{S}$
@@ -66,8 +66,8 @@ The batch horizon evaluator, \autoref{alg:query-horizon-index}, is a read-only q
 \caption[Query a cohort horizon index]{Return exact output and labour totals for a batch of horizons}
 \label{alg:query-horizon-index}
 \begin{algorithmic}[1]
-\Require{Index $I$; horizons $\tau_1,\ldots,\tau_q$; the fixed follow-up $\Delta$.}
-\Ensure{Ordered exact total pairs, or \texttt{HorizonOverflow}; no division by zero.}
+\Require{Index $I$, horizons $\tau_1,\ldots,\tau_q$ and the fixed follow-up $\Delta$.}
+\Ensure{Exact total pairs in query order, or \texttt{HorizonOverflow}. No division is performed.}
 \For{$r\gets1$ \textbf{to} $q$}
   \State $c_r\gets\Call{CheckedAdd64}{\tau_r,\Delta}$
   \If{$c_r=\mathrm{overflow}$}
@@ -93,13 +93,13 @@ If index construction and horizon addition succeed, each returned pair in \autor
 After construction has processed $j$ records of a sorted stream, its loop invariant is $P_S[j]=\sum_{\ell=1}^{j}X_S[\ell].\mathrm{weight}$. It holds at $j=0$ and checked addition preserves it. Sorting preserves the multiset of records. For a cutoff $x$, upper-bound binary search maintains a lower prefix whose keys are at most $x$ and an upper suffix whose keys exceed $x$. Its remaining interval strictly decreases until its bounds coincide at $k$. Thus exactly positions $1,\ldots,k$ meet the inclusive cutoff. The corresponding prefix total is the same sum a full scan selects. Apply this argument at $x=\tau$ for output and $x=\tau+\Delta$ for labour. The empty prefix has total zero, so the boundary cases follow without division.
 \end{proof}
 
-The proof concerns these discrete sums and the published operations. It is an analytical proof, not an extension of the Lean proof inventory in Appendix~\ref{app:coverage}. The Rust tests check implementation agreement with a separate scanning path. Successful tests do not establish completeness or reliability of the underlying observations.
+This analytical proof establishes agreement for these discrete sums and operations. It is outside the Lean proof coverage in Appendix~\ref{app:coverage}. The Rust tests compare the indexed implementation with a separately implemented full scan. Successful tests do not establish completeness or reliability of the underlying observations.
 
 With $n$ acceptance records, $m$ labour records and $q$ queries, repeated scanning takes $O(q(1+n+m))$ time. Construction takes $O(n\log(n+1)+m\log(m+1))$ time and $O(n+m)$ additional storage. Indexed queries take $O(q(1+\log(n+1)+\log(m+1)))$ time and $O(q)$ result storage. These bounds count fixed-width operations and assume available memory. Preprocessing can outweigh the saving for a small batch, and an index cannot be reused after its input changes without maintaining or rebuilding its prefix totals.
 
 \subsection{A reproducible performance comparison}
 
-The supplement's dependency-free Rust program compares the scanning and indexed implementations on the same generated records and horizon batches. It retains the exact totals for equality checks and times computation separately from data generation. The benchmark reports index construction as well as query time: a fast query alone does not establish that building the index was worthwhile. The fixed follow-up and synthetic inputs isolate the scan-versus-index choice within the Rust program. They do not represent a company workload. For further reading on data science with Rust, see Van Der Post~\cite{vanderpost2024datascience}. The runtime claims here rely on the accompanying measurements.
+The supplement's dependency-free Rust program compares the scanning and indexed implementations on the same generated records and horizon batches. It retains the exact totals for equality checks and times computation separately from data generation. The benchmark includes construction time because a batch must save at least that time in queries to recover the cost of building the index. The fixed follow-up and synthetic inputs isolate the choice between scanning and indexing within the Rust program. They do not represent a company workload. For further reading on data science with Rust, see Van Der Post~\cite{vanderpost2024datascience}. The runtime claims here rely on the accompanying measurements.
 
 The workload contains 100,000 generated accepted-output records and 400,000 generated labour increments. It has no task roster or task-to-increment associations. Ages and horizons use hours, with $\Delta=720$ and queried horizons from 0 to 1,440. Three fixed seeds (17, 41 and 93) define the datasets and horizon sequences. For each seed and each $q\in\{1,10,100,1000\}$, five fresh processes each run one paired comparison. Each process first performs an unmeasured full scan followed by an unmeasured indexed run. Measured method order then alternates across observations. These are timings on warmed data and code, not cold-start measurements. Both implementations return identical integer pairs in every warmup and measured comparison. All 60 measured pairs are retained.
 
@@ -107,13 +107,15 @@ The build uses Rust 1.85.1, optimisation level 3, one code-generation unit, no l
 
 \begin{table}[tb]
 \centering
-\caption{Measured cohort-query times in milliseconds: medians of 15 paired observations at each query count. Indexed total is timed separately and includes index disposal. Component medians need not sum to it. Reduction is $100(1-\text{indexed median}/\text{scan median})$, so a negative value denotes a regression.}
+\caption{Measured cohort-query times in milliseconds: medians of 15 paired observations at each query count $q$. Indexed total is timed separately and includes index disposal. Component medians need not sum to it. Reduction is $100(1-\text{indexed median}/\text{scan median})$, so a negative value means indexing takes longer.}
 \label{tab:horizon-performance}
 \small
 \input{../performance/results/table.tex}
 \end{table}
 
-Table~\ref{tab:horizon-performance} retains the adverse small-batch result. For one query, indexing increases median elapsed time from 2.889 to 21.016~ms. At ten queries, the median decreases by 26.0\%, but individual paired reductions range from $-16.4\%$ to $55.1\%$: indexing does not win every observed comparison. At 100 and 1,000 queries, every measured pair favours the index. For 1,000 queries, the median falls from 2,787.159 to 23.051~ms, a 99.2\% reduction including construction and disposal. Figure~\ref{fig:horizon-performance} shows the observed ranges as well as the medians. The ranges describe variation across seeds and repeated host runs. They are not confidence intervals. The tested query counts do not identify an exact break-even point.
+Table~\ref{tab:horizon-performance} shows that indexing takes longer for a single query: median elapsed time increases from 2.889 to 21.016~ms. At ten queries, the median decreases by 26.0\%, but individual paired reductions range from $-16.4\%$ to $55.1\%$. Indexing therefore takes longer in some of these comparisons. At 100 and 1,000 queries, every measured pair favours the index. For 1,000 queries, the median falls from 2,787.159 to 23.051~ms, a 99.2\% reduction including construction and disposal.
+
+Figure~\ref{fig:horizon-performance} shows the observed ranges as well as the medians. The ranges describe variation across seeds and repeated host runs. They are not confidence intervals. The tested query counts do not identify an exact break-even point.
 
 \begin{figure}[tb]
 \centering
@@ -122,4 +124,4 @@ Table~\ref{tab:horizon-performance} retains the adverse small-batch result. For 
 \label{fig:horizon-performance}
 \end{figure}
 
-The observed saving is consistent with amortising preprocessing over repeated scans. It supports the index for this fixed workload and query pattern, subject to its storage and update costs. It does not establish performance on larger-than-memory datasets, continuously changing ledgers, different hardware or different query distributions. Raw paired timings, the generator, exact-output checks and the summary script are retained so that another workload can test those boundaries.
+The observed saving is consistent with amortising preprocessing over repeated scans. It supports the index for this fixed workload and query pattern, subject to its storage and update costs. It does not establish performance on larger-than-memory datasets, continuously changing input records, different hardware or different query distributions. Raw paired timings, the generator, exact-output checks and the summary script are retained so that another workload can test those boundaries.

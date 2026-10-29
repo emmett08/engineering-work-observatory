@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "primary_user_target": "Team throughput and observable queue pressure",
+  "reference_repository": "CPMpy/cpmpy",
+  "reference_role": "Longer public-history methodological check; no empirical transfer to the user's young repositories",
+  "selection_before_outcome_scores": true,
+  "study_frame": "Last 78 complete Monday-start UTC weeks ending at the latest boundary supported by the conservative source cutoff",
+  "initial_training_weeks": 52,
+  "locked_evaluation_weeks": 26,
+  "candidate": "Empirical distribution of eight preceding complete portfolio weeks",
+  "primary_comparator": "Expanding empirical distribution from the same study-frame start",
+  "additional_comparators": ["zero point mass", "previous-week point mass", "Poisson distribution using four preceding complete weeks"],
+  "primary_score": "Discrete RPS, equivalently empirical CRPS on integer counts",
+  "secondary_score": "MAE of predictive median; mean is reported separately as expected count",
+  "selection_policy": "Do not select or tune operational window using heldout outcomes; publish adverse and null results",
+  "superiority_rule": "At least five percent mean RPS reduction against frozen expanding comparator plus positive lower uncertainty bound with adequate independent temporal blocks; otherwise exploratory/inconclusive",
+  "operational_daily_amendment": "Young repositories may issue a separately labelled one-day empirical forecast from four to eight complete UTC days; do not scale/convolve into a weekly forecast or claim skill from sparse launch data",
+  "minimum_support": {"day":4,"week":4,"fortnight":4},
+  "training_cut": "Minimum latest selected collection started_at, distinct from forecast issued_at; no invented zero bins after last observed inventory",
+  "weekly_and_fortnight_cold_start": "Unavailable below four complete weeks/eight complete weeks respectively"
+}

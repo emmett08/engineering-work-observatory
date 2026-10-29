@@ -3,7 +3,10 @@ mod git;
 mod github;
 
 pub use git::collect_git;
-pub use github::{collect_github, collect_github_cached};
+pub use github::{
+    collect_github, collect_github_cached, collect_github_throughput,
+    collect_github_throughput_cached,
+};
 
 use serde::{Deserialize, Serialize};
 use serde_json::{Value, json};

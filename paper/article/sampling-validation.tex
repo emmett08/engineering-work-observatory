@@ -1,11 +1,11 @@
-Validation must distinguish true task labour from its sampled estimate. Compare frozen-index predictions with sampled labour by policy, role and task class on held-out teams or periods. High correlation of binned means does not establish calibration, and sampling error changes how prediction errors should be interpreted.
+Validation must distinguish true task labour from its sampled estimate. Compare frozen-index predictions with sampled labour by assigned intervention, role and task class on held-out teams or periods. High correlation of binned means does not establish calibration, and sampling error changes how prediction errors should be interpreted.
 
 Treat each task's labour $H$ in a finite validation population as fixed. Let $f$ be its prediction, frozen before validation sampling, and suppose $\E_{\!s}[\widehat H]=H$ with finite design variance. Then
 \begin{align*}
  \E_{\!s}[f-\widehat H]&=f-H,\\
  \E_{\!s}[(f-\widehat H)^2]&=(f-H)^2+\Var_{\!s}(\widehat H).
 \end{align*}
-Expand the square: the cross term vanishes because $\E_{\!s}[\widehat H-H]=0$. Dependence between tasks' samples does not alter these marginal identities, but matters for aggregate uncertainty.
+Expand the square: the cross term vanishes because $\E_{\!s}[\widehat H-H]=0$. Dependence between tasks' samples does not alter these marginal identities, but affects aggregate uncertainty.
 
 For a second prediction $g$ frozen before the same validation sample, subtraction cancels the common sampling variance:
 \[
@@ -18,4 +18,4 @@ For example, eight one-hour person-intervals have allocations $(1,1,1,1,0,0,0,0)
 
 For true-labour accuracy, use a denser, independently adjudicated validation subset, documenting remaining reference error, or a measurement model whose assumptions identify the target. Comparing predictions convolved with a known sampling-error law directly assesses the noisy observable. Recovering latent absolute error or coverage requires an identifying measurement model. Retain inclusion probabilities and joint sampling-design information for uncertainty calculations. The accompanying observatory reports HT point estimates from interval records. Its separate complete-frame estimator supplies a design-variance estimate only for the declared simple-random-sampling case under the conditions in Section~\ref{sec:difference-variance}.
 
-The validation should also test how task splitting, squashing and representation affect the score, while reporting reviewer disagreement and follow-up completeness. Vary plausible missing labour and disputed retention scores to see whether they reverse a policy ranking. Such a reversal makes measurement uncertainty part of the policy decision.
+The validation should also test how task splitting, squashing and representation affect the score, while reporting reviewer disagreement and follow-up completeness. Vary plausible missing labour and disputed retention scores to see whether they reverse an intervention ranking. Such a reversal makes measurement uncertainty part of the intervention decision.

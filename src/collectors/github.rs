@@ -1,7 +1,7 @@
 //! GitHub HTTP enumeration, pagination, conditional refresh and retrieval coverage.
 use super::{Collection, Coverage, RawResponse, digest, push_record};
 use anyhow::{Context, Result, bail};
-use chrono::Utc;
+use chrono::{DateTime, Utc};
 use reqwest::blocking::Client;
 use reqwest::{Url, redirect::Policy};
 use serde::{Deserialize, Serialize};
@@ -15,6 +15,12 @@ const MAX_PAGES: usize = 250;
 const MAX_REQUESTS: usize = 8_000;
 const MAX_BODY: u64 = 16 * 1024 * 1024;
 const MAX_ATTEMPTS: u64 = 50;
+
+#[derive(Clone, Copy, PartialEq, Eq)]
+enum CollectionProfile {
+    Full,
+    Throughput,
+}
 
 struct GithubCollector {
     client: Client,
@@ -105,6 +111,187 @@ fn next_link(header: &str) -> Result<Option<String>> {
         }
     }
     Ok(None)
+}
+
+fn timestamp(value: Option<&Value>, nullable: bool) -> bool {
+    match value {
+        Some(Value::Null) => nullable,
+        Some(Value::String(value)) => DateTime::parse_from_rfc3339(value).is_ok(),
+        _ => false,
+    }
+}
+
+fn throughput_chronology(value: &Value, cut: DateTime<Utc>) -> bool {
+    let date = |field| {
+        value
+            .get(field)
+            .and_then(Value::as_str)
+            .and_then(|text| DateTime::parse_from_rfc3339(text).ok())
+            .map(|time| time.with_timezone(&Utc))
+    };
+    let Some(created) = date("created_at") else {
+        return false;
+    };
+    let closed = date("closed_at");
+    let merged = date("merged_at");
+    created <= cut
+        && [closed, merged]
+            .into_iter()
+            .flatten()
+            .all(|event| created <= event && event <= cut)
+        && match (merged, closed) {
+            (Some(merged), Some(closed)) => merged <= closed,
+            _ => true,
+        }
+        && match value.get("state").and_then(Value::as_str) {
+            Some("open") => closed.is_none() && merged.is_none(),
+            Some("closed") => closed.is_some(),
+            _ => false,
+        }
+}
+
+/// A successful HTTP response alone cannot establish a usable forecasting inventory.
+fn validate_throughput_payloads(output: &mut Collection, source: &str, values: &[&Value]) {
+    let cut = Utc::now();
+    let valid = |value: &&Value| {
+        let identity = value
+            .get("id")
+            .and_then(Value::as_u64)
+            .is_some_and(|id| id > 0);
+        let created = timestamp(value.get("created_at"), false);
+        if source == "github.repository" {
+            identity
+                && created
+                && value
+                    .get("created_at")
+                    .and_then(Value::as_str)
+                    .and_then(|text| DateTime::parse_from_rfc3339(text).ok())
+                    .is_some_and(|created| created <= cut)
+                && value
+                    .get("full_name")
+                    .and_then(Value::as_str)
+                    .is_some_and(|name| !name.is_empty())
+        } else {
+            identity
+                && created
+                && value
+                    .get("number")
+                    .and_then(Value::as_u64)
+                    .is_some_and(|n| n > 0)
+                && matches!(
+                    value.get("state").and_then(Value::as_str),
+                    Some("open" | "closed")
+                )
+                && timestamp(value.get("closed_at"), true)
+                && timestamp(value.get("merged_at"), true)
+                && throughput_chronology(value, cut)
+        }
+    };
+    let invalid = values.iter().filter(|value| !valid(value)).count();
+    let mut ids = BTreeMap::new();
+    let mut numbers = BTreeMap::new();
+    let mut conflicts = 0;
+    if source == "github.pull_request" {
+        for value in values {
+            for (field, seen) in [("id", &mut ids), ("number", &mut numbers)] {
+                if let Some(key) = value.get(field).and_then(Value::as_u64)
+                    && let Some(previous) = seen.insert(key, *value)
+                    && previous != *value
+                {
+                    conflicts += 1;
+                }
+            }
+        }
+    }
+    if (invalid > 0 || conflicts > 0)
+        && let Some(coverage) = output
+            .coverage
+            .iter_mut()
+            .rev()
+            .find(|c| c.source == source)
+    {
+        coverage.state = "incomplete".into();
+        let detail = format!(
+            "{invalid} payload(s) have invalid throughput identity, state or chronology; {conflicts} conflicting duplicate identity occurrence(s); raw responses retained"
+        );
+        coverage.detail = Some(match coverage.detail.take() {
+            Some(previous) => format!("{previous}; {detail}"),
+            None => detail,
+        });
+    }
+}
+
+/// Freeze the profile's scope and observation window alongside its source records.
+fn finish_throughput_collection(collector: &mut GithubCollector) {
+    let completed_at = Utc::now().to_rfc3339();
+    let started_at = collector
+        .output
+        .observations
+        .iter()
+        .filter(|receipt| !receipt.source.ends_with(".cached_body"))
+        .map(|receipt| receipt.collected_at.as_str())
+        .min()
+        .unwrap_or(&completed_at)
+        .to_owned();
+    let unique_pull_requests = collector
+        .output
+        .records
+        .iter()
+        .filter(|record| record.data["source"] == "github.pull_request")
+        .filter_map(|record| record.data["payload"]["number"].as_u64())
+        .collect::<BTreeSet<_>>()
+        .len();
+    let returned_rows = collector
+        .output
+        .coverage
+        .iter()
+        .find(|coverage| coverage.source == "github.pull_request")
+        .map_or(0, |coverage| coverage.records);
+    let payload = serde_json::json!({
+        "schema": "observatory.github-throughput-collection/1",
+        "profile": "throughput",
+        "started_at": started_at,
+        "completed_at": completed_at,
+        "unique_pull_requests": unique_pull_requests,
+        "duplicate_pull_request_rows": returned_rows.saturating_sub(unique_pull_requests),
+        "required_sources": ["github.repository", "github.pull_request"],
+        "coverage": collector.output.coverage,
+        "scope": "Current GitHub-visible PR inventory; page traversal is not an atomic snapshot or a complete historical archive"
+    });
+    push_record(
+        &mut collector.output,
+        &collector.namespace,
+        "github.throughput_collection",
+        "profile",
+        payload,
+    );
+    for source in [
+        "github.pull_request_detail",
+        "github.commit",
+        "github.pull_request_commit",
+        "github.pull_request_file",
+        "github.review",
+        "github.review_comment",
+        "github.issue",
+        "github.issue_comment",
+        "github.workflow_run",
+        "github.workflow_attempt",
+        "github.workflow_job",
+        "github.check_run",
+        "github.commit_status",
+        "github.commit_pull_request",
+        "github.workflow_logs",
+        "github.history",
+    ] {
+        collector.output.coverage.push(Coverage {
+            source: source.into(),
+            scope: collector.namespace.clone(),
+            state: "not_collected".into(),
+            pages: 0,
+            records: 0,
+            detail: Some("Outside the throughput profile; not required for PR merge counts".into()),
+        });
+    }
 }
 
 impl GithubCollector {
@@ -455,7 +642,7 @@ impl GithubCollector {
 /// Backfill all exposed inventories. API errors remain evidence and coverage entries.
 /// Re-run safely: record identities are content-addressed; this collector never mutates GitHub.
 pub fn collect_github(repo: &str, token: Option<&str>, api_base: &str) -> Result<Collection> {
-    collect_github_impl(repo, token, api_base, None)
+    collect_github_impl(repo, token, api_base, None, CollectionProfile::Full)
 }
 
 /// Revalidate every enumerated page using a persistent, integrity-checked conditional cache.
@@ -467,7 +654,39 @@ pub fn collect_github_cached(
     api_base: &str,
     cache_dir: &Path,
 ) -> Result<Collection> {
-    collect_github_impl(repo, token, api_base, Some(cache_dir))
+    collect_github_impl(
+        repo,
+        token,
+        api_base,
+        Some(cache_dir),
+        CollectionProfile::Full,
+    )
+}
+
+/// Collect only repository identity and the paginated all-state PR inventory.
+/// Coverage describes the visible inventory, not a complete historical event archive.
+pub fn collect_github_throughput(
+    repo: &str,
+    token: Option<&str>,
+    api_base: &str,
+) -> Result<Collection> {
+    collect_github_impl(repo, token, api_base, None, CollectionProfile::Throughput)
+}
+
+/// Revalidate the lightweight PR inventory with the same receipt and cache policies.
+pub fn collect_github_throughput_cached(
+    repo: &str,
+    token: Option<&str>,
+    api_base: &str,
+    cache_dir: &Path,
+) -> Result<Collection> {
+    collect_github_impl(
+        repo,
+        token,
+        api_base,
+        Some(cache_dir),
+        CollectionProfile::Throughput,
+    )
 }
 
 fn collect_github_impl(
@@ -475,6 +694,7 @@ fn collect_github_impl(
     token: Option<&str>,
     api_base: &str,
     cache_dir: Option<&Path>,
+    profile: CollectionProfile,
 ) -> Result<Collection> {
     let parts: Vec<_> = repo.split('/').collect();
     if parts.len() != 2
@@ -534,6 +754,9 @@ fn collect_github_impl(
         output: Collection::default(),
     };
     if let Some(metadata) = c.singleton("github.repository", "") {
+        if profile == CollectionProfile::Throughput {
+            validate_throughput_payloads(&mut c.output, "github.repository", &[&metadata]);
+        }
         if let Some(id) = metadata.get("id").and_then(Value::as_u64) {
             c.namespace = format!("github:repository:{id}");
         }
@@ -551,6 +774,15 @@ fn collect_github_impl(
         None,
     );
     c.retain("github.pull_request", "", &pulls);
+    if profile == CollectionProfile::Throughput {
+        validate_throughput_payloads(
+            &mut c.output,
+            "github.pull_request",
+            &pulls.iter().collect::<Vec<_>>(),
+        );
+        finish_throughput_collection(&mut c);
+        return Ok(c.output);
+    }
     let mut shas = BTreeSet::new();
     let commits = c.list("github.commit", "commits", None);
     for commit in &commits {

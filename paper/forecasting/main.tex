@@ -1,0 +1,173 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[british]{babel}
+\usepackage{lmodern,microtype}
+\usepackage[margin=28mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,tabularx,array}
+\usepackage[numbers]{natbib}
+\usepackage{xurl}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={Automatic team-throughput forecasting from repository events},
+pdfsubject={An automatic merge-count model, collection requirements and negative reference comparison},
+pdfkeywords={software engineering, throughput, pull requests, empirical forecasting, calibration}}
+\newcommand{\ind}{\mathbf{1}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prb}{\mathbb{P}}
+\newtheorem{proposition}{Proposition}
+\title{Automatic team-throughput forecasting\protect\\from repository events}
+\author{}
+\date{Forecasting method and evaluation procedure, 29 October 2026}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+
+How many pull requests will a monitored team merge during the next complete calendar period? We specify an automatic forecast of this count, including requests created after issuance. A paginated repository inventory supplies stable identities, merge timestamps and collection records. The default model assigns probabilities from the observed frequencies of counts in eligible completed periods. It assumes that this history informs the next period, without requiring stationary queues or independent days. Its percentile ranges have no guaranteed future coverage. The accompanying queue counts describe the current open inventory, while future bottlenecks remain unpredicted. In a predeclared comparison over 26 weeks in a public repository, a model fitted to recent history has worse distributional loss than its expanding-history comparator and fails the criterion for replacing the default. We therefore retain the default history-selection rule. The comparison uses a bounded training history and leaves the default's full-history forecasts unvalidated. The user repositories also have too little calendar history to establish predictive accuracy. Their daily forecast is experimental, and weekly and fortnightly forecasts await the required observations. The contribution is a reproducible procedure for collecting merge counts, issuing forecasts and evaluating them, together with the negative comparison that informed the default choice.
+\end{abstract}
+
+\section{Forecasting the next period's merge count}
+
+A team with an empty pull-request queue can still merge requests tomorrow if those requests are opened during the day. A large queue can produce little output when requests wait, are abandoned or fall outside the team's immediate priorities. Forecasting total merge activity therefore requires a target that includes future arrivals as well as the resolution of today's backlog.
+
+We ask how many distinct pull requests (PRs), visible through GitHub in a fixed set of repositories, will have a merge timestamp in a specified future interval. The selected repositories define the monitored portfolio. Contributors can work across teams, and a team's work can extend beyond those repositories. Establishing how well the portfolio represents a team's activity therefore requires separate evidence. Counts also depend on how work is divided into PRs, on automation and on the repository's rules for accepting and merging requests. We use the term \emph{merge count} to keep that measured quantity explicit.
+
+The automatic workflow collects the visible PR inventory, constructs complete calendar counts and issues a probability distribution over a future count. Once that interval has elapsed, a later collection supplies the outcome for scoring. We recommend this as the initial forecasting procedure. The companion manuscript's attainable labour bounds and sampling results address labour measurement where additional observations are available. They supply neither inputs to this forecast nor evidence of its accuracy.
+
+\section{Collection requirements and calendar boundaries}
+\label{sec:data}
+
+Let $\mathcal R$ be a fixed set of stable repository identifiers. Deduplicate PR records by repository identity and PR identity, retaining each raw response with its content digest, collection time and pagination coverage. GitHub's PR endpoint exposes the creation and merge timestamps needed for the count \citep{githubpulls}. Collection therefore requires the PR inventory without code diffs, workflow logs or personal activity labels.
+
+For a future half-open interval $I=[a,b)$, define
+\begin{equation}
+ Y_I=\sum_{r\in\mathcal R}\sum_{i\in\mathcal P_r}
+       \ind\{a\leq m_i<b\},
+ \label{eq:count}
+\end{equation}
+where $\mathcal P_r$ denotes the retained visible PR identities in repository $r$ and $m_i$ is the merge timestamp, when one exists. An unmerged closure contributes zero. A close--reopen--merge history contributes one at its eventual merge. Requests created after $a$ are included when they merge before $b$. A timestamp equal to $b$ belongs to the next interval.
+
+The target quantity is restricted to the visible inventory. Successful pagination establishes what GitHub returned under the collector's access permissions. Deleted, transferred or inaccessible historical records may remain absent, and an incomplete response cannot establish a zero count. Each training interval must lie within the declared observation frame and after every selected repository's creation. Discard the initial partial period and the current incomplete period. Treating a day before a repository existed as a zero-activity observation would change the population being measured.
+
+Each retained collection manifest links its throughput summary to the PR records returned in that collection. The summary records collection start and end times, required sources and their coverage. For the selected repositories, set the \emph{complete-through cutoff} to the earliest start time among their latest usable collections. A training interval is eligible only if it ends at or before that cutoff and meets the observation-frame requirements above. This rule prevents a stale inventory, or a paginated collection crossing midnight, from adding spurious zero days. Record the cutoff separately from snapshot creation and forecast issuance. The inventory was scanned over the recorded collection span, so its contents need not describe one instant.
+
+\paragraph{Collection, training and target times.}
+Retain collection and forecast issuance times alongside the training cutoff and the target's start and end. A forecast issued during a UTC day targets the next complete UTC day. Weekly periods start on Monday at 00:00 UTC. Training intervals end at or before the cutoff, and a prospective target starts no earlier than issuance. The resulting gap between the latest completed training interval and the future target must remain visible in the report.
+
+\paragraph{Reconstructed and prospectively retained forecasts.}
+\emph{Retrospective reconstruction} uses timestamps in the current visible inventory to form earlier counts. It assumes that those timestamps faithfully describe earlier events, while leaving the observer's knowledge at those earlier times unestablished. \emph{Prospective evaluation} uses collection records and forecast artefacts retained by the automatic workflow before the target starts. Save the repository scope, source or snapshot digest, model version, fitted intervals, target interval and issued probability distribution. These records allow the calculation and its declared chronology to be checked. Independent certification of the declared times remains absent. Running today's software with an old cutoff still produces a retrospective reconstruction. Mutable current fields such as draft status, head commit, review state and change size must be excluded from predictors of historical counts.
+
+\section{The default empirical model and recent-window challenger}
+\label{sec:model}
+
+Suppose $x_1,\ldots,x_n$ are the selected preceding complete-period portfolio counts. The default model uses all eligible complete periods in the declared portfolio frame. Its probability mass function and cumulative distribution function are
+\begin{equation}
+ \widehat p(k)=\frac1n\sum_{j=1}^n\ind\{x_j=k\},
+ \qquad
+ \widehat F(k)=\frac1n\sum_{j=1}^n\ind\{x_j\leq k\}.
+ \label{eq:ecdf}
+\end{equation}
+Repeated counts retain their frequency, including genuine zero periods. For a portfolio, first sum the synchronised repository counts within each historical interval, then apply \eqref{eq:ecdf}. Convolving separately fitted repository distributions would impose a dependence structure absent from the observations and is excluded from this procedure.
+
+The calendar boundaries and minimum numbers of observations below were fixed before evaluating model scores. These are design choices whose predictive adequacy requires evaluation.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{@{}l>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+Target & Historical observations & Availability rule \\
+\midrule
+Next complete UTC day & All eligible complete daily counts & At least four complete days. \\
+Next complete UTC week & All eligible complete weekly counts & At least four complete weeks. \\
+Next 14-day interval & All eligible disjoint two-week totals & At least four two-week totals: eight complete weeks. No daily or weekly convolution. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+The recent-window challenger uses at most eight daily or weekly observations, or four fortnightly observations, with the same four-observation minimum. The daily target was added for repositories too young to supply the history required by the predeclared weekly benchmark. That benchmark remains unchanged. A weekly forecast requires weekly observations under this procedure, so multiplying a daily forecast by seven or convolving seven copies of its distribution does not meet the specification. Fourteen-day evaluation uses every other Monday, with parity anchored to 5 January 1970, so adjacent scored target intervals do not overlap. Each forecast records the method and model version.
+
+Report the empirical mean as the expected merge count and a predictive median as the point forecast evaluated by absolute error. Alongside the inverse-CDF 10th and 90th percentiles, report the training size and the probability mass enclosed by those inclusive endpoints. For eight distinct observations, these percentiles are the sample minimum and maximum and enclose all mass in the issued empirical distribution. Describing that range as an exactly 80\% probability interval would misstate its discrete probability mass. Its future coverage must be measured.
+
+Future activity can exceed the historical maximum. Equation~\eqref{eq:ecdf} nevertheless assigns zero mass to unobserved counts, including an unprecedented burst. Four zero days likewise yield a point mass at zero even though future activity can vary. The report must therefore show the observed counts and their frequencies so that the reader can inspect this limitation.
+
+\subsection{The assumption connecting past counts to future activity}
+
+Computing \eqref{eq:ecdf} requires no Poisson arrival process, independent PR completions, independent calendar periods, proportional hazards or stationary queue equilibrium. Using it predictively proposes the approximation $\Prb(Y_{\mathrm{next}}\leq k\mid\mathcal H)\approx\widehat F(k)$, where $\mathcal H$ is the recorded history. Future scores test whether the selected historical outcomes inform the next interval closely enough for this approximation to be useful. A launch burst, changed working pattern, repository migration or change in PR size can break that relationship. The default model can retain obsolete activity, while the recent-window challenger can discard informative history. Neither history-selection rule has a universal advantage. Four to eight days provide little evidence about day-of-week effects and almost none about longer cycles.
+
+An observed past, without assumptions about its continuation, supplies no informative upper bound on future merges. Two continuations can share every recorded event through the cutoff and then produce zero or many merges. The empirical forecast combines event accounting with a testable assumption that historical counts inform the next interval. A more elaborate model should justify its additional inputs and assumptions through better predictions of subsequent outcomes on the same target.
+
+\section{What the open inventory reveals about queue pressure}
+\label{sec:queue}
+
+A fresh inventory can report the last-observed number of open PRs, their ages since creation and the oldest recorded items. It also permits counts of open drafts, open requests with a nonempty requested-reviewer or requested-team list, and open requests at least seven days old. These sets can overlap, so their counts cannot be added as if they described separate workflow stages. The seven-day threshold is a fixed descriptive choice. An absent optional field leaves the corresponding count unavailable, while a known empty inventory has zero items in each set.
+
+Compute creation age at the source observation time and report the collection span and its age at forecast issuance. Creation age measures elapsed time since opening. It cannot distinguish time waiting for review from active processing or other delays. The throughput collector omits submitted-review status and continuous-integration (CI) outcomes. These current-inventory observations are excluded from predictors used in retrospective count forecasts.
+
+For a complete history of state transitions, let $B$ be open inventory, $A$ new openings, $R$ reopenings, $M$ merges and $C$ closures without merge. On an interval $I$,
+\begin{equation}
+ B_{\mathrm{end}}=B_{\mathrm{start}}+A_I+R_I-M_I-C_I.
+ \label{eq:conservation}
+\end{equation}
+Count a merge-induced closure once, in $M_I$, and exclude it from $C_I$. Final \texttt{closed\_at} values leave repeated close and reopen episodes unobserved. GitHub exposes timeline events from which such transitions can be studied, but the throughput collector does not collect the history required to reconstruct them \citep{githubevents}.
+
+When the state transitions are observed, Equation~\eqref{eq:conservation} checks whether the inventory change agrees with the event counts. Forecasting requires separate estimates of its future terms. Little's finite-window analysis likewise treats initial inventory and the time accumulated within the observation window explicitly when relating sample-path measurements \citep[Sections 2.1--2.3]{little2011}. Dividing today's backlog by mean latency among completed PRs supplies neither a forecast of next week's throughput nor an estimate of the effect of adding a reviewer.
+
+The recent \emph{Queue \& AI} model illustrates how variation in service times and rework can affect queueing delays. It requires human-attention service requirements, effective reviewer capacity and quantities describing errors and rework. Its main calculation assumes a stable single-server queue with Poisson arrivals, while an alternative uses a queue approximation \citep[Sections 2.1, 3 and 4.2]{bartolucci2026}. PR timestamps leave those inputs unmeasured. Applying this mechanism to the monitored repositories would therefore require a separate study to estimate them and assess the queue assumptions.
+
+CI outcomes require similar care in interpretation. An initial failure records the outcome of a workflow run without measuring product correctness. The retained history must preserve that initial outcome when a later rerun succeeds. The existing collector can retain run attempts separately, and GitHub's API distinguishes them \citep{githubattempts}. Missing, cancelled and skipped runs require separate treatment. Reopening a PR leaves the reason for reopening unspecified. Such observations may become forecast predictors or additional outcomes for evaluation, but they do not identify the cause of a throughput change or the effect of a staffing intervention.
+
+The implementation reports current queue counts and leaves future queue pressure and bottlenecks unpredicted. To evaluate a forecast of queue pressure, a subsequent study would need regular automatic snapshots and a specified count to predict at a future snapshot. The forecast could then be scored once that snapshot had been collected. Even accurate predictions of the count would leave the responsible resource constraint and the effect of staffing changes unidentified.
+
+\section{A test that can reject the model}
+\label{sec:evaluation}
+
+At each historical forecast origin, train only on completed earlier intervals and evaluate on a fully elapsed target with source coverage meeting the collection requirements below. Future merges enter the outcome only. Keep origins with insufficient history, incomplete collection or unelapsed targets in the reported accounting of unavailable results. Scoring known positive outcomes while omitting unresolved targets would select the evaluation sample using information from the outcome. Report retrospective reconstructions separately from prospectively retained forecasts.
+
+The automatic archive scorer accepts original command-issued bundles containing the source snapshot, prepared history, method and forecast. It checks the declared creation time against the source cutoff and target start, verifies the source digest, reconstructs the history and recomputes the probability distribution. These checks establish whether the retained inputs reproduce the forecast and whether the declared chronology is consistent. They retain the limitation on independently verified times described in Section~\ref{sec:data}. Offline reconstructions remain identifiable as reconstructions.
+
+Before scoring, the scorer requires a later collection covering the same numeric repository identifiers, with a conservative complete-through cutoff at or beyond the target end. A target awaiting that cutoff remains pending. Incomplete inputs and malformed archives remain visible as unavailable results or errors. Scoring preserves the original archive.
+
+The primary loss is the discrete ranked probability score (RPS), equivalent to the continuous ranked probability score (CRPS) restricted to nonnegative integers,
+\begin{equation}
+ L(F,y)=\sum_{k=0}^{\infty}\bigl(F(k)-\ind\{y\leq k\}\bigr)^2.
+ \label{eq:rps}
+\end{equation}
+For a finite empirical distribution, an independent computational check is
+\begin{equation}
+ L(\widehat F,y)=\frac1n\sum_{i=1}^n|x_i-y|
+ -\frac{1}{2n^2}\sum_{i=1}^n\sum_{j=1}^n|x_i-x_j|.
+ \label{eq:pairwise}
+\end{equation}
+Equation~\eqref{eq:pairwise} uses the nonnegative loss orientation of the standard CRPS identity \citep[Section 4.2]{gneiting2007}. The independent draws from $F$ in that identity are draws from the issued probability distribution. The identity imposes no independence assumption on the historical counts used to construct it. A point-mass forecast reduces to absolute error, allowing direct comparison with deterministic baselines. A previously unseen large count receives a finite penalty.
+
+RPS evaluates the complete distribution. Calibration concerns agreement between predicted probabilities and outcomes, which a narrow predicted range alone cannot establish \citep{gneitingcalibration2007}. Report mean RPS and paired losses against each fixed comparator to show comparative distributional performance. Mean absolute error (MAE) evaluates the predictive median, while the width and achieved coverage of the empirical percentile range describe its interval predictions. Report the predictive mean separately. Each summary also needs the training size, number of scored origins and counts of unavailable or unelapsed targets, so that the reader can identify the observations behind it.
+
+The predeclared weekly comparators are an expanding-history empirical distribution, a point mass at zero, a point mass at the previous week's count, and a Poisson distribution whose mean is the preceding four weekly counts' mean. The Poisson distribution serves as a restrictive forecast benchmark. Its inclusion leaves the observed process's distribution unspecified. Apply the corresponding predeclared comparators to the experimental daily target. The recent and expanding empirical models coincide until observations fall outside the recent window. Keep the predeclared window and comparator set fixed throughout evaluation.
+
+For the public-repository comparison, \texttt{cpmpy/cpmpy} and a 78-week window were chosen before inspecting model scores. The first 52 complete UTC weeks initialise the history. The following 26 weeks provide chronological targets, and each subsequent forecast may use earlier observed evaluation weeks. The expanding comparator therefore uses 52--77 weeks of training history. The comparison evaluates these fixed methods in one repository population. Its results leave accuracy in the user's repositories unestablished.
+
+The default model uses all eligible history within the portfolio frame. The public comparison's expanding model uses only the declared 52--77-week training frame, so their inputs differ. The recent-window challenger's failure to replace that comparator consequently leaves the default model's predictive accuracy and general comparative performance unestablished.
+
+The provisional criterion for replacing the default requires at least 5\% lower mean RPS than the expanding empirical comparator. This threshold was chosen for the evaluation. The protocol also calls for limiting any increase in MAE, but the maximum permitted increase remains unspecified. If the comparator has zero loss, percentage improvement is unavailable. A confident superiority claim also requires enough calendar observations for a predeclared uncertainty analysis that accounts for dependence and yields a positive lower bound on improvement. The required number of periods remains to be specified. Nonoverlapping periods can still be serially dependent, and observations from two repositories need not be independent replications. Resampling a few days preserves the limitations of that short observation period.
+
+\paragraph{Implementation checks.}
+Changing or appending events after a cutoff must leave the corresponding forecast unchanged. Exact boundary timestamps must enter the correct half-open interval, and duplicate source versions must leave counts unchanged. Complete periods with zero merges must remain in the history. Incomplete source pages must leave counts unavailable. Requests created and merged within the target must count. Current mutable fields must leave historical count forecasts unchanged. Independent evaluation of \eqref{eq:rps} and \eqref{eq:pairwise} checks numerical correctness. Predictive accuracy requires the subsequent-outcome comparisons described above.
+
+\section{Retained forecasts and comparison results}
+
+The inspected user repositories have several days of history, which permits automatic inventory extraction and an experimental daily forecast once four complete days are available. Their histories leave weekly accuracy, seasonality and comparative predictive performance unvalidated. With five complete daily observations, the default model and recent-window challenger produce the same distribution. Weekly and fortnightly forecasts remain unavailable because their required numbers of complete periods have yet to accumulate.
+
+\input{generated/user-results.tex}
+
+\input{generated/issued-example.tex}
+
+\input{generated/reference-results.tex}
+
+\subsection{Evaluating subsequent user forecasts}
+
+The public-repository comparison supplies a test of the candidate methods on its declared weekly history. The user example demonstrates collection and forecast issuance on a shorter daily history. Assessing that forecast's accuracy requires retaining it unchanged and scoring the outcome after its target has elapsed.
+
+The procedure specifies which repository events enter each count, when a forecast can be issued and when its outcome can be scored. It automates these steps without asking contributors to classify their work. The negative public comparison gives a reason to retain the default history-selection rule while further forecasts accumulate. Identifying capacity bottlenecks, measuring labour productivity or correctness, and estimating the causal effects of AI or staffing each require additional observations or justified assumptions.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}
