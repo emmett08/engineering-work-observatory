@@ -1,0 +1,35 @@
+{
+  "schema_version": "engarg.run.v3",
+  "execution_mode": "synthetic_adapter_fixture",
+  "provider_config": {
+    "assistant": { "provider": "cursor", "configuration_sha256": null },
+    "api": "AssistantCommand",
+    "endpoint": "command:cursor",
+    "default_model": "configured-model",
+    "role_models": {},
+    "requested_service_tier": null,
+    "requested_reasoning_effort": null,
+    "max_output_tokens": 10000,
+    "request_timeout_secs": 120,
+    "timeout_secs": 480
+  },
+  "transcript": [
+    {
+      "role": "single",
+      "prompt": { "role": "single", "system": "Synthetic fixture only", "user": "{}", "schema": {} },
+      "response": {
+        "content": "{}",
+        "model": "assistant:cursor:configured-model",
+        "input_tokens": null,
+        "output_tokens": null,
+        "request_id": null,
+        "service_tier": null,
+        "reasoning_effort": null
+      },
+      "response_content_bytes": 2,
+      "response_content_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "response_content_omitted": false,
+      "elapsed_ms": 42
+    }
+  ]
+}

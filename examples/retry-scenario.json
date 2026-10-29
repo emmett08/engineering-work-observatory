@@ -1,0 +1,12 @@
+{
+  "human_production_hours": 2.0,
+  "agent_elapsed_hours": 8.0,
+  "verification_hours": 1.5,
+  "pass_probability": 0.9,
+  "retained_fraction": 0.98,
+  "reference_score": 10.0,
+  "initial_wait_hours": 2.0,
+  "attempt_cap": null,
+  "defect_probability": null,
+  "detection_sensitivity": null
+}

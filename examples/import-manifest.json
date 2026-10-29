@@ -1,0 +1,9 @@
+{
+  "schema": "observatory.engarg-import/1",
+  "provenance_chain_id": "example-investigation",
+  "session_id": "synthetic-session-001",
+  "attempt_id": "attempt-001",
+  "source_revision": "876f720ec1abe951e391e8ff7bfc9a056a5e333b",
+  "artifact_kind": "report",
+  "call_offset": 0
+}
