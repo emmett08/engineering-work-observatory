@@ -23,8 +23,9 @@ Clippy warnings denied in CI, and a committed application lockfile.
   of the effective study graph. Reporting separates usage accounting from HTML.
 * **RETAINED:** CLI `execute` dispatches commands and wires their inputs/outputs;
   it does not implement the source-specific algorithms or model equations.
-* **RETAINED:** CLI `persist_collection` owns one ingestion boundary: retain raw
-  bytes, build their manifest, insert facts and return the coverage outcome.
+* **EXTRACTED:** `ingestion::persist_collection` owns the shared raw-byte, manifest,
+  insertion and coverage boundary. CLI profiles select full or throughput policy;
+  only explicitly omitted optional sources may be absent in the lightweight path.
 * **RETAINED:** Store transaction and recursive-integrity helpers remain with
   storage because they depend on its ownership and persistence invariants.
 * **RETAINED:** Small date, duration, escaping and source-format helpers remain
@@ -88,3 +89,21 @@ sampling confidence intervals nor results from a general joint LP solver.
 Current commands, suite counts, source/receipt checks, manuscript inspection and
 review scope are recorded in [the paper validation notes](../paper/VALIDATION.md)
 and the revision's [decision record](../paper/review/sharp-identification-2026-10-29.md).
+
+
+## Automatic forecasting revision
+
+The forecasting extension adds source-bound history, complete calendar bins,
+explicit empirical methods, retrospective comparator evaluation and unchanged
+prospective-forecast scoring. Its 69 additional tests bring the application suite
+to 183 passing tests. Mock CLI tests exercise automatic collection, archived and
+exported originals, replay, pending scores, unsupported history, partial-source
+failure and pre-fetch overwrite protection. The JSON parser's `float_roundtrip`
+feature preserves exact verification of saved fitted probabilities.
+
+The [forecast validation record](../paper/forecasting/VALIDATION.md) distinguishes
+software checks, independent exact/decimal score checks, the failed public-reference
+promotion and the still-unvalidated user forecast. The [mesh decision record](../paper/review/mesh-forecasting-2026-10-29/README.md)
+and [three ranked alternatives](../paper/review/ranked-automatic-model-alternatives.md)
+retain model choices and unsupported future-bottleneck claims. The existing paper,
+proof package and historical performance observations remain unchanged.

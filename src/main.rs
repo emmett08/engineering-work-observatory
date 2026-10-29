@@ -1,13 +1,14 @@
 //! The local command interface; policies and external adapters live in library modules.
-use anyhow::{Context, Result, bail, ensure};
+use anyhow::{Context, Result, ensure};
 use chrono::{DateTime, Utc};
-use clap::{Parser, Subcommand};
+use clap::{Parser, Subcommand, ValueEnum};
 use observatory::{
     collectors, importers,
+    ingestion::{self, CollectionRequirements},
     model::Evidence,
     report,
     snapshot::Snapshot,
-    store::{Store, digest},
+    store::Store,
 };
 use serde_json::{Value, json};
 use std::{
@@ -25,6 +26,29 @@ struct Cli {
     state: PathBuf,
     #[command(subcommand)]
     command: Command,
+}
+
+#[derive(Clone, Copy, Debug, ValueEnum)]
+enum CollectionProfile {
+    Full,
+    Throughput,
+}
+
+#[derive(Clone, Copy, Debug, ValueEnum)]
+enum ForecastHorizon {
+    Day,
+    Week,
+    Fortnight,
+}
+
+impl From<ForecastHorizon> for observatory::forecast::ForecastPeriod {
+    fn from(value: ForecastHorizon) -> Self {
+        match value {
+            ForecastHorizon::Day => Self::Day,
+            ForecastHorizon::Week => Self::Week,
+            ForecastHorizon::Fortnight => Self::Fortnight,
+        }
+    }
 }
 
 #[derive(Subcommand)]
@@ -45,6 +69,8 @@ enum Command {
         api_base: String,
         #[arg(long, default_value = "GH_TOKEN")]
         token_env: String,
+        #[arg(long, value_enum, default_value_t = CollectionProfile::Full)]
+        profile: CollectionProfile,
     },
     /// Capture a local repository without checking out or executing its code.
     CollectGit {
@@ -83,6 +109,42 @@ enum Command {
     Simulate { file: PathBuf },
     /// Estimate frame labour from frozen predictions and probability-sampled observations.
     EstimateLabour { file: PathBuf },
+    /// Collect automatic PR evidence, freeze a cut and issue an immutable team forecast.
+    ForecastTeam {
+        #[arg(long = "repository")]
+        repositories: Vec<String>,
+        #[arg(long, value_enum, default_value_t = ForecastHorizon::Day)]
+        horizon: ForecastHorizon,
+        #[arg(long, default_value = "https://api.github.com")]
+        api_base: String,
+        #[arg(long, default_value = "GH_TOKEN")]
+        token_env: String,
+        #[arg(long)]
+        output: Option<PathBuf>,
+    },
+    /// Reproduce forecasts or event-time reconstruction scores from a retained source cut.
+    ForecastSnapshot {
+        snapshot: PathBuf,
+        #[arg(long = "repository")]
+        repositories: Vec<String>,
+        #[arg(long, value_enum, default_value_t = ForecastHorizon::Day)]
+        horizon: ForecastHorizon,
+        #[arg(long)]
+        backtest: bool,
+        #[arg(long, requires = "initial_training_bins")]
+        history_bins: Option<usize>,
+        #[arg(long, requires = "history_bins")]
+        initial_training_bins: Option<usize>,
+        #[arg(long)]
+        output: Option<PathBuf>,
+    },
+    /// Score an original command-issued forecast against a later verified snapshot.
+    ScoreForecast {
+        bundle: PathBuf,
+        later_snapshot: PathBuf,
+        #[arg(long)]
+        output: Option<PathBuf>,
+    },
 }
 
 fn read_input(path: &Path) -> Result<Vec<u8>> {
@@ -157,56 +219,75 @@ fn persist_collection(
     collection: collectors::Collection,
     source: &str,
 ) -> Result<()> {
-    let mut raw_objects = Vec::new();
-    let mut response_metadata = Vec::new();
-    for observation in &collection.observations {
-        let hash = store.retain_bytes(&observation.body)?;
-        raw_objects.push(hash.clone());
-        let mut value = serde_json::to_value(observation)?;
-        if let Some(map) = value.as_object_mut() {
-            map.remove("body");
-            map.insert("body_sha256".into(), json!(hash));
+    let receipt =
+        ingestion::persist_collection(store, collection, source, CollectionRequirements::Full)?;
+    println!(
+        "Retained {} new records; collection manifest {}",
+        receipt.new_records, receipt.manifest_sha256
+    );
+    Ok(())
+}
+
+fn selected_repositories(repositories: Vec<String>) -> Vec<String> {
+    if repositories.is_empty() {
+        vec!["emmett08/eal-mcp".into(), "emmett08/engarg".into()]
+    } else {
+        repositories
+    }
+}
+
+/// Wire repository acquisition to the shared retained-ingestion boundary.
+fn collect_repositories(
+    store: &mut Store,
+    state: &Path,
+    repositories: &[String],
+    api_base: &str,
+    token_env: &str,
+    profile: CollectionProfile,
+    show_receipts: bool,
+) -> Result<()> {
+    let token = std::env::var(token_env).ok();
+    let mut failures = Vec::new();
+    for repository in repositories {
+        tracing::info!(repository, "collecting GitHub evidence");
+        let collection = match profile {
+            CollectionProfile::Full => collectors::collect_github_cached(
+                repository,
+                token.as_deref(),
+                api_base,
+                &state.join("cache"),
+            )?,
+            CollectionProfile::Throughput => collectors::collect_github_throughput_cached(
+                repository,
+                token.as_deref(),
+                api_base,
+                &state.join("cache"),
+            )?,
+        };
+        let requirements = match profile {
+            CollectionProfile::Full => CollectionRequirements::Full,
+            CollectionProfile::Throughput => CollectionRequirements::Throughput,
+        };
+        match ingestion::persist_collection(
+            store,
+            collection,
+            &format!("github:{repository}"),
+            requirements,
+        ) {
+            Ok(receipt) => {
+                if show_receipts {
+                    println!(
+                        "Retained {} new records; collection manifest {}",
+                        receipt.new_records, receipt.manifest_sha256
+                    );
+                } else {
+                    tracing::info!(new_records=receipt.new_records, manifest=%receipt.manifest_sha256, "retained source collection");
+                }
+            }
+            Err(error) => failures.push(format!("{repository}: {error}")),
         }
-        response_metadata.push(value);
     }
-    let manifest = json!({"schema":"observatory.collection/1","source":source,"raw_objects":raw_objects,"responses":response_metadata,"coverage":collection.coverage});
-    let bytes = serde_json::to_vec(&manifest)?;
-    let hash = store.retain_bytes(&bytes)?;
-    let mut records: Vec<Evidence> = collection
-        .records
-        .into_iter()
-        .map(|r| Evidence {
-            id: r.id,
-            kind: r.kind,
-            data: r.data,
-        })
-        .collect();
-    for coverage in &collection.coverage {
-        let data = json!({"record_type":"collection_coverage","coverage":coverage});
-        records.push(Evidence {
-            id: format!("coverage:{}", digest(&serde_json::to_vec(&data)?)),
-            kind: "source_record".into(),
-            data,
-        });
-    }
-    let count = store.insert_batch(&records, source, Utc::now(), &hash)?;
-    println!("Retained {count} new records; collection manifest {hash}");
-    let incomplete: Vec<_> = collection
-        .coverage
-        .iter()
-        .filter(|c| {
-            c.state != "complete"
-                && c.state != "not_applicable"
-                && !(c.state == "not_collected"
-                    && ["github.workflow_logs", "github.history"].contains(&c.source.as_str()))
-        })
-        .collect();
-    if !incomplete.is_empty() {
-        bail!(
-            "collection retained with incomplete coverage: {}",
-            serde_json::to_string(&incomplete)?
-        );
-    }
+    ensure!(failures.is_empty(), "{}", failures.join("; "));
     Ok(())
 }
 
@@ -229,6 +310,56 @@ fn execute(cli: Cli) -> Result<()> {
             let estimate = observatory::inference::estimate_labour(&frame)?;
             println!("{}", serde_json::to_string_pretty(&estimate)?);
         }
+        Command::ForecastSnapshot {
+            snapshot,
+            repositories,
+            horizon,
+            backtest,
+            history_bins,
+            initial_training_bins,
+            output,
+        } => {
+            let snapshot: Snapshot = serde_json::from_slice(&read_input(&snapshot)?)?;
+            ensure!(
+                backtest || history_bins.is_none(),
+                "history window options require --backtest"
+            );
+            let history = observatory::forecast::history::prepare(&snapshot, &repositories)?;
+            let result = if backtest {
+                let backtest =
+                    if let (Some(bins), Some(initial)) = (history_bins, initial_training_bins) {
+                        observatory::forecast::reconstruct_backtest_window(
+                            &history,
+                            horizon.into(),
+                            bins,
+                            initial,
+                        )?
+                    } else {
+                        observatory::forecast::reconstruct_backtest(&history, horizon.into())?
+                    };
+                serde_json::to_value(backtest)?
+            } else {
+                json!({"schema":"observatory.team-forecast-replay/1", "history":history, "forecast":observatory::forecast::forecast(&history, horizon.into())?})
+            };
+            if let Some(output) = output {
+                save_new(&output, &serde_json::to_vec_pretty(&result)?)?;
+            }
+            println!("{}", serde_json::to_string_pretty(&result)?);
+        }
+        Command::ScoreForecast {
+            bundle,
+            later_snapshot,
+            output,
+        } => {
+            let prior = serde_json::from_slice(&read_input(&bundle)?)?;
+            let later = serde_json::from_slice(&read_input(&later_snapshot)?)?;
+            let score = observatory::forecast::archive::score_issued(&prior, &later)?;
+            let bytes = serde_json::to_vec_pretty(&score)?;
+            if let Some(output) = output {
+                save_new(&output, &bytes)?;
+            }
+            println!("{}", std::str::from_utf8(&bytes)?);
+        }
         command => {
             let mut store = Store::open(&cli.state)?;
             match command {
@@ -242,32 +373,83 @@ fn execute(cli: Cli) -> Result<()> {
                     println!("Imported {count} new study records");
                 }
                 Command::CollectGithub {
-                    mut repositories,
+                    repositories,
                     api_base,
                     token_env,
+                    profile,
                 } => {
-                    if repositories.is_empty() {
-                        repositories = vec!["emmett08/eal-mcp".into(), "emmett08/engarg".into()];
+                    let repositories = selected_repositories(repositories);
+                    collect_repositories(
+                        &mut store,
+                        &cli.state,
+                        &repositories,
+                        &api_base,
+                        &token_env,
+                        profile,
+                        true,
+                    )?;
+                }
+                Command::ForecastTeam {
+                    repositories,
+                    horizon,
+                    api_base,
+                    token_env,
+                    output,
+                } => {
+                    let repositories = selected_repositories(repositories);
+                    let archive_directory = cli.state.join("forecasts");
+                    let archive_path = archive_directory
+                        .join(format!("{}.json", Utc::now().format("%Y%m%dT%H%M%S%.9fZ")));
+                    ensure!(
+                        !archive_path.exists(),
+                        "refusing to overwrite an existing forecast"
+                    );
+                    if let Some(output) = &output {
+                        ensure!(
+                            !output.exists(),
+                            "refusing to overwrite an existing forecast export"
+                        );
                     }
-                    let token = std::env::var(&token_env).ok();
-                    let mut failures = Vec::new();
-                    for repository in repositories {
-                        tracing::info!(repository, "collecting GitHub evidence");
-                        let collection = collectors::collect_github_cached(
-                            &repository,
-                            token.as_deref(),
-                            &api_base,
-                            &cli.state.join("cache"),
-                        )?;
-                        if let Err(e) = persist_collection(
-                            &mut store,
-                            collection,
-                            &format!("github:{repository}"),
-                        ) {
-                            failures.push(format!("{repository}: {e}"));
-                        }
+                    collect_repositories(
+                        &mut store,
+                        &cli.state,
+                        &repositories,
+                        &api_base,
+                        &token_env,
+                        CollectionProfile::Throughput,
+                        false,
+                    )?;
+                    let snapshot = Snapshot::freeze(&store, Utc::now())?;
+                    let scores = observatory::forecast::archive::score_directory(
+                        &archive_directory,
+                        &snapshot,
+                    )?;
+                    let bundle = observatory::forecast::archive::IssuedForecast::issue(
+                        snapshot,
+                        &repositories,
+                        horizon.into(),
+                    )?;
+                    let score_path = cli
+                        .state
+                        .join("forecast-scores")
+                        .join(format!("{}.json", bundle.snapshot.sha256));
+                    let bytes = serde_json::to_vec_pretty(&bundle)?;
+                    save_new(&archive_path, &bytes)?;
+                    save_new(&score_path, &serde_json::to_vec_pretty(&scores)?)?;
+                    if let Some(output) = output {
+                        save_new(&output, &bytes)?;
                     }
-                    ensure!(failures.is_empty(), "{}", failures.join("; "));
+                    eprintln!(
+                        "Immutable forecast saved to {}; prior outcome scores saved to {}",
+                        archive_path.display(),
+                        score_path.display()
+                    );
+                    println!(
+                        "{}",
+                        serde_json::to_string_pretty(
+                            &json!({"forecast":bundle.forecast, "current_pressure":bundle.history.current_pressure, "previous_forecast_scores":scores})
+                        )?
+                    );
                 }
                 Command::CollectGit { path, repository } => {
                     let collection = collectors::collect_git(&path, &repository)?;
@@ -329,7 +511,9 @@ fn execute(cli: Cli) -> Result<()> {
                 }
                 Command::Analyse { .. }
                 | Command::Simulate { .. }
-                | Command::EstimateLabour { .. } => unreachable!(),
+                | Command::EstimateLabour { .. }
+                | Command::ForecastSnapshot { .. }
+                | Command::ScoreForecast { .. } => unreachable!(),
             }
         }
     }

@@ -1,0 +1,886 @@
+{
+  "source_snapshot_sha256": "00c506a39f120b004b9e6b3e41ad78b5fe1d88f49238bf0499ee7d00a54de4ef",
+  "study": "predeclared78completeweeks_initial52_test26",
+  "frame_start": "2025-04-28T00:00:00+00:00",
+  "frame_end": "2026-10-26T00:00:00+00:00",
+  "visible_prs": 742,
+  "rows_checked": 130,
+  "weekly_counts": [
+    1,
+    6,
+    3,
+    7,
+    0,
+    0,
+    0,
+    2,
+    1,
+    2,
+    0,
+    0,
+    1,
+    3,
+    11,
+    0,
+    1,
+    4,
+    1,
+    1,
+    1,
+    10,
+    7,
+    1,
+    2,
+    2,
+    0,
+    0,
+    0,
+    1,
+    0,
+    3,
+    5,
+    3,
+    2,
+    0,
+    5,
+    14,
+    4,
+    1,
+    11,
+    7,
+    1,
+    2,
+    0,
+    0,
+    7,
+    8,
+    11,
+    4,
+    5,
+    20,
+    5,
+    4,
+    4,
+    3,
+    8,
+    5,
+    7,
+    4,
+    14,
+    8,
+    6,
+    16,
+    0,
+    0,
+    3,
+    2,
+    2,
+    1,
+    5,
+    5,
+    0,
+    2,
+    8,
+    0,
+    7,
+    1
+  ],
+  "mean_rps_exact": {
+    "previous_period_point_mass": "9/2",
+    "empirical_expanding": "1975589687237931730237271583700136557254856341647269391/868417849513768861166534355835677905919556697373696000",
+    "poisson_prior_four_period_mean": "3595840081073220051076817316881676407483585256249472244620337847690818823729262031/1300000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "zero_point_mass": "60/13",
+    "empirical_recent": "4203/1664"
+  },
+  "mean_rps": {
+    "previous_period_point_mass": 4.5,
+    "empirical_expanding": 2.2749298489708307,
+    "poisson_prior_four_period_mean": 2.766030831594785,
+    "zero_point_mass": 4.615384615384615,
+    "empirical_recent": 2.5258413461538463
+  },
+  "recent_relative_rps_increase": 0.1102941689813103,
+  "verdict": "Recent8 empirical candidate failed primary improvement screen: expanding empirical had lower held-out RPS; no superiority claim or model retuning from these test outcomes.",
+  "rows": [
+    {
+      "method": "empirical_recent",
+      "origin": "2026-04-27T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "87/64"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-04-27T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "4599/2704"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-04-27T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "5"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-04-27T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "15"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-04-27T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "33129405265699494998795207445601137703216234274682558401679481272782859236322587/10000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-05-04T00:00:00+00:00",
+      "outcome": 4,
+      "rps_exact": "51/32"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-05-04T00:00:00+00:00",
+      "outcome": 4,
+      "rps_exact": "3486/2809"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-05-04T00:00:00+00:00",
+      "outcome": 4,
+      "rps_exact": "4"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-05-04T00:00:00+00:00",
+      "outcome": 4,
+      "rps_exact": "1"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-05-04T00:00:00+00:00",
+      "outcome": 4,
+      "rps_exact": "29504096884750968773739618371409713760041910581541950317712538114090150585489777/10000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-05-11T00:00:00+00:00",
+      "outcome": 4,
+      "rps_exact": "49/32"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-05-11T00:00:00+00:00",
+      "outcome": 4,
+      "rps_exact": "581/486"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-05-11T00:00:00+00:00",
+      "outcome": 4,
+      "rps_exact": "4"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-05-11T00:00:00+00:00",
+      "outcome": 4,
+      "rps_exact": "0"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-05-11T00:00:00+00:00",
+      "outcome": 4,
+      "rps_exact": "29504096884750968773739618371409713760041910581541950317712538114090150585489777/10000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-05-18T00:00:00+00:00",
+      "outcome": 3,
+      "rps_exact": "137/64"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-05-18T00:00:00+00:00",
+      "outcome": 3,
+      "rps_exact": "2771/3025"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-05-18T00:00:00+00:00",
+      "outcome": 3,
+      "rps_exact": "3"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-05-18T00:00:00+00:00",
+      "outcome": 3,
+      "rps_exact": "1"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-05-18T00:00:00+00:00",
+      "outcome": 3,
+      "rps_exact": "7339763141168376721591407775773203812367887077993995624478746842300158903569731/2000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-05-25T00:00:00+00:00",
+      "outcome": 8,
+      "rps_exact": "73/32"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-05-25T00:00:00+00:00",
+      "outcome": 8,
+      "rps_exact": "10947/3136"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-05-25T00:00:00+00:00",
+      "outcome": 8,
+      "rps_exact": "8"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-05-25T00:00:00+00:00",
+      "outcome": 8,
+      "rps_exact": "5"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-05-25T00:00:00+00:00",
+      "outcome": 8,
+      "rps_exact": "7392392184842095353247858762597651951405525166021256732069724042406447365603231/2500000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-06-01T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "41/64"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-06-01T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "1654/1083"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-06-01T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "5"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-06-01T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "3"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-06-01T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "1634257406976361370337839942364793011698429989206666240105403174293369731141727/3125000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-06-08T00:00:00+00:00",
+      "outcome": 7,
+      "rps_exact": "49/32"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-06-08T00:00:00+00:00",
+      "outcome": 7,
+      "rps_exact": "4395/1682"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-06-08T00:00:00+00:00",
+      "outcome": 7,
+      "rps_exact": "7"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-06-08T00:00:00+00:00",
+      "outcome": 7,
+      "rps_exact": "2"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-06-08T00:00:00+00:00",
+      "outcome": 7,
+      "rps_exact": "506192736220436028244586384832810662076202108129361791111142898156463637543563/400000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-06-15T00:00:00+00:00",
+      "outcome": 4,
+      "rps_exact": "15/16"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-06-15T00:00:00+00:00",
+      "outcome": 4,
+      "rps_exact": "3775/3481"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-06-15T00:00:00+00:00",
+      "outcome": 4,
+      "rps_exact": "4"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-06-15T00:00:00+00:00",
+      "outcome": 4,
+      "rps_exact": "3"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-06-15T00:00:00+00:00",
+      "outcome": 4,
+      "rps_exact": "95950207072515695827126297663069687366190766300477487233122318088189855102094333/100000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-06-22T00:00:00+00:00",
+      "outcome": 14,
+      "rps_exact": "261/32"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-06-22T00:00:00+00:00",
+      "outcome": 14,
+      "rps_exact": "6107/720"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-06-22T00:00:00+00:00",
+      "outcome": 14,
+      "rps_exact": "14"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-06-22T00:00:00+00:00",
+      "outcome": 14,
+      "rps_exact": "10"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-06-22T00:00:00+00:00",
+      "outcome": 14,
+      "rps_exact": "16592472206272029195559571401024894687974788631377639725993873833479248144709193/2500000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-06-29T00:00:00+00:00",
+      "outcome": 8,
+      "rps_exact": "109/64"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-06-29T00:00:00+00:00",
+      "outcome": 8,
+      "rps_exact": "11747/3721"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-06-29T00:00:00+00:00",
+      "outcome": 8,
+      "rps_exact": "8"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-06-29T00:00:00+00:00",
+      "outcome": 8,
+      "rps_exact": "6"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-06-29T00:00:00+00:00",
+      "outcome": 8,
+      "rps_exact": "13796864204894543094408963908881462151878306015412807685186418460412666297681307/20000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-07-06T00:00:00+00:00",
+      "outcome": 6,
+      "rps_exact": "57/64"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-07-06T00:00:00+00:00",
+      "outcome": 6,
+      "rps_exact": "7159/3844"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-07-06T00:00:00+00:00",
+      "outcome": 6,
+      "rps_exact": "6"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-07-06T00:00:00+00:00",
+      "outcome": 6,
+      "rps_exact": "2"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-07-06T00:00:00+00:00",
+      "outcome": 6,
+      "rps_exact": "501022055657004796113726673792834534389235856372566609554760401286006991231449/400000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-07-13T00:00:00+00:00",
+      "outcome": 16,
+      "rps_exact": "477/64"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-07-13T00:00:00+00:00",
+      "outcome": 16,
+      "rps_exact": "39793/3969"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-07-13T00:00:00+00:00",
+      "outcome": 16,
+      "rps_exact": "16"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-07-13T00:00:00+00:00",
+      "outcome": 16,
+      "rps_exact": "10"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-07-13T00:00:00+00:00",
+      "outcome": 16,
+      "rps_exact": "12859139115693330955387748261663363748306449563181040888492796270635695672488321/2000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-07-20T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "51/8"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-07-20T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "7665/4096"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-07-20T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "0"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-07-20T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "16"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-07-20T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "11424400016135581420017502130220006643274937852459202029647970931627862665465611/1250000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-07-27T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "77/16"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-07-27T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "1533/845"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-07-27T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "0"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-07-27T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "0"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-07-27T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "29839736006475398372898701475972951290379926962480502706892850014920693218516457/5000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-08-03T00:00:00+00:00",
+      "outcome": 3,
+      "rps_exact": "149/64"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-08-03T00:00:00+00:00",
+      "outcome": 3,
+      "rps_exact": "1411/1452"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-08-03T00:00:00+00:00",
+      "outcome": 3,
+      "rps_exact": "3"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-08-03T00:00:00+00:00",
+      "outcome": 3,
+      "rps_exact": "3"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-08-03T00:00:00+00:00",
+      "outcome": 3,
+      "rps_exact": "14302208414398929860840901924180366845960301744420963139829593956278159817614713/10000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-08-10T00:00:00+00:00",
+      "outcome": 2,
+      "rps_exact": "145/64"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-08-10T00:00:00+00:00",
+      "outcome": 2,
+      "rps_exact": "4434/4489"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-08-10T00:00:00+00:00",
+      "outcome": 2,
+      "rps_exact": "2"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-08-10T00:00:00+00:00",
+      "outcome": 2,
+      "rps_exact": "1"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-08-10T00:00:00+00:00",
+      "outcome": 2,
+      "rps_exact": "1033561075008542252560102931091398407991014358940869101939682767704956913628287/625000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-08-17T00:00:00+00:00",
+      "outcome": 2,
+      "rps_exact": "125/64"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-08-17T00:00:00+00:00",
+      "outcome": 2,
+      "rps_exact": "2217/2312"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-08-17T00:00:00+00:00",
+      "outcome": 2,
+      "rps_exact": "2"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-08-17T00:00:00+00:00",
+      "outcome": 2,
+      "rps_exact": "0"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-08-17T00:00:00+00:00",
+      "outcome": 2,
+      "rps_exact": "51649231566189903489332733949907894949630424412674595589840660322517823351337091/100000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-08-24T00:00:00+00:00",
+      "outcome": 1,
+      "rps_exact": "99/64"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-08-24T00:00:00+00:00",
+      "outcome": 1,
+      "rps_exact": "623/529"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-08-24T00:00:00+00:00",
+      "outcome": 1,
+      "rps_exact": "1"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-08-24T00:00:00+00:00",
+      "outcome": 1,
+      "rps_exact": "1"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-08-24T00:00:00+00:00",
+      "outcome": 1,
+      "rps_exact": "18984683066334461983533030480022547941559012371755271044955422842895699690835873/50000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-08-31T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "31/16"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-08-31T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "143/100"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-08-31T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "5"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-08-31T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "4"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-08-31T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "22734704631158561881143968595379209039648366920245785192036026901623478633528833/10000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-09-07T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "121/64"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-09-07T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "7007/5041"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-09-07T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "5"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-09-07T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "0"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-09-07T00:00:00+00:00",
+      "outcome": 5,
+      "rps_exact": "17551168245915058297234885872674201570176211569747037775265389914377705643531131/10000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-09-14T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "39/32"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-09-14T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "9167/5184"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-09-14T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "0"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-09-14T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "5"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-09-14T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "176022159538317285273610035630016690474112628644789302320836730941526687192023/78125000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-09-21T00:00:00+00:00",
+      "outcome": 2,
+      "rps_exact": "15/32"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-09-21T00:00:00+00:00",
+      "outcome": 2,
+      "rps_exact": "4933/5329"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-09-21T00:00:00+00:00",
+      "outcome": 2,
+      "rps_exact": "2"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-09-21T00:00:00+00:00",
+      "outcome": 2,
+      "rps_exact": "2"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-09-21T00:00:00+00:00",
+      "outcome": 2,
+      "rps_exact": "44380795161733437580345320001783117356630804895698980396444415364352128519709043/100000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-09-28T00:00:00+00:00",
+      "outcome": 8,
+      "rps_exact": "147/32"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-09-28T00:00:00+00:00",
+      "outcome": 8,
+      "rps_exact": "17365/5476"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-09-28T00:00:00+00:00",
+      "outcome": 8,
+      "rps_exact": "8"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-09-28T00:00:00+00:00",
+      "outcome": 8,
+      "rps_exact": "6"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-09-28T00:00:00+00:00",
+      "outcome": 8,
+      "rps_exact": "40544524743063616419987581537831799324590428074247011869738732390239117880441847/10000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-10-05T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "115/64"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-10-05T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "1973/1125"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-10-05T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "0"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-10-05T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "8"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-10-05T00:00:00+00:00",
+      "outcome": 0,
+      "rps_exact": "26761610939026886050200309436075586947110708308499635561262286947649190453570071/10000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-10-12T00:00:00+00:00",
+      "outcome": 7,
+      "rps_exact": "187/64"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-10-12T00:00:00+00:00",
+      "outcome": 7,
+      "rps_exact": "14121/5776"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-10-12T00:00:00+00:00",
+      "outcome": 7,
+      "rps_exact": "7"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-10-12T00:00:00+00:00",
+      "outcome": 7,
+      "rps_exact": "7"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-10-12T00:00:00+00:00",
+      "outcome": 7,
+      "rps_exact": "36427001242190668890577831466618548321692830402311811937921158654853194504881499/10000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "method": "empirical_recent",
+      "origin": "2026-10-19T00:00:00+00:00",
+      "outcome": 1,
+      "rps_exact": "43/32"
+    },
+    {
+      "method": "empirical_expanding",
+      "origin": "2026-10-19T00:00:00+00:00",
+      "outcome": 1,
+      "rps_exact": "7037/5929"
+    },
+    {
+      "method": "zero_point_mass",
+      "origin": "2026-10-19T00:00:00+00:00",
+      "outcome": 1,
+      "rps_exact": "1"
+    },
+    {
+      "method": "previous_period_point_mass",
+      "origin": "2026-10-19T00:00:00+00:00",
+      "outcome": 1,
+      "rps_exact": "6"
+    },
+    {
+      "method": "poisson_prior_four_period_mean",
+      "origin": "2026-10-19T00:00:00+00:00",
+      "outcome": 1,
+      "rps_exact": "666542461150894949982076580266929220227378978812853489881759908037708921896943/312500000000000000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ]
+}

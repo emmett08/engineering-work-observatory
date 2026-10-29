@@ -1,0 +1,19 @@
+{
+  "schema": "observatory.public-forecast-example/1",
+  "description": "Actual automatic command output from two public repositories, not a synthetic or historical replay.",
+  "uncompressed_bundle_sha256": "fedbb928535abbc676aa3a7cd97befa149261b7c7c9269ad6d9fe7f62a6c5ed9",
+  "compressed_bundle_sha256": "da6d8c3d1580e460225b1af882648c521f54556cc6fb5a3a1d21a194bf17e79f",
+  "source_snapshot_sha256": "76d59e401f92d1132147183bc8a84d9232186b27729325102ab2245af7f7f31e",
+  "created_at": "2026-10-29T22:18:19.319750831Z",
+  "target_start": "2026-10-30T00:00:00Z",
+  "target_end": "2026-10-31T00:00:00Z",
+  "repositories": [
+    "emmett08/eal-mcp",
+    "emmett08/engarg"
+  ],
+  "limitations": [
+    "Local timestamps are declarations, not independent trusted-time certification.",
+    "Pending score uses the same source cut and is not an empirical accuracy result.",
+    "Public inventory source payloads are included for this bounded example; private deployments should keep their state and exports private."
+  ]
+}

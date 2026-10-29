@@ -1,4 +1,16 @@
-# What software-work telemetry identifies
+# Papers and reproducibility
+
+For automatic, label-free team-throughput prediction, read the new
+[operational forecasting companion](forecasting/automatic-throughput-forecasting.pdf),
+its [source and reproduction guide](forecasting/README.md), and the
+[three ranked model alternatives](review/ranked-automatic-model-alternatives.md).
+The [fully connected Astra ultra mesh record](review/mesh-forecasting-2026-10-29/README.md)
+retains the research, source contracts, frozen comparison and adverse result.
+Current queue pressure is observed; future bottlenecks and causal capacity remain
+unestablished. The automatic workflow is independent of the labour observations
+required by the following manuscript.
+
+## What software-work telemetry identifies
 
 Read the [extended article](ai-assisted-software-engineering.pdf), built from
 [`article/main.tex`](article/main.tex) and
@@ -66,13 +78,16 @@ Run from this directory:
 
 ```sh
 make article
+make forecasting
 make baseline
 ```
 
 `make article` compiles the extended source to `build/main.pdf` and copies it to
 `ai-assisted-software-engineering.pdf`. `make baseline` builds the original
 source to `effort-speed-ai/.build/article/main.pdf`; it does not overwrite the
-attached PDF. Both use pdfLaTeX, BibTeX and latexmk.
+attached PDF. These use pdfLaTeX, BibTeX and latexmk. `make forecasting` builds the separate
+automatic-throughput companion under `forecasting/` without changing either
+labour paper.
 
 On Debian/Ubuntu the TeX dependencies are available through:
 

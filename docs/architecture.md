@@ -1,6 +1,6 @@
 # Architecture
 
-The observatory is a local Rust CLI for collecting engineering evidence and measuring task-level human effort, acceptance time and retained output. A requirement is the accounting unit. Commits, pull requests, assistant calls and verification runs provide evidence about that requirement; they do not replace it.
+The observatory is a local Rust CLI for automatic PR-throughput forecasting and for separate task-level measurement of human effort, acceptance time and retained output. A requirement is the accounting unit. Commits, pull requests, assistant calls and verification runs provide evidence about that requirement; they do not replace it.
 
 ## Implementation boundaries
 
@@ -72,3 +72,36 @@ unavailable/census states. See [the estimator contract](design-based-estimation.
 The initial use is a descriptive measurement and feasibility study. The arithmetic and synthetic examples verify bounded implementation behaviour; they do not establish a causal AI effect, general labour calibration or the adequacy of a quality rubric. A comparative study needs an explicit assignment/comparison design and interference assumptions.
 
 The core uses ordinary Rust control flow rather than Aspect weaving. [ADR 0001](adr/0001-explicit-rust-pipeline.md) records the source-grounded decision. A hosted service becomes justified if multiple operators require concurrent collection or remote forms. Further indexed projections or analytical export formats become justified when actual query costs require them; neither changes retained evidence or the task-level measurement contract. Reports contain task text and evidence exports, including source payloads. Treat them as private research data rather than anonymised aggregate publications.
+
+
+## Automatic forecasting
+
+`forecast` is a separate mathematical component over retained automatic source
+records. The lightweight GitHub profile collects repository metadata and all-state
+PR inventory, retaining raw HTTP responses, pagination coverage and scan windows.
+`ingestion` applies the requested profile's completeness policy after retaining
+partial evidence; the existing full profile remains the default for collection.
+
+`forecast::history` selects the latest scan per stable numeric repository identity,
+binds its records to their collection receipt, and derives the common observation
+cut from the earliest selected scan start. It reports current queue pressure with
+freshness and unknown stages. This does not infer human labour or causal bottlenecks.
+`calendar` forms complete UTC bins; `distribution` fits the explicit empirical
+method; `backtest` reconstructs a declared retrospective evaluation. Portfolio
+counts are summed before fitting. These calculations do not train on stage labels,
+AI labels, human assessments or subjective task sizes.
+
+`forecast::archive` binds each issued distribution and history to its original
+verified snapshot and declared method. The CLI archives it without overwriting,
+then later runs score unchanged originals against mature source cuts. Replay
+outputs have a different schema and cannot pass as original issuance receipts.
+Corrupt or unsupported archived inputs remain explicit errors in the score report;
+they do not prevent new collection. Times are retained declarations, not trusted
+independent proof of pre-outcome existence. JSON floating-point round trips are
+correctly rounded so an unchanged saved PMF can be verified exactly.
+
+The default expanding reference was retained after the recent-window challenger
+failed its frozen public-reference promotion screen. The bounded public comparison
+and the operational all-supported-history frame are distinct. Neither establishes
+accuracy for a user's portfolio. See [the operational contract](automatic-forecasting.md)
+and [the companion paper](../paper/forecasting/README.md).

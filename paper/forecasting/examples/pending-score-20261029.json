@@ -1,0 +1,30 @@
+{
+  "schema": "observatory.merge-count-forecast-score/1",
+  "model_version": "observatory.empirical-merge-count/2",
+  "method": "expanding_empirical",
+  "prior_source_snapshot_sha256": "76d59e401f92d1132147183bc8a84d9232186b27729325102ab2245af7f7f31e",
+  "later_source_snapshot_sha256": "76d59e401f92d1132147183bc8a84d9232186b27729325102ab2245af7f7f31e",
+  "issued_at": "2026-10-29T22:18:18.353114562Z",
+  "data_cutoff": "2026-10-29T22:18:15.387043659Z",
+  "target_start": "2026-10-30T00:00:00Z",
+  "target_end": "2026-10-31T00:00:00Z",
+  "later_snapshot_cut": "2026-10-29T22:18:18.353114562Z",
+  "later_observed_cut": "2026-10-29T22:18:15.387043659Z",
+  "repository_ids": [
+    1427362428,
+    1431331749
+  ],
+  "status": "pending",
+  "reasons": [
+    "The common conservative source exposure has not reached the target end; no partial outcome is scored."
+  ],
+  "outcome": null,
+  "rps": null,
+  "median_absolute_error": null,
+  "quantile_range_hit": null,
+  "limitations": [
+    "The score evaluates the unchanged issued distribution; it does not tune the model or establish predictive superiority.",
+    "Complete pagination describes currently visible source records, not proof that deleted or inaccessible historical objects never existed.",
+    "Source digests identify retained content. Receipt and issuance timestamps are not cryptographically certified evidence of when a forecast existed."
+  ]
+}
