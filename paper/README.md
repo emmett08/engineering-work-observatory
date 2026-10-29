@@ -19,6 +19,11 @@ These analytical additions are also outside the historical Lean receipt. The
 application now preserves fractional-second effort and withholds ambiguous
 boundary-crossing allocations rather than silently interpolating them.
 
+The subsequent [Astra ultra review](review/astra-ultra-2026-10-29.md) records
+the further observation and summary-validation repairs, followed by three
+whole-paper applications of `write-for-experienced-engineers`. Each editorial
+pass has a separate commit and mathematical/citation fidelity check.
+
 ## Original paper and proof evidence
 
 [`effort-speed-ai/`](effort-speed-ai/) is the complete original package moved from

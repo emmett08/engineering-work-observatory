@@ -91,8 +91,8 @@ experiments. The successor changes support reproduction and make no new runtime
 improvement claim.
 
 The full application gate passes: formatting, Clippy with warnings denied,
-72 tests across all targets, documentation tests, and the release build. The
-paper gate passes its original receipt checks, seven kernel tests, five collector
+79 tests across all targets, documentation tests, and the release build. The
+paper gate passes its original receipt checks, seven kernel tests, 11 collector
 tests and exact model examples. An actual build with an external
 `CARGO_TARGET_DIR` and explicit native `CARGO_BUILD_TARGET` selected Cargo's
 reported executable; one seed-17, single-query invocation passed protocol-row
@@ -102,3 +102,31 @@ The final source passed contribution/scope, mathematical, exposition, attributio
 and rendered-layout review. The 22-page PDF has no unresolved references or
 overfull boxes. New analysis pages and all-page layout were inspected after
 integration. This review is agent screening rather than journal peer review.
+
+## Astra ultra review and three editorial passes
+
+The follow-up used six live `gpt-6-astra` workers with `ultra` reasoning effort,
+independent reviews and three paired debates. Its [decision record](review/astra-ultra-2026-10-29.md)
+separates bounded repairs from optional extensions. New regressions reproduced
+the output-alias, malformed-row, fragmented-coverage and repeated-observation
+failures before repair. Scope-endpoint tests document the existing predeclared
+penalty without changing its numerical behaviour.
+
+`write-for-experienced-engineers` was applied three times to the complete paper.
+Each pass has its own source diff, preserved protected formal blocks, labels,
+citation occurrences and references, and compiled successfully. Independent
+mathematics and evidence reviews accepted the final wording. The final 22-page
+PDF has no undefined references/citations or overfull material, and its extracted
+text matches the inspected final preview.
+
+The local application gate passes formatting, Clippy with warnings denied,
+all 79 tests, documentation tests and release compilation. The paper gate passes
+the seven kernel tests, 11 successor-collector tests and exact model examples,
+including the paired squared-loss checks. All seven measured source hashes,
+retained raw data, figure bindings and historical proof evidence remain intact.
+No performance recollection or Lean execution was performed for these repairs.
+
+A prior macOS CI failure was consistent with an accepted mock socket inheriting
+nonblocking mode. The mock now explicitly uses blocking reads and verifies a
+complete request header before routing. All 12 collector tests pass locally.
+The new macOS workflow run remains the direct platform confirmation.
