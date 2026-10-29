@@ -184,3 +184,12 @@ temporary Git/SQLite sources without calling assistants or spending model tokens
 Passing checks verifies software behaviour, not an empirical productivity claim.
 
 Existing repository licence: GPL-3.0-only.
+
+## References and next improvements
+
+[references.bib](references.bib) includes the user-supplied
+`vanderpost2024datascience` book entry. Its exact edition and contents have not
+been independently verified; [source notes](docs/references.md) record the
+boundary. The [prioritised roadmap](docs/roadmap.md) proposes analysis-ready
+exports, measurement worklists, descriptive breakdowns and design-specific
+uncertainty, with acceptance criteria grounded in the existing code and model.
