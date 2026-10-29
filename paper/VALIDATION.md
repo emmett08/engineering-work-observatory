@@ -1,6 +1,8 @@
 # Validation of the 29 October 2026 extension
 
 The original package and the new extension have separate verification boundaries.
+The earlier sections retain the validation history of PR #2. The final section
+records the subsequent sharp-identification revision and its current PDF.
 
 ## Original package
 
@@ -130,3 +132,77 @@ A prior macOS CI failure was consistent with an accepted mock socket inheriting
 nonblocking mode. The mock now explicitly uses blocking reads and verifies a
 complete request header before routing. All 12 collector tests pass locally.
 The new macOS workflow run remains the direct platform confirmation.
+
+## Sharp identification and design-based estimation
+
+This revision starts from PR #2 head `b89a2584ef34637b71f5036a67673250b382d4e2`
+on a separate branch. Six separate agents were configured as `gpt-6-astra` with
+`ultra` reasoning effort; their responsibilities, exchanges and accepted
+corrections are recorded in the [decision record](review/sharp-identification-2026-10-29.md).
+Source support is documented in the [primary-source audit](review/sharp-identification-sources-2026-10-29.md).
+
+The Linux application gate passes the pinned Rust 1.99.1 formatter, all-target
+Clippy with warnings denied, all **114** unit/integration tests, documentation
+tests and release compilation. The suite includes 14 estimator tests, four
+standalone-estimator CLI tests and 14 bounds integration tests. Finite sample
+enumeration verifies unbiasedness and both variance improvement and deterioration;
+numerical regressions cover large common prediction offsets, including all 35
+SRS samples of a seven-unit population. General sampling retains its supplied
+weights, whereas SRS centres predictions before the canonical expansion. These
+checks do not establish measurement accuracy or exact real-number arithmetic.
+
+The release executable's synthetic estimator smoke returns prediction total 4,
+HT total 6 and difference total 5.5 person-hours, with estimated SRS difference
+variance 0.125 squared person-hours. It creates no evidence store. An old
+unsupported complete zero was reproduced on the exact base in an isolated
+worktree; the current regression requires an unavailable point and bounds when
+an intersecting observation has not ended by the evidence cut.
+
+`make check` passes the historical package/inventory/receipt checks, the existing
+2,304 exact measurement-bin cases, the new rational reference checks, seven Rust
+kernel tests and 11 Python collector tests. The new checker covers 284 scalar
+cutoff cases, 5,445 exact-observation target cases from 141 enumerated allocation
+histories, 1,500 bounded-observation cases (150 infeasible), seven explicit
+inconsistencies and shared-capacity/window fixtures. It uses `fractions.Fraction`
+without a floating optimiser. CI now runs both exact Python example checkers in
+addition to its application gates.
+
+The independent reviewer prepared separate cases before inspecting author code,
+then compared 5,000 graph cases (the 2,500-case corpus, including 1,834 infeasible
+systems, and its fractional transformation), 241 external implementation requests
+and nine additional productivity-bound fixtures. These are finite agent
+screening results, not an empirical replication or universal proof. The independent
+review record states its scope and remaining boundaries.
+
+`make article` builds the revised **29-page** PDF; the main argument ends on page
+15. Five ordered contribution, mathematics, exposition, literature and typesetting
+audits were repeated on stable text with no further material corrections. All
+pages were rendered and inspected. The final root build's extracted text matches
+the separately inspected author build exactly. There are 87 unique labels and
+17 cited bibliography keys, no unresolved references/citations, duplicate labels,
+overfull boxes or build errors. One harmless underfull text line remains in the
+proof concordance. The original diagrams and measured runtime figure remain in
+the appendices.
+
+The local TeX installation lacked `algorithm` and `algorithmicx`. Official CTAN
+packages, including the generated `algorithm.sty`, were supplied through a
+temporary `TEXINPUTS` path; manuscript source uses their standard interfaces.
+The skill-referenced `scripts/check_manuscript.py` was unavailable both locally
+and through its full skill-resource URI. Explicit expanded-source/reference
+checks, clean compilation, log inspection and all-page rendering were performed
+instead; the unavailable checker is not counted as executed.
+
+Final `main.tex` SHA-256:
+`470af6ccd815eec3d8ef83e54c2c5580a48366af46339f2ca04f3d4f2a78bb7f`.
+The committed revised PDF SHA-256 is
+`91ac161ec6ba1505fff8e637bd6f4f767a1dcae87a9236be0597843bc75c8080`.
+Build timestamps can change PDF bytes without changing the inspected text.
+
+All 83 historical package files, seven measured source hashes, raw measurement
+hash and figure inputs remain unchanged. No performance recollection or Lean
+execution was performed. The new analytical results and Rust code remain outside
+the historical 43-theorem Lean receipt. The application exposes marginal labour
+and conservative aggregate/productivity formulas; the general joint LP is proved
+but is not implemented as an application solver. Float bounds disclose their lack
+of outward rounding. Empirical calibration, field-study feasibility and external
+specialist peer review remain open.

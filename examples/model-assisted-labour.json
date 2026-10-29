@@ -1,0 +1,39 @@
+{
+  "schema": "observatory.labour-estimate-input/1",
+  "frame_id": "synthetic-four-person-intervals",
+  "frame_complete": true,
+  "predictions": {
+    "frozen_before_sample": true,
+    "provenance": "Manufactured predictions fixed before this illustrative sample; no developer observations."
+  },
+  "design": {
+    "kind": "simple_random_without_replacement",
+    "sample_size": 2
+  },
+  "units": [
+    {
+      "id": "interval-1",
+      "predicted_person_hours": 0.75,
+      "inclusion_probability": 0.5,
+      "observation": { "status": "observed", "person_hours": 1.0 }
+    },
+    {
+      "id": "interval-2",
+      "predicted_person_hours": 1.5,
+      "inclusion_probability": 0.5,
+      "observation": { "status": "observed", "person_hours": 2.0 }
+    },
+    {
+      "id": "interval-3",
+      "predicted_person_hours": 1.25,
+      "inclusion_probability": 0.5,
+      "observation": { "status": "unselected" }
+    },
+    {
+      "id": "interval-4",
+      "predicted_person_hours": 0.5,
+      "inclusion_probability": 0.5,
+      "observation": { "status": "unselected" }
+    }
+  ]
+}

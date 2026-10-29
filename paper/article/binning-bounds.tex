@@ -28,5 +28,3 @@ When $H_-=0$, the bounds need not establish a positive denominator or a finite u
 \label{ex:binning-cutoff}
 One person's bin $[0,2)$ contains one person-hour. At $c=1$, work entirely in the first hour gives labour 1, whereas work entirely in the second gives 0. Both respect the allocation constraint. Uniform interpolation gives $1/2$, but the known bin mass alone supports the interval $[0,1]$.
 \end{example}
-
-If ledger ages satisfy $b_j=u_j$ and their weights represent these exact masses, the unchanged Rust labour sum equals $H_-$ after unit conversion. That index stores no start keys and does not compute $H_+$. A companion index could sort starts and ends separately, using inclusive end and strict start prefix lookups: $O(m\log(m+1))$ preprocessing, $O(m)$ storage and $O(1+\log(m+1))$ time per cutoff. This adds a conditional certificate. No runtime advantage for the companion calculation has been measured.

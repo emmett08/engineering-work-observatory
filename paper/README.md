@@ -1,17 +1,25 @@
-# Human effort, delivery speed and retained output
+# What software-work telemetry identifies
 
 Read the [extended article](ai-assisted-software-engineering.pdf), built from
 [`article/main.tex`](article/main.tex) and
-[`article/references.bib`](article/references.bib). Its three original diagrams
-have editable reconstructions in [`tikz.tex`](tikz.tex). The new performance
-section describes a Rust implementation of repeated cohort-horizon queries,
-with algorithms, executable checks, measured timings, and a figure showing the
-cost of preprocessing.
+[`article/references.bib`](article/references.bib). The revised paper centres on
+sharp labour identification from interval observations and bounded attention,
+an exact finite-cell reduction, and model-assisted design-based estimation.
+A compact marked-history representation preserves the separate acceptance,
+retention and labour horizons. The elementary execution examples and retained
+runtime experiment support appendices.
 
-The extension concerns the runtime of an accounting calculation. It does not
-estimate an AI effect, developer productivity, or the accuracy of the underlying
-labour and retained-output measurements. The new algorithms and Rust code are
-outside the original Lean proof receipt's coverage.
+The application reports conditional direct-observation labour and productivity bounds and provides a
+separate `estimate-labour` command for a declared probability sample with frozen
+predictions. Its SRS variance calculation is separate from the cohort report's
+HT point estimates. Exact interval masses, statistical estimates and conditional
+bounds remain distinct. These additions establish neither an empirical AI
+effect nor the accuracy of underlying labour and quality observations. The new
+mathematics and Rust code are outside the original Lean proof receipt's coverage.
+
+The three original diagrams have editable reconstructions in [`tikz.tex`](tikz.tex).
+The performance appendix retains its algorithms, measured timings and figure
+showing the cost of preprocessing; those data were not recollected.
 
 The [six-agent review](review/debate-2026-10-29.md) adds explicit sampling-noise
 validation and bounds connecting complete labour bins to continuous accounting.
@@ -79,8 +87,9 @@ are numbered continuously because the article class has no chapter counter.
 Rust and Python requirements and benchmark commands are documented in
 [`performance/README.md`](performance/README.md).
 
-`make check` validates the preserved package, exact measurement examples, Rust
-kernel and successor-collector tests. `make performance` writes a separate fresh
+`make check` validates the preserved package, exact measurement and sharp-bound
+examples, Rust kernel and successor-collector tests. Application estimator and
+bound integration tests run through the root Cargo checks. `make performance` writes a separate fresh
 collection under `reports/performance/<UTC>/` at the repository root. The recorded
 raw measurements remain immutable. The performance README explains how to choose
 another output directory; figure regeneration remains a separate, explicit step.

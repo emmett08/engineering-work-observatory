@@ -15,6 +15,7 @@ baseline:
 check:
 	$(MAKE) -C effort-speed-ai check
 	$(PYTHON) check_measurement_examples.py
+	$(PYTHON) check_sharp_identification.py
 	cd performance && cargo test --locked
 	cd performance && $(PYTHON) -m unittest discover -s tests -v
 

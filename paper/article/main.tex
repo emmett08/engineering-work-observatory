@@ -10,6 +10,7 @@
 \usepackage{tikz,pgfplots,helvet}
 \pgfplotsset{compat=1.18}
 \usepackage{algorithm,algpseudocode,capt-of}
+\usepackage[section]{placeins}
 \usepackage[numbers]{natbib}
 \usepackage{xurl}
 \urlstyle{same}
@@ -34,33 +35,31 @@
 \newcommand{\Cov}{\operatorname{Cov}}
 \newcommand{\Corr}{\operatorname{Corr}}
 \newcommand{\ind}{\mathbf 1}
-\title[Effort, speed and retained output]{Human effort, delivery speed and retained output\newline in AI-assisted software engineering}
-\date{Methodological draft with performance extension, 29 October 2026}
-\keywords{software engineering, human effort, AI assistance, measurement, identification, retained output}
+\title[What software-work telemetry identifies]{What software-work telemetry identifies:\newline sharp labour bounds and design-based estimation}
+\date{Methodological draft, 29 October 2026}
+\keywords{software engineering, partial identification, labour bounds, activity sampling, model-assisted estimation, AI assistance}
 \begin{document}
 \begin{abstract}
-A code-change index does not, by itself, measure human labour or delivery speed. This distinction becomes consequential when AI assistance changes the production process, the allocation of review work and the observation of defects. We formulate a task-level accounting model that separates all-role person-hours, elapsed time to acceptance and output retained after a stated follow-up. An explicit observational-equivalence construction shows why commit events cannot guarantee identification of human activity without additional restrictions or observations. Elementary parallel-execution, retry and defect-detection models then establish separate conditions for effort and speed improvements, including cases in which recorded throughput rises while accepted correctness falls. The resulting contribution is a bounded measurement specification and a proposed empirical study design, rather than a new probability theory or an estimated AI effect. Targeted corrections to the Standard Coder argument, reproducible synthetic examples and a proof-coverage concordance make the analytical claims inspectable. An executable Rust extension evaluates repeated cohort-horizon queries and exposes the trade-off between indexing cost and repeated scans. No company data are used, and empirical calibration, causal identification in a particular organisation and practical superiority remain open.
+Software-work telemetry records events whose relationship to human labour can change under AI assistance. We determine what labour is identified by specified observations, while keeping elapsed time to acceptance and retained output as separate endpoints. Exact interval totals and a per-person capacity constraint yield attainable labour bounds at a requested cutoff. For overlapping observations and shared capacity, partitioning time at observation endpoints and target cutoffs reduces the continuous allocation problem exactly to a finite linear programme. Its extrema give sharp bounds conditional on the declared observations; separate interval bounds can be wider. When labour is probability-sampled, fixed telemetry predictions can assist estimation through a design-unbiased residual correction. Its variance depends on prediction residuals, so inaccurate predictions can reduce precision. A marked-history representation keeps deadline acceptance, delayed retention assessment and fixed-horizon labour on their respective clocks without assuming Markov dynamics or independent attempts. We connect these results to a proposed cluster-randomised measurement pilot. The contribution is an observation-to-estimand specification with analytical proofs and finite computational checks. No organisational data are analysed, empirical calibration remains open, and the new results do not extend the retained historical Lean proof coverage.
 \end{abstract}
 \maketitle
-% Allow the extended abstract's final baseline without a first-page overfull box.
-\enlargethispage{2pt}
 
-\section{The measurement question}
+\section{What the observations determine}
 \label{sec:introduction}
 
-Suppose an engineering team delivers the same requested change after adopting an AI coding assistant. Its commits may arrive sooner, contain more code, require less typing or need more review. None of these observations alone tells us how many person-hours the team supplied, when acceptable functionality became available or whether that functionality remained acceptable. The question addressed here is what must be observed and held fixed to distinguish those outcomes.
+Suppose a team records three person-hours of work during a four-hour interval. How much occurred during its first two hours? If one person supplied the work, the answer lies between one and two person-hours: at most two fit after the cutoff, and at most two fit before it. Both limits are attainable. The interval total therefore identifies a range without identifying the allocation within it. Commit times alone may supply even less information, because the same event sequence can arise from different amounts of human activity.
 
-Wright and Ziegler's Standard Coder approach \cite{wright2019} provides a useful starting point. It infers coding activity from commit timing and then predicts the resulting labels from code-change features. The output, Standard Coding Hours (SCH), can serve as a common reference index. Its interpretation nevertheless depends on two links: the link from events to human activity, and the link from a code representation to a stable unit of work. AI can alter either link. A reference score may remain useful for describing changes while ceasing to track current labour.
+This article develops that observation-to-estimand argument for AI-assisted software work. The targets are all-role person-hours, elapsed time to first acceptance and reference output retained at a stated follow-up. Their definitions preserve unsuccessful work, concurrent activity and post-acceptance repair. The principal result shows that exact interval observations and shared per-person capacity constraints admit an exact finite linear-programming representation of all feasible labour totals. Minimising and maximising the desired total gives sharp bounds: every value between the extrema is attainable by an admissible allocation. Sharpening these bounds is consequently a question about additional observations or justified restrictions, rather than a choice of interpolation convention.
 
-The case for several measures is established in software-engineering research. The SPACE framework, for example, places activity and efficiency within a broader account of developer productivity \cite{forsgren2021}. Mozannar et al.\ develop the CUPS activity taxonomy and examine interaction time costs in AI-assisted programming \cite{mozannar2024}. The present article addresses a narrower accounting and identification problem: how to define the labour, timing and retained-output quantities needed for a defensible comparison when production and verification can move between people and agents. It does not attempt to reduce satisfaction, cognitive strain, organisational value or all aspects of software quality to time.
+Probability sampling supplies a different kind of information. When exact allocation totals are unavailable, known inclusion probabilities support design-unbiased labour estimates. Fixed predictions from telemetry can improve their precision through a residual correction, but only when the residuals have a favourable variance under the sampling design. The same telemetry can therefore be insufficient to identify labour by itself and useful as an auxiliary predictor when independent allocation observations are available. We keep deterministic identification intervals, sampling uncertainty and uncertainty in a causal policy contrast distinct.
 
-Existing AI studies also illustrate why the endpoint matters. Peng et al.\ compare completion time among completers of a specified programming exercise \cite{peng2023}. Becker et al.\ study experienced maintainers in familiar repositories, reporting a forecast-adjusted contrast from a log-time model \cite{becker2025}. Cui et al.\ study weekly completed pull requests in three organisational experiments \cite{cui2026}. Their June 2025 manuscript uses random assignment as an instrument for adoption in a weighted instrumental-variable analysis \cite[Section 4.1 and Table 3]{cui2025manuscript}. Across these studies, the interventions, populations and outcome definitions differ. Their estimates therefore cannot supply interchangeable parameters for a universal productivity equation. METR's subsequent account of selection and concurrent-agent measurement difficulties gives a further reason to record work and elapsed time separately \cite{metr2026}. These studies motivate the question. Their effects are not re-estimated here.
+Wright and Ziegler's Standard Coder approach \cite{wright2019} motivates the observation problem. It infers coding activity from commit timing and predicts the resulting labels from code-change features. Standard Coding Hours (SCH) can serve as a common reference index, but calibration to independently observed labour requires a separate argument. AI may alter both the event-to-activity relationship and the work represented by a code change. The SPACE framework already places activity and efficiency within a broader account of developer productivity \cite{forsgren2021}; the CUPS taxonomy examines interaction time costs in AI-assisted programming \cite{mozannar2024}. Our narrower contribution is the labour identified or estimable under an explicit observation scheme, together with compatible timing and retained-output endpoints.
 
-The argument moves from identification to accounting and then to a study design. The observation model first shows why identifying human activity from event telemetry requires stated restrictions or independent observations. Task accounting fixes the units and observation horizons. Small execution models explain how effort and speed can diverge, and the proposed study measures the endpoints under a common acceptance and follow-up procedure. The mathematical ingredients---finite probability, conditional expectation, sampling weights, dependency paths and renewal rewards---are standard. Their contribution here is to align the observations with the quantities a policy comparison needs, while exposing cases in which an index leaves the outcome unresolved. This methodological synthesis is neither an exhaustive literature review nor a validated forecasting system.
+Existing AI studies also show why those endpoints matter. Peng et al.\ examine completion time among completers of a programming exercise \cite{peng2023}; Becker et al.\ study experienced maintainers in familiar repositories with a forecast-adjusted log-time contrast \cite{becker2025}; and Cui et al.\ study weekly completed pull requests in organisational experiments \cite{cui2026}. The latter's June 2025 manuscript uses assignment as an instrument for adoption \cite[Section 4.1 and Table 3]{cui2025manuscript}. Their populations, interventions and outcomes differ. METR's subsequent account of selection and concurrent-agent measurement difficulties further motivates separate labour and elapsed-time records \cite{metr2026}. These studies supply context, not interchangeable parameters or data for the calculations here.
 
-Section~\ref{sec:performance} adds an implementation experiment that examines when an index accelerates repeated accounting queries while preserving their integer totals. It measures the cost of computing the summaries, not human productivity or an AI policy effect.
+Sections~\ref{sec:observation} and~\ref{sec:accounting} define the observation problem and endpoints. Section~\ref{sec:sharp-identification} derives the labour bounds, and Section~\ref{sec:estimation} connects sampled labour to telemetry-assisted estimation. Section~\ref{sec:study} gives a prospective protocol that could assess the measurements before estimating a policy effect. The finite reduction and attainability arguments specialise standard optimisation and sampling ideas to the stated allocation constraints; no new probability theory is claimed. Illustrative execution mechanisms, targeted Standard Coder corrections and a measured implementation comparison appear in the appendices. The implementation comparison concerns repeated discrete accounting queries, not the cost of solving the sharp-bounds programme or the productivity of a software team.
 
-\section{An event history is an observation of work}
+\section{Why event telemetry alone need not identify labour}
 \label{sec:observation}
 
 Let a minute-indexed hidden variable $Z_t\in\{0,1\}$ indicate an activity state, and let $C_t\in\{0,1\}$ record a commit event. A fitted event model specifies both activity dynamics and an emission mechanism. Calling $Z_t=1$ ``coding'' supplies a semantic interpretation, but it does not establish that the state equals independently measured labour. Moreover, the same event law can arise from different activity laws.
@@ -87,23 +86,7 @@ which is $n/2$ minutes in the first model and $n/4$ in the second. Thus the same
 
 This construction belongs to the independent-state subfamily of a two-state hidden Markov model: both transition rows give the same next-state probability. It shows that the unrestricted family is not globally identifiable. Persistent or otherwise restricted models may still be identifiable. Additional restrictions, informative code marks or independent activity observations may distinguish the relevant cases. A guarantee must state which of those restrictions or observations supplies the information. AI makes the question more immediate because commit production can continue while human attention is elsewhere.
 
-Internal agreement between two estimates of the state cannot replace that information.
-
-\begin{proposition}[A consistency identity and its limit]
-\label{prop:consistency}
-For nested information sets $\mathcal F\subseteq\mathcal G$ and an integrable random variable $Z$, let $p=\E[Z\mid\mathcal F]$ and $q=\E[Z\mid\mathcal G]$ under the true joint law. Then
-\begin{equation}
-\label{eq:tower}
- \E[q-p\mid\mathcal F]=0.
-\end{equation}
-The identity does not imply that a pair of proposed estimates equals those conditional expectations.
-\end{proposition}
-
-\begin{proof}
-The tower property gives $\E[q\mid\mathcal F]=p$. For the converse, a procedure returning the same constant $p=q=b$ has zero correction for any underlying activity process, including one whose conditional activity probability differs from $b$.
-\end{proof}
-
-Such a diagnostic can find incompatibilities within a model, but passing it does not establish activity calibration. Parameters used in a prospective prediction must also be fitted without future observations. Restricting the prediction inputs while fitting parameters to future events is still retrospective. Appendix~\ref{app:audit} gives targeted arithmetic and inferential corrections to the Standard Coder paper. The present measurement specification does not depend on reproducing its unavailable empirical data.
+The appropriate next step is to specify what additional observations constrain labour. Internal agreement between model predictions cannot supply that information; Appendix~\ref{app:audit} states the limitation of a conditional-expectation consistency diagnostic.
 
 \section{Task accounting with explicit boundaries}
 \label{sec:accounting}
@@ -161,6 +144,15 @@ A calendar-window rate answers another question. For a window $W$ of positive le
 \end{equation}
 All counted acceptances need the same subsequent follow-up. Record work in progress at the window boundaries because some output may have begun earlier. Dividing portfolio output by the sum of overlapping task durations gives neither this calendar rate nor a team's capacity. Zero-effort tasks do not require individual output/effort ratios. A positive aggregate denominator and the count of such tasks are sufficient.
 
+\input{event-history}
+
+\input{partial-identification}
+
+\section{Estimating labour from sampled allocations}
+\label{sec:estimation}
+
+Exact interval masses determine the feasible sets above. Probability samples instead support statements about repeated application of a declared sampling design. Replacing an exact mass by a noisy estimate changes the problem: a deterministic bound conditional on that replacement is not automatically an interval covering true labour. We first state the sampling anchor, then show how telemetry can assist it without assuming that the prediction model is correct.
+
 \subsection{An external anchor for labour}
 
 Activity sampling offers a modest anchor without requiring continuous surveillance. Partition the observation period into finitely many person-intervals indexed by $m$. Let $d_m$ be interval length, $a_m\in[0,1]$ the target task's average allocation, and $I_m$ indicate inclusion in a probability sample with known $\pi_m=\E[I_m]>0$.
@@ -182,214 +174,12 @@ Linearity of expectation and $\E_s[I_m]=\pi_m$ give the equality term by term. I
 
 This is the standard Horvitz--Thompson construction \cite{horvitz1952}. Its variance depends on the sampling design. Short diaries and task records can supply allocation estimates, while independent adjudication of a subsample can expose disagreement. Recording off-keyboard reasoning, review and coordination requires explicit categories. Inverse-probability weights do not remove nonresponse, inaccurate retrospective labels or work outside the sampling frame. Those errors need separate attention when telemetry is calibrated to sampled observations before and after policy assignment. Missing AI-use records must remain missing rather than being coded as non-use.
 
-\section{Why effort and elapsed time can move independently}
-\label{sec:mechanisms}
-
-The accounting definitions apply without choosing an execution mechanism. To explain how the measured quantities can diverge, we now specify small execution models and derive conditions for effort and speed improvements. These are conditional mechanisms, not fitted descriptions of an organisation.
-
-\subsection{Dependencies and parallel execution}
-
-Represent the stages of one execution by a finite directed acyclic graph. Nodes have nonnegative elapsed durations. Edges encode all required precedence constraints. Let $C$ be its longest path duration. Let $H$ and $G$ denote total human person-hours and homogeneous-agent instance-hours required by these stages.
-
-\begin{proposition}[Resource and path bounds]
-\label{prop:capacity}
-With available capacities $m>0$ people and $k>0$ agents, every feasible schedule of elapsed length $L$ satisfies
-\begin{equation}
-\label{eq:capacity}
- L\geq\max\{C,H/m,G/k\},
-\end{equation}
-omitting a resource term when that class is absent. With unlimited resources and immediate execution of each ready node, the earliest completion time is $C$.
-\end{proposition}
-
-\begin{proof}
-Every dependency path executes in order. Integrating resource capacity over the schedule gives $H\leq mL$ and $G\leq kL$. With unlimited resources, the earliest finish of a node is its duration plus the maximum predecessor finish time, with zero for an empty predecessor set. Induction along a topological ordering shows that the final finish is the maximum path duration.
-\end{proof}
-
-For finite resources, the maximum in \eqref{eq:capacity} is only a lower bound. It does not solve the scheduling problem or describe queue interactions with other tasks. An agent-hour is comparable across nodes only within the declared resource class.
-
-Consider one human production branch of duration $c_h\geq0$ running independently beside one agent branch of duration $g\geq0$, followed by human verification of duration $v\geq0$. One attempt then consumes
-\begin{equation}
-\label{eq:parallel}
- h=c_h+v,\qquad t=\max(c_h,g)+v.
-\end{equation}
-The maximum is justified by independent parallel branches. If a human stage needs the agent's result, its position in the graph changes and so does $t$. Figure~\ref{fig:schedule} makes the person-time and elapsed-time distinction visible in a slow-agent example.
-
-\begin{figure}[tb]
-\centering
-\AttemptTimelineFigure
-\caption{One synthetic attempt with $c_h=2$, $g=8$ and $v=1.5$ hours. Human production and agent execution begin together, and verification waits for both. Human labour is $3.5$ person-hours, whereas elapsed duration is $9.5$ hours. The figure concerns one attempt and excludes the initial queue and subsequent retries.}
-\label{fig:schedule}
-\end{figure}
-
-\subsection{First acceptance under repeated attempts}
-
-The cycle rates below describe eventual first acceptance and provide sensitivity comparisons. The proposed study continues to measure the fixed-horizon cohort totals. This change of boundary matters because a task may consume labour without meeting the cohort's acceptance deadline.
-
-Assume independent, identically distributed pass/fail attempts with pass probability $p\in(0,1]$, deterministic per-attempt labour $h>0$ and duration $t>0$. Attempts execute sequentially until the first pass, and $N$ is their number. A one-off initial wait is $w\geq0$. Write $H^A=hN$ for labour to first acceptance and $L=w+tN$ for elapsed time. These quantities exclude later repair.
-
-\begin{proposition}[Retry moments and cycle rates]
-\label{prop:retry}
-Under these assumptions,
-\begin{equation}
-\label{eq:retry}
- \E[N]=\frac1p,\quad \E[H^A]=\frac hp,\quad
- \E[L]=w+\frac tp,\quad \Var(H^A)=\frac{h^2(1-p)}{p^2}.
-\end{equation}
-Suppose independent, identically distributed task cycles have fixed score $S^0\geq0$, bounded retained fraction $R$ with $\E[R]=r$, and the same parameters above. Ratios of accumulated retained output to accumulated pre-acceptance labour and to serial cycle duration converge almost surely to
-\begin{equation}
-\label{eq:cycle-rates}
- P_H^A=\frac{S^0rp}{h},\qquad
- V_{\mathrm{serial}}=\frac{S^0r}{w+t/p}.
-\end{equation}
-Dependence of $R$ on the attempt count within a cycle is allowed.
-\end{proposition}
-
-\begin{proof}
-The tail probability is $\Prb(N>j)=(1-p)^j$ for integers $j\geq0$, whose sum is $1/p$. For $p<1$, conditioning on the first outcome gives $\E[N^2]=1+(1-p)(2\E[N]+\E[N^2])$, so $\E[N^2]=(2-p)/p^2$. The moments are finite because the geometric tail decays; hence $\Var(N)=(1-p)/p^2$. At $p=1$, $N=1$ surely. Scaling gives \eqref{eq:retry}. For the rates, apply the strong law separately to the iid vectors $(S^0R,H^A,L)$ and divide by the positive limiting mean denominators. This yields the ratios of expectations in \eqref{eq:cycle-rates}.
-\end{proof}
-
-These are elementary renewal-reward calculations \cite{gallager2011}. They are ratios of totals, not expectations of task-specific ratios. The serial rate describes one repeated stream. It is not a formula for the throughput of concurrent teams. The observation of $R$ can occur after completion, provided all cycles are eventually assessed on the same basis. A wait repeated on every attempt belongs inside the multiplier $1/p$.
-
-The eventual first-acceptance model also differs from \eqref{eq:cohort-productivity} through its deadline: every modelled task eventually passes, whereas the cohort numerator credits only acceptance by $\tau$. \begin{example}[A horizon changes the ratio]\label{ex:horizon}
-Set $p=1/2$, $h=t=S^0=R=1$, $w=0$ and $\tau=\Delta=1$, with one person working continuously on sequential attempts until acceptance and no repair. Then $\E[Q]=1/2$ and $\E[H(2)]=\E[\min(N,2)]=3/2$, so their ratio is $1/3$, while eventual-cycle productivity is $1/2$. These expectations follow from the probabilities of first-attempt success and second-attempt execution, each $1/2$.
-\end{example}
-A calendar deadline can also differ from an attempt cap when durations or waits vary. The first-acceptance labour boundary is narrower than \eqref{eq:cohort-productivity}. If $B_\Delta\geq0$ is attributable labour during a specified post-acceptance follow-up with finite expectation, then the corresponding cycle productivity has denominator $h/p+\E[B_\Delta]$. That extension does not capture all labour in a fixed enrolment horizon automatically. Neither quantity includes unallocated shared overhead unless the measurement protocol adds it.
-
-\begin{corollary}[Separate improvement conditions]
-\label{cor:improvements}
-For policies $a\in\{0,1\}$ satisfying the retry assumptions, expected labour and expected intrinsic duration decrease respectively if and only if
-\begin{equation}
-\label{eq:improvements}
- \frac{h_1}{h_0}<\frac{p_1}{p_0},\qquad
- \frac{t_1}{t_0}<\frac{p_1}{p_0}.
-\end{equation}
-Here intrinsic duration excludes the initial wait. If $S^0>0$ and $r_0>0$, policy 1 improves $P_H^A$ if and only if
-\begin{equation}
-\label{eq:productivity-improvement}
- \frac{h_1}{h_0}<\frac{r_1p_1}{r_0p_0}.
-\end{equation}
-\end{corollary}
-
-\begin{proof}
-Substitute \eqref{eq:retry} and \eqref{eq:cycle-rates}, then multiply by the strictly positive denominators. The positivity of $S^0$ and $r_0$ is required for the last equivalence.
-\end{proof}
-
-Equal initial waits preserve the intrinsic-duration comparison. With unequal waits, compare $w_1+t_1/p_1$ and $w_0+t_0/p_0$ directly. A smaller drafting cost establishes none of these inequalities on its own. \begin{example}[A retry reversal]\label{ex:retry-reversal}
-Changing $(h,p)$ from $(1,0.9)$ to $(0.5,0.2)$ halves per-attempt labour but raises expected labour from $10/9$ to $5/2$ person-hours by \eqref{eq:retry}. Lower effort per attempt can be overwhelmed by additional attempts.
-\end{example}
-
-\subsection{Stopping, heterogeneity and the limits of the mechanism}
-
-\begin{proposition}[A finite attempt cap]
-\label{prop:capped}
-Under independent attempts with $p\in(0,1]$, allow at most $K\geq1$ attempts and count exhaustion without a pass as failure. The probability $q_K$ of acceptance and expected attempt count $m_K$ satisfy
-\begin{equation}
-\label{eq:cap}
- q_K=1-(1-p)^K,\qquad
- m_K=\E[\min(N,K)]=\sum_{j=0}^{K-1}(1-p)^j=\frac{q_K}{p}.
-\end{equation}
-Let $r_K=\E[R\mid N\leq K]$ be the conditional mean retained fraction for acceptance within the cap. Expected labour is $hm_K$ and expected retained output is $S^0r_Kq_K$.
-\end{proposition}
-
-\begin{proof}
-Acceptance is the complement of $K$ consecutive failures. The finite tail-sum identity gives the expectation, and multiplication of the geometric sum by $p=1-(1-p)$ telescopes. The output formula follows by conditioning on acceptance; it assigns zero output to exhaustion while retaining its labour.
-\end{proof}
-
-At $p=0$, the direct boundary definition gives $m_K=K$ and $q_K=0$. At $K=0$, both totals vanish and their ratio is undefined. Whenever $q_K=0$, expected retained output is zero directly, so the conditional quantity $r_K$ is not evaluated.
-
-For $p>0$ and $K\geq1$, the ratio of expected retained output to labour is $S^0r_Kp/h$. Any remaining dependence of this ratio on the cap lies in $r_K$. Identically distributed accepted-quality marks independent of earlier attempts would give $r_K=r$ and a ratio independent of the positive cap. Without that extra condition, $r_K$ may vary. Even when cancellation holds, the cap still changes the chance of delivering an individual request.
-\begin{example}[Retention depends on the cap]\label{ex:capped-retention}
-Let $p=1/2$ and $R=\ind\{N=1\}$. Then $r=\E[R]=1/2$ but $r_1=1$. At $K=1$, true expected retained output is $S^0/2$; substituting the uncapped $r$ would incorrectly give $S^0/4$. Thus iid pass indicators alone do not make retained quality independent of the retry history.
-\end{example}
-
-\begin{remark}[Task heterogeneity]
-\label{rem:heterogeneity}
-If per-attempt labour $h$ is fixed and a task-specific pass probability $P$ lies in $(0,1]$, then, whenever $\E[1/P]$ is finite,
-\begin{equation}
-\label{eq:heterogeneity}
- h\E[1/P]\geq h/\E[P].
-\end{equation}
-This follows from convexity of $x\mapsto1/x$ and Jensen's inequality. Replacing heterogeneous probabilities by their mean can therefore understate effort. The conclusion does not extend unchanged to arbitrary dependence between effort and pass probability.
-\end{remark}
-
-Real attempts often learn from earlier failures and can change both cost and acceptance probability. A retry model then needs history-dependent conditional probabilities, or direct totals that avoid that model. Shared queues, changing reviewer availability and abandonment also violate the elementary cycle description. These are measurable departures to investigate, not reasons to force every task into a geometric distribution.
-
-\section{Acceptance, correctness and synthetic checks}
-\label{sec:detection}
-
-An acceptance gate is part of the observation process. More passing work can mean better production, easier assessment or both. To separate these mechanisms, suppose an attempt is defective with probability $d\in[0,1)$ and the gate detects a defect with sensitivity $s\in[0,1]$. Correct attempts are never rejected. Attempts are independent with the same composition, and the gate stops at the first pass.
-
-\begin{proposition}[Detection changes the meaning of throughput]
-\label{prop:detection}
-The pass probability and conditional correctness are
-\begin{equation}
-\label{eq:detection}
- p=1-ds,\qquad \rho=\Prb(\text{correct}\mid\text{pass})=\frac{1-d}{1-ds}.
-\end{equation}
-For fixed $S^0>0$ and $t>0$, no initial wait and no repair cost, the serial recorded and correct-output rates are
-\begin{equation}
-\label{eq:detection-rates}
- V_{\mathrm{recorded}}=\frac{S^0(1-ds)}{t},\qquad
- V_{\mathrm{correct}}=\frac{S^0\rho(1-ds)}{t}
- =\frac{S^0(1-d)}{t}.
-\end{equation}
-For $0<d<1$, lowering $s$ strictly raises the recorded rate and strictly lowers correctness among accepted attempts.
-\end{proposition}
-
-\begin{proof}
-Rejection requires both a defect and detection, so its probability is $ds$. Every correct attempt passes, and Bayes' rule gives \eqref{eq:detection}. Summing over the number of earlier rejected attempts preserves the pass-conditioned composition at first acceptance. Equation~\eqref{eq:cycle-rates} with $w=0$, first with reward fraction 1 and then with $\rho$, gives \eqref{eq:detection-rates}. For positive $d$, lowering $s$ increases the positive denominator of $\rho$ while its numerator remains positive and fixed.
-\end{proof}
-
-\begin{figure}[tb]
-\centering
-\DetectionFigure
-\caption{Consequences of the independent-attempt detection model for the synthetic settings $d=0.4$, $t=2$ hours and $S^0=10$ reference units. Weaker detection raises recorded throughput and lowers correctness among accepted attempts. Correct-output throughput is constant only under the stated model, which omits escaped-defect consequences and repair. Conditional correctness $\rho$ is distinct from the general follow-up fraction $R$.}
-\label{fig:detection}
-\end{figure}
-
-The cancellation in correct-output rate depends on this mechanism's omissions. Escaped defects may impose repair costs, affect other tasks or violate an essential quality constraint, so the result gives no recommendation to weaken testing. At $d=0$ there is no detection effect. False-positive rejection, heterogeneous attempts or nonconstant costs change the formula. To separate defect prevalence from detection sensitivity, the study needs an independent assessment sample: observed gate failures alone leave the two unresolved.
-
-Table~\ref{tab:scenarios} and Figure~\ref{fig:scenarios} illustrate the independent effort and time conditions. Every task has $S^0=10$, one-off waiting time $w=2$ hours and no post-acceptance repair. The four parameter tuples $(c_h,g,v,p,r)$ are $(6,0,1,.95,.98)$, $(2,1,1.5,.90,.98)$, $(2,8,1.5,.90,.98)$ and $(1,.5,7,.75,.90)$. These are chosen inputs, not estimates from developer data.
-
-\begin{table}[tb]
-\caption{Synthetic first-acceptance results from \eqref{eq:parallel}--\eqref{eq:cycle-rates}. Human labour is in person-hours, elapsed time is in hours including the initial wait, and productivity is in retained reference units per person-hour. Productivity excludes repair.}
-\label{tab:scenarios}
-\centering\small
-\begin{tabular}{@{}lrrr@{}}
-\toprule
-Workflow & $\E[H^A]$ & $\E[L]$ & $P_H^A$\\
-\midrule
-Human baseline & 7.37 & 9.37 & 1.330\\
-AI: shorter production & 3.89 & 5.89 & 2.520\\
-AI: slower agent branch & 3.89 & 12.56 & 2.520\\
-AI: greater verification & 10.67 & 12.67 & 0.844\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\begin{figure}[tb]
-\centering
-\EffortTimeFigure
-\caption{Synthetic expected human labour and elapsed time relative to the human baseline. The two equal-labour AI cases differ only in agent duration. They demonstrate that lower human effort does not imply faster acceptance. The plotted values are exact model expectations, with decimal rendering, rather than effect estimates or uncertainty intervals. The plot labels ``Fast agent'', ``Slow agent'' and ``Heavy review'' correspond to shorter production, a slower agent branch and greater verification, respectively.}
-\label{fig:scenarios}
-\end{figure}
-
-The shorter-production and slower-agent cases consume the same expected human labour, but only the former arrives sooner than the baseline. In the greater-verification case, reduced human production is outweighed by review and retries. The examples demonstrate logically possible mechanisms. They do not establish how often those mechanisms occur.
-
-The executable supplement checks the rational arithmetic, counterexamples and finite-cap boundaries. Its Monte Carlo experiment uses seeds 17, 41 and 93 and 100,000 independent task draws per scenario per seed. It samples geometric attempt counts and human labour. Elapsed-time and retained-output values in Table~\ref{tab:scenarios} are analytic. From \eqref{eq:retry}, for the mean $\overline H_n$ of $n$ independent task-labour draws,
-\begin{equation}
-\label{eq:mc-bound}
- \sigma_n^2=\Var(\overline H_n)=\frac{h^2(1-p)}{np^2},\qquad
- \Prb\bigl(|\overline H_n-h/p|\leq10\sigma_n\bigr)\geq0.99.
-\end{equation}
-The probability bound follows from Chebyshev's inequality for $p<1$ and exact equality of the mean for $p=1$. This is not a simultaneous guarantee across seeds or scenarios. Agreement checks the implementation under its generating assumptions, not the empirical truth of those assumptions.
-
-The mathematical proofs, finite computations and empirical questions have different scopes. Appendix~\ref{app:coverage} records the precise formal coverage. These stochastic simulations do not test a causal policy effect, and the algebraic proofs do not establish that diaries, acceptance gates or retained-output scores are reliable in an organisation.
+\input{design-based-estimation}
 
 \section{A study that could test the measurement proposal}
 \label{sec:study}
 
-The first empirical question is whether the proposed observations can be collected reliably and whether a frozen change index is calibrated to labour under each policy. A pilot can answer the feasibility question and inform a later effect study. The precision of that study will depend on the number of independent teams, variation between tasks and measurement error.
+The first empirical question is whether the required observations can be collected reliably. A pilot should assess allocation ascertainment and interval coverage, then compare the precision of design-based estimates with and without fixed telemetry predictions. Where independently adjudicated interval totals are available, it can also report the width of labour identification intervals at prespecified cutoffs and the tightening obtained from joint capacity constraints. A sampling estimate must not be substituted for an exact mass in that comparison. These measurement results should inform a later policy-effect study, whose precision will depend on independent teams, task variation and measurement error.
 
 \subsection{A bounded prospective protocol}
 
@@ -487,22 +277,244 @@ Staffing decisions may require a joint prediction of effort and time. Their marg
 
 If randomisation is unavailable, a staggered adoption design may use the cohort-specific estimands of Callaway and Sant'Anna \cite{callaway2021}, subject to its comparison-group, no-anticipation, overlap and conditional parallel-trends assumptions. A step in SCH must not itself define adoption timing. Reversible or changing use is not automatically a persistent adoption treatment.
 
-\input{performance}
-
-\section{Scope and remaining work}
+\section{Scope and next observations}
 \label{sec:limits}
 
-The observational-equivalence construction establishes a specific measurement limitation: the same commit-event law can correspond to different expected human activity within an admissible event-model subfamily. The accounting specification separately defines acceptance times and retained output through their stated observations. The execution models establish possible mechanisms and exact conditional comparisons. They do not determine which mechanism dominates in practice.
+The amount of labour identified by telemetry depends on the observation scheme. Commit events admit observationally equivalent activity laws. Exact interval masses combined with per-person capacity yield attainable cutoff bounds; a common partition of all observation endpoints and target cutoffs retains every constraint needed for a sharp finite optimisation. Separate local envelopes remain valid when their observation premises hold, but can miss restrictions created by shared capacity. A narrower claim is therefore appropriate for an implementation that computes only those local envelopes.
 
-The proposed empirical contribution remains to be tested. It may prove too costly to collect reliable all-role allocations, difficult to freeze comparable tasks or impossible to blind quality assessment. A frozen reference can drift as task composition and engineering practices change. The treatment may also alter the requirements requested, so a fixed-task experiment and an organisation-wide adoption study answer different questions. These are substantive limits, not gaps filled by more precise algebra.
+Sampling addresses an additional uncertainty. Known inclusion probabilities give unbiased totals under accurate allocation ascertainment. A fixed telemetry predictor contributes through residuals whose design variance determines whether assistance is useful. These results neither establish that diaries accurately capture reasoning and coordination nor recover work missing from the sampling frame. Sharpness is conditional on the specified measurements and constraints; design unbiasedness is conditional on the sampling and ascertainment premises. Neither establishes a causal benefit from AI adoption.
 
-The next research step is the measurement pilot. It must establish a usable observation frame and stable task identities, and assess allocation reliability, follow-up completeness and the feasibility of independent assignment. Those observations are needed before an organisation can calibrate the reference scale, estimate a policy effect or justify a forecasting model. The common reference score remains a potentially useful index whose interpretation depends on the resource and output quantities defined here.
+The measurement pilot is the next empirical step. It must assess whether stable task identities, reliable all-role allocations, independent retention assessment and complete follow-up can be obtained at acceptable burden. Its results should determine sampling intensity and the precision sought in a later policy trial. A fixed-task trial and an organisation-wide adoption study retain different targets when the policy changes incoming requirements. More detailed execution models become useful when those observations can test their assumptions and improve a stated prediction or decision. Until then, the principal output is a reproducible account of what the available evidence leaves determined, bounded or unresolved.
 
+\clearpage
 \appendix
+\section{Illustrative mechanisms for effort and elapsed time}
+\label{sec:mechanisms}
+
+The main identification and sampling results require no execution law. The following small models illustrate why their distinct endpoints are needed. They give exact conditional comparisons for parallel execution, repeated attempts and stopping, without fitting these mechanisms to an organisation.
+
+\subsection{Dependencies and parallel execution}
+
+Represent the stages of one execution by a finite directed acyclic graph. Nodes have nonnegative elapsed durations. Edges encode all required precedence constraints. Let $C$ be its longest path duration. Let $H$ and $G$ denote total human person-hours and homogeneous-agent instance-hours required by these stages.
+
+\begin{proposition}[Resource and path bounds]
+\label{prop:capacity}
+With available capacities $m>0$ people and $k>0$ agents, every feasible schedule of elapsed length $L$ satisfies
+\begin{equation}
+\label{eq:capacity}
+ L\geq\max\{C,H/m,G/k\},
+\end{equation}
+omitting a resource term when that class is absent. With unlimited resources and immediate execution of each ready node, the earliest completion time is $C$.
+\end{proposition}
+
+\begin{proof}
+Every dependency path executes in order. Integrating resource capacity over the schedule gives $H\leq mL$ and $G\leq kL$. With unlimited resources, the earliest finish of a node is its duration plus the maximum predecessor finish time, with zero for an empty predecessor set. Induction along a topological ordering shows that the final finish is the maximum path duration.
+\end{proof}
+
+For finite resources, the maximum in \eqref{eq:capacity} is only a lower bound. It does not solve the scheduling problem or describe queue interactions with other tasks. An agent-hour is comparable across nodes only within the declared resource class.
+
+Consider one human production branch of duration $c_h\geq0$ running independently beside one agent branch of duration $g\geq0$, followed by human verification of duration $v\geq0$. One attempt then consumes
+\begin{equation}
+\label{eq:parallel}
+ h=c_h+v,\qquad t=\max(c_h,g)+v.
+\end{equation}
+The maximum is justified by independent parallel branches. If a human stage needs the agent's result, its position in the graph changes and so does $t$. Figure~\ref{fig:schedule} makes the person-time and elapsed-time distinction visible in a slow-agent example.
+
+\begin{figure}[tb]
+\centering
+\AttemptTimelineFigure
+\caption{One synthetic attempt with $c_h=2$, $g=8$ and $v=1.5$ hours. Human production and agent execution begin together, and verification waits for both. Human labour is $3.5$ person-hours, whereas elapsed duration is $9.5$ hours. The figure concerns one attempt and excludes the initial queue and subsequent retries.}
+\label{fig:schedule}
+\end{figure}
+
+\FloatBarrier
+\subsection{First acceptance under repeated attempts}
+
+The cycle rates below describe eventual first acceptance and provide sensitivity comparisons. The proposed study continues to measure the fixed-horizon cohort totals. This change of boundary matters because a task may consume labour without meeting the cohort's acceptance deadline.
+
+Assume independent, identically distributed pass/fail attempts with pass probability $p\in(0,1]$, deterministic per-attempt labour $h>0$ and duration $t>0$. Attempts execute sequentially until the first pass, and $N$ is their number. A one-off initial wait is $w\geq0$. Write $H^A=hN$ for labour to first acceptance and $L=w+tN$ for elapsed time. These quantities exclude later repair.
+
+\begin{proposition}[Retry moments and cycle rates]
+\label{prop:retry}
+Under these assumptions,
+\begin{equation}
+\label{eq:retry}
+ \E[N]=\frac1p,\quad \E[H^A]=\frac hp,\quad
+ \E[L]=w+\frac tp,\quad \Var(H^A)=\frac{h^2(1-p)}{p^2}.
+\end{equation}
+Suppose independent, identically distributed task cycles have fixed score $S^0\geq0$, bounded retained fraction $R$ with $\E[R]=r$, and the same parameters above. Ratios of accumulated retained output to accumulated pre-acceptance labour and to serial cycle duration converge almost surely to
+\begin{equation}
+\label{eq:cycle-rates}
+ P_H^A=\frac{S^0rp}{h},\qquad
+ V_{\mathrm{serial}}=\frac{S^0r}{w+t/p}.
+\end{equation}
+Dependence of $R$ on the attempt count within a cycle is allowed.
+\end{proposition}
+
+\begin{proof}
+The tail probability is $\Prb(N>j)=(1-p)^j$ for integers $j\geq0$, whose sum is $1/p$. For $p<1$, conditioning on the first outcome gives $\E[N^2]=1+(1-p)(2\E[N]+\E[N^2])$, so $\E[N^2]=(2-p)/p^2$. The moments are finite because the geometric tail decays; hence $\Var(N)=(1-p)/p^2$. At $p=1$, $N=1$ surely. Scaling gives \eqref{eq:retry}. For the rates, apply the strong law separately to the iid vectors $(S^0R,H^A,L)$ and divide by the positive limiting mean denominators. This yields the ratios of expectations in \eqref{eq:cycle-rates}.
+\end{proof}
+
+These are elementary renewal-reward calculations \cite{gallager2011}. They are ratios of totals, not expectations of task-specific ratios. The serial rate describes one repeated stream. It is not a formula for the throughput of concurrent teams. The observation of $R$ can occur after completion, provided all cycles are eventually assessed on the same basis. A wait repeated on every attempt belongs inside the multiplier $1/p$.
+
+The eventual first-acceptance model also differs from \eqref{eq:cohort-productivity} through its deadline: every modelled task eventually passes, whereas the cohort numerator credits only acceptance by $\tau$. \begin{example}[A horizon changes the ratio]\label{ex:horizon}
+Set $p=1/2$, $h=t=S^0=R=1$, $w=0$ and $\tau=\Delta=1$, with one person working continuously on sequential attempts until acceptance and no repair. Then $\E[Q]=1/2$ and $\E[H(2)]=\E[\min(N,2)]=3/2$, so their ratio is $1/3$, while eventual-cycle productivity is $1/2$. These expectations follow from the probabilities of first-attempt success and second-attempt execution, each $1/2$.
+\end{example}
+A calendar deadline can also differ from an attempt cap when durations or waits vary. The first-acceptance labour boundary is narrower than \eqref{eq:cohort-productivity}. If $B_\Delta\geq0$ is attributable labour during a specified post-acceptance follow-up with finite expectation, then the corresponding cycle productivity has denominator $h/p+\E[B_\Delta]$. That extension does not capture all labour in a fixed enrolment horizon automatically. Neither quantity includes unallocated shared overhead unless the measurement protocol adds it.
+
+\begin{corollary}[Separate improvement conditions]
+\label{cor:improvements}
+For policies $a\in\{0,1\}$ satisfying the retry assumptions, expected labour and expected intrinsic duration decrease respectively if and only if
+\begin{equation}
+\label{eq:improvements}
+ \frac{h_1}{h_0}<\frac{p_1}{p_0},\qquad
+ \frac{t_1}{t_0}<\frac{p_1}{p_0}.
+\end{equation}
+Here intrinsic duration excludes the initial wait. If $S^0>0$ and $r_0>0$, policy 1 improves $P_H^A$ if and only if
+\begin{equation}
+\label{eq:productivity-improvement}
+ \frac{h_1}{h_0}<\frac{r_1p_1}{r_0p_0}.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Substitute \eqref{eq:retry} and \eqref{eq:cycle-rates}, then multiply by the strictly positive denominators. The positivity of $S^0$ and $r_0$ is required for the last equivalence.
+\end{proof}
+
+Equal initial waits preserve the intrinsic-duration comparison. With unequal waits, compare $w_1+t_1/p_1$ and $w_0+t_0/p_0$ directly. A smaller drafting cost establishes none of these inequalities on its own. \begin{example}[A retry reversal]\label{ex:retry-reversal}
+Changing $(h,p)$ from $(1,0.9)$ to $(0.5,0.2)$ halves per-attempt labour but raises expected labour from $10/9$ to $5/2$ person-hours by \eqref{eq:retry}. Lower effort per attempt can be overwhelmed by additional attempts.
+\end{example}
+
+\subsection{Stopping, heterogeneity and the limits of the mechanism}
+
+\begin{proposition}[A finite attempt cap]
+\label{prop:capped}
+Under independent attempts with $p\in(0,1]$, allow at most $K\geq1$ attempts and count exhaustion without a pass as failure. The probability $q_K$ of acceptance and expected attempt count $m_K$ satisfy
+\begin{equation}
+\label{eq:cap}
+ q_K=1-(1-p)^K,\qquad
+ m_K=\E[\min(N,K)]=\sum_{j=0}^{K-1}(1-p)^j=\frac{q_K}{p}.
+\end{equation}
+Let $r_K=\E[R\mid N\leq K]$ be the conditional mean retained fraction for acceptance within the cap. Expected labour is $hm_K$ and expected retained output is $S^0r_Kq_K$.
+\end{proposition}
+
+\begin{proof}
+Acceptance is the complement of $K$ consecutive failures. The finite tail-sum identity gives the expectation, and multiplication of the geometric sum by $p=1-(1-p)$ telescopes. The output formula follows by conditioning on acceptance; it assigns zero output to exhaustion while retaining its labour.
+\end{proof}
+
+At $p=0$, the direct boundary definition gives $m_K=K$ and $q_K=0$. At $K=0$, both totals vanish and their ratio is undefined. Whenever $q_K=0$, expected retained output is zero directly, so the conditional quantity $r_K$ is not evaluated.
+
+For $p>0$ and $K\geq1$, the ratio of expected retained output to labour is $S^0r_Kp/h$. Any remaining dependence of this ratio on the cap lies in $r_K$. Identically distributed accepted-quality marks independent of earlier attempts would give $r_K=r$ and a ratio independent of the positive cap. Without that extra condition, $r_K$ may vary. Even when cancellation holds, the cap still changes the chance of delivering an individual request.
+\begin{example}[Retention depends on the cap]\label{ex:capped-retention}
+Let $p=1/2$ and $R=\ind\{N=1\}$. Then $r=\E[R]=1/2$ but $r_1=1$. At $K=1$, true expected retained output is $S^0/2$; substituting the uncapped $r$ would incorrectly give $S^0/4$. Thus iid pass indicators alone do not make retained quality independent of the retry history.
+\end{example}
+
+\begin{remark}[Task heterogeneity]
+\label{rem:heterogeneity}
+If per-attempt labour $h$ is fixed and a task-specific pass probability $P$ lies in $(0,1]$, then, whenever $\E[1/P]$ is finite,
+\begin{equation}
+\label{eq:heterogeneity}
+ h\E[1/P]\geq h/\E[P].
+\end{equation}
+This follows from convexity of $x\mapsto1/x$ and Jensen's inequality. Replacing heterogeneous probabilities by their mean can therefore understate effort. The conclusion does not extend unchanged to arbitrary dependence between effort and pass probability.
+\end{remark}
+
+Real attempts often learn from earlier failures and can change both cost and acceptance probability. A retry model then needs history-dependent conditional probabilities, or direct totals that avoid that model. Shared queues, changing reviewer availability and abandonment also violate the elementary cycle description. These are measurable departures to investigate, not reasons to force every task into a geometric distribution.
+
+\section{Illustrative detection effects and synthetic checks}
+\label{sec:detection}
+
+An acceptance gate is part of the observation process. More passing work can mean better production, easier assessment or both. To separate these mechanisms, suppose an attempt is defective with probability $d\in[0,1)$ and the gate detects a defect with sensitivity $s\in[0,1]$. Correct attempts are never rejected. Attempts are independent with the same composition, and the gate stops at the first pass.
+
+\begin{proposition}[Detection changes the meaning of throughput]
+\label{prop:detection}
+The pass probability and conditional correctness are
+\begin{equation}
+\label{eq:detection}
+ p=1-ds,\qquad \rho=\Prb(\text{correct}\mid\text{pass})=\frac{1-d}{1-ds}.
+\end{equation}
+For fixed $S^0>0$ and $t>0$, no initial wait and no repair cost, the serial recorded and correct-output rates are
+\begin{equation}
+\label{eq:detection-rates}
+ V_{\mathrm{recorded}}=\frac{S^0(1-ds)}{t},\qquad
+ V_{\mathrm{correct}}=\frac{S^0\rho(1-ds)}{t}
+ =\frac{S^0(1-d)}{t}.
+\end{equation}
+For $0<d<1$, lowering $s$ strictly raises the recorded rate and strictly lowers correctness among accepted attempts.
+\end{proposition}
+
+\begin{proof}
+Rejection requires both a defect and detection, so its probability is $ds$. Every correct attempt passes, and Bayes' rule gives \eqref{eq:detection}. Summing over the number of earlier rejected attempts preserves the pass-conditioned composition at first acceptance. Equation~\eqref{eq:cycle-rates} with $w=0$, first with reward fraction 1 and then with $\rho$, gives \eqref{eq:detection-rates}. For positive $d$, lowering $s$ increases the positive denominator of $\rho$ while its numerator remains positive and fixed.
+\end{proof}
+
+\begin{figure}[tb]
+\centering
+\DetectionFigure
+\caption{Consequences of the independent-attempt detection model for the synthetic settings $d=0.4$, $t=2$ hours and $S^0=10$ reference units. Weaker detection raises recorded throughput and lowers correctness among accepted attempts. Correct-output throughput is constant only under the stated model, which omits escaped-defect consequences and repair. Conditional correctness $\rho$ is distinct from the general follow-up fraction $R$.}
+\label{fig:detection}
+\end{figure}
+
+The cancellation in correct-output rate depends on this mechanism's omissions. Escaped defects may impose repair costs, affect other tasks or violate an essential quality constraint, so the result gives no recommendation to weaken testing. At $d=0$ there is no detection effect. False-positive rejection, heterogeneous attempts or nonconstant costs change the formula. To separate defect prevalence from detection sensitivity, the study needs an independent assessment sample: observed gate failures alone leave the two unresolved.
+
+Table~\ref{tab:scenarios} and Figure~\ref{fig:scenarios} illustrate the independent effort and time conditions. Every task has $S^0=10$, one-off waiting time $w=2$ hours and no post-acceptance repair. The four parameter tuples $(c_h,g,v,p,r)$ are $(6,0,1,.95,.98)$, $(2,1,1.5,.90,.98)$, $(2,8,1.5,.90,.98)$ and $(1,.5,7,.75,.90)$. These are chosen inputs, not estimates from developer data.
+
+\begin{table}[tb]
+\caption{Synthetic first-acceptance results from \eqref{eq:parallel}--\eqref{eq:cycle-rates}. Human labour is in person-hours, elapsed time is in hours including the initial wait, and productivity is in retained reference units per person-hour. Productivity excludes repair.}
+\label{tab:scenarios}
+\centering\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Workflow & $\E[H^A]$ & $\E[L]$ & $P_H^A$\\
+\midrule
+Human baseline & 7.37 & 9.37 & 1.330\\
+AI: shorter production & 3.89 & 5.89 & 2.520\\
+AI: slower agent branch & 3.89 & 12.56 & 2.520\\
+AI: greater verification & 10.67 & 12.67 & 0.844\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[tb]
+\centering
+\EffortTimeFigure
+\caption{Synthetic expected human labour and elapsed time relative to the human baseline. The two equal-labour AI cases differ only in agent duration. They demonstrate that lower human effort does not imply faster acceptance. The plotted values are exact model expectations, with decimal rendering, rather than effect estimates or uncertainty intervals. The plot labels ``Fast agent'', ``Slow agent'' and ``Heavy review'' correspond to shorter production, a slower agent branch and greater verification, respectively.}
+\label{fig:scenarios}
+\end{figure}
+
+The shorter-production and slower-agent cases consume the same expected human labour, but only the former arrives sooner than the baseline. In the greater-verification case, reduced human production is outweighed by review and retries. The examples demonstrate logically possible mechanisms. They do not establish how often those mechanisms occur.
+
+The executable supplement checks the rational arithmetic, counterexamples and finite-cap boundaries. Its Monte Carlo experiment uses seeds 17, 41 and 93 and 100,000 independent task draws per scenario per seed. It samples geometric attempt counts and human labour. Elapsed-time and retained-output values in Table~\ref{tab:scenarios} are analytic. From \eqref{eq:retry}, for the mean $\overline H_n$ of $n$ independent task-labour draws,
+\begin{equation}
+\label{eq:mc-bound}
+ \sigma_n^2=\Var(\overline H_n)=\frac{h^2(1-p)}{np^2},\qquad
+ \Prb\bigl(|\overline H_n-h/p|\leq10\sigma_n\bigr)\geq0.99.
+\end{equation}
+The probability bound follows from Chebyshev's inequality for $p<1$ and exact equality of the mean for $p=1$. This is not a simultaneous guarantee across seeds or scenarios. Agreement checks the implementation under its generating assumptions, not the empirical truth of those assumptions.
+
+The mathematical proofs, finite computations and empirical questions have different scopes. Appendix~\ref{app:coverage} records the precise formal coverage. These stochastic simulations do not test a causal policy effect, and the algebraic proofs do not establish that diaries, acceptance gates or retained-output scores are reliable in an organisation.
+
 \section{Targeted corrections to the Standard Coder argument}
 \label{app:audit}
 
 The following corrections concern identifiable statements in the seven-page version of \cite{wright2019}. They do not constitute reproduction of the fitted models or an exhaustive audit. Raw observations, model artefacts and split manifests were not supplied.
+
+Internal agreement between two estimates of an activity state does not establish calibration to independently observed human labour.
+
+\begin{proposition}[A consistency identity and its limit]
+\label{prop:consistency}
+For nested information sets $\mathcal F\subseteq\mathcal G$ and an integrable random variable $Z$, let $p=\E[Z\mid\mathcal F]$ and $q=\E[Z\mid\mathcal G]$ under the true joint law. Then
+\begin{equation}
+\label{eq:tower}
+ \E[q-p\mid\mathcal F]=0.
+\end{equation}
+The identity does not imply that a pair of proposed estimates equals those conditional expectations.
+\end{proposition}
+
+\begin{proof}
+The tower property gives $\E[q\mid\mathcal F]=p$. For the converse, a procedure returning the same constant $p=q=b$ has zero correction for any underlying activity process, including one whose conditional activity probability differs from $b$.
+\end{proof}
+
+Such a diagnostic can find incompatibilities within a model, but passing it does not establish activity calibration. Parameters used in a prospective prediction must also be fitted without future observations. Restricting the prediction inputs while fitting parameters to future events is still retrospective. The following arithmetic and inferential corrections concern the Standard Coder paper. Their validity does not require access to its unavailable empirical data.
 
 \begin{proposition}[The stated sign-test rejection set]
 \label{prop:binomial}
@@ -537,17 +549,20 @@ Consequently, the residual fraction $1-r^2$ cannot in general upper-bound the va
 
 Two reporting issues remain separate from these deductions. Figure 6's caption reverses the timing and code-feature provenance of target and prediction. Its approximate bin counts also imply about 1.2 million examples, compared with about 500,000 commits in the dataset description. An alternative counting unit or a typographical error could reconcile the latter. The unavailable manifest is needed to decide. Neither issue proves that the underlying observations or implementation are invalid. Feature substitutions in a fitted predictor are sensitivity calculations and need a separate identification argument before being interpreted causally.
 
+\input{performance}
+
 \section{Proof coverage and reproducibility}
 \label{app:coverage}
 
-The Lean 4.33.1 project retained with the 13 October 2026 manuscript, pinned to mathlib v4.33.1, contains 43 named theorems, including supporting lemmas. Its retained receipt records a successful source build and audit of every exported theorem's axioms. The original manuscript, proof sources and receipt remain together in the unchanged baseline package. The sampling-validation argument and the binning bounds added in this revision, together with Section~\ref{sec:performance}, its algorithms and its Rust implementation, are outside that receipt's coverage. Their analytical arguments and executable checks are separate from the retained Lean proofs. The declarations use only the recorded standard Lean axioms \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}, where required. No admitted proof, custom axiom or native-decision shortcut is used. The receipt records each declaration's actual assumptions and source hash. These checks establish the Lean statements, with the coverage boundaries below, rather than every assertion in the article.
+The Lean 4.33.1 project retained with the 13 October 2026 manuscript, pinned to mathlib v4.33.1, contains 43 named theorems, including supporting lemmas. Its retained receipt records a successful source build and audit of every exported theorem's axioms. The original manuscript, proof sources and receipt remain together in the unchanged baseline package. The marked-history representation, sharp identification results, model-assisted sampling results and sampling-validation argument, together with Appendix~\ref{sec:performance}, its algorithms and its Rust implementation, are outside that receipt's coverage. Their analytical arguments and executable checks are separate from the retained Lean proofs. The declarations use only the recorded standard Lean axioms \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}, where required. No admitted proof, custom axiom or native-decision shortcut is used. The receipt records each declaration's actual assumptions and source hash. These checks establish the Lean statements, with the coverage boundaries below, rather than every assertion in the article.
 
-\begin{center}
+\begingroup
 \small
-\begin{tabularx}{\linewidth}{@{}p{.27\linewidth}X@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.27\linewidth}p{\dimexpr.73\linewidth-2\tabcolsep\relax}@{}}
 \toprule
 Article claim & Checked content and remaining boundary\\
 \midrule
+\endhead
 Proposition~\ref{prop:binomial} & The actual ten-sign space has 1,024 elements. The rejection event has 22. Its uniform probability is $11/512$. Fairness and independence of empirical signs remain assumptions.\\
 Proposition~\ref{prop:nonidentification} & Explicit hidden-state marginalisation gives equality for every finite binary string at the two rational parameter pairs, and their finite-history expected activity differs for every positive length. The infinite-process construction and interpretation as labour remain analytical.\\
 Example~\ref{ex:variance} & The actual four-point means, covariances, variances, positivity and decomposition are checked. The designated component has no established causal interpretation.\\
@@ -556,8 +571,8 @@ Proposition~\ref{prop:capped} & A finite weighted tail identity, its geometric-t
 Corollary~\ref{cor:improvements} and Proposition~\ref{prop:detection} & Positive-denominator equivalences, a normalised nonnegative defect/gate table, conditional correctness, rate cancellation and strict detection trade-offs are checked. First-pass composition and empirical adequacy require the stated probabilistic argument.\\
 Propositions~\ref{prop:sampling} and \ref{prop:capacity} & Finite inverse-probability weighting and the capacity-bound algebra are checked. Measurement accuracy, the schedule-to-capacity premises, the DAG recursion and the causal interpretation of \eqref{eq:cluster-ht} remain separate.\\
 \bottomrule
-\end{tabularx}
-\end{center}
+\end{longtable}
+\endgroup
 
 The \texttt{Basic}, \texttt{Binomial} and \texttt{Geometric} modules contain the proofs. The complete inventory and semantic map in the supplement distinguish these statements from deferred conditional-expectation, strong-law, Jensen and restricted-time integral proofs. An analytical proof is not relabelled as machine-checked merely because a related arithmetic lemma compiles. The Python calculations are tested implementations, not formally proved refinements of the Lean definitions.
 

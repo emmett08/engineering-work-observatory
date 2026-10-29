@@ -44,13 +44,28 @@ The paper's proposed pilot has acceptance deadline `tau = 30 days` and retention
 
 * Acceptance is measured from enrolment. Deployment is separate.
 * Retention is assessed at acceptance plus `delta`.
-* Cohort labour in equation (7) is counted until enrolment plus `tau + delta`, including unsuccessful work and attributable repair.
+* Cohort labour is counted until enrolment plus `tau + delta`, including unsuccessful work and attributable repair.
 
 A task accepted on day 2 is assessed for retention on day 32, but its cohort labour remains open through day 60. A task accepted on day 40 receives zero output for the 30-day acceptance deadline while still contributing labour through day 60. An absent retention assessment is unknown; a task whose deadline has not arrived is pending. Abandonment is an observed nonacceptance outcome, whereas loss of observation is censoring.
 
 Human allocations include specification, prompting, implementation, review, testing, integration and repair. One person's simultaneous allocations cannot exceed one. Two people pairing for one hour contribute two person-hours. Agent execution time and charges remain separate. Sampled effort requires the sampling frame, inclusion probability, response status and uncertainty; missing responses and work outside the frame do not become zero labour.
 
 Retained productivity is a ratio of cohort totals, with numerator and denominator reported separately. Missing effort, unknown usage and unavailable follow-up remain visible in coverage and exclusions. A zero aggregate labour denominator leaves the ratio unavailable. CI success and surviving code do not establish complete retained functionality.
+
+Complete direct observations can additionally support deterministic labour bounds
+when a query clips an interval average. Individual interval bounds use the
+person's attention capacity; task/cohort sums are conservative outer bounds
+because shared allocations can couple intervals. They do not turn an unavailable
+exact total into a point observation or a sampled estimate into an exact mass.
+
+`inference` is a separate finite-frame statistical component. Its typed input
+declares frozen predictions, the complete person-interval frame and the sampling
+design. `estimate-labour` wires JSON input to that component without opening the
+evidence store. Signed prediction-error correction and design-specific variance
+remain separate from the nonnegative cohort accounting and its immutable input
+records. General-design point estimation and SRS variance have distinct validation
+contracts; the latter uses the finite-population correction and explicit
+unavailable/census states. See [the estimator contract](design-based-estimation.md).
 
 ## Interpretation and extension
 
