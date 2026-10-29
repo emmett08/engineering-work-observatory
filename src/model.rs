@@ -526,7 +526,8 @@ fn validate_effective_records(records: &[Evidence]) -> Result<()> {
             );
         }
     }
-    // Sweep person intervals: concurrent task/role allocations must remain <= one.
+    // The sum of overlapping interval averages is a conservative admission
+    // screen, not a necessary feasibility condition for arbitrary trajectories.
     let people: BTreeSet<_> = d.effort.iter().map(|(_, e)| &e.person_id).collect();
     for person in people {
         let effort: Vec<_> = d
@@ -542,10 +543,18 @@ fn validate_effective_records(records: &[Evidence]) -> Result<()> {
                 .iter()
                 .filter(|e| e.start < window[1] && e.end > window[0])
                 .collect();
+            let mut observed_allocations = BTreeSet::new();
+            for e in &active {
+                ensure!(
+                    observed_allocations.insert((&e.task_id, &e.role)),
+                    "overlapping effort observations for the same task/person/role: person {person} at {}; supply a common observed partition",
+                    window[0]
+                );
+            }
             let allocation: f64 = active.iter().filter_map(|e| e.allocation_fraction).sum();
             ensure!(
                 allocation <= 1.0 + 1e-10,
-                "overallocated person {person} at {}",
+                "conservative interval-average overlap screen exceeded for person {person} at {}; supply a common observed partition",
                 window[0]
             );
             if active.len() > 1 {

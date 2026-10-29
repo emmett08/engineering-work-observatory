@@ -1,6 +1,6 @@
 # Measurement protocol
 
-This release implements descriptive task accounting from §§3 and 6 of *Human Effort, Delivery Speed and Retained Output in AI-Assisted Software Engineering*. It does not infer human effort from commits, identify a causal AI effect, or forecast staffing. The example records are synthetic.
+This release implements descriptive task accounting from §§3 and 6 of *Human Effort, Delivery Speed and Retained Output in AI-Assisted Software Engineering*, with the declared scope-policy adjustment described below. It does not infer human effort from commits, identify a causal AI effect, or forecast staffing. The example records are synthetic.
 
 ## Freeze before intake
 
@@ -15,6 +15,10 @@ Register every eligible requirement, including postponed or abandoned work. Free
 Include specification, prompting, implementation, review, testing, integration, coordination and repair according to the frozen convention. Record people pseudonymously. Unattended agent execution is separate resource use. Two people pairing for one hour supply two person-hours; one person supervising two agents for an hour cannot supply two human hours.
 
 For direct recording, an interval contributes duration in hours times `allocation_fraction`. The fraction describes average allocation over the recorded interval; it does not assert a constant allocation at every instant. Split observations at the fixed enrolment labour boundary and record each part's observed allocation separately. A direct whole-interval average strictly between zero and one does not identify a partial contribution: the software withholds complete labour, retains contributions from other identified intervals, and reports the unresolved interval. Literal direct averages of zero and one are exceptions: the attention bound identifies zero or full allocation almost everywhere, so their clipped contribution is known. No near-zero or near-one tolerance substitutes for these exact endpoints. Sampled intervals crossing the boundary remain unsupported under the sampling-frame contract. A complete census needs an actual declared frame and sufficiently complete recording, not simply a few intervals. Use `coverage` records for the lifecycle and effort frames. Complete direct coverage with no positive effort attests a measured zero; missing coverage leaves the total unknown.
+
+Supply one allocation observation per task, person and role on each interval cell. Two observations in that same category cannot overlap for a positive duration, even when their interval boundaries differ; touching endpoints are allowed. Different tasks or roles can overlap, subject to the method rules and a conservative screen requiring the sum of overlapping interval averages to be at most one. This is a sufficient input-format restriction, not a diagnosis of actual instantaneous over-allocation: averages over different intervals may fail the screen even when the underlying activity was feasible. Supply a common observed partition to resolve such a rejection; do not invent within-interval allocations.
+
+Complete coverage attestations with the same measurement method may jointly cover an effort interval. Adjacent or overlapping attestations do not split the observation, interpolate its allocation, or change a sampled unit or its inclusion probability. Conflicting partial or missing coverage remains unresolved.
 
 For probability sampling, declare the work frame and randomly selected person-intervals before examining their allocations. A sampled interval contributes:
 
@@ -46,9 +50,13 @@ The suggested pilot uses `acceptance_days=30` and `follow_up_days=30`. Days are 
 
 A day-2 acceptance is assessed on day 32, but labour remains open until day 60. A day-40 acceptance receives zero output for the day-30 deadline while labour still counts through day 60. Follow-up scores must come from one observed primary assessment in `[due, due + assessment_tolerance_days]`; tolerance defaults to zero. Outside-window assessments are retained but do not silently become the target outcome.
 
-For timely acceptance, retained output is frozen score times retained fraction. Late acceptance or permanent abandonment gives zero deadline output. Missing retention for a timely accepted task is unknown. Cohort productivity is `sum(retained_output) / sum(person_hours)`, including unsuccessful work, with positive total labour required. Report both totals, acceptance by deadline and restricted time alongside the ratio. Do not average task-specific ratios.
+For the paper's frozen-requirement endpoint `Q`, timely acceptance gives frozen score times retained fraction. Late acceptance or permanent abandonment gives zero deadline output. Missing retention for a timely accepted task is unknown. The reported `retained_output` also follows the frozen `scope_change_rule`.
 
-Material scope changes follow `scope_change_rule`. The default `exclude_from_output` assigns zero output while retaining labour and leaves original-scope acceptance unresolved. `baseline_only` requires acceptance and follow-up explicitly identifying the original `scope_version`. Neither rule rescales the frozen task score retrospectively.
+The default `exclude_from_output` defines a different, protocol-credited endpoint over the completed observation window: `Q_tilde = 0` if a material scope change occurs by the fixed labour end; otherwise `Q_tilde = Q`. It retains all applicable labour. Thus a scope change after an already completed retention assessment can remove protocol credit without changing what was observed at that earlier assessment. Before the full window ends, current protocol credit can remain provisional even when the retention assessment is complete.
+
+Read `scope_treatment`, `lifecycle_status` and `scope_change_ids` with the reported endpoints. Under exclusion, `accepted_by_deadline` and restricted time are suppressed as `None`, even when first acceptance is known; `accepted_at` preserves that recorded event. The qualified status denotes the scope rule, not evidence that acceptance was unobserved. For the paper's original-scope endpoint, prespecify `baseline_only` and explicitly identify the original `scope_version` in acceptance and follow-up records. Neither rule rescales the frozen score, and the rule must not be changed after inspecting outcomes.
+
+Cohort productivity uses `sum(retained_output) / sum(person_hours)`, including unsuccessful work, with positive total labour required. Its numerator therefore inherits the chosen scope endpoint. Report both totals, the scope qualification, acceptance by deadline and restricted time alongside the ratio. Do not average task-specific ratios.
 
 ## Freeze, inspect and interpret
 

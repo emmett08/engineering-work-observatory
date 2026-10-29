@@ -66,16 +66,8 @@ pub(super) fn account(
             };
             contribution += super::elapsed_hours(left, right) * allocation * weight;
         }
-        // Coverage declares the measurement method for every used interval.
-        if !d.coverage.iter().any(|(_, c)| {
-            c.task_id == *id
-                && c.domain == CoverageDomain::Effort
-                && c.status == CoverageStatus::Complete
-                && c.method == e.method
-                && c.start <= left
-                && c.end >= right
-                && c.end <= as_of
-        }) {
+        // Matching attestations may compose without splitting the observation.
+        if !super::coverage::effort_covered(d, id, &e.method, left, right, as_of) {
             method_matches = false;
         }
     }

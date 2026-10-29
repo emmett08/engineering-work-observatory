@@ -12,6 +12,7 @@ import subprocess
 import sys
 
 from run_benchmarks import HEADER, QS, REPETITIONS, ROOT, SEEDS, read_optional, source_hashes
+from collection_protocol import validate_row
 from summarise_collection import write_summary
 
 SCHEMA = "cohort-horizon.collection/2"
@@ -68,7 +69,7 @@ def build_executable(cargo):
 
 def collector_hashes():
     hashes = source_hashes()
-    for name in ("collect_benchmarks.py", "summarise_collection.py"):
+    for name in ("collect_benchmarks.py", "summarise_collection.py", "collection_protocol.py"):
         hashes[name] = digest(ROOT / name)
     return hashes
 
@@ -97,16 +98,9 @@ def parse_row(line, seed, q, rep, first):
     values = next(csv.reader([line]))
     if len(values) != len(HEADER):
         raise ValueError("Unexpected benchmark result column count")
-    row = dict(zip(HEADER, values))
-    expected = {"seed": seed, "rep": rep, "q": q, "accepted_count": 100_000,
-                "labour_count": 400_000, "delta_hours": 720}
-    if row["first"] != first or any(int(row[key]) != value for key, value in expected.items()):
+    row = validate_row(dict(zip(HEADER, values)))
+    if (row["seed"], row["q"], row["rep"], row["first"]) != (seed, q, rep, first):
         raise ValueError("Benchmark result does not match the requested protocol")
-    for field in ("scan_ns", "index_build_ns", "index_query_ns", "index_drop_ns", "index_total_ns", "checksum"):
-        if int(row[field]) < 0:
-            raise ValueError(f"Negative benchmark value: {field}")
-    if int(row["scan_ns"]) == 0 or int(row["index_total_ns"]) == 0:
-        raise ValueError("Measured batch times must be positive")
     return values
 
 

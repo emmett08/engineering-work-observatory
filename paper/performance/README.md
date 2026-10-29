@@ -95,6 +95,13 @@ workload and paired-run protocol; no new timings are asserted by this collector
 repair. `python3 summarise_collection.py PATH` regenerates summaries for a new
 collection without running measurements.
 
+Both successor entry points validate each row's workload, follow-up, run order
+and timings before summarising. The standalone summariser also requires the
+complete declared set of run keys. Generated summary files replace their directory
+entries atomically, so existing symlinks or hard links cannot redirect a truncating
+write into retained results. This validates the row protocol and output handling;
+it does not independently verify a collection manifest's raw-data hash.
+
 The retained 29 October experiment was collected with `run_benchmarks.py` and
 summarised with `summarise.py`. Those hash-bound source files, all seven recorded
 source hashes, the published 60 pairs, and the figure's input bindings are
