@@ -15,7 +15,7 @@ required by the following manuscript.
 Read the [extended article](ai-assisted-software-engineering.pdf), built from
 [`article/main.tex`](article/main.tex) and
 [`article/references.bib`](article/references.bib). The revised paper centres on
-sharp labour identification from interval observations and bounded attention,
+labour bounds from interval observations and bounded attention,
 an exact finite-cell reduction, and model-assisted design-based estimation.
 A compact marked-history representation preserves the separate acceptance,
 retention and labour horizons. The elementary execution examples and retained

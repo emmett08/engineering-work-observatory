@@ -16,7 +16,7 @@ The [papers and reproducibility files](paper/README.md) include the new
 [automatic forecasting companion](paper/forecasting/automatic-throughput-forecasting.pdf)
 and [three ranked alternatives](paper/review/ranked-automatic-model-alternatives.md).
 They also preserve the original measurement draft, its Lean evidence, and the
-separate article on sharp identification and design-based estimation.
+separate article on labour identification and design-based estimation.
 
 The separate study-accounting path measures human effort, elapsed acceptance
 time and retained requirement output from explicit observations. Repository

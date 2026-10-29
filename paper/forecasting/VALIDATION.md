@@ -85,9 +85,14 @@ is distinguished from the original command-issued example.
 The full `make -C paper check` passes: historical package/hash/receipt checks,
 exact measurement and sharp-identification examples, seven retained kernel tests,
 11 existing Python tests, and the new independent reference checker. No performance
-recollection or new Lean execution was performed. Git comparison against parent
-`87372e5a140dff1df01ba68a25939c60e63031c1` confirms no changes in the original
-83-file package, the existing article/PDF or the performance source/data package.
+recollection or new Lean execution was performed. At forecasting commit `1ef269334c774df4f6e46fe4a5bac52d52420ec3`, comparison
+with parent `87372e5a140dff1df01ba68a25939c60e63031c1` confirmed that the original
+83-file package, existing article/PDF and performance source/data package were
+unchanged. The subsequent wording revision updates both authored papers and
+the caption generator, as requested. Its verification is recorded separately in
+[the two-paper wording review](../review/precise-writing-2026-10-29.md). The original
+17-page manuscript and proof package, measured Rust kernels and retained benchmark
+observations remain unchanged.
 
 The [mesh decision record](../review/mesh-forecasting-2026-10-29/README.md) records
 all 30 directed worker peer edges, the primary-source research and the adverse

@@ -1,5 +1,5 @@
-\subsection{Predeclared public-reference comparison}
-The following values are generated from the fixed 26 chronological targets in \texttt{cpmpy/cpmpy}. MAE uses the predictive median. The empirical percentile range is descriptive; its mean width and observed coverage are reported separately from its requested quantiles.
+\subsection{Predeclared public-repository comparison}
+The following values are generated from the fixed 26 chronological targets in \texttt{cpmpy/cpmpy}. MAE evaluates the predictive median. Width is the difference between the inverse-CDF 90th and 10th percentiles, and coverage is the proportion of observed targets within those inclusive endpoints. The requested percentiles give no guarantee of future coverage.
 \begin{center}
 \small
 \begin{tabular}{@{}lrrrrr@{}}
@@ -14,6 +14,6 @@ Poisson, prior-four mean & 26 & 2.766 & 3.731 & 5.69 & 42.3\% \\
 \bottomrule
 \end{tabular}
 \end{center}
-The recent empirical model's mean RPS is 11.03\% higher than the expanding empirical comparator's on this fixed reference window. This signed result is retained regardless of whether it favours the recent-window model. No dependence-adjusted confidence interval or superiority claim is supplied, and no result is transferred to the user's repositories.
-The recent-window model does not meet the predeclared 5\% distributional-improvement screen on this reference window. Its point-error result cannot override that primary criterion.
+The recent empirical model's mean RPS is 11.03\% higher than the expanding empirical comparator's on this fixed public-repository window. The comparison reports the observed difference without a confidence interval adjusted for dependence. It leaves general superiority and performance in the user's repositories unestablished.
+The recent-window model fails the predeclared requirement of at least 5\% lower mean RPS. Its point-error result leaves that failure unchanged, so the default expanding-history rule is retained.
 The complete report retains target dates, outcomes and paired losses for every method. All results are retrospective reconstructions from the retained visible inventory.

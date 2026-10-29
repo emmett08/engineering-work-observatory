@@ -76,26 +76,26 @@ def user_table(day: dict, week: dict) -> tuple[str, dict]:
     out = [r"\begin{center}", r"\begin{tabular}{@{}llrr@{}}", r"\toprule",
            r"Repository & Created (UTC) & Visible PRs & Merged PRs \\", r"\midrule", *rows,
            r"\bottomrule", r"\end{tabular}", r"\end{center}"]
-    out.append("The table and distribution below are offline reconstructions from a retained visible-inventory snapshot, "
-               "not evidence that a forecast was actually issued at that snapshot's declared cut. "
+    out.append("The table and distribution are reconstructed offline from an earlier retained inventory snapshot. "
+               "They leave issuance at that snapshot's declared cutoff unestablished. "
                "The inventory includes all visible PRs, including merges outside the fitted portfolio period. "
                f"Its conservative complete-through cutoff is {tex(daily['data_cutoff'])}. "
-               f"The last-observed open inventory is {history['current_pressure']['open_pull_requests']}; "
-               "this does not constrain future arrivals.")
+               f"The last-observed open inventory contains {history['current_pressure']['open_pull_requests']} PRs. "
+               "Requests opened during the target can still contribute to its merge count.")
     if daily["distribution"] is not None:
         d = daily["distribution"]
         counts = ", ".join(str(row["count"]) for row in daily["training_bins"])
-        out.append(f"The expanding reference uses {len(daily['training_bins'])} complete daily counts: "
+        out.append(f"The default empirical model uses {len(daily['training_bins'])} complete daily counts: "
                    f"$({counts})$, ordered by date. The replayed prediction for [{daily['target_start'][:10]}, {daily['target_end'][:10]}) UTC "
                    f"has mean {number(d['mean'], 1)}, median {d['median']}, and empirical 10th--90th percentile "
                    f"range {d['quantile_10']}--{d['quantile_90']}. That inclusive range contains "
                    f"{100*d['quantile_range_mass']:.0f}\\% of the reported empirical mass, with no guaranteed future coverage. "
-                   "The target is future relative to the declared snapshot cut; this replay is not a mature forecast score.")
+                   "The target starts after the declared snapshot cutoff. This reconstruction contains no score from a completed target.")
     else:
-        out.append("The daily empirical forecast is unavailable under the declared support rule.")
+        out.append("The daily empirical forecast is unavailable under the declared minimum-history requirement.")
     out.append(f"The weekly report contains {weekly['available_complete_bins']} complete historical weekly bins "
                f"and is {tex(weekly['status'])}. "
-               "These feasibility outputs establish automatic operation, not forecast accuracy.")
+               "These outputs demonstrate automatic collection and calculation. Forecast accuracy remains unvalidated.")
     return "\n".join(out) + "\n", summary
 
 
@@ -120,9 +120,10 @@ def issued_example(path: Path, day: dict) -> tuple[str, dict]:
         r"\path{examples/issued-20261029.json.gz}. "
         f"Its locally declared creation time is {created} UTC, for the target "
         f"[{forecast['target_start'][:10]}, {forecast['target_end'][:10]}) UTC. "
-        "Its source snapshot differs from the replay's, but its same five complete counts produce the same numerical distribution. "
-        "The accompanying score is pending and contains no outcome or loss. This original command receipt is distinct from the "
-        "offline table reconstruction; its timestamps remain declarations rather than independent trusted-time certification.\n"
+        "Its source snapshot differs from the earlier snapshot used for the offline reconstruction. "
+        "Both contain the same five complete daily counts and yield the same numerical distribution. "
+        "The accompanying score is pending and contains no outcome or loss. This bundle retains the original command output "
+        "separately from the offline reconstruction. Its creation and issuance times are locally declared and lack independent certification.\n"
     )
     return paragraph, {"file": path.name, "compressed_sha256": sha256(compressed).hexdigest(),
                         "uncompressed_sha256": sha256(raw).hexdigest(), "created_at": bundle["created_at"],
@@ -136,7 +137,7 @@ def reference_table(report: dict) -> tuple[str, dict]:
     assert report["study_selection"] == "predeclared_trailing_window"
     assert report["requested_history_bins"] == 78 and report["initial_training_bins"] == 52
     if report["status"] != "available":
-        return ("The predeclared public-reference comparison was unavailable; no predictive claim is inferred.\n",
+        return ("The predeclared public-repository comparison was unavailable. Predictive performance remains unassessed in that comparison.\n",
                 {"status": report["status"], "reasons": report["reasons"]})
     assert report["selected_history_bins"] == 78 and report["evaluation_origins"] == 26
     groups = defaultdict(list)
@@ -164,9 +165,11 @@ def reference_table(report: dict) -> tuple[str, dict]:
             assert math.isclose(declared["mean_median_absolute_error"], mae, rel_tol=1e-10, abs_tol=1e-10)
         coverage_text = f"{100*coverage:.1f}\\%" if coverage is not None else "Unavailable"
         table_rows.append(f"{tex(label)} & {n} & {number(rps)} & {number(mae)} & {number(width, 2)} & {coverage_text} \\\\")
-    out = [r"\subsection{Predeclared public-reference comparison}",
+    out = [r"\subsection{Predeclared public-repository comparison}",
            "The following values are generated from the fixed 26 chronological targets in \\texttt{cpmpy/cpmpy}. "
-           "MAE uses the predictive median. The empirical percentile range is descriptive; its mean width and observed coverage are reported separately from its requested quantiles.",
+           "MAE evaluates the predictive median. Width is the difference between the inverse-CDF 90th and 10th percentiles, "
+           "and coverage is the proportion of observed targets within those inclusive endpoints. "
+           "The requested percentiles give no guarantee of future coverage.",
            r"\begin{center}", r"\small", r"\begin{tabular}{@{}lrrrrr@{}}", r"\toprule",
            r"Method & Targets & Mean RPS & MAE & Mean width & Coverage \\", r"\midrule", *table_rows,
            r"\bottomrule", r"\end{tabular}", r"\end{center}"]
@@ -175,12 +178,12 @@ def reference_table(report: dict) -> tuple[str, dict]:
         improvement = 100 * (expanding["mean_rps"] - recent["mean_rps"]) / expanding["mean_rps"]
         direction = "lower" if improvement >= 0 else "higher"
         out.append(f"The recent empirical model's mean RPS is {abs(improvement):.2f}\\% {direction} "
-                   "than the expanding empirical comparator's on this fixed reference window. "
-                   "This signed result is retained regardless of whether it favours the recent-window model. "
-                   "No dependence-adjusted confidence interval or superiority claim is supplied, and no result is transferred to the user's repositories.")
+                   "than the expanding empirical comparator's on this fixed public-repository window. "
+                   "The comparison reports the observed difference without a confidence interval adjusted for dependence. "
+                   "It leaves general superiority and performance in the user's repositories unestablished.")
         if improvement < 5:
-            out.append("The recent-window model does not meet the predeclared 5\\% distributional-improvement screen on this reference window. "
-                       "Its point-error result cannot override that primary criterion.")
+            out.append("The recent-window model fails the predeclared requirement of at least 5\\% lower mean RPS. "
+                       "Its point-error result leaves that failure unchanged, so the default expanding-history rule is retained.")
         summaries["recent_vs_expanding_percent_improvement"] = improvement
     out.append("The complete report retains target dates, outcomes and paired losses for every method. "
                "All results are retrospective reconstructions from the retained visible inventory.")
