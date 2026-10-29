@@ -15,6 +15,11 @@ establish human labour, AI exposure, acceptance, or retained correctness. Those
 outcomes need explicit task records and independently collected measurements.
 There is no automatic causal AI-effect estimator or staffing predictor.
 
+The default scope rule assigns zero protocol credit when scope changes before
+the fixed labour horizon closes. This predeclared penalty is separate from the
+paper's retention endpoint. The [measurement protocol](docs/measurement-protocol.md)
+defines the distinction and the original-scope reporting option.
+
 ## Install and run
 
 Requires Git and Rust 1.99.1; `rust-toolchain.toml` pins compiler, formatter and

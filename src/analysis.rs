@@ -1,4 +1,10 @@
-//! Direct task accounting from PDF equations (4), (6), (7), (9), and (22).
+//! Task accounting based on PDF equations (4), (6), (7), (9), and (22).
+//! The default scope rule adds a separate protocol-credit endpoint: zero if a
+//! material scope change occurs by the fixed labour end, otherwise equation (6).
+//! Before that window closes, credit can remain provisional. Scope-qualified
+//! status fields distinguish this rule from missing acceptance observations;
+//! `accepted_at` retains the recorded event even when derived endpoints are suppressed.
+//! Use predeclared `baseline_only` with original-scope evidence for equation (6).
 //! These descriptive results are not an estimate of a causal AI policy effect.
 use crate::model::*;
 use anyhow::Result;
@@ -87,7 +93,7 @@ mod labour;
 mod outcome;
 
 fn elapsed_hours(start: DateTime<Utc>, end: DateTime<Utc>) -> f64 {
-    (end - start).num_milliseconds() as f64 / 3_600_000.0
+    (end - start).as_seconds_f64() / 3_600.0
 }
 
 /// Analyse only observations available by `as_of`; unknown is never coerced to zero.

@@ -84,7 +84,7 @@ fn late_acceptance_gets_no_deadline_output_but_keeps_labour() {
 }
 
 #[test]
-fn pair_work_adds_both_people_and_overallocation_is_rejected() {
+fn pair_work_adds_both_people_and_excess_interval_average_sums_are_rejected() {
     let mut records = fixture();
     let mut second = records.iter().find(|r| r.id == "hours").unwrap().clone();
     second.id = "reviewer".into();
@@ -100,7 +100,7 @@ fn pair_work_adds_both_people_and_overallocation_is_rejected() {
         validate_records(&records)
             .unwrap_err()
             .to_string()
-            .contains("overallocated")
+            .contains("conservative interval-average overlap screen")
     );
 }
 
@@ -112,6 +112,199 @@ fn missing_effort_coverage_is_not_a_complete_zero_or_total() {
     assert_eq!(report.tasks[0].recorded_person_hours, 1.0);
     assert_eq!(report.tasks[0].person_hours, None);
     assert_eq!(report.cohorts[0].retained_output_per_person_hour, None);
+}
+
+#[test]
+fn same_method_coverage_composes_without_splitting_effort_observations() {
+    for method in ["direct", "sampled"] {
+        let mut records = fixture();
+        let expected = if method == "sampled" { 4.0 } else { 1.0 };
+        let hours = &mut records.iter_mut().find(|r| r.id == "hours").unwrap().data;
+        hours["method"] = json!(method);
+        if method == "sampled" {
+            hours["inclusion_probability"] = json!(0.25);
+        }
+        let coverage = records.iter_mut().find(|r| r.id == "hc").unwrap();
+        coverage.data["method"] = json!(method);
+        let mut later = coverage.clone();
+        later.id = "hc-later".into();
+        coverage.data["end"] = json!("2026-10-01T09:30:00Z");
+        later.data["start"] = json!("2026-10-01T09:30:00Z");
+        records.push(later);
+        let report = analyse(&records, final_cut()).unwrap();
+        assert_eq!(report.tasks[0].person_hours, Some(expected), "{method}");
+        assert_eq!(report.tasks[0].recorded_person_hours, expected, "{method}");
+        assert_eq!(
+            report.tasks[0].sampled_intervals,
+            usize::from(method == "sampled")
+        );
+
+        // A future attestation cannot complete the current knowledge cut.
+        records
+            .iter_mut()
+            .find(|r| r.id == "hc-later")
+            .unwrap()
+            .data["end"] = json!("2026-12-02T00:00:00Z");
+        assert_eq!(
+            analyse(&records, final_cut()).unwrap().tasks[0].person_hours,
+            None
+        );
+    }
+}
+
+#[test]
+fn coverage_union_preserves_gaps_method_matching_and_partial_veto() {
+    for method in ["direct", "sampled"] {
+        let mut records = fixture();
+        let hours = &mut records.iter_mut().find(|r| r.id == "hours").unwrap().data;
+        hours["method"] = json!(method);
+        if method == "sampled" {
+            hours["inclusion_probability"] = json!(0.25);
+        }
+        let coverage = records.iter_mut().find(|r| r.id == "hc").unwrap();
+        coverage.data["method"] = json!(method);
+        let mut later = coverage.clone();
+        later.id = "hc-later".into();
+        coverage.data["end"] = json!("2026-10-01T09:20:00Z");
+        later.data["start"] = json!("2026-10-01T09:40:00Z");
+        records.push(later);
+        assert_eq!(
+            analyse(&records, final_cut()).unwrap().tasks[0].person_hours,
+            None
+        );
+
+        let other_method = if method == "direct" {
+            "sampled"
+        } else {
+            "direct"
+        };
+        records.push(rec(
+            "bridge",
+            "coverage",
+            json!({
+                "task_id":"t", "domain":"effort", "status":"complete",
+                "start":"2026-10-01T09:20:00Z", "end":"2026-10-01T09:40:00Z",
+                "method":other_method
+            }),
+        ));
+        assert_eq!(
+            analyse(&records, final_cut()).unwrap().tasks[0].person_hours,
+            None
+        );
+        records.iter_mut().find(|r| r.id == "bridge").unwrap().data["method"] = json!(method);
+        assert_eq!(
+            analyse(&records, final_cut()).unwrap().tasks[0].person_hours,
+            Some(if method == "sampled" { 4.0 } else { 1.0 })
+        );
+
+        records.push(rec(
+            "partial",
+            "coverage",
+            json!({
+                "task_id":"t", "domain":"effort", "status":"partial",
+                "start":"2026-10-01T09:25:00Z", "end":"2026-10-01T09:35:00Z",
+                "method":"direct", "reason":"Observation gap remains unresolved"
+            }),
+        ));
+        assert_eq!(
+            analyse(&records, final_cut()).unwrap().tasks[0].person_hours,
+            None
+        );
+    }
+}
+
+#[test]
+fn same_category_overlap_is_rejected_but_other_roles_and_touching_intervals_remain_valid() {
+    let mut records = fixture();
+    let hours = records.iter_mut().find(|r| r.id == "hours").unwrap();
+    hours.data["end"] = json!("2026-10-01T11:00:00Z");
+    hours.data["allocation_fraction"] = json!(0.5);
+    let mut overlap = hours.clone();
+    overlap.id = "overlap".into();
+    overlap.data["start"] = json!("2026-10-01T10:00:00Z");
+    overlap.data["end"] = json!("2026-10-01T12:00:00Z");
+    records.push(overlap);
+    assert!(
+        validate_records(&records)
+            .unwrap_err()
+            .to_string()
+            .contains("overlapping effort observations for the same task/person/role")
+    );
+
+    records.last_mut().unwrap().data["role"] = json!("review");
+    assert_eq!(
+        analyse(&records, final_cut()).unwrap().tasks[0].person_hours,
+        Some(2.0)
+    );
+    records.last_mut().unwrap().data["role"] = json!("implementation");
+    records.last_mut().unwrap().data["start"] = json!("2026-10-01T11:00:00Z");
+    records.last_mut().unwrap().data["end"] = json!("2026-10-01T13:00:00Z");
+    assert_eq!(
+        analyse(&records, final_cut()).unwrap().tasks[0].person_hours,
+        Some(2.0)
+    );
+}
+
+#[test]
+fn feasible_unequal_interval_averages_receive_a_conservative_screen_diagnostic() {
+    let mut records = fixture();
+    let mut review = records.iter().find(|r| r.id == "hours").unwrap().clone();
+    review.id = "review".into();
+    review.data["role"] = json!("review");
+    review.data["end"] = json!("2026-10-01T11:00:00Z");
+    review.data["allocation_fraction"] = json!(0.5);
+    records.push(review);
+    let error = validate_records(&records).unwrap_err().to_string();
+    assert!(error.contains("conservative interval-average overlap screen"));
+    assert!(error.contains("common observed partition"));
+    assert!(!error.contains("overallocated"));
+
+    // Separately observed review confined to the second hour identifies the
+    // feasible trajectory; the whole-interval average did not provide that split.
+    records.last_mut().unwrap().data["start"] = json!("2026-10-01T10:00:00Z");
+    records.last_mut().unwrap().data["allocation_fraction"] = json!(1.0);
+    assert_eq!(
+        analyse(&records, final_cut()).unwrap().tasks[0].person_hours,
+        Some(2.0)
+    );
+}
+
+#[test]
+fn different_categories_preserve_direct_sample_and_sampled_unit_constraints() {
+    let mut records = fixture();
+    let hours = records.iter_mut().find(|r| r.id == "hours").unwrap();
+    hours.data["allocation_fraction"] = json!(0.5);
+    let mut review = hours.clone();
+    review.id = "review".into();
+    review.data["role"] = json!("review");
+    review.data["method"] = json!("sampled");
+    review.data["inclusion_probability"] = json!(0.25);
+    records.push(review);
+    assert!(
+        validate_records(&records)
+            .unwrap_err()
+            .to_string()
+            .contains("mixed direct/sample")
+    );
+    let hours = &mut records.iter_mut().find(|r| r.id == "hours").unwrap().data;
+    hours["method"] = json!("sampled");
+    hours["inclusion_probability"] = json!(0.25);
+    validate_records(&records).unwrap();
+    records.last_mut().unwrap().data["end"] = json!("2026-10-01T10:30:00Z");
+    assert!(
+        validate_records(&records)
+            .unwrap_err()
+            .to_string()
+            .contains("overlapping unequal sampled units")
+    );
+    records.last_mut().unwrap().data["end"] = json!("2026-10-01T10:00:00Z");
+    records.last_mut().unwrap().data["inclusion_probability"] = json!(0.5);
+    assert!(
+        validate_records(&records)
+            .unwrap_err()
+            .to_string()
+            .contains("overlapping unequal sampled units")
+    );
 }
 
 #[test]
@@ -222,6 +415,130 @@ fn zero_total_labour_has_no_ratio() {
         report.cohorts[0].ratio_status,
         "unavailable_zero_labour_denominator"
     );
+}
+
+#[test]
+fn boundary_crossing_average_allocation_requires_observed_splits() {
+    for method in ["direct", "sampled"] {
+        let mut records = fixture();
+        if method == "sampled" {
+            let hours = &mut records.iter_mut().find(|r| r.id == "hours").unwrap().data;
+            hours["method"] = json!(method);
+            hours["inclusion_probability"] = json!(1.0);
+            records.iter_mut().find(|r| r.id == "hc").unwrap().data["method"] = json!(method);
+        }
+        let mut crossing = rec(
+            "crossing",
+            "effort",
+            json!({"task_id":"t","person_id":"person-a","role":"repair",
+                "start":"2026-11-29T23:30:00Z","end":"2026-11-30T00:30:00Z",
+                "allocation_fraction":0.5,"method":method}),
+        );
+        if method == "sampled" {
+            crossing.data["inclusion_probability"] = json!(1.0);
+        }
+        records.push(crossing);
+        let report = analyse(&records, final_cut()).unwrap();
+        assert_eq!(report.tasks[0].person_hours, None, "{method}");
+        assert_eq!(report.tasks[0].recorded_person_hours, 1.0, "{method}");
+        assert!(
+            report.tasks[0].issues.iter().any(|issue| {
+                issue.contains("effort interval crosses") && issue.contains("split")
+            })
+        );
+
+        // Separately observed allocations identify the two parts; the whole-hour
+        // average alone could not determine this half-hour of in-horizon work.
+        let before = records.iter_mut().find(|r| r.id == "crossing").unwrap();
+        before.data["end"] = json!("2026-11-30T00:00:00Z");
+        before.data["allocation_fraction"] = json!(1.0);
+        let mut after = before.clone();
+        after.id = "after-boundary".into();
+        after.data["start"] = json!("2026-11-30T00:00:00Z");
+        after.data["end"] = json!("2026-11-30T00:30:00Z");
+        after.data["allocation_fraction"] = json!(0.0);
+        records.push(after);
+        let report = analyse(&records, final_cut()).unwrap();
+        assert_eq!(report.tasks[0].person_hours, Some(1.5), "{method}");
+        assert_eq!(report.tasks[0].recorded_person_hours, 1.5, "{method}");
+    }
+}
+
+#[test]
+fn zero_direct_average_identifies_zero_work_across_the_boundary() {
+    let mut records = fixture();
+    let hours = &mut records.iter_mut().find(|r| r.id == "hours").unwrap().data;
+    hours["start"] = json!("2026-11-29T23:30:00Z");
+    hours["end"] = json!("2026-11-30T00:30:00Z");
+    hours["allocation_fraction"] = json!(0.0);
+    let report = analyse(&records, final_cut()).unwrap();
+    assert_eq!(report.tasks[0].person_hours, Some(0.0));
+    assert_eq!(report.tasks[0].recorded_person_hours, 0.0);
+}
+
+#[test]
+fn full_direct_average_identifies_work_across_the_boundary() {
+    let mut records = fixture();
+    let hours = &mut records.iter_mut().find(|r| r.id == "hours").unwrap().data;
+    hours["start"] = json!("2026-11-29T23:30:00Z");
+    hours["end"] = json!("2026-11-30T00:30:00Z");
+    let report = analyse(&records, final_cut()).unwrap();
+    assert_eq!(report.tasks[0].person_hours, Some(0.5));
+    assert_eq!(report.tasks[0].recorded_person_hours, 0.5);
+}
+
+#[test]
+fn submillisecond_effort_remains_positive_when_subdivided() {
+    let mut records = fixture();
+    let hours = &mut records.iter_mut().find(|r| r.id == "hours").unwrap().data;
+    hours["end"] = json!("2026-10-01T09:00:00.001Z");
+    let whole = analyse(&records, final_cut()).unwrap().tasks[0]
+        .person_hours
+        .unwrap();
+    assert!(whole > 0.0);
+
+    let first = records.iter_mut().find(|r| r.id == "hours").unwrap();
+    first.data["end"] = json!("2026-10-01T09:00:00.0005Z");
+    let mut second = first.clone();
+    second.id = "second-half".into();
+    second.data["start"] = json!("2026-10-01T09:00:00.0005Z");
+    second.data["end"] = json!("2026-10-01T09:00:00.001Z");
+    records.push(second);
+    let report = analyse(&records, final_cut()).unwrap();
+    let split = report.tasks[0].person_hours.unwrap();
+    assert!(split > 0.0);
+    assert!((split - whole).abs() <= whole * 1e-12);
+    assert!(report.cohorts[0].retained_output_per_person_hour.is_some());
+}
+
+#[test]
+fn long_effort_duration_does_not_require_an_i64_nanosecond_count() {
+    let mut records = fixture();
+    for record in &mut records {
+        match record.id.as_str() {
+            "p" => {
+                record.data["frozen_at"] = json!("1599-01-01T00:00:00Z");
+                record.data["acceptance_days"] = json!(200_000);
+            }
+            "t" => {
+                record.data["enrolled_at"] = json!("1600-01-01T00:00:00Z");
+                record.data["score_frozen_at"] = json!("1600-01-01T00:00:00Z");
+            }
+            "accepted" => record.data["occurred_at"] = json!("1600-01-02T00:00:00Z"),
+            "audit" => record.data["assessed_at"] = json!("1600-02-01T00:00:00Z"),
+            "hours" => {
+                record.data["start"] = json!("1600-01-01T00:00:00Z");
+                record.data["end"] = json!("2000-01-01T00:00:00Z");
+            }
+            "lc" | "hc" => {
+                record.data["start"] = json!("1600-01-01T00:00:00Z");
+                record.data["end"] = json!("2300-01-01T00:00:00Z");
+            }
+            _ => {}
+        }
+    }
+    let report = analyse(&records, at("2300-01-01T00:00:00Z")).unwrap();
+    assert_eq!(report.tasks[0].person_hours, Some(146_097.0 * 24.0));
 }
 
 #[test]

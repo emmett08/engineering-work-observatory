@@ -13,6 +13,17 @@ estimate an AI effect, developer productivity, or the accuracy of the underlying
 labour and retained-output measurements. The new algorithms and Rust code are
 outside the original Lean proof receipt's coverage.
 
+The [six-agent review](review/debate-2026-10-29.md) adds explicit sampling-noise
+validation and bounds connecting complete labour bins to continuous accounting.
+These analytical additions are also outside the historical Lean receipt. The
+application now preserves fractional-second effort and withholds ambiguous
+boundary-crossing allocations rather than silently interpolating them.
+
+The subsequent [Astra ultra review](review/astra-ultra-2026-10-29.md) records
+the further observation and summary-validation repairs, followed by three
+whole-paper applications of `write-for-experienced-engineers`. Each editorial
+pass has a separate commit and mathematical/citation fidelity check.
+
 ## Original paper and proof evidence
 
 [`effort-speed-ai/`](effort-speed-ai/) is the complete original package moved from
@@ -68,11 +79,11 @@ are numbered continuously because the article class has no chapter counter.
 Rust and Python requirements and benchmark commands are documented in
 [`performance/README.md`](performance/README.md).
 
-`make check` validates the preserved package and runs the Rust correctness tests.
-`make performance` collects a fresh benchmark; it deliberately refuses to overwrite
-the committed raw measurements, so follow the performance README's archive step
-before repeating it. Figure regeneration and its validation commands are documented
-with the performance figure sources.
+`make check` validates the preserved package, exact measurement examples, Rust
+kernel and successor-collector tests. `make performance` writes a separate fresh
+collection under `reports/performance/<UTC>/` at the repository root. The recorded
+raw measurements remain immutable. The performance README explains how to choose
+another output directory; figure regeneration remains a separate, explicit step.
 
 The recorded comparison used 100,000 acceptance records and 400,000 labour
 contributions. Indexing reduced median total runtime for 1,000 queries from

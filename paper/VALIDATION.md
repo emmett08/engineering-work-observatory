@@ -18,7 +18,7 @@ The original package and the new extension have separate verification boundaries
 
 ## Extended article and algorithms
 
-- `make article` builds 20 pages with pdfLaTeX/BibTeX/latexmk, using TeX Live
+- `make article` builds 22 pages with pdfLaTeX/BibTeX/latexmk, using TeX Live
   2025/dev and the standard `texlive-science` algorithm packages.
 - The final LaTeX log has no undefined references/citations or overfull boxes.
   The bibliography has 12 entries, including the user-supplied Van Der Post book.
@@ -63,3 +63,70 @@ units, captions, clipping and the adverse/mixed results.
 The figure skill's bundled validator/renderer scripts were also unavailable.
 The retained schema checks and local renderer describe their narrower scope
 explicitly; mechanical checks and reviewer judgements remain distinct.
+
+## Debate-driven revision
+
+Six live `gpt-6.1-sol` workers at `max` reasoning effort completed an independent
+review and paired cross-examination. The [decision record](review/debate-2026-10-29.md)
+distinguishes accepted repairs, withdrawn criticisms and optional extensions.
+
+The sampling-validation identities and continuous-bin envelope received a separate
+mathematical review. Exact rational checks cover the noisy-HT counterexample and
+2,304 manufactured allocation/cutoff cases, including positive-denominator ratio
+bounds. These are analytical arguments with finite computational checks; they add
+no Lean declarations or empirical observation evidence.
+
+Five application regressions cover ambiguous average allocations at the labour
+boundary, separately observed splits, exact direct zero/one allocation exceptions,
+submillisecond subdivision, and a long duration. The two original failure cases
+were reproduced before repair. The current point estimate is withheld when an
+interior average does not identify the contribution inside the boundary.
+
+The successor collector has a separate output directory and Cargo-artifact/binary
+binding. Collector tests cover external/cached artifact selection, missing or
+ambiguous executables, immutable-output protection and new-summary isolation.
+The recorded collector, seven measured source hashes, raw measurements and
+published figure bindings remain unchanged; future collections are separate
+experiments. The successor changes support reproduction and make no new runtime
+improvement claim.
+
+The full application gate passes: formatting, Clippy with warnings denied,
+79 tests across all targets, documentation tests, and the release build. The
+paper gate passes its original receipt checks, seven kernel tests, 11 collector
+tests and exact model examples. An actual build with an external
+`CARGO_TARGET_DIR` and explicit native `CARGO_BUILD_TARGET` selected Cargo's
+reported executable; one seed-17, single-query invocation passed protocol-row
+checks. This smoke check is separate from the preserved 60-pair experiment.
+
+The final source passed contribution/scope, mathematical, exposition, attribution
+and rendered-layout review. The 22-page PDF has no unresolved references or
+overfull boxes. New analysis pages and all-page layout were inspected after
+integration. This review is agent screening rather than journal peer review.
+
+## Astra ultra review and three editorial passes
+
+The follow-up used six live `gpt-6-astra` workers with `ultra` reasoning effort,
+independent reviews and three paired debates. Its [decision record](review/astra-ultra-2026-10-29.md)
+separates bounded repairs from optional extensions. New regressions reproduced
+the output-alias, malformed-row, fragmented-coverage and repeated-observation
+failures before repair. Scope-endpoint tests document the existing predeclared
+penalty without changing its numerical behaviour.
+
+`write-for-experienced-engineers` was applied three times to the complete paper.
+Each pass has its own source diff, preserved protected formal blocks, labels,
+citation occurrences and references, and compiled successfully. Independent
+mathematics and evidence reviews accepted the final wording. The final 22-page
+PDF has no undefined references/citations or overfull material, and its extracted
+text matches the inspected final preview.
+
+The local application gate passes formatting, Clippy with warnings denied,
+all 79 tests, documentation tests and release compilation. The paper gate passes
+the seven kernel tests, 11 successor-collector tests and exact model examples,
+including the paired squared-loss checks. All seven measured source hashes,
+retained raw data, figure bindings and historical proof evidence remain intact.
+No performance recollection or Lean execution was performed for these repairs.
+
+A prior macOS CI failure was consistent with an accepted mock socket inheriting
+nonblocking mode. The mock now explicitly uses blocking reads and verifies a
+complete request header before routing. All 12 collector tests pass locally.
+The new macOS workflow run remains the direct platform confirmation.

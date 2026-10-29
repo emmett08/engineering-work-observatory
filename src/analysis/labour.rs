@@ -44,10 +44,16 @@ pub(super) fn account(
         .len();
     let mut contribution = 0.0;
     let mut method_matches = true;
-    let mut sampled_boundary_ok = true;
+    let mut boundary_ok = true;
     for (_, e) in &effort {
-        if e.method == EffortMethod::Sampled && (e.start < task.enrolled_at || e.end > labour_end) {
-            sampled_boundary_ok = false;
+        // An average of exactly zero or one identifies a direct partial integral
+        // under the attention bound. Interior averages do not; sampled intervals
+        // must also stay within the declared sampling frame.
+        let identified_direct = e.method == EffortMethod::Direct
+            && e.allocation_fraction
+                .is_some_and(|allocation| allocation == 0.0 || allocation == 1.0);
+        if (e.start < task.enrolled_at || e.end > labour_end) && !identified_direct {
+            boundary_ok = false;
             continue;
         }
         let left = e.start.max(task.enrolled_at);
@@ -60,16 +66,8 @@ pub(super) fn account(
             };
             contribution += super::elapsed_hours(left, right) * allocation * weight;
         }
-        // Coverage declares the measurement method for every used interval.
-        if !d.coverage.iter().any(|(_, c)| {
-            c.task_id == *id
-                && c.domain == CoverageDomain::Effort
-                && c.status == CoverageStatus::Complete
-                && c.method == e.method
-                && c.start <= left
-                && c.end >= right
-                && c.end <= as_of
-        }) {
+        // Matching attestations may compose without splitting the observation.
+        if !super::coverage::effort_covered(d, id, &e.method, left, right, as_of) {
             method_matches = false;
         }
     }
@@ -83,7 +81,7 @@ pub(super) fn account(
         as_of,
     ) && nonresponse_intervals == 0
         && method_matches
-        && sampled_boundary_ok;
+        && boundary_ok;
     let sampled_frame = d.coverage.iter().any(|(_, c)| {
         c.task_id == *id
             && c.domain == CoverageDomain::Effort
@@ -108,8 +106,8 @@ pub(super) fn account(
     if nonresponse_intervals > 0 {
         issues.push("sample/effort nonresponse is not zero allocation".into());
     }
-    if !sampled_boundary_ok {
-        issues.push("sample interval crosses the cohort horizon; its within-horizon allocation is unmeasured".into());
+    if !boundary_ok {
+        issues.push("effort interval crosses the fixed enrolment labour boundary without an identified within-boundary contribution: supply separately observed split intervals under the declared measurement design".into());
     }
 
     Ok(LabourAccounting {

@@ -74,13 +74,41 @@ Rust 1.85.1 is pinned; the crate has no third-party dependencies. From this dire
 cargo test --locked
 cargo clippy --all-targets -- -D warnings
 cargo fmt --check
-python3 run_benchmarks.py
+python3 -m unittest discover -s tests -v
+python3 collect_benchmarks.py
 ```
 
-The runner refuses to overwrite existing `results/raw.csv`. To collect another
-experiment, first move the existing `results/` directory to an explicitly chosen
-archive path, then run it again. `python3 summarise.py` regenerates summaries and
-the LaTeX table from the retained raw observations without running measurements.
+`collect_benchmarks.py` is the explicitly versioned successor collector
+(`cohort-horizon.collection/2`). It writes a new collection by default under the
+repository's ignored `reports/performance/<UTC>/` directory; choose another new
+directory with `--outputdir PATH`. Existing output directories and the retained
+`results/` directory are refused. The raw observations, environment manifest,
+summary and LaTeX table all stay in the selected new directory.
+
+The successor selects the intended `horizon-bench` executable from Cargo's
+`compiler-artifact` JSON, including a cached artifact. It respects configured
+target directories and target triples, records the selected executable's SHA-256,
+and records its build command, relevant environment overrides and Cargo
+configuration hashes. A stale executable at `target/release/horizon-bench` is not
+selected merely because it exists there. The successor uses the same declared
+workload and paired-run protocol; no new timings are asserted by this collector
+repair. `python3 summarise_collection.py PATH` regenerates summaries for a new
+collection without running measurements.
+
+Both successor entry points validate each row's workload, follow-up, run order
+and timings before summarising. The standalone summariser also requires the
+complete declared set of run keys. Generated summary files replace their directory
+entries atomically, so existing symlinks or hard links cannot redirect a truncating
+write into retained results. This validates the row protocol and output handling;
+it does not independently verify a collection manifest's raw-data hash.
+
+The retained 29 October experiment was collected with `run_benchmarks.py` and
+summarised with `summarise.py`. Those hash-bound source files, all seven recorded
+source hashes, the published 60 pairs, and the figure's input bindings are
+preserved. The old collector's fixed executable path does not support arbitrary
+Cargo target configuration; no such mismatch was found in the retained evidence.
+Future collection uses the successor instead of moving or replacing `results/`.
+`python3 summarise.py` remains the frozen summariser for the retained observations.
 
 The release profile has optimisation level 3, one codegen unit, no LTO, unwinding
 panics and overflow checks enabled. Build, generation, warmup, result comparison

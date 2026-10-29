@@ -53,6 +53,9 @@ impl Server {
             while !stopping.load(Ordering::SeqCst) && Instant::now() < deadline {
                 match listener.accept() {
                     Ok((mut stream, _)) => {
+                        // BSD/macOS may inherit the listener's nonblocking mode.
+                        // Read a complete request before choosing the mock response.
+                        stream.set_nonblocking(false).unwrap();
                         stream
                             .set_read_timeout(Some(Duration::from_secs(2)))
                             .unwrap();
@@ -136,6 +139,10 @@ fn read_request(stream: &mut TcpStream) -> String {
             Err(_) => break,
         }
     }
+    assert!(
+        bytes.windows(4).any(|w| w == b"\r\n\r\n"),
+        "mock received incomplete request headers"
+    );
     String::from_utf8_lossy(&bytes).to_string()
 }
 
