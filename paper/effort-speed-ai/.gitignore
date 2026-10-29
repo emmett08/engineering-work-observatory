@@ -1,0 +1,16 @@
+.build/
+.lake/
+__pycache__/
+*.py[cod]
+
+# Preserve the finite evidence logs required by the accepted proof receipt.
+!formal/evidence/**/*.log
+
+# Standalone script outputs; Make targets put new output under .build/.
+figures/
+figures-v2/*.png
+figures-v2/alternative-*
+figures-v2/inspection/
+figures-v2/manifest.json
+figures-v2/numerical-checks.json
+figures-v2/README.md

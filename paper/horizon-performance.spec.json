@@ -1,0 +1,230 @@
+{
+  "schema_version": "1.0",
+  "figure_id": "horizon-performance",
+  "purpose": {
+    "reader_question": "At which tested query counts does preprocessing repay its cost for repeated cohort-horizon queries?",
+    "expected_reading": "Compare the total elapsed time of repeated scans with an indexed implementation whose total includes construction, queries and disposal; retain the one-query disadvantage.",
+    "claim": "All 15 observed pairs favoured scanning at q=1 and indexing at q=100, the first sampled count with a unanimous indexed advantage; exact break-even is unmeasured.",
+    "scope": "A Rust implementation on generated arrays of 100,000 accepted-output weighted events and 400,000 labour increments, three generator seeds, five fresh-process paired repetitions per seed, and q=1,10,100,1000 in the recorded execution environment. No full task roster or task-to-increment associations are represented.",
+    "permitted_inferences": [
+      "Comparison of observed total machine elapsed times at the four measured query counts.",
+      "The one-query case can lose even when repeated querying benefits from indexing."
+    ],
+    "prohibited_inferences": [
+      "An exact break-even query count between measured settings.",
+      "A confidence interval or a population performance guarantee from observed ranges.",
+      "A measured reduction in human labour, a causal AI-policy effect, or universal software speedup.",
+      "The generated arrays constitute a validated real-world observatory dataset."
+    ]
+  },
+  "inputs": [
+    {
+      "id": "paired-timings",
+      "path": "performance/results/raw.csv",
+      "status": "observed",
+      "source_reference": "Retained machine elapsed timings from paired benchmark repetitions on generated records; generation is separate from timing evidence.",
+      "sha256": "69eebeb08c00b84392c3f2d559d88f70e0cba6de270571835e331ed87c125ef4"
+    },
+    {
+      "id": "derived-values",
+      "path": "performance/figure/horizon-data.csv",
+      "status": "derived",
+      "source_reference": "prepare.py validates complete matched records and calculates medians, minima, maxima and paired ratios without exclusions.",
+      "sha256": "f15baf018488b6873601c329fc036f20ae86fd59ef3dac72ac377e10fe142443"
+    },
+    {
+      "id": "caption",
+      "path": "figures/horizon-performance.caption.tex",
+      "status": "derived",
+      "source_reference": "The proposed caption supplies the workload, run denominator, range meaning and scope restrictions.",
+      "sha256": "98193df78d3a57f64d16f409ef8a73ad26f342d0ad7cb908811b4e629a0fe5f4"
+    }
+  ],
+  "quantities": [
+    {
+      "id": "queries",
+      "label": "Queries over the same cohort",
+      "unit": "queries",
+      "definition": "Number of horizon queries processed within a timed method call.",
+      "input_ids": [
+        "paired-timings"
+      ],
+      "transformation": "Four measured counts: 1,10,100,1000; log10 position, without interpolation claims.",
+      "statistical_role": "parameter",
+      "missingness": {
+        "state": "complete",
+        "treatment": "All four registered settings must be present; other counts are unmeasured."
+      },
+      "uncertainty": {
+        "kind": "not_applicable",
+        "definition": "Query count is set by the benchmark."
+      }
+    },
+    {
+      "id": "scan-time",
+      "label": "Repeated scan elapsed time",
+      "unit": "milliseconds",
+      "definition": "Elapsed time to evaluate all q queries by repeated scans.",
+      "input_ids": [
+        "paired-timings",
+        "derived-values"
+      ],
+      "transformation": "Nanoseconds divided by 1e6; median over the 15 retained seed/repetition observations at each q.",
+      "statistical_role": "estimate",
+      "sample": {
+        "denominator": 15,
+        "unit": "paired fresh-process repetition",
+        "inclusion": "Every retained run: three generator seeds, five repetitions each; no exclusions."
+      },
+      "missingness": {
+        "state": "complete",
+        "treatment": "Validation fails on missing or duplicate seed/repetition/query-count records; no imputation."
+      },
+      "uncertainty": {
+        "kind": "interval",
+        "definition": "Whiskers show the observed minimum and maximum across the 15 repetitions, not a confidence interval.",
+        "method": "Exact min/max of retained times, with no nominal coverage."
+      }
+    },
+    {
+      "id": "indexed-time",
+      "label": "Indexed total elapsed time",
+      "unit": "milliseconds",
+      "definition": "Elapsed time from index construction through q indexed queries and disposal, including timestamp overhead.",
+      "input_ids": [
+        "paired-timings",
+        "derived-values"
+      ],
+      "transformation": "Nanoseconds divided by 1e6; median over the 15 retained seed/repetition observations at each q; total time is independently timed rather than the sum of component medians.",
+      "statistical_role": "estimate",
+      "sample": {
+        "denominator": 15,
+        "unit": "paired fresh-process repetition",
+        "inclusion": "The same 15 pairs as the scan method; one warm-up for each method precedes measurement."
+      },
+      "missingness": {
+        "state": "complete",
+        "treatment": "Every timing must be positive and total must include measured build, query and drop components; no imputation."
+      },
+      "uncertainty": {
+        "kind": "interval",
+        "definition": "Whiskers show the observed minimum and maximum across the 15 repetitions, not a confidence interval.",
+        "method": "Exact min/max of retained times, with no nominal coverage."
+      }
+    }
+  ],
+  "encodings": [
+    {
+      "id": "query-position",
+      "marks": "paired median positions",
+      "mark_role": "data_mark",
+      "channel": "position",
+      "represents": "Number of queries",
+      "interpretation": "quantitative",
+      "quantity_ids": [
+        "queries"
+      ],
+      "scale_or_mapping": {
+        "type": "log",
+        "definition": "Horizontal log10 position at the four timed counts; line segments are visual guides only.",
+        "domain": [
+          1,
+          1000
+        ]
+      }
+    },
+    {
+      "id": "time-position",
+      "marks": "median points and observed-range whiskers",
+      "mark_role": "data_mark",
+      "channel": "position",
+      "represents": "Total elapsed time and retained variation",
+      "interpretation": "quantitative",
+      "quantity_ids": [
+        "scan-time",
+        "indexed-time"
+      ],
+      "scale_or_mapping": {
+        "type": "log",
+        "definition": "Vertical log10 milliseconds, using the same positive domain for both methods.",
+        "domain": [
+          0.7058471,
+          5185.562889
+        ]
+      }
+    },
+    {
+      "id": "method-shape",
+      "marks": "square and diamond data marks",
+      "mark_role": "data_mark",
+      "channel": "shape",
+      "represents": "Implementation identity",
+      "interpretation": "categorical",
+      "quantity_ids": [
+        "scan-time",
+        "indexed-time"
+      ],
+      "scale_or_mapping": {
+        "type": "nominal",
+        "definition": "Dark dashed squares identify repeated scans; teal solid diamonds identify indexing. Direct endpoint labels preserve category identity in greyscale.",
+        "domain": [
+          "scan each query",
+          "build index plus queries"
+        ]
+      }
+    }
+  ],
+  "target": {
+    "width_mm": 152.4,
+    "width_mode": "exact",
+    "width_tolerance_mm": 0.5,
+    "min_text_pt": 8,
+    "min_math_script_pt": 6,
+    "min_stroke_pt": 0.35,
+    "colour_intent": "colour_and_greyscale",
+    "prohibit_block_circle_diagrams": true,
+    "expected_labels": [
+      "Observed machine timings on generated records",
+      "Scan each query",
+      "Total elapsed time"
+    ]
+  },
+  "build": {
+    "renderer": "pgfplots",
+    "engine": "pdflatex",
+    "source": "figures/horizon-performance.tikz.tex",
+    "recipe": [
+      [
+        "python3",
+        "performance/figure/prepare.py"
+      ],
+      [
+        "python3",
+        "performance/figure/render.py",
+        "--source",
+        "figures/horizon-performance.tikz.tex",
+        "--output",
+        "figures/horizon-performance.pdf",
+        "--spec",
+        "horizon-performance.spec.json",
+        "--audit",
+        "performance/figure/horizon-performance.audit.json",
+        "--preview-dir",
+        "/tmp/horizon-performance-preview"
+      ]
+    ],
+    "outputs": {
+      "pdf": "figures/horizon-performance.pdf",
+      "audit": "performance/figure/horizon-performance.audit.json",
+      "review": "performance/figure/horizon-performance.review.json"
+    },
+    "dependencies": [
+      "performance/figure/horizon-data.csv",
+      "performance/figure/horizon-labels.tex",
+      "figures/horizon-performance.caption.tex",
+      "performance/figure/prepare.py",
+      "performance/figure/render.py",
+      "performance/figure/schemas/figure-spec.schema.json"
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+scenario,h,t,H,L,P,V,H_over_H0,L_over_L0
+Human baseline,7,7,140/19,178/19,133/100,931/890,1,1
+AI saves effort and time,7/2,7/2,35/9,53/9,63/25,441/265,19/36,1007/1602
+AI saves effort; slow agent,7/2,19/2,35/9,113/9,63/25,441/565,19/36,2147/1602
+AI shifts work into review,8,8,32/3,38/3,27/32,27/38,152/105,361/267

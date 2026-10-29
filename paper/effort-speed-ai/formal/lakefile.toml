@@ -1,0 +1,11 @@
+name = "FormalVerification"
+version = "0.1.0"
+defaultTargets = ["FormalVerification"]
+
+[[lean_lib]]
+name = "FormalVerification"
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.33.1"

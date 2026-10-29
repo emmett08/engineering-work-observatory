@@ -1,0 +1,128 @@
+{
+  "checks": {
+    "binomial_null_exact": "11/512",
+    "binomial_null_probability": 0.021484375,
+    "iid_second_stage_p_value_only": 5.422940282593876e-08,
+    "hmm_same_event_probability": "1/10",
+    "hmm_occupancy_ratio": "2",
+    "variance_counterexample_r_squared": 0.64,
+    "efficiency_component_variance_fraction": 0.72,
+    "unexplained_fraction": 0.36,
+    "rational_detection_cases": 12,
+    "capped_retry_checks": 25,
+    "formal_proof_status": "Exact arithmetic and analytical derivations; no Lean certificate"
+  },
+  "scenarios": [
+    {
+      "scenario": "Human baseline",
+      "production_h": 6.0,
+      "agent_h_per_attempt": 0.0,
+      "agent_h_total": 0.0,
+      "review_h": 1.0,
+      "pass_probability": 0.95,
+      "retention": 0.98,
+      "queue_h": 2.0,
+      "human_h": 7.36842105263158,
+      "elapsed_h": 9.368421052631579,
+      "retained_reference_units": 9.8,
+      "effort_productivity": 1.33,
+      "serial_delivery_rate": 1.0460674157303371
+    },
+    {
+      "scenario": "AI saves effort and time",
+      "production_h": 2.0,
+      "agent_h_per_attempt": 1.0,
+      "agent_h_total": 1.1111111111111112,
+      "review_h": 1.5,
+      "pass_probability": 0.9,
+      "retention": 0.98,
+      "queue_h": 2.0,
+      "human_h": 3.888888888888889,
+      "elapsed_h": 5.888888888888889,
+      "retained_reference_units": 9.8,
+      "effort_productivity": 2.52,
+      "serial_delivery_rate": 1.6641509433962265
+    },
+    {
+      "scenario": "AI saves effort; slow agent",
+      "production_h": 2.0,
+      "agent_h_per_attempt": 8.0,
+      "agent_h_total": 8.88888888888889,
+      "review_h": 1.5,
+      "pass_probability": 0.9,
+      "retention": 0.98,
+      "queue_h": 2.0,
+      "human_h": 3.888888888888889,
+      "elapsed_h": 12.555555555555555,
+      "retained_reference_units": 9.8,
+      "effort_productivity": 2.52,
+      "serial_delivery_rate": 0.7805309734513275
+    },
+    {
+      "scenario": "AI shifts work into review",
+      "production_h": 1.0,
+      "agent_h_per_attempt": 0.5,
+      "agent_h_total": 0.6666666666666666,
+      "review_h": 7.0,
+      "pass_probability": 0.75,
+      "retention": 0.9,
+      "queue_h": 2.0,
+      "human_h": 10.666666666666666,
+      "elapsed_h": 12.666666666666666,
+      "retained_reference_units": 9.0,
+      "effort_productivity": 0.84375,
+      "serial_delivery_rate": 0.7105263157894737
+    }
+  ],
+  "scaling": [
+    {
+      "n": 1000,
+      "p": 12,
+      "seconds": {
+        "assembly": 0.00022720299602951854,
+        "calibration": 0.0003142040004604496,
+        "prediction": 7.711001671850681e-06,
+        "uncertainty": 0.000340472994139418,
+        "decision_scan": 2.530900383135304e-05
+      },
+      "peak_rss_mb": 127.6640625,
+      "condition_R": 1.2128211311951322,
+      "normal_equation_relative_residual": 1.030823855557422e-15,
+      "max_coefficient_error": 0.013668572071785734,
+      "status": "Synthetic complete uncensored data only; intervals assume iid homoscedastic Gaussian errors; no causal interpretation"
+    },
+    {
+      "n": 10000,
+      "p": 12,
+      "seconds": {
+        "assembly": 0.0015839189945836551,
+        "calibration": 0.003442321001784876,
+        "prediction": 4.14120004279539e-05,
+        "uncertainty": 0.002345868000702467,
+        "decision_scan": 0.00012279500515433028
+      },
+      "peak_rss_mb": 130.7890625,
+      "condition_R": 1.0581224175540902,
+      "normal_equation_relative_residual": 2.736905452281588e-15,
+      "max_coefficient_error": 0.004960931313964856,
+      "status": "Synthetic complete uncensored data only; intervals assume iid homoscedastic Gaussian errors; no causal interpretation"
+    },
+    {
+      "n": 100000,
+      "p": 12,
+      "seconds": {
+        "assembly": 0.01811667999572819,
+        "calibration": 0.03241126599459676,
+        "prediction": 0.000912326002435293,
+        "uncertainty": 0.02414764500281308,
+        "decision_scan": 0.0017531530029373243
+      },
+      "peak_rss_mb": 176.390625,
+      "condition_R": 1.019650735450332,
+      "normal_equation_relative_residual": 5.493862772605241e-16,
+      "max_coefficient_error": 0.0016943441690368405,
+      "status": "Synthetic complete uncensored data only; intervals assume iid homoscedastic Gaussian errors; no causal interpretation"
+    }
+  ],
+  "total_seconds": 0.6528543530002935
+}

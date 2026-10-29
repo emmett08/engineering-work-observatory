@@ -1,0 +1,21 @@
+{
+  "command": [
+    "cc",
+    "-shared",
+    "-fPIC",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-o",
+    "/workspace/scratch/bd1495d37cdb/effort-speed/refinement/checker-evidence/clean-proof-checkout/independent-lean-proc-self-shim.so",
+    "/root/.codex/skills/remote-skills/skill-6a8ab9805f208191b937124f10036be4/scripts/lean_proc_self_shim.c",
+    "-ldl"
+  ],
+  "exit_status": 0,
+  "source_sha256": "aeecbaaaa7e4379db8fbf70be1ec3f2220f412fe72888b0c85b2f13876d0060c",
+  "installed_sha256": "2aa4b1de6171bb5b94f322d68454bce9067bdbc2ffb416ab181a177d51535815",
+  "rebuilt_sha256": "2aa4b1de6171bb5b94f322d68454bce9067bdbc2ffb416ab181a177d51535815",
+  "byte_identical": true,
+  "review": "Only readlink is interposed; exact /proc/current-pid/exe path is redirected to /proc/self/exe. All other paths delegate unchanged."
+}

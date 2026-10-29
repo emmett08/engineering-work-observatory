@@ -1,0 +1,56 @@
+{
+  "audit_kind": "project-local bounded mechanical checks",
+  "limitation": "The skill's bundled figure_spec.py/render_tikz.py/figure_review.py were unavailable. This script does not claim their full validation coverage.",
+  "source": "figures/horizon-performance.tikz.tex",
+  "source_sha256": "54cdabde4146d1e35ecdf2db7062cdcdf05fb730c9c20101855119a1056023f2",
+  "pdf": "figures/horizon-performance.pdf",
+  "pdf_sha256": "de26f596057b7d02c282fd2e1766784e4dba0c475f21d77c2ec0d3a65e7d68b0",
+  "spec_sha256": "a2fb4c121749ebd07e99608614558e1c2ae5dede8cb3da4c649002d3bb606d8d",
+  "engine": "pdflatex",
+  "python": "3.12.14",
+  "width_mm": 152.39999999999998,
+  "height_mm": 85.00004425048827,
+  "min_text_pt": 7.999987800717354,
+  "min_stroke_pt": 0.39999437045305963,
+  "fonts": [
+    "LMSans10-Bold",
+    "LMSans8-Regular"
+  ],
+  "raster_images": 0,
+  "inputs": [
+    {
+      "path": "figures/horizon-performance.caption.tex",
+      "sha256": "98193df78d3a57f64d16f409ef8a73ad26f342d0ad7cb908811b4e629a0fe5f4"
+    },
+    {
+      "path": "performance/figure/horizon-data.csv",
+      "sha256": "f15baf018488b6873601c329fc036f20ae86fd59ef3dac72ac377e10fe142443"
+    },
+    {
+      "path": "performance/figure/horizon-labels.tex",
+      "sha256": "eeedff3305f2f0bd78d0b8b95458a8e6a9689d9a01c5a72583a948b558c218a2"
+    },
+    {
+      "path": "performance/figure/prepare.py",
+      "sha256": "228f5141f824b8a26babe6a71db9a5ea72205f49dca93d9486a9392a0223cfdc"
+    },
+    {
+      "path": "performance/figure/render.py",
+      "sha256": "c2adad2d00cc58e4c8755ae1535ad9d0066d24df036b7b0bfca2a67e747a7aa3"
+    },
+    {
+      "path": "performance/figure/schemas/figure-spec.schema.json",
+      "sha256": "87b1768675d089de8673a9eca9cae658acec525621260c4d5cb89c4f01778371"
+    },
+    {
+      "path": "performance/results/raw.csv",
+      "sha256": "69eebeb08c00b84392c3f2d559d88f70e0cba6de270571835e331ed87c125ef4"
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "typesetting_warnings": [
+    "Package shellesc Warning: Shell escape disabled on input line 73."
+  ],
+  "semantic_review_required": true
+}

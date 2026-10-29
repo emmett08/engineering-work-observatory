@@ -1,0 +1,8 @@
+✔ [1777/1781] Built FormalVerification.Geometric (2.9s)
+⚠ [1778/1781] Built FormalVerification.Basic (3.9s)
+warning: FormalVerification/Basic.lean:70:35: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [1779/1781] Built FormalVerification.Binomial (7.4s)
+✔ [1780/1781] Built FormalVerification (1.5s)
+Build completed successfully (1781 jobs).

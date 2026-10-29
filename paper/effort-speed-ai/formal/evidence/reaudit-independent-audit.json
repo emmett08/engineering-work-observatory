@@ -1,0 +1,2063 @@
+{
+  "status": "CHECKED_WITH_DECLARED_AXIOMS",
+  "failures": [],
+  "source_commit": "c73b34f71f3ef21e99c1972b68f8536b4fc452f0",
+  "bundle_head": "8aab59bf36a502f0e2f54476f5eb8e192e9e350b",
+  "bundle_sha256": "60de68d2b645008e3d83f4923ed9f25f5a4204cdb8ff81abcacb324e8ea79c6e",
+  "input_receipt_sha256": "fb87f05def0e181eb8ce9497eb2b1e7933d5f0151149c00b92249ec85d6ef283",
+  "frozen_source_sha256": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+  "source_scan": [
+    {
+      "path": "FormalVerification/Basic.lean",
+      "sha256": "9ed87d5b98347cfa76cab41e3d5d612cf64618a20f36a6809e5140abd772396f",
+      "escape_hits": []
+    },
+    {
+      "path": "FormalVerification/Binomial.lean",
+      "sha256": "10af804447043c06e1d96cfee0f40ae4daf81a794c4db1d8df889944e0a65b81",
+      "escape_hits": []
+    },
+    {
+      "path": "FormalVerification/Geometric.lean",
+      "sha256": "427dafee2984400e151a53a8bf36a9dafaa7d7e8ac4d453f5956e2f0f94f4cac",
+      "escape_hits": []
+    }
+  ],
+  "inventory_count": 54,
+  "dispositions": {
+    "FORMALISE_NOW": 14,
+    "NOT_REQUIRED": 11,
+    "DEFERRED_DEPENDENCY": 22,
+    "EMPIRICAL_CONTEXTUAL": 7
+  },
+  "export_count": 43,
+  "axioms": {
+    "EffortSpeed.binomial_correction": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.four_point_normalized": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.covariance_counterexample": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.counterexample_positive_and_decomposed": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.marginal_emission": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.observed_law_factorization": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.observed_law_equal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.history_mass_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.history_expectation_nonnegative": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.nonidentification_parameters_valid": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.expected_count_offset": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.latent_effort_mean": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.latent_effort_unequal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.sampling_unbiased_finite": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.capacity_lower_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.ratio_improves_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.productivity_improves_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.retry_reversal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.min_eq_tail": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.finite_tail_sum": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.capped_tail_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.capped_tail_closed_form": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.capped_expectation_of_tails": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.capped_zero_probability": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.capped_zero_cap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.capped_one_probability": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.detection_table": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.detection_joint_nonnegative": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.detection_conditional_correct": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.detection_pass_positive": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.detection_correct_rate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.detection_tradeoff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.zero_defect_no_detection_effect": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.sign_space_cardinality": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.sign_event_cardinality": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.sign_rejection_probability": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.retry_mass": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.retry_first_moment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.retry_labour_moment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.retry_elapsed_moment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.retry_second_moment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.retry_central_second_moment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "EffortSpeed.retry_labour_variance": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "hash_records": [
+    {
+      "locator": "root.inventory",
+      "path": "claim-inventory.json",
+      "expected": "fd173bec894081202c55182cefe27b8b4e6c99ace45dad0236169cb456339068",
+      "actual": "fd173bec894081202c55182cefe27b8b4e6c99ace45dad0236169cb456339068"
+    },
+    {
+      "locator": "root.canonical_textual_include_graph[0]",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.canonical_textual_include_graph[1]",
+      "path": "manuscript/references.bib",
+      "expected": "c4341f69def5d25ba414797eda6dff7cd079ff1e0194ff2c0b95e569eadd6fc2",
+      "actual": "c4341f69def5d25ba414797eda6dff7cd079ff1e0194ff2c0b95e569eadd6fc2"
+    },
+    {
+      "locator": "root.canonical_textual_include_graph[2]",
+      "path": "manuscript/inherited.md",
+      "expected": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602",
+      "actual": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602"
+    },
+    {
+      "locator": "root.formal_sources[0]",
+      "path": "FormalVerification/Basic.lean",
+      "expected": "9ed87d5b98347cfa76cab41e3d5d612cf64618a20f36a6809e5140abd772396f",
+      "actual": "9ed87d5b98347cfa76cab41e3d5d612cf64618a20f36a6809e5140abd772396f"
+    },
+    {
+      "locator": "root.formal_sources[1]",
+      "path": "FormalVerification/Binomial.lean",
+      "expected": "10af804447043c06e1d96cfee0f40ae4daf81a794c4db1d8df889944e0a65b81",
+      "actual": "10af804447043c06e1d96cfee0f40ae4daf81a794c4db1d8df889944e0a65b81"
+    },
+    {
+      "locator": "root.formal_sources[2]",
+      "path": "FormalVerification/Geometric.lean",
+      "expected": "427dafee2984400e151a53a8bf36a9dafaa7d7e8ac4d453f5956e2f0f94f4cac",
+      "actual": "427dafee2984400e151a53a8bf36a9dafaa7d7e8ac4d453f5956e2f0f94f4cac"
+    },
+    {
+      "locator": "root.formal_sources[3]",
+      "path": "FormalVerification.lean",
+      "expected": "fdb55f0d9aa4c380cde1665e66efd5a1e79feb9a2f2a349a5875d04f4eaa0763",
+      "actual": "fdb55f0d9aa4c380cde1665e66efd5a1e79feb9a2f2a349a5875d04f4eaa0763"
+    },
+    {
+      "locator": "root.formal_sources[4]",
+      "path": "AxiomAudit.lean",
+      "expected": "6e368a3bff8356d335ffb17103c62d6a3accc3936629c292a71071436b0fe965",
+      "actual": "6e368a3bff8356d335ffb17103c62d6a3accc3936629c292a71071436b0fe965"
+    },
+    {
+      "locator": "root.results[0].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[0].semantic_concordance.mapping",
+      "path": "evidence/independent-concordance.md",
+      "expected": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5",
+      "actual": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5"
+    },
+    {
+      "locator": "root.results[0].checks[0]",
+      "path": "evidence/final-replay/lake-build.log",
+      "expected": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474",
+      "actual": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474"
+    },
+    {
+      "locator": "root.results[0].checks[1]",
+      "path": "evidence/final-replay/axioms.log",
+      "expected": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22",
+      "actual": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+    },
+    {
+      "locator": "root.results[0].checks[2]",
+      "path": "evidence/independent-lake-build.log",
+      "expected": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073",
+      "actual": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073"
+    },
+    {
+      "locator": "root.results[0].checks[3]",
+      "path": "evidence/independent-types-and-axioms.log",
+      "expected": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665",
+      "actual": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+    },
+    {
+      "locator": "root.results[1].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[1].algorithm.implementation_sources[0]",
+      "path": "reference/simulate.py",
+      "expected": "2813db229bcf382271d57bac5ace7e1ae054f4abbccb602a9afa2ea52cb74d36",
+      "actual": "2813db229bcf382271d57bac5ace7e1ae054f4abbccb602a9afa2ea52cb74d36"
+    },
+    {
+      "locator": "root.results[1].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[1].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[1].checks[1]",
+      "path": "evidence/python-reference.log",
+      "expected": "f98f912d2a7c48839fbfd500b56be2167660a7bea8a68677824b6b8917fedbcc",
+      "actual": "f98f912d2a7c48839fbfd500b56be2167660a7bea8a68677824b6b8917fedbcc"
+    },
+    {
+      "locator": "root.results[2].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[2].semantic_concordance.mapping",
+      "path": "evidence/independent-concordance.md",
+      "expected": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5",
+      "actual": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5"
+    },
+    {
+      "locator": "root.results[2].checks[0]",
+      "path": "evidence/final-replay/lake-build.log",
+      "expected": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474",
+      "actual": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474"
+    },
+    {
+      "locator": "root.results[2].checks[1]",
+      "path": "evidence/final-replay/axioms.log",
+      "expected": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22",
+      "actual": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+    },
+    {
+      "locator": "root.results[2].checks[2]",
+      "path": "evidence/independent-lake-build.log",
+      "expected": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073",
+      "actual": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073"
+    },
+    {
+      "locator": "root.results[2].checks[3]",
+      "path": "evidence/independent-types-and-axioms.log",
+      "expected": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665",
+      "actual": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+    },
+    {
+      "locator": "root.results[3].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[3].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[3].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[4].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[4].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[4].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[5].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[5].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[5].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[6].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[6].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[6].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[7].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[7].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[7].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[8].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[8].semantic_concordance.mapping",
+      "path": "evidence/independent-concordance.md",
+      "expected": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5",
+      "actual": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5"
+    },
+    {
+      "locator": "root.results[8].checks[0]",
+      "path": "evidence/final-replay/lake-build.log",
+      "expected": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474",
+      "actual": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474"
+    },
+    {
+      "locator": "root.results[8].checks[1]",
+      "path": "evidence/final-replay/axioms.log",
+      "expected": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22",
+      "actual": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+    },
+    {
+      "locator": "root.results[8].checks[2]",
+      "path": "evidence/independent-lake-build.log",
+      "expected": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073",
+      "actual": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073"
+    },
+    {
+      "locator": "root.results[8].checks[3]",
+      "path": "evidence/independent-types-and-axioms.log",
+      "expected": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665",
+      "actual": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+    },
+    {
+      "locator": "root.results[9].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[9].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[9].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[10].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[10].semantic_concordance.mapping",
+      "path": "evidence/independent-concordance.md",
+      "expected": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5",
+      "actual": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5"
+    },
+    {
+      "locator": "root.results[10].checks[0]",
+      "path": "evidence/final-replay/lake-build.log",
+      "expected": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474",
+      "actual": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474"
+    },
+    {
+      "locator": "root.results[10].checks[1]",
+      "path": "evidence/final-replay/axioms.log",
+      "expected": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22",
+      "actual": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+    },
+    {
+      "locator": "root.results[10].checks[2]",
+      "path": "evidence/independent-lake-build.log",
+      "expected": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073",
+      "actual": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073"
+    },
+    {
+      "locator": "root.results[10].checks[3]",
+      "path": "evidence/independent-types-and-axioms.log",
+      "expected": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665",
+      "actual": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+    },
+    {
+      "locator": "root.results[11].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[11].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[11].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[12].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[12].semantic_concordance.mapping",
+      "path": "evidence/independent-concordance.md",
+      "expected": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5",
+      "actual": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5"
+    },
+    {
+      "locator": "root.results[12].checks[0]",
+      "path": "evidence/final-replay/lake-build.log",
+      "expected": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474",
+      "actual": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474"
+    },
+    {
+      "locator": "root.results[12].checks[1]",
+      "path": "evidence/final-replay/axioms.log",
+      "expected": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22",
+      "actual": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+    },
+    {
+      "locator": "root.results[12].checks[2]",
+      "path": "evidence/independent-lake-build.log",
+      "expected": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073",
+      "actual": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073"
+    },
+    {
+      "locator": "root.results[12].checks[3]",
+      "path": "evidence/independent-types-and-axioms.log",
+      "expected": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665",
+      "actual": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+    },
+    {
+      "locator": "root.results[13].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[13].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[13].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[14].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[14].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[14].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[15].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[15].semantic_concordance.mapping",
+      "path": "evidence/independent-concordance.md",
+      "expected": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5",
+      "actual": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5"
+    },
+    {
+      "locator": "root.results[15].checks[0]",
+      "path": "evidence/final-replay/lake-build.log",
+      "expected": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474",
+      "actual": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474"
+    },
+    {
+      "locator": "root.results[15].checks[1]",
+      "path": "evidence/final-replay/axioms.log",
+      "expected": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22",
+      "actual": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+    },
+    {
+      "locator": "root.results[15].checks[2]",
+      "path": "evidence/independent-lake-build.log",
+      "expected": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073",
+      "actual": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073"
+    },
+    {
+      "locator": "root.results[15].checks[3]",
+      "path": "evidence/independent-types-and-axioms.log",
+      "expected": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665",
+      "actual": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+    },
+    {
+      "locator": "root.results[16].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[16].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[16].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[17].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[17].semantic_concordance.mapping",
+      "path": "evidence/independent-concordance.md",
+      "expected": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5",
+      "actual": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5"
+    },
+    {
+      "locator": "root.results[17].checks[0]",
+      "path": "evidence/final-replay/lake-build.log",
+      "expected": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474",
+      "actual": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474"
+    },
+    {
+      "locator": "root.results[17].checks[1]",
+      "path": "evidence/final-replay/axioms.log",
+      "expected": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22",
+      "actual": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+    },
+    {
+      "locator": "root.results[17].checks[2]",
+      "path": "evidence/independent-lake-build.log",
+      "expected": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073",
+      "actual": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073"
+    },
+    {
+      "locator": "root.results[17].checks[3]",
+      "path": "evidence/independent-types-and-axioms.log",
+      "expected": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665",
+      "actual": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+    },
+    {
+      "locator": "root.results[18].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[18].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[18].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[19].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[19].semantic_concordance.mapping",
+      "path": "evidence/independent-concordance.md",
+      "expected": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5",
+      "actual": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5"
+    },
+    {
+      "locator": "root.results[19].checks[0]",
+      "path": "evidence/final-replay/lake-build.log",
+      "expected": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474",
+      "actual": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474"
+    },
+    {
+      "locator": "root.results[19].checks[1]",
+      "path": "evidence/final-replay/axioms.log",
+      "expected": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22",
+      "actual": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+    },
+    {
+      "locator": "root.results[19].checks[2]",
+      "path": "evidence/independent-lake-build.log",
+      "expected": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073",
+      "actual": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073"
+    },
+    {
+      "locator": "root.results[19].checks[3]",
+      "path": "evidence/independent-types-and-axioms.log",
+      "expected": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665",
+      "actual": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+    },
+    {
+      "locator": "root.results[20].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[20].semantic_concordance.mapping",
+      "path": "evidence/independent-concordance.md",
+      "expected": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5",
+      "actual": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5"
+    },
+    {
+      "locator": "root.results[20].checks[0]",
+      "path": "evidence/final-replay/lake-build.log",
+      "expected": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474",
+      "actual": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474"
+    },
+    {
+      "locator": "root.results[20].checks[1]",
+      "path": "evidence/final-replay/axioms.log",
+      "expected": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22",
+      "actual": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+    },
+    {
+      "locator": "root.results[20].checks[2]",
+      "path": "evidence/independent-lake-build.log",
+      "expected": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073",
+      "actual": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073"
+    },
+    {
+      "locator": "root.results[20].checks[3]",
+      "path": "evidence/independent-types-and-axioms.log",
+      "expected": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665",
+      "actual": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+    },
+    {
+      "locator": "root.results[21].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[21].semantic_concordance.mapping",
+      "path": "evidence/independent-concordance.md",
+      "expected": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5",
+      "actual": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5"
+    },
+    {
+      "locator": "root.results[21].checks[0]",
+      "path": "evidence/final-replay/lake-build.log",
+      "expected": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474",
+      "actual": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474"
+    },
+    {
+      "locator": "root.results[21].checks[1]",
+      "path": "evidence/final-replay/axioms.log",
+      "expected": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22",
+      "actual": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+    },
+    {
+      "locator": "root.results[21].checks[2]",
+      "path": "evidence/independent-lake-build.log",
+      "expected": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073",
+      "actual": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073"
+    },
+    {
+      "locator": "root.results[21].checks[3]",
+      "path": "evidence/independent-types-and-axioms.log",
+      "expected": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665",
+      "actual": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+    },
+    {
+      "locator": "root.results[22].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[22].semantic_concordance.mapping",
+      "path": "evidence/independent-concordance.md",
+      "expected": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5",
+      "actual": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5"
+    },
+    {
+      "locator": "root.results[22].checks[0]",
+      "path": "evidence/final-replay/lake-build.log",
+      "expected": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474",
+      "actual": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474"
+    },
+    {
+      "locator": "root.results[22].checks[1]",
+      "path": "evidence/final-replay/axioms.log",
+      "expected": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22",
+      "actual": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+    },
+    {
+      "locator": "root.results[22].checks[2]",
+      "path": "evidence/independent-lake-build.log",
+      "expected": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073",
+      "actual": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073"
+    },
+    {
+      "locator": "root.results[22].checks[3]",
+      "path": "evidence/independent-types-and-axioms.log",
+      "expected": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665",
+      "actual": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+    },
+    {
+      "locator": "root.results[23].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[23].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[23].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[24].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[24].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[24].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[25].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[25].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[25].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[26].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[26].semantic_concordance.mapping",
+      "path": "evidence/independent-concordance.md",
+      "expected": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5",
+      "actual": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5"
+    },
+    {
+      "locator": "root.results[26].checks[0]",
+      "path": "evidence/final-replay/lake-build.log",
+      "expected": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474",
+      "actual": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474"
+    },
+    {
+      "locator": "root.results[26].checks[1]",
+      "path": "evidence/final-replay/axioms.log",
+      "expected": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22",
+      "actual": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+    },
+    {
+      "locator": "root.results[26].checks[2]",
+      "path": "evidence/independent-lake-build.log",
+      "expected": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073",
+      "actual": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073"
+    },
+    {
+      "locator": "root.results[26].checks[3]",
+      "path": "evidence/independent-types-and-axioms.log",
+      "expected": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665",
+      "actual": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+    },
+    {
+      "locator": "root.results[27].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[27].semantic_concordance.mapping",
+      "path": "evidence/independent-concordance.md",
+      "expected": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5",
+      "actual": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5"
+    },
+    {
+      "locator": "root.results[27].checks[0]",
+      "path": "evidence/final-replay/lake-build.log",
+      "expected": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474",
+      "actual": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474"
+    },
+    {
+      "locator": "root.results[27].checks[1]",
+      "path": "evidence/final-replay/axioms.log",
+      "expected": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22",
+      "actual": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+    },
+    {
+      "locator": "root.results[27].checks[2]",
+      "path": "evidence/independent-lake-build.log",
+      "expected": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073",
+      "actual": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073"
+    },
+    {
+      "locator": "root.results[27].checks[3]",
+      "path": "evidence/independent-types-and-axioms.log",
+      "expected": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665",
+      "actual": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+    },
+    {
+      "locator": "root.results[28].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[28].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[28].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[29].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[29].algorithm.implementation_sources[0]",
+      "path": "reference/simulate.py",
+      "expected": "2813db229bcf382271d57bac5ace7e1ae054f4abbccb602a9afa2ea52cb74d36",
+      "actual": "2813db229bcf382271d57bac5ace7e1ae054f4abbccb602a9afa2ea52cb74d36"
+    },
+    {
+      "locator": "root.results[29].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[29].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[29].checks[1]",
+      "path": "evidence/python-reference.log",
+      "expected": "f98f912d2a7c48839fbfd500b56be2167660a7bea8a68677824b6b8917fedbcc",
+      "actual": "f98f912d2a7c48839fbfd500b56be2167660a7bea8a68677824b6b8917fedbcc"
+    },
+    {
+      "locator": "root.results[30].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[30].algorithm.implementation_sources[0]",
+      "path": "reference/simulate.py",
+      "expected": "2813db229bcf382271d57bac5ace7e1ae054f4abbccb602a9afa2ea52cb74d36",
+      "actual": "2813db229bcf382271d57bac5ace7e1ae054f4abbccb602a9afa2ea52cb74d36"
+    },
+    {
+      "locator": "root.results[30].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[30].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[30].checks[1]",
+      "path": "evidence/python-reference.log",
+      "expected": "f98f912d2a7c48839fbfd500b56be2167660a7bea8a68677824b6b8917fedbcc",
+      "actual": "f98f912d2a7c48839fbfd500b56be2167660a7bea8a68677824b6b8917fedbcc"
+    },
+    {
+      "locator": "root.results[31].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[31].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[31].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[32].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[32].algorithm.implementation_sources[0]",
+      "path": "reference/simulate.py",
+      "expected": "2813db229bcf382271d57bac5ace7e1ae054f4abbccb602a9afa2ea52cb74d36",
+      "actual": "2813db229bcf382271d57bac5ace7e1ae054f4abbccb602a9afa2ea52cb74d36"
+    },
+    {
+      "locator": "root.results[32].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[32].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[32].checks[1]",
+      "path": "evidence/python-reference.log",
+      "expected": "f98f912d2a7c48839fbfd500b56be2167660a7bea8a68677824b6b8917fedbcc",
+      "actual": "f98f912d2a7c48839fbfd500b56be2167660a7bea8a68677824b6b8917fedbcc"
+    },
+    {
+      "locator": "root.results[33].source",
+      "path": "manuscript/inherited.md",
+      "expected": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602",
+      "actual": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602"
+    },
+    {
+      "locator": "root.results[33].algorithm.implementation_sources[0]",
+      "path": "reference/simulate.py",
+      "expected": "2813db229bcf382271d57bac5ace7e1ae054f4abbccb602a9afa2ea52cb74d36",
+      "actual": "2813db229bcf382271d57bac5ace7e1ae054f4abbccb602a9afa2ea52cb74d36"
+    },
+    {
+      "locator": "root.results[33].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[33].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[33].checks[1]",
+      "path": "evidence/python-reference.log",
+      "expected": "f98f912d2a7c48839fbfd500b56be2167660a7bea8a68677824b6b8917fedbcc",
+      "actual": "f98f912d2a7c48839fbfd500b56be2167660a7bea8a68677824b6b8917fedbcc"
+    },
+    {
+      "locator": "root.results[34].source",
+      "path": "manuscript/inherited.md",
+      "expected": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602",
+      "actual": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602"
+    },
+    {
+      "locator": "root.results[34].algorithm.implementation_sources[0]",
+      "path": "reference/simulate.py",
+      "expected": "2813db229bcf382271d57bac5ace7e1ae054f4abbccb602a9afa2ea52cb74d36",
+      "actual": "2813db229bcf382271d57bac5ace7e1ae054f4abbccb602a9afa2ea52cb74d36"
+    },
+    {
+      "locator": "root.results[34].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[34].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[34].checks[1]",
+      "path": "evidence/python-reference.log",
+      "expected": "f98f912d2a7c48839fbfd500b56be2167660a7bea8a68677824b6b8917fedbcc",
+      "actual": "f98f912d2a7c48839fbfd500b56be2167660a7bea8a68677824b6b8917fedbcc"
+    },
+    {
+      "locator": "root.results[35].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[35].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[35].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[36].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[36].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[36].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[37].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[37].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[37].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[38].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[38].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[38].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[39].source",
+      "path": "manuscript/inherited.md",
+      "expected": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602",
+      "actual": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602"
+    },
+    {
+      "locator": "root.results[39].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[39].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[40].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[40].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[40].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[41].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[41].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[41].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[42].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[42].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[42].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[43].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[43].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[43].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[44].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[44].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[44].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[45].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[45].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[45].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[46].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[46].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[46].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[47].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[47].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[47].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[48].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[48].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[48].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[49].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[49].semantic_concordance.mapping",
+      "path": "evidence/independent-concordance.md",
+      "expected": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5",
+      "actual": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5"
+    },
+    {
+      "locator": "root.results[49].checks[0]",
+      "path": "evidence/final-replay/lake-build.log",
+      "expected": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474",
+      "actual": "9ef438ce5a592f7eed152dc49a0eba3f52885e2e0e7995818684a284aed3e474"
+    },
+    {
+      "locator": "root.results[49].checks[1]",
+      "path": "evidence/final-replay/axioms.log",
+      "expected": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22",
+      "actual": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+    },
+    {
+      "locator": "root.results[49].checks[2]",
+      "path": "evidence/independent-lake-build.log",
+      "expected": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073",
+      "actual": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073"
+    },
+    {
+      "locator": "root.results[49].checks[3]",
+      "path": "evidence/independent-types-and-axioms.log",
+      "expected": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665",
+      "actual": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+    },
+    {
+      "locator": "root.results[50].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[50].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[50].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[51].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[51].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[51].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[52].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[52].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[52].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.results[53].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "root.results[53].semantic_concordance.mapping",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.results[53].checks[0]",
+      "path": "evidence/inventory-check.log",
+      "expected": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1",
+      "actual": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+    },
+    {
+      "locator": "root.semantic_map",
+      "path": "semantic-map.md",
+      "expected": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37",
+      "actual": "3d1e36eb8926ac202f71af2a4e374ab47dcf20b9e3e145c42028afd45d322d37"
+    },
+    {
+      "locator": "root.independent_concordance",
+      "path": "evidence/independent-concordance.md",
+      "expected": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5",
+      "actual": "91dbcb4d5c7e2274fe3ae31b77e25c6e1ea619d66b5b80897a832b6a5a453db5"
+    },
+    {
+      "locator": "root.trust_boundary.launcher_sources[0]",
+      "path": "scripts/lean_tool_launcher.sh",
+      "expected": "d36a58ad49d1c7c6c66eacb6ddaebc300768ff35410d9cab0994d4d793536e85",
+      "actual": "d36a58ad49d1c7c6c66eacb6ddaebc300768ff35410d9cab0994d4d793536e85"
+    },
+    {
+      "locator": "root.trust_boundary.launcher_sources[1]",
+      "path": "scripts/lean_proc_self_shim.c",
+      "expected": "aeecbaaaa7e4379db8fbf70be1ec3f2220f412fe72888b0c85b2f13876d0060c",
+      "actual": "aeecbaaaa7e4379db8fbf70be1ec3f2220f412fe72888b0c85b2f13876d0060c"
+    },
+    {
+      "locator": "root.trust_boundary.shim_audit",
+      "path": "evidence/independent-shim-audit.json",
+      "expected": "dd96a8c2e92bdb0cb8ef32e8f73dffb080988873a72a06355a3571240fc78c66",
+      "actual": "dd96a8c2e92bdb0cb8ef32e8f73dffb080988873a72a06355a3571240fc78c66"
+    },
+    {
+      "locator": "root.additional_evidence[0]",
+      "path": "evidence/final-replay/replay.json",
+      "expected": "a2a2599cedf55e83a7dc2f0b30560bde9c1517768a8f8bee4a83b47af92e120d",
+      "actual": "a2a2599cedf55e83a7dc2f0b30560bde9c1517768a8f8bee4a83b47af92e120d"
+    },
+    {
+      "locator": "root.additional_evidence[1]",
+      "path": "evidence/independent-proof-snapshot.json",
+      "expected": "8783d8c625ff9b671e012a0e779f59f77309d19d1615cf6f029358b235901f51",
+      "actual": "8783d8c625ff9b671e012a0e779f59f77309d19d1615cf6f029358b235901f51"
+    },
+    {
+      "locator": "root.additional_evidence[2]",
+      "path": "evidence/independent-boundary-checks.json",
+      "expected": "31b93dd600570794c60beeaee37a948ae86a2c1e578e09e95bd3003d397004f6",
+      "actual": "31b93dd600570794c60beeaee37a948ae86a2c1e578e09e95bd3003d397004f6"
+    },
+    {
+      "locator": "root.additional_evidence[3]",
+      "path": "evidence/independent-source-scan.json",
+      "expected": "54e1d9f3bd7c549440be39eba9ec77d28f41362103ee6b10e4ef15a307fbe8e9",
+      "actual": "54e1d9f3bd7c549440be39eba9ec77d28f41362103ee6b10e4ef15a307fbe8e9"
+    },
+    {
+      "locator": "root.additional_evidence[4]",
+      "path": "evidence/independent-dependencies.json",
+      "expected": "1206f8a5affeb82a7b33741b7b43ab3b9c381579a37b224f6b994af99c0cd60a",
+      "actual": "1206f8a5affeb82a7b33741b7b43ab3b9c381579a37b224f6b994af99c0cd60a"
+    },
+    {
+      "locator": "root.additional_evidence[5]",
+      "path": "provenance.md",
+      "expected": "3eff0ed00ac47d625b7ace827897b4dd2c1e8776d73a919bfb008b8500868670",
+      "actual": "3eff0ed00ac47d625b7ace827897b4dd2c1e8776d73a919bfb008b8500868670"
+    },
+    {
+      "locator": "inventory.source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[0].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[1].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[2].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[3].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[4].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[5].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[6].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[7].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[8].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[9].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[10].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[11].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[12].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[13].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[14].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[15].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[16].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[17].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[18].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[19].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[20].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[21].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[22].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[23].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[24].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[25].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[26].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[27].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[28].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[29].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[30].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[31].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[32].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[33].source",
+      "path": "manuscript/inherited.md",
+      "expected": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602",
+      "actual": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602"
+    },
+    {
+      "locator": "inventory.results[34].source",
+      "path": "manuscript/inherited.md",
+      "expected": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602",
+      "actual": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602"
+    },
+    {
+      "locator": "inventory.results[35].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[36].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[37].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[38].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[39].source",
+      "path": "manuscript/inherited.md",
+      "expected": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602",
+      "actual": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602"
+    },
+    {
+      "locator": "inventory.results[40].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[41].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[42].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[43].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[44].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[45].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[46].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[47].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[48].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[49].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[50].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[51].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[52].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    },
+    {
+      "locator": "inventory.results[53].source",
+      "path": "manuscript/main.tex",
+      "expected": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121",
+      "actual": "14dd169381ca7f45cde73be7a07cc924f802f41fcfa5fe3c9a6938825ffda121"
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "mathlib",
+      "expected": "0df444a360eaa60ab8c11dca51a86af692955474",
+      "actual": "0df444a360eaa60ab8c11dca51a86af692955474",
+      "status": ""
+    },
+    {
+      "name": "plausible",
+      "expected": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+      "actual": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+      "status": ""
+    },
+    {
+      "name": "LeanSearchClient",
+      "expected": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+      "actual": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+      "status": ""
+    },
+    {
+      "name": "importGraph",
+      "expected": "16f02aa7642864af59f1ff0e384a015994db9118",
+      "actual": "16f02aa7642864af59f1ff0e384a015994db9118",
+      "status": ""
+    },
+    {
+      "name": "proofwidgets",
+      "expected": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+      "actual": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+      "status": ""
+    },
+    {
+      "name": "aesop",
+      "expected": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+      "actual": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+      "status": ""
+    },
+    {
+      "name": "Qq",
+      "expected": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+      "actual": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+      "status": ""
+    },
+    {
+      "name": "batteries",
+      "expected": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+      "actual": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+      "status": ""
+    },
+    {
+      "name": "Cli",
+      "expected": "6130a47896ce867c6a4a55373441e59e565bad0f",
+      "actual": "6130a47896ce867c6a4a55373441e59e565bad0f",
+      "status": ""
+    }
+  ],
+  "shim_rebuild_byte_identical": true,
+  "boundary": "Cached pinned dependencies were reused. Project proof modules were freshly built. Python benchmark was not rerun; its status remains TESTED_ONLY. No empirical validation or TheorySynthesis claim.",
+  "resolved_audit_attempts": [
+    {
+      "failure": "runtime shim binary differs from prescribed source build",
+      "reason": "Reviewer first omitted bootstrap -O2 flags. Rebuilding with exact prescribed flags produces byte-identical binary. This was an audit-command mismatch, not a source defect."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "IndependentBoundaryTests.lean"
+    ],
+    "exit_status": 0,
+    "expected_exit_status": 0,
+    "seconds": 2.7358860969543457,
+    "output_path": "evidence/independent-boundaries.log",
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_sha256": "bb981140e8904ad9108b4efc94b6caa5e0effaf4cb71ae1c3f98605064375c53"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "IndependentRejectedStatement.lean"
+    ],
+    "exit_status": 1,
+    "expected_exit_status": 1,
+    "seconds": 2.468079090118408,
+    "output_path": "evidence/independent-rejected-statement.log",
+    "output_sha256": "371356d4f03a506ab6954804eed0f2e427aaac5c4d8838b56342ac34965c96ca",
+    "source_sha256": "340dcc0712fb17f87b83dd67980fe045bd2c572c6a596356bee5e6e10546dac4"
+  }
+]

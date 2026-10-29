@@ -1,0 +1,838 @@
+{
+  "schema": "claim-inventory/1.0",
+  "source": {
+    "path": "manuscript/main.tex",
+    "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631"
+  },
+  "include_graph": [
+    "manuscript/main.tex",
+    "manuscript/references.bib",
+    "manuscript/inherited.md"
+  ],
+  "scope": "Every material mathematical, numerical, algorithmic or empirical claim of the frozen final article plus explicitly marked retained historical provenance. Final graphical assets are in the article deliverable; this repository stores the exact textual/bibliographic source snapshot for concordance and does not claim to build the article PDF.",
+  "results": [
+    {
+      "result_id": "prop:binomial",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "statement": "Uniform length-ten Boolean signs: 22/1024 reject, probability11/512.",
+      "declarations": [
+        "EffortSpeed.sign_space_cardinality",
+        "EffortSpeed.sign_event_cardinality",
+        "EffortSpeed.sign_rejection_probability",
+        "EffortSpeed.binomial_correction"
+      ],
+      "scope_boundary": "Independence and fairness of empirical signs remain external.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "labels prop:binomial and eq:binomial; app:coverage limits checking to the finite uniform model"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "calc:second-binomial",
+      "classification": "NUMERICAL_APPROXIMATE",
+      "disposition": "NOT_REQUIRED",
+      "statement": "Conditional Binomial(300,11/512) tail approximation.",
+      "declarations": [],
+      "scope_boundary": "Existing Python arithmetic TESTED_ONLY; null applicability not proved.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "app:audit paragraph beginning The stated probability in Section III.B"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "ex:variance",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "statement": "Four-point positive counterexample computes covariance and variance from explicit uniform weights.",
+      "declarations": [
+        "EffortSpeed.four_point_normalized",
+        "EffortSpeed.covariance_counterexample",
+        "EffortSpeed.counterexample_positive_and_decomposed"
+      ],
+      "scope_boundary": "Variance ratio is not a causal variance share.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "labels ex:variance and eq:variance; finite moment computation in its proof"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "rem:correlation-calibration",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "Positive scaling preserves correlation despite scale miscalibration.",
+      "declarations": [],
+      "scope_boundary": "Analytical illustration; no Lean declaration.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "app:audit paragraph beginning Consequently, the residual fraction"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "def:labour-accounting",
+      "classification": "PURE_THEOREM",
+      "disposition": "NOT_REQUIRED",
+      "statement": "Allocation fractions, all-role person-hour integrals and capacities are accounting definitions.",
+      "declarations": [],
+      "scope_boundary": "",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:labour and surrounding units paragraph"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "emp:measurement",
+      "classification": "EMPIRICAL_CONTEXTUAL",
+      "disposition": "EMPIRICAL_CONTEXTUAL",
+      "statement": "Labour ascertainment, external calibration and quality assessment require empirical validation; reactive audit exposure requires an appropriate design and assumptions.",
+      "declarations": [],
+      "scope_boundary": "No company data; EMPIRICAL_BOUNDARY.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:accounting paragraphs following eq:labour, eq:reference and prop:sampling; sec:study labour and quality measurement paragraphs"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "def:reference-retention",
+      "classification": "PURE_THEOREM",
+      "disposition": "NOT_REQUIRED",
+      "statement": "Fixed score, retained output Q, cohort labour productivity and calendar throughput definitions.",
+      "declarations": [],
+      "scope_boundary": "",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "labels eq:reference, eq:retention, eq:cohort-productivity and eq:calendar-throughput"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "rem:score-nonadditivity",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "A nonlinear score need not be additive across split changes.",
+      "declarations": [],
+      "scope_boundary": "Elementary existence observation; no Lean declaration.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:accounting paragraph beginning For a fixed-scope causal comparison"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "prop:sampling:finite",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "statement": "Finite expectation of inverse-inclusion estimator equals finite true total given each inclusion moment.",
+      "declarations": [
+        "EffortSpeed.sampling_unbiased_finite"
+      ],
+      "scope_boundary": "General finite weights; actual probability/indicator hypotheses imply its premises. No independence required.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "labels prop:sampling and eq:ht; app:coverage finite weighting row"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "prop:sampling:general",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "Measure-theoretic expectation version and sampling variance.",
+      "declarations": [],
+      "scope_boundary": "Finite expectation theorem only; arbitrary measurable spaces and design variance not mechanised.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "proof of prop:sampling; subsequent sampling-design variance paragraph"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "prop:nonidentification",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "statement": "Recursive hidden/emission marginalisation gives identical probability for every observed finite Boolean word; active expectation differs for every positive length.",
+      "declarations": [
+        "EffortSpeed.marginal_emission",
+        "EffortSpeed.observed_law_factorization",
+        "EffortSpeed.observed_law_equal",
+        "EffortSpeed.history_mass_one",
+        "EffortSpeed.history_expectation_nonnegative",
+        "EffortSpeed.nonidentification_parameters_valid",
+        "EffortSpeed.expected_count_offset",
+        "EffortSpeed.latent_effort_mean",
+        "EffortSpeed.latent_effort_unequal"
+      ],
+      "scope_boundary": "Finite cylinder laws of independent-state subfamily; no infinite-process construction or generic HMM claim.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "labels prop:nonidentification, eq:event-law and eq:activity-total; app:coverage restricts formal result to all finite words"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "prop:consistency",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "Tower property for nested information sets; constant p=q cannot certify truth.",
+      "declarations": [],
+      "scope_boundary": "Conditional-expectation library formalisation deferred; analytical proof retained.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "labels prop:consistency and eq:tower"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "prop:capacity:algebra",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "statement": "Integrated resource bounds and path lower bound imply maximum lower bound.",
+      "declarations": [
+        "EffortSpeed.capacity_lower_bound"
+      ],
+      "scope_boundary": "Does not construct a DAG, schedule, capacity integral, or earliest-finish algorithm.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:capacity and proof of prop:capacity; app:coverage identifies algebra-only result"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "prop:capacity:scheduling",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "DAG path lower bound, capacity integrals, unlimited-resource earliest-finish result.",
+      "declarations": [],
+      "scope_boundary": "Analytical scheduling argument only.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label prop:capacity and its topological-order proof"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "def:parallel-attempt",
+      "classification": "PURE_THEOREM",
+      "disposition": "NOT_REQUIRED",
+      "statement": "h=c_h+v and t=max(c_h,g)+v define stipulated independent-branch scenario.",
+      "declarations": [],
+      "scope_boundary": "",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:parallel and independent-branch description"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "prop:retry:series",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "statement": "Convergent geometric weighted series give normalization and first moments.",
+      "declarations": [
+        "EffortSpeed.retry_mass",
+        "EffortSpeed.retry_first_moment",
+        "EffortSpeed.retry_labour_moment",
+        "EffortSpeed.retry_elapsed_moment"
+      ],
+      "scope_boundary": "HasSum proves actual infinite-series convergence and values; no construction of iid attempts or measure-space expectation.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:retry; app:coverage weighted-series scope"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "prop:retry:law",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "IID Bernoulli attempts yield geometric waiting-time law and its expectation.",
+      "declarations": [],
+      "scope_boundary": "Stochastic process construction and expectation translation not mechanised.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label prop:retry and its IID-attempt interpretation"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "prop:retry:variance-series",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "statement": "Geometric weighted second and central second moments, including deterministic-cost scaling.",
+      "declarations": [
+        "EffortSpeed.retry_second_moment",
+        "EffortSpeed.retry_central_second_moment",
+        "EffortSpeed.retry_labour_variance"
+      ],
+      "scope_boundary": "Actual HasSum result; interpretation as stochastic variance requires the separately stated geometric probability law.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:retry variance term; app:coverage weighted-moment scope"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "prop:retry:renewal",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "IID finite task-cycle tuples yield reward/resource long-run ratio by strong law.",
+      "declarations": [],
+      "scope_boundary": "SLLN and renewal-reward convergence not mechanised; equal means/independence alone do not suffice.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:cycle-rates and strong-law paragraph in proof of prop:retry"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "cor:improvements",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "statement": "Positive-denominator iff conditions for labour/intrinsic-time and retained productivity improvements.",
+      "declarations": [
+        "EffortSpeed.ratio_improves_iff",
+        "EffortSpeed.productivity_improves_iff"
+      ],
+      "scope_boundary": "Generic cost h also instantiated as t. Productivity additionally S>0 and r0>0; unequal waiting requires separate comparison.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "labels cor:improvements, eq:improvements and eq:productivity-improvement"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "ex:retry-reversal",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "statement": "Half per-attempt effort can increase expected-total-cost formula.",
+      "declarations": [
+        "EffortSpeed.retry_reversal"
+      ],
+      "scope_boundary": "Hypothetical rational parameters; stochastic interpretation from stated model.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label ex:retry-reversal"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "prop:capped:tail",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "statement": "Pointwise finite tail identity and its weighted expectation for finite probability spaces.",
+      "declarations": [
+        "EffortSpeed.min_eq_tail",
+        "EffortSpeed.finite_tail_sum",
+        "EffortSpeed.capped_expectation_of_tails"
+      ],
+      "scope_boundary": "Geometric survival probabilities are explicit hypotheses, not deduced from an IID sample-space construction.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:cap and tail-sum proof; app:coverage finite weighted scope"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "prop:capped:polynomial",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "statement": "Finite geometric polynomial identity, quotient for p\u22600, and p0/K0/p1 endpoints.",
+      "declarations": [
+        "EffortSpeed.capped_tail_identity",
+        "EffortSpeed.capped_tail_closed_form",
+        "EffortSpeed.capped_zero_probability",
+        "EffortSpeed.capped_zero_cap",
+        "EffortSpeed.capped_one_probability"
+      ],
+      "scope_boundary": "Total polynomial defines p0 extension; Lean total division at zero is never substituted for the extension.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:cap and following boundary paragraph beginning At $p=0$"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "prop:capped:probability",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "Acceptance probability qK=1-(1-p)^K follows from K independent failures.",
+      "declarations": [],
+      "scope_boundary": "Independence-to-tail probability connection not mechanised.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label prop:capped and complement-of-failures argument"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "prop:capped:reward",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "Mean reward S*r_K*q_K and positive-cap reward/labour ratio S*r_K*p/h, with conditional r_K only where q_K>0.",
+      "declarations": [],
+      "scope_boundary": "Need r_K, or accepted quality independent of attempt count to reuse uncapped r; at impossible acceptance reward directly0.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "prop:capped final sentence and paragraph after proof with S^0 r_K p/h"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "rem:heterogeneity",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "Jensen reciprocal bound for positive random P, fixed nonnegative h and finite expectations.",
+      "declarations": [],
+      "scope_boundary": "No unrestricted extension to correlated h(P); measure-theoretic Jensen not mechanised.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "labels rem:heterogeneity and eq:heterogeneity"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "prop:detection:table",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "statement": "Finite nonnegative normalized defect/pass table and conditional correctness ratio.",
+      "declarations": [
+        "EffortSpeed.detection_table",
+        "EffortSpeed.detection_joint_nonnegative",
+        "EffortSpeed.detection_conditional_correct",
+        "EffortSpeed.detection_pass_positive"
+      ],
+      "scope_boundary": "No false positives encoded in joint table; empirical table assumptions unverified.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:detection and first two sentences of proof of prop:detection; app:coverage finite-table qualification"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "prop:detection:rates",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "statement": "Correct-rate cancellation, strict recorded-rate/conditional-correctness tradeoff, d0 boundary.",
+      "declarations": [
+        "EffortSpeed.detection_correct_rate",
+        "EffortSpeed.detection_tradeoff",
+        "EffortSpeed.zero_defect_no_detection_effect"
+      ],
+      "scope_boundary": "Fixed time, score and defect rate; repeated stopping composition and long-run rates remain analytical.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:detection-rates and strict sensitivity sentence of prop:detection; app:coverage rate-algebra qualification"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "prop:detection:stopping",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "IID retries preserve final accepted composition and yield rate interpretation.",
+      "declarations": [],
+      "scope_boundary": "Infinite stopping process and renewal step not mechanised.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "proof of prop:detection: Summing over the number of earlier rejected attempts"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "calc:scenarios",
+      "classification": "NUMERICAL_APPROXIMATE",
+      "disposition": "NOT_REQUIRED",
+      "statement": "Four synthetic workflow values and plots.",
+      "declarations": [],
+      "scope_boundary": "Python TESTED_ONLY; no semantics/refinement proof.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label tab:scenarios; labels fig:scenarios and fig:detection"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "calc:simulation",
+      "classification": "NUMERICAL_APPROXIMATE",
+      "disposition": "NOT_REQUIRED",
+      "statement": "Geometric Monte Carlo checks and empirical errors.",
+      "declarations": [],
+      "scope_boundary": "TESTED_ONLY; simulations do not prove propositions.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:detection paragraph beginning The executable supplement checks"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "thm:chebyshev",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "Variance of an IID sample mean is variance/n; ten analytic standard errors give conservative99% per-mean Chebyshev bound, including p1 deterministic case.",
+      "declarations": [],
+      "scope_boundary": "Not joint simultaneous guarantee; analytical cited identity.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:mc-bound and immediately following Chebyshev explanation"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "calc:regression",
+      "classification": "NUMERICAL_APPROXIMATE",
+      "disposition": "NOT_REQUIRED",
+      "statement": "QR OLS fit, fitted log-mean uncertainty and pointwise screen.",
+      "declarations": [],
+      "scope_boundary": "TESTED_ONLY; no code refinement or numerical error certification.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "app:coverage paragraph beginning The supplement retains the earlier generic numerical regression benchmark"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "alg:complexity",
+      "classification": "PURE_THEOREM",
+      "disposition": "NOT_REQUIRED",
+      "statement": "Scenario, simulation, QR, prediction and uncertainty operation bounds.",
+      "declarations": [],
+      "scope_boundary": "Algorithmic analysis only; no source semantics, worst-case runtime or complexity proof.",
+      "source": {
+        "path": "manuscript/inherited.md",
+        "sha256": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602",
+        "statement_locator": "HISTORICAL:manuscript/inherited.md section 7 algorithm-and-bound table; not asserted as a result in final article"
+      },
+      "active_in_final_article": false
+    },
+    {
+      "result_id": "calc:runtime",
+      "classification": "EMPIRICAL_CONTEXTUAL",
+      "disposition": "NOT_REQUIRED",
+      "statement": "Recorded shared-host time, memory, conditioning and residual checks.",
+      "declarations": [],
+      "scope_boundary": "Observed benchmark, not universal guarantee.",
+      "source": {
+        "path": "manuscript/inherited.md",
+        "sha256": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602",
+        "statement_locator": "HISTORICAL:manuscript/inherited.md section 7 host/runtime paragraphs; final app:coverage says no performance result is used"
+      },
+      "active_in_final_article": false
+    },
+    {
+      "result_id": "prop:restricted-time",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "Expected min(T,tau) equals integral of nonacceptance survival, including T=infinity.",
+      "declarations": [],
+      "scope_boundary": "Tonelli/integral-expectation proof not mechanised.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "labels prop:restricted-time and eq:restricted-time"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "emp:censoring",
+      "classification": "EMPIRICAL_CONTEXTUAL",
+      "disposition": "EMPIRICAL_CONTEXTUAL",
+      "statement": "Survival/cumulative-incidence inference requires the specified censoring and abandonment assumptions, including observation support through the target horizon in relevant at-risk strata.",
+      "declarations": [],
+      "scope_boundary": "EMPIRICAL_BOUNDARY; no supplied company data.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:study paragraphs following prop:restricted-time on administrative censoring and abandonment"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "thm:log-retransformation",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "Exponentiating mean log labour does not directly give arithmetic mean labour; retransformation depends on residual distribution.",
+      "declarations": [],
+      "scope_boundary": "Analytical statistical distinction, not mechanised.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:study paragraph beginning Start prediction with direct accounting"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "thm:joint-outcomes",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "Marginals do not generally identify joint budget/deadline probability.",
+      "declarations": [],
+      "scope_boundary": "No coupling counterexample encoded in Lean.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:study prediction paragraph: marginal effort and time predictions do not determine the probability"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "def:att",
+      "classification": "PURE_THEOREM",
+      "disposition": "NOT_REQUIRED",
+      "statement": "ATT(g,t) potential-outcome target is a definition.",
+      "declarations": [],
+      "scope_boundary": "",
+      "source": {
+        "path": "manuscript/inherited.md",
+        "sha256": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602",
+        "statement_locator": "HISTORICAL:manuscript/inherited.md equation (16); final sec:study cites cohort-specific estimands without reproducing this definition"
+      },
+      "active_in_final_article": false
+    },
+    {
+      "result_id": "emp:causal-identification",
+      "classification": "EMPIRICAL_CONTEXTUAL",
+      "disposition": "EMPIRICAL_CONTEXTUAL",
+      "statement": "Randomisation, specified policy duration and assessment regime, parallel trends, no anticipation, overlap, spillovers, assignment versus usage.",
+      "declarations": [],
+      "scope_boundary": "EMPIRICAL_BOUNDARY; no causal effect identified by formal mathematics.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:study bounded prospective protocol and paragraph beginning Randomisation can support a causal policy contrast"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "emp:external-studies",
+      "classification": "EMPIRICAL_CONTEXTUAL",
+      "disposition": "EMPIRICAL_CONTEXTUAL",
+      "statement": "Published effects, Standard Coder reporting audit and transportability.",
+      "declarations": [],
+      "scope_boundary": "Source audit, not Lean verification or reproduced experiments.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:introduction study-endpoint paragraph and app:audit reporting paragraphs"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "emp:decision",
+      "classification": "EMPIRICAL_CONTEXTUAL",
+      "disposition": "EMPIRICAL_CONTEXTUAL",
+      "statement": "Policy preference, quality margins and measurement robustness.",
+      "declarations": [],
+      "scope_boundary": "Decision authority and empirical model adequacy remain external.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:study paragraph beginning Before examining outcomes"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "ex:capped-retention",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "IID pass indicators alone need not equate capped and uncapped conditional retention.",
+      "declarations": [],
+      "scope_boundary": "Delivered audit finite counterexample; analytical/exact Python evidence, not Lean formalised.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label ex:capped-retention"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "ex:finite-horizon-eventual",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "Finite-deadline mature-cohort productivity can differ from eventual-cycle rate even without repairs.",
+      "declarations": [],
+      "scope_boundary": "Delivered audit counterexample; no Lean correspondence proof between the two accounting windows.",
+      "source_label_aliases": [
+        "ex:horizon"
+      ],
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label ex:horizon"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "rem:ratios",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "Ratio of expectations differs in general from expectation of individual ratios; an unbiased labour estimate does not imply unbiased ratio.",
+      "declarations": [],
+      "scope_boundary": "Analytical statistical distinction; no general ratio estimator theorem mechanised.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "eq:cycle-rates following paragraph on task-specific ratios and eq:cluster-ht following paragraph on ratio-estimator bias"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "def:policy-endpoints",
+      "classification": "PURE_THEOREM",
+      "disposition": "NOT_REQUIRED",
+      "statement": "Fixed-intake potential outcomes and theta_H(a)=E[Q(a)]/E[H(a)] define policy targets.",
+      "declarations": [],
+      "scope_boundary": "",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:estimands and fixed task-weighting paragraph"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "rem:cross-policy-joint",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "Marginal randomised policy contrasts do not identify same-task simultaneous counterfactual improvement.",
+      "declarations": [],
+      "scope_boundary": "Joint counterfactual coupling not identified; no Lean coupling construction.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:study prediction paragraph: cross-policy probability that the same task would improve"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "emp:portfolio-task-mix",
+      "classification": "EMPIRICAL_CONTEXTUAL",
+      "disposition": "EMPIRICAL_CONTEXTUAL",
+      "statement": "Policy-induced task selection and fixed-intake execution are distinct empirical estimands.",
+      "declarations": [],
+      "scope_boundary": "Task/backlog scope and exposure must be fixed or modelled empirically.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "eq:estimands following paragraph and eq:calendar-throughput"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "eq:cluster-ht:finite",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "statement": "Finite cluster-assignment inverse-probability mean estimator is unbiased for fixed finite-population endpoint mean.",
+      "declarations": [
+        "EffortSpeed.sampling_unbiased_finite"
+      ],
+      "scope_boundary": "Instantiate finite expectation lemma with cluster totals divided by fixed task count, assignment indicators and known positive assignment probabilities. Consistency/no interference and correspondence to observed endpoints remain analytical/contextual; ratio estimator is not thereby unbiased.",
+      "source_label_aliases": [
+        "eq:cluster-ht"
+      ],
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:cluster-ht and its finite assignment-expectation argument"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "eq:cluster-ht:causal-premises",
+      "classification": "EMPIRICAL_CONTEXTUAL",
+      "disposition": "EMPIRICAL_CONTEXTUAL",
+      "statement": "Observed cluster endpoints equal fixed potential endpoints under consistency and no interference between assigned clusters.",
+      "declarations": [],
+      "scope_boundary": "Design/causal premise, not supplied or established by Lean; no real-company estimator executed.",
+      "source_label_aliases": [
+        "eq:cluster-ht"
+      ],
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "eq:cluster-ht following paragraph: consistency and absence of cross-team interference"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "prop:retry:repair-boundary",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "Adding finite-mean follow-up labour changes the eventual-cycle denominator to h/p+E[B_Delta].",
+      "declarations": [],
+      "scope_boundary": "Expectation linearity and accounting-boundary correspondence remain analytical; not equivalent to the fixed enrolment horizon.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:mechanisms paragraph beginning The first-acceptance labour boundary"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "rem:detection-identification",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "The observed rejection product d*s cannot uniquely identify both defect prevalence and gate sensitivity.",
+      "declarations": [],
+      "scope_boundary": "Analytical identification limitation; no separate product-parameter counterexample in Lean.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:detection paragraph beginning The cancellation in correct-output rate"
+      },
+      "active_in_final_article": true
+    },
+    {
+      "result_id": "rem:mean-zero-signs",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "A mean-zero correction need not have equiprobable positive and negative signs.",
+      "declarations": [],
+      "scope_boundary": "Analytical qualification of the sign null, not formalised in Lean.",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "app:audit paragraph: A mean-zero correction need not have equally probable signs"
+      },
+      "active_in_final_article": true
+    }
+  ]
+}

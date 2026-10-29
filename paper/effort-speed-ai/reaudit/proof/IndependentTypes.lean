@@ -1,0 +1,87 @@
+import FormalVerification
+#check EffortSpeed.binomial_correction
+#print axioms EffortSpeed.binomial_correction
+#check EffortSpeed.four_point_normalized
+#print axioms EffortSpeed.four_point_normalized
+#check EffortSpeed.covariance_counterexample
+#print axioms EffortSpeed.covariance_counterexample
+#check EffortSpeed.counterexample_positive_and_decomposed
+#print axioms EffortSpeed.counterexample_positive_and_decomposed
+#check EffortSpeed.marginal_emission
+#print axioms EffortSpeed.marginal_emission
+#check EffortSpeed.observed_law_factorization
+#print axioms EffortSpeed.observed_law_factorization
+#check EffortSpeed.observed_law_equal
+#print axioms EffortSpeed.observed_law_equal
+#check EffortSpeed.history_mass_one
+#print axioms EffortSpeed.history_mass_one
+#check EffortSpeed.history_expectation_nonnegative
+#print axioms EffortSpeed.history_expectation_nonnegative
+#check EffortSpeed.nonidentification_parameters_valid
+#print axioms EffortSpeed.nonidentification_parameters_valid
+#check EffortSpeed.expected_count_offset
+#print axioms EffortSpeed.expected_count_offset
+#check EffortSpeed.latent_effort_mean
+#print axioms EffortSpeed.latent_effort_mean
+#check EffortSpeed.latent_effort_unequal
+#print axioms EffortSpeed.latent_effort_unequal
+#check EffortSpeed.sampling_unbiased_finite
+#print axioms EffortSpeed.sampling_unbiased_finite
+#check EffortSpeed.capacity_lower_bound
+#print axioms EffortSpeed.capacity_lower_bound
+#check EffortSpeed.ratio_improves_iff
+#print axioms EffortSpeed.ratio_improves_iff
+#check EffortSpeed.productivity_improves_iff
+#print axioms EffortSpeed.productivity_improves_iff
+#check EffortSpeed.retry_reversal
+#print axioms EffortSpeed.retry_reversal
+#check EffortSpeed.min_eq_tail
+#print axioms EffortSpeed.min_eq_tail
+#check EffortSpeed.finite_tail_sum
+#print axioms EffortSpeed.finite_tail_sum
+#check EffortSpeed.capped_tail_identity
+#print axioms EffortSpeed.capped_tail_identity
+#check EffortSpeed.capped_tail_closed_form
+#print axioms EffortSpeed.capped_tail_closed_form
+#check EffortSpeed.capped_expectation_of_tails
+#print axioms EffortSpeed.capped_expectation_of_tails
+#check EffortSpeed.capped_zero_probability
+#print axioms EffortSpeed.capped_zero_probability
+#check EffortSpeed.capped_zero_cap
+#print axioms EffortSpeed.capped_zero_cap
+#check EffortSpeed.capped_one_probability
+#print axioms EffortSpeed.capped_one_probability
+#check EffortSpeed.detection_table
+#print axioms EffortSpeed.detection_table
+#check EffortSpeed.detection_joint_nonnegative
+#print axioms EffortSpeed.detection_joint_nonnegative
+#check EffortSpeed.detection_conditional_correct
+#print axioms EffortSpeed.detection_conditional_correct
+#check EffortSpeed.detection_pass_positive
+#print axioms EffortSpeed.detection_pass_positive
+#check EffortSpeed.detection_correct_rate
+#print axioms EffortSpeed.detection_correct_rate
+#check EffortSpeed.detection_tradeoff
+#print axioms EffortSpeed.detection_tradeoff
+#check EffortSpeed.zero_defect_no_detection_effect
+#print axioms EffortSpeed.zero_defect_no_detection_effect
+#check EffortSpeed.sign_space_cardinality
+#print axioms EffortSpeed.sign_space_cardinality
+#check EffortSpeed.sign_event_cardinality
+#print axioms EffortSpeed.sign_event_cardinality
+#check EffortSpeed.sign_rejection_probability
+#print axioms EffortSpeed.sign_rejection_probability
+#check EffortSpeed.retry_mass
+#print axioms EffortSpeed.retry_mass
+#check EffortSpeed.retry_first_moment
+#print axioms EffortSpeed.retry_first_moment
+#check EffortSpeed.retry_labour_moment
+#print axioms EffortSpeed.retry_labour_moment
+#check EffortSpeed.retry_elapsed_moment
+#print axioms EffortSpeed.retry_elapsed_moment
+#check EffortSpeed.retry_second_moment
+#print axioms EffortSpeed.retry_second_moment
+#check EffortSpeed.retry_central_second_moment
+#print axioms EffortSpeed.retry_central_second_moment
+#check EffortSpeed.retry_labour_variance
+#print axioms EffortSpeed.retry_labour_variance

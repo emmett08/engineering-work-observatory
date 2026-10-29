@@ -1,0 +1,402 @@
+[
+  {
+    "command": [
+      "git",
+      "clone",
+      "/workspace/scratch/bd1495d37cdb/effort-speed/formal-proof-project.bundle",
+      "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof",
+    "exit_status": 0,
+    "seconds": 0.032254934310913086,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/clone.log",
+    "output_sha256": "4d99f8fc3c216a8848c830e52a2b3513a67a6258edab3a87bc87ba1e97827178"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout",
+    "exit_status": 0,
+    "seconds": 0.0038864612579345703,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/commit.log",
+    "output_sha256": "97219f3664f3b49b0e21fdb2f74f72c5dae32070e26150b32f53866c9dcdca22"
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout",
+    "exit_status": 0,
+    "seconds": 0.007838249206542969,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/initial-status.log",
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "command": [
+      "lean",
+      "--version"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout",
+    "exit_status": 0,
+    "seconds": 0.0640106201171875,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/lean-version.log",
+    "output_sha256": "63f3e16bf0258e2cc0ab3010eb1830723df9bb85097b7b72b0137b9be25a78e9"
+  },
+  {
+    "command": [
+      "lake",
+      "--version"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout",
+    "exit_status": 0,
+    "seconds": 0.06432318687438965,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/lake-version.log",
+    "output_sha256": "e475ba02fef5717a6caa256e1e25ac50268497b7d1e36955357f37b4701ee4a0"
+  },
+  {
+    "command": [
+      "lake",
+      "build"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout",
+    "exit_status": 0,
+    "seconds": 11.229272365570068,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/lake-build.log",
+    "output_sha256": "fefcf64d2193d07fc6e7ff1cfeb983d10cbe54aa03d8dd4be90f0ea08d4455a0"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "AxiomAudit.lean"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout",
+    "exit_status": 0,
+    "seconds": 2.3236899375915527,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/axioms.log",
+    "output_sha256": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+  },
+  {
+    "command": [
+      "python3",
+      "scripts/validate_formal_receipt.py",
+      "formal-verification-receipt.json",
+      "--base",
+      "."
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout",
+    "exit_status": 0,
+    "seconds": 0.11542916297912598,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/receipt-validation.log",
+    "output_sha256": "b6ea3bda40f5075e0ba746878a397cc03ed84df2743a5c15f891a63f1c3cb0c8"
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout",
+    "exit_status": 0,
+    "seconds": 0.007761716842651367,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/final-status.log",
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/IndependentTypes.lean"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout",
+    "exit_status": 0,
+    "seconds": 2.170482635498047,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/independent-types-axioms.log",
+    "output_sha256": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/.lake/packages/mathlib",
+    "exit_status": 0,
+    "seconds": 0.003763437271118164,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/dependency-mathlib.log",
+    "output_sha256": "7cf32a824e26133738b30903ed97bc24def8e93db8039483d6bdf7fce7a0efee"
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/.lake/packages/mathlib",
+    "exit_status": 0,
+    "seconds": 0.03265881538391113,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/dependency-status-mathlib.log",
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/.lake/packages/plausible",
+    "exit_status": 0,
+    "seconds": 0.0036835670471191406,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/dependency-plausible.log",
+    "output_sha256": "805ea619fc405904b6e9ac21504fad9d1b144b97838b0ea93a6c5bacf0f9d917"
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/.lake/packages/plausible",
+    "exit_status": 0,
+    "seconds": 0.003538370132446289,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/dependency-status-plausible.log",
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/.lake/packages/LeanSearchClient",
+    "exit_status": 0,
+    "seconds": 0.001425027847290039,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/dependency-LeanSearchClient.log",
+    "output_sha256": "4d0336c7ba0fcd5eb2f72acfcbc62d27a785c823fdd5e7e21a77ed3f529ba9b8"
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/.lake/packages/LeanSearchClient",
+    "exit_status": 0,
+    "seconds": 0.0034863948822021484,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/dependency-status-LeanSearchClient.log",
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/.lake/packages/importGraph",
+    "exit_status": 0,
+    "seconds": 0.001443624496459961,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/dependency-importGraph.log",
+    "output_sha256": "1c21dc61032d91e32449c4295a2a30bf8c68c4b8d984bf0f46a73d53d180ce2e"
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/.lake/packages/importGraph",
+    "exit_status": 0,
+    "seconds": 0.003537893295288086,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/dependency-status-importGraph.log",
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/.lake/packages/proofwidgets",
+    "exit_status": 0,
+    "seconds": 0.0035436153411865234,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/dependency-proofwidgets.log",
+    "output_sha256": "d9c675d1d0b71316cbd8bced943dd9983f09a32dc9a229039acc3afdfe2375b6"
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/.lake/packages/proofwidgets",
+    "exit_status": 0,
+    "seconds": 0.0034749507904052734,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/dependency-status-proofwidgets.log",
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/.lake/packages/aesop",
+    "exit_status": 0,
+    "seconds": 0.001462697982788086,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/dependency-aesop.log",
+    "output_sha256": "4c072408d27377ff5b35ed2858b23f6f83466a241898fe2c4c4a215ba2128652"
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/.lake/packages/aesop",
+    "exit_status": 0,
+    "seconds": 0.0034644603729248047,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/dependency-status-aesop.log",
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/.lake/packages/Qq",
+    "exit_status": 0,
+    "seconds": 0.003673076629638672,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/dependency-Qq.log",
+    "output_sha256": "2d7411c117d0e100d30993222f71939f4200b1982179b5c8651c332382e48655"
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/.lake/packages/Qq",
+    "exit_status": 0,
+    "seconds": 0.0035583972930908203,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/dependency-status-Qq.log",
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/.lake/packages/batteries",
+    "exit_status": 0,
+    "seconds": 0.0035958290100097656,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/dependency-batteries.log",
+    "output_sha256": "f11675294ae9a5b8bd697f96d60b337c9aa0ffa5ed7cc89b8acfd5103044b82d"
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/.lake/packages/batteries",
+    "exit_status": 0,
+    "seconds": 0.0034766197204589844,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/dependency-status-batteries.log",
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/.lake/packages/Cli",
+    "exit_status": 0,
+    "seconds": 0.0014116764068603516,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/dependency-Cli.log",
+    "output_sha256": "300616b42565e3af8371bcac27ec8e33232d8bd511b3abc74ce438ace7a7ed4b"
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/.lake/packages/Cli",
+    "exit_status": 0,
+    "seconds": 0.003589630126953125,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/dependency-status-Cli.log",
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "evidence/IndependentBoundaryTests.lean"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout",
+    "exit_status": 0,
+    "seconds": 2.2204244136810303,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/inherited-boundary-tests.log",
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "evidence/IndependentRejectedStatement.lean"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout",
+    "exit_status": 1,
+    "seconds": 1.9192218780517578,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/inherited-negative-boundary.log",
+    "output_sha256": "8eb2fdb21d667804079c875432654c9084704bb358b5abbe17edc214d4b02449"
+  },
+  {
+    "command": [
+      "cc",
+      "-shared",
+      "-fPIC",
+      "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/scripts/lean_proc_self_shim.c",
+      "-o",
+      "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/independent-shim.so",
+      "-ldl"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout",
+    "exit_status": 0,
+    "seconds": 0.06435632705688477,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/shim-build.log",
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "command": [
+      "cc",
+      "-shared",
+      "-fPIC",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-o",
+      "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/independent-shim.so",
+      "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/checkout/scripts/lean_proc_self_shim.c",
+      "-ldl"
+    ],
+    "cwd": "/workspace/scratch/bd1495d37cdb",
+    "exit_status": 0,
+    "seconds": 0.05753731727600098,
+    "output_path": "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/proof/shim-exact-bootstrap-flags.log",
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

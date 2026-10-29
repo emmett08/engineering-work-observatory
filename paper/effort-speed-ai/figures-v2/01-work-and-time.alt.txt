@@ -1,0 +1,1 @@
+Human production occupies hours zero to two; agent work runs concurrently from zero to eight. Human verification follows from eight to nine and a half. A separate human-allocation trace has area three and a half person-hours despite nine and a half elapsed hours.

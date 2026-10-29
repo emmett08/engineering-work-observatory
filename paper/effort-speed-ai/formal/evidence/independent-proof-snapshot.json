@@ -1,0 +1,203 @@
+{
+  "commit": "189a54cdd408ced75b26fe985f929ea34fa06ed1",
+  "source_hashes": {
+    "FormalVerification/Basic.lean": "9ed87d5b98347cfa76cab41e3d5d612cf64618a20f36a6809e5140abd772396f",
+    "FormalVerification/Binomial.lean": "10af804447043c06e1d96cfee0f40ae4daf81a794c4db1d8df889944e0a65b81",
+    "FormalVerification/Geometric.lean": "427dafee2984400e151a53a8bf36a9dafaa7d7e8ac4d453f5956e2f0f94f4cac",
+    "FormalVerification.lean": "fdb55f0d9aa4c380cde1665e66efd5a1e79feb9a2f2a349a5875d04f4eaa0763",
+    "lake-manifest.json": "479c6d953b99dcd2b566a6bdb779caafcd780344d5fdfc4160be4e66c0e36e20",
+    "lakefile.toml": "9a518b1bbe788ab562bf9ceb9c06a06eaf44ef06f39a22d33ec54d5e8f026c6a",
+    "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+  },
+  "declarations": [
+    "EffortSpeed.binomial_correction",
+    "EffortSpeed.four_point_normalized",
+    "EffortSpeed.covariance_counterexample",
+    "EffortSpeed.counterexample_positive_and_decomposed",
+    "EffortSpeed.marginal_emission",
+    "EffortSpeed.observed_law_factorization",
+    "EffortSpeed.observed_law_equal",
+    "EffortSpeed.history_mass_one",
+    "EffortSpeed.history_expectation_nonnegative",
+    "EffortSpeed.nonidentification_parameters_valid",
+    "EffortSpeed.expected_count_offset",
+    "EffortSpeed.latent_effort_mean",
+    "EffortSpeed.latent_effort_unequal",
+    "EffortSpeed.sampling_unbiased_finite",
+    "EffortSpeed.capacity_lower_bound",
+    "EffortSpeed.ratio_improves_iff",
+    "EffortSpeed.productivity_improves_iff",
+    "EffortSpeed.retry_reversal",
+    "EffortSpeed.min_eq_tail",
+    "EffortSpeed.finite_tail_sum",
+    "EffortSpeed.capped_tail_identity",
+    "EffortSpeed.capped_tail_closed_form",
+    "EffortSpeed.capped_expectation_of_tails",
+    "EffortSpeed.capped_zero_probability",
+    "EffortSpeed.capped_zero_cap",
+    "EffortSpeed.capped_one_probability",
+    "EffortSpeed.detection_table",
+    "EffortSpeed.detection_joint_nonnegative",
+    "EffortSpeed.detection_conditional_correct",
+    "EffortSpeed.detection_pass_positive",
+    "EffortSpeed.detection_correct_rate",
+    "EffortSpeed.detection_tradeoff",
+    "EffortSpeed.zero_defect_no_detection_effect",
+    "EffortSpeed.sign_space_cardinality",
+    "EffortSpeed.sign_event_cardinality",
+    "EffortSpeed.sign_rejection_probability",
+    "EffortSpeed.retry_mass",
+    "EffortSpeed.retry_first_moment",
+    "EffortSpeed.retry_labour_moment",
+    "EffortSpeed.retry_elapsed_moment",
+    "EffortSpeed.retry_second_moment",
+    "EffortSpeed.retry_central_second_moment",
+    "EffortSpeed.retry_labour_variance"
+  ],
+  "project_oleans_reused": false,
+  "dependency_cache_reused": true,
+  "dependencies": [
+    {
+      "name": "mathlib",
+      "expected_revision": "0df444a360eaa60ab8c11dca51a86af692955474",
+      "actual_revision": "0df444a360eaa60ab8c11dca51a86af692955474",
+      "tracked_status": ""
+    },
+    {
+      "name": "plausible",
+      "expected_revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+      "actual_revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+      "tracked_status": ""
+    },
+    {
+      "name": "LeanSearchClient",
+      "expected_revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+      "actual_revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+      "tracked_status": ""
+    },
+    {
+      "name": "importGraph",
+      "expected_revision": "16f02aa7642864af59f1ff0e384a015994db9118",
+      "actual_revision": "16f02aa7642864af59f1ff0e384a015994db9118",
+      "tracked_status": ""
+    },
+    {
+      "name": "proofwidgets",
+      "expected_revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+      "actual_revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+      "tracked_status": ""
+    },
+    {
+      "name": "aesop",
+      "expected_revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+      "actual_revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+      "tracked_status": ""
+    },
+    {
+      "name": "Qq",
+      "expected_revision": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+      "actual_revision": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+      "tracked_status": ""
+    },
+    {
+      "name": "batteries",
+      "expected_revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+      "actual_revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+      "tracked_status": ""
+    },
+    {
+      "name": "Cli",
+      "expected_revision": "6130a47896ce867c6a4a55373441e59e565bad0f",
+      "actual_revision": "6130a47896ce867c6a4a55373441e59e565bad0f",
+      "tracked_status": ""
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "git",
+        "clone",
+        "--no-hardlinks",
+        "--no-checkout",
+        "/workspace/scratch/bd1495d37cdb/effort-speed/formal",
+        "/workspace/scratch/bd1495d37cdb/effort-speed/refinement/checker-evidence/clean-proof-checkout"
+      ],
+      "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/refinement/checker-evidence",
+      "exit_status": 0,
+      "seconds": 0.01094961166381836,
+      "log": "evidence/independent-clone.log",
+      "sha256": "b3790562c7e3f30163eb7564cac835ae237e17cc9d1e78dad08dee7557306471"
+    },
+    {
+      "command": [
+        "git",
+        "checkout",
+        "--detach",
+        "189a54cdd408ced75b26fe985f929ea34fa06ed1"
+      ],
+      "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/refinement/checker-evidence/clean-proof-checkout",
+      "exit_status": 0,
+      "seconds": 0.005077838897705078,
+      "log": "evidence/independent-checkout.log",
+      "sha256": "c73055a64bc76e9f1344dd86a62deecc4c36812f0e77e7d02e7cccc9e8a0c67c"
+    },
+    {
+      "command": [
+        "git",
+        "status",
+        "--porcelain"
+      ],
+      "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/refinement/checker-evidence/clean-proof-checkout",
+      "exit_status": 0,
+      "seconds": 0.003033876419067383,
+      "log": "evidence/independent-initial-status.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "lean",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/refinement/checker-evidence/clean-proof-checkout",
+      "exit_status": 0,
+      "seconds": 0.03830409049987793,
+      "log": "evidence/independent-lean-version.log",
+      "sha256": "63f3e16bf0258e2cc0ab3010eb1830723df9bb85097b7b72b0137b9be25a78e9"
+    },
+    {
+      "command": [
+        "lake",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/refinement/checker-evidence/clean-proof-checkout",
+      "exit_status": 0,
+      "seconds": 0.03780221939086914,
+      "log": "evidence/independent-lake-version.log",
+      "sha256": "e475ba02fef5717a6caa256e1e25ac50268497b7d1e36955357f37b4701ee4a0"
+    },
+    {
+      "command": [
+        "lake",
+        "build"
+      ],
+      "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/refinement/checker-evidence/clean-proof-checkout",
+      "exit_status": 0,
+      "seconds": 9.14193868637085,
+      "log": "evidence/independent-lake-build.log",
+      "sha256": "69dbd2ef0d50c50cf88e5b0c811bf8fb73c4af796e3f782a17fcebdde9b0f073"
+    },
+    {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "IndependentTypesAndAxioms.lean"
+      ],
+      "cwd": "/workspace/scratch/bd1495d37cdb/effort-speed/refinement/checker-evidence/clean-proof-checkout",
+      "exit_status": 0,
+      "seconds": 1.9572367668151855,
+      "log": "evidence/independent-types-and-axioms.log",
+      "sha256": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+    }
+  ]
+}

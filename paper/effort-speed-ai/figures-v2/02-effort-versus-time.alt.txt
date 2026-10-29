@@ -1,0 +1,1 @@
+A scatter of four synthetic cases indexed to human baseline one on both axes. Fast agent: labour 0.528, time 0.629. Slow agent: the same labour 0.528, time 1.340. Heavy review: labour 1.448, time 1.352. The slow agent saves labour but delays acceptance.

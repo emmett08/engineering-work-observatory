@@ -1,0 +1,16 @@
+# Formal-work provenance
+
+The formal worker started fresh from its delivered inherited context and the frozen article. It used the formalise-proofs-and-algorithms skill and formal-verification contract. The inherited exchange is a supplied snapshot, not a runtime database query. No runtime database was accessed.
+
+The coordinator installed the pinned official Lean release and supplied a separate `Geometric.lean` contribution. Its seven results were delivered with hash and successful check log, then imported and audited with the worker's Basic and Binomial modules. The independent checker is separate from both formal implementers.
+
+Logical-separation deviation: before the coordinator delivered completion, an automated source-audit glob read declaration names in the then-present `Geometric.lean` and attempted to import it. This attempt failed; the worker did not inspect its contents or output before notifying the coordinator and restricting the audit to owned modules. The completed contribution was then explicitly delivered (message 758735832a3d45269020a7da7f5a9b5b), read, integrated and successfully rebuilt. This does not affect proof validity; it is retained as an accurate process disclosure. No independent checker output was read except upon explicit coordinator delivery.
+
+The initial blanket `lake update` finished dependency resolution but its automatic full mathlib cache retrieval was interrupted with exit 130. A single targeted cache request subsequently completed successfully. All evidential builds used the committed lock and did not run `lake update`. Exploratory failed compiler logs are retained separately from successful build/axiom evidence.
+
+The prescribed bootstrap installed the unmodified Lean 4.33.1 kernel and a narrow launcher shim replacing only the current-process `/proc/<pid>/exe` self-location query with `/proc/self/exe` when required by the host. Standard library/dependency compiled artifacts are reused. Clean replay compiles every project-owned proof source anew and never reuses the project's own build outputs.
+
+
+Third-run re-audit: `/root/proof_reaudit` began from a fresh logical context containing the delivered 39-message refinement exchange, the frozen 16-page draft and prior evidence. It independently rebuilt all project proof sources from the delivered Git bundle and checked all 43 elaborated types, axiom closures and 54 inventory rows. Only pinned dependency artifacts were reused. Its first independent shim rebuild omitted the bootstrap optimisation flags; repeating with the prescribed flags produced identical bytes. Both commands are retained. This was a reviewer command mismatch, not a proof defect.
+
+The new manuscript repairs four prose/protocol qualifications without changing Lean declarations. Current concordance is recorded separately in `evidence/reaudit-concordance.md`, and the receipt binds that revised source. The original concordance and earlier final audits remain historical records. Reviewers share inherited context, so their agreement is correlated internal evidence rather than external validation. The source reviewer used one explicitly disclosed auxiliary source-checking turn; no independence from that auxiliary is claimed.

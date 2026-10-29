@@ -1,0 +1,74 @@
+{
+  "schema": "independent-semantic-binding/1.0",
+  "reviewer": "/root/proof_reaudit",
+  "consumed_ids": [
+    "4a20760f0d92436e800992de36a7e141"
+  ],
+  "status": "MATCHED_AT_DECLARED_SCOPE",
+  "article_sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+  "inventory_sha256": "092d5a42f63f848c2999bfbb53e0d4fb82a3314b6ab494f47cee52f226859a70",
+  "semantic_map_sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282",
+  "bibliography_sha256": "c4341f69def5d25ba414797eda6dff7cd079ff1e0194ff2c0b95e569eadd6fc2",
+  "proof_source_hashes": {
+    "FormalVerification.lean": "fdb55f0d9aa4c380cde1665e66efd5a1e79feb9a2f2a349a5875d04f4eaa0763",
+    "FormalVerification/Basic.lean": "9ed87d5b98347cfa76cab41e3d5d612cf64618a20f36a6809e5140abd772396f",
+    "FormalVerification/Binomial.lean": "10af804447043c06e1d96cfee0f40ae4daf81a794c4db1d8df889944e0a65b81",
+    "FormalVerification/Geometric.lean": "427dafee2984400e151a53a8bf36a9dafaa7d7e8ac4d453f5956e2f0f94f4cac",
+    "AxiomAudit.lean": "6e368a3bff8356d335ffb17103c62d6a3accc3936629c292a71071436b0fe965"
+  },
+  "toolchain_hashes": {
+    "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71",
+    "lakefile.toml": "9a518b1bbe788ab562bf9ceb9c06a06eaf44ef06f39a22d33ec54d5e8f026c6a",
+    "lake-manifest.json": "479c6d953b99dcd2b566a6bdb779caafcd780344d5fdfc4160be4e66c0e36e20"
+  },
+  "initial_bundle_head": "8aab59bf36a502f0e2f54476f5eb8e192e9e350b",
+  "initial_evidence": {
+    "audit.json": "93a04113213c647e69742db957cdb9266abac95e17a142eb35c383d627c344df",
+    "commands.json": "86380e9f74123fc740fb9c8163376d8c0824b9a9bdd9876d867c95552c4b6f5a",
+    "independent-types-axioms.log": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665",
+    "inventory-review.json": "4972655de2dc931ace808032c81f3f72534288fa027d9e71bba7643542740e84"
+  },
+  "inventory_rows": 54,
+  "unique_exports": 43,
+  "disposition_counts": {
+    "FORMALISE_NOW": 14,
+    "NOT_REQUIRED": 11,
+    "DEFERRED_DEPENDENCY": 22,
+    "EMPIRICAL_CONTEXTUAL": 7
+  },
+  "changed_inventory_descriptions": [
+    {
+      "result_id": "emp:measurement",
+      "statement": "Labour ascertainment, external calibration and quality assessment require empirical validation; reactive audit exposure requires an appropriate design and assumptions.",
+      "locator": "sec:accounting paragraphs following eq:labour, eq:reference and prop:sampling; sec:study labour and quality measurement paragraphs"
+    },
+    {
+      "result_id": "emp:censoring",
+      "statement": "Survival/cumulative-incidence inference requires the specified censoring and abandonment assumptions, including observation support through the target horizon in relevant at-risk strata.",
+      "locator": "sec:study paragraphs following prop:restricted-time on administrative censoring and abandonment"
+    },
+    {
+      "result_id": "emp:causal-identification",
+      "statement": "Randomisation, specified policy duration and assessment regime, parallel trends, no anticipation, overlap, spillovers, assignment versus usage.",
+      "locator": "sec:study bounded prospective protocol and paragraph beginning Randomisation can support a causal policy contrast"
+    }
+  ],
+  "mathematical_blocks_unchanged": true,
+  "checked_mathematical_blocks": 35,
+  "formal_status": "CHECKED_WITH_DECLARED_AXIOMS",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Revised manuscript concordance with unchanged finite/algebraic/HasSum proof statements. All 54 dispositions reviewed. Censoring support, calibration, sustained policy and reactive assessment are methodological/empirical qualifications, not new Lean results. Existing stochastic/causal/empirical and TESTED_ONLY boundaries remain. No TheorySynthesis.",
+  "pending": "Coordinator source commit, fresh replay and new receipt assembly; final new-receipt check must be separately performed.",
+  "failures": [],
+  "consumed_peer_reports": {
+    "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/adjudicator-peer-response.json": "690a12f7bc36c5a2f8a885c36fdf54a31174607fdac5945f758c8b41b9ff066f",
+    "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/measurement-peer-response.json": "99523c58b602f1ee0ab9c90a4510fc698493e15677ab9b1906f0cfcfd79f6f18",
+    "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/mathematician-peer-response.json": "5bd8ad4fa7a092299c238660aa47b19d0ba6550da4b2501403c3c9f522fb6410"
+  },
+  "historical_receipt_source_snapshot_commit": "c73b34f71f3ef21e99c1972b68f8536b4fc452f0",
+  "initial_fresh_build_head": "8aab59bf36a502f0e2f54476f5eb8e192e9e350b"
+}
