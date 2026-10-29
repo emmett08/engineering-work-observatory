@@ -12,7 +12,7 @@ For a second prediction $g$ frozen before the same validation sample, subtractio
  \E_{\!s}[(f-\widehat H)^2-(g-\widehat H)^2]
  =(f-H)^2-(g-H)^2.
 \]
-This permits a design-unbiased comparison of the two true squared losses. Absolute error levels and uncertainty in the comparison require their own information and analysis.
+This permits a design-unbiased comparison of the two true squared losses. The identity does not, by itself, estimate either squared-loss level, absolute error or uncertainty in the comparison.
 
 For example, eight one-hour person-intervals have allocations $(1,1,1,1,0,0,0,0)$. Sample one uniformly, with inclusion probability $1/8$. True labour is $H=4$, whereas its HT estimate is $0$ or $8$, each with probability $1/2$. A perfect prediction $f=4$ has apparent absolute error $4$ against the sampled estimate. The interval $[3.5,4.5]$ covers true labour surely but covers the sampled estimate with probability zero. Mean residual calibration remains design-unbiased. Absolute error and interval coverage against $\widehat H$ concern the noisy observable.
 

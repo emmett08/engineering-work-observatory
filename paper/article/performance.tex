@@ -5,7 +5,7 @@ The accounting definition in \eqref{eq:cohort-productivity} also determines a sm
 
 \subsection{A discrete input contract}
 
-The index receives two streams with different accounting roles. Let $A=((a_i,w_i))_{i=1}^{n}$ contain one accepted-output record per accepted requirement. Its acceptance age $a_i$ is measured from that requirement's enrolment, and its retained weight $w_i$ is assessed at the common follow-up $\Delta$. Let $B=((b_j,v_j))_{j=1}^{m}$ contain task-attributable labour contributions, including contributions from unfinished, rejected and abandoned tasks. Each $b_j$ is the elapsed age from the associated task's enrolment to its contribution's integration boundary. Shared work is attributed before these records are formed.
+The index receives two streams with different accounting roles. Let $A=((a_i,w_i))_{i=1}^{n}$ contain one accepted-output record per accepted requirement. Each record gives an acceptance age $a_i$ measured from that requirement's enrolment and a retained weight $w_i$ assessed at the common follow-up $\Delta$. Let $B=((b_j,v_j))_{j=1}^{m}$ contain task-attributable labour contributions, including contributions from unfinished, rejected and abandoned tasks. Each $b_j$ is the elapsed age from the associated task's enrolment to its contribution's integration boundary. Shared work is attributed before these records are formed.
 
 Ages use a declared common integer time unit. All ages and weights are nonnegative \texttt{u64} integers, with output weights in millionths of a reference unit and labour weights in millionths of a person-hour. The two weight types are summed separately.
 
