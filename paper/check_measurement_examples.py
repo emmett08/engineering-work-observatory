@@ -20,6 +20,10 @@ def check_sampling_noise():
             (labour - forecast) ** 2 + variance
         )
         assert mean([estimate - forecast for estimate in estimates]) == labour - forecast
+    for first, second in product(map(F, (0, 2, 4, 8)), repeat=2):
+        observed_difference = mean([(first-estimate)**2-(second-estimate)**2
+                                    for estimate in estimates])
+        assert observed_difference == (first-labour)**2-(second-labour)**2
     assert mean([abs(estimate - labour) for estimate in estimates]) == 4
     assert F(7, 2) <= labour <= F(9, 2)
     assert not any(F(7, 2) <= estimate <= F(9, 2) for estimate in estimates)
