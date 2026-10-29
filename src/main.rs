@@ -81,6 +81,8 @@ enum Command {
     Verify,
     /// Evaluate a synthetic conditional retry scenario, separate from empirical analysis.
     Simulate { file: PathBuf },
+    /// Estimate frame labour from frozen predictions and probability-sampled observations.
+    EstimateLabour { file: PathBuf },
 }
 
 fn read_input(path: &Path) -> Result<Vec<u8>> {
@@ -222,6 +224,11 @@ fn execute(cli: Cli) -> Result<()> {
                 serde_json::to_string_pretty(&observatory::simulations::retry(&scenario)?)?
             );
         }
+        Command::EstimateLabour { file } => {
+            let frame = serde_json::from_slice(&read_input(&file)?)?;
+            let estimate = observatory::inference::estimate_labour(&frame)?;
+            println!("{}", serde_json::to_string_pretty(&estimate)?);
+        }
         command => {
             let mut store = Store::open(&cli.state)?;
             match command {
@@ -320,7 +327,9 @@ fn execute(cli: Cli) -> Result<()> {
                         output.display()
                     );
                 }
-                Command::Analyse { .. } | Command::Simulate { .. } => unreachable!(),
+                Command::Analyse { .. }
+                | Command::Simulate { .. }
+                | Command::EstimateLabour { .. } => unreachable!(),
             }
         }
     }

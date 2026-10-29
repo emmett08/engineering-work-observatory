@@ -1,16 +1,22 @@
-//! Task accounting based on PDF equations (4), (6), (7), (9), and (22).
+//! Task accounting with fixed enrolment and first-acceptance observation horizons.
 //! The default scope rule adds a separate protocol-credit endpoint: zero if a
-//! material scope change occurs by the fixed labour end, otherwise equation (6).
+//! material scope change occurs by the fixed labour end, otherwise original-scope
+//! retained output.
 //! Before that window closes, credit can remain provisional. Scope-qualified
 //! status fields distinguish this rule from missing acceptance observations;
 //! `accepted_at` retains the recorded event even when derived endpoints are suppressed.
-//! Use predeclared `baseline_only` with original-scope evidence for equation (6).
+//! Use predeclared `baseline_only` with original-scope evidence for that endpoint.
 //! These descriptive results are not an estimate of a causal AI policy effect.
 use crate::model::*;
 use anyhow::Result;
 use chrono::{DateTime, Utc};
 use serde::Serialize;
 use std::collections::BTreeSet;
+
+pub use bounds::{
+    BoundaryEffortBounds, LabourBounds, LabourBoundsMethod, ProductivityBounds,
+    ProductivityBoundsMethod,
+};
 
 #[derive(Clone, Debug, Serialize)]
 pub struct Report {
@@ -34,10 +40,16 @@ pub struct CohortReport {
     pub acceptance_fraction: Option<f64>,
     pub mean_restricted_days_without_acceptance: Option<f64>,
     pub total_person_hours: Option<f64>,
+    /// Deterministic enclosure only for complete direct observation frames.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub total_person_hours_bounds: Option<LabourBounds>,
     pub mean_person_hours_per_counted_task: Option<f64>,
     pub total_retained_output: Option<f64>,
     pub mean_retained_output_per_counted_task: Option<f64>,
     pub retained_output_per_person_hour: Option<f64>,
+    /// Conditional on known output and complete direct labour bounded above zero.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub retained_output_per_person_hour_bounds: Option<ProductivityBounds>,
     pub ratio_status: String,
     pub contains_sampled_effort_estimates: bool,
     pub uncertainty: String,
@@ -69,6 +81,12 @@ pub struct TaskReport {
     pub frozen_score: f64,
     pub retained_output: Option<f64>,
     pub person_hours: Option<f64>,
+    /// Conservative sum of direct bounds, requiring a complete direct frame.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub person_hours_bounds: Option<LabourBounds>,
+    /// Marginal bounds remain visible even when the complete total is unknown.
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub boundary_effort_bounds: Vec<BoundaryEffortBounds>,
     /// Available interval contributions, not an implied complete labour total.
     pub recorded_person_hours: f64,
     pub contains_sampled_effort_estimates: bool,
@@ -87,6 +105,7 @@ pub struct DefectReport {
     pub repair_effort_ids: Vec<String>,
 }
 
+mod bounds;
 mod cohort;
 mod coverage;
 mod labour;
@@ -119,7 +138,10 @@ pub fn analyse(records: &[Evidence], as_of: DateTime<Utc>) -> Result<Report> {
             "All-role person-hours, elapsed acceptance time, retained reference output, tokens and money remain distinct quantities.".into(),
             "Labour ends enrolment + acceptance horizon + follow-up; retention is assessed acceptance + follow-up. Early acceptance does not shorten labour accounting.".into(),
             "A complete sampled frame with observed responses permits an HT point estimate; nonresponse and partial frames remain unavailable rather than zero.".into(),
-            "Independent quality sampling, feedback effects, assignment-weighted causal estimation and design variance are not implemented. Assess every counted accepted task or keep retained output unavailable.".into(),
+            "Direct interval bounds use 0 <= allocation <= 1, conditional on the recorded average. Total bounds require a complete direct frame; their endpoints need not be jointly attainable under shared person capacity. They are not sampling or confidence intervals.".into(),
+            "Productivity bounds condition on known retained output and a strictly positive lower direct-labour bound. They conservatively propagate labour bounds, without inferring missing quality or a causal effect.".into(),
+            "Bound endpoints are floating-point approximations, not outward-rounded enclosures. Sharpness and conservativeness describe the real-arithmetic formulas; machine rounding can move an endpoint inward.".into(),
+            "Independent quality sampling, feedback effects, assignment-weighted causal estimation and design variance are not implemented in these task/cohort reports. Assess every counted accepted task or keep retained output unavailable.".into(),
             "Records dated after the requested as-of cut are excluded. A complete attestation whose end is after the cut is not used retrospectively.".into(),
             "Parent/group records with count_output=false contribute their measured labour but no task output, acceptance denominator or restricted-time denominator.".into(),
             "Implementation children must share the original requirement enrolment and protocol; implementation start does not restart the observation clock.".into(),
@@ -198,6 +220,8 @@ fn task_report(
         frozen_score: task.frozen_score,
         retained_output: outcome.retained_output,
         person_hours: labour.person_hours,
+        person_hours_bounds: labour.person_hours_bounds,
+        boundary_effort_bounds: labour.boundary_effort_bounds,
         recorded_person_hours: labour.recorded_person_hours,
         contains_sampled_effort_estimates: labour.contains_sampled_estimates,
         sampled_intervals: labour.sampled_intervals,

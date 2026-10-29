@@ -18,16 +18,28 @@ fn cell(value: Option<&Value>) -> String {
     }
 }
 
+fn bounds_cell(value: Option<&Value>) -> String {
+    let Some(value) = value.filter(|value| value.is_object()) else {
+        return "unavailable".into();
+    };
+    format!(
+        "[{}, {}]",
+        cell(value.get("lower_person_hours")),
+        cell(value.get("upper_person_hours"))
+    )
+}
+
 fn table(report: &Value) -> String {
     let mut html = String::from(
-        "<table><caption>Task outcomes; unknown values remain unavailable</caption><thead><tr><th>Task</th><th>Status</th><th>Person-hours</th><th>Retained units</th><th>Issues</th></tr></thead><tbody>",
+        "<table><caption>Task outcomes; bounds approximate deterministic conservative enclosures for complete direct frames. Floating-point endpoints are not outward rounded; these are not confidence intervals.</caption><thead><tr><th>Task</th><th>Status</th><th>Person-hours point result</th><th>Person-hours bounds</th><th>Retained units</th><th>Issues</th></tr></thead><tbody>",
     );
     for task in report["tasks"].as_array().into_iter().flatten() {
         html.push_str(&format!(
-            "<tr><td>{}</td><td>{}</td><td>{}</td><td>{}</td><td>{}</td></tr>",
+            "<tr><td>{}</td><td>{}</td><td>{}</td><td>{}</td><td>{}</td><td>{}</td></tr>",
             cell(task.get("task_id")),
             cell(task.get("lifecycle_status")),
             cell(task.get("person_hours")),
+            bounds_cell(task.get("person_hours_bounds")),
             cell(task.get("retained_output")),
             cell(task.get("issues"))
         ));

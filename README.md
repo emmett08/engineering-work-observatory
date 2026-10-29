@@ -2,13 +2,14 @@
 
 A local Rust application for collecting evidence from `emmett08/eal-mcp` and
 `emmett08/engarg`, then measuring human effort, elapsed acceptance time and retained
-requirement output. It implements §§3 and 6 of *Human Effort, Delivery Speed and
-Retained Output in AI-Assisted Software Engineering*, the 13 October 2026
-methodological draft supplied for this project.
+requirement output. Its accounting and study contracts accompany *What
+software-work telemetry identifies: sharp labour bounds and design-based
+estimation*, developed from the preserved 13 October 2026 methodological draft.
 
 The [paper and reproducibility files](paper/README.md) include that original draft,
-its LaTeX and Lean evidence, and an extended article with editable TikZ figures,
-performance algorithms, and a separate Rust benchmark of repeated accounting queries.
+its LaTeX and Lean evidence, and the revised article with sharp identification
+results, model-assisted estimation and editable TikZ figures. The retained
+performance algorithms and Rust query benchmark now support an appendix.
 
 The software implements descriptive accounting. Repository activity does not
 establish human labour, AI exposure, acceptance, or retained correctness. Those
@@ -148,9 +149,46 @@ labour required. Probability-sampled labour uses Horvitz–Thompson point estima
 the software does not invent confidence intervals without the sampling design.
 Missing responses/frame coverage hold the complete labour result unavailable.
 
+With complete direct coverage, reports also give conditional labour bounds for
+boundary-crossing averages. Each interval uses its person's attention capacity;
+the reported task and cohort sums are conservative because shared allocations
+can couple intervals. These deterministic ranges are separate from sampling
+uncertainty. Known retained output and a positive lower labour bound also permit
+a conditional cohort productivity range. An unavailable exact total remains
+unavailable; exported bounds disclose floating-point approximation without
+outward rounding.
+
 This descriptive implementation audits every counted accepted requirement.
 Quality subsampling, assignment-weighted causal inference and prediction are
 outside its contract. See [measurement protocol](docs/measurement-protocol.md).
+
+## Estimate labour with frozen predictions
+
+The standalone estimator combines predictions for a complete person-interval frame
+with probability-sampled labour observations. It leaves the evidence store and
+cohort reports unchanged:
+
+```sh
+cargo run --locked -- estimate-labour examples/model-assisted-labour.json
+```
+
+The manufactured example has a prediction total of 4 person-hours, an HT estimate
+of 6, and a difference estimate of 5.5. The difference estimator adds the
+sampling-weighted observed prediction errors to the full-frame prediction total.
+Predictions must be fixed before evaluation sampling; the JSON requires their
+provenance, a complete-frame attestation, inclusion probabilities, and explicit
+observed/unselected/nonresponse statuses. Nonresponse is rejected rather than
+treated as zero. Keep the input file with its output for reproduction.
+
+`general` designs return point estimates with unavailable variance. Declared simple
+random sampling without replacement validates the sample size and equal inclusion
+probabilities, then estimates HT and residual-based variances when at least two
+units were observed. A census has known zero sampling variance; a noncensus sample
+of one does not identify variance. The command reports standard errors without
+inventing a confidence interval or causal contrast. An unfavourable predictor can
+increase variance, and a signed difference estimate can be negative. No clipping
+or automatic substitution into a productivity ratio is performed. See the
+[estimator contract](docs/design-based-estimation.md).
 
 ## Freeze and reproduce
 

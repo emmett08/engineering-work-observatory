@@ -1,5 +1,5 @@
 //! Cohort ratios retain all enrolled labour and count each declared output once.
-use super::{CohortReport, TaskReport};
+use super::{CohortReport, LabourBounds, TaskReport, bounds};
 use anyhow::{Result, ensure};
 use std::collections::BTreeMap;
 
@@ -33,11 +33,22 @@ pub(super) fn summarise(tasks: &[TaskReport]) -> Result<Vec<CohortReport>> {
             .map(|t| t.retained_output)
             .collect::<Option<Vec<_>>>()
             .map(|values| values.iter().sum::<f64>());
+        let hours_bounds = rows
+            .iter()
+            .map(|task| task.person_hours_bounds.as_ref())
+            .collect::<Option<Vec<_>>>()
+            .map(|bounds| LabourBounds::sum(bounds.into_iter()));
         ensure!(
-            hours.is_none_or(f64::is_finite) && output.is_none_or(f64::is_finite),
+            hours.is_none_or(f64::is_finite)
+                && output.is_none_or(f64::is_finite)
+                && hours_bounds.as_ref().is_none_or(LabourBounds::is_finite),
             "cohort totals exceed finite numerical range for {protocol_id}"
         );
         let sampled = rows.iter().any(|t| t.contains_sampled_effort_estimates);
+        let productivity_bounds = output
+            .filter(|_| n > 0)
+            .zip(hours_bounds.as_ref())
+            .and_then(|(output, labour)| bounds::productivity(output, labour));
         let ratio = hours
             .zip(output)
             .filter(|(h, _)| *h > 0.0)
@@ -61,9 +72,11 @@ pub(super) fn summarise(tasks: &[TaskReport]) -> Result<Vec<CohortReport>> {
             protocol_id: protocol_id.into(), enrolled_records: rows.len(), counted_output_tasks: n,
             accepted_by_deadline: accepted, acceptance_fraction: accepted.filter(|_| n > 0).map(|a| a as f64 / n as f64),
             mean_restricted_days_without_acceptance: restricted,
-            total_person_hours: hours, mean_person_hours_per_counted_task: hours.filter(|_| n > 0).map(|h| h / n as f64),
+            total_person_hours: hours, total_person_hours_bounds: hours_bounds,
+            mean_person_hours_per_counted_task: hours.filter(|_| n > 0).map(|h| h / n as f64),
             total_retained_output: output, mean_retained_output_per_counted_task: output.filter(|_| n > 0).map(|q| q / n as f64),
             retained_output_per_person_hour: if n > 0 { ratio } else { None }, ratio_status: ratio_status.into(),
+            retained_output_per_person_hour_bounds: productivity_bounds,
             contains_sampled_effort_estimates: sampled,
             uncertainty: if sampled { "HT point estimate only; design variance is not estimated because joint inclusion/design information is not implemented. Ratio is not unbiased in general.".into() }
                 else { "No population or causal uncertainty interval is inferred from direct accounting.".into() },

@@ -1,6 +1,6 @@
 # Data-science improvements
 
-These are proposed additions, not implemented features. They arise from the
+These are proposed additions, with the implemented SRS subset noted below. They arise from the
 current code and the measurement contract. The user-nominated Rust data-science
 book is retained in [the bibliography](../references.bib); its exact edition and
 contents have not been verified, so none of these proposals is attributed to it.
@@ -63,12 +63,15 @@ hold a comparison when that allocation is ambiguous; do not duplicate shared
 effort. Label policy comparisons descriptive. Specify any calendar or intake
 window and outcome horizon before selecting rows.
 
-## 4. Add uncertainty for one explicit sampling design
+## 4. Extend design-specific uncertainty to cohort records
 
 [Labour accounting](../src/analysis/labour.rs) supports Horvitz--Thompson point
 estimates but intentionally cannot estimate variance from arbitrary sampling
-probabilities alone. Implement one declared design before adding generic error
-bars, for example stratified simple random sampling without replacement.
+probabilities alone. The separate [complete-frame estimator](design-based-estimation.md)
+now implements frozen-prediction difference estimation and ordinary SRS variance,
+with finite enumeration and unavailable/census cases. It does not attach design
+variance to generic cohort reports. A next extension could support stratified
+simple random sampling without replacement and its explicit task-total mapping.
 
 **Prerequisites:** retain the person-interval frame, stratum identities, frame and
 sample sizes, selection design and response status. Define how task allocations

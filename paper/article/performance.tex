@@ -20,9 +20,9 @@ The result is the exact integer pair $(Q_{\mathrm{d}},H_{\mathrm{d}})$. Their co
 
 To relate these records to the continuous integral in \eqref{eq:labour}, the observation and integration rule must supply the correct contributions at each queried boundary. Cutoffs aligned with already integrated bins are one example. Assigning a whole contribution to the end of a sampled interval or time bin instead approximates an interior cutoff.
 
-The measurement protocol must also resolve missing labour, unobserved retention, duplicated tasks and scope changes, which the index cannot diagnose. Retained weights apply to the particular $\Delta$ at which they were assessed. A change to $\Delta$, the cohort or its assessed weights requires corresponding input data and a rebuilt index. The next result states what exact bin masses can establish at an interior cutoff.
+The measurement protocol must also resolve missing labour, unobserved retention, duplicated tasks and scope changes, which the index cannot diagnose. Retained weights apply to the particular $\Delta$ at which they were assessed. A change to $\Delta$, the cohort or its assessed weights requires corresponding input data and a rebuilt index. Section~\ref{sec:sharp-identification} states what exact interval masses and capacity restrictions establish at an interior cutoff. The discrete index below computes the supplied ledger totals; it does not solve the continuous sharp-bounds programme.
 
-\input{binning-bounds}
+If the labour records contain exact, nonduplicated bin masses $v_j$ on $[\ell_j,u_j)$ with end ages $b_j=u_j$, the Rust labour sum equals $H_-$ in \eqref{eq:binning-envelope} after unit conversion. That index stores no start keys and does not compute $H_+$. A companion index could sort starts and ends separately, using inclusive end and strict start prefix lookups: $O(m\log(m+1))$ preprocessing, $O(m)$ storage and $O(1+\log(m+1))$ time per cutoff. The two totals then give the deterministic envelope under the stated observation premises. No runtime advantage for the companion calculation has been measured.
 
 \subsection{Construction, queries and correctness}
 
