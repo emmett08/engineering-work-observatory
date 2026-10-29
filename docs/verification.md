@@ -105,5 +105,6 @@ The [forecast validation record](../paper/forecasting/VALIDATION.md) distinguish
 software checks, independent exact/decimal score checks, the failed public-reference
 promotion and the still-unvalidated user forecast. The [mesh decision record](../paper/review/mesh-forecasting-2026-10-29/README.md)
 and [three ranked alternatives](../paper/review/ranked-automatic-model-alternatives.md)
-retain model choices and unsupported future-bottleneck claims. The existing paper,
-proof package and historical performance observations remain unchanged.
+retain model choices and unsupported future-bottleneck claims. The original 17-page manuscript, proof package and historical performance
+observations remain unchanged. The [subsequent writing revision](../paper/review/precise-writing-2026-10-29.md)
+updates both current papers and their captions.

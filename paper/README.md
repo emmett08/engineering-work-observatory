@@ -102,7 +102,7 @@ are numbered continuously because the article class has no chapter counter.
 Rust and Python requirements and benchmark commands are documented in
 [`performance/README.md`](performance/README.md).
 
-`make check` validates the preserved package, exact measurement and sharp-bound
+`make check` validates the preserved package, exact measurement and interval-bound
 examples, Rust kernel and successor-collector tests. Application estimator and
 bound integration tests run through the root Cargo checks. `make performance` writes a separate fresh
 collection under `reports/performance/<UTC>/` at the repository root. The recorded

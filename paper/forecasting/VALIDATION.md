@@ -83,7 +83,7 @@ is distinguished from the original command-issued example.
 ## Retained material and scope
 
 The full `make -C paper check` passes: historical package/hash/receipt checks,
-exact measurement and sharp-identification examples, seven retained kernel tests,
+exact measurement and labour-identification examples, seven retained kernel tests,
 11 existing Python tests, and the new independent reference checker. No performance
 recollection or new Lean execution was performed. At forecasting commit `1ef269334c774df4f6e46fe4a5bac52d52420ec3`, comparison
 with parent `87372e5a140dff1df01ba68a25939c60e63031c1` confirmed that the original
