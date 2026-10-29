@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "figure_id": "horizon-performance",
+  "spec_sha256": "a2fb4c121749ebd07e99608614558e1c2ae5dede8cb3da4c649002d3bb606d8d",
+  "audit_sha256": "2da0d47e3b6539300b8a7c6695290b10708abacf65d3754f00fe0677049f1ed2",
+  "artifacts": [
+    {
+      "role": "final_pdf",
+      "path": "figures/horizon-performance.pdf",
+      "sha256": "de26f596057b7d02c282fd2e1766784e4dba0c475f21d77c2ec0d3a65e7d68b0"
+    },
+    {
+      "role": "prototype",
+      "path": "figures/horizon-performance.pdf",
+      "sha256": "de26f596057b7d02c282fd2e1766784e4dba0c475f21d77c2ec0d3a65e7d68b0"
+    },
+    {
+      "role": "prototype",
+      "path": "performance/figure/prototypes/ratio.pdf",
+      "sha256": "7508fe22c009c8e1e0a5cc90f407f5184523d4a3d9c876d9c04737b587143554"
+    }
+  ],
+  "reviewer": {
+    "id": "/root/reconstruct_figures/figure_reader",
+    "kind": "agent",
+    "independence_declared": true,
+    "scope": "agent_screening"
+  },
+  "candidates": [
+    {
+      "id": "total-times",
+      "prototype": "figures/horizon-performance.pdf",
+      "observations": {
+        "reading": "The headline attracts attention first, then rising dashed scanning times and a nearly flat indexed total. At one query the reader recovers approximately 3 ms versus 21 ms; repeated queries expose the payoff. The absolute cost comparison and the indexed plateau remain visible. Pairwise variation at ten queries requires the caption; overlapping marginal ranges alone do not establish it.",
+        "annotation_burden": "Two directly labelled methods make a legend unnecessary. Lower elapsed time is better. The caption supplies pairing, range meaning, scope and the unmeasured crossing. No additional annotation was needed for the figure-plus-caption reading; moving detailed method notes into the graphic would compete with the data.",
+        "reproduction": "At 152.4 mm by 85 mm, labels and points are unclipped. Dash patterns, square versus diamond marks, and direct labels retain identity in greyscale. Thin whiskers and qualification text are less informative at thumbnail size, where only the main comparison is expected to remain readable."
+      }
+    },
+    {
+      "id": "paired-ratio",
+      "prototype": "performance/figure/prototypes/ratio.pdf",
+      "observations": {
+        "reading": "The ratio range crosses the equality reference at ten queries, making variation in paired direction more immediate. The view conceals absolute elapsed costs and the indexed plateau. A reader must recover the numerator and denominator and understand that values above one favour indexing.",
+        "annotation_burden": "One series is compact, but its caption must explicitly state that values are medians of within-pair scan/index-total ratios, their observed range, and direction of advantage. The equality line is necessary; the total-time caption cannot be reused unchanged.",
+        "reproduction": "Same final dimensions and type floors as the selected candidate. The single series and equality reference survive greyscale. Connecting ratios still suggest an unmeasured crossing, so the alternative does not remove that inferential risk."
+      }
+    }
+  ],
+  "selected_candidate": "total-times",
+  "initial_reconstruction": {
+    "claim": "For this generated workload, indexing incurs an initial cost but reduces total elapsed time when the same cohort is queried repeatedly. Scanning wins at one query; indexing wins by 100 queries. Ten-query results are mixed across paired runs.",
+    "quantities": [
+      "Query count sampled at 1,10,100,1000 on a logarithmic horizontal axis.",
+      "Total elapsed machine time in milliseconds on a logarithmic vertical axis.",
+      "Lower time is better; repeated scanning is compared with index construction, queries and disposal.",
+      "Fifteen runs per condition: three seeds and five fresh-process repetitions per seed, paired between methods."
+    ],
+    "evidence_status": "Observed machine timings on generated arrays. Markers are medians and whiskers observed ranges, not confidence intervals; variation across retained runs is not inferential uncertainty for another environment.",
+    "scope": "Repeated cohort-horizon queries over generated arrays containing 100,000 accepted-output events and 400,000 labour increments. Only four query counts were timed; exact break-even is unknown. The result is confined to this workload and execution environment and does not estimate human labour or an AI-policy effect.",
+    "unintended_inferences": [
+      "The connecting lines cross between one and ten queries, inviting an exact sub-ten break-even reading that the caption explicitly denies.",
+      "The image alone may lose the paired-run qualification behind the statement by 100 queries.",
+      "Hardware, software configuration and warm-up treatment cannot be recovered from the figure and caption alone."
+    ]
+  },
+  "comparison": {
+    "matches": [
+      "The initial reconstruction recovered the intended absolute-cost trade-off, observed status, denominator and inferential restrictions.",
+      "Derived paired ratio ranges support all one-query losses, mixed ten-query directions and all indexed wins at 100 and 1000 queries.",
+      "The alternative calculates within-pair ratios before the median; its 1000-query median is approximately 134.5, distinct from the ratio of marginal medians of approximately 120.9."
+    ],
+    "findings": [
+      {
+        "id": "crossing-risk",
+        "severity": "minor",
+        "description": "Connecting lines in either candidate encourage interpolation between unmeasured query counts.",
+        "disposition": "accepted",
+        "reason": "The caption explicitly states only four query counts were timed, reports mixed ten-query pairs, and denies an exact located break-even. Preserve these qualifications in the manuscript."
+      },
+      {
+        "id": "scope-wording",
+        "severity": "minor",
+        "description": "The calculation metadata initially said generated task and labour records although the fixture contains event and increment arrays without a full task roster.",
+        "disposition": "resolved",
+        "reason": "prepare.py and the regenerated calculation-checks.json now use accepted-output event and labour-increment arrays and explicitly state the missing roster and associations. The figure and caption already used the accurate wording."
+      },
+      {
+        "id": "thumbnail-qualifications",
+        "severity": "minor",
+        "description": "Thin whiskers and small scope text become less informative at thumbnail size.",
+        "disposition": "accepted",
+        "reason": "Thumbnail inspection establishes hierarchy, not small-text readability; the final-size figure and external caption preserve the distinctions. No conspicuous clipping or greyscale failure was found."
+      },
+      {
+        "id": "bounded-audit",
+        "severity": "informational",
+        "description": "The supplied audit is project-local because the referenced bundled skill renderer and validators were unavailable.",
+        "disposition": "accepted",
+        "reason": "The audit and README explicitly limit their coverage and do not claim bundled validation. Actual compilation, physical bounds, font and stroke floors, input hashes, and colour/greyscale inspection were performed."
+      },
+      {
+        "id": "integration-scope",
+        "severity": "informational",
+        "description": "This independent review covers the standalone figure plus caption.",
+        "disposition": "accepted",
+        "reason": "Full manuscript-page inspection belongs to the parent integration review and is not claimed by this record."
+      }
+    ],
+    "audit_warning_dispositions": [
+      {
+        "index": 0,
+        "disposition": "accepted",
+        "reason": "Shell escape is deliberately disabled by -no-shell-escape. The figure uses no externalization or shell commands; compilation succeeded and the current render was inspected."
+      }
+    ]
+  },
+  "decision": "accept",
+  "limitations": [
+    "Human interpretation benefit remains unmeasured by agent screening.",
+    "Acceptance is bounded to the figure and caption using the reported project-local checks, not the unavailable bundled skill validation.",
+    "The generated workload and one recorded execution environment do not establish production performance, human effort savings or AI-policy effects.",
+    "Full manuscript-page inspection is recorded separately by the parent integration reviewer."
+  ]
+}

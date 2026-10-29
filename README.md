@@ -6,6 +6,10 @@ requirement output. It implements §§3 and 6 of *Human Effort, Delivery Speed a
 Retained Output in AI-Assisted Software Engineering*, the 13 October 2026
 methodological draft supplied for this project.
 
+The [paper and reproducibility files](paper/README.md) include that original draft,
+its LaTeX and Lean evidence, and an extended article with editable TikZ figures,
+performance algorithms, and a separate Rust benchmark of repeated accounting queries.
+
 The software implements descriptive accounting. Repository activity does not
 establish human labour, AI exposure, acceptance, or retained correctness. Those
 outcomes need explicit task records and independently collected measurements.

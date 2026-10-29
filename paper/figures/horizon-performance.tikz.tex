@@ -1,0 +1,59 @@
+% Include-ready figure: one picture, no float/caption or document preamble.
+% Requires pgfplots (compat=1.18); compile from paper/article, as main.tex does.
+% Target: exactly 152.4 mm (6 in) wide; text >=8 pt, strokes >=0.4 pt.
+% Colour and greyscale: dashed squares = repeated scans; solid diamonds = index.
+% Data and finding title are generated from measured timings by prepare.py.
+\begin{tikzpicture}
+  \definecolor{horizonInk}{RGB}{32,48,56}
+  \definecolor{horizonTeal}{RGB}{0,124,131}
+  \definecolor{horizonGrey}{RGB}{110,117,120}
+  \input{../performance/figure/horizon-labels.tex}
+  \path[use as bounding box] (0,0) rectangle (152.4mm,85mm);
+  \node[anchor=base west,inner sep=0pt,text=horizonInk,
+        font=\sffamily\bfseries\fontsize{10}{12}\selectfont]
+    at (17mm,80mm) {\HorizonFinding};
+  \node[anchor=base west,inner sep=0pt,text=horizonGrey,
+        font=\sffamily\fontsize{8}{10}\selectfont]
+    at (17mm,74.5mm) {Observed machine timings on generated records};
+  \begin{axis}[
+      at={(17mm,16mm)},anchor=south west,
+      width=100mm,height=51mm,scale only axis,
+      xmode=log,log basis x=10,ymode=log,log basis y=10,
+      xmin=1,xmax=1000,ymin=\HorizonYmin,ymax=\HorizonYmax,
+      xtick={1,10,100,1000},xticklabels={1,10,100,{1,000}},
+      ytick/.expanded=\HorizonYticks,
+      yticklabels/.expanded=\HorizonYticks,
+      xlabel={Queries over the same cohort (log scale)},
+      ylabel={Total elapsed time (ms, log scale)},
+      tick label style={font=\sffamily\fontsize{8}{10}\selectfont,text=horizonInk},
+      label style={font=\sffamily\fontsize{8}{10}\selectfont,text=horizonInk},
+      xlabel style={yshift=1mm},ylabel style={yshift=-1mm},
+      axis x line*=bottom,axis y line*=left,axis line style={horizonGrey,line width=.4pt},
+      tick style={horizonGrey,line width=.4pt},tick align=outside,
+      minor tick num=0,minor x tick num=0,minor y tick num=0,
+      ymajorgrids=true,grid style={black!16,line width=.4pt},
+      clip=false,
+    ]
+    \addplot+[horizonInk,dashed,line width=.85pt,mark=square*,mark size=2.2pt,
+      mark options={solid,fill=horizonInk,draw=horizonInk},
+      error bars/.cd,y dir=both,y explicit,
+      error bar style={line width=.5pt},error mark options={line width=.5pt,mark size=2pt}]
+      table[x=q,y=scan,y error minus=scan_minus,y error plus=scan_plus,col sep=comma]
+      {../performance/figure/horizon-data.csv};
+    \addplot+[horizonTeal,solid,line width=1pt,mark=diamond*,mark size=2.8pt,
+      mark options={solid,fill=horizonTeal,draw=horizonTeal},
+      error bars/.cd,y dir=both,y explicit,
+      error bar style={line width=.5pt},error mark options={line width=.5pt,mark size=2pt}]
+      table[x=q,y=indexed,y error minus=indexed_minus,y error plus=indexed_plus,col sep=comma]
+      {../performance/figure/horizon-data.csv};
+    \node[anchor=west,inner sep=0pt,text=horizonInk,
+      font=\sffamily\fontsize{8}{10}\selectfont,xshift=3mm]
+      at (axis cs:1000,\HorizonScanLast) {Scan each query};
+    \node[anchor=west,inner sep=0pt,text=horizonTeal,
+      font=\sffamily\fontsize{8}{10}\selectfont,xshift=3mm,align=left]
+      at (axis cs:1000,\HorizonIndexedLast) {Build index\,+\,queries};
+  \end{axis}
+  \node[anchor=base west,inner sep=0pt,text=horizonGrey,
+        font=\sffamily\fontsize{8}{10}\selectfont]
+    at (17mm,1.2mm) {Medians and observed ranges; build and disposal included.};
+\end{tikzpicture}%

@@ -1,0 +1,42 @@
+{
+  "started_utc": "2026-10-29T19:13:20Z",
+  "command": "python3 run_benchmarks.py",
+  "seeds": [
+    17,
+    41,
+    93
+  ],
+  "query_counts": [
+    1,
+    10,
+    100,
+    1000
+  ],
+  "repetitions_per_seed_q": 5,
+  "independent_unit": "One fresh process runs one paired comparison after one warmup of each method; repeated host runs are not random independent production samples.",
+  "order": "scan first iff (seed_index + rep + q_index) is even; nested loops rep, seed, q",
+  "scope": "In-memory query batch: indexed total includes owned input copies, sorting, prefix construction, queries and index disposal. Input generation, process startup, warmup, output verification and result I/O excluded equally.",
+  "preselected_threshold": "At q=1000, indexed median total <= 0.90 * scan median. Report every q, including regressions.",
+  "host": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "cpu_model": "INTEL(R) XEON(R) PLATINUM 8573C",
+  "available_cpus": 5,
+  "cpu_max": "400000 100000",
+  "memory_max": "17179869184",
+  "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)\nbinary: rustc\ncommit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181\ncommit-date: 2025-03-15\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.1\nLLVM version: 19.1.7\n",
+  "cargo": "cargo 1.85.1 (d73d2caf9 2024-12-31)",
+  "python": "3.12.14",
+  "base_revision": "35d67ed7be690dc60b5fd605a74c213eed18aa15",
+  "source_sha256": {
+    "Cargo.toml": "3e71c19d78fca2b71faa99a1466132094690f92c7dd69937a9f21a95a0b29c6e",
+    "Cargo.lock": "e04b148d7e48b7bce01a3ea08a9dd6b5982178e95d6e185631a40b6588ee0eef",
+    "rust-toolchain.toml": "b323b19900e4b811af0a8facce5ec11249ed135ae5a46ff5c0be90067521e11f",
+    "run_benchmarks.py": "d40150a366c0a24820c9500b03a9e55b929e7c314b4e47ba96f56d7d45c2f10e",
+    "summarise.py": "9abf9dc01a4ebf3b4584f3c9d96713dabfcedf4584c316a4715f79e8fe43bf74",
+    "src/bin/horizon-bench.rs": "1e14e14a8b71b8d44d4ec44df7407175fc614ace794f698f462c510d60d6a577",
+    "src/lib.rs": "a06a260a4f8633e50ec5202e4deeb5c2827c3665ad13be807c8f43e6fcac1121"
+  },
+  "exclusions": "None; subprocess failures abort collection and retain the partial CSV.",
+  "load_control": "Single benchmark runner; no intentional parallel benchmark or compilation. Shared host load is uncontrolled.",
+  "finished_utc": "2026-10-29T19:15:09Z",
+  "raw_sha256": "69eebeb08c00b84392c3f2d559d88f70e0cba6de270571835e331ed87c125ef4"
+}

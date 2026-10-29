@@ -1,0 +1,12 @@
+/build/
+/effort-speed-ai/.build/
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.loa
+*.synctex.gz
+__pycache__/

@@ -1,0 +1,6 @@
+# Receipt and benchmark hashes bind exact bytes, including line endings.
+* -text
+# Python's CSV writer uses CRLF; retain these recorded bytes without lint noise.
+*.csv whitespace=cr-at-eol
+# Preserve the exact reference schemas bound into the figure review.
+performance/figure/schemas/*.json whitespace=-blank-at-eof
