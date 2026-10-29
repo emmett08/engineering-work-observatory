@@ -10,7 +10,7 @@ Every record has `id`, `kind` and object `data`. IDs are nonempty, globally uniq
 
 ## Study records
 
-Dates are RFC 3339 timestamps. Calculations use UTC and fixed 24-hour days. Fields marked optional may be omitted or null unless a default is specified. An omitted or null measurement does not mean zero.
+Dates are RFC 3339 timestamps, including fractional seconds. Duration conversion preserves subsecond precision before floating-point accounting; arbitrary subdivisions can still differ by floating-point rounding. Calculations use UTC and fixed 24-hour days. Fields marked optional may be omitted or null unless a default is specified. An omitted or null measurement does not mean zero.
 
 | Kind | Required `data` fields | Optional fields and defaults |
 |---|---|---|
@@ -43,6 +43,8 @@ Parent/child tasks share the original `enrolled_at` and `protocol_id`; implement
 There is at most one first-acceptance event per task. Acceptance and permanent abandonment cannot coexist. Deployment requires preceding acceptance. Missing effort/assessment records require a nonempty `missing_reason` and a null fraction. Sampled effort requires `0 < inclusion_probability <= 1`; direct effort has no probability or probability one. Overlapping allocations for a person sum to at most one. Overlapping sampled allocations must describe the same sampled interval and probability; overlapping direct and sampled observations are rejected.
 
 Coverage attests a declared observation frame; it is not inferred from a few effort events. Partial/missing coverage requires `reason`. Lifecycle coverage uses `direct`. A conflicting partial interval is not silently overridden by a complete attestation. See the [measurement protocol](measurement-protocol.md) before asserting completeness.
+
+An effort record's `allocation_fraction` is the average over its complete interval. Interior averages do not identify allocation within a clipped subinterval. A boundary-crossing direct record leaves complete labour unavailable unless its allocation is exactly zero or one; the attention bound identifies those endpoint contributions without interpolation. Boundary-crossing sampled records remain unavailable under their sampling-frame contract. Other identified contributions remain visible. Supply separately observed split intervals rather than interpolating an interior whole-interval average. Records wholly outside the labour horizon do not contribute to that total.
 
 Task links require a retained `source_record_id`, a `session_id`, or `repository` plus PR/commit. `relation` and `method` describe the linkage; `ambiguity` records uncertainty. Use full commit IDs for reproducible links. Defects require existing nonself evidence IDs. Repair IDs refer to effort on the same task starting no earlier than detection; linked effort is not added to the total a second time.
 

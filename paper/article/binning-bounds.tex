@@ -1,0 +1,32 @@
+\subsection{Bounding labour at a bin boundary}
+\label{sec:binning-bounds}
+
+A conditional bound can connect binned observations to the continuous labour target without interpolating within a bin. Suppose a fixed cohort's labour is partitioned into complete, nonduplicated contributions on task-relative age intervals $[\ell_j,u_j)$, with $0\leq\ell_j<u_j$. Attribute shared work once. Each contribution arises from a nonnegative allocation integral with absolutely continuous cumulative labour and known total mass $v_j$ in person-hours. These premises include coverage and attribution; records alone do not establish them. Ages and cutoffs use a common declared time unit. Masses must be exact after unit conversion; rounded weights require separate error bounds.
+
+\begin{proposition}[A continuous labour envelope]
+\label{prop:binning-bounds}
+Under these premises, set $c=\tau+\Delta$ and $H(c)=\sum_i H_i(c)$. Then
+\begin{equation}
+\label{eq:binning-envelope}
+ H_-(c):=\sum_jv_j\ind\{u_j\leq c\}
+ \;\leq H(c)\leq\;
+ H_+(c):=\sum_jv_j\ind\{\ell_j<c\}.
+\end{equation}
+The gap is $H_+(c)-H_-(c)=\sum_{j:\,\ell_j<c<u_j}v_j$. If $H_-(c)>0$ and retained output $Q=\sum_iQ_i(\tau,\Delta)$ is known, then
+\begin{equation}
+\label{eq:binning-ratio}
+ \frac{Q}{H_+(c)}\leq P_H(\tau,\Delta)\leq\frac{Q}{H_-(c)}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+A bin ending by $c$ contributes its full mass. A bin starting at or after $c$ contributes zero; absolute continuity excludes endpoint atoms. Every crossing bin contributes between zero and its mass. Summing gives \eqref{eq:binning-envelope} and the gap. Nonnegative $Q$ and positive bounding denominators give \eqref{eq:binning-ratio} by division.
+\end{proof}
+
+When $H_-=0$, the bounds need not establish a positive denominator or a finite upper productivity bound. If output instead has justified bounds $Q_-\leq Q\leq Q_+$, positive $H_-$ gives $Q_-/H_+\leq P_H\leq Q_+/H_-$. These are deterministic binning bounds, not causal confidence intervals. They do not guarantee sampling accuracy, remove nonresponse or establish that Horvitz--Thompson estimates equal complete-population bin masses.
+
+\begin{example}[An interior cutoff]
+\label{ex:binning-cutoff}
+One person's bin $[0,2)$ contains one person-hour. At $c=1$, work entirely in the first hour gives labour 1, whereas work entirely in the second gives 0. Both respect the allocation constraint. Uniform interpolation gives $1/2$, but the known bin mass alone supports the interval $[0,1]$.
+\end{example}
+
+If ledger ages satisfy $b_j=u_j$ and their weights represent these exact masses, the unchanged Rust labour sum equals $H_-$ after unit conversion. That index stores no start keys and does not compute $H_+$. A companion index could sort starts and ends separately, using inclusive end and strict start prefix lookups: $O(m\log(m+1))$ preprocessing, $O(m)$ storage and $O(1+\log(m+1))$ time per cutoff. This adds a conditional certificate; no runtime advantage for the companion calculation has been measured.

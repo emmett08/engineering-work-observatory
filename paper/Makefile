@@ -14,10 +14,12 @@ baseline:
 
 check:
 	$(MAKE) -C effort-speed-ai check
+	$(PYTHON) check_measurement_examples.py
 	cd performance && cargo test --locked
+	cd performance && $(PYTHON) -m unittest discover -s tests -v
 
 performance:
-	cd performance && $(PYTHON) run_benchmarks.py
+	cd performance && $(PYTHON) collect_benchmarks.py
 
 clean:
 	cd article && $(LATEXMK) -C -outdir=../build main.tex

@@ -87,7 +87,7 @@ mod labour;
 mod outcome;
 
 fn elapsed_hours(start: DateTime<Utc>, end: DateTime<Utc>) -> f64 {
-    (end - start).num_milliseconds() as f64 / 3_600_000.0
+    (end - start).as_seconds_f64() / 3_600.0
 }
 
 /// Analyse only observations available by `as_of`; unknown is never coerced to zero.

@@ -225,6 +225,130 @@ fn zero_total_labour_has_no_ratio() {
 }
 
 #[test]
+fn boundary_crossing_average_allocation_requires_observed_splits() {
+    for method in ["direct", "sampled"] {
+        let mut records = fixture();
+        if method == "sampled" {
+            let hours = &mut records.iter_mut().find(|r| r.id == "hours").unwrap().data;
+            hours["method"] = json!(method);
+            hours["inclusion_probability"] = json!(1.0);
+            records.iter_mut().find(|r| r.id == "hc").unwrap().data["method"] = json!(method);
+        }
+        let mut crossing = rec(
+            "crossing",
+            "effort",
+            json!({"task_id":"t","person_id":"person-a","role":"repair",
+                "start":"2026-11-29T23:30:00Z","end":"2026-11-30T00:30:00Z",
+                "allocation_fraction":0.5,"method":method}),
+        );
+        if method == "sampled" {
+            crossing.data["inclusion_probability"] = json!(1.0);
+        }
+        records.push(crossing);
+        let report = analyse(&records, final_cut()).unwrap();
+        assert_eq!(report.tasks[0].person_hours, None, "{method}");
+        assert_eq!(report.tasks[0].recorded_person_hours, 1.0, "{method}");
+        assert!(
+            report.tasks[0].issues.iter().any(|issue| {
+                issue.contains("effort interval crosses") && issue.contains("split")
+            })
+        );
+
+        // Separately observed allocations identify the two parts; the whole-hour
+        // average alone could not determine this half-hour of in-horizon work.
+        let before = records.iter_mut().find(|r| r.id == "crossing").unwrap();
+        before.data["end"] = json!("2026-11-30T00:00:00Z");
+        before.data["allocation_fraction"] = json!(1.0);
+        let mut after = before.clone();
+        after.id = "after-boundary".into();
+        after.data["start"] = json!("2026-11-30T00:00:00Z");
+        after.data["end"] = json!("2026-11-30T00:30:00Z");
+        after.data["allocation_fraction"] = json!(0.0);
+        records.push(after);
+        let report = analyse(&records, final_cut()).unwrap();
+        assert_eq!(report.tasks[0].person_hours, Some(1.5), "{method}");
+        assert_eq!(report.tasks[0].recorded_person_hours, 1.5, "{method}");
+    }
+}
+
+#[test]
+fn zero_direct_average_identifies_zero_work_across_the_boundary() {
+    let mut records = fixture();
+    let hours = &mut records.iter_mut().find(|r| r.id == "hours").unwrap().data;
+    hours["start"] = json!("2026-11-29T23:30:00Z");
+    hours["end"] = json!("2026-11-30T00:30:00Z");
+    hours["allocation_fraction"] = json!(0.0);
+    let report = analyse(&records, final_cut()).unwrap();
+    assert_eq!(report.tasks[0].person_hours, Some(0.0));
+    assert_eq!(report.tasks[0].recorded_person_hours, 0.0);
+}
+
+#[test]
+fn full_direct_average_identifies_work_across_the_boundary() {
+    let mut records = fixture();
+    let hours = &mut records.iter_mut().find(|r| r.id == "hours").unwrap().data;
+    hours["start"] = json!("2026-11-29T23:30:00Z");
+    hours["end"] = json!("2026-11-30T00:30:00Z");
+    let report = analyse(&records, final_cut()).unwrap();
+    assert_eq!(report.tasks[0].person_hours, Some(0.5));
+    assert_eq!(report.tasks[0].recorded_person_hours, 0.5);
+}
+
+#[test]
+fn submillisecond_effort_remains_positive_when_subdivided() {
+    let mut records = fixture();
+    let hours = &mut records.iter_mut().find(|r| r.id == "hours").unwrap().data;
+    hours["end"] = json!("2026-10-01T09:00:00.001Z");
+    let whole = analyse(&records, final_cut()).unwrap().tasks[0]
+        .person_hours
+        .unwrap();
+    assert!(whole > 0.0);
+
+    let first = records.iter_mut().find(|r| r.id == "hours").unwrap();
+    first.data["end"] = json!("2026-10-01T09:00:00.0005Z");
+    let mut second = first.clone();
+    second.id = "second-half".into();
+    second.data["start"] = json!("2026-10-01T09:00:00.0005Z");
+    second.data["end"] = json!("2026-10-01T09:00:00.001Z");
+    records.push(second);
+    let report = analyse(&records, final_cut()).unwrap();
+    let split = report.tasks[0].person_hours.unwrap();
+    assert!(split > 0.0);
+    assert!((split - whole).abs() <= whole * 1e-12);
+    assert!(report.cohorts[0].retained_output_per_person_hour.is_some());
+}
+
+#[test]
+fn long_effort_duration_does_not_require_an_i64_nanosecond_count() {
+    let mut records = fixture();
+    for record in &mut records {
+        match record.id.as_str() {
+            "p" => {
+                record.data["frozen_at"] = json!("1599-01-01T00:00:00Z");
+                record.data["acceptance_days"] = json!(200_000);
+            }
+            "t" => {
+                record.data["enrolled_at"] = json!("1600-01-01T00:00:00Z");
+                record.data["score_frozen_at"] = json!("1600-01-01T00:00:00Z");
+            }
+            "accepted" => record.data["occurred_at"] = json!("1600-01-02T00:00:00Z"),
+            "audit" => record.data["assessed_at"] = json!("1600-02-01T00:00:00Z"),
+            "hours" => {
+                record.data["start"] = json!("1600-01-01T00:00:00Z");
+                record.data["end"] = json!("2000-01-01T00:00:00Z");
+            }
+            "lc" | "hc" => {
+                record.data["start"] = json!("1600-01-01T00:00:00Z");
+                record.data["end"] = json!("2300-01-01T00:00:00Z");
+            }
+            _ => {}
+        }
+    }
+    let report = analyse(&records, at("2300-01-01T00:00:00Z")).unwrap();
+    assert_eq!(report.tasks[0].person_hours, Some(146_097.0 * 24.0));
+}
+
+#[test]
 fn parent_and_child_cannot_both_create_output() {
     let mut records = fixture();
     let mut child = records.iter().find(|r| r.kind == "task").unwrap().clone();

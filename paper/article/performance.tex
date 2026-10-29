@@ -5,9 +5,9 @@ The accounting definition in \eqref{eq:cohort-productivity} also determines a sm
 
 \subsection{A discrete input contract}
 
-Let $A=((a_i,w_i))_{i=1}^{n}$ contain one accepted-output record per accepted requirement, with acceptance age $a_i$ measured from that requirement's enrolment and retained weight $w_i$ assessed at the common follow-up $\Delta$. Let $B=((b_j,v_j))_{j=1}^{m}$ contain task-attributable labour contributions, including contributions from unfinished, rejected and abandoned tasks. Ages use a declared common integer time unit. Output weights use millionths of a reference unit; labour weights use millionths of a person-hour. All ages and weights are nonnegative \texttt{u64} integers. The two weight types are summed separately.
+Let $A=((a_i,w_i))_{i=1}^{n}$ contain one accepted-output record per accepted requirement, with acceptance age $a_i$ measured from that requirement's enrolment and retained weight $w_i$ assessed at the common follow-up $\Delta$. Let $B=((b_j,v_j))_{j=1}^{m}$ contain task-attributable labour contributions, including contributions from unfinished, rejected and abandoned tasks. Each $b_j$ is the elapsed age from the associated task's enrolment to its contribution's integration boundary; shared work is attributed before forming these records. Ages use a declared common integer time unit. Output weights use millionths of a reference unit; labour weights use millionths of a person-hour. All ages and weights are nonnegative \texttt{u64} integers. The two weight types are summed separately.
 
-For an integer horizon $\tau$, the computational targets are
+For nonnegative \texttt{u64} horizons $\tau$ and $\Delta$ in that time unit, the computational targets are
 \begin{equation}
 \label{eq:discrete-cohort-totals}
  Q_{\mathrm{d}}(\tau)=\sum_{i=1}^{n} w_i\ind\{a_i\leq\tau\},
@@ -17,6 +17,8 @@ For an integer horizon $\tau$, the computational targets are
 The result is the exact integer pair $(Q_{\mathrm{d}},H_{\mathrm{d}})$. Their common scale cancels in the productivity ratio, which is defined only when $H_{\mathrm{d}}>0$. A zero denominator remains an explicit zero in the pair; the Rust convenience method \texttt{ratio()} returns \texttt{None} in that case. Its floating-point result when the denominator is positive is a display approximation, not the canonical stored value.
 
 This contract does not discretise the continuous labour integral automatically. A contribution assigned to the end of a sampled interval or time bin approximates an interior cutoff. Equality with \eqref{eq:labour} requires an observation and integration rule that supplies the correct contributions for the queried boundaries, for example cutoffs aligned with already integrated bins. Missing labour, unobserved retention, duplicated tasks and scope changes must be resolved by the measurement protocol; the index cannot diagnose them. Retained weights are valid for the particular $\Delta$ at which they were assessed. Changing $\Delta$, the cohort or its assessed weights requires corresponding input data and a rebuilt index.
+
+\input{binning-bounds}
 
 \subsection{Construction, queries and correctness}
 
