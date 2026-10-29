@@ -1,0 +1,2821 @@
+{
+  "schema_version": "formal-verification-receipt/1.0",
+  "source_snapshot": {
+    "repository": "local-only:effort-speed-formal",
+    "commit": "8043f2fdf5918545336632909140f48725d3fdf9"
+  },
+  "toolchain": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "v4.33.1",
+    "lakefile_sha256": "9a518b1bbe788ab562bf9ceb9c06a06eaf44ef06f39a22d33ec54d5e8f026c6a",
+    "lake_manifest_sha256": "479c6d953b99dcd2b566a6bdb779caafcd780344d5fdfc4160be4e66c0e36e20"
+  },
+  "inventory_ids": [
+    "prop:binomial",
+    "calc:second-binomial",
+    "ex:variance",
+    "rem:correlation-calibration",
+    "def:labour-accounting",
+    "emp:measurement",
+    "def:reference-retention",
+    "rem:score-nonadditivity",
+    "prop:sampling:finite",
+    "prop:sampling:general",
+    "prop:nonidentification",
+    "prop:consistency",
+    "prop:capacity:algebra",
+    "prop:capacity:scheduling",
+    "def:parallel-attempt",
+    "prop:retry:series",
+    "prop:retry:law",
+    "prop:retry:variance-series",
+    "prop:retry:renewal",
+    "cor:improvements",
+    "ex:retry-reversal",
+    "prop:capped:tail",
+    "prop:capped:polynomial",
+    "prop:capped:probability",
+    "prop:capped:reward",
+    "rem:heterogeneity",
+    "prop:detection:table",
+    "prop:detection:rates",
+    "prop:detection:stopping",
+    "calc:scenarios",
+    "calc:simulation",
+    "thm:chebyshev",
+    "calc:regression",
+    "alg:complexity",
+    "calc:runtime",
+    "prop:restricted-time",
+    "emp:censoring",
+    "thm:log-retransformation",
+    "thm:joint-outcomes",
+    "def:att",
+    "emp:causal-identification",
+    "emp:external-studies",
+    "emp:decision",
+    "ex:capped-retention",
+    "ex:finite-horizon-eventual",
+    "rem:ratios",
+    "def:policy-endpoints",
+    "rem:cross-policy-joint",
+    "emp:portfolio-task-mix",
+    "eq:cluster-ht:finite",
+    "eq:cluster-ht:causal-premises",
+    "prop:retry:repair-boundary",
+    "rem:detection-identification",
+    "rem:mean-zero-signs"
+  ],
+  "inventory": {
+    "path": "claim-inventory.json",
+    "sha256": "092d5a42f63f848c2999bfbb53e0d4fb82a3314b6ab494f47cee52f226859a70"
+  },
+  "canonical_textual_include_graph": [
+    {
+      "path": "manuscript/main.tex",
+      "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631"
+    },
+    {
+      "path": "manuscript/references.bib",
+      "sha256": "c4341f69def5d25ba414797eda6dff7cd079ff1e0194ff2c0b95e569eadd6fc2"
+    },
+    {
+      "path": "manuscript/inherited.md",
+      "sha256": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602"
+    }
+  ],
+  "formal_sources": [
+    {
+      "path": "FormalVerification/Basic.lean",
+      "sha256": "9ed87d5b98347cfa76cab41e3d5d612cf64618a20f36a6809e5140abd772396f"
+    },
+    {
+      "path": "FormalVerification/Binomial.lean",
+      "sha256": "10af804447043c06e1d96cfee0f40ae4daf81a794c4db1d8df889944e0a65b81"
+    },
+    {
+      "path": "FormalVerification/Geometric.lean",
+      "sha256": "427dafee2984400e151a53a8bf36a9dafaa7d7e8ac4d453f5956e2f0f94f4cac"
+    },
+    {
+      "path": "FormalVerification.lean",
+      "sha256": "fdb55f0d9aa4c380cde1665e66efd5a1e79feb9a2f2a349a5875d04f4eaa0763"
+    },
+    {
+      "path": "AxiomAudit.lean",
+      "sha256": "6e368a3bff8356d335ffb17103c62d6a3accc3936629c292a71071436b0fe965"
+    }
+  ],
+  "results": [
+    {
+      "result_id": "prop:binomial",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "labels prop:binomial and eq:binomial; app:coverage limits checking to the finite uniform model"
+      },
+      "formal_statement": {
+        "path": "FormalVerification/Binomial.lean",
+        "declaration": "EffortSpeed.sign_rejection_probability",
+        "status": "CHECKED_WITH_DECLARED_AXIOMS",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "supporting_formal_statements": [
+        {
+          "path": "FormalVerification/Binomial.lean",
+          "declaration": "EffortSpeed.sign_space_cardinality",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Binomial.lean",
+          "declaration": "EffortSpeed.sign_event_cardinality",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.binomial_correction",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "MATCHED",
+        "reviewer": "/root/proof_reaudit (fresh independent review)",
+        "mapping": {
+          "path": "evidence/reaudit-concordance.md",
+          "sha256": "ebd984b49558433fede90bdfbc72b86a0f4110eff68f230eb538c933bed2fedf"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/lake-build.log",
+          "output_sha256": "194844c3407226a568721db1b53da87bbca731d1491cc6dab48d912971d383a7"
+        },
+        {
+          "command": "fresh checkout: lake env lean AxiomAudit.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/axioms.log",
+          "output_sha256": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+        },
+        {
+          "command": "independent fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-lake-build.log",
+          "output_sha256": "fefcf64d2193d07fc6e7ff1cfeb983d10cbe54aa03d8dd4be90f0ea08d4455a0"
+        },
+        {
+          "command": "independent fresh checkout: lake env lean IndependentTypes.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-types-axioms.log",
+          "output_sha256": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+        }
+      ],
+      "scope_boundary": "Independence and fairness of empirical signs remain external."
+    },
+    {
+      "result_id": "calc:second-binomial",
+      "classification": "NUMERICAL_APPROXIMATE",
+      "disposition": "NOT_REQUIRED",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "app:audit paragraph beginning The stated probability in Section III.B"
+      },
+      "formal_statement": {
+        "status": "NOT_REQUIRED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": {
+        "algorithm_id": "calc:second-binomial",
+        "relationship": "TESTED_ONLY",
+        "status": "TESTED_ONLY",
+        "implementation_sources": [
+          {
+            "path": "reference/simulate.py",
+            "sha256": "2813db229bcf382271d57bac5ace7e1ae054f4abbccb602a9afa2ea52cb74d36"
+          }
+        ],
+        "domain_coverage": "Recorded fixed synthetic inputs and seeded experiments; no exhaustive unbounded-domain or source-semantics refinement."
+      },
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        },
+        {
+          "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 reference/simulate.py",
+          "exit_status": 0,
+          "output_path": "evidence/python-reference.log",
+          "output_sha256": "f98f912d2a7c48839fbfd500b56be2167660a7bea8a68677824b6b8917fedbcc"
+        }
+      ],
+      "scope_boundary": "Existing Python arithmetic TESTED_ONLY; null applicability not proved."
+    },
+    {
+      "result_id": "ex:variance",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "labels ex:variance and eq:variance; finite moment computation in its proof"
+      },
+      "formal_statement": {
+        "path": "FormalVerification/Basic.lean",
+        "declaration": "EffortSpeed.covariance_counterexample",
+        "status": "CHECKED_WITH_DECLARED_AXIOMS",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "supporting_formal_statements": [
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.four_point_normalized",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.counterexample_positive_and_decomposed",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "MATCHED",
+        "reviewer": "/root/proof_reaudit (fresh independent review)",
+        "mapping": {
+          "path": "evidence/reaudit-concordance.md",
+          "sha256": "ebd984b49558433fede90bdfbc72b86a0f4110eff68f230eb538c933bed2fedf"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/lake-build.log",
+          "output_sha256": "194844c3407226a568721db1b53da87bbca731d1491cc6dab48d912971d383a7"
+        },
+        {
+          "command": "fresh checkout: lake env lean AxiomAudit.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/axioms.log",
+          "output_sha256": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+        },
+        {
+          "command": "independent fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-lake-build.log",
+          "output_sha256": "fefcf64d2193d07fc6e7ff1cfeb983d10cbe54aa03d8dd4be90f0ea08d4455a0"
+        },
+        {
+          "command": "independent fresh checkout: lake env lean IndependentTypes.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-types-axioms.log",
+          "output_sha256": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+        }
+      ],
+      "scope_boundary": "Variance ratio is not a causal variance share."
+    },
+    {
+      "result_id": "rem:correlation-calibration",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "app:audit paragraph beginning Consequently, the residual fraction"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Analytical illustration; no Lean declaration."
+    },
+    {
+      "result_id": "def:labour-accounting",
+      "classification": "PURE_THEOREM",
+      "disposition": "NOT_REQUIRED",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:labour and surrounding units paragraph"
+      },
+      "formal_statement": {
+        "status": "NOT_REQUIRED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "This item is a definition or contextual claim. No Lean proof, empirical validation or code-refinement result is asserted."
+    },
+    {
+      "result_id": "emp:measurement",
+      "classification": "EMPIRICAL_CONTEXTUAL",
+      "disposition": "EMPIRICAL_CONTEXTUAL",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:accounting paragraphs following eq:labour, eq:reference and prop:sampling; sec:study labour and quality measurement paragraphs"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "No company data; EMPIRICAL_BOUNDARY."
+    },
+    {
+      "result_id": "def:reference-retention",
+      "classification": "PURE_THEOREM",
+      "disposition": "NOT_REQUIRED",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "labels eq:reference, eq:retention, eq:cohort-productivity and eq:calendar-throughput"
+      },
+      "formal_statement": {
+        "status": "NOT_REQUIRED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "This item is a definition or contextual claim. No Lean proof, empirical validation or code-refinement result is asserted."
+    },
+    {
+      "result_id": "rem:score-nonadditivity",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:accounting paragraph beginning For a fixed-scope causal comparison"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Elementary existence observation; no Lean declaration."
+    },
+    {
+      "result_id": "prop:sampling:finite",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "labels prop:sampling and eq:ht; app:coverage finite weighting row"
+      },
+      "formal_statement": {
+        "path": "FormalVerification/Basic.lean",
+        "declaration": "EffortSpeed.sampling_unbiased_finite",
+        "status": "CHECKED_WITH_DECLARED_AXIOMS",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "MATCHED",
+        "reviewer": "/root/proof_reaudit (fresh independent review)",
+        "mapping": {
+          "path": "evidence/reaudit-concordance.md",
+          "sha256": "ebd984b49558433fede90bdfbc72b86a0f4110eff68f230eb538c933bed2fedf"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/lake-build.log",
+          "output_sha256": "194844c3407226a568721db1b53da87bbca731d1491cc6dab48d912971d383a7"
+        },
+        {
+          "command": "fresh checkout: lake env lean AxiomAudit.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/axioms.log",
+          "output_sha256": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+        },
+        {
+          "command": "independent fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-lake-build.log",
+          "output_sha256": "fefcf64d2193d07fc6e7ff1cfeb983d10cbe54aa03d8dd4be90f0ea08d4455a0"
+        },
+        {
+          "command": "independent fresh checkout: lake env lean IndependentTypes.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-types-axioms.log",
+          "output_sha256": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+        }
+      ],
+      "scope_boundary": "General finite weights; actual probability/indicator hypotheses imply its premises. No independence required."
+    },
+    {
+      "result_id": "prop:sampling:general",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "proof of prop:sampling; subsequent sampling-design variance paragraph"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Finite expectation theorem only; arbitrary measurable spaces and design variance not mechanised."
+    },
+    {
+      "result_id": "prop:nonidentification",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "labels prop:nonidentification, eq:event-law and eq:activity-total; app:coverage restricts formal result to all finite words"
+      },
+      "formal_statement": {
+        "path": "FormalVerification/Basic.lean",
+        "declaration": "EffortSpeed.observed_law_equal",
+        "status": "CHECKED_WITH_DECLARED_AXIOMS",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "supporting_formal_statements": [
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.marginal_emission",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.observed_law_factorization",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.history_mass_one",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.history_expectation_nonnegative",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.nonidentification_parameters_valid",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.expected_count_offset",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.latent_effort_mean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.latent_effort_unequal",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "MATCHED",
+        "reviewer": "/root/proof_reaudit (fresh independent review)",
+        "mapping": {
+          "path": "evidence/reaudit-concordance.md",
+          "sha256": "ebd984b49558433fede90bdfbc72b86a0f4110eff68f230eb538c933bed2fedf"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/lake-build.log",
+          "output_sha256": "194844c3407226a568721db1b53da87bbca731d1491cc6dab48d912971d383a7"
+        },
+        {
+          "command": "fresh checkout: lake env lean AxiomAudit.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/axioms.log",
+          "output_sha256": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+        },
+        {
+          "command": "independent fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-lake-build.log",
+          "output_sha256": "fefcf64d2193d07fc6e7ff1cfeb983d10cbe54aa03d8dd4be90f0ea08d4455a0"
+        },
+        {
+          "command": "independent fresh checkout: lake env lean IndependentTypes.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-types-axioms.log",
+          "output_sha256": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+        }
+      ],
+      "scope_boundary": "Finite cylinder laws of independent-state subfamily; no infinite-process construction or generic HMM claim."
+    },
+    {
+      "result_id": "prop:consistency",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "labels prop:consistency and eq:tower"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Conditional-expectation library formalisation deferred; analytical proof retained."
+    },
+    {
+      "result_id": "prop:capacity:algebra",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:capacity and proof of prop:capacity; app:coverage identifies algebra-only result"
+      },
+      "formal_statement": {
+        "path": "FormalVerification/Basic.lean",
+        "declaration": "EffortSpeed.capacity_lower_bound",
+        "status": "CHECKED_WITH_DECLARED_AXIOMS",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "MATCHED",
+        "reviewer": "/root/proof_reaudit (fresh independent review)",
+        "mapping": {
+          "path": "evidence/reaudit-concordance.md",
+          "sha256": "ebd984b49558433fede90bdfbc72b86a0f4110eff68f230eb538c933bed2fedf"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/lake-build.log",
+          "output_sha256": "194844c3407226a568721db1b53da87bbca731d1491cc6dab48d912971d383a7"
+        },
+        {
+          "command": "fresh checkout: lake env lean AxiomAudit.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/axioms.log",
+          "output_sha256": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+        },
+        {
+          "command": "independent fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-lake-build.log",
+          "output_sha256": "fefcf64d2193d07fc6e7ff1cfeb983d10cbe54aa03d8dd4be90f0ea08d4455a0"
+        },
+        {
+          "command": "independent fresh checkout: lake env lean IndependentTypes.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-types-axioms.log",
+          "output_sha256": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+        }
+      ],
+      "scope_boundary": "Does not construct a DAG, schedule, capacity integral, or earliest-finish algorithm."
+    },
+    {
+      "result_id": "prop:capacity:scheduling",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label prop:capacity and its topological-order proof"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Analytical scheduling argument only."
+    },
+    {
+      "result_id": "def:parallel-attempt",
+      "classification": "PURE_THEOREM",
+      "disposition": "NOT_REQUIRED",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:parallel and independent-branch description"
+      },
+      "formal_statement": {
+        "status": "NOT_REQUIRED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "This item is a definition or contextual claim. No Lean proof, empirical validation or code-refinement result is asserted."
+    },
+    {
+      "result_id": "prop:retry:series",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:retry; app:coverage weighted-series scope"
+      },
+      "formal_statement": {
+        "path": "FormalVerification/Geometric.lean",
+        "declaration": "EffortSpeed.retry_first_moment",
+        "status": "CHECKED_WITH_DECLARED_AXIOMS",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "supporting_formal_statements": [
+        {
+          "path": "FormalVerification/Geometric.lean",
+          "declaration": "EffortSpeed.retry_mass",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Geometric.lean",
+          "declaration": "EffortSpeed.retry_labour_moment",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Geometric.lean",
+          "declaration": "EffortSpeed.retry_elapsed_moment",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "MATCHED",
+        "reviewer": "/root/proof_reaudit (fresh independent review)",
+        "mapping": {
+          "path": "evidence/reaudit-concordance.md",
+          "sha256": "ebd984b49558433fede90bdfbc72b86a0f4110eff68f230eb538c933bed2fedf"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/lake-build.log",
+          "output_sha256": "194844c3407226a568721db1b53da87bbca731d1491cc6dab48d912971d383a7"
+        },
+        {
+          "command": "fresh checkout: lake env lean AxiomAudit.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/axioms.log",
+          "output_sha256": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+        },
+        {
+          "command": "independent fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-lake-build.log",
+          "output_sha256": "fefcf64d2193d07fc6e7ff1cfeb983d10cbe54aa03d8dd4be90f0ea08d4455a0"
+        },
+        {
+          "command": "independent fresh checkout: lake env lean IndependentTypes.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-types-axioms.log",
+          "output_sha256": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+        }
+      ],
+      "scope_boundary": "HasSum proves actual infinite-series convergence and values; no construction of iid attempts or measure-space expectation."
+    },
+    {
+      "result_id": "prop:retry:law",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label prop:retry and its IID-attempt interpretation"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Stochastic process construction and expectation translation not mechanised."
+    },
+    {
+      "result_id": "prop:retry:variance-series",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:retry variance term; app:coverage weighted-moment scope"
+      },
+      "formal_statement": {
+        "path": "FormalVerification/Geometric.lean",
+        "declaration": "EffortSpeed.retry_labour_variance",
+        "status": "CHECKED_WITH_DECLARED_AXIOMS",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "supporting_formal_statements": [
+        {
+          "path": "FormalVerification/Geometric.lean",
+          "declaration": "EffortSpeed.retry_second_moment",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Geometric.lean",
+          "declaration": "EffortSpeed.retry_central_second_moment",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "MATCHED",
+        "reviewer": "/root/proof_reaudit (fresh independent review)",
+        "mapping": {
+          "path": "evidence/reaudit-concordance.md",
+          "sha256": "ebd984b49558433fede90bdfbc72b86a0f4110eff68f230eb538c933bed2fedf"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/lake-build.log",
+          "output_sha256": "194844c3407226a568721db1b53da87bbca731d1491cc6dab48d912971d383a7"
+        },
+        {
+          "command": "fresh checkout: lake env lean AxiomAudit.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/axioms.log",
+          "output_sha256": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+        },
+        {
+          "command": "independent fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-lake-build.log",
+          "output_sha256": "fefcf64d2193d07fc6e7ff1cfeb983d10cbe54aa03d8dd4be90f0ea08d4455a0"
+        },
+        {
+          "command": "independent fresh checkout: lake env lean IndependentTypes.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-types-axioms.log",
+          "output_sha256": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+        }
+      ],
+      "scope_boundary": "Actual HasSum result; interpretation as stochastic variance requires the separately stated geometric probability law."
+    },
+    {
+      "result_id": "prop:retry:renewal",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:cycle-rates and strong-law paragraph in proof of prop:retry"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "SLLN and renewal-reward convergence not mechanised; equal means/independence alone do not suffice."
+    },
+    {
+      "result_id": "cor:improvements",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "labels cor:improvements, eq:improvements and eq:productivity-improvement"
+      },
+      "formal_statement": {
+        "path": "FormalVerification/Basic.lean",
+        "declaration": "EffortSpeed.productivity_improves_iff",
+        "status": "CHECKED_WITH_DECLARED_AXIOMS",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "supporting_formal_statements": [
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.ratio_improves_iff",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "MATCHED",
+        "reviewer": "/root/proof_reaudit (fresh independent review)",
+        "mapping": {
+          "path": "evidence/reaudit-concordance.md",
+          "sha256": "ebd984b49558433fede90bdfbc72b86a0f4110eff68f230eb538c933bed2fedf"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/lake-build.log",
+          "output_sha256": "194844c3407226a568721db1b53da87bbca731d1491cc6dab48d912971d383a7"
+        },
+        {
+          "command": "fresh checkout: lake env lean AxiomAudit.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/axioms.log",
+          "output_sha256": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+        },
+        {
+          "command": "independent fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-lake-build.log",
+          "output_sha256": "fefcf64d2193d07fc6e7ff1cfeb983d10cbe54aa03d8dd4be90f0ea08d4455a0"
+        },
+        {
+          "command": "independent fresh checkout: lake env lean IndependentTypes.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-types-axioms.log",
+          "output_sha256": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+        }
+      ],
+      "scope_boundary": "Generic cost h also instantiated as t. Productivity additionally S>0 and r0>0; unequal waiting requires separate comparison."
+    },
+    {
+      "result_id": "ex:retry-reversal",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label ex:retry-reversal"
+      },
+      "formal_statement": {
+        "path": "FormalVerification/Basic.lean",
+        "declaration": "EffortSpeed.retry_reversal",
+        "status": "CHECKED_WITH_DECLARED_AXIOMS",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "MATCHED",
+        "reviewer": "/root/proof_reaudit (fresh independent review)",
+        "mapping": {
+          "path": "evidence/reaudit-concordance.md",
+          "sha256": "ebd984b49558433fede90bdfbc72b86a0f4110eff68f230eb538c933bed2fedf"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/lake-build.log",
+          "output_sha256": "194844c3407226a568721db1b53da87bbca731d1491cc6dab48d912971d383a7"
+        },
+        {
+          "command": "fresh checkout: lake env lean AxiomAudit.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/axioms.log",
+          "output_sha256": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+        },
+        {
+          "command": "independent fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-lake-build.log",
+          "output_sha256": "fefcf64d2193d07fc6e7ff1cfeb983d10cbe54aa03d8dd4be90f0ea08d4455a0"
+        },
+        {
+          "command": "independent fresh checkout: lake env lean IndependentTypes.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-types-axioms.log",
+          "output_sha256": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+        }
+      ],
+      "scope_boundary": "Hypothetical rational parameters; stochastic interpretation from stated model."
+    },
+    {
+      "result_id": "prop:capped:tail",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:cap and tail-sum proof; app:coverage finite weighted scope"
+      },
+      "formal_statement": {
+        "path": "FormalVerification/Basic.lean",
+        "declaration": "EffortSpeed.capped_expectation_of_tails",
+        "status": "CHECKED_WITH_DECLARED_AXIOMS",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "supporting_formal_statements": [
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.min_eq_tail",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.finite_tail_sum",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "MATCHED",
+        "reviewer": "/root/proof_reaudit (fresh independent review)",
+        "mapping": {
+          "path": "evidence/reaudit-concordance.md",
+          "sha256": "ebd984b49558433fede90bdfbc72b86a0f4110eff68f230eb538c933bed2fedf"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/lake-build.log",
+          "output_sha256": "194844c3407226a568721db1b53da87bbca731d1491cc6dab48d912971d383a7"
+        },
+        {
+          "command": "fresh checkout: lake env lean AxiomAudit.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/axioms.log",
+          "output_sha256": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+        },
+        {
+          "command": "independent fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-lake-build.log",
+          "output_sha256": "fefcf64d2193d07fc6e7ff1cfeb983d10cbe54aa03d8dd4be90f0ea08d4455a0"
+        },
+        {
+          "command": "independent fresh checkout: lake env lean IndependentTypes.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-types-axioms.log",
+          "output_sha256": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+        }
+      ],
+      "scope_boundary": "Geometric survival probabilities are explicit hypotheses, not deduced from an IID sample-space construction."
+    },
+    {
+      "result_id": "prop:capped:polynomial",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:cap and following boundary paragraph beginning At $p=0$"
+      },
+      "formal_statement": {
+        "path": "FormalVerification/Basic.lean",
+        "declaration": "EffortSpeed.capped_tail_closed_form",
+        "status": "CHECKED_WITH_DECLARED_AXIOMS",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "supporting_formal_statements": [
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.capped_tail_identity",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.capped_zero_probability",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.capped_zero_cap",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.capped_one_probability",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "MATCHED",
+        "reviewer": "/root/proof_reaudit (fresh independent review)",
+        "mapping": {
+          "path": "evidence/reaudit-concordance.md",
+          "sha256": "ebd984b49558433fede90bdfbc72b86a0f4110eff68f230eb538c933bed2fedf"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/lake-build.log",
+          "output_sha256": "194844c3407226a568721db1b53da87bbca731d1491cc6dab48d912971d383a7"
+        },
+        {
+          "command": "fresh checkout: lake env lean AxiomAudit.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/axioms.log",
+          "output_sha256": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+        },
+        {
+          "command": "independent fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-lake-build.log",
+          "output_sha256": "fefcf64d2193d07fc6e7ff1cfeb983d10cbe54aa03d8dd4be90f0ea08d4455a0"
+        },
+        {
+          "command": "independent fresh checkout: lake env lean IndependentTypes.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-types-axioms.log",
+          "output_sha256": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+        }
+      ],
+      "scope_boundary": "Total polynomial defines p0 extension; Lean total division at zero is never substituted for the extension."
+    },
+    {
+      "result_id": "prop:capped:probability",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label prop:capped and complement-of-failures argument"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Independence-to-tail probability connection not mechanised."
+    },
+    {
+      "result_id": "prop:capped:reward",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "prop:capped final sentence and paragraph after proof with S^0 r_K p/h"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Need r_K, or accepted quality independent of attempt count to reuse uncapped r; at impossible acceptance reward directly0."
+    },
+    {
+      "result_id": "rem:heterogeneity",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "labels rem:heterogeneity and eq:heterogeneity"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "No unrestricted extension to correlated h(P); measure-theoretic Jensen not mechanised."
+    },
+    {
+      "result_id": "prop:detection:table",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:detection and first two sentences of proof of prop:detection; app:coverage finite-table qualification"
+      },
+      "formal_statement": {
+        "path": "FormalVerification/Basic.lean",
+        "declaration": "EffortSpeed.detection_conditional_correct",
+        "status": "CHECKED_WITH_DECLARED_AXIOMS",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "supporting_formal_statements": [
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.detection_table",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.detection_joint_nonnegative",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.detection_pass_positive",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "MATCHED",
+        "reviewer": "/root/proof_reaudit (fresh independent review)",
+        "mapping": {
+          "path": "evidence/reaudit-concordance.md",
+          "sha256": "ebd984b49558433fede90bdfbc72b86a0f4110eff68f230eb538c933bed2fedf"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/lake-build.log",
+          "output_sha256": "194844c3407226a568721db1b53da87bbca731d1491cc6dab48d912971d383a7"
+        },
+        {
+          "command": "fresh checkout: lake env lean AxiomAudit.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/axioms.log",
+          "output_sha256": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+        },
+        {
+          "command": "independent fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-lake-build.log",
+          "output_sha256": "fefcf64d2193d07fc6e7ff1cfeb983d10cbe54aa03d8dd4be90f0ea08d4455a0"
+        },
+        {
+          "command": "independent fresh checkout: lake env lean IndependentTypes.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-types-axioms.log",
+          "output_sha256": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+        }
+      ],
+      "scope_boundary": "No false positives encoded in joint table; empirical table assumptions unverified."
+    },
+    {
+      "result_id": "prop:detection:rates",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:detection-rates and strict sensitivity sentence of prop:detection; app:coverage rate-algebra qualification"
+      },
+      "formal_statement": {
+        "path": "FormalVerification/Basic.lean",
+        "declaration": "EffortSpeed.detection_tradeoff",
+        "status": "CHECKED_WITH_DECLARED_AXIOMS",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "supporting_formal_statements": [
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.detection_correct_rate",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "path": "FormalVerification/Basic.lean",
+          "declaration": "EffortSpeed.zero_defect_no_detection_effect",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "MATCHED",
+        "reviewer": "/root/proof_reaudit (fresh independent review)",
+        "mapping": {
+          "path": "evidence/reaudit-concordance.md",
+          "sha256": "ebd984b49558433fede90bdfbc72b86a0f4110eff68f230eb538c933bed2fedf"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/lake-build.log",
+          "output_sha256": "194844c3407226a568721db1b53da87bbca731d1491cc6dab48d912971d383a7"
+        },
+        {
+          "command": "fresh checkout: lake env lean AxiomAudit.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/axioms.log",
+          "output_sha256": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+        },
+        {
+          "command": "independent fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-lake-build.log",
+          "output_sha256": "fefcf64d2193d07fc6e7ff1cfeb983d10cbe54aa03d8dd4be90f0ea08d4455a0"
+        },
+        {
+          "command": "independent fresh checkout: lake env lean IndependentTypes.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-types-axioms.log",
+          "output_sha256": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+        }
+      ],
+      "scope_boundary": "Fixed time, score and defect rate; repeated stopping composition and long-run rates remain analytical."
+    },
+    {
+      "result_id": "prop:detection:stopping",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "proof of prop:detection: Summing over the number of earlier rejected attempts"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Infinite stopping process and renewal step not mechanised."
+    },
+    {
+      "result_id": "calc:scenarios",
+      "classification": "NUMERICAL_APPROXIMATE",
+      "disposition": "NOT_REQUIRED",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label tab:scenarios; labels fig:scenarios and fig:detection"
+      },
+      "formal_statement": {
+        "status": "NOT_REQUIRED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": {
+        "algorithm_id": "calc:scenarios",
+        "relationship": "TESTED_ONLY",
+        "status": "TESTED_ONLY",
+        "implementation_sources": [
+          {
+            "path": "reference/simulate.py",
+            "sha256": "2813db229bcf382271d57bac5ace7e1ae054f4abbccb602a9afa2ea52cb74d36"
+          }
+        ],
+        "domain_coverage": "Recorded fixed synthetic inputs and seeded experiments; no exhaustive unbounded-domain or source-semantics refinement."
+      },
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        },
+        {
+          "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 reference/simulate.py",
+          "exit_status": 0,
+          "output_path": "evidence/python-reference.log",
+          "output_sha256": "f98f912d2a7c48839fbfd500b56be2167660a7bea8a68677824b6b8917fedbcc"
+        }
+      ],
+      "scope_boundary": "Python TESTED_ONLY; no semantics/refinement proof."
+    },
+    {
+      "result_id": "calc:simulation",
+      "classification": "NUMERICAL_APPROXIMATE",
+      "disposition": "NOT_REQUIRED",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:detection paragraph beginning The executable supplement checks"
+      },
+      "formal_statement": {
+        "status": "NOT_REQUIRED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": {
+        "algorithm_id": "calc:simulation",
+        "relationship": "TESTED_ONLY",
+        "status": "TESTED_ONLY",
+        "implementation_sources": [
+          {
+            "path": "reference/simulate.py",
+            "sha256": "2813db229bcf382271d57bac5ace7e1ae054f4abbccb602a9afa2ea52cb74d36"
+          }
+        ],
+        "domain_coverage": "Recorded fixed synthetic inputs and seeded experiments; no exhaustive unbounded-domain or source-semantics refinement."
+      },
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        },
+        {
+          "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 reference/simulate.py",
+          "exit_status": 0,
+          "output_path": "evidence/python-reference.log",
+          "output_sha256": "f98f912d2a7c48839fbfd500b56be2167660a7bea8a68677824b6b8917fedbcc"
+        }
+      ],
+      "scope_boundary": "TESTED_ONLY; simulations do not prove propositions."
+    },
+    {
+      "result_id": "thm:chebyshev",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:mc-bound and immediately following Chebyshev explanation"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Not joint simultaneous guarantee; analytical cited identity."
+    },
+    {
+      "result_id": "calc:regression",
+      "classification": "NUMERICAL_APPROXIMATE",
+      "disposition": "NOT_REQUIRED",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "app:coverage paragraph beginning The supplement retains the earlier generic numerical regression benchmark"
+      },
+      "formal_statement": {
+        "status": "NOT_REQUIRED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": {
+        "algorithm_id": "calc:regression",
+        "relationship": "TESTED_ONLY",
+        "status": "TESTED_ONLY",
+        "implementation_sources": [
+          {
+            "path": "reference/simulate.py",
+            "sha256": "2813db229bcf382271d57bac5ace7e1ae054f4abbccb602a9afa2ea52cb74d36"
+          }
+        ],
+        "domain_coverage": "Recorded fixed synthetic inputs and seeded experiments; no exhaustive unbounded-domain or source-semantics refinement."
+      },
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        },
+        {
+          "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 reference/simulate.py",
+          "exit_status": 0,
+          "output_path": "evidence/python-reference.log",
+          "output_sha256": "f98f912d2a7c48839fbfd500b56be2167660a7bea8a68677824b6b8917fedbcc"
+        }
+      ],
+      "scope_boundary": "TESTED_ONLY; no code refinement or numerical error certification."
+    },
+    {
+      "result_id": "alg:complexity",
+      "classification": "PURE_THEOREM",
+      "disposition": "NOT_REQUIRED",
+      "source": {
+        "path": "manuscript/inherited.md",
+        "sha256": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602",
+        "statement_locator": "HISTORICAL:manuscript/inherited.md section 7 algorithm-and-bound table; not asserted as a result in final article"
+      },
+      "formal_statement": {
+        "status": "NOT_REQUIRED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": {
+        "algorithm_id": "alg:complexity",
+        "relationship": "TESTED_ONLY",
+        "status": "TESTED_ONLY",
+        "implementation_sources": [
+          {
+            "path": "reference/simulate.py",
+            "sha256": "2813db229bcf382271d57bac5ace7e1ae054f4abbccb602a9afa2ea52cb74d36"
+          }
+        ],
+        "domain_coverage": "Recorded fixed synthetic inputs and seeded experiments; no exhaustive unbounded-domain or source-semantics refinement."
+      },
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        },
+        {
+          "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 reference/simulate.py",
+          "exit_status": 0,
+          "output_path": "evidence/python-reference.log",
+          "output_sha256": "f98f912d2a7c48839fbfd500b56be2167660a7bea8a68677824b6b8917fedbcc"
+        }
+      ],
+      "scope_boundary": "Algorithmic analysis only; no source semantics, worst-case runtime or complexity proof."
+    },
+    {
+      "result_id": "calc:runtime",
+      "classification": "EMPIRICAL_CONTEXTUAL",
+      "disposition": "NOT_REQUIRED",
+      "source": {
+        "path": "manuscript/inherited.md",
+        "sha256": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602",
+        "statement_locator": "HISTORICAL:manuscript/inherited.md section 7 host/runtime paragraphs; final app:coverage says no performance result is used"
+      },
+      "formal_statement": {
+        "status": "NOT_REQUIRED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": {
+        "algorithm_id": "calc:runtime",
+        "relationship": "TESTED_ONLY",
+        "status": "TESTED_ONLY",
+        "implementation_sources": [
+          {
+            "path": "reference/simulate.py",
+            "sha256": "2813db229bcf382271d57bac5ace7e1ae054f4abbccb602a9afa2ea52cb74d36"
+          }
+        ],
+        "domain_coverage": "Recorded fixed synthetic inputs and seeded experiments; no exhaustive unbounded-domain or source-semantics refinement."
+      },
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        },
+        {
+          "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 reference/simulate.py",
+          "exit_status": 0,
+          "output_path": "evidence/python-reference.log",
+          "output_sha256": "f98f912d2a7c48839fbfd500b56be2167660a7bea8a68677824b6b8917fedbcc"
+        }
+      ],
+      "scope_boundary": "Observed benchmark, not universal guarantee."
+    },
+    {
+      "result_id": "prop:restricted-time",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "labels prop:restricted-time and eq:restricted-time"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Tonelli/integral-expectation proof not mechanised."
+    },
+    {
+      "result_id": "emp:censoring",
+      "classification": "EMPIRICAL_CONTEXTUAL",
+      "disposition": "EMPIRICAL_CONTEXTUAL",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:study paragraphs following prop:restricted-time on administrative censoring and abandonment"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "EMPIRICAL_BOUNDARY; no supplied company data."
+    },
+    {
+      "result_id": "thm:log-retransformation",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:study paragraph beginning Start prediction with direct accounting"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Analytical statistical distinction, not mechanised."
+    },
+    {
+      "result_id": "thm:joint-outcomes",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:study prediction paragraph: marginal effort and time predictions do not determine the probability"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "No coupling counterexample encoded in Lean."
+    },
+    {
+      "result_id": "def:att",
+      "classification": "PURE_THEOREM",
+      "disposition": "NOT_REQUIRED",
+      "source": {
+        "path": "manuscript/inherited.md",
+        "sha256": "f02d47b9b2552a78b5a4ccda819f3c1080b784dd043b88913d069ca47ae61602",
+        "statement_locator": "HISTORICAL:manuscript/inherited.md equation (16); final sec:study cites cohort-specific estimands without reproducing this definition"
+      },
+      "formal_statement": {
+        "status": "NOT_REQUIRED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "This item is a definition or contextual claim. No Lean proof, empirical validation or code-refinement result is asserted."
+    },
+    {
+      "result_id": "emp:causal-identification",
+      "classification": "EMPIRICAL_CONTEXTUAL",
+      "disposition": "EMPIRICAL_CONTEXTUAL",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:study bounded prospective protocol and paragraph beginning Randomisation can support a causal policy contrast"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "EMPIRICAL_BOUNDARY; no causal effect identified by formal mathematics."
+    },
+    {
+      "result_id": "emp:external-studies",
+      "classification": "EMPIRICAL_CONTEXTUAL",
+      "disposition": "EMPIRICAL_CONTEXTUAL",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:introduction study-endpoint paragraph and app:audit reporting paragraphs"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Source audit, not Lean verification or reproduced experiments."
+    },
+    {
+      "result_id": "emp:decision",
+      "classification": "EMPIRICAL_CONTEXTUAL",
+      "disposition": "EMPIRICAL_CONTEXTUAL",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:study paragraph beginning Before examining outcomes"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Decision authority and empirical model adequacy remain external."
+    },
+    {
+      "result_id": "ex:capped-retention",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label ex:capped-retention"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Delivered audit finite counterexample; analytical/exact Python evidence, not Lean formalised."
+    },
+    {
+      "result_id": "ex:finite-horizon-eventual",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label ex:horizon"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Delivered audit counterexample; no Lean correspondence proof between the two accounting windows."
+    },
+    {
+      "result_id": "rem:ratios",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "eq:cycle-rates following paragraph on task-specific ratios and eq:cluster-ht following paragraph on ratio-estimator bias"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Analytical statistical distinction; no general ratio estimator theorem mechanised."
+    },
+    {
+      "result_id": "def:policy-endpoints",
+      "classification": "PURE_THEOREM",
+      "disposition": "NOT_REQUIRED",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:estimands and fixed task-weighting paragraph"
+      },
+      "formal_statement": {
+        "status": "NOT_REQUIRED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "This item is a definition or contextual claim. No Lean proof, empirical validation or code-refinement result is asserted."
+    },
+    {
+      "result_id": "rem:cross-policy-joint",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:study prediction paragraph: cross-policy probability that the same task would improve"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Joint counterfactual coupling not identified; no Lean coupling construction."
+    },
+    {
+      "result_id": "emp:portfolio-task-mix",
+      "classification": "EMPIRICAL_CONTEXTUAL",
+      "disposition": "EMPIRICAL_CONTEXTUAL",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "eq:estimands following paragraph and eq:calendar-throughput"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Task/backlog scope and exposure must be fixed or modelled empirically."
+    },
+    {
+      "result_id": "eq:cluster-ht:finite",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "label eq:cluster-ht and its finite assignment-expectation argument"
+      },
+      "formal_statement": {
+        "path": "FormalVerification/Basic.lean",
+        "declaration": "EffortSpeed.sampling_unbiased_finite",
+        "status": "CHECKED_WITH_DECLARED_AXIOMS",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "MATCHED",
+        "reviewer": "/root/proof_reaudit (fresh independent review)",
+        "mapping": {
+          "path": "evidence/reaudit-concordance.md",
+          "sha256": "ebd984b49558433fede90bdfbc72b86a0f4110eff68f230eb538c933bed2fedf"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/lake-build.log",
+          "output_sha256": "194844c3407226a568721db1b53da87bbca731d1491cc6dab48d912971d383a7"
+        },
+        {
+          "command": "fresh checkout: lake env lean AxiomAudit.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-final-replay/axioms.log",
+          "output_sha256": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+        },
+        {
+          "command": "independent fresh checkout: lake build",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-lake-build.log",
+          "output_sha256": "fefcf64d2193d07fc6e7ff1cfeb983d10cbe54aa03d8dd4be90f0ea08d4455a0"
+        },
+        {
+          "command": "independent fresh checkout: lake env lean IndependentTypes.lean",
+          "exit_status": 0,
+          "output_path": "evidence/reaudit-independent-types-axioms.log",
+          "output_sha256": "219d588a1547945b28f61a40d7584de45dbd4479ebbdb3841edb2f012ac83665"
+        }
+      ],
+      "scope_boundary": "Instantiate finite expectation lemma with cluster totals divided by fixed task count, assignment indicators and known positive assignment probabilities. Consistency/no interference and correspondence to observed endpoints remain analytical/contextual; ratio estimator is not thereby unbiased."
+    },
+    {
+      "result_id": "eq:cluster-ht:causal-premises",
+      "classification": "EMPIRICAL_CONTEXTUAL",
+      "disposition": "EMPIRICAL_CONTEXTUAL",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "eq:cluster-ht following paragraph: consistency and absence of cross-team interference"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Design/causal premise, not supplied or established by Lean; no real-company estimator executed."
+    },
+    {
+      "result_id": "prop:retry:repair-boundary",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:mechanisms paragraph beginning The first-acceptance labour boundary"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Expectation linearity and accounting-boundary correspondence remain analytical; not equivalent to the fixed enrolment horizon."
+    },
+    {
+      "result_id": "rem:detection-identification",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "sec:detection paragraph beginning The cancellation in correct-output rate"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Analytical identification limitation; no separate product-parameter counterexample in Lean."
+    },
+    {
+      "result_id": "rem:mean-zero-signs",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "manuscript/main.tex",
+        "sha256": "5a4b472e247a69b8af113f1f7eb2eee81cf5ef28540064f941121843cfd34631",
+        "statement_locator": "app:audit paragraph: A mean-zero correction need not have equally probable signs"
+      },
+      "formal_statement": {
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "formal worker, inventory scope review; no proof asserted",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+        },
+        "differences": []
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_inventory.py",
+          "exit_status": 0,
+          "output_path": "evidence/inventory-check.log",
+          "output_sha256": "0b8a4452d4f837c55f9df319bc9f3c98416ff957e5df85b3b1dfef1c9326ada1"
+        }
+      ],
+      "scope_boundary": "Analytical qualification of the sign null, not formalised in Lean."
+    }
+  ],
+  "semantic_map": {
+    "path": "semantic-map.md",
+    "sha256": "eb42d456db9709c956a55c539fa2560b1612edcbca22c1228b6c4bebe9f42282"
+  },
+  "independent_concordance": {
+    "path": "evidence/reaudit-concordance.md",
+    "sha256": "ebd984b49558433fede90bdfbc72b86a0f4110eff68f230eb538c933bed2fedf"
+  },
+  "trust_boundary": {
+    "standard_logical_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kernel": "Unmodified official Lean4.33.1 release; exact version logs retained.",
+    "launcher": "Prescribed narrow readlink shim redirects only current-process /proc/<pid>/exe to /proc/self/exe.",
+    "launcher_sources": [
+      {
+        "path": "scripts/lean_tool_launcher.sh",
+        "sha256": "d36a58ad49d1c7c6c66eacb6ddaebc300768ff35410d9cab0994d4d793536e85"
+      },
+      {
+        "path": "scripts/lean_proc_self_shim.c",
+        "sha256": "aeecbaaaa7e4379db8fbf70be1ec3f2220f412fe72888b0c85b2f13876d0060c"
+      }
+    ],
+    "shim_audit": {
+      "path": "evidence/independent-shim-audit.json",
+      "sha256": "dd96a8c2e92bdb0cb8ef32e8f73dffb080988873a72a06355a3571240fc78c66"
+    },
+    "cache": "Pinned standard-library and dependency artifacts reused; all project proof sources compiled afresh.",
+    "implementation_relation": "TESTED_ONLY for Python; no Lean-canonical, exhaustive-differential or source-semantics refinement."
+  },
+  "additional_evidence": [
+    {
+      "path": "evidence/reaudit-final-replay/replay.json",
+      "sha256": "c73f19a8f4f128262de805f679b7d8deee8b82441a6665fae4b6e280ec2562a5"
+    },
+    {
+      "path": "evidence/independent-proof-snapshot.json",
+      "sha256": "8783d8c625ff9b671e012a0e779f59f77309d19d1615cf6f029358b235901f51"
+    },
+    {
+      "path": "evidence/independent-boundary-checks.json",
+      "sha256": "31b93dd600570794c60beeaee37a948ae86a2c1e578e09e95bd3003d397004f6"
+    },
+    {
+      "path": "evidence/independent-source-scan.json",
+      "sha256": "54e1d9f3bd7c549440be39eba9ec77d28f41362103ee6b10e4ef15a307fbe8e9"
+    },
+    {
+      "path": "evidence/independent-dependencies.json",
+      "sha256": "1206f8a5affeb82a7b33741b7b43ab3b9c381579a37b224f6b994af99c0cd60a"
+    },
+    {
+      "path": "provenance.md",
+      "sha256": "d5512d986531e16921fca8fff4496b7ac383609dbfa6619d8249f65069683b11"
+    },
+    {
+      "path": "evidence/reaudit-binding.json",
+      "sha256": "1c2e7ae250588cf559a2320a4f23331bb1f52153936d475df2bd5be15e4a3fc5"
+    },
+    {
+      "path": "evidence/reaudit-independent-commands.json",
+      "sha256": "86380e9f74123fc740fb9c8163376d8c0824b9a9bdd9876d867c95552c4b6f5a"
+    },
+    {
+      "path": "evidence/reaudit-independent-audit.json",
+      "sha256": "93a04113213c647e69742db957cdb9266abac95e17a142eb35c383d627c344df"
+    }
+  ],
+  "scope_boundary": "Forty-three declarations are CHECKED_WITH_DECLARED_AXIOMS at their explicitly mapped finite, algebraic and convergent-series scopes. Full stochastic process construction, measure-theoretic bridges, strong-law limits, Jensen, restricted-time integration, causal identification, measurement adequacy and decision authority remain unproved or empirical. Python remains TESTED_ONLY. A changed source, proof, dependency lock, map or implementation invalidates the corresponding hash-bound result."
+}

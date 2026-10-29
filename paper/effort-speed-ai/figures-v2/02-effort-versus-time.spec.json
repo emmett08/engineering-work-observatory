@@ -1,0 +1,58 @@
+{
+  "id": "02-effort-versus-time",
+  "reader_question": "Can expected human labour fall while expected acceptance time rises?",
+  "reading_task": "Locate four paired model expectations relative to the human baseline on both outcomes.",
+  "source_status": "derived expectations from synthetic input parameters",
+  "quantities": {
+    "x": "H/H0, dimensionless human-labour ratio",
+    "y": "L/L0, dimensionless elapsed-time ratio",
+    "point": "one stipulated workflow"
+  },
+  "domain": {
+    "x": [
+      0,
+      1.68
+    ],
+    "y": [
+      0,
+      1.68
+    ]
+  },
+  "reference": {
+    "H0_person_hours": "140/19",
+    "L0_hours": "178/19",
+    "baseline_ratio": 1
+  },
+  "claim": "The two agent-duration cases have equal labour but straddle baseline elapsed time; heavy review worsens both.",
+  "conditions": [
+    "independent identical sequential attempts until first pass within each case",
+    "constant per-attempt costs",
+    "one-off initial wait 2 hours",
+    "no follow-up repair labour"
+  ],
+  "alternative": "alternative-02-paired-dots",
+  "selection": "Scatter exposes shared labour coordinates and policy trade-offs directly; paired dots support easier separate magnitude lookup but make the two-dimensional comparison less immediate. Both keep baseline and adverse heavy-review case.",
+  "encoding": "Paired position on two linear zero-origin ratio axes; dashed reference lines at one; category identity direct-labelled. No joining line implies causal or chronological progression.",
+  "route": "Python / Matplotlib; not TeX-schema validation",
+  "uncertainty": "Not applicable to deterministic synthetic expectations; parameter uncertainty and model inadequacy are not quantified.",
+  "missingness": "None; no empirical observations supplied, removed or imputed.",
+  "permitted_inference": "Consequences of the stipulated model only; no estimated company effect, causal identification or empirical calibration.",
+  "target": {
+    "width_inches": 6,
+    "minimum_text_pt": 8,
+    "font": "DejaVu Sans",
+    "minimum_nonzero_stroke_pt": 0.45
+  },
+  "source": {
+    "path": "evidence/results.json",
+    "sha256": "93b379d8cb2a93d8e43eadbe8a6924ff183629df6429f96c164b988c4ca3be74"
+  },
+  "caption": {
+    "path": "figures-v2/02-effort-versus-time.caption.txt",
+    "sha256": "d02fb6c3aae71d0e098bb47360a19e68ba624be104521fa3cad9652020bc0080"
+  },
+  "build": [
+    "python",
+    "visualise.py"
+  ]
+}

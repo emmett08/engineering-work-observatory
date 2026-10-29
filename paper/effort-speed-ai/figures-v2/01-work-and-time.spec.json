@@ -1,0 +1,55 @@
+{
+  "id": "01-work-and-time",
+  "reader_question": "Why can elapsed duration exceed accounted human labour?",
+  "reading_task": "Compare a lawful concurrent schedule with the integral of human allocation.",
+  "source_status": "illustrative construction derived from the retained slow-agent scenario",
+  "quantities": {
+    "x": "elapsed hours within one attempt",
+    "top_y": "resource category, not numerical magnitude",
+    "bottom_y": "human allocation, persons",
+    "area": "human labour, person-hours"
+  },
+  "domain": {
+    "x": [
+      0,
+      10
+    ],
+    "allocation": [
+      0,
+      1.3
+    ]
+  },
+  "claim": "3.5 person-hours and 9.5 elapsed hours describe the same attempt.",
+  "conditions": [
+    "one human",
+    "independent production branches",
+    "unattended agent execution",
+    "verification follows both",
+    "no queue, retry or follow-up repair in this drawing"
+  ],
+  "alternative": "alternative-01-cumulative-labour",
+  "selection": "Schedule plus allocation retains concurrency and the area interpretation; cumulative labour clearly shows a plateau but requires prose to recover agent duration and the prerequisite for verification.",
+  "encoding": "Segment position and length encode start and duration; direct resource labels and dashed agent strokes preserve greyscale; filled area has explicit integral semantics, not a diagram container.",
+  "route": "Python / Matplotlib; not TeX-schema validation",
+  "uncertainty": "Not applicable to deterministic synthetic expectations; parameter uncertainty and model inadequacy are not quantified.",
+  "missingness": "None; no empirical observations supplied, removed or imputed.",
+  "permitted_inference": "Consequences of the stipulated model only; no estimated company effect, causal identification or empirical calibration.",
+  "target": {
+    "width_inches": 6,
+    "minimum_text_pt": 8,
+    "font": "DejaVu Sans",
+    "minimum_nonzero_stroke_pt": 0.45
+  },
+  "source": {
+    "path": "evidence/results.json",
+    "sha256": "93b379d8cb2a93d8e43eadbe8a6924ff183629df6429f96c164b988c4ca3be74"
+  },
+  "caption": {
+    "path": "figures-v2/01-work-and-time.caption.txt",
+    "sha256": "6d9b4db645209cf001c4a6321aa5123715ddb5c9aded35e7cc72026106e2ceb4"
+  },
+  "build": [
+    "python",
+    "visualise.py"
+  ]
+}

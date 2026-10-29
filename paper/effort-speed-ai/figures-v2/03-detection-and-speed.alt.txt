@@ -1,0 +1,1 @@
+As detection sensitivity rises from zero to one, recorded throughput falls from five to three reference units per hour, correct-output throughput stays at three, and the probability an accepted task is correct rises from sixty to one hundred percent.

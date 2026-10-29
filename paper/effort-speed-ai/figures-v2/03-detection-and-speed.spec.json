@@ -1,0 +1,69 @@
+{
+  "id": "03-detection-and-speed",
+  "reader_question": "How can detection change recorded throughput without changing correct-output throughput?",
+  "reading_task": "Read throughput and accepted correctness as functions of detection sensitivity under one fixed synthetic model.",
+  "source_status": "derived mathematical functions with stipulated parameters",
+  "quantities": {
+    "x": "sensitivity s, probability",
+    "left_y": "reference units per elapsed hour",
+    "right_y": "P(correct | accepted), percentage"
+  },
+  "domain": {
+    "s": [
+      0,
+      1
+    ],
+    "rate": [
+      0,
+      5.5
+    ],
+    "correctness": [
+      0,
+      1.1
+    ]
+  },
+  "fixed": {
+    "d": 0.4,
+    "attempt_elapsed_hours": 2,
+    "reference_units_per_task": 10,
+    "queue": 0,
+    "followup_repair": 0
+  },
+  "formulae": {
+    "recorded": "5 - 2*s",
+    "correct": "3",
+    "accepted_correctness": "0.6 / (1 - 0.4*s)"
+  },
+  "claim": "Weakening detection raises recorded throughput and lowers accepted correctness; correct-output throughput stays constant in this model.",
+  "conditions": [
+    "independent attempts",
+    "fixed costs",
+    "no false-positive rejection",
+    "retry to first pass"
+  ],
+  "alternative": "alternative-03-endpoint-pairs",
+  "selection": "Curves retain the known nonlinear correctness function over the full valid domain. Endpoint pairs reduce decoding but omit the interior sensitivity shape and their connector must not be mistaken for interpolation.",
+  "encoding": "Common sensitivity domain in aligned panels; separate y scales for different units; direct curve labels and dashed correct-throughput curve preserve greyscale.",
+  "route": "Python / Matplotlib; not TeX-schema validation",
+  "uncertainty": "Not applicable to deterministic synthetic expectations; parameter uncertainty and model inadequacy are not quantified.",
+  "missingness": "None; no empirical observations supplied, removed or imputed.",
+  "permitted_inference": "Consequences of the stipulated model only; no estimated company effect, causal identification or empirical calibration.",
+  "target": {
+    "width_inches": 6,
+    "minimum_text_pt": 8,
+    "font": "DejaVu Sans",
+    "minimum_nonzero_stroke_pt": 0.45
+  },
+  "source": {
+    "path": "evidence/results.json",
+    "sha256": "93b379d8cb2a93d8e43eadbe8a6924ff183629df6429f96c164b988c4ca3be74"
+  },
+  "caption": {
+    "path": "figures-v2/03-detection-and-speed.caption.txt",
+    "sha256": "1a7ca39d0e39e77ed6c182fd29eeb246d925436633dfe1ca236b497e74f9b025"
+  },
+  "build": [
+    "python",
+    "visualise.py"
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "source_commit": "8043f2fdf5918545336632909140f48725d3fdf9",
+  "status": "CHECKED_WITH_DECLARED_AXIOMS",
+  "dependency_lock_sha256": "479c6d953b99dcd2b566a6bdb779caafcd780344d5fdfc4160be4e66c0e36e20",
+  "checks": [
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_status": 0,
+      "output_path": "commit.log",
+      "output_sha256": "4395413ad98982f81c347d96b26bfb038a35d25c8f16665a881817276b819ae2"
+    },
+    {
+      "command": [
+        "git",
+        "clone",
+        "--no-hardlinks",
+        "/workspace/scratch/bd1495d37cdb/effort-speed/formal",
+        "/workspace/scratch/bd1495d37cdb/effort-speed/reaudit/formal-final-replay/checkout"
+      ],
+      "exit_status": 0,
+      "output_path": "clone.log",
+      "output_sha256": "454f421b70bb3a948b609d20a61f9ecb5b0228d79e1963f32a3d4827565820ea"
+    },
+    {
+      "command": [
+        "lean",
+        "--version"
+      ],
+      "exit_status": 0,
+      "output_path": "lean-version.log",
+      "output_sha256": "63f3e16bf0258e2cc0ab3010eb1830723df9bb85097b7b72b0137b9be25a78e9"
+    },
+    {
+      "command": [
+        "lake",
+        "--version"
+      ],
+      "exit_status": 0,
+      "output_path": "lake-version.log",
+      "output_sha256": "e475ba02fef5717a6caa256e1e25ac50268497b7d1e36955357f37b4701ee4a0"
+    },
+    {
+      "command": [
+        "lake",
+        "build"
+      ],
+      "exit_status": 0,
+      "output_path": "lake-build.log",
+      "output_sha256": "194844c3407226a568721db1b53da87bbca731d1491cc6dab48d912971d383a7"
+    },
+    {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "AxiomAudit.lean"
+      ],
+      "exit_status": 0,
+      "output_path": "axioms.log",
+      "output_sha256": "73bee0c366b110e7de6cc442d2f3ec7669248698835d9ee7eb1dca959e544b22"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/audit_sources.py",
+        "--include-geometric"
+      ],
+      "exit_status": 0,
+      "output_path": "source-audit.log",
+      "output_sha256": "dfd08f015e5e3a61524a7350a915044bdd6e740821bf583b83e46082bf173deb"
+    },
+    {
+      "command": [
+        "git",
+        "status",
+        "--porcelain"
+      ],
+      "exit_status": 0,
+      "output_path": "git-status.log",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "boundary": "Build replay is not semantic concordance, empirical validation or a code-refinement proof."
+}

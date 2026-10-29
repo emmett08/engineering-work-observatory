@@ -1,0 +1,281 @@
+{
+  "synthetic_only": true,
+  "checks": {
+    "binomial_null_exact": "11/512",
+    "binomial_null_probability": 0.021484375,
+    "iid_second_stage_p_value_only": 5.422940282593876e-08,
+    "hmm_same_event_probability": "1/10",
+    "hmm_occupancy_ratio": "2",
+    "variance_counterexample_r_squared": 0.64,
+    "efficiency_component_variance_fraction": 0.72,
+    "unexplained_fraction": 0.36,
+    "rational_detection_cases": 12,
+    "capped_retry_checks": 25,
+    "formal_proof_status": "Exact arithmetic and analytical derivations; no Lean certificate"
+  },
+  "scenarios": [
+    {
+      "scenario": "Human baseline",
+      "production_h": 6.0,
+      "agent_h_per_attempt": 0.0,
+      "agent_h_total": 0.0,
+      "review_h": 1.0,
+      "pass_probability": 0.95,
+      "retention": 0.98,
+      "queue_h": 2.0,
+      "human_h": 7.36842105263158,
+      "elapsed_h": 9.368421052631579,
+      "retained_reference_units": 9.8,
+      "effort_productivity": 1.33,
+      "serial_delivery_rate": 1.0460674157303371
+    },
+    {
+      "scenario": "AI saves effort and time",
+      "production_h": 2.0,
+      "agent_h_per_attempt": 1.0,
+      "agent_h_total": 1.1111111111111112,
+      "review_h": 1.5,
+      "pass_probability": 0.9,
+      "retention": 0.98,
+      "queue_h": 2.0,
+      "human_h": 3.888888888888889,
+      "elapsed_h": 5.888888888888889,
+      "retained_reference_units": 9.8,
+      "effort_productivity": 2.52,
+      "serial_delivery_rate": 1.6641509433962265
+    },
+    {
+      "scenario": "AI saves effort; slow agent",
+      "production_h": 2.0,
+      "agent_h_per_attempt": 8.0,
+      "agent_h_total": 8.88888888888889,
+      "review_h": 1.5,
+      "pass_probability": 0.9,
+      "retention": 0.98,
+      "queue_h": 2.0,
+      "human_h": 3.888888888888889,
+      "elapsed_h": 12.555555555555555,
+      "retained_reference_units": 9.8,
+      "effort_productivity": 2.52,
+      "serial_delivery_rate": 0.7805309734513275
+    },
+    {
+      "scenario": "AI shifts work into review",
+      "production_h": 1.0,
+      "agent_h_per_attempt": 0.5,
+      "agent_h_total": 0.6666666666666666,
+      "review_h": 7.0,
+      "pass_probability": 0.75,
+      "retention": 0.9,
+      "queue_h": 2.0,
+      "human_h": 10.666666666666666,
+      "elapsed_h": 12.666666666666666,
+      "retained_reference_units": 9.0,
+      "effort_productivity": 0.84375,
+      "serial_delivery_rate": 0.7105263157894737
+    }
+  ],
+  "detection": {
+    "defect_probability": 0.4,
+    "attempt_hours": 2.0,
+    "reference_units": 10.0,
+    "grid_size": 10001,
+    "sensitivity_1": {
+      "pass": 0.6,
+      "correct_given_pass": 1.0,
+      "recorded_rate": 3.0,
+      "correct_rate": 3.0
+    },
+    "sensitivity_0": {
+      "pass": 1.0,
+      "correct_given_pass": 0.6,
+      "recorded_rate": 5.0,
+      "correct_rate": 3.0
+    }
+  },
+  "monte_carlo": [
+    {
+      "seed": 17,
+      "scenario": "Human baseline",
+      "n": 100000,
+      "mean_h": 7.36463,
+      "exact_mean_h": 7.36842105263158,
+      "mc_error_h": -0.003791052631579639,
+      "analytic_standard_error_h": 0.00521026049295351,
+      "chebyshev_abs_error_bound_at_99_percent_h": 0.0521026049295351
+    },
+    {
+      "seed": 17,
+      "scenario": "AI saves effort and time",
+      "n": 100000,
+      "mean_h": 3.892245,
+      "exact_mean_h": 3.888888888888889,
+      "mc_error_h": 0.0033561111111111153,
+      "analytic_standard_error_h": 0.0038888888888888888,
+      "chebyshev_abs_error_bound_at_99_percent_h": 0.03888888888888889
+    },
+    {
+      "seed": 17,
+      "scenario": "AI saves effort; slow agent",
+      "n": 100000,
+      "mean_h": 3.88892,
+      "exact_mean_h": 3.888888888888889,
+      "mc_error_h": 3.1111111111314926e-05,
+      "analytic_standard_error_h": 0.0038888888888888888,
+      "chebyshev_abs_error_bound_at_99_percent_h": 0.03888888888888889
+    },
+    {
+      "seed": 17,
+      "scenario": "AI shifts work into review",
+      "n": 100000,
+      "mean_h": 10.64872,
+      "exact_mean_h": 10.666666666666666,
+      "mc_error_h": -0.017946666666665223,
+      "analytic_standard_error_h": 0.016865480854231354,
+      "chebyshev_abs_error_bound_at_99_percent_h": 0.16865480854231354
+    },
+    {
+      "seed": 41,
+      "scenario": "Human baseline",
+      "n": 100000,
+      "mean_h": 7.35896,
+      "exact_mean_h": 7.36842105263158,
+      "mc_error_h": -0.009461052631579925,
+      "analytic_standard_error_h": 0.00521026049295351,
+      "chebyshev_abs_error_bound_at_99_percent_h": 0.0521026049295351
+    },
+    {
+      "seed": 41,
+      "scenario": "AI saves effort and time",
+      "n": 100000,
+      "mean_h": 3.880975,
+      "exact_mean_h": 3.888888888888889,
+      "mc_error_h": -0.007913888888888998,
+      "analytic_standard_error_h": 0.0038888888888888888,
+      "chebyshev_abs_error_bound_at_99_percent_h": 0.03888888888888889
+    },
+    {
+      "seed": 41,
+      "scenario": "AI saves effort; slow agent",
+      "n": 100000,
+      "mean_h": 3.887905,
+      "exact_mean_h": 3.888888888888889,
+      "mc_error_h": -0.0009838888888888953,
+      "analytic_standard_error_h": 0.0038888888888888888,
+      "chebyshev_abs_error_bound_at_99_percent_h": 0.03888888888888889
+    },
+    {
+      "seed": 41,
+      "scenario": "AI shifts work into review",
+      "n": 100000,
+      "mean_h": 10.67728,
+      "exact_mean_h": 10.666666666666666,
+      "mc_error_h": 0.010613333333333586,
+      "analytic_standard_error_h": 0.016865480854231354,
+      "chebyshev_abs_error_bound_at_99_percent_h": 0.16865480854231354
+    },
+    {
+      "seed": 93,
+      "scenario": "Human baseline",
+      "n": 100000,
+      "mean_h": 7.36008,
+      "exact_mean_h": 7.36842105263158,
+      "mc_error_h": -0.008341052631579693,
+      "analytic_standard_error_h": 0.00521026049295351,
+      "chebyshev_abs_error_bound_at_99_percent_h": 0.0521026049295351
+    },
+    {
+      "seed": 93,
+      "scenario": "AI saves effort and time",
+      "n": 100000,
+      "mean_h": 3.88759,
+      "exact_mean_h": 3.888888888888889,
+      "mc_error_h": -0.0012988888888889605,
+      "analytic_standard_error_h": 0.0038888888888888888,
+      "chebyshev_abs_error_bound_at_99_percent_h": 0.03888888888888889
+    },
+    {
+      "seed": 93,
+      "scenario": "AI saves effort; slow agent",
+      "n": 100000,
+      "mean_h": 3.88633,
+      "exact_mean_h": 3.888888888888889,
+      "mc_error_h": -0.0025588888888887773,
+      "analytic_standard_error_h": 0.0038888888888888888,
+      "chebyshev_abs_error_bound_at_99_percent_h": 0.03888888888888889
+    },
+    {
+      "seed": 93,
+      "scenario": "AI shifts work into review",
+      "n": 100000,
+      "mean_h": 10.65864,
+      "exact_mean_h": 10.666666666666666,
+      "mc_error_h": -0.00802666666666596,
+      "analytic_standard_error_h": 0.016865480854231354,
+      "chebyshev_abs_error_bound_at_99_percent_h": 0.16865480854231354
+    }
+  ],
+  "scaling": [
+    {
+      "n": 1000,
+      "p": 12,
+      "seconds": {
+        "assembly": 0.00024110400408972055,
+        "calibration": 0.00030989799415692687,
+        "prediction": 7.401999027933925e-06,
+        "uncertainty": 0.0003129520046059042,
+        "decision_scan": 2.4176995793823153e-05
+      },
+      "peak_rss_mb": 127.8671875,
+      "condition_R": 1.2128211311951322,
+      "normal_equation_relative_residual": 1.030823855557422e-15,
+      "max_coefficient_error": 0.013668572071785734,
+      "status": "Synthetic complete uncensored data only; intervals assume iid homoscedastic Gaussian errors; no causal interpretation"
+    },
+    {
+      "n": 10000,
+      "p": 12,
+      "seconds": {
+        "assembly": 0.0015886550027062185,
+        "calibration": 0.0022078190013417043,
+        "prediction": 5.0255999667569995e-05,
+        "uncertainty": 0.0026312680056435056,
+        "decision_scan": 9.332100307801738e-05
+      },
+      "peak_rss_mb": 130.9921875,
+      "condition_R": 1.0581224175540902,
+      "normal_equation_relative_residual": 2.736905452281588e-15,
+      "max_coefficient_error": 0.004960931313964856,
+      "status": "Synthetic complete uncensored data only; intervals assume iid homoscedastic Gaussian errors; no causal interpretation"
+    },
+    {
+      "n": 100000,
+      "p": 12,
+      "seconds": {
+        "assembly": 0.01802311600476969,
+        "calibration": 0.025621815002523363,
+        "prediction": 0.0008426400017924607,
+        "uncertainty": 0.026475901999219786,
+        "decision_scan": 0.0016829270025482401
+      },
+      "peak_rss_mb": 176.65234375,
+      "condition_R": 1.019650735450332,
+      "normal_equation_relative_residual": 5.493862772605241e-16,
+      "max_coefficient_error": 0.0016943441690368405,
+      "status": "Synthetic complete uncensored data only; intervals assume iid homoscedastic Gaussian errors; no causal interpretation"
+    }
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "machine": "x86_64",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "declared_thread_environment": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    }
+  },
+  "total_seconds": 0.6643273430017871
+}

@@ -1,0 +1,129 @@
+EffortSpeed.binomial_correction :
+  ↑(Nat.choose 10 0 + Nat.choose 10 1 + Nat.choose 10 9 + Nat.choose 10 10) / 2 ^ 10 = 11 / 512
+'EffortSpeed.binomial_correction' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.four_point_normalized : (EffortSpeed.mean4 fun x => 1) = 1
+'EffortSpeed.four_point_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.covariance_counterexample :
+  EffortSpeed.var4 EffortSpeed.score4 = 1 ∧
+    EffortSpeed.var4 EffortSpeed.duration4 = 25 ∧
+      EffortSpeed.cov4 EffortSpeed.score4 EffortSpeed.duration4 = 4 ∧
+        EffortSpeed.var4 EffortSpeed.efficiency4 = 18 ∧
+          EffortSpeed.cov4 EffortSpeed.score4 EffortSpeed.duration4 ^ 2 /
+                (EffortSpeed.var4 EffortSpeed.score4 * EffortSpeed.var4 EffortSpeed.duration4) =
+              16 / 25 ∧
+            EffortSpeed.var4 EffortSpeed.efficiency4 / EffortSpeed.var4 EffortSpeed.duration4 >
+              1 -
+                EffortSpeed.cov4 EffortSpeed.score4 EffortSpeed.duration4 ^ 2 /
+                  (EffortSpeed.var4 EffortSpeed.score4 * EffortSpeed.var4 EffortSpeed.duration4)
+'EffortSpeed.covariance_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.counterexample_positive_and_decomposed (ω : Bool × Bool) :
+  0 < EffortSpeed.score4 ω ∧
+    0 < EffortSpeed.duration4 ω ∧ EffortSpeed.duration4 ω = 10 + EffortSpeed.sign ω.1 + EffortSpeed.efficiency4 ω
+'EffortSpeed.counterexample_positive_and_decomposed' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.marginal_emission (π c : ℚ) (o : Bool) :
+  ∑ z, EffortSpeed.bernoulliMass π z * EffortSpeed.bernoulliMass (if z = true then c else 0) o =
+    EffortSpeed.bernoulliMass (π * c) o
+'EffortSpeed.marginal_emission' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.observed_law_factorization (π c : ℚ) (os : List Bool) :
+  EffortSpeed.observedLaw π c os = EffortSpeed.bernoulliLaw (π * c) os
+'EffortSpeed.observed_law_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.observed_law_equal (os : List Bool) :
+  EffortSpeed.observedLaw (1 / 2) (1 / 5) os = EffortSpeed.observedLaw (1 / 4) (2 / 5) os
+'EffortSpeed.observed_law_equal' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.history_mass_one (π : ℚ) (n : ℕ) : (EffortSpeed.historyExpectation π n fun x => 1) = 1
+'EffortSpeed.history_mass_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.history_expectation_nonnegative (π : ℚ) (n : ℕ) (hπ : 0 ≤ π) (hπ1 : π ≤ 1) (f : List Bool → ℚ)
+  (hf : ∀ (xs : List Bool), 0 ≤ f xs) : 0 ≤ EffortSpeed.historyExpectation π n f
+'EffortSpeed.history_expectation_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.nonidentification_parameters_valid :
+  0 < 1 / 2 ∧ 1 / 2 < 1 ∧ 0 < 1 / 5 ∧ 1 / 5 < 1 ∧ 0 < 1 / 4 ∧ 1 / 4 < 1 ∧ 0 < 2 / 5 ∧ 2 / 5 < 1 ∧ 1 / 2 ≠ 1 / 4
+'EffortSpeed.nonidentification_parameters_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.expected_count_offset (π : ℚ) (n : ℕ) (k : ℚ) :
+  (EffortSpeed.historyExpectation π n fun xs => k + EffortSpeed.activeCount xs) = k + ↑n * π
+'EffortSpeed.expected_count_offset' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.latent_effort_mean (π : ℚ) (n : ℕ) : EffortSpeed.historyExpectation π n EffortSpeed.activeCount = ↑n * π
+'EffortSpeed.latent_effort_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.latent_effort_unequal (n : ℕ) (hn : 0 < n) :
+  EffortSpeed.historyExpectation (1 / 2) n EffortSpeed.activeCount >
+    EffortSpeed.historyExpectation (1 / 4) n EffortSpeed.activeCount
+'EffortSpeed.latent_effort_unequal' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.sampling_unbiased_finite.{u_1, u_2} {Ω : Type u_1} {M : Type u_2} [Fintype Ω] [Fintype M] (w : Ω → ℝ)
+  (I : M → Ω → ℝ) (a π : M → ℝ) (hπ : ∀ (m : M), π m ≠ 0) (hI : ∀ (m : M), ∑ ω, w ω * I m ω = π m) :
+  ∑ ω, w ω * ∑ m, I m ω * a m / π m = ∑ m, a m
+'EffortSpeed.sampling_unbiased_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.capacity_lower_bound (L C H G m k : ℝ) (hm : 0 < m) (hk : 0 < k) (hC : C ≤ L) (hH : H ≤ m * L)
+  (hG : G ≤ k * L) : max C (max (H / m) (G / k)) ≤ L
+'EffortSpeed.capacity_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.ratio_improves_iff (h₀ h₁ p₀ p₁ : ℝ) (hh₀ : 0 < h₀) (hp₀ : 0 < p₀) (hp₁ : 0 < p₁) :
+  h₁ / p₁ < h₀ / p₀ ↔ h₁ / h₀ < p₁ / p₀
+'EffortSpeed.ratio_improves_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.productivity_improves_iff (S r₀ r₁ p₀ p₁ h₀ h₁ : ℝ) (hS : 0 < S) (hr₀ : 0 < r₀) (hp₀ : 0 < p₀)
+  (hh₀ : 0 < h₀) (hh₁ : 0 < h₁) : S * r₀ * p₀ / h₀ < S * r₁ * p₁ / h₁ ↔ h₁ / h₀ < r₁ * p₁ / (r₀ * p₀)
+'EffortSpeed.productivity_improves_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.retry_reversal : 1 / 2 < 1 ∧ 1 / 2 / (1 / 5) > 1 / (9 / 10)
+'EffortSpeed.retry_reversal' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.min_eq_tail (n K : ℕ) : ↑(min n K) = ∑ j ∈ Finset.range K, if j < n then 1 else 0
+'EffortSpeed.min_eq_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.finite_tail_sum.{u_1} {Ω : Type u_1} [Fintype Ω] (w : Ω → ℝ) (N : Ω → ℕ) (K : ℕ) :
+  ∑ ω, w ω * ↑(min (N ω) K) = ∑ j ∈ Finset.range K, ∑ ω, if j < N ω then w ω else 0
+'EffortSpeed.finite_tail_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.capped_tail_identity (p : ℝ) (K : ℕ) : p * EffortSpeed.cappedTail p K = 1 - (1 - p) ^ K
+'EffortSpeed.capped_tail_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.capped_tail_closed_form (p : ℝ) (K : ℕ) (hp : p ≠ 0) : EffortSpeed.cappedTail p K = (1 - (1 - p) ^ K) / p
+'EffortSpeed.capped_tail_closed_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.capped_expectation_of_tails.{u_1} {Ω : Type u_1} [Fintype Ω] (w : Ω → ℝ) (N : Ω → ℕ) (K : ℕ) (p : ℝ)
+  (h : ∀ j < K, (∑ ω, if j < N ω then w ω else 0) = (1 - p) ^ j) :
+  ∑ ω, w ω * ↑(min (N ω) K) = EffortSpeed.cappedTail p K
+'EffortSpeed.capped_expectation_of_tails' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.capped_zero_probability (K : ℕ) : EffortSpeed.cappedTail 0 K = ↑K ∧ 1 - (1 - 0) ^ K = 0
+'EffortSpeed.capped_zero_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.capped_zero_cap (p : ℝ) : EffortSpeed.cappedTail p 0 = 0 ∧ 1 - (1 - p) ^ 0 = 0
+'EffortSpeed.capped_zero_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.capped_one_probability (K : ℕ) (hK : 0 < K) : EffortSpeed.cappedTail 1 K = 1 ∧ 1 - (1 - 1) ^ K = 1
+'EffortSpeed.capped_one_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.detection_table (d s : ℝ) :
+  ∑ a, ∑ b, EffortSpeed.detectionJoint d s a b = 1 ∧
+    ∑ a, EffortSpeed.detectionJoint d s a true = 1 - d * s ∧
+      EffortSpeed.detectionJoint d s false true = 1 - d ∧ EffortSpeed.detectionJoint d s false false = 0
+'EffortSpeed.detection_table' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.detection_joint_nonnegative (d s : ℝ) (hd : 0 ≤ d) (hd1 : d ≤ 1) (hs : 0 ≤ s) (hs1 : s ≤ 1) (a b : Bool) :
+  0 ≤ EffortSpeed.detectionJoint d s a b
+'EffortSpeed.detection_joint_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.detection_conditional_correct (d s : ℝ) :
+  EffortSpeed.detectionJoint d s false true / ∑ a, EffortSpeed.detectionJoint d s a true = (1 - d) / (1 - d * s)
+'EffortSpeed.detection_conditional_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.detection_pass_positive (d s : ℝ) (hd : 0 ≤ d) (hd1 : d < 1) (hs1 : s ≤ 1) : 0 < 1 - d * s
+'EffortSpeed.detection_pass_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.detection_correct_rate (S d s t : ℝ) (hd : 0 ≤ d) (hd1 : d < 1) (hs1 : s ≤ 1) :
+  S * ((1 - d) / (1 - d * s)) * (1 - d * s) / t = S * (1 - d) / t
+'EffortSpeed.detection_correct_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.detection_tradeoff (S d s₀ s₁ t : ℝ) (hS : 0 < S) (hd : 0 < d) (hd1 : d < 1) (ht : 0 < t) (hs : s₀ < s₁)
+  (hs₁ : s₁ ≤ 1) : S * (1 - d * s₁) / t < S * (1 - d * s₀) / t ∧ (1 - d) / (1 - d * s₀) < (1 - d) / (1 - d * s₁)
+'EffortSpeed.detection_tradeoff' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.zero_defect_no_detection_effect (s : ℝ) : 1 - 0 * s = 1 ∧ (1 - 0) / (1 - 0 * s) = 1
+'EffortSpeed.zero_defect_no_detection_effect' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.sign_space_cardinality : Fintype.card (Fin 10 → Bool) = 1024
+'EffortSpeed.sign_space_cardinality' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.sign_event_cardinality : EffortSpeed.rejectionEvent.card = 22
+'EffortSpeed.sign_event_cardinality' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.sign_rejection_probability : ↑EffortSpeed.rejectionEvent.card / ↑(Fintype.card (Fin 10 → Bool)) = 11 / 512
+'EffortSpeed.sign_rejection_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.retry_mass (p : ℝ) (hp : 0 < p) (hp1 : p ≤ 1) : HasSum (fun n => (1 - p) ^ n * p) 1
+'EffortSpeed.retry_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.retry_first_moment (p : ℝ) (hp : 0 < p) (hp1 : p ≤ 1) : HasSum (fun n => (↑n + 1) * (1 - p) ^ n * p) (1 / p)
+'EffortSpeed.retry_first_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.retry_labour_moment (p h : ℝ) (hp : 0 < p) (hp1 : p ≤ 1) :
+  HasSum (fun n => h * (↑n + 1) * ((1 - p) ^ n * p)) (h / p)
+'EffortSpeed.retry_labour_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.retry_elapsed_moment (p w t : ℝ) (hp : 0 < p) (hp1 : p ≤ 1) :
+  HasSum (fun n => (w + t * (↑n + 1)) * ((1 - p) ^ n * p)) (w + t / p)
+'EffortSpeed.retry_elapsed_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.retry_second_moment (p : ℝ) (hp : 0 < p) (hp1 : p ≤ 1) :
+  HasSum (fun n => (↑n + 1) ^ 2 * ((1 - p) ^ n * p)) ((2 - p) / p ^ 2)
+'EffortSpeed.retry_second_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.retry_central_second_moment (p : ℝ) (hp : 0 < p) (hp1 : p ≤ 1) :
+  HasSum (fun n => (↑n + 1 - 1 / p) ^ 2 * ((1 - p) ^ n * p)) ((1 - p) / p ^ 2)
+'EffortSpeed.retry_central_second_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+EffortSpeed.retry_labour_variance (p h : ℝ) (hp : 0 < p) (hp1 : p ≤ 1) :
+  HasSum (fun n => (h * (↑n + 1) - h / p) ^ 2 * ((1 - p) ^ n * p)) (h ^ 2 * (1 - p) / p ^ 2)
+'EffortSpeed.retry_labour_variance' depends on axioms: [propext, Classical.choice, Quot.sound]
