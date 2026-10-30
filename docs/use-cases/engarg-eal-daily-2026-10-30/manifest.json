@@ -1,0 +1,25 @@
+{
+  "schema": "observatory.public-use-case/1",
+  "description": "Actual daily forecast from public GitHub inventories, with same-cut weekly replay and retrospective comparison. No assistant execution data or labour records.",
+  "source_revision": "f4daf8a5b93238ef297de8c6f764d6a9126c44fe",
+  "implementation_source_sha256": "27fc5fa379ea077accd60344d59fd4ff9b7334e1121ac8600b7518ab71b52da1",
+  "source_snapshot_sha256": "a98492e5701f48aa35d5d72899413c75f3824c5b2841fee25373978f60c7bad2",
+  "created_at": "2026-10-30T11:38:22.992138973Z",
+  "target_start": "2026-10-31T00:00:00Z",
+  "target_end": "2026-11-01T00:00:00Z",
+  "uncompressed_bundle_sha256": "9c014308a3f85982bc23da23f9b529ada72708768f0abeba2f871a0159d196e1",
+  "prior_bundle_path": "paper/forecasting/examples/issued-20261029.json.gz",
+  "prior_uncompressed_bundle_sha256": "fedbb928535abbc676aa3a7cd97befa149261b7c7c9269ad6d9fe7f62a6c5ed9",
+  "files": {
+    "daily-counts.csv": "62e4585b999669a83f176f974df6795ddbef8aa70417c5ecd34da38d30881c69",
+    "daily-reconstruction.json": "3811f15b90a02fa72ce8fe510bdaa013b48a7efd352a7109db8d18306bc9fb61",
+    "issued-day.json.gz": "74bd948d9e58fa549c46a628c5c6c7e74c317aa06377378c33aedc79ab86ac91",
+    "prior-forecast-scores.json": "43b6da856b74f0467c3eab7e5415e6b045969461792e2d7f5735f56b06da18c0",
+    "week-replay.json": "af97a8f19a1a91584a68e4a26720ed75dee192deef71312309ed445dc1d07706"
+  },
+  "limitations": [
+    "Local receipt timestamps are declarations, not independent trusted-time certification.",
+    "Only the daily bundle is an original issued forecast; the weekly output is an offline replay and the daily comparison is retrospective.",
+    "The compressed bundle preserves the original bytes and public source payloads. Private deployments must review publication separately."
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "entries": [
+    {
+      "archive_name": "issued-20261029.json",
+      "archive_sha256": "fedbb928535abbc676aa3a7cd97befa149261b7c7c9269ad6d9fe7f62a6c5ed9",
+      "error": null,
+      "score": {
+        "data_cutoff": "2026-10-29T22:18:15.387043659Z",
+        "issued_at": "2026-10-29T22:18:18.353114562Z",
+        "later_observed_cut": "2026-10-30T11:38:15.986765048Z",
+        "later_snapshot_cut": "2026-10-30T11:38:22.846352845Z",
+        "later_source_snapshot_sha256": "a98492e5701f48aa35d5d72899413c75f3824c5b2841fee25373978f60c7bad2",
+        "limitations": [
+          "The score evaluates the unchanged issued distribution; it does not tune the model or establish predictive superiority.",
+          "Complete pagination describes currently visible source records, not proof that deleted or inaccessible historical objects never existed.",
+          "Source digests identify retained content. Receipt and issuance timestamps are not cryptographically certified evidence of when a forecast existed."
+        ],
+        "median_absolute_error": null,
+        "method": "expanding_empirical",
+        "model_version": "observatory.empirical-merge-count/2",
+        "outcome": null,
+        "prior_source_snapshot_sha256": "76d59e401f92d1132147183bc8a84d9232186b27729325102ab2245af7f7f31e",
+        "quantile_range_hit": null,
+        "reasons": [
+          "The common conservative source exposure has not reached the target end; no partial outcome is scored."
+        ],
+        "repository_ids": [
+          1427362428,
+          1431331749
+        ],
+        "rps": null,
+        "schema": "observatory.merge-count-forecast-score/1",
+        "status": "pending",
+        "target_end": "2026-10-31T00:00:00Z",
+        "target_start": "2026-10-30T00:00:00Z"
+      }
+    }
+  ],
+  "later_snapshot_sha256": "a98492e5701f48aa35d5d72899413c75f3824c5b2841fee25373978f60c7bad2",
+  "limitations": [
+    "Local archive bytes and timestamps bind the declared recipe and source cut; they do not independently prove pre-outcome existence or source completeness.",
+    "Pending and unavailable outcomes are not forecast errors or zero outcomes. Corrupt receipts are reported separately and never silently scored."
+  ],
+  "schema": "observatory.forecast-archive-scores/1"
+}

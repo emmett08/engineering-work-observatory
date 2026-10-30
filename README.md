@@ -12,6 +12,10 @@ default model is an expanding empirical reference; predictive skill on a new
 team remains unestablished. See [automatic forecasting](docs/automatic-forecasting.md)
 for the assumptions, source boundaries and scoring workflow.
 
+The [engarg and eal-mcp worked use case](docs/use-cases/engarg-eal-daily-2026-10-30/README.md)
+applies the model to fresh public evidence, retains an original daily forecast,
+and reports insufficient weekly history and adverse retrospective checks.
+
 The [papers and reproducibility files](paper/README.md) include the new
 [automatic forecasting companion](paper/forecasting/automatic-throughput-forecasting.pdf)
 and [three ranked alternatives](paper/review/ranked-automatic-model-alternatives.md).
