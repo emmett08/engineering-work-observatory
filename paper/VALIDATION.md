@@ -279,3 +279,40 @@ Checks completed for this revision:
 These are analytical and computational checks of the retained mathematical
 claims and software examples. They do not establish workplace allocation
 accuracy, predictor calibration, causal AI effects or publication acceptance.
+
+## Application alignment with the retained model, 30 October 2026
+
+The standalone `bound-labour` command now implements the joint finite-cell model
+with exact rational arithmetic, shared person capacity, overlapping interval
+constraints and signed linear targets. Feasible results retain the declared input
+and allocations attaining both endpoints. Inconsistent constraints produce no
+extrema; invalid or resource-limited problems are errors. Conditional productivity
+requires a nonduplicated unit-weight labour target and a positive lower endpoint.
+The earlier notes that the application lacks a joint solver describe the prior
+revision. Existing cohort reports still use conservative floating-point bounds.
+
+Estimator version 2 checks the supplied per-person interval partition and observed
+labour against duration. Version 1 remains supported. Both retain the existing HT
+and fixed-prediction difference formulas, signed corrections, missingness rules
+and design-variance conditions. Geometry checks do not establish coverage of
+actual work or compliance with the sampling design.
+
+Validation for this implementation revision:
+
+- All 216 application tests pass (183 existing and 33 new). New checks include
+  independent exact vertex enumeration for 768 small LPs and an independent
+  rational active-set oracle for 48 interval problems, with endpoint allocations
+  checked against the original observations and capacity constraints.
+- Formatting, strict all-target Clippy, documentation tests and the release build
+  pass on Linux with Rust 1.99.1. No documentation test examples are defined.
+- The measurement examples, exact identification checker and forecasting
+  reference self-test pass.
+- The article rebuilds to 12 pages. The changed reproducibility page and following
+  page were rendered and inspected. The final log has no undefined references,
+  undefined citations or overfull/underfull boxes. All 33 labels remain unique and
+  all 13 cited sources resolve. Retained mathematical expressions, citations and
+  references match the preceding title revision.
+
+The historical Lean package was not changed or rerun. The new Rust solver is
+tested computationally; it has no machine-checked proof of implementation
+correctness and remains subject to its documented resource limits.

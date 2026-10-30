@@ -1,8 +1,10 @@
 //! Define and validate the explicit frame and sampling contract for labour estimation.
 use anyhow::{Result, bail, ensure};
+use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use std::collections::BTreeSet;
 
+/// Version 1 relies on the caller to declare a complete, disjoint person-interval frame.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct LabourEstimateInput {
@@ -12,6 +14,35 @@ pub struct LabourEstimateInput {
     pub predictions: PredictionProvenance,
     pub design: SamplingDesign,
     pub units: Vec<LabourFrameUnit>,
+}
+
+/// Version 2 retains the version 1 statistical input and adds checkable geometry.
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct LabourEstimateInputV2 {
+    pub schema: String,
+    pub estimation: LabourEstimateInput,
+    pub frames: Vec<LabourPersonFrame>,
+    pub geometry: Vec<LabourUnitGeometry>,
+}
+
+/// The declared observation window for one person, covered exactly by their units.
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct LabourPersonFrame {
+    pub person_id: String,
+    pub start: DateTime<Utc>,
+    pub end: DateTime<Utc>,
+}
+
+/// A half-open person-interval belonging to exactly one statistical frame unit.
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct LabourUnitGeometry {
+    pub unit_id: String,
+    pub person_id: String,
+    pub start: DateTime<Utc>,
+    pub end: DateTime<Utc>,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]

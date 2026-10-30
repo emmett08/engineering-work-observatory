@@ -109,6 +109,8 @@ enum Command {
     Simulate { file: PathBuf },
     /// Estimate frame labour from frozen predictions and probability-sampled observations.
     EstimateLabour { file: PathBuf },
+    /// Compute exact attainable labour bounds under interval and shared-capacity constraints.
+    BoundLabour { file: PathBuf },
     /// Collect automatic PR evidence, freeze a cut and issue an immutable team forecast.
     ForecastTeam {
         #[arg(long = "repository")]
@@ -306,9 +308,27 @@ fn execute(cli: Cli) -> Result<()> {
             );
         }
         Command::EstimateLabour { file } => {
-            let frame = serde_json::from_slice(&read_input(&file)?)?;
-            let estimate = observatory::inference::estimate_labour(&frame)?;
-            println!("{}", serde_json::to_string_pretty(&estimate)?);
+            let bytes = read_input(&file)?;
+            let declaration: Value = serde_json::from_slice(&bytes)?;
+            let result = match declaration.get("schema").and_then(Value::as_str) {
+                Some("observatory.labour-estimate-input/1") => {
+                    let frame = serde_json::from_slice(&bytes)?;
+                    serde_json::to_string_pretty(&observatory::inference::estimate_labour(&frame)?)?
+                }
+                Some("observatory.labour-estimate-input/2") => {
+                    let frame = serde_json::from_slice(&bytes)?;
+                    serde_json::to_string_pretty(&observatory::inference::estimate_labour_v2(
+                        &frame,
+                    )?)?
+                }
+                _ => anyhow::bail!("unsupported labour estimate input schema"),
+            };
+            println!("{result}");
+        }
+        Command::BoundLabour { file } => {
+            let input = serde_json::from_slice(&read_input(&file)?)?;
+            let result = observatory::identification::bound_labour(&input)?;
+            println!("{}", serde_json::to_string_pretty(&result)?);
         }
         Command::ForecastSnapshot {
             snapshot,
@@ -512,6 +532,7 @@ fn execute(cli: Cli) -> Result<()> {
                 Command::Analyse { .. }
                 | Command::Simulate { .. }
                 | Command::EstimateLabour { .. }
+                | Command::BoundLabour { .. }
                 | Command::ForecastSnapshot { .. }
                 | Command::ScoreForecast { .. } => unreachable!(),
             }

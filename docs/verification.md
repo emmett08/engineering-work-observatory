@@ -77,7 +77,7 @@ Snapshots select each fact's latest source receipt available at their cut; all
 earlier receipts remain in SQLite. Source-coverage summaries select the latest
 available receipt for each source scope.
 
-The sharp-identification revision adds conditional direct-observation labour and
+The earlier sharp-identification revision added conditional direct-observation labour and
 productivity ranges, an exact-rational graph reference checker, and the standalone
 statistical estimator. Existing point results remain unchanged except that an
 unfinished intersecting observation no longer permits a complete zero at an
@@ -108,3 +108,46 @@ and [three ranked alternatives](../paper/review/ranked-automatic-model-alternati
 retain model choices and unsupported future-bottleneck claims. The original 17-page manuscript, proof package and historical performance
 observations remain unchanged. The [subsequent writing revision](../paper/review/precise-writing-2026-10-29.md)
 updates both current papers and their captions.
+
+## Alignment with the revised labour model, 30 October 2026
+
+The application now solves the paper's joint interval model through the offline
+`bound-labour` command. This supersedes the earlier implementation limitation
+above for standalone constraint inputs. Existing cohort reports still use their
+documented conservative floating-point formulas.
+
+* **EXTRACTED:** `identification` separates exact input records, finite-cell
+  construction and witness verification, and a private two-phase simplex solver.
+  The solver returns attaining allocations or inconsistency; input and resource
+  errors produce no numerical result. `num-bigint`, `num-rational` and
+  `num-traits` provide exact arithmetic. Floating-point tolerances would change
+  feasibility at constraint boundaries and cannot support the same guarantee.
+* **EXTRACTED:** `inference::geometry` checks version-2 person windows, interval
+  partitions and observed capacity before calling the existing estimator.
+  Statistical totals and variances retain their existing floating-point semantics.
+* **RETAINED:** CLI commands only dispatch versioned inputs and serialise results.
+  Version-1 estimator records and additive study records keep their contracts;
+  no database or snapshot migration is needed. Automatic forecasting and the
+  historical retry example remain separate components.
+
+The Linux checks listed above pass with Rust 1.99.1. The application suite now
+has **216 passing tests**, comprising 183 existing tests and 33 new tests. The
+documentation test command succeeds with no executable examples. The release
+build, formatting and strict all-target Clippy checks pass.
+
+Solver verification includes 768 bounded two-variable programmes compared with
+independent exact vertex enumeration and 48 generated four-variable interval
+problems checked by a separate rational active-set oracle. Tests also exercise
+shared-capacity saturation, overlapping observations, fractional objectives,
+inconsistency, degenerate pivots, resource limits and reconstructed allocations.
+Geometry tests cover nanosecond gaps and overlaps, missing units, different
+people, duration capacity, nonresponse and signed statistical corrections.
+CLI tests exercise both schemas, exact output and failure without state creation.
+
+The exact measurement and identification Python checks and forecasting reference
+self-test pass. The revised article builds to 12 pages; its mathematical
+expressions, labels and citations are unchanged by this implementation revision.
+Its reproducibility statement now distinguishes exact joint solving, conservative
+cohort reports and version-2 geometry validation. These checks do not establish
+workplace measurement accuracy or sampling-design compliance. Remote CI results
+must be read from the actual run.

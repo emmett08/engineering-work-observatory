@@ -2,6 +2,7 @@
 pub mod analysis;
 pub mod collectors;
 pub mod forecast;
+pub mod identification;
 pub mod importers;
 pub mod inference;
 pub mod ingestion;

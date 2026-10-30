@@ -18,7 +18,7 @@ For direct recording, an interval contributes duration in hours times `allocatio
 
 For total observed interval mass `m`, duration `u` inside the labour window, and duration `v` outside it, the range is `[max(0, m-v), min(m, u)]` person-hours. The assumption is `0 <= allocation <= 1` at every time, up to sets of measure zero. Filling the outside or inside portion first attains each endpoint using this interval's datum alone. These are sharp marginal bounds; other observations and shared person capacity can tighten them. Literal direct averages of zero and one identify zero or full allocation almost everywhere, so their ranges collapse and the existing point result remains available. No near-zero or near-one tolerance substitutes for these exact endpoints. Calculations retain subsecond duration before ordinary floating-point accounting; they do not implement certified outward rounding. Study records still require effort to start at or after task enrolment.
 
-The optional task `person_hours_bounds` and cohort `total_person_hours_bounds` sum direct interval ranges. They are conservative enclosures, not jointly sharp extrema: overlapping task or role allocations can couple the marginal endpoints. The application does not solve a coupled linear programme. Finite complete-total bounds require a complete, method-matched direct frame, observed responses, a closed horizon, and completed intersecting observations. Missing, partial, conflicting or sampled frames leave those total bounds unavailable. Individual direct boundary bounds remain visible even when the whole frame is incomplete. Use `coverage` records for the lifecycle and effort frames. Complete direct coverage with no positive effort attests a measured zero; missing coverage does not.
+The optional task `person_hours_bounds` and cohort `total_person_hours_bounds` sum direct interval ranges. They are conservative enclosures, not jointly sharp extrema: overlapping task or role allocations can couple the marginal endpoints. The separate `bound-labour` command solves the joint interval model from explicit constraint inputs. It does not reinterpret these additive study records. See [exact labour identification](labour-identification.md). Finite complete-total bounds require a complete, method-matched direct frame, observed responses, a closed horizon, and completed intersecting observations. Missing, partial, conflicting or sampled frames leave those total bounds unavailable. Individual direct boundary bounds remain visible even when the whole frame is incomplete. Use `coverage` records for the lifecycle and effort frames. Complete direct coverage with no positive effort attests a measured zero; missing coverage does not.
 
 Sampled intervals crossing the boundary remain unsupported under the sampling-frame contract. A complete census needs an actual declared frame and sufficiently complete recording, not simply a few intervals. Deterministic direct bounds are neither confidence intervals nor a replacement for sampling uncertainty.
 
@@ -44,9 +44,9 @@ This implementation requires an assessment for **every counted accepted requirem
 
 Passing tests, surviving lines and no reported incidents do not establish `retained_fraction=1`. Record defects and severity independently of the retained fraction; link repair effort rather than counting it again. Use a common audit/feedback procedure and record audit-triggered repair in the applicable labour boundary. Independent quality subsampling, audit-exposure adjustment and quality sampling weights are outside this release.
 
-## Apply the two clocks
+## Apply the three timing rules
 
-The suggested pilot uses `acceptance_days=30` and `follow_up_days=30`. Days are fixed 24-hour UTC durations. Register another choice before that cohort begins when local calendar boundaries or other horizons are needed.
+The synthetic example uses `acceptance_days=30` and `follow_up_days=30`. The paper prescribes no universal values. Days are fixed 24-hour UTC durations. Register another choice before that cohort begins when local calendar boundaries or other horizons are needed.
 
 | Quantity | Boundary |
 |---|---|

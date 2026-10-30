@@ -40,7 +40,7 @@ A task can span several PRs and both repositories. Link these records explicitly
 
 Each record's event time describes the work or assessment. Its observation time describes when it became available to the observatory. An `as_of` cut restricts available evidence by observation time; calculations also apply the relevant event-time boundary. A historical report must not acquire later knowledge merely because it describes an earlier event.
 
-The paper's proposed pilot has acceptance deadline `tau = 30 days` and retention follow-up `delta = 30 days`. These are protocol parameters, not universal constants. For each enrolled task:
+The synthetic study example uses acceptance deadline `tau = 30 days` and retention follow-up `delta = 30 days`. The paper leaves these protocol parameters to the study design. For each enrolled task:
 
 * Acceptance is measured from enrolment. Deployment is separate.
 * Retention is assessed at acceptance plus `delta`.
@@ -66,6 +66,27 @@ remain separate from the nonnegative cohort accounting and its immutable input
 records. General-design point estimation and SRS variance have distinct validation
 contracts; the latter uses the finite-population correction and explicit
 unavailable/census states. See [the estimator contract](design-based-estimation.md).
+
+## Joint interval identification
+
+`identification` implements the paper's exact finite-cell allocation model for
+standalone interval constraints. Typed rational input, cell construction,
+optimisation and witness verification occupy separate modules. `bound-labour`
+only reads input and serialises the result. The solver uses exact rational
+arithmetic and explicit resource limits, preserving the distinction between
+inconsistency and failure to complete a calculation.
+
+This component is separate from additive study effort records. Repeated or
+overlapping observations constrain the same allocation in a linear programme;
+they cannot be added as if they were independent labour contributions. Existing
+snapshots and their conservative floating-point reports retain their established
+semantics. See [the identification contract](labour-identification.md).
+
+The estimator's v2 input adds declared per-person frame windows and unit
+geometry. It checks a complete, non-overlapping interval partition and observed
+labour against interval capacity before invoking the existing statistical
+calculation. V1 remains supported as a caller-declared abstract finite frame.
+Neither version can establish that the declared frame covers all actual work.
 
 ## Interpretation and extension
 

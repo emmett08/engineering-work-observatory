@@ -3,10 +3,13 @@ use anyhow::{Result, ensure};
 use serde::Serialize;
 
 mod frame;
+mod geometry;
 mod variance;
 pub use frame::{
-    LabourEstimateInput, LabourFrameUnit, LabourObservation, PredictionProvenance, SamplingDesign,
+    LabourEstimateInput, LabourEstimateInputV2, LabourFrameUnit, LabourObservation,
+    LabourPersonFrame, LabourUnitGeometry, PredictionProvenance, SamplingDesign,
 };
+pub use geometry::{LabourEstimateV2, estimate_labour_v2};
 pub use variance::{DesignVariance, VarianceStatus};
 
 #[derive(Clone, Debug, Serialize)]
@@ -27,6 +30,7 @@ pub struct LabourEstimate {
 
 /// Return HT and fixed-prediction difference estimates of the same finite-frame total.
 ///
+/// Version 1 declares a disjoint person-interval frame without supplying geometry.
 /// Design-unbiasedness requires truthful complete-frame and frozen-prediction
 /// attestations, accurate observed labels, and the declared inclusion probabilities.
 /// Selected nonresponse is an error, never an observed zero. General designs supply
@@ -70,7 +74,7 @@ pub fn estimate_labour(input: &LabourEstimateInput) -> Result<LabourEstimate> {
         difference_total_person_hours: difference,
         variance,
         limitations: vec![
-            "Completeness, sampling probabilities, accurate labels and predictions fixed independently of the realised sample are supplied attestations, not verified facts.".into(),
+            "Completeness of target-work coverage, sampling probabilities, accurate observations and predictions fixed independently of the realised sample are supplied attestations, not verified facts.".into(),
             "Difference estimates are signed and are not clipped. A frozen predictor can increase design variance; fitting on this sample does not inherit the fixed-prediction guarantee.".into(),
             "A design variance estimate does not by itself supply confidence-interval coverage. No confidence interval or unbiased productivity ratio is claimed.".into(),
         ],

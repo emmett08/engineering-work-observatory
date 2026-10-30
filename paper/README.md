@@ -35,8 +35,10 @@ The application reports conditional direct-observation labour and productivity
 bounds and provides a separate `estimate-labour` command for a declared
 probability sample with frozen predictions. Its simple-random-sampling variance
 calculation is separate from the cohort report's HT point estimates. The
-application sums marginal bounds and does not implement the joint linear
-programme. Its floating-point endpoints have no outward-rounding guarantee.
+standalone `bound-labour` command now solves the joint linear programme with
+exact rational inputs and returns attaining allocations. Existing cohort reports
+retain marginal floating-point bounds without an outward-rounding guarantee.
+The estimator's v2 input checks the declared person-interval partition.
 Exact interval bounds and sampling estimates retain their different guarantees.
 Neither establishes an empirical AI effect or the accuracy of labour and quality
 measurements. The new identification and estimation results remain outside the
