@@ -12,37 +12,40 @@ required by the following manuscript.
 
 ## What software-work telemetry identifies
 
-Read the [extended article](ai-assisted-software-engineering.pdf), built from
+Read the [article](ai-assisted-software-engineering.pdf), built from
 [`article/main.tex`](article/main.tex) and
-[`article/references.bib`](article/references.bib). The revised paper centres on
-labour bounds from interval observations and bounded attention,
-an exact finite-cell reduction, and model-assisted design-based estimation.
-A compact marked-history representation preserves the separate acceptance,
-retention and labour horizons. The elementary execution examples and retained
-runtime experiment support appendices.
+[`article/references.bib`](article/references.bib). The publication version centres
+on attainable labour bounds from interval observations and shared per-person
+capacity, an exact finite-cell reduction, and fixed-prediction design-based
+estimation. It distinguishes labour, elapsed time to acceptance and retained
+reference output. A short validation section states the measurements and
+assumptions needed before an empirical intervention comparison.
 
-The application reports conditional direct-observation labour and productivity bounds and provides a
-separate `estimate-labour` command for a declared probability sample with frozen
-predictions. Its SRS variance calculation is separate from the cohort report's
-HT point estimates. Exact interval masses, statistical estimates and conditional
-bounds remain distinct. These additions establish neither an empirical AI
-effect nor the accuracy of underlying labour and quality observations. The new
-mathematics and Rust code are outside the original Lean proof receipt's coverage.
+The 30 October 2026 revision removes the execution/retry/detection tutorials,
+Standard Coder correction appendix, runtime benchmark appendix and detailed
+hypothetical trial protocol from the compiled article. Their historical sources,
+results and reviews remain in this repository and its Git history. The
+single-stream shortest-path solution remains as the one directly relevant
+technical appendix. The coarse bin envelope is superseded in the article by the
+capacity-aware bound and joint formulation.
 
-The three original diagrams have editable reconstructions in [`tikz.tex`](tikz.tex).
-The performance appendix retains its algorithms, measured timings and figure
-showing the cost of preprocessing; those data were not recollected.
+The application reports conditional direct-observation labour and productivity
+bounds and provides a separate `estimate-labour` command for a declared
+probability sample with frozen predictions. Its simple-random-sampling variance
+calculation is separate from the cohort report's HT point estimates. The
+application sums marginal bounds and does not implement the joint linear
+programme. Its floating-point endpoints have no outward-rounding guarantee.
+Exact interval bounds and sampling estimates retain their different guarantees.
+Neither establishes an empirical AI effect or the accuracy of labour and quality
+measurements. The new identification and estimation results remain outside the
+historical Lean proof receipt's coverage.
 
-The [six-agent review](review/debate-2026-10-29.md) adds explicit sampling-noise
-validation and bounds connecting complete labour bins to continuous accounting.
-These analytical additions are also outside the historical Lean receipt. The
-application now preserves fractional-second effort and withholds ambiguous
-boundary-crossing allocations rather than silently interpolating them.
-
-The subsequent [Astra ultra review](review/astra-ultra-2026-10-29.md) records
-the further observation and summary-validation repairs, followed by three
-whole-paper applications of `write-for-experienced-engineers`. Each editorial
-pass has a separate commit and mathematical/citation fidelity check.
+The [six-agent review](review/debate-2026-10-29.md) and
+[Astra ultra review](review/astra-ultra-2026-10-29.md) retain the earlier analytical,
+implementation and editorial history. The current publication revision adds
+three further whole-paper applications of `write-for-experienced-engineers`,
+each recorded in a separate commit, after the scope and terminology repairs.
+See [validation notes](VALIDATION.md) for checks and their limits.
 
 ## Original paper and proof evidence
 
@@ -82,7 +85,7 @@ make forecasting
 make baseline
 ```
 
-`make article` compiles the extended source to `build/main.pdf` and copies it to
+`make article` compiles the publication source to `build/main.pdf` and copies it to
 `ai-assisted-software-engineering.pdf`. `make baseline` builds the original
 source to `effort-speed-ai/.build/article/main.pdf`; it does not overwrite the
 attached PDF. These use pdfLaTeX, BibTeX and latexmk. `make forecasting` builds the separate
@@ -96,9 +99,9 @@ apt-get install latexmk texlive-latex-base texlive-latex-recommended \
   texlive-latex-extra texlive-science texlive-pictures texlive-fonts-recommended lmodern
 ```
 
-The main source uses `amsart`, Latin Modern, British hyphenation, `microtype`,
-TikZ/PGFPlots, `algorithm`/`algpseudocode`, and `natbib` with `amsplain`. Algorithms
-are numbered continuously because the article class has no chapter counter.
+The publication source uses `amsart`, Latin Modern, British hyphenation,
+`microtype`, and `natbib` with `amsplain`. TikZ/PGFPlots and algorithm packages
+remain dependencies of the historical and companion material.
 Rust and Python requirements and benchmark commands are documented in
 [`performance/README.md`](performance/README.md).
 
@@ -109,7 +112,7 @@ collection under `reports/performance/<UTC>/` at the repository root. The record
 raw measurements remain immutable. The performance README explains how to choose
 another output directory; figure regeneration remains a separate, explicit step.
 
-The recorded comparison used 100,000 acceptance records and 400,000 labour
+The separate recorded runtime comparison used 100,000 acceptance records and 400,000 labour
 contributions. Indexing reduced median total runtime for 1,000 queries from
 2,787.159 ms to 23.051 ms, including construction and disposal, while one query
 was slower with indexing. Ten-query results were mixed across paired runs.
