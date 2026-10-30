@@ -10,7 +10,9 @@ Current queue pressure is observed; future bottlenecks and causal capacity remai
 unestablished. The automatic workflow is independent of the labour observations
 required by the following manuscript.
 
-## What software-work telemetry identifies
+## How Much Human Work Is Behind AI-Assisted Software?
+
+*Labour Bounds and Estimation from Work Telemetry*
 
 Read the [article](ai-assisted-software-engineering.pdf), built from
 [`article/main.tex`](article/main.tex) and
