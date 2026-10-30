@@ -1,0 +1,882 @@
+{
+  "forecast": {
+    "available_complete_bins": 0,
+    "coverage_complete": true,
+    "data_cutoff": "2026-10-30T11:38:15.986765048Z",
+    "distribution": null,
+    "evidence_mode": "retrospective_visible_inventory",
+    "history_start": "2026-10-23T17:10:11Z",
+    "issued_at": "2026-10-30T11:38:22.846352845Z",
+    "limitations": [
+      "The outcome is a count of observed PR merges, not effort, delivered functionality or AI effect.",
+      "Historical complete calendar periods must be relevant to the future; drift and missing source objects can invalidate that expectation.",
+      "Empirical quantiles have coarse support and no guaranteed future coverage; historical maxima are not physical upper bounds.",
+      "Partial creation and current periods are excluded; a target may begin after the most recent completed training period.",
+      "The operational reference uses all supported complete bins. This frame differs from a bounded public-reference study and does not establish predictive skill on these repositories."
+    ],
+    "method": "expanding_empirical",
+    "model_version": "observatory.empirical-merge-count/2",
+    "period": "week",
+    "reasons": [
+      "Need at least 4 complete 7-day bins; only 0 are supported. No horizon scaling or convolution is used."
+    ],
+    "repository_ids": [
+      1427362428,
+      1431331749
+    ],
+    "required_training_bins": 4,
+    "schema": "observatory.merge-count-forecast/1",
+    "source_snapshot_sha256": "a98492e5701f48aa35d5d72899413c75f3824c5b2841fee25373978f60c7bad2",
+    "status": "unavailable",
+    "target_end": "2026-11-09T00:00:00Z",
+    "target_start": "2026-11-02T00:00:00Z",
+    "training_bins": [],
+    "validation_status": "unvalidated_operational_reference"
+  },
+  "history": {
+    "collection_completed_at": "2026-10-30T11:38:22.814975067Z",
+    "collection_started_at": "2026-10-30T11:38:15.986765048Z",
+    "complete": true,
+    "current_pressure": {
+      "ci_status": "not_collected",
+      "interpretation": "Last observed open PR inventory. Draft, requested-review and age-at-least-seven-days predicates may overlap. Ages are at acquisition receipt; freshness is separate. Review requests do not establish incomplete review, blocked capacity or a causal bottleneck. These current fields are not historical forecast features",
+      "oldest_collection_age_seconds": 6.859,
+      "open_age_days": [
+        0.018697905092592594
+      ],
+      "open_at_least_7_days_pull_requests": 0,
+      "open_draft_pull_requests": 0,
+      "open_pull_requests": 1,
+      "open_review_requested_pull_requests": 0,
+      "review_request_status": "observed_request_fields",
+      "review_status": "not_collected",
+      "source_record_ids": [
+        "github:repository:1427362428/github.throughput_collection/profile/6b4fc3c168745e7f3ba16077aa17496d5dec87e8c647361eb864dffcd56df2d1",
+        "github:repository:1431331749/github.throughput_collection/profile/e4f702994151fafd06c5ebc496abcaf96059b21326dc76f382134ea3089d95ed",
+        "github:repository:1431331749/github.pull_request/5083416837/4afa32b6226be31201c8cfa3eaa65bdbcc6b377c24f24157dc3f141ff70451cc"
+      ],
+      "status": "last_observed_inventory"
+    },
+    "history_start": "2026-10-23T17:10:11Z",
+    "mode": "retrospective_visible_inventory",
+    "notes": [
+      "Historical merged_at dates reconstruct currently visible PRs; they do not establish past acquisition-time availability or recover deleted history",
+      "Merged PRs are observable workflow units, not amounts of functionality, human labour, quality or an AI causal effect",
+      "Counts before the newest selected repository existed and partial initial/current time bins must be excluded"
+    ],
+    "observed_cut": "2026-10-30T11:38:15.986765048Z",
+    "pull_requests": [
+      {
+        "closed_at": "2026-10-20T18:57:36Z",
+        "created_at": "2026-10-20T18:37:12Z",
+        "merged_at": "2026-10-20T18:57:36Z",
+        "number": 1,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/4940571619/8fdc79a1c630aa032063e5a2c7d509bb955b85d0b7a4e2aef50a19543028be5d",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-20T19:39:55Z",
+        "created_at": "2026-10-20T19:37:06Z",
+        "merged_at": "2026-10-20T19:39:55Z",
+        "number": 2,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/4941374162/955f28843b78d2ab9e0d59814e88a43056c5a1e22a8cb97a44ab84bf8aa41aa4",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-20T20:04:39Z",
+        "created_at": "2026-10-20T20:02:20Z",
+        "merged_at": "2026-10-20T20:04:39Z",
+        "number": 3,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/4941709847/b8bd81d02a1a3a1e43ddc1003bbbf1e23b76b8dded69a8a1218114b9e6379a87",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-20T20:35:38Z",
+        "created_at": "2026-10-20T20:33:55Z",
+        "merged_at": "2026-10-20T20:35:38Z",
+        "number": 4,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/4942116055/313d8fd81b29005b07d747374da5d972142f16e482afd17fa70537db1d4c8411",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-20T21:20:11Z",
+        "created_at": "2026-10-20T21:17:29Z",
+        "merged_at": "2026-10-20T21:20:10Z",
+        "number": 5,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/4942621120/494c480d3efdb9a6b969a42e32a963d277339ec9bc8ebb5502cbb2cb227c001f",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-20T22:03:34Z",
+        "created_at": "2026-10-20T21:55:59Z",
+        "merged_at": "2026-10-20T22:03:34Z",
+        "number": 6,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/4943041214/90ebc334f878278b078e5fa2e11de2f5fc16ac0ab12856873b7f01d36b5ef568",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-20T22:24:49Z",
+        "created_at": "2026-10-20T22:21:55Z",
+        "merged_at": "2026-10-20T22:24:49Z",
+        "number": 7,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/4943305513/f597f05f7adbc9114e69e400d7516cb57311b4df2c07ae9e122d87983582a5ad",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-20T23:49:23Z",
+        "created_at": "2026-10-20T22:56:54Z",
+        "merged_at": "2026-10-20T23:49:23Z",
+        "number": 8,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/4943662484/1ad16b7546a7c5e3af88fe8487b3ca7fef30fcd9bb02af6afc266a7defa23537",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-21T13:22:25Z",
+        "created_at": "2026-10-21T07:28:19Z",
+        "merged_at": "2026-10-21T13:22:25Z",
+        "number": 9,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/4947997816/8f7c218896cf274c8f4f0b9171e1c4d19244c8304ed66c775208bfceb6ff3387",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-21T07:45:02Z",
+        "created_at": "2026-10-21T07:43:24Z",
+        "merged_at": "2026-10-21T07:45:02Z",
+        "number": 10,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/4948161745/27298ae89f7964653d2deeb5070478ae48da44d10ff6a9fa4a4aaf24024a3036",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-21T08:13:34Z",
+        "created_at": "2026-10-21T08:10:32Z",
+        "merged_at": "2026-10-21T08:13:34Z",
+        "number": 11,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/4948466695/2c98e022f40d7e6dfa317106331aa9ab6330c888774ad7690f0dc07e41da6774",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-21T08:14:47Z",
+        "created_at": "2026-10-21T08:12:17Z",
+        "merged_at": "2026-10-21T08:14:47Z",
+        "number": 12,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/4948486806/041cd08ea90babb11130a7af5cbe3dd607af0a7575fab49c8f2671b00c5a6721",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-24T11:25:16Z",
+        "created_at": "2026-10-24T10:43:36Z",
+        "merged_at": "2026-10-24T11:25:16Z",
+        "number": 13,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/4994709472/237dc4451cea09f8e9c4eaec294f1c5bbabea3e6be0bf8e3d98e4f1a0701a265",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-24T15:05:33Z",
+        "created_at": "2026-10-24T14:39:10Z",
+        "merged_at": "2026-10-24T15:05:33Z",
+        "number": 14,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/4996310171/0c82d4bf6e2e8fb9eef89c1f4cb46bcb5c9447733ecfaad3cbdf8ad87b4725e8",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-24T15:05:44Z",
+        "created_at": "2026-10-24T14:46:25Z",
+        "merged_at": "2026-10-24T15:05:44Z",
+        "number": 15,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/4996363692/5590c51ced67cd832c33e2f0c876e5ed2ef935930e0f10e11b72aad41ba76b8d",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-24T16:43:27Z",
+        "created_at": "2026-10-24T16:29:05Z",
+        "merged_at": "2026-10-24T16:43:27Z",
+        "number": 16,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/4997111982/ca99415c8dc1444a13746ed7a86b085cb3de9d9011b4da8153c8c4f78476fea7",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-24T18:06:45Z",
+        "created_at": "2026-10-24T17:45:34Z",
+        "merged_at": "2026-10-24T18:06:45Z",
+        "number": 17,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/4997675131/cc6fde767a75625ee275a4eb5a0768bde3b75928d76fe8373079de6df8919912",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-24T22:35:35Z",
+        "created_at": "2026-10-24T22:30:44Z",
+        "merged_at": "2026-10-24T22:35:35Z",
+        "number": 18,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/4999727392/8fdc84b192e9a875b0c742fbfbbfc8e8b0b261edb3758fc235cfefc88c1a6e8b",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-25T15:48:25Z",
+        "created_at": "2026-10-25T10:41:30Z",
+        "merged_at": "2026-10-25T15:48:25Z",
+        "number": 19,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/5003991223/b8c795c32a7fff405f00718c8b6b30158d42e99bf591a9bbc01ac01e435ebb67",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-25T17:46:35Z",
+        "created_at": "2026-10-25T16:11:27Z",
+        "merged_at": "2026-10-25T17:46:35Z",
+        "number": 20,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/5006398724/f12c798060a4102f9db93a06c63d92afb73f0434b253573703dbea76d15396ff",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-25T22:24:31Z",
+        "created_at": "2026-10-25T20:13:44Z",
+        "merged_at": "2026-10-25T22:24:31Z",
+        "number": 21,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/5008258514/c6c808d60d77c0b3c499d93b50e4a6f4f5a1cb32e9239272d61a496d4b50e279",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-25T22:24:52Z",
+        "created_at": "2026-10-25T21:23:17Z",
+        "merged_at": "2026-10-25T22:24:52Z",
+        "number": 22,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/5008849953/cb23f463a1b9eb72501046e4f2ddcb19dea52bf05cf9269335c87ff45682bd49",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-26T12:43:26Z",
+        "created_at": "2026-10-26T09:49:14Z",
+        "merged_at": "2026-10-26T12:43:26Z",
+        "number": 23,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/5015350949/3910ccfd03de6f522accf7791a719f27107c63133d9f85ee0acdc0d76fce471d",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-27T09:32:20Z",
+        "created_at": "2026-10-26T23:59:10Z",
+        "merged_at": "2026-10-27T09:32:20Z",
+        "number": 24,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/5026462598/028d67dcdc20dd13d9686f79061622af427ca3672b14dae9294be134359e7245",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-27T10:31:16Z",
+        "created_at": "2026-10-27T10:26:42Z",
+        "merged_at": "2026-10-27T10:31:16Z",
+        "number": 25,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/5032350826/94b5bbe09b42eb639db4763faed1e8761a218e2d5a5fb3684ec0c10b22b9e907",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-27T20:42:25Z",
+        "created_at": "2026-10-27T17:20:17Z",
+        "merged_at": "2026-10-27T20:42:25Z",
+        "number": 26,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/5038202418/f627154b3d92395d6f39b1bbee3360dc508802d95367162ee6fa3e7e89a845af",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-27T22:01:30Z",
+        "created_at": "2026-10-27T21:18:53Z",
+        "merged_at": "2026-10-27T22:01:30Z",
+        "number": 27,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/5041282717/2e38d08518ae48435032b1e13d101133bb13afcfddb2087515a7ef99ea23e5d0",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-27T22:59:19Z",
+        "created_at": "2026-10-27T22:30:59Z",
+        "merged_at": "2026-10-27T22:59:19Z",
+        "number": 28,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/5042090848/1b0d25c325062b58a83043b4efbd2ab0ae6943819e50f7ec5f1179fa6e97f554",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-27T23:55:37Z",
+        "created_at": "2026-10-27T23:22:45Z",
+        "merged_at": "2026-10-27T23:55:37Z",
+        "number": 29,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/5042607674/0ba5bfc4fcc144ada9216246aa1d0c8e18aebbc7b3b2495f8e0659bf83be0cbe",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-28T13:05:20Z",
+        "created_at": "2026-10-28T11:44:53Z",
+        "merged_at": "2026-10-28T13:05:20Z",
+        "number": 30,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/5049911357/10c03f15def9d0615664c3a74b8c473754e6f43672b95980250b4e3d639242c5",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-28T16:31:09Z",
+        "created_at": "2026-10-28T14:58:41Z",
+        "merged_at": "2026-10-28T16:31:09Z",
+        "number": 31,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/5052667268/bc1912dfc06c27b5c66796a893bc0fb0decc2540935b1388d103aebc6120e6d2",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-29T09:16:08Z",
+        "created_at": "2026-10-29T08:53:18Z",
+        "merged_at": "2026-10-29T09:16:08Z",
+        "number": 32,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/5065089841/e11248a4970c48941afb3c48b9980181ec243e1997f452c4ff05fc3174d490b0",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-29T19:51:00Z",
+        "created_at": "2026-10-29T18:44:07Z",
+        "merged_at": "2026-10-29T19:51:00Z",
+        "number": 33,
+        "observed_at": "2026-10-30T11:38:22.824476963Z",
+        "repository_id": 1427362428,
+        "source_record_id": "github:repository:1427362428/github.pull_request/5073679074/a8612ad969493b5d5dfa827dfdfbe72caae6ee141b107d8cd184824fdb383e46",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-24T11:06:53Z",
+        "created_at": "2026-10-24T10:36:47Z",
+        "merged_at": "2026-10-24T11:06:53Z",
+        "number": 1,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/4994668432/e0813f608f5d4557804e878e400e035623ee90adfc5b506e78791731d3e8c4e6",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-24T11:55:38Z",
+        "created_at": "2026-10-24T11:46:49Z",
+        "merged_at": "2026-10-24T11:55:38Z",
+        "number": 2,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/4995112008/8fd450ac39be414231b445b7e07692a17fd9bad26f9727e04bc88f3b73807bac",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-24T13:20:56Z",
+        "created_at": "2026-10-24T12:21:27Z",
+        "merged_at": "2026-10-24T13:20:56Z",
+        "number": 3,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/4995337722/4982bb248eec6d557155e3b0738f17790b3752355c8dc9f7d5023cbc5112a1c8",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-24T13:22:19Z",
+        "created_at": "2026-10-24T12:48:18Z",
+        "merged_at": "2026-10-24T13:22:19Z",
+        "number": 4,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/4995512826/dd4e911208be7936a4e837a176a7a5040bf674add0be9efd2bd844c0011363e5",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-24T15:05:16Z",
+        "created_at": "2026-10-24T14:36:02Z",
+        "merged_at": "2026-10-24T15:05:16Z",
+        "number": 5,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/4996288014/b45bc42f3d096a04a36818198642d21e5bf12308786ae30f575737e39aa0df12",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-24T15:06:16Z",
+        "created_at": "2026-10-24T14:53:37Z",
+        "merged_at": "2026-10-24T15:06:16Z",
+        "number": 6,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/4996417656/1b5e5994b338ab68d47a621cba13f8c2ca545a18dbc9a372074e80dce9af6865",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-24T16:43:48Z",
+        "created_at": "2026-10-24T16:36:44Z",
+        "merged_at": "2026-10-24T16:43:48Z",
+        "number": 7,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/4997169815/5e0eca62836392213098a9816377ce5487a83e1f1c22772915f02fc5ffba9bf4",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-24T18:06:53Z",
+        "created_at": "2026-10-24T17:02:11Z",
+        "merged_at": "2026-10-24T18:06:53Z",
+        "number": 8,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/4997359766/5518938a79884a32cc66a52a722ac94a92c8107638e1feb9d34521319e0f989f",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-24T21:42:37Z",
+        "created_at": "2026-10-24T20:42:49Z",
+        "merged_at": "2026-10-24T21:42:37Z",
+        "number": 9,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/4998985993/9a1374da16a9c14cd7bec9fb8d79947025640f02147eaf29ab1e00f869b656f4",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-24T23:48:20Z",
+        "created_at": "2026-10-24T22:20:03Z",
+        "merged_at": "2026-10-24T23:48:20Z",
+        "number": 10,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/4999660016/8ef4bce57c481f98b4e28738ca1d748117ffb8c55a974edcdd60fa71b9f118c1",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-24T22:41:48Z",
+        "created_at": "2026-10-24T22:32:47Z",
+        "merged_at": "2026-10-24T22:41:48Z",
+        "number": 11,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/4999739403/c94bf863f31a9e5375a8fc75e2cfe3d02bdf16e7b1eacbbec9230595fe9c9849",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-25T08:24:02Z",
+        "created_at": "2026-10-25T07:55:42Z",
+        "merged_at": "2026-10-25T08:24:01Z",
+        "number": 12,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5002910676/6470cdadf6b8f617ddc493019a03355cb5ea002e59a91056723882c1d7ad42eb",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-25T15:48:40Z",
+        "created_at": "2026-10-25T08:04:49Z",
+        "merged_at": "2026-10-25T15:48:40Z",
+        "number": 13,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5002962764/7725738a584a047663f3618ed0c2d3e7030280da9e5df52357159de2a0063043",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-25T12:06:54Z",
+        "created_at": "2026-10-25T09:06:57Z",
+        "merged_at": "2026-10-25T12:06:54Z",
+        "number": 14,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5003354305/f248e3bf53903908007dbe64ca95a86f1cd86f4bfa63479638eca10292744ad8",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-25T17:46:55Z",
+        "created_at": "2026-10-25T16:25:55Z",
+        "merged_at": "2026-10-25T17:46:55Z",
+        "number": 15,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5006506030/625b58fdf3300a96e1a721fe34f281b5922c99da15b47cf5ff3b0ef8618a063d",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-25T18:22:26Z",
+        "created_at": "2026-10-25T17:44:36Z",
+        "merged_at": "2026-10-25T18:22:26Z",
+        "number": 16,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5007113695/e5b381657bab7d95342cf40099c3afcd1dce6dd0fd7409c93753d62b33572c32",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-25T22:24:56Z",
+        "created_at": "2026-10-25T20:16:49Z",
+        "merged_at": "2026-10-25T22:24:56Z",
+        "number": 17,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5008280658/12c8380ca57405594c3111238d1b67d80a4e30bacbe263ae90342e2adb930171",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-25T22:25:15Z",
+        "created_at": "2026-10-25T21:39:55Z",
+        "merged_at": "2026-10-25T22:25:15Z",
+        "number": 18,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5008978727/9e782f2b3c43a965d9470b3b11fb2cad1473f49a24006096da37f2c88e7fdb57",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-26T12:43:34Z",
+        "created_at": "2026-10-26T08:39:11Z",
+        "merged_at": "2026-10-26T12:43:34Z",
+        "number": 19,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5014495809/c89b56bf2630eabd656b08fcf3873612140702e77ba8281b6749424c6fa72445",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-26T12:43:43Z",
+        "created_at": "2026-10-26T08:41:36Z",
+        "merged_at": "2026-10-26T12:43:43Z",
+        "number": 20,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5014525891/f8d764811ae93b7e05a2e8aa4d24ebe6313c83608fc33e63cb578ff110fbba59",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-26T12:43:53Z",
+        "created_at": "2026-10-26T08:44:16Z",
+        "merged_at": "2026-10-26T12:43:53Z",
+        "number": 21,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5014557787/1f30b0fa5f0b5909da0c97934ad9bcfacf0f4f7d73d679da54095d4c8e294bab",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-26T13:55:26Z",
+        "created_at": "2026-10-26T09:04:16Z",
+        "merged_at": "2026-10-26T13:55:26Z",
+        "number": 22,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5014792923/ba9354ad82b6f53ba779b0f7cdc61bcaeaa6dfc43ebd6e39d7a314f7b188ff0f",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-26T12:44:02Z",
+        "created_at": "2026-10-26T09:48:45Z",
+        "merged_at": "2026-10-26T12:44:02Z",
+        "number": 23,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5015344580/b066fb2190b30b63c1f1292707e5f3d2c1a19dbb2b309367e2dd358445e730e2",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-26T14:57:59Z",
+        "created_at": "2026-10-26T14:27:23Z",
+        "merged_at": "2026-10-26T14:57:59Z",
+        "number": 24,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5019128252/924a0888cb2aac87754c1cfa97c8863510541dfbb04bbbcdc6450d93b86408bb",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-26T20:03:36Z",
+        "created_at": "2026-10-26T19:07:17Z",
+        "merged_at": "2026-10-26T20:03:36Z",
+        "number": 25,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5023128828/932332d677edf28b65f9637f2095a45855a73a6a26417d56c69dbe4dd9b21911",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-26T19:26:42Z",
+        "created_at": "2026-10-26T19:16:12Z",
+        "merged_at": "2026-10-26T19:26:42Z",
+        "number": 26,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5023247296/369405a21f0ba307cbf27c7793df437f29903c5e1f4a50d09687cb2ebc72946c",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-26T20:04:10Z",
+        "created_at": "2026-10-26T19:52:12Z",
+        "merged_at": "2026-10-26T20:04:10Z",
+        "number": 27,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5023703252/330f3669b4a831d8ac4622a240016507ed3118906c2b907d3eda89658c878880",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-26T20:58:48Z",
+        "created_at": "2026-10-26T20:33:49Z",
+        "merged_at": "2026-10-26T20:58:48Z",
+        "number": 28,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5024233833/2a12dafad57682425f0073f593d1455ddd1b5cdf91a7ee36015e40c22572e221",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-26T23:01:46Z",
+        "created_at": "2026-10-26T22:51:39Z",
+        "merged_at": "2026-10-26T23:01:46Z",
+        "number": 29,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5025842361/8bf0d6393eda286a8ec45cda9ddee29b8b61d5f8800fad6f7dfbf7a59d83f84a",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-26T23:29:56Z",
+        "created_at": "2026-10-26T22:56:24Z",
+        "merged_at": "2026-10-26T23:29:56Z",
+        "number": 30,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5025887693/27184700d31c1f0236bb6b897882ef5af2204841a8c3fb577adc9500fa1bb396",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-27T09:33:11Z",
+        "created_at": "2026-10-27T00:04:28Z",
+        "merged_at": "2026-10-27T09:33:11Z",
+        "number": 31,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5026506664/b919618111be4621f6bde279cb8cf4f2f48b342708712278d99ecd57b962428b",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-27T10:54:44Z",
+        "created_at": "2026-10-27T10:26:30Z",
+        "merged_at": "2026-10-27T10:54:44Z",
+        "number": 32,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5032347826/31153c13f1ca1c033f8cfaf4bb8603e08259715b0dc5af72ec5f12dd7f32d1f0",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-27T20:42:49Z",
+        "created_at": "2026-10-27T17:33:00Z",
+        "merged_at": "2026-10-27T20:42:49Z",
+        "number": 33,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5038374866/fd3641a49f8bfe050f24334380f67ce31c4e5586cb95d13db8f2f89c5fb346da",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-27T22:01:44Z",
+        "created_at": "2026-10-27T21:32:26Z",
+        "merged_at": "2026-10-27T22:01:44Z",
+        "number": 34,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5041446127/6f072ea1c9b833517f2d2e9f7ba3e6afd06c505fd0dd984c6327a36b848db34e",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-27T22:59:37Z",
+        "created_at": "2026-10-27T22:36:27Z",
+        "merged_at": "2026-10-27T22:59:37Z",
+        "number": 35,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5042147414/fe0ed3f40380ccc5438b7902fbc52e31bb0c33df2e4f42bd61c83e0ffd165851",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-27T23:55:59Z",
+        "created_at": "2026-10-27T23:23:36Z",
+        "merged_at": "2026-10-27T23:55:59Z",
+        "number": 36,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5042615163/17a19d54d27d86f4ff0fea6f18e0bb95857d32c864813da7805ee5b2f17be097",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-28T13:05:32Z",
+        "created_at": "2026-10-28T09:04:23Z",
+        "merged_at": "2026-10-28T13:05:32Z",
+        "number": 37,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5047884853/e97333b2d12b61ecae02b1a1df448274214fd03531309026e6e580fd8d7eaf1b",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-28T13:06:05Z",
+        "created_at": "2026-10-28T09:42:35Z",
+        "merged_at": "2026-10-28T13:06:05Z",
+        "number": 38,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5048361479/6295b385d46f60a1b57aee92e1f658e6c44cb17543365c3d51eb2a3b6b181c5e",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-28T13:06:40Z",
+        "created_at": "2026-10-28T10:44:00Z",
+        "merged_at": "2026-10-28T13:06:40Z",
+        "number": 39,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5049141107/c78796f5dc9a44dd86fd3ba75e20dba60600f68ba80ee37bd9f08fe5e179d6f9",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-28T13:15:17Z",
+        "created_at": "2026-10-28T12:54:12Z",
+        "merged_at": "2026-10-28T13:15:17Z",
+        "number": 40,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5050801083/f1dafc3746167685dc5934f29aaecbf99fba58a1704d01af5214ee078cd6c4d1",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-28T16:31:21Z",
+        "created_at": "2026-10-28T15:23:29Z",
+        "merged_at": "2026-10-28T16:31:21Z",
+        "number": 41,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5053042260/4914e5427ccd88a262c71dc8d6b9361257949c98e2874a6f5af0091bc116c352",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-28T17:07:55Z",
+        "created_at": "2026-10-28T16:45:59Z",
+        "merged_at": "2026-10-28T17:07:55Z",
+        "number": 42,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5054242604/1140f38c3c30e91284967840727fbe6ad8f768eb054894eca4aa774d3632ccf5",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-29T09:16:18Z",
+        "created_at": "2026-10-29T08:57:29Z",
+        "merged_at": "2026-10-29T09:16:18Z",
+        "number": 43,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5065142184/ccab008b83198a4af2befcea1dde2fe2afb7466059a7d899c1f601eabba3182d",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-29T10:19:30Z",
+        "created_at": "2026-10-29T09:30:44Z",
+        "merged_at": "2026-10-29T10:19:30Z",
+        "number": 44,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5065568297/59470e855d74f7c8c9bc7bbc1d64cf2b3cd7dc6689085ab1dc13213d31f18e53",
+        "state": "closed"
+      },
+      {
+        "closed_at": "2026-10-29T19:52:46Z",
+        "created_at": "2026-10-29T17:12:57Z",
+        "merged_at": "2026-10-29T19:52:46Z",
+        "number": 45,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5072419102/6c671e0ab353554d4989d57e60e00c77b6775a9e35343395a9274616a1aee57f",
+        "state": "closed"
+      },
+      {
+        "closed_at": null,
+        "created_at": "2026-10-30T11:11:24Z",
+        "merged_at": null,
+        "number": 46,
+        "observed_at": "2026-10-30T11:38:19.499814552Z",
+        "repository_id": 1431331749,
+        "source_record_id": "github:repository:1431331749/github.pull_request/5083416837/4afa32b6226be31201c8cfa3eaa65bdbcc6b377c24f24157dc3f141ff70451cc",
+        "state": "open"
+      }
+    ],
+    "reasons": [],
+    "repositories": [
+      {
+        "collection_completed_at": "2026-10-30T11:38:22.814975067Z",
+        "collection_started_at": "2026-10-30T11:38:19.517435727Z",
+        "created_at": "2026-10-20T17:40:01Z",
+        "full_name": "emmett08/eal-mcp",
+        "repository_id": 1427362428
+      },
+      {
+        "collection_completed_at": "2026-10-30T11:38:19.485858442Z",
+        "collection_started_at": "2026-10-30T11:38:15.986765048Z",
+        "created_at": "2026-10-23T17:10:11Z",
+        "full_name": "emmett08/engarg",
+        "repository_id": 1431331749
+      }
+    ],
+    "schema": "observatory.throughput-history/1",
+    "snapshot_cut": "2026-10-30T11:38:22.846352845Z",
+    "source_snapshot_sha256": "a98492e5701f48aa35d5d72899413c75f3824c5b2841fee25373978f60c7bad2"
+  },
+  "schema": "observatory.team-forecast-replay/1"
+}

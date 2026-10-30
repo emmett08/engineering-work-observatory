@@ -224,6 +224,11 @@ before their outcomes, followed by later evidence and scoring.
 
 ## Initial evidence and limits
 
+The [30 October engarg and eal-mcp use case](use-cases/engarg-eal-daily-2026-10-30/README.md)
+provides a later operational application, its original daily bundle, independent
+count checks and offline reproduction. It also retains unavailable weekly output
+and adverse retrospective results; it does not establish predictive skill.
+
 At the recorded 29 October 2026 user-repository source cut, the common portfolio
 had five complete daily counts: `17, 11, 13, 12, 8`. Their empirical mean is 12.2
 and median is 12. The inclusive 10th–90th percentile range is 8–17 and contains
