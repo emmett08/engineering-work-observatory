@@ -5,7 +5,7 @@ An interval total leaves the timing of attention within it unresolved. We theref
 
 \subsection{Using the person's capacity}
 
-Knowing which person supplied an interval total bounds how much can fit on either side of a cutoff. An aggregate across several people requires their combined capacity.
+Knowing which person supplied an interval total bounds the labour that can occur before or after any specified time within that interval. An aggregate across several people requires their combined capacity.
 
 \begin{proposition}[Attainable contribution from one interval]
 \label{prop:sharp-cutoff}
@@ -24,7 +24,7 @@ Nonnegativity and capacity on the two pieces imply
 Their intersection is \eqref{eq:sharp-cutoff}. Conversely, for any $x$ in this interval, set $a=x/(c-\ell)$ before $c$ and $a=(v-x)/(u-c)$ after $c$. Each value lies in $[0,1]$ and gives the required integral. Omit a zero-length piece when $c$ is an endpoint: the corresponding numerator is then zero. Finally, integrating $0\leq a\leq1$ gives the necessary condition $0\leq v\leq u-\ell$.
 \end{proof}
 
-For example, $3/2$ person-hours in a two-hour interval imply between $1/2$ and $1$ person-hours in its first hour. Nonnegativity alone would give $[0,3/2]$. The capacity bound still leaves the allocation within the interval unresolved. If $v=u-\ell$, full utilisation identifies every cutoff integral from the interval total and capacity alone. For an interior subinterval $[b,c]\subseteq[\ell,u]$, the same construction on that subinterval and its complement gives the attainable marginal range $[\max\{0,v-((u-\ell)-(c-b))\},\min\{v,c-b\}]$.
+For example, $3/2$ person-hours in a two-hour interval imply between $1/2$ and $1$ person-hours in its first hour. Nonnegativity alone would give $[0,3/2]$. The capacity bound still leaves the allocation within the interval unresolved. If $v=u-\ell$, full utilisation identifies the labour between the interval's start and any time within it. For an interior subinterval $[b,c]\subseteq[\ell,u]$, the same construction on that subinterval and its complement gives the attainable marginal range $[\max\{0,v-((u-\ell)-(c-b))\},\min\{v,c-b\}]$.
 
 Marginal bounds can be summed when each contribution is counted once. The summed lower and upper bounds are attainable only if the respective component allocations can coexist. Disjoint intervals of one person, or intervals belonging to distinct people, can be combined when no other constraints link them. Overlapping observations or several tasks competing for the same person's time require a joint calculation. For example, two task totals of one person-hour each on $[0,2]$ individually allow $[0,1]$ before time 1. Their sum is exactly one person-hour before time 1: the shared capacity is saturated almost everywhere on $[0,2]$. Independently adding the marginal intervals would give $[0,2]$.
 
@@ -41,7 +41,7 @@ For observations $\nu=1,\ldots,M$, specify an interval $[\ell_\nu,u_\nu]$ within
 \end{equation}
 Exact interval totals use $v_\nu^-=v_\nu^+$. Deterministic rounding or ascertainment-error limits may instead justify a nonzero width. A sampled Horvitz--Thompson estimate supplies an estimated total, whose sampling uncertainty requires a separate analysis before either inequality can be imposed.
 
-Form the sorted distinct endpoints $b_0<\cdots<b_K$ from the domain boundaries, every observation endpoint and every target boundary. For the cohort denominator, target boundaries include each cohort task's enrolment $s_i$ and its fixed cutoff $c_i=s_i+\tau+\Delta$. Translate task ages into calendar time before partitioning, so that simultaneous work by the same person shares one capacity constraint. Retain cells outside a target window whenever an observation spans them. Put $d_k=b_k-b_{k-1}>0$ and let $x_{ijrk}$ denote the labour allocated to stream $(i,j,r)$ in cell $k$.
+Form the sorted distinct endpoints $b_0<\cdots<b_K$ from the domain boundaries, every observation endpoint and every target boundary. For the cohort denominator, target boundaries include each cohort task's enrolment $s_i$ and the fixed end of its labour observation window $c_i=s_i+\tau+\Delta$. Translate task ages into calendar time before partitioning, so that simultaneous work by the same person shares one capacity constraint. Retain cells outside a target window whenever an observation spans them. Put $d_k=b_k-b_{k-1}>0$ and let $x_{ijrk}$ denote the labour allocated to stream $(i,j,r)$ in cell $k$.
 
 \begin{proposition}[Exact cell reduction and attainable labour range]
 \label{prop:cell-reduction}

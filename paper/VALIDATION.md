@@ -316,3 +316,29 @@ Validation for this implementation revision:
 The historical Lean package was not changed or rerun. The new Rust solver is
 tested computationally; it has no machine-checked proof of implementation
 correctness and remains subject to its documented resource limits.
+
+## PR #5 wording review, 30 October 2026
+
+The five review threads prompted the following revisions:
+
+- State the difference estimator's sufficient conditions directly; remove the
+  trailing list of assumptions it does not require. Related prose now states
+  the applicable conditions while preserving necessary mathematical negations.
+- Define the three sampling states: an observed allocation including zero,
+  a selected interval with no recorded allocation value (nonresponse), and an
+  unselected interval.
+- Replace prose uses of `cutoff` with the particular time boundary or end of the
+  target window. Internal cross-reference labels remain stable.
+- Define `labour` near first use as allocated human time in person-hours; retain
+  `work` for activities and requirements and preserve the approved subtitle.
+- Replace `denser` with complete person-interval recording and independent
+  adjudication within a validation subset, retaining measurement-error reporting
+  and the alternative of an identifying measurement model.
+
+The rebuilt PDF has 12 pages. Page layout, the changed passages and bibliography
+were visually inspected. The final build has no undefined references/citations
+or overfull/underfull boxes. Mathematical expressions, citations and
+cross-references match `f626b44`; all 33 labels are unique and all 13 cited sources
+resolve. An independent wording review found no substantive mathematical or
+evidential regression. `git diff --check` passes. This revision changes prose
+and the generated PDF; application code and calculations are unchanged.

@@ -13,7 +13,7 @@ For a probability sample $s\subseteq U$ with known first-order inclusion probabi
  =\sum_{m\in U}f_m+\sum_{m\in s}\frac{y_m-f_m}{\pi_m}.
  \label{eq:difference-estimator}
 \end{equation}
-If $y_m$ and $f_m$ are fixed under the design and every sampled labour value is observed accurately, then $\E_s[\widehat H_{\mathrm{diff}}]=H$, where $\E_s$ averages over the sampling design. Neither independence between inclusion indicators nor correct predictions are required.
+If $y_m$ and $f_m$ are fixed under the design and every sampled labour value is observed accurately, then $\E_s[\widehat H_{\mathrm{diff}}]=H$, where $\E_s$ averages over the sampling design.
 \end{proposition}
 
 \begin{proof}
@@ -30,7 +30,7 @@ The residual correction makes the estimate design-unbiased even when the fixed p
  \widehat H_{\mathrm{HT}}=\sum_{m\in s}\frac{d_ma_m}{\pi_m}.
  \label{eq:ht}
 \end{equation}
-Record sampled zero allocations as observations. An unanswered sampling prompt is nonresponse and must remain distinguishable from zero labour and from an unselected unit. The proof concerns true allocation values. Unbiasedness in the presence of measurement error requires additional assumptions on that error.
+For every frame interval, record one of three states: selected with an observed allocation (including zero), selected with no recorded allocation value (nonresponse), or unselected. The proof concerns true allocation values. Unbiasedness in the presence of measurement error requires additional assumptions on that error.
 
 \subsection{Precision depends on residuals and the sampling design}
 \label{sec:difference-variance}
@@ -42,7 +42,7 @@ Let $\pi_{mk}=\E_s[I_mI_k]$, including $\pi_{mm}=\pi_m$. The exact design varian
  \frac{\pi_{mk}-\pi_m\pi_k}{\pi_m\pi_k}\,r_mr_k.
  \label{eq:difference-general-variance}
 \end{equation}
-Expanding the variance of $\sum_U I_mr_m/\pi_m$ gives this expression. Unlike the unbiasedness proof, the variance calculation uses covariances between inclusion indicators, which require joint inclusion probabilities. The population identity in \eqref{eq:difference-general-variance} also involves generally unknown unsampled residuals. Estimating it requires the actual sampling design and the joint-inclusion conditions of the chosen variance estimator.
+Expanding the variance of $\sum_U I_mr_m/\pi_m$ gives this expression. The variance calculation uses covariances between inclusion indicators, which require joint inclusion probabilities. The population identity in \eqref{eq:difference-general-variance} also involves generally unknown unsampled residuals. Estimating it requires the actual sampling design and the joint-inclusion conditions of the chosen variance estimator.
 
 For simple random sampling without replacement from $M\geq2$ units, let the fixed sample size satisfy $1\leq n\leq M$. Every size-$n$ subset has the same probability and $\pi_m=n/M$. Write
 \[
@@ -80,4 +80,4 @@ The estimate can also be negative even though true labour is nonnegative. With $
 
 The accompanying implementation preserves signed estimates and observed zeros, and records nonresponse separately from unselected units. It rejects incomplete declarations, nonresponse and inconsistent inputs. For a general declared design it reports point estimates. For simple random sampling it also reports variance and standard error under the conditions above. These checks assess consistency of the supplied records. Establishing frame completeness, allocation accuracy and compliance with the declared design requires evidence from collection.
 
-Exhaustive finite tests check the examples above, input validation and census boundaries. The implementation supplies no default confidence interval: unbiased variance estimation establishes neither a normal approximation nor finite-sample interval coverage.
+Exhaustive finite tests check the examples above, input validation and census boundaries. Confidence intervals require a separate coverage argument under the sampling design.
