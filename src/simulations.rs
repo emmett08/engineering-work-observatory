@@ -1,4 +1,4 @@
-//! Evaluate the paper's conditional retry mechanism without labelling it empirical evidence.
+//! Evaluate the historical conditional retry example without labelling it empirical evidence.
 use anyhow::{Result, ensure};
 use serde::{Deserialize, Serialize};
 

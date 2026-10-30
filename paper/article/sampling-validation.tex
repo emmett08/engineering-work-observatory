@@ -1,21 +1,21 @@
-Validation must distinguish true task labour from its sampled estimate. Compare frozen-index predictions with sampled labour by assigned intervention, role and task class on held-out teams or periods. High correlation of binned means does not establish calibration, and sampling error changes how prediction errors should be interpreted.
+Sampling variation in a labour estimate contributes to its disagreement with a prediction. Compare frozen telemetry predictions by assigned intervention, role and task class on held-out teams or periods, while accounting for that sampling error. Correlation between binned averages leaves both systematic prediction error and individual prediction errors unresolved. The following identities show what a comparison against sampled labour can establish.
 
 Treat each task's labour $H$ in a finite validation population as fixed. Let $f$ be its prediction, frozen before validation sampling, and suppose $\E_{\!s}[\widehat H]=H$ with finite design variance. Then
 \begin{align*}
  \E_{\!s}[f-\widehat H]&=f-H,\\
  \E_{\!s}[(f-\widehat H)^2]&=(f-H)^2+\Var_{\!s}(\widehat H).
 \end{align*}
-Expand the square: the cross term vanishes because $\E_{\!s}[\widehat H-H]=0$. Dependence between tasks' samples does not alter these marginal identities, but affects aggregate uncertainty.
+Expand the square: the cross term vanishes because $\E_{\!s}[\widehat H-H]=0$. These identities hold for each task under its stated sampling design. Aggregate uncertainty additionally depends on covariances between tasks' estimates.
 
 For a second prediction $g$ frozen before the same validation sample, subtraction cancels the common sampling variance:
 \[
  \E_{\!s}[(f-\widehat H)^2-(g-\widehat H)^2]
  =(f-H)^2-(g-H)^2.
 \]
-This permits a design-unbiased comparison of the two true squared losses. The identity does not, by itself, estimate either squared-loss level, absolute error or uncertainty in the comparison.
+Thus the observed squared-loss difference is design-unbiased for the true squared-loss difference. Estimating either loss level or the uncertainty of the difference requires further sampling-design information. Absolute error requires a separate analysis.
 
-For example, eight one-hour person-intervals have allocations $(1,1,1,1,0,0,0,0)$. Sample one uniformly, with inclusion probability $1/8$. True labour is $H=4$, whereas its HT estimate is $0$ or $8$, each with probability $1/2$. A perfect prediction $f=4$ has apparent absolute error $4$ against the sampled estimate. The interval $[3.5,4.5]$ covers true labour surely but covers the sampled estimate with probability zero. Mean residual calibration remains design-unbiased. Absolute error and interval coverage against $\widehat H$ concern the noisy observable.
+For example, eight one-hour person-intervals have allocations $(1,1,1,1,0,0,0,0)$. Sample one uniformly, with inclusion probability $1/8$. True labour is $H=4$, whereas its HT estimate is $0$ or $8$, each with probability $1/2$. A perfect prediction $f=4$ has apparent absolute error $4$ against the sampled estimate. The interval $[3.5,4.5]$ covers true labour surely but covers the sampled estimate with probability zero. The signed residual remains unbiased for the true prediction error. Absolute error and interval coverage against $\widehat H$ describe agreement with the noisy sampled total.
 
-For true-labour accuracy, use a denser, independently adjudicated validation subset, documenting remaining reference error, or a measurement model whose assumptions identify the target. Comparing predictions convolved with a known sampling-error law directly assesses the noisy observable. Recovering latent absolute error or coverage requires an identifying measurement model. Retain inclusion probabilities and joint sampling-design information for uncertainty calculations. The accompanying observatory reports HT point estimates from interval records. Its separate complete-frame estimator supplies a design-variance estimate only for the declared simple-random-sampling case under the conditions in Section~\ref{sec:difference-variance}.
+To assess accuracy against true labour, select a validation subset of tasks, record allocations for every person-interval in each task's target window, and adjudicate the records independently. Report remaining measurement error. Alternatively, state a measurement model that identifies the chosen accuracy measure. Retain inclusion probabilities and joint sampling-design information for uncertainty calculations.
 
-The validation should also test how task splitting, squashing and representation affect the score, while reporting reviewer disagreement and follow-up completeness. Vary plausible missing labour and disputed retention scores to see whether they reverse an intervention ranking. Such a reversal makes measurement uncertainty part of the intervention decision.
+Validation should also test the score's sensitivity to task splitting, squashing and representation. Report reviewer disagreement and follow-up completeness alongside prediction error. To assess the consequence of those uncertainties, vary plausible missing labour and disputed retention scores. If those variations reverse an intervention ranking, the intervention decision depends on resolving or accepting the measurement uncertainty.

@@ -81,6 +81,24 @@ target. Taking a new snapshot without collecting does not extend observation.
 See [automatic forecasting](docs/automatic-forecasting.md) for replay, historical
 comparison, missing-data behaviour and the initial evidence.
 
+## Bound and estimate human labour
+
+The current labour model is described in [*How Much Human Work Is Behind
+AI-Assisted Software?*](paper/ai-assisted-software-engineering.pdf).
+
+```sh
+cargo run --locked -- bound-labour examples/joint-labour-bounds.json
+cargo run --locked -- estimate-labour examples/model-assisted-labour-v2.json
+```
+
+`bound-labour` returns exact attainable extrema and allocations satisfying the
+interval observations and shared person capacity. `estimate-labour` uses frozen
+predictions with probability-sampled allocations. Its v2 input also validates
+the declared person-interval partition. Both commands run offline without
+creating an evidence store. Their [identification](docs/labour-identification.md)
+and [sampling](docs/design-based-estimation.md) contracts state the different
+guarantees and measurement assumptions.
+
 ## Try a complete synthetic study
 
 ```sh

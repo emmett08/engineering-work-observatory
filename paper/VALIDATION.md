@@ -1,8 +1,10 @@
-# Validation of the 29 October 2026 extension
+# Paper validation history
 
 The original package and the new extension have separate verification boundaries.
-The earlier sections retain the validation history of PR #2. The final section
-records the subsequent sharp-identification revision and its current PDF.
+The earlier sections retain the validation history of PR #2 and the subsequent
+sharp-identification revision. The final section records the 30 October 2026
+publication revision. Historical page counts and checks describe their named
+revisions, not the current PDF.
 
 ## Original package
 
@@ -206,3 +208,137 @@ and conservative aggregate/productivity formulas; the general joint LP is proved
 but is not implemented as an application solver. Float bounds disclose their lack
 of outward rounding. Empirical calibration, field-study feasibility and external
 specialist peer review remain open.
+
+
+## Publication scope and prose revision, 30 October 2026
+
+Baseline: `3560e273b93263f28e9d561980c1533ec9178dc2`, whose article PDF has
+29 pages. The publication now concentrates on attainable labour bounds and
+fixed-prediction design-based estimation. The following material was removed
+from the compiled article:
+
+- Execution, retry, stopping and detection models and their synthetic charts.
+  They illustrate other mechanisms without supporting the interval or sampling
+  results.
+- The detailed Standard Coder correction appendix. The observation-law
+  counterexample and calibration qualification remain in the main argument.
+- The repeated-query runtime appendix, algorithms and benchmark figure. That
+  experiment measures neither the joint labour-bounds programme nor empirical
+  labour accuracy.
+- Arbitrary trial recruitment counts and scheduling, the causal/survival tutorial,
+  and speculative forecasting and observational alternatives. A shorter section
+  retains the measurement-validation requirements and conditions for a later
+  intervention comparison.
+- The coarse bin envelope and duplicate HT proposition. The capacity-aware result
+  and general cell reduction cover the interval question. Setting the difference
+  estimator's predictions to zero recovers HT.
+- Historical module inventories and development-workflow detail. A short
+  reproducibility statement preserves the boundary of the historical Lean receipt.
+
+The scalar shortest-path result and proof remain in the technical appendix.
+Historical packages, computational records and earlier review notes remain in
+the repository and its Git history.
+
+After scope and terminology repairs, the entire retained paper received three
+sequential applications of `write-for-experienced-engineers`. Each pass reread
+all six included LaTeX files, including the appendix. Pass 1 connects the argument
+and consolidates repeated caveats. Pass 2 states the quantities and dependencies
+more directly. Pass 3 performs a fresh whole-paper precision and flow review.
+The three pass commits are `e976355`, `b741514` and `196fd8a`.
+
+The terminology review distinguishes fixed prediction error from statistical
+bias, observed zero labour from nonresponse, deterministic observation bounds
+from sampling uncertainty, and the generic linear target from the cohort labour
+denominator. It restores explicit non-overlapping per-person sampling intervals,
+defines cohort retained output where the productivity interval uses it, and
+states the reference score's units. These repairs preserve the retained results'
+assumptions and evidential scope.
+
+Checks completed for this revision:
+
+- `make -C paper article`: 12 pages. All pages were rendered and visually
+  inspected for equation layout, page breaks, clipping and bibliography wrapping.
+- The final LaTeX log has no undefined references/citations or overfull/underfull
+  boxes. All 33 labels are unique and all 13 cited sources resolve. BibTeX retains
+  the existing missing-pages warning for the online-first `cui2026` entry.
+- Protected-content comparisons across the writing passes preserve the retained
+  mathematics, citations and labels. Pass 1 adds only the explicit nonnegative
+  task-age domain and local definition of cohort retained output. Pass 2 restores
+  the non-overlapping sampling-frame premise. No result or empirical claim is
+  strengthened.
+- `git diff --check` passes.
+- `python3 paper/check_measurement_examples.py`: sampling-noise example and 2,304
+  exact bin cases pass. The coarse bin result remains software/history material.
+- `python3 paper/check_sharp_identification.py`: exact rational cutoff,
+  bounded-observation, feasibility and reconstructed-allocation checks pass.
+- `cargo test --locked --test inference --test inference_cli`: 18 tests pass,
+  including exhaustive fixed-population estimator comparisons and CLI cases.
+- `make -C paper/effort-speed-ai check`: retained hashes, inventory and historical
+  formal receipt pass. Lean was not rerun.
+
+These are analytical and computational checks of the retained mathematical
+claims and software examples. They do not establish workplace allocation
+accuracy, predictor calibration, causal AI effects or publication acceptance.
+
+## Application alignment with the retained model, 30 October 2026
+
+The standalone `bound-labour` command now implements the joint finite-cell model
+with exact rational arithmetic, shared person capacity, overlapping interval
+constraints and signed linear targets. Feasible results retain the declared input
+and allocations attaining both endpoints. Inconsistent constraints produce no
+extrema; invalid or resource-limited problems are errors. Conditional productivity
+requires a nonduplicated unit-weight labour target and a positive lower endpoint.
+The earlier notes that the application lacks a joint solver describe the prior
+revision. Existing cohort reports still use conservative floating-point bounds.
+
+Estimator version 2 checks the supplied per-person interval partition and observed
+labour against duration. Version 1 remains supported. Both retain the existing HT
+and fixed-prediction difference formulas, signed corrections, missingness rules
+and design-variance conditions. Geometry checks do not establish coverage of
+actual work or compliance with the sampling design.
+
+Validation for this implementation revision:
+
+- All 216 application tests pass (183 existing and 33 new). New checks include
+  independent exact vertex enumeration for 768 small LPs and an independent
+  rational active-set oracle for 48 interval problems, with endpoint allocations
+  checked against the original observations and capacity constraints.
+- Formatting, strict all-target Clippy, documentation tests and the release build
+  pass on Linux with Rust 1.99.1. No documentation test examples are defined.
+- The measurement examples, exact identification checker and forecasting
+  reference self-test pass.
+- The article rebuilds to 12 pages. The changed reproducibility page and following
+  page were rendered and inspected. The final log has no undefined references,
+  undefined citations or overfull/underfull boxes. All 33 labels remain unique and
+  all 13 cited sources resolve. Retained mathematical expressions, citations and
+  references match the preceding title revision.
+
+The historical Lean package was not changed or rerun. The new Rust solver is
+tested computationally; it has no machine-checked proof of implementation
+correctness and remains subject to its documented resource limits.
+
+## PR #5 wording review, 30 October 2026
+
+The five review threads prompted the following revisions:
+
+- State the difference estimator's sufficient conditions directly; remove the
+  trailing list of assumptions it does not require. Related prose now states
+  the applicable conditions while preserving necessary mathematical negations.
+- Define the three sampling states: an observed allocation including zero,
+  a selected interval with no recorded allocation value (nonresponse), and an
+  unselected interval.
+- Replace prose uses of `cutoff` with the particular time boundary or end of the
+  target window. Internal cross-reference labels remain stable.
+- Define `labour` near first use as allocated human time in person-hours; retain
+  `work` for activities and requirements and preserve the approved subtitle.
+- Replace `denser` with complete person-interval recording and independent
+  adjudication within a validation subset, retaining measurement-error reporting
+  and the alternative of an identifying measurement model.
+
+The rebuilt PDF has 12 pages. Page layout, the changed passages and bibliography
+were visually inspected. The final build has no undefined references/citations
+or overfull/underfull boxes. Mathematical expressions, citations and
+cross-references match `f626b44`; all 33 labels are unique and all 13 cited sources
+resolve. An independent wording review found no substantive mathematical or
+evidential regression. `git diff --check` passes. This revision changes prose
+and the generated PDF; application code and calculations are unchanged.

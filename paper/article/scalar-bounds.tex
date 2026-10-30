@@ -1,0 +1,20 @@
+\section{A shortest-path solution for one allocation stream}
+\label{app:scalar}
+
+For one scalar allocation $0\leq a\leq1$, the interval observations of Section~\ref{sec:sharp-identification} can be represented by cumulative labour at their endpoints. Using the sorted endpoints and cell lengths defined there, set $z_k=\int_{b_0}^{b_k}a(t)\,dt$. Write an inequality $z_q-z_p\leq w$ as a directed edge $p\to q$ of weight $w$. Adjacent endpoints receive edges $k-1\to k$ of weight $d_k$ and $k\to k-1$ of weight zero. Observation bounds on $[b_p,b_q]$ add edges $p\to q$ of weight $v^+$ and $q\to p$ of weight $-v^-$. An exact mass $v$ therefore gives edge weights $v$ and $-v$. This is the standard difference-constraints representation \cite[Slides~6--11]{indyk2011}.
+
+\begin{proposition}[Attainable cumulative bounds from graph distances]
+\label{prop:graph-bounds}
+The scalar observations admit an allocation if and only if this graph has no directed cycle of negative total weight. When it is feasible, let $D(p,q)$ be the shortest-path weight from $p$ to $q$. For any endpoint pair $p\leq q$, the identified range of $\int_{b_p}^{b_q}a(t)\,dt$ is
+\begin{equation}
+\label{eq:graph-range}
+ [-D(q,p),\;D(p,q)].
+\end{equation}
+\end{proposition}
+\begin{proof}
+Summing edge inequalities around a cycle gives $0$ at the left, so a negative cycle is inconsistent. Conversely, adjacent edges make every vertex reachable from every other. In the absence of negative cycles, all shortest-path weights are finite and $D(r,r)=0$. For any root $r$, potentials $z_k=D(r,k)$ satisfy each edge inequality because $D(r,v)\leq D(r,u)+w$ for an edge $u\to v$ of weight $w$. Subtracting $z_0$ normalises the initial cumulative value without changing differences. Adjacent-edge inequalities give increments in $[0,d_k]$. Constant allocations with these increments satisfy the observations.
+
+Summing inequalities along paths yields $z_q-z_p\leq D(p,q)$ and $z_q-z_p\geq-D(q,p)$. Potentials rooted at $p$ attain the upper bound, and those rooted at $q$ attain the lower bound. Convex combinations of their reconstructed allocations attain the intervening values.
+\end{proof}
+
+The reference checker uses exact rational arithmetic and an all-pairs shortest-path calculation. Given indexed, sorted endpoints, graph construction and this calculation use $O((K+1)^3+M)$ arithmetic operations and $O((K+1)^2+M)$ storage. Bit costs depend on the encoded rational inputs. The checker compares the bounds and the allocations attaining them against an independent enumeration of finite allocations, including overlapping interval observations and inconsistent inputs. These constructed examples check the calculation against the proved result. Empirical measurements are still needed to validate the observation process. Several task streams sharing a person's capacity require the joint formulation in Proposition~\ref{prop:cell-reduction}, because the scalar graph represents only one allocation.

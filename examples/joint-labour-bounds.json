@@ -1,0 +1,18 @@
+{
+  "schema": "observatory.labour-bound-input/1",
+  "problem_id": "synthetic-shared-attention",
+  "domain": {"start": "0", "end": "2"},
+  "streams": [
+    {"id": "task-a", "person_id": "person-1", "task_id": "a", "role": "implementation"},
+    {"id": "task-b", "person_id": "person-1", "task_id": "b", "role": "review"}
+  ],
+  "observations": [
+    {"id": "a-total", "start": "0", "end": "2", "stream_ids": ["task-a"], "lower_person_hours": "1", "upper_person_hours": "1"},
+    {"id": "b-total", "start": "0", "end": "2", "stream_ids": ["task-b"], "lower_person_hours": "1", "upper_person_hours": "1"}
+  ],
+  "target": [
+    {"stream_id": "task-a", "start": "0", "end": "1", "weight": "1"},
+    {"stream_id": "task-b", "start": "0", "end": "1", "weight": "1"}
+  ],
+  "known_output": "3"
+}

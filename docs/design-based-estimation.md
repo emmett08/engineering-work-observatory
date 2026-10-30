@@ -1,10 +1,12 @@
 # Model-assisted labour estimation
 
-`observatory estimate-labour FILE` reads a standalone
-`observatory.labour-estimate-input/1` JSON document and prints an
-`observatory.labour-estimate/1` result. It does not import records, create a state
-directory, or change a frozen cohort report. The executable example is
-[`examples/model-assisted-labour.json`](../examples/model-assisted-labour.json).
+`observatory estimate-labour FILE` reads a standalone labour-estimation JSON
+document. Version 1 retains the original statistical input and output. Version 2
+adds person-window and interval geometry checks and retains that geometry in its
+result. Neither version imports records, creates a state directory, or changes a
+frozen cohort report. Executable examples are
+[`model-assisted-labour.json`](../examples/model-assisted-labour.json) and
+[`model-assisted-labour-v2.json`](../examples/model-assisted-labour-v2.json).
 
 For a declared finite frame, let `f_m` be a frozen prediction in person-hours,
 `y_m` an observed labour contribution, and `pi_m` the inclusion probability. The
@@ -12,10 +14,13 @@ difference estimate is `sum_all(f_m) + sum_observed((y_m-f_m)/pi_m)`; the compar
 is the HT estimate `sum_observed(y_m/pi_m)`. Both target the same frame total.
 The difference estimate is design-unbiased when the frame is complete, the
 probabilities describe the actual design, sampled labels are accurate, and
-predictions are fixed before evaluation sampling. The software validates the
-declared contract; it cannot establish the truth of its attestations.
+predictions are fixed before evaluation sampling. Frame units must partition each
+person's target observation period so that the total counts each contribution
+once. Version 1 accepts that geometry as a caller declaration. Version 2 checks
+the supplied partition against declared person windows. Neither version can
+establish that those windows and people cover all actual target work.
 
-## Input
+## Version 1 statistical input
 
 | Field | Meaning |
 |---|---|
@@ -42,6 +47,48 @@ must equal `n/M` for frame size `M`, with a relative tolerance of eight `f64`
 machine epsilons for representation differences. A realised sample alone cannot
 verify random selection. A declaration
 of simple random sampling must describe the sampling procedure actually used.
+
+## Version 2 geometry
+
+The typed API is `estimate_labour_v2(&LabourEstimateInputV2)`. Its input has four
+fields, with unknown fields rejected at every level:
+
+| Field | Meaning |
+|---|---|
+| `schema` | Exactly `observatory.labour-estimate-input/2` |
+| `estimation` | The complete version 1 document above, retaining its `/1` schema |
+| `frames` | One declared observation window for each person |
+| `geometry` | Exactly one interval record for every `estimation.units` ID |
+
+Each person window supplies a distinct nonempty `person_id` and RFC 3339 `start`
+and `end` timestamps, parsed into `chrono::DateTime<Utc>`. Each geometry record
+supplies `unit_id`, `person_id`, `start` and `end`. Intervals are half-open and
+must have positive duration. Every unit ID must exist in the nested statistical
+frame, and every person ID must have a declared window. Duplicate geometry,
+missing units, duplicate person windows and windows without units are errors.
+
+For each person, intervals must exactly partition that person's window. Adjacent
+intervals are accepted. Overlaps, gaps and out-of-window intervals are rejected,
+including overlaps between different unit IDs. Different people can have
+concurrent intervals. Records can arrive in any order. Validation sorts references
+for its checks and retains the supplied record order in the result.
+
+Observed `person_hours` must not exceed their interval's elapsed hours. The check
+compares the exact rational value of the supplied `f64` observation with elapsed
+nanoseconds divided by `3_600_000_000_000`. It uses no capacity tolerance and
+preserves subsecond intervals. A floating-point hour value rounded above the
+interval's exact duration is rejected, even if the difference is one floating-point
+step. Predictions remain signed auxiliary values and need not satisfy this
+physical capacity bound.
+
+Version 2 reports `observatory.labour-estimate/2`, containing the retained `frames`
+and `geometry`, an `estimation` field with the original `/1` statistical result,
+and geometry-specific limitations. The statistical calculations, missingness
+states, signed corrections and variance conditions are the same in both versions.
+The nested statistical result still lists the assumptions that the supplied
+records cannot establish. Geometry validates coverage of declared windows. It
+does not validate the roster, observation accuracy, actual random selection or
+prediction provenance.
 
 ## Output and uncertainty
 
