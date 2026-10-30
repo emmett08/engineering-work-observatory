@@ -1,13 +1,11 @@
 \section{Attainable labour ranges from interval observations}
 \label{sec:sharp-identification}
 
-An interval total leaves the timing of attention within it unresolved. We therefore seek all values of fixed-horizon labour compatible with the observations and the allocation constraint in \eqref{eq:labour}. The \emph{identified range} contains exactly those values: each is attained by at least one compatible history, and every compatible history gives a value in the range. This use of compatibility follows the general partial-identification perspective \cite[Section~1]{torgovitsky2019}. We prove the allocation results directly. They describe what the observations determine, with sampling uncertainty and causal intervention effects requiring separate analyses.
-
-\input{binning-bounds}
+An interval total leaves the timing of attention within it unresolved. We therefore seek all values of fixed-horizon labour compatible with the observations and the allocation constraint in \eqref{eq:labour}. The \emph{identified range} contains exactly those values: each is attained by at least one compatible history, and every compatible history gives a value in the range. This use of compatibility follows the general partial-identification perspective \cite[Section~1]{torgovitsky2019}. We prove the allocation results directly. They describe what the observations determine, conditional on the observation bounds and allocation constraints.
 
 \subsection{Using the person's capacity}
 
-The preceding envelope uses nonnegativity. Knowing which person supplied an interval mass also bounds how much can fit on either side of a cutoff. An aggregate across several people cannot use a one-person capacity without justification.
+Knowing which person supplied an interval total bounds how much can fit on either side of a cutoff. An aggregate across several people requires their combined capacity.
 
 \begin{proposition}[Attainable contribution from one interval]
 \label{prop:sharp-cutoff}
@@ -26,22 +24,22 @@ Nonnegativity and capacity on the two pieces imply
 Their intersection is \eqref{eq:sharp-cutoff}. Conversely, for any $x$ in this interval, set $a=x/(c-\ell)$ before $c$ and $a=(v-x)/(u-c)$ after $c$. Each value lies in $[0,1]$ and gives the required integral. Omit a zero-length piece when $c$ is an endpoint: the corresponding numerator is then zero. Finally, integrating $0\leq a\leq1$ gives the necessary condition $0\leq v\leq u-\ell$.
 \end{proof}
 
-For example, $3/2$ person-hours in a two-hour interval imply between $1/2$ and $1$ person-hours in its first hour. The coarser envelope is $[0,3/2]$. Neither result justifies uniform interpolation. If $v=u-\ell$, capacity identifies every cutoff integral even though individual activity labels have not been supplied. For an interior subinterval $[b,c]\subseteq[\ell,u]$, the same construction on that subinterval and its complement gives the attainable marginal range $[\max\{0,v-((u-\ell)-(c-b))\},\min\{v,c-b\}]$.
+For example, $3/2$ person-hours in a two-hour interval imply between $1/2$ and $1$ person-hours in its first hour. Nonnegativity alone would give $[0,3/2]$. The capacity bound still leaves the allocation within the interval unresolved. If $v=u-\ell$, capacity identifies every cutoff integral even though individual activity labels have not been supplied. For an interior subinterval $[b,c]\subseteq[\ell,u]$, the same construction on that subinterval and its complement gives the attainable marginal range $[\max\{0,v-((u-\ell)-(c-b))\},\min\{v,c-b\}]$.
 
 Summing marginal ranges gives valid bounds for a nonduplicated partition of contributions. Attaining both summed endpoints requires compatible constructions for the component endpoints. Disjoint intervals of one person, or intervals belonging to distinct people, can be combined when no other constraints link them. Overlapping observations or several tasks competing for the same person's time require a joint calculation. For example, two task masses of one person-hour each on $[0,2]$ individually allow $[0,1]$ before time 1. Their sum is exactly one person-hour before time 1: the shared capacity is saturated throughout $[0,2]$. Independently adding the marginal intervals would give only $[0,2]$.
 
 \subsection{An exact finite representation of compatible histories}
 
-Fix finite sets of tasks $\mathcal I$, people $\mathcal J$ and roles $\mathcal R$, a cohort $\mathcal C\subseteq\mathcal I$, and a bounded calendar-time domain $[b_0,b_K]$ with $b_0<b_K$ containing every observation interval and target window. An admissible history consists of measurable $a_{ijr}\geq0$ satisfying $\sum_{i,r}a_{ijr}(t)\leq1$ almost everywhere for every person $j$. The declared roster and attribution rules define the labour being bounded. Their completeness requires evidence beyond the mathematical result. A residual category outside $\mathcal C$ can represent work that consumes capacity without contributing to the cohort target.
+Here a stream is one task--person--role combination. Fix finite sets of tasks $\mathcal I$, people $\mathcal J$ and roles $\mathcal R$, a cohort $\mathcal C\subseteq\mathcal I$, and a bounded calendar-time domain $[b_0,b_K]$ with $b_0<b_K$ containing every observation interval and target window. An admissible history consists of measurable $a_{ijr}\geq0$ satisfying $\sum_{i,r}a_{ijr}(t)\leq1$ almost everywhere for every person $j$. The declared roster and attribution rules define the labour being bounded. Their completeness requires evidence beyond the mathematical result. A residual category outside $\mathcal C$ can represent work that consumes capacity without contributing to the cohort target.
 
-For observations $\nu=1,\ldots,M$, specify an interval $[\ell_\nu,u_\nu]$ within this domain, a set $G_\nu\subseteq\mathcal I\times\mathcal J\times\mathcal R$ of attributed streams, and finite bounds $v_\nu^-\leq v_\nu^+$. Impose
+For observations $\nu=1,\ldots,M$, specify an interval $[\ell_\nu,u_\nu]$ within this domain, a set $G_\nu\subseteq\mathcal I\times\mathcal J\times\mathcal R$ of attributed streams, and finite labour bounds $v_\nu^-\leq v_\nu^+$, in person-hours. Impose
 \begin{equation}
 \label{eq:interval-information}
  v_\nu^-\leq
  \sum_{(i,j,r)\in G_\nu}\int_{\ell_\nu}^{u_\nu}a_{ijr}(t)\,dt
  \leq v_\nu^+.
 \end{equation}
-Exact interval masses use $v_\nu^-=v_\nu^+$. Deterministic rounding or ascertainment-error bounds may instead justify a nonzero width. A sampled Horvitz--Thompson estimate is not an exact population mass and does not, by itself, justify either inequality.
+Exact interval labour totales use $v_\nu^-=v_\nu^+$. Deterministic rounding or ascertainment-error bounds may instead justify a nonzero width. A sampled Horvitz--Thompson estimate is not an exact population mass and does not, by itself, justify either inequality.
 
 Form the sorted distinct endpoints $b_0<\cdots<b_K$ from the domain boundaries, every observation endpoint and every target boundary. For the cohort denominator, target boundaries include each cohort task's enrolment $s_i$ and its fixed cutoff $c_i=s_i+\tau+\Delta$. Translate task ages into calendar time before partitioning, so that simultaneous work by the same person shares one capacity constraint. Retain cells outside a target window whenever an observation spans them. Put $d_k=b_k-b_{k-1}>0$ and let $x_{ijrk}$ denote the mass of stream $(i,j,r)$ in cell $k$.
 
@@ -58,7 +56,7 @@ Under the preceding model, define the finite-dimensional feasible set $\mathcal 
  \sum_{k:\,[b_{k-1},b_k]\subseteq[\ell_\nu,u_\nu]}x_{ijrk}
  \leq v_\nu^+ &&\text{for every }\nu.
 \end{align}
-For any prescribed linear target $h(x)=\sum_{i,j,r,k}w_{ijrk}x_{ijrk}$, the attainable target values over admissible histories equal $h(\mathcal P)$. In particular, the fixed-horizon cohort denominator uses $w_{ijrk}=1$ exactly when $i\in\mathcal C$ and $[b_{k-1},b_k]\subseteq[s_i,c_i]$, and zero otherwise. If $\mathcal P$ is nonempty, its target range is the closed interval
+Fix real weights $w_{ijrk}$ and define the continuous target by weighting each cell integral by $w_{ijrk}$. For its finite representation $h(x)=\sum_{i,j,r,k}w_{ijrk}x_{ijrk}$, the attainable target values over admissible histories equal $h(\mathcal P)$. In particular, the fixed-horizon cohort denominator uses $w_{ijrk}=1$ exactly when $i\in\mathcal C$ and $[b_{k-1},b_k]\subseteq[s_i,c_i]$, and zero otherwise. If $\mathcal P$ is nonempty, its target range is the closed interval
 \begin{equation}
 \label{eq:sharp-labour-range}
  [H_{\min},H_{\max}]
@@ -74,28 +72,6 @@ Conversely, for $x\in\mathcal P$ set $a_{ijr}(t)=x_{ijrk}/d_k$ in the interior o
 The constraints define a closed convex set. Each coordinate is between zero and $d_k$, so a nonempty $\mathcal P$ is compact and a linear functional attains its extrema. Convex combinations of minimising and maximising points attain every intermediate value. The reconstruction just given supplies an admissible history for each of them.
 \end{proof}
 
-This is a pair of linear programmes with $|\mathcal I||\mathcal J||\mathcal R|K$ variables, $|\mathcal J|K$ shared-capacity constraints and $2M$ observation inequalities, in addition to nonnegativity. The construction preserves all attainable target values in the stated interval-integral model. It does so without approximating the allocation within a cell. Known cellwise restrictions, such as a person's unavailability, can be included if the same restrictions are imposed on reconstructed histories. Minimum session lengths, nonpreemption, smoothness and switching costs are different assumptions and are not established by this reduction. General bounded-error recovery studies similarly distinguish an admissible model and observations from a recovery rule \cite[Sections~1.1--1.2]{foucartliao2023}. The proof here is independent of the optimal-recovery theorems in that setting.
+This is a pair of linear programmes with $|\mathcal I||\mathcal J||\mathcal R|K$ variables, $|\mathcal J|K$ shared-capacity constraints and $2M$ observation inequalities, in addition to nonnegativity. The construction preserves all attainable target values in the stated interval-integral model. It does so without approximating the allocation within a cell. A known period of unavailability can be included by adding its boundaries to the partition and setting that person's cell masses to zero within it. Minimum session lengths, nonpreemption, smoothness and switching costs are different assumptions and are not established by this reduction.
 
 For exact retained output $Q\geq0$ and $H_{\min}>0$, monotonicity and attainability give the identified productivity interval $[Q/H_{\max},Q/H_{\min}]$. Justified quality bounds $0\leq Q_-\leq Q\leq Q_+$ give an outer interval $[Q_-/H_{\max},Q_+/H_{\min}]$ containing every feasible ratio. It is the exact range only when every ratio in it is attainable from an admissible output--labour pair. Admissibility of the whole product $[Q_-,Q_+]\times[H_{\min},H_{\max}]$ is sufficient. A zero lower labour bound does not justify dividing by it. The acceptance clock and retention assessment in \eqref{eq:retention} remain fixed throughout the allocation optimisation.
-
-\subsection{One stream reduces to shortest paths}
-
-For one scalar allocation $0\leq a\leq1$, cumulative masses give a smaller representation. At the sorted endpoints define $z_k=\int_{b_0}^{b_k}a(t)\,dt$. Write an inequality $z_q-z_p\leq w$ as a directed edge $p\to q$ of weight $w$. Adjacent endpoints receive edges $k-1\to k$ of weight $d_k$ and $k\to k-1$ of weight zero. Observation bounds on $[b_p,b_q]$ add edges $p\to q$ of weight $v^+$ and $q\to p$ of weight $-v^-$. An exact mass $v$ therefore gives edge weights $v$ and $-v$. This is the standard difference-constraints representation \cite[Slides~6--11]{indyk2011}.
-
-\begin{proposition}[Attainable cumulative bounds from graph distances]
-\label{prop:graph-bounds}
-The scalar observations admit an allocation if and only if this graph has no directed cycle of negative total weight. When it is feasible, let $D(p,q)$ be the shortest-path weight from $p$ to $q$. For any endpoint pair $p\leq q$, the identified range of $\int_{b_p}^{b_q}a(t)\,dt$ is
-\begin{equation}
-\label{eq:graph-range}
- [-D(q,p),\;D(p,q)].
-\end{equation}
-\end{proposition}
-\begin{proof}
-Summing edge inequalities around a cycle gives $0$ at the left, so a negative cycle is inconsistent. Conversely, adjacent edges make every vertex reachable from every other. In the absence of negative cycles, all shortest-path weights are finite and $D(r,r)=0$. For any root $r$, potentials $z_k=D(r,k)$ satisfy each edge inequality because $D(r,v)\leq D(r,u)+w$ for an edge $u\to v$ of weight $w$. Subtracting $z_0$ normalises the initial cumulative value without changing differences. Adjacent-edge inequalities give increments in $[0,d_k]$. Constant allocations with these increments satisfy the observations.
-
-Summing inequalities along paths yields $z_q-z_p\leq D(p,q)$ and $z_q-z_p\geq-D(q,p)$. Potentials rooted at $p$ attain the upper bound, and those rooted at $q$ attain the lower bound. Convex combinations of their reconstructed allocations attain the intervening values.
-\end{proof}
-
-The reference checker uses exact rational arithmetic and an all-pairs shortest-path calculation. Given indexed, sorted endpoints, graph construction and this calculation use $O((K+1)^3+M)$ arithmetic operations and $O((K+1)^2+M)$ storage. Bit costs depend on the encoded rational inputs. The checker compares the bounds and their reconstructed witnesses against independent finite allocation enumeration, including overlapping interval observations and inconsistent inputs. These finite constructed examples check the calculation against the proved result. Validation of a measurement process requires independent observations. The scalar graph does not enforce shared capacities between several task streams. That case requires the joint formulation in Proposition~\ref{prop:cell-reduction}.
-
-The application implements marginal interval formulas and sums eligible contributions, giving conservative aggregate bounds in exact arithmetic. With retained output treated as known and a positive lower labour bound, it also propagates these local labour bounds into a conditional cohort productivity range. Its reported \texttt{f64} endpoints are floating-point approximations, without a guarantee of outward rounding. The mathematical results and rational checker are exact under their premises. The joint linear programme gives the complete identified range for overlapping streams with shared capacity. The application does not implement that calculation.

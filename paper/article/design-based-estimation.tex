@@ -1,9 +1,9 @@
 \subsection{Frozen predictions as auxiliary information}
 \label{sec:model-assisted}
 
-A probability sample can correct errors in telemetry predictions of total labour. The established difference estimator combines the predictions with a weighted sum of observed residuals. Denis and Haddou give the fixed-prediction form and its design variance explicitly \cite[Section~2.3, equations~(2)--(4)]{denishaddou2026}. Prediction-powered inference also identifies its mean construction as a difference estimator and considers finite-population extensions \cite[Section~1.4 and Appendix~B of the accompanying preprint]{angelopoulos2023}.
+A probability sample supplies an unbiased correction to a fixed total prediction of labour under the conditions below. The established difference estimator combines the predictions with a weighted sum of observed residuals. Denis and Haddou give the fixed-prediction form and its design variance explicitly \cite[Section~2.3, equations~(2)--(4)]{denishaddou2026}. Prediction-powered inference also identifies its mean construction as a difference estimator and considers finite-population extensions \cite[Section~1.4 and Appendix~B of the accompanying preprint]{angelopoulos2023}.
 
-Let $U=\{1,\ldots,M\}$ be a complete, fixed frame of person-intervals, with true labour $y_m=d_ma_m$ measured in person-hours and total $H=\sum_Uy_m$. For every frame unit, retain a prediction $f_m$ in person-hours. A raw SCH value requires a stated conversion before it can serve as $f_m$, so that prediction and observed labour have the same units. The entire prediction vector must be fixed with respect to the realised sample. Predictions trained on an independent earlier population can qualify, conditional on their frozen values and the subsequent sampling design. Accurate labels, a complete frame and correct inclusion probabilities remain substantive requirements.
+Let $U=\{1,\ldots,M\}$, $M\geq1$, be a complete, fixed frame of person-intervals. For interval $m$, let $d_m>0$ be its length in hours and $a_m\in[0,1]$ its average allocation to the target work. Its labour is $y_m=d_ma_m$ person-hours, and the population total is $H=\sum_Uy_m$. For every frame unit, retain a prediction $f_m$ in person-hours. A raw SCH value requires a stated conversion to labour units before it can serve as $f_m$. The entire prediction vector must be fixed under the sampling design. Predictions trained on an independent earlier population can satisfy this condition when we condition on their frozen values. The result still requires accurate allocation observations, a complete frame and correct inclusion probabilities.
 
 \begin{proposition}[Fixed-prediction difference estimator]
 \label{prop:difference-estimator}
@@ -13,7 +13,7 @@ For a probability sample $s\subseteq U$ with known first-order inclusion probabi
  =\sum_{m\in U}f_m+\sum_{m\in s}\frac{y_m-f_m}{\pi_m}.
  \label{eq:difference-estimator}
 \end{equation}
-If $y_m$ and $f_m$ are fixed under the design and every selected label is observed accurately, then $\E_s[\widehat H_{\mathrm{diff}}]=H$. This holds without independence between inclusion indicators or correct prediction of individual outcomes.
+If $y_m$ and $f_m$ are fixed under the design and every sampled labour value is observed accurately, then $\E_s[\widehat H_{\mathrm{diff}}]=H$, where $\E_s$ averages over the sampling design. Neither independence between inclusion indicators nor correct predictions are required.
 \end{proposition}
 
 \begin{proof}
@@ -25,7 +25,12 @@ Write $I_m=\ind\{m\in s\}$. Linearity and $\E_s[I_m]=\pi_m$ give
 \]
 \end{proof}
 
-The residual correction makes the estimate design-unbiased even when the prediction total is biased. Taking $f_m=0$ recovers the Horvitz--Thompson (HT) estimator. Selection must include observed zeros as well as positive labour. A selected unanswered prompt is nonresponse, which must remain distinguishable from zero labour and from an unselected unit. The design-unbiasedness guarantee requires a complete frame, accurate allocations and known sampling probabilities. A provenance declaration alone cannot establish these properties. Independent label error with zero conditional mean may permit unbiasedness under both sampling and measurement error, but that requires an additional assumption beyond the fixed-label result proved here.
+The residual correction makes the estimate design-unbiased even when the fixed prediction total differs from $H$. Taking $f_m=0$ gives the Horvitz--Thompson (HT) estimator \cite{horvitz1952},
+\begin{equation}
+ \widehat H_{\mathrm{HT}}=\sum_{m\in s}\frac{d_ma_m}{\pi_m}.
+ \label{eq:ht}
+\end{equation}
+Record sampled zero allocations as observations. An unanswered sampling prompt is nonresponse and must remain distinguishable from zero labour and from an unselected unit. The proof concerns true allocation values. Unbiasedness in the presence of measurement error requires additional assumptions on that error.
 
 \subsection{Precision depends on residuals and the sampling design}
 \label{sec:difference-variance}
@@ -39,7 +44,7 @@ Let $\pi_{mk}=\E_s[I_mI_k]$, including $\pi_{mm}=\pi_m$. The exact design varian
 \end{equation}
 This follows by expanding the variance of $\sum_U I_mr_m/\pi_m$. The covariances require joint inclusion probabilities. First-order probabilities alone cannot determine them. Equation~\eqref{eq:difference-general-variance} is a population identity whose unsampled residuals are generally unknown. Estimating its value requires the actual sampling design and the joint-inclusion conditions needed by the variance estimator.
 
-For simple random sampling without replacement of exactly $n$ units from $M\geq2$, every size-$n$ subset has the same probability and $\pi_m=n/M$. Write
+For simple random sampling without replacement from $M\geq2$ units, let the fixed sample size satisfy $1\leq n\leq M$. Every size-$n$ subset has the same probability and $\pi_m=n/M$. Write
 \[
  S_r^2=\frac{1}{M-1}\sum_U(r_m-\bar r_U)^2,
  \qquad
@@ -69,10 +74,10 @@ For $n<M$, the difference estimator improves on HT exactly when $S_r^2<S_y^2$. T
 \subsection{Failure cases and implementation checks}
 \label{sec:difference-contract}
 
-Fitting predictions on the realised sample invalidates the fixed-vector proof. For $M=2$, $n=1$ and $y=(0,2)$, suppose a fitted rule memorises the selected outcome and predicts zero for the other unit. Its observed residual is always zero. The difference total is nevertheless $0$ or $2$, each with probability $1/2$, giving expectation $1$ rather than $H=2$. Generic cross-fitting is not a substitute for checking the conditioning and inclusion probabilities under the actual finite-population design.
+The fixed-vector proof does not apply when predictions are fitted to the realised sample. For $M=2$, $n=1$ and $y=(0,2)$, suppose a fitted rule memorises the selected outcome and predicts zero for the other unit. Its observed residual is always zero. The difference total is nevertheless $0$ or $2$, each with probability $1/2$, giving expectation $1$ rather than $H=2$. A sample-trained method needs a separate argument under the actual finite-population design.
 
 The estimate can also be negative even though true labour is nonnegative. With $y=(0,0)$, $f=(10,0)$ and one uniformly selected unit, \eqref{eq:difference-estimator} is $-10$ or $10$ with equal probability. Clipping at zero changes its expectation from $0$ to $5$. Report the signed estimate and investigate an implausible result rather than silently changing the estimator. An unbiased labour denominator likewise does not make retained output divided by that denominator an unbiased productivity ratio.
 
-The observatory's \texttt{estimate-labour} command requires a declaration that the frame is complete, stable unit identities, frozen predictions with their provenance, and positive inclusion probabilities. Each unit is recorded as unselected, observed or selected with nonresponse. It rejects nonresponse, missing freeze or frame attestations, duplicate identities, invalid probabilities and nonfinite arithmetic. A supplied general design supports point estimates only. Declared simple random sampling additionally requires the recorded selected count and probabilities to agree with $n$ and $M$. It supplies \eqref{eq:difference-srs-variance-estimator} for $n\geq2$ or zero sampling variance for a census. These consistency checks cannot establish that the declared sampling procedure was followed.
+The accompanying implementation preserves signed estimates, observed zeros and the distinction between nonresponse and unselected units. It rejects incomplete declarations, nonresponse and inconsistent inputs. It reports point estimates for a general declared design and adds variance and standard error for simple random sampling under the conditions above. These checks establish consistency of supplied records. Evidence that the frame is complete, allocations are accurate and sampling followed the declared design must come from the measurement process.
 
-The implementation preserves signed estimates, observed zeros and unavailable uncertainty. It reports variance and standard error without a default confidence interval. An unbiased variance estimator alone establishes neither a normal approximation nor finite-sample interval coverage. Exhaustive synthetic tests cover unequal-probability sampling, both useful and harmful predictions, the sample-fitting counterexample, census and singleton cases, and invalid or missing observations. They verify the finite examples, input checks and reported estimates. Frame completeness, label accuracy and empirical calibration require evidence from the measurement process.
+Exhaustive finite tests check the examples above, input validation and census boundaries. The implementation supplies no default confidence interval: unbiased variance estimation establishes neither a normal approximation nor finite-sample interval coverage.

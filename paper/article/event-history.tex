@@ -1,15 +1,4 @@
-\subsection{The endpoints as functions of a marked history}
+\subsection{The observations and the three clocks}
 \label{sec:event-history}
 
-These endpoints can all be calculated from a task's history without specifying a probability law for execution. Write $\omega_i$ for its complete marked history, which records enrolment, attempts, review, first acceptance, abandonment, repair and follow-up assessments, together with the allocation functions in \eqref{eq:labour} and the frozen score. Each event mark identifies the event type and recorded outcome. The history need not be fully observed. The observation map $\mathcal O(\omega_i)$ represents telemetry by retaining selected events, interval totals or other records.
-
-For fixed $\tau$ and $\Delta$, the vector of path functionals is
-\begin{equation}
-\label{eq:path-reward}
- \mathcal R_{\tau,\Delta}(\omega_i)
- =\bigl(H_i(\tau+\Delta),\ \min(T_i,\tau),\
-        \ind\{T_i\leq\tau\},\ Q_i(\tau,\Delta)\bigr).
-\end{equation}
-The components are labour in person-hours, restricted time without acceptance in hours, an acceptance indicator and retained reference output. Report them together while preserving their separate meanings and units. In the last component, \eqref{eq:retention} grants credit for first acceptance at $T_i\leq\tau$ and assesses the retained fraction at task age $T_i+\Delta$. Labour accumulates through the common task age $\tau+\Delta$. An accepted-state indicator cannot determine retention: a task may pass, lose functionality and be repaired before follow-up.
-
-This representation permits dependence, changing attempt costs and history-dependent review. It introduces no Markov, stationarity or independence assumption. A realised labour total is point-identified by an observation record when it has the same value for every admissible complete history consistent with that record. This pathwise question differs from identifying a population parameter from an observed probability law, as in Proposition~\ref{prop:nonidentification}. The next section obtains the smallest and largest labour totals compatible with specified interval records. Appendices~\ref{sec:mechanisms} and~\ref{sec:detection} add specific execution laws solely to illustrate divergence between the components of \eqref{eq:path-reward}.
+Acceptance is assessed against the deadline $\tau$, retention at task age $T_i+\Delta$, and labour through task age $\tau+\Delta$. These endpoints can be calculated from a complete task history without assuming Markov dynamics or independent attempts. Acceptance alone leaves subsequent loss and repair unresolved. A realised labour total is point-identified by a record when every admissible history consistent with that record gives the same total. This differs from identifying a population parameter from an observed probability law, as in Proposition~\ref{prop:nonidentification}. The next section derives the smallest and largest labour totals compatible with interval observations.
