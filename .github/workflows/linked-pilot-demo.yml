@@ -1,0 +1,81 @@
+name: Linked repository pilot collection
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - instrumentation/pilot.py
+      - instrumentation/test_pilot.py
+      - examples/linked-pilot/manifest.json
+      - .github/workflows/linked-pilot-demo.yml
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  collect:
+    name: Collect public pilot receipts
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CARGO_PROFILE_DEV_DEBUG: line-tables-only
+      CARGO_INCREMENTAL: '0'
+    steps:
+      - name: Check out the collector under test
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install the pinned toolchain
+        run: rustup toolchain install 1.99.1 --profile minimal
+      - name: Build the collector
+        id: build
+        run: cargo build --locked
+      - name: Collect selected public runs twice
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          pilot_directory="$RUNNER_TEMP/observatory-linked-pilot"
+          mkdir -p "$pilot_directory"
+          for delivery in first second; do
+            python3 instrumentation/pilot.py collect \
+              --manifest examples/linked-pilot/manifest.json \
+              --state "$pilot_directory/store" \
+              --observatory target/debug/observatory
+            target/debug/observatory --state "$pilot_directory/store" verify
+            target/debug/observatory --state "$pilot_directory/store" snapshot \
+              --output "$pilot_directory/$delivery.json"
+          done
+          python3 - "$pilot_directory" <<'PY'
+          import json, pathlib, sys
+          root = pathlib.Path(sys.argv[1])
+          def receipts(name):
+              snapshot = json.loads((root / name).read_text())
+              return {item['record']['id']: item['record'] for item in snapshot['records']
+                      if item['record']['data'].get('source') == 'observatory.tool_receipt'}
+          first, second = receipts('first.json'), receipts('second.json')
+          if not first or first != second:
+              raise SystemExit('Repeated collection must retain the same nonempty receipt set.')
+          (root / 'deduplication.json').write_text(json.dumps({
+              'schema': 'observatory.pilot-deduplication/1',
+              'receipt_count': len(first), 'receipts_unchanged': True,
+          }, indent=2) + '\n')
+          PY
+      - name: Report execution evidence with human effort pending
+        if: ${{ always() && steps.build.outcome == 'success' }}
+        run: |
+          pilot_directory="$RUNNER_TEMP/observatory-linked-pilot"
+          python3 instrumentation/pilot.py report \
+            --manifest examples/linked-pilot/manifest.json \
+            --state "$pilot_directory/store" \
+            --output-dir "$pilot_directory/reports" \
+            --observatory target/debug/observatory
+      - name: Preserve public execution evidence and aggregate reports
+        if: ${{ always() }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          archive: true
+          name: observatory-linked-pilot-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/observatory-linked-pilot/
+          if-no-files-found: warn
+          retention-days: 30

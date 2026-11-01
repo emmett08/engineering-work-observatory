@@ -1,0 +1,42 @@
+{
+  "schema": "observatory.effort-config/1",
+  "protocol_id": "observatory-linked-pilot-v1",
+  "frame_id": "configure-real-participant-window-before-use",
+  "frames": [
+    {
+      "person_id": "configure-participant",
+      "start": "2026-11-01T09:00:00Z",
+      "end": "2026-11-01T10:00:00Z"
+    }
+  ],
+  "interval_minutes": 15,
+  "sources": [
+    {
+      "person_id": "configure-participant",
+      "device_id": "configure-device",
+      "afk_bucket": "configure-afk-bucket",
+      "context_buckets": ["configure-context-bucket"]
+    }
+  ],
+  "links": [
+    {
+      "task_id": "engarg-authoring-effort-pilot",
+      "repository": "emmett08/engarg",
+      "issue_number": 49,
+      "branches": ["feat/observatory-effort-pilot"],
+      "pull_requests": [50],
+      "projects": []
+    },
+    {
+      "task_id": "eal-context-effort-pilot",
+      "repository": "emmett08/eal-mcp",
+      "issue_number": 36,
+      "branches": ["feat/observatory-effort-pilot"],
+      "pull_requests": [37],
+      "projects": []
+    }
+  ],
+  "frame_complete": false,
+  "attended_waiting_counts": false,
+  "synthetic": false
+}

@@ -1,0 +1,162 @@
+# Adoption template: copy to .github/workflows/observatory-private.yml in a
+# PRIVATE control repository. It is deliberately not enabled in a pilot repo.
+# Set EFFORT_PRIVATE_ROOT to a durable private absolute directory; copy the
+# reviewed manifest there as manifest.json. Do not copy placeholder people into
+# a live study. Install Rust, Python >=3.10 and gh on the dedicated runner.
+name: Collect and report private Observatory pilot evidence
+
+on:
+  schedule:
+    - cron: '15 19,21 * * 1-5' # UTC. Collect/report only; never posts automatically.
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: Prepare creates private sampled forms; report consumes returned responses
+        type: choice
+        required: true
+        default: collect-and-report
+        options:
+          - collect-and-report
+          - collect
+          - prepare
+          - report
+      day:
+        description: Batch UTC date YYYY-MM-DD; empty uses the current UTC date
+        type: string
+        required: false
+        default: ''
+      publish_comment:
+        description: Publish aggregate status/estimates to the manifest's linked issues and PRs
+        type: boolean
+        required: true
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: private-observatory-linked-pilot
+  cancel-in-progress: false
+
+jobs:
+  private-pilot:
+    # Keep this control repository private. Never add a pull_request trigger.
+    if: >-
+      github.event.repository.private == true &&
+      github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: [self-hosted, linux, effort-collector]
+    timeout-minutes: 30
+    env:
+      PRIVATE_ROOT: ${{ vars.EFFORT_PRIVATE_ROOT }}
+      SAMPLE_SIZE: ${{ vars.EFFORT_SAMPLE_SIZE }}
+      ACTIVITY_EXPORT: ${{ vars.EFFORT_ACTIVITY_EXPORT }}
+      OPERATION: ${{ inputs.operation || 'collect-and-report' }}
+      BATCH_DAY: ${{ inputs.day }}
+      CARGO_INCREMENTAL: '0'
+    steps:
+      - name: Check out reviewed collection and estimation code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: emmett08/engineering-work-observatory
+          ref: REPLACE_WITH_REVIEWED_COMMIT_SHA
+          path: observatory
+          persist-credentials: false
+      - name: Validate private storage and choose this batch
+        working-directory: observatory
+        run: |
+          set -euo pipefail
+          umask 077
+          python3 - <<'PY'
+          import datetime, os, pathlib
+          raw = os.environ['PRIVATE_ROOT']
+          if not raw or not pathlib.Path(raw).is_absolute() or '\n' in raw or '\r' in raw:
+              raise SystemExit('EFFORT_PRIVATE_ROOT must be an absolute private directory.')
+          root = pathlib.Path(raw).resolve()
+          workspace = pathlib.Path(os.environ['GITHUB_WORKSPACE']).resolve()
+          if root == workspace or workspace in root.parents:
+              raise SystemExit('Private evidence must be outside the checkout workspace.')
+          raw_day = os.environ['BATCH_DAY'] or datetime.datetime.now(datetime.timezone.utc).date().isoformat()
+          day = datetime.date.fromisoformat(raw_day).isoformat()
+          if raw_day != day:
+              raise SystemExit('Batch day must be YYYY-MM-DD.')
+          if os.environ['OPERATION'] not in {'collect', 'prepare', 'report', 'collect-and-report'}:
+              raise SystemExit('Unsupported operation.')
+          root.mkdir(parents=True, exist_ok=True, mode=0o700)
+          run_key = os.environ['GITHUB_RUN_ID'] + '-' + os.environ['GITHUB_RUN_ATTEMPT']
+          logs = root / 'logs' / run_key
+          logs.mkdir(parents=True, exist_ok=True, mode=0o700)
+          with open(os.environ['GITHUB_ENV'], 'a') as output:
+              output.write(f'PRIVATE_ROOT={root}\nBATCH_DAY={day}\nPRIVATE_LOGS={logs}\n')
+          PY
+      - name: Build the pinned collector and estimator
+        working-directory: observatory
+        run: cargo build --locked --release
+      - name: Collect selected GitHub runs and reconcile receipt coverage
+        if: inputs.operation == 'collect' || inputs.operation == 'collect-and-report' || github.event_name == 'schedule'
+        working-directory: observatory
+        env:
+          GH_TOKEN: ${{ secrets.OBSERVATORY_READ_TOKEN }}
+        run: |
+          set -euo pipefail
+          umask 077
+          if ! python3 instrumentation/pilot.py collect \
+            --manifest "$PRIVATE_ROOT/manifest.json" \
+            --state "$PRIVATE_ROOT/executions" \
+            --observatory target/release/observatory \
+            > "$PRIVATE_LOGS/collect.log" 2>&1; then
+            echo "Collection was incomplete. Retained diagnostics are in private storage."
+            exit 1
+          fi
+          echo "Collection completed; inspect aggregate coverage for gaps."
+      - name: Prepare the private activity batch and participant forms
+        if: github.event_name == 'workflow_dispatch' && inputs.operation == 'prepare'
+        working-directory: observatory
+        run: |
+          set -euo pipefail
+          umask 077
+          source_args=(--server http://127.0.0.1:5600)
+          if [[ -n "$ACTIVITY_EXPORT" ]]; then
+            source_args=(--export "$ACTIVITY_EXPORT")
+          fi
+          if ! python3 instrumentation/pilot.py prepare \
+            --config "$PRIVATE_ROOT/config-template.json" \
+            --day "$BATCH_DAY" --size "$SAMPLE_SIZE" \
+            --directory "$PRIVATE_ROOT/batches/$BATCH_DAY" \
+            "${source_args[@]}" > "$PRIVATE_LOGS/prepare.log" 2>&1; then
+            echo "Preparation failed. Inspect the private log; no responses were invented."
+            exit 1
+          fi
+          echo "Private review forms are ready. Return each participant's downloaded JSON to responses/."
+      - name: Join execution evidence and available human observations
+        # Report retained coverage even if acquisition just failed.
+        if: >-
+          always() && !cancelled() &&
+          (inputs.operation == 'report' || inputs.operation == 'collect-and-report' || github.event_name == 'schedule')
+        working-directory: observatory
+        env:
+          # Separate fine-grained user token: publisher identifies its author via GET /user.
+          # Exposed only for an explicitly requested publication.
+          GH_TOKEN: ${{ github.event_name == 'workflow_dispatch' && inputs.publish_comment && secrets.OBSERVATORY_PUBLISH_TOKEN || '' }}
+          PUBLISH_REQUESTED: ${{ github.event_name == 'workflow_dispatch' && inputs.publish_comment }}
+        run: |
+          set -euo pipefail
+          umask 077
+          test -n "${PRIVATE_LOGS:-}"
+          args=()
+          if [[ -f "$PRIVATE_ROOT/batches/$BATCH_DAY/frame.json" ]]; then
+            args+=(--batch "$PRIVATE_ROOT/batches/$BATCH_DAY")
+          fi
+          if [[ "$PUBLISH_REQUESTED" == 'true' ]]; then
+            test -n "$GH_TOKEN"
+            args+=(--publish)
+          fi
+          if ! python3 instrumentation/pilot.py report \
+            --manifest "$PRIVATE_ROOT/manifest.json" \
+            --state "$PRIVATE_ROOT/executions" \
+            --output-dir "$PRIVATE_ROOT/reports/$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" \
+            --observatory target/release/observatory \
+            "${args[@]}" > "$PRIVATE_LOGS/report.log" 2>&1; then
+            echo "Reporting failed. Inspect the private report log."
+            exit 1
+          fi
+          echo "Aggregate reports retained privately; absent observations remain unavailable."
