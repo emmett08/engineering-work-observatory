@@ -1,0 +1,17 @@
+{
+  "schema": "observatory.execution-pilot-verification/1",
+  "run_id": "41329655162",
+  "run_attempt": 1,
+  "receipt_records": 4,
+  "completed_invocations": 2,
+  "linked_job_ids": [
+    124916873786,
+    124916873946
+  ],
+  "job_names": [
+    "Execution pilot (eal-mcp)",
+    "Execution pilot (engarg)"
+  ],
+  "repeated_delivery_receipts_unchanged": true,
+  "scope": "Completed pilot matrix jobs; reconciliation job remains active. No claim of complete tool coverage or workflow completion."
+}

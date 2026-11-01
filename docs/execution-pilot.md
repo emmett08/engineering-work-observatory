@@ -42,8 +42,19 @@ Both artifact ZIPs downloaded through the GitHub connector passed the Rust
 importer: six records on first import, zero new records on repeated imports,
 and six verified records. The development workspace's direct artifact download
 transport rejected the signed redirects; that acquisition retained independent
-API metadata and explicit incomplete coverage. The pilot's `reconcile` job
-exercises direct artifact collection on a GitHub runner.
+API metadata and explicit incomplete coverage.
+
+[Run 41329655162](https://github.com/emmett08/engineering-work-observatory/actions/runs/41329655162)
+then passed both subject jobs and the direct collection check at commit
+`881c99343c2caaea9d7752bb6696b2c85af7ceac`. Its
+[retained verification result](execution-pilot/github-collection-verification.json)
+records four receipt records, two complete invocations, two independently
+matched GitHub jobs and unchanged receipts after repeated collection. The
+downloaded collector store passed a second local `verify` of all 29 retained
+records and source objects; the snapshot assertions also replayed successfully.
+The collector-state artifact is `13092399035`. This verifies the Rust artifact
+download and reconciliation path on a GitHub runner, independently of the
+development workspace's download restriction.
 
 [The pilot workflow](../.github/workflows/execution-evidence-pilot.yml) runs on
 pull requests changing the instrumentation and can also be dispatched manually.
