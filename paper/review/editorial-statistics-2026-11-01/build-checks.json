@@ -1,0 +1,12 @@
+{
+  "labels": 42,
+  "cited_keys": 24,
+  "references_resolved": true,
+  "citations_resolved": true,
+  "overfull_boxes": 0,
+  "underfull_vbox": 1,
+  "pages": 17,
+  "render_review": "All17pages rendered and contact-sheet inspected; figure/causal/bibliography detail inspected. Bibliography page16 has underfull-vbox warning and last two references occupy page17.",
+  "bibtex_warning": "Existing missing pages for online-first cui2026 retained.",
+  "pdf_sha256": "4baa4f6aa915d3fe4c792d831c69d8fde130a13fc8f496f1842b42f67c694e53"
+}

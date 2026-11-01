@@ -2,7 +2,7 @@
 
 This is a specified design and planning analysis, not an executed or preregistered
 trial. The principal study is not yet adequate for a benefit claim: neither
-candidate meets the provisional joint-success target across the registered
+candidate meets the provisional joint-success target across the specified
 planning scenarios. No workplace observations were supplied. The next step is a
 separate measurement and feasibility pilot, followed by supported planning.
 
@@ -132,9 +132,11 @@ each true-null component's rejection rate as well as joint false success.
 
 Retain original groups regardless of tool uptake. Actual use is a diagnostic,
 not a basis for selecting the primary analysis population. Report both primary
-effects and intervals even when the conjunction fails. Report detectable harm,
-practically small effects and unresolved intervals separately. Non-significance
-does not establish quality preservation.
+effects and intervals even when the conjunction fails. Distinguish evidence of
+harm, exclusion of a worthwhile labour saving and unresolved intervals. Excluding
+a worthwhile saving does not establish a practically small effect: that would
+require a declared equivalence region and an interval wholly within it.
+Non-significance does not establish quality preservation.
 
 The conservative planning procedure permits no affirmative benefit claim if a
 team-level endpoint remains missing. Keep the team and publish physical or
@@ -171,7 +173,7 @@ decision and domain evidence, and record the toolset manifest. The pilot then de
 between-team variability, the effectiveness of matching, outcome dependence,
 tail behaviour, ledger completeness, differential error, follow-up loss and
 collection/review cost. Do not use its favourable treatment effect to choose a
-principal sample size. Re-run the registered planning calculation using those
+principal sample size. Re-run the specified planning calculation using those
 supported nuisance ranges and externally justified useful effects. Select the
 least costly feasible allocation only if:
 

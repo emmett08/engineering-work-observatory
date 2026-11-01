@@ -1,0 +1,1354 @@
+{
+  "plugin_package_version": {
+    "value": "1.0.2",
+    "provenance": "User identified the installed plugin version; capabilities endpoint independently reports1.0.0."
+  },
+  "capabilities_reported_version": "1.0.0",
+  "baseline_revision": "5936f2c28fd075217b679c0b2ad3aba57b9801f3",
+  "format": "latex",
+  "known_terms": [
+    "AI",
+    "SCH",
+    "person-hours",
+    "linear programme",
+    "sampling",
+    "variance",
+    "probability",
+    "confidence interval",
+    "Lean",
+    "mathlib"
+  ],
+  "scope": "All seven actual compiled text source files; includes read explicitly; figure caption reviewed unchanged",
+  "comparisons": [
+    {
+      "path": "paper/article/main.tex",
+      "baseline_sha256": "ce9192eb83942af7fc2779065bb8a84d37addb84f5b3db5e7c1b9a28eaad3ad0",
+      "candidate_sha256": "b6060ee82d09d45dc60cb6b02c73dd8346f0a97f2f6a2084f6a40691b02b06b3",
+      "engine": {
+        "name": "prose-workbench-lexical",
+        "version": "1.0.0"
+      },
+      "configuration": {
+        "format": "latex",
+        "knownTerms": [
+          "AI",
+          "confidence interval",
+          "Lean",
+          "linear programme",
+          "mathlib",
+          "person-hours",
+          "probability",
+          "sampling",
+          "SCH",
+          "variance"
+        ],
+        "language": "en-GB",
+        "sentenceBoundaryMethod": "punctuation-with-abbreviation-exceptions",
+        "longSentenceThreshold": 35,
+        "maxReportItems": 100
+      },
+      "before_metrics": {
+        "wordCount": 3181,
+        "sentenceCount": 199,
+        "paragraphCount": 46,
+        "meanSentenceWords": 15.985,
+        "maxSentenceWords": 38,
+        "sentenceLengthVariance": 47.11,
+        "sentenceLengthStandardDeviation": 6.864,
+        "adjacentSentenceLexicalOverlap": 0.046,
+        "adjacentParagraphLexicalOverlap": 0.061,
+        "lexicalHandoffRate": 0.207,
+        "protectedSpanCount": 108
+      },
+      "after_metrics": {
+        "wordCount": 3195,
+        "sentenceCount": 209,
+        "paragraphCount": 47,
+        "meanSentenceWords": 15.287,
+        "maxSentenceWords": 38,
+        "sentenceLengthVariance": 38.616,
+        "sentenceLengthStandardDeviation": 6.214,
+        "adjacentSentenceLexicalOverlap": 0.044,
+        "adjacentParagraphLexicalOverlap": 0.063,
+        "lexicalHandoffRate": 0.197,
+        "protectedSpanCount": 109
+      },
+      "metric_deltas": {
+        "wordCount": 14,
+        "sentenceCount": 10,
+        "paragraphCount": 1,
+        "meanSentenceWords": -0.698,
+        "maxSentenceWords": 0,
+        "sentenceLengthVariance": -8.494,
+        "sentenceLengthStandardDeviation": -0.65,
+        "adjacentSentenceLexicalOverlap": -0.002,
+        "adjacentParagraphLexicalOverlap": 0.002,
+        "lexicalHandoffRate": -0.01,
+        "protectedSpanCount": 1
+      },
+      "protected_content_unchanged": false,
+      "protected_differences": [
+        {
+          "kind": "latex-command",
+          "preview": "\\ref{sec:causal-experiment}",
+          "beforeCount": 0,
+          "afterCount": 1
+        }
+      ],
+      "risk_flags": [
+        {
+          "category": "negation",
+          "message": "The inventory of negation cues changed. Review the proposition and its scope.",
+          "before": [
+            "no",
+            "without",
+            "not",
+            "not",
+            "without",
+            "not",
+            "cannot",
+            "no",
+            "not",
+            "not",
+            "cannot",
+            "not",
+            "not",
+            "cannot",
+            "cannot",
+            "not",
+            "not",
+            "without",
+            "not",
+            "cannot"
+          ],
+          "after": [
+            "no",
+            "not",
+            "not",
+            "without",
+            "not",
+            "no",
+            "not",
+            "not",
+            "cannot",
+            "not",
+            "not",
+            "cannot",
+            "cannot",
+            "not",
+            "not",
+            "without",
+            "not",
+            "cannot",
+            "not",
+            "without"
+          ],
+          "basis": "Lexical cue inventory; not a semantic judgement."
+        },
+        {
+          "category": "modality",
+          "message": "The inventory of modality cues changed. Review the proposition and its scope.",
+          "before": [
+            "can",
+            "could",
+            "may",
+            "can",
+            "can",
+            "can",
+            "must",
+            "can",
+            "can",
+            "could",
+            "may",
+            "can",
+            "must",
+            "can",
+            "can",
+            "can",
+            "may",
+            "can",
+            "can",
+            "may"
+          ],
+          "after": [
+            "can",
+            "could",
+            "may",
+            "can",
+            "can",
+            "must",
+            "can",
+            "can",
+            "could",
+            "may",
+            "can",
+            "must",
+            "can",
+            "can",
+            "can",
+            "may",
+            "can",
+            "can",
+            "may",
+            "must"
+          ],
+          "basis": "Lexical cue inventory; not a semantic judgement."
+        },
+        {
+          "category": "quantifier",
+          "message": "The inventory of quantifier cues changed. Review the proposition and its scope.",
+          "before": [
+            "each",
+            "every",
+            "every",
+            "each",
+            "each",
+            "all",
+            "least",
+            "most",
+            "most",
+            "exactly",
+            "all",
+            "any",
+            "most",
+            "each",
+            "every",
+            "each",
+            "exactly",
+            "each",
+            "only",
+            "only"
+          ],
+          "after": [
+            "each",
+            "exactly",
+            "every",
+            "each",
+            "all",
+            "least",
+            "most",
+            "most",
+            "exactly",
+            "all",
+            "any",
+            "most",
+            "each",
+            "least",
+            "every",
+            "each",
+            "exactly",
+            "each",
+            "only",
+            "only"
+          ],
+          "basis": "Lexical cue inventory; not a semantic judgement."
+        },
+        {
+          "category": "condition",
+          "message": "The inventory of condition cues changed. Review the proposition and its scope.",
+          "before": [
+            "when",
+            "when",
+            "if",
+            "because",
+            "therefore",
+            "therefore",
+            "when",
+            "provided",
+            "when",
+            "therefore",
+            "when",
+            "when",
+            "when",
+            "when",
+            "when",
+            "therefore",
+            "when",
+            "if",
+            "whenever",
+            "when"
+          ],
+          "after": [
+            "when",
+            "when",
+            "when",
+            "provided",
+            "when",
+            "if",
+            "because",
+            "therefore",
+            "when",
+            "therefore",
+            "when",
+            "provided",
+            "when",
+            "therefore",
+            "when",
+            "therefore",
+            "when",
+            "when",
+            "when",
+            "when"
+          ],
+          "basis": "Lexical cue inventory; not a semantic judgement."
+        },
+        {
+          "category": "quantity-attachment",
+          "message": "The words around unchanged numbers changed. Check their units, referents and attachment to claims.",
+          "before": [
+            "instrument for adoption in their june 2025 manuscript their estimates concern different populations"
+          ],
+          "after": [
+            "instrument for adoption in their june 2025 manuscript the studies differ in their"
+          ],
+          "basis": "Six-token context windows around numeric tokens; numerical meaning is not verified."
+        },
+        {
+          "category": "known-terms",
+          "message": "The occurrence counts of declared terms changed. Check whether the revision preserves their referents and intended use.",
+          "before": [
+            "AI: 16",
+            "person-hours: 20",
+            "probability: 7",
+            "sampling: 16"
+          ],
+          "after": [
+            "AI: 18",
+            "person-hours: 18",
+            "probability: 5",
+            "sampling: 19"
+          ],
+          "basis": "Case-insensitive word-token sequences; spelling, hyphenation and term scope require review."
+        }
+      ],
+      "editorial_disposition": {
+        "reviewer": "/root",
+        "status": "REVIEWED",
+        "explanation": "Added the intended causal-experiment cross-reference. Cue-inventory changes come from the reviewed paraphrases and explicit feasibility qualification. The June2025 manuscript attribution still attaches to the same instrumental-variable description. Labour, elapsed time, retained output and conditional unbiasedness remain separate."
+      },
+      "limits": [
+        "Protected-content equality checks recognised source spans and their order. It does not prove that a citation, equation or code example remains attached to the same claim.",
+        "Risk flags are conservative lexical observations. An empty flag list does not establish preservation of meaning, conditions, quantifier scope, logical force or factual accuracy.",
+        "Review the full revision and its surrounding argument. This tool never certifies semantic equivalence.",
+        "Sentence boundaries, acronym definitions and nominalisation candidates can be wrong. Counts describe the extracted prose, not necessarily the whole document.",
+        "Markdown and LaTeX projection supports a conservative subset. Excluded or uncertain constructs are retained in the source and reported where detected."
+      ]
+    },
+    {
+      "path": "paper/article/event-history.tex",
+      "baseline_sha256": "109478fc3dec578c5b41c2609b686893848b8bf31381b8c686405bc789d6a063",
+      "candidate_sha256": "9f4cdc267c248e517df40658744241141f2cdba7029f9c46bcd62ffa80a3ec33",
+      "engine": {
+        "name": "prose-workbench-lexical",
+        "version": "1.0.0"
+      },
+      "configuration": {
+        "format": "latex",
+        "knownTerms": [
+          "AI",
+          "confidence interval",
+          "Lean",
+          "linear programme",
+          "mathlib",
+          "person-hours",
+          "probability",
+          "sampling",
+          "SCH",
+          "variance"
+        ],
+        "language": "en-GB",
+        "sentenceBoundaryMethod": "punctuation-with-abbreviation-exceptions",
+        "longSentenceThreshold": 35,
+        "maxReportItems": 100
+      },
+      "before_metrics": {
+        "wordCount": 111,
+        "sentenceCount": 7,
+        "paragraphCount": 2,
+        "meanSentenceWords": 15.857,
+        "maxSentenceWords": 26,
+        "sentenceLengthVariance": 39.837,
+        "sentenceLengthStandardDeviation": 6.312,
+        "adjacentSentenceLexicalOverlap": 0.008,
+        "adjacentParagraphLexicalOverlap": 0.016,
+        "lexicalHandoffRate": 0.167,
+        "protectedSpanCount": 7
+      },
+      "after_metrics": {
+        "wordCount": 128,
+        "sentenceCount": 9,
+        "paragraphCount": 2,
+        "meanSentenceWords": 14.222,
+        "maxSentenceWords": 28,
+        "sentenceLengthVariance": 37.506,
+        "sentenceLengthStandardDeviation": 6.124,
+        "adjacentSentenceLexicalOverlap": 0.035,
+        "adjacentParagraphLexicalOverlap": 0.015,
+        "lexicalHandoffRate": 0.125,
+        "protectedSpanCount": 7
+      },
+      "metric_deltas": {
+        "wordCount": 17,
+        "sentenceCount": 2,
+        "paragraphCount": 0,
+        "meanSentenceWords": -1.635,
+        "maxSentenceWords": 2,
+        "sentenceLengthVariance": -2.331,
+        "sentenceLengthStandardDeviation": -0.188,
+        "adjacentSentenceLexicalOverlap": 0.027,
+        "adjacentParagraphLexicalOverlap": -0.001,
+        "lexicalHandoffRate": -0.042,
+        "protectedSpanCount": 0
+      },
+      "protected_content_unchanged": true,
+      "protected_differences": [],
+      "risk_flags": [
+        {
+          "category": "negation",
+          "message": "The inventory of negation cues changed. Review the proposition and its scope.",
+          "before": [
+            "not"
+          ],
+          "after": [
+            "not",
+            "not"
+          ],
+          "basis": "Lexical cue inventory; not a semantic judgement."
+        },
+        {
+          "category": "modality",
+          "message": "The inventory of modality cues changed. Review the proposition and its scope.",
+          "before": [],
+          "after": [
+            "must"
+          ],
+          "basis": "Lexical cue inventory; not a semantic judgement."
+        },
+        {
+          "category": "quantifier",
+          "message": "The inventory of quantifier cues changed. Review the proposition and its scope.",
+          "before": [
+            "each",
+            "least",
+            "every"
+          ],
+          "after": [
+            "every",
+            "least",
+            "every"
+          ],
+          "basis": "Lexical cue inventory; not a semantic judgement."
+        },
+        {
+          "category": "condition",
+          "message": "The inventory of condition cues changed. Review the proposition and its scope.",
+          "before": [
+            "when"
+          ],
+          "after": [
+            "therefore",
+            "when"
+          ],
+          "basis": "Lexical cue inventory; not a semantic judgement."
+        }
+      ],
+      "editorial_disposition": {
+        "reviewer": "/root",
+        "status": "REVIEWED",
+        "explanation": "Every-task labour end time and acceptance-based retained-output timing are unchanged, including zero follow-up. 'Must' names what a complete history needs to supply. The added negative clarifies that the labour window includes unaccepted tasks. Point-identification remains existence plus equal totals across all compatible histories."
+      },
+      "limits": [
+        "Protected-content equality checks recognised source spans and their order. It does not prove that a citation, equation or code example remains attached to the same claim.",
+        "Risk flags are conservative lexical observations. An empty flag list does not establish preservation of meaning, conditions, quantifier scope, logical force or factual accuracy.",
+        "Review the full revision and its surrounding argument. This tool never certifies semantic equivalence.",
+        "Sentence boundaries, acronym definitions and nominalisation candidates can be wrong. Counts describe the extracted prose, not necessarily the whole document.",
+        "Markdown and LaTeX projection supports a conservative subset. Excluded or uncertain constructs are retained in the source and reported where detected."
+      ]
+    },
+    {
+      "path": "paper/article/partial-identification.tex",
+      "baseline_sha256": "9fa0f67b732dea619417902459d3854e7cc211253f918a5b7f0f1f74e2391716",
+      "candidate_sha256": "574287fea71e64e8078b6593d15ce3e004ce502c4c2ed59700a3d28b465682c6",
+      "engine": {
+        "name": "prose-workbench-lexical",
+        "version": "1.0.0"
+      },
+      "configuration": {
+        "format": "latex",
+        "knownTerms": [
+          "AI",
+          "confidence interval",
+          "Lean",
+          "linear programme",
+          "mathlib",
+          "person-hours",
+          "probability",
+          "sampling",
+          "SCH",
+          "variance"
+        ],
+        "language": "en-GB",
+        "sentenceBoundaryMethod": "punctuation-with-abbreviation-exceptions",
+        "longSentenceThreshold": 35,
+        "maxReportItems": 100
+      },
+      "before_metrics": {
+        "wordCount": 1296,
+        "sentenceCount": 86,
+        "paragraphCount": 22,
+        "meanSentenceWords": 15.07,
+        "maxSentenceWords": 30,
+        "sentenceLengthVariance": 43.902,
+        "sentenceLengthStandardDeviation": 6.626,
+        "adjacentSentenceLexicalOverlap": 0.03,
+        "adjacentParagraphLexicalOverlap": 0.055,
+        "lexicalHandoffRate": 0.176,
+        "protectedSpanCount": 92
+      },
+      "after_metrics": {
+        "wordCount": 1331,
+        "sentenceCount": 92,
+        "paragraphCount": 22,
+        "meanSentenceWords": 14.467,
+        "maxSentenceWords": 30,
+        "sentenceLengthVariance": 42.358,
+        "sentenceLengthStandardDeviation": 6.508,
+        "adjacentSentenceLexicalOverlap": 0.04,
+        "adjacentParagraphLexicalOverlap": 0.062,
+        "lexicalHandoffRate": 0.198,
+        "protectedSpanCount": 92
+      },
+      "metric_deltas": {
+        "wordCount": 35,
+        "sentenceCount": 6,
+        "paragraphCount": 0,
+        "meanSentenceWords": -0.603,
+        "maxSentenceWords": 0,
+        "sentenceLengthVariance": -1.544,
+        "sentenceLengthStandardDeviation": -0.118,
+        "adjacentSentenceLexicalOverlap": 0.01,
+        "adjacentParagraphLexicalOverlap": 0.007,
+        "lexicalHandoffRate": 0.022,
+        "protectedSpanCount": 0
+      },
+      "protected_content_unchanged": false,
+      "protected_differences": [
+        {
+          "kind": "latex-environment",
+          "preview": "\\begin{proof} Integrating any such history over each cell gives nonnegative cell labour totals. Integrating each person's allocation limit gives \\eqref{eq:cell-capacity}. Splittin…",
+          "beforeCount": 1,
+          "afterCount": 0
+        },
+        {
+          "kind": "latex-environment",
+          "preview": "\\begin{proof} Integrating any such history over each cell gives nonnegative cell labour totals. Integrating each person's allocation limit gives \\eqref{eq:cell-capacity}. Splittin…",
+          "beforeCount": 0,
+          "afterCount": 1
+        }
+      ],
+      "risk_flags": [
+        {
+          "category": "negation",
+          "message": "The inventory of negation cues changed. Review the proposition and its scope.",
+          "before": [
+            "not",
+            "no",
+            "not",
+            "no",
+            "without",
+            "not",
+            "without",
+            "not",
+            "not",
+            "no",
+            "cannot"
+          ],
+          "after": [
+            "no",
+            "not",
+            "no",
+            "without",
+            "not",
+            "without",
+            "not",
+            "not",
+            "not",
+            "cannot"
+          ],
+          "basis": "Lexical cue inventory; not a semantic judgement."
+        },
+        {
+          "category": "modality",
+          "message": "The inventory of modality cues changed. Review the proposition and its scope.",
+          "before": [
+            "could",
+            "can",
+            "could",
+            "must",
+            "would",
+            "can",
+            "can",
+            "can",
+            "would",
+            "permitted",
+            "can",
+            "may",
+            "can",
+            "may",
+            "can",
+            "can",
+            "must",
+            "required",
+            "can",
+            "permitted"
+          ],
+          "after": [
+            "can",
+            "could",
+            "can",
+            "could",
+            "must",
+            "would",
+            "can",
+            "can",
+            "would",
+            "permitted",
+            "can",
+            "may",
+            "must",
+            "can",
+            "may",
+            "can",
+            "can",
+            "must",
+            "required",
+            "can"
+          ],
+          "basis": "Lexical cue inventory; not a semantic judgement."
+        },
+        {
+          "category": "quantifier",
+          "message": "The inventory of quantifier cues changed. Review the proposition and its scope.",
+          "before": [
+            "many",
+            "every",
+            "each",
+            "least",
+            "all",
+            "most",
+            "several",
+            "exactly",
+            "all",
+            "any",
+            "every",
+            "each",
+            "each",
+            "only",
+            "every",
+            "several",
+            "each",
+            "each",
+            "exactly",
+            "all"
+          ],
+          "after": [
+            "every",
+            "exactly",
+            "each",
+            "least",
+            "all",
+            "every",
+            "most",
+            "several",
+            "exactly",
+            "all",
+            "any",
+            "every",
+            "each",
+            "each",
+            "every",
+            "every",
+            "several",
+            "each",
+            "each",
+            "exactly"
+          ],
+          "basis": "Lexical cue inventory; not a semantic judgement."
+        },
+        {
+          "category": "condition",
+          "message": "The inventory of condition cues changed. Review the proposition and its scope.",
+          "before": [
+            "when",
+            "therefore",
+            "when",
+            "if",
+            "when",
+            "if",
+            "when",
+            "because",
+            "when",
+            "whenever",
+            "therefore",
+            "if",
+            "if",
+            "when"
+          ],
+          "after": [
+            "when",
+            "therefore",
+            "when",
+            "if",
+            "when",
+            "when",
+            "because",
+            "when",
+            "whenever",
+            "therefore",
+            "if",
+            "if",
+            "when"
+          ],
+          "basis": "Lexical cue inventory; not a semantic judgement."
+        },
+        {
+          "category": "quantity-attachment",
+          "message": "The words around unchanged numbers changed. Check their units, referents and attachment to claims.",
+          "before": [
+            "task separately allows person-hours before time 1 together the tasks require exactly one",
+            "require exactly one person-hour before time 1 because they use all the person's",
+            "of a separate development in lean 4 using mathlib checks the interval-integral and"
+          ],
+          "after": [
+            "task separately allows person-hours before time 1 together the tasks require exactly one",
+            "require exactly one person-hour before time 1 because they use all the person's",
+            "of a separate development in lean 4 using mathlib checks that interval integrals"
+          ],
+          "basis": "Six-token context windows around numeric tokens; numerical meaning is not verified."
+        },
+        {
+          "category": "known-terms",
+          "message": "The occurrence counts of declared terms changed. Check whether the revision preserves their referents and intended use.",
+          "before": [
+            "person-hours: 5",
+            "probability: 2"
+          ],
+          "after": [
+            "person-hours: 4",
+            "probability: 3"
+          ],
+          "basis": "Case-insensitive word-token sequences; spelling, hyphenation and term scope require review."
+        }
+      ],
+      "editorial_disposition": {
+        "reviewer": "/root",
+        "status": "REVIEWED",
+        "explanation": "The sole changed protected proof block splits the allocation/idle-time sentence without changing its construction. Other cue/attachment changes clarify exact ranges, joint attainability, observation coverage and the listed formal exclusions. The independent formal concordance separately binds final article bytes to immutable targets."
+      },
+      "limits": [
+        "Protected-content equality checks recognised source spans and their order. It does not prove that a citation, equation or code example remains attached to the same claim.",
+        "Risk flags are conservative lexical observations. An empty flag list does not establish preservation of meaning, conditions, quantifier scope, logical force or factual accuracy.",
+        "Review the full revision and its surrounding argument. This tool never certifies semantic equivalence.",
+        "Sentence boundaries, acronym definitions and nominalisation candidates can be wrong. Counts describe the extracted prose, not necessarily the whole document.",
+        "Markdown and LaTeX projection supports a conservative subset. Excluded or uncertain constructs are retained in the source and reported where detected."
+      ]
+    },
+    {
+      "path": "paper/article/design-based-estimation.tex",
+      "baseline_sha256": "d3595154e1b0fcc5fdfeaf27c6b7aa30ac464becb8134998192c19a0f07024e8",
+      "candidate_sha256": "89756222dd144a9ac9fd5317f23216acf67311de346ad87870ffb3b49f14aeb0",
+      "engine": {
+        "name": "prose-workbench-lexical",
+        "version": "1.0.0"
+      },
+      "configuration": {
+        "format": "latex",
+        "knownTerms": [
+          "AI",
+          "confidence interval",
+          "Lean",
+          "linear programme",
+          "mathlib",
+          "person-hours",
+          "probability",
+          "sampling",
+          "SCH",
+          "variance"
+        ],
+        "language": "en-GB",
+        "sentenceBoundaryMethod": "punctuation-with-abbreviation-exceptions",
+        "longSentenceThreshold": 35,
+        "maxReportItems": 100
+      },
+      "before_metrics": {
+        "wordCount": 799,
+        "sentenceCount": 65,
+        "paragraphCount": 18,
+        "meanSentenceWords": 12.292,
+        "maxSentenceWords": 25,
+        "sentenceLengthVariance": 33.315,
+        "sentenceLengthStandardDeviation": 5.772,
+        "adjacentSentenceLexicalOverlap": 0.028,
+        "adjacentParagraphLexicalOverlap": 0.038,
+        "lexicalHandoffRate": 0.141,
+        "protectedSpanCount": 67
+      },
+      "after_metrics": {
+        "wordCount": 789,
+        "sentenceCount": 67,
+        "paragraphCount": 18,
+        "meanSentenceWords": 11.776,
+        "maxSentenceWords": 25,
+        "sentenceLengthVariance": 31.308,
+        "sentenceLengthStandardDeviation": 5.595,
+        "adjacentSentenceLexicalOverlap": 0.034,
+        "adjacentParagraphLexicalOverlap": 0.042,
+        "lexicalHandoffRate": 0.182,
+        "protectedSpanCount": 67
+      },
+      "metric_deltas": {
+        "wordCount": -10,
+        "sentenceCount": 2,
+        "paragraphCount": 0,
+        "meanSentenceWords": -0.516,
+        "maxSentenceWords": 0,
+        "sentenceLengthVariance": -2.007,
+        "sentenceLengthStandardDeviation": -0.177,
+        "adjacentSentenceLexicalOverlap": 0.006,
+        "adjacentParagraphLexicalOverlap": 0.004,
+        "lexicalHandoffRate": 0.041,
+        "protectedSpanCount": 0
+      },
+      "protected_content_unchanged": true,
+      "protected_differences": [],
+      "risk_flags": [
+        {
+          "category": "negation",
+          "message": "The inventory of negation cues changed. Review the proposition and its scope.",
+          "before": [
+            "no",
+            "without",
+            "not",
+            "without",
+            "not",
+            "not",
+            "without"
+          ],
+          "after": [
+            "no",
+            "without",
+            "cannot",
+            "without",
+            "not",
+            "not",
+            "without"
+          ],
+          "basis": "Lexical cue inventory; not a semantic judgement."
+        },
+        {
+          "category": "modality",
+          "message": "The inventory of modality cues changed. Review the proposition and its scope.",
+          "before": [
+            "can",
+            "must",
+            "can",
+            "must",
+            "must",
+            "can",
+            "required"
+          ],
+          "after": [
+            "can",
+            "must",
+            "can",
+            "must",
+            "must",
+            "can",
+            "required",
+            "must"
+          ],
+          "basis": "Lexical cue inventory; not a semantic judgement."
+        },
+        {
+          "category": "quantifier",
+          "message": "The inventory of quantifier cues changed. Review the proposition and its scope.",
+          "before": [
+            "each",
+            "each",
+            "every",
+            "each",
+            "all",
+            "every",
+            "often",
+            "every",
+            "each",
+            "every",
+            "exactly",
+            "every",
+            "all",
+            "each",
+            "each",
+            "always",
+            "each"
+          ],
+          "after": [
+            "every",
+            "each",
+            "each",
+            "each",
+            "every",
+            "each",
+            "all",
+            "every",
+            "often",
+            "every",
+            "each",
+            "every",
+            "exactly",
+            "every",
+            "all",
+            "each",
+            "each",
+            "always",
+            "each"
+          ],
+          "basis": "Lexical cue inventory; not a semantic judgement."
+        }
+      ],
+      "editorial_disposition": {
+        "reviewer": "/root",
+        "status": "REVIEWED",
+        "explanation": "All recognised protected content is identical. N=1 cannot supply this particular variance estimate, as the original states. Reordered descriptions retain fixed predictions, accurate selected observations, positive inclusion probabilities and separate collection evidence."
+      },
+      "limits": [
+        "Protected-content equality checks recognised source spans and their order. It does not prove that a citation, equation or code example remains attached to the same claim.",
+        "Risk flags are conservative lexical observations. An empty flag list does not establish preservation of meaning, conditions, quantifier scope, logical force or factual accuracy.",
+        "Review the full revision and its surrounding argument. This tool never certifies semantic equivalence.",
+        "Sentence boundaries, acronym definitions and nominalisation candidates can be wrong. Counts describe the extracted prose, not necessarily the whole document.",
+        "Markdown and LaTeX projection supports a conservative subset. Excluded or uncertain constructs are retained in the source and reported where detected."
+      ]
+    },
+    {
+      "path": "paper/article/sampling-validation.tex",
+      "baseline_sha256": "2973ca7a3ba88d1e840b4e29e104b0d94a962681ccf1199349dbd7d7a4347355",
+      "candidate_sha256": "50331455dd4027b685252eb71cfec11dac177bdd1b5a5b97618311b15aabb694",
+      "engine": {
+        "name": "prose-workbench-lexical",
+        "version": "1.0.0"
+      },
+      "configuration": {
+        "format": "latex",
+        "knownTerms": [
+          "AI",
+          "confidence interval",
+          "Lean",
+          "linear programme",
+          "mathlib",
+          "person-hours",
+          "probability",
+          "sampling",
+          "SCH",
+          "variance"
+        ],
+        "language": "en-GB",
+        "sentenceBoundaryMethod": "punctuation-with-abbreviation-exceptions",
+        "longSentenceThreshold": 35,
+        "maxReportItems": 100
+      },
+      "before_metrics": {
+        "wordCount": 455,
+        "sentenceCount": 32,
+        "paragraphCount": 8,
+        "meanSentenceWords": 14.219,
+        "maxSentenceWords": 25,
+        "sentenceLengthVariance": 43.983,
+        "sentenceLengthStandardDeviation": 6.632,
+        "adjacentSentenceLexicalOverlap": 0.054,
+        "adjacentParagraphLexicalOverlap": 0.102,
+        "lexicalHandoffRate": 0.258,
+        "protectedSpanCount": 17
+      },
+      "after_metrics": {
+        "wordCount": 452,
+        "sentenceCount": 32,
+        "paragraphCount": 8,
+        "meanSentenceWords": 14.125,
+        "maxSentenceWords": 28,
+        "sentenceLengthVariance": 45.984,
+        "sentenceLengthStandardDeviation": 6.781,
+        "adjacentSentenceLexicalOverlap": 0.055,
+        "adjacentParagraphLexicalOverlap": 0.102,
+        "lexicalHandoffRate": 0.29,
+        "protectedSpanCount": 17
+      },
+      "metric_deltas": {
+        "wordCount": -3,
+        "sentenceCount": 0,
+        "paragraphCount": 0,
+        "meanSentenceWords": -0.094,
+        "maxSentenceWords": 3,
+        "sentenceLengthVariance": 2.001,
+        "sentenceLengthStandardDeviation": 0.149,
+        "adjacentSentenceLexicalOverlap": 0.001,
+        "adjacentParagraphLexicalOverlap": 0,
+        "lexicalHandoffRate": 0.032,
+        "protectedSpanCount": 0
+      },
+      "protected_content_unchanged": true,
+      "protected_differences": [],
+      "risk_flags": [
+        {
+          "category": "modality",
+          "message": "The inventory of modality cues changed. Review the proposition and its scope.",
+          "before": [
+            "can",
+            "should"
+          ],
+          "after": [
+            "should"
+          ],
+          "basis": "Lexical cue inventory; not a semantic judgement."
+        },
+        {
+          "category": "condition-scope",
+          "message": "The words around unchanged condition cues changed. Their scope or attachment may have changed.",
+          "before": [
+            "recorded for teams or periods excluded when fitting the prediction rule keep predictions",
+            "the square the cross term vanishes because these identities hold for each task",
+            "missing labour and disputed retained-output scores if these changes reverse which group has"
+          ],
+          "after": [
+            "recorded for teams or periods excluded when fitting the prediction rule keep predictions",
+            "the square the cross term vanishes because these identities hold for each task",
+            "missing labour and disputed retained-output scores if plausible measurement errors reverse which group"
+          ],
+          "basis": "Six-token context windows; scope is not parsed or verified."
+        }
+      ],
+      "editorial_disposition": {
+        "reviewer": "/root",
+        "status": "REVIEWED",
+        "explanation": "All recognised protected content is identical. The discrepancy contains prediction and sampling error under the same identities. The last conditional now names plausible measurement errors rather than 'these changes'; no accuracy, covariance or coverage condition is removed."
+      },
+      "limits": [
+        "Protected-content equality checks recognised source spans and their order. It does not prove that a citation, equation or code example remains attached to the same claim.",
+        "Risk flags are conservative lexical observations. An empty flag list does not establish preservation of meaning, conditions, quantifier scope, logical force or factual accuracy.",
+        "Review the full revision and its surrounding argument. This tool never certifies semantic equivalence.",
+        "Sentence boundaries, acronym definitions and nominalisation candidates can be wrong. Counts describe the extracted prose, not necessarily the whole document.",
+        "Markdown and LaTeX projection supports a conservative subset. Excluded or uncertain constructs are retained in the source and reported where detected."
+      ]
+    },
+    {
+      "path": "paper/article/scalar-bounds.tex",
+      "baseline_sha256": "907c793b1f6511d6f34a8fc021f5ae43de280586cb32919db51be03846b31306",
+      "candidate_sha256": "0a653a5f2906630fb29d81650dfd785d45ebd2c49b23055d14a46d47e96f747f",
+      "engine": {
+        "name": "prose-workbench-lexical",
+        "version": "1.0.0"
+      },
+      "configuration": {
+        "format": "latex",
+        "knownTerms": [
+          "AI",
+          "confidence interval",
+          "Lean",
+          "linear programme",
+          "mathlib",
+          "person-hours",
+          "probability",
+          "sampling",
+          "SCH",
+          "variance"
+        ],
+        "language": "en-GB",
+        "sentenceBoundaryMethod": "punctuation-with-abbreviation-exceptions",
+        "longSentenceThreshold": 35,
+        "maxReportItems": 100
+      },
+      "before_metrics": {
+        "wordCount": 190,
+        "sentenceCount": 16,
+        "paragraphCount": 3,
+        "meanSentenceWords": 11.875,
+        "maxSentenceWords": 24,
+        "sentenceLengthVariance": 21.984,
+        "sentenceLengthStandardDeviation": 4.689,
+        "adjacentSentenceLexicalOverlap": 0.053,
+        "adjacentParagraphLexicalOverlap": 0.08,
+        "lexicalHandoffRate": 0.267,
+        "protectedSpanCount": 25
+      },
+      "after_metrics": {
+        "wordCount": 190,
+        "sentenceCount": 16,
+        "paragraphCount": 3,
+        "meanSentenceWords": 11.875,
+        "maxSentenceWords": 24,
+        "sentenceLengthVariance": 21.984,
+        "sentenceLengthStandardDeviation": 4.689,
+        "adjacentSentenceLexicalOverlap": 0.053,
+        "adjacentParagraphLexicalOverlap": 0.08,
+        "lexicalHandoffRate": 0.267,
+        "protectedSpanCount": 25
+      },
+      "metric_deltas": {
+        "wordCount": 0,
+        "sentenceCount": 0,
+        "paragraphCount": 0,
+        "meanSentenceWords": 0,
+        "maxSentenceWords": 0,
+        "sentenceLengthVariance": 0,
+        "sentenceLengthStandardDeviation": 0,
+        "adjacentSentenceLexicalOverlap": 0,
+        "adjacentParagraphLexicalOverlap": 0,
+        "lexicalHandoffRate": 0,
+        "protectedSpanCount": 0
+      },
+      "protected_content_unchanged": false,
+      "protected_differences": [
+        {
+          "kind": "latex-environment",
+          "preview": "\\begin{proposition}[Attainable cumulative bounds from graph distances] \\label{prop:graph-bounds} The scalar observations admit an allocation if and only if this graph has no direc…",
+          "beforeCount": 1,
+          "afterCount": 0
+        },
+        {
+          "kind": "latex-environment",
+          "preview": "\\begin{proof} Summing edge inequalities around a cycle gives $0$ at the left, so a negative cycle is inconsistent. Conversely, adjacent edges make every vertex reachable from ever…",
+          "beforeCount": 1,
+          "afterCount": 0
+        },
+        {
+          "kind": "latex-environment",
+          "preview": "\\begin{proposition}[Attainable cumulative bounds from graph distances] \\label{prop:graph-bounds} The observations for this single allocation function admit an allocation if and on…",
+          "beforeCount": 0,
+          "afterCount": 1
+        },
+        {
+          "kind": "latex-environment",
+          "preview": "\\begin{proof} Summing edge inequalities around a cycle gives $0$ at the left, so a negative cycle is inconsistent. Conversely, adjacent edges make every vertex reachable from ever…",
+          "beforeCount": 0,
+          "afterCount": 1
+        }
+      ],
+      "risk_flags": [],
+      "editorial_disposition": {
+        "reviewer": "/root",
+        "status": "REVIEWED",
+        "explanation": "The changed whole-proposition/proof protections reflect an explicit antecedent for feasible allocation and a semicolon split. Every formula, graph condition, direction, construction and extremum statement is unchanged. This legitimate prose edit is separately reviewed, not treated as an automatic protection pass."
+      },
+      "limits": [
+        "Protected-content equality checks recognised source spans and their order. It does not prove that a citation, equation or code example remains attached to the same claim.",
+        "Risk flags are conservative lexical observations. An empty flag list does not establish preservation of meaning, conditions, quantifier scope, logical force or factual accuracy.",
+        "Review the full revision and its surrounding argument. This tool never certifies semantic equivalence.",
+        "Sentence boundaries, acronym definitions and nominalisation candidates can be wrong. Counts describe the extracted prose, not necessarily the whole document.",
+        "Markdown and LaTeX projection supports a conservative subset. Excluded or uncertain constructs are retained in the source and reported where detected."
+      ]
+    },
+    {
+      "path": "paper/study/ai-labour-causal/causal-study.tex",
+      "baseline_sha256": "9b03d37b8d05df9def6be1c3103c6de8dc77de7a768c93811a99278d45636e7d",
+      "candidate_sha256": "9871ecbca23b95b6b2a4b17c2f07fab4915d544bb58ac9fefde667a1853184e8",
+      "engine": {
+        "name": "prose-workbench-lexical",
+        "version": "1.0.0"
+      },
+      "configuration": {
+        "format": "latex",
+        "knownTerms": [
+          "AI",
+          "confidence interval",
+          "Lean",
+          "linear programme",
+          "mathlib",
+          "person-hours",
+          "probability",
+          "sampling",
+          "SCH",
+          "variance"
+        ],
+        "language": "en-GB",
+        "sentenceBoundaryMethod": "punctuation-with-abbreviation-exceptions",
+        "longSentenceThreshold": 35,
+        "maxReportItems": 100
+      },
+      "before_metrics": {
+        "wordCount": 326,
+        "sentenceCount": 20,
+        "paragraphCount": 4,
+        "meanSentenceWords": 16.3,
+        "maxSentenceWords": 29,
+        "sentenceLengthVariance": 57.81,
+        "sentenceLengthStandardDeviation": 7.603,
+        "adjacentSentenceLexicalOverlap": 0.015,
+        "adjacentParagraphLexicalOverlap": 0.039,
+        "lexicalHandoffRate": 0.105,
+        "protectedSpanCount": 9
+      },
+      "after_metrics": {
+        "wordCount": 397,
+        "sentenceCount": 26,
+        "paragraphCount": 5,
+        "meanSentenceWords": 15.269,
+        "maxSentenceWords": 28,
+        "sentenceLengthVariance": 50.581,
+        "sentenceLengthStandardDeviation": 7.112,
+        "adjacentSentenceLexicalOverlap": 0.019,
+        "adjacentParagraphLexicalOverlap": 0.07,
+        "lexicalHandoffRate": 0.08,
+        "protectedSpanCount": 11
+      },
+      "metric_deltas": {
+        "wordCount": 71,
+        "sentenceCount": 6,
+        "paragraphCount": 1,
+        "meanSentenceWords": -1.031,
+        "maxSentenceWords": -1,
+        "sentenceLengthVariance": -7.229,
+        "sentenceLengthStandardDeviation": -0.491,
+        "adjacentSentenceLexicalOverlap": 0.004,
+        "adjacentParagraphLexicalOverlap": 0.031,
+        "lexicalHandoffRate": -0.025,
+        "protectedSpanCount": 2
+      },
+      "protected_content_unchanged": false,
+      "protected_differences": [
+        {
+          "kind": "latex-escape",
+          "preview": "\\%",
+          "beforeCount": 0,
+          "afterCount": 2
+        }
+      ],
+      "risk_flags": [
+        {
+          "category": "negation-scope",
+          "message": "The words around unchanged negation cues changed. Their scope or attachment may have changed.",
+          "before": [
+            "same ordinary development and review process without generative ai before choosing groups record",
+            "equal-team target record actual tool use without selecting the primary analysis by uptake",
+            "the labour total and gives them no retained output when they miss the",
+            "to detect a quality reduction does not meet that requirement the accompanying protocol",
+            "boundaries measurement bias and missing endpoints neither allocation meets the provisional joint-success target",
+            "allocation its observed treatment effect must not determine that choice these are specified",
+            "specified procedures and hypothetical planning calculations no causal workplace result is reported"
+          ],
+          "after": [
+            "same ordinary development and review process without generative ai before choosing groups record",
+            "equal-team target record actual tool use without selecting the primary analysis by uptake",
+            "in the labour total and contribute no retained output when they miss the",
+            "to detect a quality reduction does not meet that requirement the provisional criteria",
+            "including cases at each benefit boundary neither team count reaches the required 90",
+            "completeness its observed treatment effect must not determine that choice the experiment remains",
+            "unrun these hypothetical planning calculations report no causal workplace result"
+          ],
+          "basis": "Six-token context windows; scope is not parsed or verified."
+        },
+        {
+          "category": "modality",
+          "message": "The inventory of modality cues changed. Review the proposition and its scope.",
+          "before": [
+            "would",
+            "can",
+            "must",
+            "must"
+          ],
+          "after": [
+            "would",
+            "can",
+            "must",
+            "required",
+            "required",
+            "must",
+            "must"
+          ],
+          "basis": "Lexical cue inventory; not a semantic judgement."
+        },
+        {
+          "category": "quantifier",
+          "message": "The inventory of quantifier cues changed. Review the proposition and its scope.",
+          "before": [
+            "each",
+            "each",
+            "several",
+            "each",
+            "each"
+          ],
+          "after": [
+            "each",
+            "each",
+            "several",
+            "each",
+            "any",
+            "each",
+            "each"
+          ],
+          "basis": "Lexical cue inventory; not a semantic judgement."
+        },
+        {
+          "category": "condition",
+          "message": "The inventory of condition cues changed. Review the proposition and its scope.",
+          "before": [
+            "if",
+            "when",
+            "therefore"
+          ],
+          "after": [
+            "if",
+            "when"
+          ],
+          "basis": "Lexical cue inventory; not a semantic judgement."
+        },
+        {
+          "category": "quantity",
+          "message": "Numerical text changed. Check values, signs, units, ranges and the objects they describe.",
+          "before": [
+            "14",
+            "48",
+            "96"
+          ],
+          "after": [
+            "97.5",
+            "0.2",
+            "0.01",
+            "14",
+            "48",
+            "96",
+            "90"
+          ],
+          "basis": "Numeric surface forms in extracted prose; mathematical spans are checked separately."
+        },
+        {
+          "category": "known-terms",
+          "message": "The occurrence counts of declared terms changed. Check whether the revision preserves their referents and intended use.",
+          "before": [
+            "person-hours: 0",
+            "probability: 0"
+          ],
+          "after": [
+            "person-hours: 1",
+            "probability: 1"
+          ],
+          "basis": "Case-insensitive word-token sequences; spelling, hyphenation and term scope require review."
+        }
+      ],
+      "editorial_disposition": {
+        "reviewer": "/root",
+        "status": "REVIEWED",
+        "explanation": "New percent escapes/numerals expose existing protocol constants: one-sided97.5% bounds,0.2hour/reference-unit and0.01 fraction allowances,90% joint-success target. All are provisional, with empirical validation and all-endpoints rules retained. Specified/unrun status and simulated-only conclusions are explicit."
+      },
+      "limits": [
+        "Protected-content equality checks recognised source spans and their order. It does not prove that a citation, equation or code example remains attached to the same claim.",
+        "Risk flags are conservative lexical observations. An empty flag list does not establish preservation of meaning, conditions, quantifier scope, logical force or factual accuracy.",
+        "Review the full revision and its surrounding argument. This tool never certifies semantic equivalence.",
+        "Sentence boundaries, acronym definitions and nominalisation candidates can be wrong. Counts describe the extracted prose, not necessarily the whole document.",
+        "Markdown and LaTeX projection supports a conservative subset. Excluded or uncertain constructs are retained in the source and reported where detected."
+      ]
+    }
+  ],
+  "tooling_limits": [
+    "Native wording scanner and refine text_lab/linguistic_core resources failed to load; contextual review and hosted deterministic analysis were used. No bundled scanner/CLI execution is claimed.",
+    "Hosted extraction excludes complete proof/proposition/equation environments and caps returned observation lists; manual full-source and separate mathematical checks cover those passages.",
+    "Model editorial and agent-answer checks are not measured human comprehension or a proof of equivalence."
+  ]
+}

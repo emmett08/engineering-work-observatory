@@ -1,0 +1,184 @@
+{
+  "baseline": "5936f2c28fd075217b679c0b2ad3aba57b9801f3",
+  "status": "PASS",
+  "checks": [
+    {
+      "path": "paper/article/main.tex",
+      "baseline_sha256": "ce9192eb83942af7fc2779065bb8a84d37addb84f5b3db5e7c1b9a28eaad3ad0",
+      "candidate_sha256": "b6060ee82d09d45dc60cb6b02c73dd8346f0a97f2f6a2084f6a40691b02b06b3",
+      "math": {
+        "unchanged": true,
+        "count": 48
+      },
+      "citations": {
+        "unchanged": true,
+        "count": 9
+      },
+      "labels": {
+        "unchanged": true,
+        "count": 12
+      },
+      "inputs": {
+        "unchanged": true,
+        "count": 6
+      },
+      "references": {
+        "original_sequence_unchanged": true,
+        "added": [
+          "sec:causal-experiment"
+        ]
+      }
+    },
+    {
+      "path": "paper/article/event-history.tex",
+      "baseline_sha256": "109478fc3dec578c5b41c2609b686893848b8bf31381b8c686405bc789d6a063",
+      "candidate_sha256": "9f4cdc267c248e517df40658744241141f2cdba7029f9c46bcd62ffa80a3ec33",
+      "math": {
+        "unchanged": true,
+        "count": 3
+      },
+      "citations": {
+        "unchanged": true,
+        "count": 0
+      },
+      "labels": {
+        "unchanged": true,
+        "count": 1
+      },
+      "inputs": {
+        "unchanged": true,
+        "count": 0
+      },
+      "references": {
+        "original_sequence_unchanged": true,
+        "added": []
+      }
+    },
+    {
+      "path": "paper/article/partial-identification.tex",
+      "baseline_sha256": "9fa0f67b732dea619417902459d3854e7cc211253f918a5b7f0f1f74e2391716",
+      "candidate_sha256": "574287fea71e64e8078b6593d15ce3e004ce502c4c2ed59700a3d28b465682c6",
+      "math": {
+        "unchanged": true,
+        "count": 106
+      },
+      "citations": {
+        "unchanged": true,
+        "count": 6
+      },
+      "labels": {
+        "unchanged": true,
+        "count": 11
+      },
+      "inputs": {
+        "unchanged": true,
+        "count": 2
+      },
+      "references": {
+        "original_sequence_unchanged": true,
+        "added": []
+      }
+    },
+    {
+      "path": "paper/article/design-based-estimation.tex",
+      "baseline_sha256": "d3595154e1b0fcc5fdfeaf27c6b7aa30ac464becb8134998192c19a0f07024e8",
+      "candidate_sha256": "89756222dd144a9ac9fd5317f23216acf67311de346ad87870ffb3b49f14aeb0",
+      "math": {
+        "unchanged": true,
+        "count": 63
+      },
+      "citations": {
+        "unchanged": true,
+        "count": 3
+      },
+      "labels": {
+        "unchanged": true,
+        "count": 9
+      },
+      "inputs": {
+        "unchanged": true,
+        "count": 0
+      },
+      "references": {
+        "original_sequence_unchanged": true,
+        "added": []
+      }
+    },
+    {
+      "path": "paper/article/sampling-validation.tex",
+      "baseline_sha256": "2973ca7a3ba88d1e840b4e29e104b0d94a962681ccf1199349dbd7d7a4347355",
+      "candidate_sha256": "50331455dd4027b685252eb71cfec11dac177bdd1b5a5b97618311b15aabb694",
+      "math": {
+        "unchanged": true,
+        "count": 17
+      },
+      "citations": {
+        "unchanged": true,
+        "count": 0
+      },
+      "labels": {
+        "unchanged": true,
+        "count": 0
+      },
+      "inputs": {
+        "unchanged": true,
+        "count": 0
+      },
+      "references": {
+        "original_sequence_unchanged": true,
+        "added": []
+      }
+    },
+    {
+      "path": "paper/article/scalar-bounds.tex",
+      "baseline_sha256": "907c793b1f6511d6f34a8fc021f5ae43de280586cb32919db51be03846b31306",
+      "candidate_sha256": "0a653a5f2906630fb29d81650dfd785d45ebd2c49b23055d14a46d47e96f747f",
+      "math": {
+        "unchanged": true,
+        "count": 37
+      },
+      "citations": {
+        "unchanged": true,
+        "count": 1
+      },
+      "labels": {
+        "unchanged": true,
+        "count": 3
+      },
+      "inputs": {
+        "unchanged": true,
+        "count": 0
+      },
+      "references": {
+        "original_sequence_unchanged": true,
+        "added": []
+      }
+    },
+    {
+      "path": "paper/study/ai-labour-causal/causal-study.tex",
+      "baseline_sha256": "9b03d37b8d05df9def6be1c3103c6de8dc77de7a768c93811a99278d45636e7d",
+      "candidate_sha256": "9871ecbca23b95b6b2a4b17c2f07fab4915d544bb58ac9fefde667a1853184e8",
+      "math": {
+        "unchanged": true,
+        "count": 2
+      },
+      "citations": {
+        "unchanged": true,
+        "count": 5
+      },
+      "labels": {
+        "unchanged": true,
+        "count": 1
+      },
+      "inputs": {
+        "unchanged": true,
+        "count": 0
+      },
+      "references": {
+        "original_sequence_unchanged": true,
+        "added": []
+      }
+    }
+  ],
+  "limits": "Exact regular-expression inventories plus manual editorial review; not a full TeX parser or proof of semantic equivalence."
+}

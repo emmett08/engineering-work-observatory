@@ -1,25 +1,28 @@
 {
   "schema": "current-manuscript-concordance/1",
   "repository_relative_path": "paper/article/partial-identification.tex",
-  "sha256": "9fa0f67b732dea619417902459d3854e7cc211253f918a5b7f0f1f74e2391716",
+  "sha256": "574287fea71e64e8078b6593d15ce3e004ce502c4c2ed59700a3d28b465682c6",
   "frozen_target": {
     "path": "targets/partial-identification.tex",
     "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
     "origin_commit": "38c4ce40b789d4c5420c98ff1d568b39c3b1e798"
   },
   "independent_review": {
-    "reviewer": "/root/proof_fidelity",
+    "reviewer": "/root/formal_guard",
     "outcome": "MATHEMATICAL_STATEMENTS_UNCHANGED",
     "report": {
-      "path": "evidence/current-manuscript-review.md",
-      "sha256": "f2184b36e91b1282124b5cb13db75cfad5e2843b2d1a3322c5bcec8c7f120dd3"
+      "path": "evidence/current-manuscript-editorial-review.md",
+      "sha256": "d631b21efbf296aed27104d2cd19c3debcec3ba7903b544a0067bbe1a77ae6f7"
     },
     "differences": [
-      "Timeline panel callout sentence.",
-      "Contextual Dvoretzky-Wald-Wolfowitz/Khan-Rath-Sun attribution and citations.",
-      "Formal coverage paragraph accurately naming checked components and exclusions."
+      "Identified-range opening and simultaneous attainment conditions stated directly.",
+      "Observation group membership and sampling-uncertainty warning clarified.",
+      "Binary reconstruction proof sentence split; mathematical construction and proof steps preserved.",
+      "Purification citation punctuation and sensitivity/coverage explanations clarified without changing scope.",
+      "Formal coverage described through integral sums, capacity, serial schedules, supplied multipliers and conditional coverage; explicit Rust-source exclusion retained.",
+      "Earlier timeline callout, purification attributions and formal-supplement paragraph remain relative to frozen target."
     ],
-    "statement_preservation": "Existing mathematical definitions, hypotheses, propositions, equations and proof text are unchanged."
+    "statement_preservation": "Mathematical definitions, hypotheses, proposition statements, equations, proof steps and formal-scope boundaries retain their meaning. Mathematical spans, full proposition environments and labels are byte-identical to both the previous current article and immutable target. Proof prose contains a sentence split and is semantically preserved, not byte-identical."
   },
   "invalidation": "A current-article byte change requires renewed current concordance/hash binding. A proof-source change requires renewed proof/source review and checking. This record does not identify current bytes with frozen target bytes."
 }
