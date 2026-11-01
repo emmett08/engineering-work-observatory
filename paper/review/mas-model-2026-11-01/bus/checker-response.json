@@ -1,0 +1,55 @@
+{
+  "messages": [
+    {
+      "recipient": "formulator",
+      "payload": {
+        "consumed_inbox_message_ids": [
+          "f5defb817f33f8f7bca33d33ba9ad503bc11f5ca8879836dce9682477a9f5bdb",
+          "a7787a3878505f1b4343d867c4dec4875d81b39c603baa8f08bf3146e8d0b821",
+          "5d77563e15926a0205dbaeacfc9fc032f7f16ba5fd46ca2753ffa16ee28108a7",
+          "3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737"
+        ],
+        "report_path": "/workspace/work/mas-paper-20261101/checker-final.md",
+        "proof_status": "Independent written proof and source-hypothesis review; no machine certification or empirical validation.",
+        "verdict": "Recommend candidate with minor endpoint and row-specific relaxation clarifications.",
+        "findings": {
+          "serial_attainment": "Valid for every feasible x and every cell-linear target; binary histories preserve the entire feasible target image. For intermediate values interpolate feasible cell vectors and serialise anew; do not interpolate binary histories.",
+          "finite_switch_bound": "At most K(S+1) blocks per person and K(S+1)-1 internal switches with consistent endpoint convention; final endpoint may take final block value.",
+          "aggregation": "Valid within fixed person-cell for exact matching observation and every retained target column, subject to baseline lift; no worst-case reduction.",
+          "dual": "For P={x>=0:Ax<=b}, lambda,mu>=0 with A^T lambda>=w and A^T mu>=-w correctly certify -mu^T b<=w^T x<=lambda^T b. Feasible bounded LP strong duality supplies tight certificates without strict feasibility.",
+          "perturbation": "For e>=0 same witnesses certify [-mu^T(b+e),lambda^T(b+e)] and P subset P_e. Set e=0 on deterministic capacity rows when describing measurement uncertainty. No derivative or exact marginal-value claim.",
+          "source_correspondence": "Independently inspected Boyd-Vandenberghe 5.2.3-5.2.4 and 5.6.2; KRS Section 2 Theorem DWW text supports finite atomless purification attribution, but serial proof provides finite-piece bound itself.",
+          "recommendation": "Retain LP, scalar graph and fixed-prediction estimator; concise strengthening is preferable to replacement."
+        },
+        "implementation_correspondence": "Explicitly authorised current partial-identification.tex and main.tex abstract inspected. Full-range interpolation/reconstruction, dual signs, unchanged-row perturbation zeros, simultaneous coverage and empty-set handling match reviewed statements; no substantive mismatch. Final endpoint convention is harmless and coordinator plans literal block-count clarification.",
+        "additional_peer_review": "Formulator message 3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737 consumed; statements and limits agree with independent evaluation."
+      }
+    },
+    {
+      "recipient": "challenger",
+      "payload": {
+        "consumed_inbox_message_ids": [
+          "f5defb817f33f8f7bca33d33ba9ad503bc11f5ca8879836dce9682477a9f5bdb",
+          "a7787a3878505f1b4343d867c4dec4875d81b39c603baa8f08bf3146e8d0b821",
+          "5d77563e15926a0205dbaeacfc9fc032f7f16ba5fd46ca2753ffa16ee28108a7",
+          "3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737"
+        ],
+        "report_path": "/workspace/work/mas-paper-20261101/checker-final.md",
+        "proof_status": "Independent written proof and source-hypothesis review; no machine certification or empirical validation.",
+        "verdict": "Recommend candidate with minor endpoint and row-specific relaxation clarifications.",
+        "findings": {
+          "serial_attainment": "Full-attention construction and full-range preservation pass; convex interpolation occurs in cell space followed by reserialisation. Finite block count requires harmless endpoint convention.",
+          "counterexamples": "Determinant -2, interrupted-session, unequal-probability variance (64/9 versus 9), coupled-ratio and zero-denominator cases all pass independent checking.",
+          "confidence_projection": "Correct when observation intervals have simultaneous coverage and true history obeys deterministic assumptions; empty random P is an empty result on coverage failure, not a zero-width interval. No conditional coverage or empirical validity inferred.",
+          "estimator_extensions": "No-uniform-SRS-improvement, predictor-clipping counterexample, reciprocal-ratio bias and bounded-measurement-error triangle inequality pass. Independently inspected Bardenet-Maillard Corollary 2.5; stated rho and two-sided halfwidth are correct for fixed residual population under SRS.",
+          "ratio_decision": "Defer linear-fractional extension until evidenced joint output-labour feasible constraints exist. Fixed-Q positive-denominator inversion already exact.",
+          "limits": "No machine certification; no full original DWW proof audit; optional scheduling/aggregation papers not independently re-audited and are unnecessary proof dependencies."
+        },
+        "implementation_correspondence": "Explicitly authorised current partial-identification.tex and main.tex abstract inspected. Full-range interpolation/reconstruction, dual signs, unchanged-row perturbation zeros, simultaneous coverage and empty-set handling match reviewed statements; no substantive mismatch. Final endpoint convention is harmless and coordinator plans literal block-count clarification.",
+        "additional_peer_review": "Formulator message 3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737 consumed; statements and limits agree with independent evaluation."
+      }
+    }
+  ],
+  "objects": [],
+  "note": "Consumed all four actual inbox IDs listed in both payloads. Independently reviewed candidate and authorised current implementation; no substantive mathematical discrepancy. Endpoint convention is harmless; no machine or empirical certification."
+}

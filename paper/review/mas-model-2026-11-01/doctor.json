@@ -1,0 +1,112 @@
+{
+  "dependencies": {
+    "mcp": "1.29.0"
+  },
+  "host_assisted": {
+    "api_key_required": false,
+    "requires": "actual separate native agents supplied by the Work host"
+  },
+  "mode": "browser GPT Work cloud executor by default; optional local CLI/MCP",
+  "proof": {
+    "command": "elan toolchain install leanprover/lean4:v4.33.1",
+    "generated_proof_acceptance": "UNAVAILABLE_ISOLATED_COMPARATOR",
+    "reason": "Lean executable is absent",
+    "required_version": "4.33.1",
+    "status": "UNAVAILABLE_TOOL"
+  },
+  "protocol": {
+    "available": true,
+    "binary": "/workspace/work/mas-paper-20261101/runtime/protocol-rs/target/release/mas-protocol",
+    "binary_sha256": "2a042399f9b4bd1343a76cd7f36c775cab280c61848f78480f7554a42884025d",
+    "build_command": "cargo build --release --locked --manifest-path protocol-rs/Cargo.toml",
+    "formal_implementation_proof": "unavailable",
+    "implementation": "Rust/nom",
+    "nom_version": "8.0.0",
+    "source_sha256": "f417b053ca220817b2fdf7d560993e4503a7b5c9bbfe3de56a4fa689ce3dc76a"
+  },
+  "provider": {
+    "api_key_configured": true,
+    "live_run": "unavailable without key/model/verified upper prices",
+    "worker_model": null
+  },
+  "runtime": "Python 3.12.14",
+  "theory": {
+    "arbitrary_lean_modules": "REQUIRE_EXTERNAL_ISOLATED_COMPARATOR; no receipt-import bypass",
+    "checker": {
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "sources": {
+        "cloud.py": "488315ac338e1b9d85278e34ff10a22b36975bcbc7171cc8f5a3b31723fff9bc",
+        "protocol-rs/Cargo.lock": "36054d05ade1e47b5ef91eebb012d0f0dfbc26130ddf51fda48bfaba9f2e3f1b",
+        "protocol-rs/src/lib.rs": "7dca9d59c05bdea8c5e59c4e5c498927dd431f48d15a42c0904de28d38f0defe",
+        "protocol-rs/src/main.rs": "6d5f61e1e9736ae63dba00222fb046c88ab7f637a406fb9f0a875c4acb3be146",
+        "run.py": "8b79b4ac4ca4f3e9b68567f86a1bd0afe6caeeb175d4fe44ea74138e29fb3421",
+        "runtime/mas_lab/protocol.py": "378079096f7b808dbe4253b0043fabfe346571d8d3ccd42f4a746a86c49a2198",
+        "runtime/mas_lab/runtime.py": "6ca02cec54a474d3d769422e326f0cfcf15dbf9175ec1e3f86fc0144c7dfadaf",
+        "runtime/mas_lab/server.py": "97b42a59e89fffa668869d5649f4e544b7b22f0e5bce6a6a70ea591dcf52e158",
+        "runtime/mas_lab/store.py": "b4a110e34c6d444b8196fbcf1d50986de49231aebe8da12370f5ee015a8ff498",
+        "runtime/mas_lab/theory.py": "502acb4b8a7efd947d25f5f7394e32eca1b629c48ae8dcffdf8b9021ca62c5e7",
+        "runtime/mas_lab/verification.py": "d05b5f8f85a32868e5be345ce7b3d8009a628f26454e0a137dacff20c8146897"
+      },
+      "version": "mas-theory-admission/1"
+    },
+    "protocol_implementation_relation": "LEAN_CANONICAL_CHECKED with Python/Rust adapters TESTED_ONLY",
+    "registry": {
+      "axioms": [],
+      "claims": {
+        "1": {
+          "formal_target": "RegisteredTheory.registry.meaning 1",
+          "statement": "For all n,a,b : Nat, A^n(a,b) = (a+n*b,b), where A=((1,1),(0,1))."
+        },
+        "2": {
+          "formal_target": "RegisteredTheory.registry.meaning 2",
+          "statement": "For all n,a,b : Nat, the second coordinate of A^n(a,b) is b."
+        },
+        "3": {
+          "formal_target": "RegisteredTheory.registry.meaning 3",
+          "statement": "For all n : Nat, 2 <= first(A^n(2,3)) <= 2+4*n, using exact integer casts."
+        },
+        "4": {
+          "formal_target": "RegisteredTheory.registry.meaning 4",
+          "statement": "For all n : Nat, A^n(0,1) = (n,1)."
+        }
+      },
+      "declaration": "RegisteredTheory.registry",
+      "model": "For every target ID, exact integer cast of first(MatrixTheory.orbit point (2,3)); bounds [2, 2+4*point].",
+      "proof_constants": [
+        "MatrixTheory.orbit_closed_form",
+        "MatrixTheory.second_invariant",
+        "MatrixTheory.concrete_int_bounds",
+        "MatrixTheory.unit_orbit",
+        "Eq.refl",
+        "And.intro",
+        "True.intro",
+        "Nat.add_comm"
+      ],
+      "revision": "shear-matrix/1",
+      "schema": "mas-theory-registry/1",
+      "scope": "The four supplied universal natural-number shear claims. New registries require evaluator-reviewed source and a new revision; worker source cannot redefine targets.",
+      "sha256": "66817f97489854dd23c20d4844210f931621551728ba2fb525e09ed4043d691f",
+      "source_hashes": {
+        "MatrixTheory.lean": "c68910819a0ec03dca0f6f0860316d20bffd806f238ba2bc000bcfb6bb420462",
+        "RegisteredTheory.lean": "e2777b8145d333f45da30908e9fd3c9f4cbed913106ab4e34461cb466b4b3de9",
+        "TheoryProtocol.lean": "227b5e86349e3454f8ce5064a524728bb3c3484c807d4f4abb16d1012f063ea8",
+        "lake-manifest.json": "03141c5fee216a578d1848d18623c8e87c02ee909b6131f6306c36b0adb89b55",
+        "lakefile.toml": "07eeacbef48c5cd83d46e8d66c6434ca6ef915eb92b7c1d4cd71bbbcb68b9992",
+        "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+      }
+    },
+    "status": "UNAVAILABLE_PINNED_TOOLCHAIN",
+    "toolchain": {
+      "command": "elan toolchain install leanprover/lean4:v4.33.1",
+      "generated_proof_acceptance": "UNAVAILABLE_ISOLATED_COMPARATOR",
+      "reason": "Lean executable is absent",
+      "required_version": "4.33.1",
+      "status": "UNAVAILABLE_TOOL"
+    },
+    "work_execution": "cloud CLI; separate native proposer/checker contexts"
+  }
+}

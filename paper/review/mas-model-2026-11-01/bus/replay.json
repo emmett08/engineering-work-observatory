@@ -1,0 +1,969 @@
+{
+  "mode": "recorded response replay; no new model calls",
+  "integrity": true,
+  "scope": [
+    "transport and payload"
+  ],
+  "messages": 10,
+  "events": 44,
+  "snapshot": {
+    "run": {
+      "id": "73f2f5977c5349f3a110c4d50d2acfcc",
+      "question": "Can the current labour-bounds and sampled-labour paper use a simpler, more robust mathematical formulation without changing its targets or unsupported empirical assumptions? Compare published results, prove or refute concrete candidates, and retain limits.",
+      "created": 1793542755.5335653,
+      "deadline": 1793545455.5335653,
+      "limits_json": "{\"calls\":12,\"seconds\":2700,\"tokens\":120000,\"usd\":1}",
+      "spent_tokens": 0,
+      "spent_usd": 0.0,
+      "spent_calls": 0,
+      "active_version": "1.0",
+      "episode_active": 0
+    },
+    "agents": [
+      "challenger",
+      "checker",
+      "estimator",
+      "formulator"
+    ],
+    "messages": [
+      {
+        "id": "f5defb817f33f8f7bca33d33ba9ad503bc11f5ca8879836dce9682477a9f5bdb",
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "sender": "formulator",
+        "recipient": "checker",
+        "version": "1.0",
+        "wire": "message \"1.0\" {\"id\":\"f5defb817f33f8f7bca33d33ba9ad503bc11f5ca8879836dce9682477a9f5bdb\",\"payload\":{\"aggregation_statement\":\"Within each fixed person-cell capacity block, merge only variables with identical columns across all observation and retained target rows. Their sum is the aggregate variable; lifting all mass to one representative proves exact equality of feasible target sets, infeasibility and extrema. Include any additional individual constraints in the signature/lift.\",\"checks_path\":\"/workspace/work/mas-paper-20261101/formulator-check-results.json\",\"exact_statement\":\"For every feasible cell vector x in the baseline model, there is a finite-piece measurable history with each a_ijr in {0,1} and sum_ir a_ijr<=1 for every person, preserving every stream cell integral and every cell-linear target. Partition each person-cell consecutively into stream blocks of lengths x_ijrk and an idle remainder. Conversely these histories are admissible, hence their feasible cell/target sets equal the baseline sets. This requires arbitrary preemption and no minimum-session, switching, synchronisation or extra pointwise constraints; it does not imply integral cell totals.\",\"findings_path\":\"/workspace/work/mas-paper-20261101/formulator-findings.md\",\"finite_checks\":{\"arithmetic\":\"exact Fraction\",\"determinant\":-2,\"serialisation_cases\":165,\"status\":\"finite checks only; paper proof awaits independent review\"},\"kind\":\"formulation_proposal\",\"network_counterexample\":\"One person, one [0,2] cell, streams A,B,C, observations A+B=A+C=B+C=1: matrix determinant -2, unique x=(1/2,1/2,1/2), sum=3/2<=2. Thus the arbitrary-group observation matrix is not automatically TU and integral-data cell totals need not be integral. This refutes a blanket original-matrix integral-flow claim, not all possible extended network representations.\",\"proof\":\"For each j,k order streams and assign stream s the half-open interval from b_(k-1)+sum_(t<s)x_tjk to b_(k-1)+sum_(t<=s)x_tjk. Capacity fits these disjoint blocks in the cell. Their lengths are exactly x; all observations and targets are sums of these preserved integrals. Binary histories are a subset of fractional histories.\",\"proof_obligations\":[\"Independently review serialisation and observational scope; do not infer binary cell totals.\",\"Review equal-column lift under exactly baseline constraints.\",\"Review no-interruption and matrix-TU counterexamples.\",\"No empirical or formal acceptance is claimed.\"],\"published_comparators\":[{\"doi\":\"10.1007/s00182-005-0004-3\",\"name\":\"Khan, Rath and Sun 2006, Section 2 Theorem DWW; author manuscript inspected\",\"relation\":\"Published atomless finite-action purification; serial construction is elementary finite-partition case.\",\"url\":\"https://www.researchgate.net/publication/24058874_The_Dvoretzky-Wald-Wolfowitz_theorem_and_purification_in_atomless_finite-action_games\"},{\"doi\":\"10.1287/mnsc.6.1.1\",\"name\":\"McNaughton 1959 Section 2 p.4, Theorem 2.2; primary scan inspected\",\"relation\":\"No splitting under its special completion-loss objective does not extend to observed cell totals; (1/2,0,1/2) rules out single uninterrupted session.\",\"url\":\"https://www.columbia.edu/~cs2035/courses/ieor6400.F07/mcn1.pdf\"},{\"name\":\"Miller 1966 pp.52-57 and Lee 1966 pp.58-61 primary reprint inspected\",\"relation\":\"Exact optimisation aggregation requires conditions; equal-column projection/lift is directly proved and avoids representative-person assumptions.\",\"url\":\"https://upload.wikimedia.org/wikipedia/commons/3/37/Exact_aggregation_in_linear_programming_models_%28microform%29._-_%28IA_exactaggregation300unse%29.pdf\"}],\"recommendation\":\"Retain joint LP. Adopt serial attainment corollary and narrow claim that fractional instantaneous allocations are necessary; optionally use equal-column preprocessing. Reject unproved pooling, no-interruption restriction and universal graph replacement.\"},\"protocol\":\"1.0\",\"recipient\":\"checker\",\"run_id\":\"73f2f5977c5349f3a110c4d50d2acfcc\",\"sender\":\"formulator\",\"transport\":\"mas-envelope/1\"}",
+        "object_hash": "5c13fadc3cd945b90591a683212d64d89bc5ad47fb9833bde7e58a1bed29f1e0",
+        "created": 1793543110.657369,
+        "ack": 1,
+        "attempts": 3,
+        "last_delivery": 1793543324.5326798,
+        "payload": {
+          "aggregation_statement": "Within each fixed person-cell capacity block, merge only variables with identical columns across all observation and retained target rows. Their sum is the aggregate variable; lifting all mass to one representative proves exact equality of feasible target sets, infeasibility and extrema. Include any additional individual constraints in the signature/lift.",
+          "checks_path": "/workspace/work/mas-paper-20261101/formulator-check-results.json",
+          "exact_statement": "For every feasible cell vector x in the baseline model, there is a finite-piece measurable history with each a_ijr in {0,1} and sum_ir a_ijr<=1 for every person, preserving every stream cell integral and every cell-linear target. Partition each person-cell consecutively into stream blocks of lengths x_ijrk and an idle remainder. Conversely these histories are admissible, hence their feasible cell/target sets equal the baseline sets. This requires arbitrary preemption and no minimum-session, switching, synchronisation or extra pointwise constraints; it does not imply integral cell totals.",
+          "findings_path": "/workspace/work/mas-paper-20261101/formulator-findings.md",
+          "finite_checks": {
+            "arithmetic": "exact Fraction",
+            "determinant": -2,
+            "serialisation_cases": 165,
+            "status": "finite checks only; paper proof awaits independent review"
+          },
+          "kind": "formulation_proposal",
+          "network_counterexample": "One person, one [0,2] cell, streams A,B,C, observations A+B=A+C=B+C=1: matrix determinant -2, unique x=(1/2,1/2,1/2), sum=3/2<=2. Thus the arbitrary-group observation matrix is not automatically TU and integral-data cell totals need not be integral. This refutes a blanket original-matrix integral-flow claim, not all possible extended network representations.",
+          "proof": "For each j,k order streams and assign stream s the half-open interval from b_(k-1)+sum_(t<s)x_tjk to b_(k-1)+sum_(t<=s)x_tjk. Capacity fits these disjoint blocks in the cell. Their lengths are exactly x; all observations and targets are sums of these preserved integrals. Binary histories are a subset of fractional histories.",
+          "proof_obligations": [
+            "Independently review serialisation and observational scope; do not infer binary cell totals.",
+            "Review equal-column lift under exactly baseline constraints.",
+            "Review no-interruption and matrix-TU counterexamples.",
+            "No empirical or formal acceptance is claimed."
+          ],
+          "published_comparators": [
+            {
+              "doi": "10.1007/s00182-005-0004-3",
+              "name": "Khan, Rath and Sun 2006, Section 2 Theorem DWW; author manuscript inspected",
+              "relation": "Published atomless finite-action purification; serial construction is elementary finite-partition case.",
+              "url": "https://www.researchgate.net/publication/24058874_The_Dvoretzky-Wald-Wolfowitz_theorem_and_purification_in_atomless_finite-action_games"
+            },
+            {
+              "doi": "10.1287/mnsc.6.1.1",
+              "name": "McNaughton 1959 Section 2 p.4, Theorem 2.2; primary scan inspected",
+              "relation": "No splitting under its special completion-loss objective does not extend to observed cell totals; (1/2,0,1/2) rules out single uninterrupted session.",
+              "url": "https://www.columbia.edu/~cs2035/courses/ieor6400.F07/mcn1.pdf"
+            },
+            {
+              "name": "Miller 1966 pp.52-57 and Lee 1966 pp.58-61 primary reprint inspected",
+              "relation": "Exact optimisation aggregation requires conditions; equal-column projection/lift is directly proved and avoids representative-person assumptions.",
+              "url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Exact_aggregation_in_linear_programming_models_%28microform%29._-_%28IA_exactaggregation300unse%29.pdf"
+            }
+          ],
+          "recommendation": "Retain joint LP. Adopt serial attainment corollary and narrow claim that fractional instantaneous allocations are necessary; optionally use equal-column preprocessing. Reject unproved pooling, no-interruption restriction and universal graph replacement."
+        },
+        "integrity_scope": "transport and payload"
+      },
+      {
+        "id": "aa57cca78767995878b70fe3336e54e77938675ae69c87cd717db3c9100c5e45",
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "sender": "formulator",
+        "recipient": "challenger",
+        "version": "1.0",
+        "wire": "message \"1.0\" {\"id\":\"aa57cca78767995878b70fe3336e54e77938675ae69c87cd717db3c9100c5e45\",\"payload\":{\"aggregation_statement\":\"Within each fixed person-cell capacity block, merge only variables with identical columns across all observation and retained target rows. Their sum is the aggregate variable; lifting all mass to one representative proves exact equality of feasible target sets, infeasibility and extrema. Include any additional individual constraints in the signature/lift.\",\"checks_path\":\"/workspace/work/mas-paper-20261101/formulator-check-results.json\",\"exact_statement\":\"For every feasible cell vector x in the baseline model, there is a finite-piece measurable history with each a_ijr in {0,1} and sum_ir a_ijr<=1 for every person, preserving every stream cell integral and every cell-linear target. Partition each person-cell consecutively into stream blocks of lengths x_ijrk and an idle remainder. Conversely these histories are admissible, hence their feasible cell/target sets equal the baseline sets. This requires arbitrary preemption and no minimum-session, switching, synchronisation or extra pointwise constraints; it does not imply integral cell totals.\",\"findings_path\":\"/workspace/work/mas-paper-20261101/formulator-findings.md\",\"finite_checks\":{\"arithmetic\":\"exact Fraction\",\"determinant\":-2,\"serialisation_cases\":165,\"status\":\"finite checks only; paper proof awaits independent review\"},\"kind\":\"formulation_proposal\",\"network_counterexample\":\"One person, one [0,2] cell, streams A,B,C, observations A+B=A+C=B+C=1: matrix determinant -2, unique x=(1/2,1/2,1/2), sum=3/2<=2. Thus the arbitrary-group observation matrix is not automatically TU and integral-data cell totals need not be integral. This refutes a blanket original-matrix integral-flow claim, not all possible extended network representations.\",\"proof\":\"For each j,k order streams and assign stream s the half-open interval from b_(k-1)+sum_(t<s)x_tjk to b_(k-1)+sum_(t<=s)x_tjk. Capacity fits these disjoint blocks in the cell. Their lengths are exactly x; all observations and targets are sums of these preserved integrals. Binary histories are a subset of fractional histories.\",\"proof_obligations\":[\"Independently review serialisation and observational scope; do not infer binary cell totals.\",\"Review equal-column lift under exactly baseline constraints.\",\"Review no-interruption and matrix-TU counterexamples.\",\"No empirical or formal acceptance is claimed.\"],\"published_comparators\":[{\"doi\":\"10.1007/s00182-005-0004-3\",\"name\":\"Khan, Rath and Sun 2006, Section 2 Theorem DWW; author manuscript inspected\",\"relation\":\"Published atomless finite-action purification; serial construction is elementary finite-partition case.\",\"url\":\"https://www.researchgate.net/publication/24058874_The_Dvoretzky-Wald-Wolfowitz_theorem_and_purification_in_atomless_finite-action_games\"},{\"doi\":\"10.1287/mnsc.6.1.1\",\"name\":\"McNaughton 1959 Section 2 p.4, Theorem 2.2; primary scan inspected\",\"relation\":\"No splitting under its special completion-loss objective does not extend to observed cell totals; (1/2,0,1/2) rules out single uninterrupted session.\",\"url\":\"https://www.columbia.edu/~cs2035/courses/ieor6400.F07/mcn1.pdf\"},{\"name\":\"Miller 1966 pp.52-57 and Lee 1966 pp.58-61 primary reprint inspected\",\"relation\":\"Exact optimisation aggregation requires conditions; equal-column projection/lift is directly proved and avoids representative-person assumptions.\",\"url\":\"https://upload.wikimedia.org/wikipedia/commons/3/37/Exact_aggregation_in_linear_programming_models_%28microform%29._-_%28IA_exactaggregation300unse%29.pdf\"}],\"recommendation\":\"Retain joint LP. Adopt serial attainment corollary and narrow claim that fractional instantaneous allocations are necessary; optionally use equal-column preprocessing. Reject unproved pooling, no-interruption restriction and universal graph replacement.\"},\"protocol\":\"1.0\",\"recipient\":\"challenger\",\"run_id\":\"73f2f5977c5349f3a110c4d50d2acfcc\",\"sender\":\"formulator\",\"transport\":\"mas-envelope/1\"}",
+        "object_hash": "836ddb6bdd12154322d0784d497608dfdb691e4fc184f745f2388f92147826e3",
+        "created": 1793543110.6574178,
+        "ack": 0,
+        "attempts": 3,
+        "last_delivery": 1793543324.545411,
+        "payload": {
+          "aggregation_statement": "Within each fixed person-cell capacity block, merge only variables with identical columns across all observation and retained target rows. Their sum is the aggregate variable; lifting all mass to one representative proves exact equality of feasible target sets, infeasibility and extrema. Include any additional individual constraints in the signature/lift.",
+          "checks_path": "/workspace/work/mas-paper-20261101/formulator-check-results.json",
+          "exact_statement": "For every feasible cell vector x in the baseline model, there is a finite-piece measurable history with each a_ijr in {0,1} and sum_ir a_ijr<=1 for every person, preserving every stream cell integral and every cell-linear target. Partition each person-cell consecutively into stream blocks of lengths x_ijrk and an idle remainder. Conversely these histories are admissible, hence their feasible cell/target sets equal the baseline sets. This requires arbitrary preemption and no minimum-session, switching, synchronisation or extra pointwise constraints; it does not imply integral cell totals.",
+          "findings_path": "/workspace/work/mas-paper-20261101/formulator-findings.md",
+          "finite_checks": {
+            "arithmetic": "exact Fraction",
+            "determinant": -2,
+            "serialisation_cases": 165,
+            "status": "finite checks only; paper proof awaits independent review"
+          },
+          "kind": "formulation_proposal",
+          "network_counterexample": "One person, one [0,2] cell, streams A,B,C, observations A+B=A+C=B+C=1: matrix determinant -2, unique x=(1/2,1/2,1/2), sum=3/2<=2. Thus the arbitrary-group observation matrix is not automatically TU and integral-data cell totals need not be integral. This refutes a blanket original-matrix integral-flow claim, not all possible extended network representations.",
+          "proof": "For each j,k order streams and assign stream s the half-open interval from b_(k-1)+sum_(t<s)x_tjk to b_(k-1)+sum_(t<=s)x_tjk. Capacity fits these disjoint blocks in the cell. Their lengths are exactly x; all observations and targets are sums of these preserved integrals. Binary histories are a subset of fractional histories.",
+          "proof_obligations": [
+            "Independently review serialisation and observational scope; do not infer binary cell totals.",
+            "Review equal-column lift under exactly baseline constraints.",
+            "Review no-interruption and matrix-TU counterexamples.",
+            "No empirical or formal acceptance is claimed."
+          ],
+          "published_comparators": [
+            {
+              "doi": "10.1007/s00182-005-0004-3",
+              "name": "Khan, Rath and Sun 2006, Section 2 Theorem DWW; author manuscript inspected",
+              "relation": "Published atomless finite-action purification; serial construction is elementary finite-partition case.",
+              "url": "https://www.researchgate.net/publication/24058874_The_Dvoretzky-Wald-Wolfowitz_theorem_and_purification_in_atomless_finite-action_games"
+            },
+            {
+              "doi": "10.1287/mnsc.6.1.1",
+              "name": "McNaughton 1959 Section 2 p.4, Theorem 2.2; primary scan inspected",
+              "relation": "No splitting under its special completion-loss objective does not extend to observed cell totals; (1/2,0,1/2) rules out single uninterrupted session.",
+              "url": "https://www.columbia.edu/~cs2035/courses/ieor6400.F07/mcn1.pdf"
+            },
+            {
+              "name": "Miller 1966 pp.52-57 and Lee 1966 pp.58-61 primary reprint inspected",
+              "relation": "Exact optimisation aggregation requires conditions; equal-column projection/lift is directly proved and avoids representative-person assumptions.",
+              "url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Exact_aggregation_in_linear_programming_models_%28microform%29._-_%28IA_exactaggregation300unse%29.pdf"
+            }
+          ],
+          "recommendation": "Retain joint LP. Adopt serial attainment corollary and narrow claim that fractional instantaneous allocations are necessary; optionally use equal-column preprocessing. Reject unproved pooling, no-interruption restriction and universal graph replacement."
+        },
+        "integrity_scope": "transport and payload"
+      },
+      {
+        "id": "a7787a3878505f1b4343d867c4dec4875d81b39c603baa8f08bf3146e8d0b821",
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "sender": "estimator",
+        "recipient": "checker",
+        "version": "1.0",
+        "wire": "message \"1.0\" {\"id\":\"a7787a3878505f1b4343d867c4dec4875d81b39c603baa8f08bf3146e8d0b821\",\"payload\":{\"claims_for_independent_check\":[{\"proof\":\"Take y constant inside [0,d]. HT is constant, variance zero; residual variance of y-f equals variance of f and is positive when f is nonconstant.\",\"statement\":\"For SRS of fixed size 1<=n<M on equal-duration intervals, no nonconstant fixed predictor uniformly weakly improves HT variance over all admissible labour vectors.\"},{\"exact_case\":{\"M\":2,\"d\":[\"1\",\"1\"],\"estimates_clipped\":[\"0\",\"2\"],\"estimates_original\":[\"1\",\"1\"],\"f\":[\"-1\",\"0\"],\"f_clipped\":[\"0\",\"0\"],\"n\":1,\"variance_clipped\":\"1\",\"variance_original\":\"0\",\"y\":[\"0\",\"1\"]},\"statement\":\"Clipping physically impossible predictions need not lower design variance.\"},{\"exact_case\":{\"H\":\"4\",\"HT_values\":[\"2\",\"6\"],\"M\":2,\"Q\":\"1\",\"d\":[\"3\",\"3\"],\"f\":[\"0\",\"0\"],\"mean_plugin_ratio\":\"1/3\",\"n\":1,\"true_ratio\":\"1/4\",\"y\":[\"1\",\"3\"]},\"statement\":\"Positive unbiased labour denominator can give biased productivity ratio.\"},{\"hypotheses\":\"M>=2, 1<=n<=M, 0<alpha<1, y_m in [0,d_m], fixed finite f_m. Census and R=0 exact. Known valid finite-population residual range, not selected-sample extrema.\",\"source\":\"Bardenet and Maillard 2015 Corollary 2.5, https://arxiv.org/pdf/1309.4029\",\"statement\":\"Under fixed finite true y and f and uniform size-n SRS, a two-sided Hoeffding-Serfling labour confidence interval has halfwidth M*R*sqrt(rho*log(2/alpha)/(2*n)), where R=max_m(d_m-f_m)-min_m(-f_m) and rho=1-(n-1)/M if n<=M/2, else (1-n/M)*(1+1/n).\"},{\"proof\":\"Pointwise estimator difference bounded by weighted errors; triangle inequality on sampling event. Does not give unbiased measured estimator.\",\"statement\":\"If selected measurements satisfy |ytilde_m-y_m|<=e_m, a valid true-data sampling halfwidth eps extends to eps+sum_s e_m/pi_m for measured-data difference estimator.\"},{\"proof\":\"On event A x_true in C_s, x_true is feasible, so its labour is in projected extrema. Joint coverage, not independence or marginal coverage, is required.\",\"statement\":\"A simultaneous confidence region C_s for true observation vector A x_true yields labour coverage by projecting {x in P0:A x in C_s}.\"}],\"findings_file\":\"/workspace/work/mas-paper-20261101/estimator-findings.md\",\"recommendation\":\"Keep baseline fixed-prediction difference estimator and joint capacity LP. Optional finite-population confidence-set projection is a constructive bridge, not deterministic sharp identification.\",\"subject\":\"Sampling, measurement error, ratio counterexamples and optional confidence projection\"},\"protocol\":\"1.0\",\"recipient\":\"checker\",\"run_id\":\"73f2f5977c5349f3a110c4d50d2acfcc\",\"sender\":\"estimator\",\"transport\":\"mas-envelope/1\"}",
+        "object_hash": "55dbf34659013459dac951e946d9c0b1966df60025525dceb4c63f2388fc033e",
+        "created": 1793543110.6660068,
+        "ack": 1,
+        "attempts": 3,
+        "last_delivery": 1793543324.535326,
+        "payload": {
+          "claims_for_independent_check": [
+            {
+              "proof": "Take y constant inside [0,d]. HT is constant, variance zero; residual variance of y-f equals variance of f and is positive when f is nonconstant.",
+              "statement": "For SRS of fixed size 1<=n<M on equal-duration intervals, no nonconstant fixed predictor uniformly weakly improves HT variance over all admissible labour vectors."
+            },
+            {
+              "exact_case": {
+                "M": 2,
+                "d": [
+                  "1",
+                  "1"
+                ],
+                "estimates_clipped": [
+                  "0",
+                  "2"
+                ],
+                "estimates_original": [
+                  "1",
+                  "1"
+                ],
+                "f": [
+                  "-1",
+                  "0"
+                ],
+                "f_clipped": [
+                  "0",
+                  "0"
+                ],
+                "n": 1,
+                "variance_clipped": "1",
+                "variance_original": "0",
+                "y": [
+                  "0",
+                  "1"
+                ]
+              },
+              "statement": "Clipping physically impossible predictions need not lower design variance."
+            },
+            {
+              "exact_case": {
+                "H": "4",
+                "HT_values": [
+                  "2",
+                  "6"
+                ],
+                "M": 2,
+                "Q": "1",
+                "d": [
+                  "3",
+                  "3"
+                ],
+                "f": [
+                  "0",
+                  "0"
+                ],
+                "mean_plugin_ratio": "1/3",
+                "n": 1,
+                "true_ratio": "1/4",
+                "y": [
+                  "1",
+                  "3"
+                ]
+              },
+              "statement": "Positive unbiased labour denominator can give biased productivity ratio."
+            },
+            {
+              "hypotheses": "M>=2, 1<=n<=M, 0<alpha<1, y_m in [0,d_m], fixed finite f_m. Census and R=0 exact. Known valid finite-population residual range, not selected-sample extrema.",
+              "source": "Bardenet and Maillard 2015 Corollary 2.5, https://arxiv.org/pdf/1309.4029",
+              "statement": "Under fixed finite true y and f and uniform size-n SRS, a two-sided Hoeffding-Serfling labour confidence interval has halfwidth M*R*sqrt(rho*log(2/alpha)/(2*n)), where R=max_m(d_m-f_m)-min_m(-f_m) and rho=1-(n-1)/M if n<=M/2, else (1-n/M)*(1+1/n)."
+            },
+            {
+              "proof": "Pointwise estimator difference bounded by weighted errors; triangle inequality on sampling event. Does not give unbiased measured estimator.",
+              "statement": "If selected measurements satisfy |ytilde_m-y_m|<=e_m, a valid true-data sampling halfwidth eps extends to eps+sum_s e_m/pi_m for measured-data difference estimator."
+            },
+            {
+              "proof": "On event A x_true in C_s, x_true is feasible, so its labour is in projected extrema. Joint coverage, not independence or marginal coverage, is required.",
+              "statement": "A simultaneous confidence region C_s for true observation vector A x_true yields labour coverage by projecting {x in P0:A x in C_s}."
+            }
+          ],
+          "findings_file": "/workspace/work/mas-paper-20261101/estimator-findings.md",
+          "recommendation": "Keep baseline fixed-prediction difference estimator and joint capacity LP. Optional finite-population confidence-set projection is a constructive bridge, not deterministic sharp identification.",
+          "subject": "Sampling, measurement error, ratio counterexamples and optional confidence projection"
+        },
+        "integrity_scope": "transport and payload"
+      },
+      {
+        "id": "f115bd6606feb959e56d1a1470fe1e975102ec6d8fddbbf93ee91c495df6b2e4",
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "sender": "estimator",
+        "recipient": "formulator",
+        "version": "1.0",
+        "wire": "message \"1.0\" {\"id\":\"f115bd6606feb959e56d1a1470fe1e975102ec6d8fddbbf93ee91c495df6b2e4\",\"payload\":{\"findings_file\":\"/workspace/work/mas-paper-20261101/estimator-findings.md\",\"formulation\":\"P_s={x in P0:A x in C_s}; if Pr(A x_true in C_s)>=1-alpha, the h-projection covers true labour at least 1-alpha. Polyhedral C_s leaves LP unchanged in class. Rectangular simultaneous intervals can use Bonferroni with total failure probabilities <=alpha, without independence. Empty P_s is a statistical flag possible on failure event, not exact-data contradiction.\",\"measurement\":\"Certified bounded measurement errors can be handled deterministically; sampling and measurement halfwidths add by triangle inequality. Corrected estimator endpoints from sampled measurement intervals bound the hypothetical sample estimator, not H.\",\"precision\":\"For fixed coefficient beta, Var(Hhat_beta)=V_y-2 beta C+beta^2 V_f. Oracle beta=C/V_f depends on unknown labour; sample-fitted coefficients need new design proof. Frozen prediction, predictor clipping and iid prediction-powered results do not guarantee precision improvements.\",\"ratio\":\"Fixed Q>=0 and H interval with lower>0 needs only reciprocal endpoint inversion. Joint uncertain Q,H requires joint feasible/confidence set; Q=H in [1,2] has ratio1 despite rectangular outer interval[1/2,2]. No extra dependence restrictions may be assumed.\",\"subject\":\"Keep targets; use same LP for justified error or design-valid confidence regions\"},\"protocol\":\"1.0\",\"recipient\":\"formulator\",\"run_id\":\"73f2f5977c5349f3a110c4d50d2acfcc\",\"sender\":\"estimator\",\"transport\":\"mas-envelope/1\"}",
+        "object_hash": "1b877c2ab9e76cb4060efbac69afa0d573d8dd2f46c781396066ec4e70ebcda1",
+        "created": 1793543110.6660755,
+        "ack": 1,
+        "attempts": 2,
+        "last_delivery": 1793543125.0059352,
+        "payload": {
+          "findings_file": "/workspace/work/mas-paper-20261101/estimator-findings.md",
+          "formulation": "P_s={x in P0:A x in C_s}; if Pr(A x_true in C_s)>=1-alpha, the h-projection covers true labour at least 1-alpha. Polyhedral C_s leaves LP unchanged in class. Rectangular simultaneous intervals can use Bonferroni with total failure probabilities <=alpha, without independence. Empty P_s is a statistical flag possible on failure event, not exact-data contradiction.",
+          "measurement": "Certified bounded measurement errors can be handled deterministically; sampling and measurement halfwidths add by triangle inequality. Corrected estimator endpoints from sampled measurement intervals bound the hypothetical sample estimator, not H.",
+          "precision": "For fixed coefficient beta, Var(Hhat_beta)=V_y-2 beta C+beta^2 V_f. Oracle beta=C/V_f depends on unknown labour; sample-fitted coefficients need new design proof. Frozen prediction, predictor clipping and iid prediction-powered results do not guarantee precision improvements.",
+          "ratio": "Fixed Q>=0 and H interval with lower>0 needs only reciprocal endpoint inversion. Joint uncertain Q,H requires joint feasible/confidence set; Q=H in [1,2] has ratio1 despite rectangular outer interval[1/2,2]. No extra dependence restrictions may be assumed.",
+          "subject": "Keep targets; use same LP for justified error or design-valid confidence regions"
+        },
+        "integrity_scope": "transport and payload"
+      },
+      {
+        "id": "5d77563e15926a0205dbaeacfc9fc032f7f16ba5fd46ca2753ffa16ee28108a7",
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "sender": "challenger",
+        "recipient": "checker",
+        "version": "1.0",
+        "wire": "message \"1.0\" {\"id\":\"5d77563e15926a0205dbaeacfc9fc032f7f16ba5fd46ca2753ffa16ee28108a7\",\"payload\":{\"exact_counterexamples\":[{\"case\":\"One person, one cell d=2, three streams, x1+x2=x1+x3=x2+x3=1.\",\"claim_refuted\":\"Cell LP generally has an integral network-flow structure in original x coordinates with integral data.\",\"limit\":\"Refutes direct integrality/TU shortcut, not every conceivable extended graph representation.\",\"result\":\"Unique x=(1/2,1/2,1/2), sum=3/2<=2. Pair matrix determinant -2. Full-attention schedule uses successive half-hour blocks then half-hour idle.\"},{\"case\":\"One person, three unit cells; exact A=(1/2,0,1/2), B=(0,1,0).\",\"claim_refuted\":\"Full attention also permits one uninterrupted session per task.\",\"result\":\"LP feasible and full-attention scheduling feasible, but A cannot have one contiguous session.\"},{\"case\":\"M=2, exactly one selected with pi=(9/10,1/10); y=(1,1), fixed f=(1,0), H=2.\",\"claim_refuted\":\"Smaller unweighted prediction SSE guarantees lower sampling variance under arbitrary design.\",\"result\":\"HT values=(10/9,10), variance=64/9. Difference values=(1,11), variance=9. Both mean 2; residual SSE improves 2 to 1.\"},{\"case\":\"H in [1,2], joint equality Q=H.\",\"claim_refuted\":\"Independent marginal productivity bounds are always sharp.\",\"result\":\"Exact ratio set {1}; marginal interval arithmetic gives [1/2,2].\"},{\"case\":\"H in [0,1], Q=H, restrict H>0.\",\"claim_refuted\":\"H_min=0 always makes positive-denominator productivity unbounded.\",\"result\":\"Ratio is always 1. With Q=1 instead, positive-denominator ratio set is [1,infinity), with no attained maximum.\"}],\"findings_file\":\"/workspace/work/mas-paper-20261101/challenger-findings.md\",\"independence\":\"Read supplied challenger context and authorised baseline only; no other worker output or repository changes.\",\"main_claim\":{\"construction\":\"For each person and cell independently, order S streams; starting at cell left endpoint, allocate exclusively to stream s for duration x_s. Capacity makes total duration at most cell length. Idle for the remaining duration. Use half-open blocks and omit zero-length blocks.\",\"implication\":\"Repair the text claiming exact correspondence depends on measurable fractional allocations. Distinguish fractional person-hour totals from fractional instantaneous attention.\",\"limits\":\"Minimum session lengths, nonpreemption, bounds on number of sessions, smoothness, switching costs, arbitrary within-cell target weights, precedence or resume delays are not preserved.\",\"quantifiers\":\"Finite task, person and work-type sets; finite cells with positive durations; no extra within-cell pointwise constraints beyond each person capacity; observations and any finite collection of target coefficients constant on cells; every feasible x, not only extrema.\",\"statement\":\"For every feasible cell vector x, there exists a finite Borel step-function history with each allocation in {0,1} and each person assigned to at most one stream at every time, reproducing every cell integral simultaneously. Hence the whole target image remains unchanged when simultaneous fractional attention is forbidden, provided arbitrary switching remains allowed.\",\"switch_bound\":\"Per person at most S+1 nonempty constant pieces per cell, at most K(S+1) pieces over K cells, and at most K(S+1)-1 internal switching times.\"},\"proof_status\":\"Elementary written proofs and exact rational finite checks only; no mechanical formalisation, empirical validation or full-source purification-theorem audit.\",\"published_comparison\":{\"original\":{\"authors\":\"Dvoretzky, Wald and Wolfowitz\",\"doi\":\"10.1214/aoms/1177729689\",\"issue\":\"1\",\"journal\":\"Annals of Mathematical Statistics\",\"pages\":\"1-21\",\"status\":\"Crossref metadata verified; publisher original full text inaccessible.\",\"title\":\"Elimination of Randomization in Certain Statistical Decision Procedures and Zero-Sum Two-Person Games\",\"volume\":\"22\",\"year\":1951},\"related_accessible_source\":{\"authors\":\"Khan, Rath and Sun\",\"doi\":\"10.1007/s00182-005-0004-3\",\"journal\":\"International Journal of Game Theory\",\"pages\":\"91-104\",\"status\":\"Publisher abstract inspected. It states finite-action mixed strategies admit pure strategies preserving integrals for finitely many atomless measures. Full theorem proof not inspected.\",\"title\":\"The Dvoretzky-Wald-Wolfowitz theorem and purification in atomless finite-action games\",\"url\":\"https://link.springer.com/article/10.1007/s00182-005-0004-3\",\"volume\":\"34\",\"year\":2006},\"use\":\"Optional related purification attribution. The elementary cellwise proof independently establishes the restricted result and avoids extra theorem hypotheses. No novelty claim.\"},\"recommendation\":\"Retain current joint cell LP, scalar graph special case and fixed-prediction sampling estimator. Correct the fractional-allocation necessity statement; make no generic precision, sensitivity or ratio sharpness shortcut.\",\"request\":\"Independently check the full-attention construction, finite-switch bound, original sentence repair and exact counterexamples.\",\"role\":\"challenger\",\"simpler_valid_candidate\":{\"limits\":\"No worst-case dimension reduction. New targets may split groups. Do not pool distinct persons without further equivalence proof.\",\"name\":\"Identical-column aggregation within a person-cell\",\"proof\":\"Forward sum maps every original solution to reduced solution; reverse lift assigns the merged mass to one representative stream, preserving capacity, observations and retained targets. Apply original or full-attention reconstruction.\",\"recommendation\":\"Optional implementation preprocessing, not necessary main-paper notation.\",\"rule\":\"Merge streams only when their observation coefficients and all retained target weights coincide, keeping the same person and cell. New variable is sum of merged columns.\"}},\"protocol\":\"1.0\",\"recipient\":\"checker\",\"run_id\":\"73f2f5977c5349f3a110c4d50d2acfcc\",\"sender\":\"challenger\",\"transport\":\"mas-envelope/1\"}",
+        "object_hash": "3920b06dbaecc0558f32c1420bf5cd91cc16ba29e3506bb7a39c7e010be54780",
+        "created": 1793543124.9870408,
+        "ack": 1,
+        "attempts": 3,
+        "last_delivery": 1793543495.45211,
+        "payload": {
+          "exact_counterexamples": [
+            {
+              "case": "One person, one cell d=2, three streams, x1+x2=x1+x3=x2+x3=1.",
+              "claim_refuted": "Cell LP generally has an integral network-flow structure in original x coordinates with integral data.",
+              "limit": "Refutes direct integrality/TU shortcut, not every conceivable extended graph representation.",
+              "result": "Unique x=(1/2,1/2,1/2), sum=3/2<=2. Pair matrix determinant -2. Full-attention schedule uses successive half-hour blocks then half-hour idle."
+            },
+            {
+              "case": "One person, three unit cells; exact A=(1/2,0,1/2), B=(0,1,0).",
+              "claim_refuted": "Full attention also permits one uninterrupted session per task.",
+              "result": "LP feasible and full-attention scheduling feasible, but A cannot have one contiguous session."
+            },
+            {
+              "case": "M=2, exactly one selected with pi=(9/10,1/10); y=(1,1), fixed f=(1,0), H=2.",
+              "claim_refuted": "Smaller unweighted prediction SSE guarantees lower sampling variance under arbitrary design.",
+              "result": "HT values=(10/9,10), variance=64/9. Difference values=(1,11), variance=9. Both mean 2; residual SSE improves 2 to 1."
+            },
+            {
+              "case": "H in [1,2], joint equality Q=H.",
+              "claim_refuted": "Independent marginal productivity bounds are always sharp.",
+              "result": "Exact ratio set {1}; marginal interval arithmetic gives [1/2,2]."
+            },
+            {
+              "case": "H in [0,1], Q=H, restrict H>0.",
+              "claim_refuted": "H_min=0 always makes positive-denominator productivity unbounded.",
+              "result": "Ratio is always 1. With Q=1 instead, positive-denominator ratio set is [1,infinity), with no attained maximum."
+            }
+          ],
+          "findings_file": "/workspace/work/mas-paper-20261101/challenger-findings.md",
+          "independence": "Read supplied challenger context and authorised baseline only; no other worker output or repository changes.",
+          "main_claim": {
+            "construction": "For each person and cell independently, order S streams; starting at cell left endpoint, allocate exclusively to stream s for duration x_s. Capacity makes total duration at most cell length. Idle for the remaining duration. Use half-open blocks and omit zero-length blocks.",
+            "implication": "Repair the text claiming exact correspondence depends on measurable fractional allocations. Distinguish fractional person-hour totals from fractional instantaneous attention.",
+            "limits": "Minimum session lengths, nonpreemption, bounds on number of sessions, smoothness, switching costs, arbitrary within-cell target weights, precedence or resume delays are not preserved.",
+            "quantifiers": "Finite task, person and work-type sets; finite cells with positive durations; no extra within-cell pointwise constraints beyond each person capacity; observations and any finite collection of target coefficients constant on cells; every feasible x, not only extrema.",
+            "statement": "For every feasible cell vector x, there exists a finite Borel step-function history with each allocation in {0,1} and each person assigned to at most one stream at every time, reproducing every cell integral simultaneously. Hence the whole target image remains unchanged when simultaneous fractional attention is forbidden, provided arbitrary switching remains allowed.",
+            "switch_bound": "Per person at most S+1 nonempty constant pieces per cell, at most K(S+1) pieces over K cells, and at most K(S+1)-1 internal switching times."
+          },
+          "proof_status": "Elementary written proofs and exact rational finite checks only; no mechanical formalisation, empirical validation or full-source purification-theorem audit.",
+          "published_comparison": {
+            "original": {
+              "authors": "Dvoretzky, Wald and Wolfowitz",
+              "doi": "10.1214/aoms/1177729689",
+              "issue": "1",
+              "journal": "Annals of Mathematical Statistics",
+              "pages": "1-21",
+              "status": "Crossref metadata verified; publisher original full text inaccessible.",
+              "title": "Elimination of Randomization in Certain Statistical Decision Procedures and Zero-Sum Two-Person Games",
+              "volume": "22",
+              "year": 1951
+            },
+            "related_accessible_source": {
+              "authors": "Khan, Rath and Sun",
+              "doi": "10.1007/s00182-005-0004-3",
+              "journal": "International Journal of Game Theory",
+              "pages": "91-104",
+              "status": "Publisher abstract inspected. It states finite-action mixed strategies admit pure strategies preserving integrals for finitely many atomless measures. Full theorem proof not inspected.",
+              "title": "The Dvoretzky-Wald-Wolfowitz theorem and purification in atomless finite-action games",
+              "url": "https://link.springer.com/article/10.1007/s00182-005-0004-3",
+              "volume": "34",
+              "year": 2006
+            },
+            "use": "Optional related purification attribution. The elementary cellwise proof independently establishes the restricted result and avoids extra theorem hypotheses. No novelty claim."
+          },
+          "recommendation": "Retain current joint cell LP, scalar graph special case and fixed-prediction sampling estimator. Correct the fractional-allocation necessity statement; make no generic precision, sensitivity or ratio sharpness shortcut.",
+          "request": "Independently check the full-attention construction, finite-switch bound, original sentence repair and exact counterexamples.",
+          "role": "challenger",
+          "simpler_valid_candidate": {
+            "limits": "No worst-case dimension reduction. New targets may split groups. Do not pool distinct persons without further equivalence proof.",
+            "name": "Identical-column aggregation within a person-cell",
+            "proof": "Forward sum maps every original solution to reduced solution; reverse lift assigns the merged mass to one representative stream, preserving capacity, observations and retained targets. Apply original or full-attention reconstruction.",
+            "recommendation": "Optional implementation preprocessing, not necessary main-paper notation.",
+            "rule": "Merge streams only when their observation coefficients and all retained target weights coincide, keeping the same person and cell. New variable is sum of merged columns."
+          }
+        },
+        "integrity_scope": "transport and payload"
+      },
+      {
+        "id": "b4102ad9b8ee911093bf1d57e49ce3165939efa6810b39e6d657330cfd6499ca",
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "sender": "challenger",
+        "recipient": "formulator",
+        "version": "1.0",
+        "wire": "message \"1.0\" {\"id\":\"b4102ad9b8ee911093bf1d57e49ce3165939efa6810b39e6d657330cfd6499ca\",\"payload\":{\"exact_counterexamples\":[{\"case\":\"One person, one cell d=2, three streams, x1+x2=x1+x3=x2+x3=1.\",\"claim_refuted\":\"Cell LP generally has an integral network-flow structure in original x coordinates with integral data.\",\"limit\":\"Refutes direct integrality/TU shortcut, not every conceivable extended graph representation.\",\"result\":\"Unique x=(1/2,1/2,1/2), sum=3/2<=2. Pair matrix determinant -2. Full-attention schedule uses successive half-hour blocks then half-hour idle.\"},{\"case\":\"One person, three unit cells; exact A=(1/2,0,1/2), B=(0,1,0).\",\"claim_refuted\":\"Full attention also permits one uninterrupted session per task.\",\"result\":\"LP feasible and full-attention scheduling feasible, but A cannot have one contiguous session.\"},{\"case\":\"M=2, exactly one selected with pi=(9/10,1/10); y=(1,1), fixed f=(1,0), H=2.\",\"claim_refuted\":\"Smaller unweighted prediction SSE guarantees lower sampling variance under arbitrary design.\",\"result\":\"HT values=(10/9,10), variance=64/9. Difference values=(1,11), variance=9. Both mean 2; residual SSE improves 2 to 1.\"},{\"case\":\"H in [1,2], joint equality Q=H.\",\"claim_refuted\":\"Independent marginal productivity bounds are always sharp.\",\"result\":\"Exact ratio set {1}; marginal interval arithmetic gives [1/2,2].\"},{\"case\":\"H in [0,1], Q=H, restrict H>0.\",\"claim_refuted\":\"H_min=0 always makes positive-denominator productivity unbounded.\",\"result\":\"Ratio is always 1. With Q=1 instead, positive-denominator ratio set is [1,infinity), with no attained maximum.\"}],\"findings_file\":\"/workspace/work/mas-paper-20261101/challenger-findings.md\",\"independence\":\"Read supplied challenger context and authorised baseline only; no other worker output or repository changes.\",\"main_claim\":{\"construction\":\"For each person and cell independently, order S streams; starting at cell left endpoint, allocate exclusively to stream s for duration x_s. Capacity makes total duration at most cell length. Idle for the remaining duration. Use half-open blocks and omit zero-length blocks.\",\"implication\":\"Repair the text claiming exact correspondence depends on measurable fractional allocations. Distinguish fractional person-hour totals from fractional instantaneous attention.\",\"limits\":\"Minimum session lengths, nonpreemption, bounds on number of sessions, smoothness, switching costs, arbitrary within-cell target weights, precedence or resume delays are not preserved.\",\"quantifiers\":\"Finite task, person and work-type sets; finite cells with positive durations; no extra within-cell pointwise constraints beyond each person capacity; observations and any finite collection of target coefficients constant on cells; every feasible x, not only extrema.\",\"statement\":\"For every feasible cell vector x, there exists a finite Borel step-function history with each allocation in {0,1} and each person assigned to at most one stream at every time, reproducing every cell integral simultaneously. Hence the whole target image remains unchanged when simultaneous fractional attention is forbidden, provided arbitrary switching remains allowed.\",\"switch_bound\":\"Per person at most S+1 nonempty constant pieces per cell, at most K(S+1) pieces over K cells, and at most K(S+1)-1 internal switching times.\"},\"proof_status\":\"Elementary written proofs and exact rational finite checks only; no mechanical formalisation, empirical validation or full-source purification-theorem audit.\",\"published_comparison\":{\"original\":{\"authors\":\"Dvoretzky, Wald and Wolfowitz\",\"doi\":\"10.1214/aoms/1177729689\",\"issue\":\"1\",\"journal\":\"Annals of Mathematical Statistics\",\"pages\":\"1-21\",\"status\":\"Crossref metadata verified; publisher original full text inaccessible.\",\"title\":\"Elimination of Randomization in Certain Statistical Decision Procedures and Zero-Sum Two-Person Games\",\"volume\":\"22\",\"year\":1951},\"related_accessible_source\":{\"authors\":\"Khan, Rath and Sun\",\"doi\":\"10.1007/s00182-005-0004-3\",\"journal\":\"International Journal of Game Theory\",\"pages\":\"91-104\",\"status\":\"Publisher abstract inspected. It states finite-action mixed strategies admit pure strategies preserving integrals for finitely many atomless measures. Full theorem proof not inspected.\",\"title\":\"The Dvoretzky-Wald-Wolfowitz theorem and purification in atomless finite-action games\",\"url\":\"https://link.springer.com/article/10.1007/s00182-005-0004-3\",\"volume\":\"34\",\"year\":2006},\"use\":\"Optional related purification attribution. The elementary cellwise proof independently establishes the restricted result and avoids extra theorem hypotheses. No novelty claim.\"},\"recommendation\":\"Retain current joint cell LP, scalar graph special case and fixed-prediction sampling estimator. Correct the fractional-allocation necessity statement; make no generic precision, sensitivity or ratio sharpness shortcut.\",\"request\":\"Consider the full-attention clarification as a strict improvement; retain LP generally. Challenge optional quotient notation against exposition cost.\",\"role\":\"challenger\",\"simpler_valid_candidate\":{\"limits\":\"No worst-case dimension reduction. New targets may split groups. Do not pool distinct persons without further equivalence proof.\",\"name\":\"Identical-column aggregation within a person-cell\",\"proof\":\"Forward sum maps every original solution to reduced solution; reverse lift assigns the merged mass to one representative stream, preserving capacity, observations and retained targets. Apply original or full-attention reconstruction.\",\"recommendation\":\"Optional implementation preprocessing, not necessary main-paper notation.\",\"rule\":\"Merge streams only when their observation coefficients and all retained target weights coincide, keeping the same person and cell. New variable is sum of merged columns.\"}},\"protocol\":\"1.0\",\"recipient\":\"formulator\",\"run_id\":\"73f2f5977c5349f3a110c4d50d2acfcc\",\"sender\":\"challenger\",\"transport\":\"mas-envelope/1\"}",
+        "object_hash": "0d86b6c440571ec45b24c95ee46279120ef63be2de0f7ffe5e4f50ad2b63620d",
+        "created": 1793543124.9870965,
+        "ack": 1,
+        "attempts": 1,
+        "last_delivery": 1793543125.0084305,
+        "payload": {
+          "exact_counterexamples": [
+            {
+              "case": "One person, one cell d=2, three streams, x1+x2=x1+x3=x2+x3=1.",
+              "claim_refuted": "Cell LP generally has an integral network-flow structure in original x coordinates with integral data.",
+              "limit": "Refutes direct integrality/TU shortcut, not every conceivable extended graph representation.",
+              "result": "Unique x=(1/2,1/2,1/2), sum=3/2<=2. Pair matrix determinant -2. Full-attention schedule uses successive half-hour blocks then half-hour idle."
+            },
+            {
+              "case": "One person, three unit cells; exact A=(1/2,0,1/2), B=(0,1,0).",
+              "claim_refuted": "Full attention also permits one uninterrupted session per task.",
+              "result": "LP feasible and full-attention scheduling feasible, but A cannot have one contiguous session."
+            },
+            {
+              "case": "M=2, exactly one selected with pi=(9/10,1/10); y=(1,1), fixed f=(1,0), H=2.",
+              "claim_refuted": "Smaller unweighted prediction SSE guarantees lower sampling variance under arbitrary design.",
+              "result": "HT values=(10/9,10), variance=64/9. Difference values=(1,11), variance=9. Both mean 2; residual SSE improves 2 to 1."
+            },
+            {
+              "case": "H in [1,2], joint equality Q=H.",
+              "claim_refuted": "Independent marginal productivity bounds are always sharp.",
+              "result": "Exact ratio set {1}; marginal interval arithmetic gives [1/2,2]."
+            },
+            {
+              "case": "H in [0,1], Q=H, restrict H>0.",
+              "claim_refuted": "H_min=0 always makes positive-denominator productivity unbounded.",
+              "result": "Ratio is always 1. With Q=1 instead, positive-denominator ratio set is [1,infinity), with no attained maximum."
+            }
+          ],
+          "findings_file": "/workspace/work/mas-paper-20261101/challenger-findings.md",
+          "independence": "Read supplied challenger context and authorised baseline only; no other worker output or repository changes.",
+          "main_claim": {
+            "construction": "For each person and cell independently, order S streams; starting at cell left endpoint, allocate exclusively to stream s for duration x_s. Capacity makes total duration at most cell length. Idle for the remaining duration. Use half-open blocks and omit zero-length blocks.",
+            "implication": "Repair the text claiming exact correspondence depends on measurable fractional allocations. Distinguish fractional person-hour totals from fractional instantaneous attention.",
+            "limits": "Minimum session lengths, nonpreemption, bounds on number of sessions, smoothness, switching costs, arbitrary within-cell target weights, precedence or resume delays are not preserved.",
+            "quantifiers": "Finite task, person and work-type sets; finite cells with positive durations; no extra within-cell pointwise constraints beyond each person capacity; observations and any finite collection of target coefficients constant on cells; every feasible x, not only extrema.",
+            "statement": "For every feasible cell vector x, there exists a finite Borel step-function history with each allocation in {0,1} and each person assigned to at most one stream at every time, reproducing every cell integral simultaneously. Hence the whole target image remains unchanged when simultaneous fractional attention is forbidden, provided arbitrary switching remains allowed.",
+            "switch_bound": "Per person at most S+1 nonempty constant pieces per cell, at most K(S+1) pieces over K cells, and at most K(S+1)-1 internal switching times."
+          },
+          "proof_status": "Elementary written proofs and exact rational finite checks only; no mechanical formalisation, empirical validation or full-source purification-theorem audit.",
+          "published_comparison": {
+            "original": {
+              "authors": "Dvoretzky, Wald and Wolfowitz",
+              "doi": "10.1214/aoms/1177729689",
+              "issue": "1",
+              "journal": "Annals of Mathematical Statistics",
+              "pages": "1-21",
+              "status": "Crossref metadata verified; publisher original full text inaccessible.",
+              "title": "Elimination of Randomization in Certain Statistical Decision Procedures and Zero-Sum Two-Person Games",
+              "volume": "22",
+              "year": 1951
+            },
+            "related_accessible_source": {
+              "authors": "Khan, Rath and Sun",
+              "doi": "10.1007/s00182-005-0004-3",
+              "journal": "International Journal of Game Theory",
+              "pages": "91-104",
+              "status": "Publisher abstract inspected. It states finite-action mixed strategies admit pure strategies preserving integrals for finitely many atomless measures. Full theorem proof not inspected.",
+              "title": "The Dvoretzky-Wald-Wolfowitz theorem and purification in atomless finite-action games",
+              "url": "https://link.springer.com/article/10.1007/s00182-005-0004-3",
+              "volume": "34",
+              "year": 2006
+            },
+            "use": "Optional related purification attribution. The elementary cellwise proof independently establishes the restricted result and avoids extra theorem hypotheses. No novelty claim."
+          },
+          "recommendation": "Retain current joint cell LP, scalar graph special case and fixed-prediction sampling estimator. Correct the fractional-allocation necessity statement; make no generic precision, sensitivity or ratio sharpness shortcut.",
+          "request": "Consider the full-attention clarification as a strict improvement; retain LP generally. Challenge optional quotient notation against exposition cost.",
+          "role": "challenger",
+          "simpler_valid_candidate": {
+            "limits": "No worst-case dimension reduction. New targets may split groups. Do not pool distinct persons without further equivalence proof.",
+            "name": "Identical-column aggregation within a person-cell",
+            "proof": "Forward sum maps every original solution to reduced solution; reverse lift assigns the merged mass to one representative stream, preserving capacity, observations and retained targets. Apply original or full-attention reconstruction.",
+            "recommendation": "Optional implementation preprocessing, not necessary main-paper notation.",
+            "rule": "Merge streams only when their observation coefficients and all retained target weights coincide, keeping the same person and cell. New variable is sum of merged columns."
+          }
+        },
+        "integrity_scope": "transport and payload"
+      },
+      {
+        "id": "3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737",
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "sender": "formulator",
+        "recipient": "checker",
+        "version": "1.0",
+        "wire": "message \"1.0\" {\"id\":\"3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737\",\"payload\":{\"confidence_projection_review\":{\"conditions\":\"Coverage must be simultaneous, structural P0 must be correct, and closed polyhedral C_s gives attained extrema whenever nonempty P0 is compact. Empty sample-based set is a statistical flag, not an exact-data logical contradiction.\",\"proof\":\"On the observation-coverage event, the true x* is feasible in P_s; its target is therefore in the projection.\",\"statement\":\"If fixed x* belongs to deterministic P0 and Pr(Ax* in C_s)>=1-alpha, then Pr(h(x*) in h(P0 intersect {x:Ax in C_s}))>=1-alpha. Also Pr(P_s empty)<=alpha.\"},\"confirmed_statement\":\"For every feasible cell vector, consecutive within-cell exclusive stream blocks and idle remainder preserve every cell integral and finite collection of cell-linear targets. At most K(S+1) pieces and K(S+1)-1 internal switches per person suffice. This constructs a representative history; it does not preserve the actual pointwise history or impose an arbitrary external session budget.\",\"consumed_message_ids\":[\"f115bd6606feb959e56d1a1470fe1e975102ec6d8fddbbf93ee91c495df6b2e4\",\"b4102ad9b8ee911093bf1d57e49ce3165939efa6810b39e6d657330cfd6499ca\"],\"hypothesis_limits\":[\"No minimum session duration, switching costs, nonpreemption, precedence, synchronisation or resumption delay is added.\",\"Arbitrary within-cell target weights or instantaneous sample observations are not automatically preserved.\",\"Cell totals may remain fractional; original observation matrix need not be TU.\",\"Aggregation is target-specific and must retain all extra individual constraints.\"],\"kind\":\"formulation_peer_review\",\"recommendation\":\"Unchanged: retain general joint LP, scalar graph special case and fixed-prediction estimator. Adopt exclusive serial-attainment clarification. Equal-column aggregation is optional preprocessing, not necessary main-paper notation.\",\"review_file\":\"/workspace/work/mas-paper-20261101/formulator-peer-review.md\",\"status\":\"Written review and exact finite arithmetic only; no formal or empirical acceptance. No new source claims.\",\"verified_counterexamples\":[{\"HT_mean\":\"2\",\"HT_variance\":\"64/9\",\"case\":\"Unequal inclusion probabilities\",\"difference_mean\":\"2\",\"difference_variance\":\"9\",\"implication\":\"Smaller unweighted prediction SSE need not reduce design variance.\",\"method\":\"independent exact Fraction calculation\"},{\"case\":\"Q=H in [1,2]\",\"method\":\"algebra\",\"ratio_set\":\"{1}\"},{\"case\":\"Q=H in [0,1], H>0\",\"implication\":\"H_min=0 alone does not imply unbounded ratio.\",\"method\":\"algebra\",\"ratio_set\":\"{1}\"},{\"case\":\"Q=1, H in (0,1]\",\"method\":\"algebra\",\"ratio_set\":\"[1,infinity), no attained maximum\"},{\"case\":\"A=(1/2,0,1/2), B=(0,1,0) in unit cells\",\"implication\":\"Exclusive attention does not imply one uninterrupted task session.\",\"method\":\"interval geometry\"}]},\"protocol\":\"1.0\",\"recipient\":\"checker\",\"run_id\":\"73f2f5977c5349f3a110c4d50d2acfcc\",\"sender\":\"formulator\",\"transport\":\"mas-envelope/1\"}",
+        "object_hash": "54179c52a69d5ae5d8255de024ee36319f821b658675497647c4fda09d74681a",
+        "created": 1793543324.5252154,
+        "ack": 1,
+        "attempts": 2,
+        "last_delivery": 1793543495.4541185,
+        "payload": {
+          "confidence_projection_review": {
+            "conditions": "Coverage must be simultaneous, structural P0 must be correct, and closed polyhedral C_s gives attained extrema whenever nonempty P0 is compact. Empty sample-based set is a statistical flag, not an exact-data logical contradiction.",
+            "proof": "On the observation-coverage event, the true x* is feasible in P_s; its target is therefore in the projection.",
+            "statement": "If fixed x* belongs to deterministic P0 and Pr(Ax* in C_s)>=1-alpha, then Pr(h(x*) in h(P0 intersect {x:Ax in C_s}))>=1-alpha. Also Pr(P_s empty)<=alpha."
+          },
+          "confirmed_statement": "For every feasible cell vector, consecutive within-cell exclusive stream blocks and idle remainder preserve every cell integral and finite collection of cell-linear targets. At most K(S+1) pieces and K(S+1)-1 internal switches per person suffice. This constructs a representative history; it does not preserve the actual pointwise history or impose an arbitrary external session budget.",
+          "consumed_message_ids": [
+            "f115bd6606feb959e56d1a1470fe1e975102ec6d8fddbbf93ee91c495df6b2e4",
+            "b4102ad9b8ee911093bf1d57e49ce3165939efa6810b39e6d657330cfd6499ca"
+          ],
+          "hypothesis_limits": [
+            "No minimum session duration, switching costs, nonpreemption, precedence, synchronisation or resumption delay is added.",
+            "Arbitrary within-cell target weights or instantaneous sample observations are not automatically preserved.",
+            "Cell totals may remain fractional; original observation matrix need not be TU.",
+            "Aggregation is target-specific and must retain all extra individual constraints."
+          ],
+          "kind": "formulation_peer_review",
+          "recommendation": "Unchanged: retain general joint LP, scalar graph special case and fixed-prediction estimator. Adopt exclusive serial-attainment clarification. Equal-column aggregation is optional preprocessing, not necessary main-paper notation.",
+          "review_file": "/workspace/work/mas-paper-20261101/formulator-peer-review.md",
+          "status": "Written review and exact finite arithmetic only; no formal or empirical acceptance. No new source claims.",
+          "verified_counterexamples": [
+            {
+              "HT_mean": "2",
+              "HT_variance": "64/9",
+              "case": "Unequal inclusion probabilities",
+              "difference_mean": "2",
+              "difference_variance": "9",
+              "implication": "Smaller unweighted prediction SSE need not reduce design variance.",
+              "method": "independent exact Fraction calculation"
+            },
+            {
+              "case": "Q=H in [1,2]",
+              "method": "algebra",
+              "ratio_set": "{1}"
+            },
+            {
+              "case": "Q=H in [0,1], H>0",
+              "implication": "H_min=0 alone does not imply unbounded ratio.",
+              "method": "algebra",
+              "ratio_set": "{1}"
+            },
+            {
+              "case": "Q=1, H in (0,1]",
+              "method": "algebra",
+              "ratio_set": "[1,infinity), no attained maximum"
+            },
+            {
+              "case": "A=(1/2,0,1/2), B=(0,1,0) in unit cells",
+              "implication": "Exclusive attention does not imply one uninterrupted task session.",
+              "method": "interval geometry"
+            }
+          ]
+        },
+        "integrity_scope": "transport and payload"
+      },
+      {
+        "id": "1310deddf7f4f6056752369c824661566d7963afafe91dcf844f2c0c160a97a5",
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "sender": "formulator",
+        "recipient": "challenger",
+        "version": "1.0",
+        "wire": "message \"1.0\" {\"id\":\"1310deddf7f4f6056752369c824661566d7963afafe91dcf844f2c0c160a97a5\",\"payload\":{\"confidence_projection_review\":{\"conditions\":\"Coverage must be simultaneous, structural P0 must be correct, and closed polyhedral C_s gives attained extrema whenever nonempty P0 is compact. Empty sample-based set is a statistical flag, not an exact-data logical contradiction.\",\"proof\":\"On the observation-coverage event, the true x* is feasible in P_s; its target is therefore in the projection.\",\"statement\":\"If fixed x* belongs to deterministic P0 and Pr(Ax* in C_s)>=1-alpha, then Pr(h(x*) in h(P0 intersect {x:Ax in C_s}))>=1-alpha. Also Pr(P_s empty)<=alpha.\"},\"confirmed_statement\":\"For every feasible cell vector, consecutive within-cell exclusive stream blocks and idle remainder preserve every cell integral and finite collection of cell-linear targets. At most K(S+1) pieces and K(S+1)-1 internal switches per person suffice. This constructs a representative history; it does not preserve the actual pointwise history or impose an arbitrary external session budget.\",\"consumed_message_ids\":[\"f115bd6606feb959e56d1a1470fe1e975102ec6d8fddbbf93ee91c495df6b2e4\",\"b4102ad9b8ee911093bf1d57e49ce3165939efa6810b39e6d657330cfd6499ca\"],\"hypothesis_limits\":[\"No minimum session duration, switching costs, nonpreemption, precedence, synchronisation or resumption delay is added.\",\"Arbitrary within-cell target weights or instantaneous sample observations are not automatically preserved.\",\"Cell totals may remain fractional; original observation matrix need not be TU.\",\"Aggregation is target-specific and must retain all extra individual constraints.\"],\"kind\":\"formulation_peer_review\",\"recommendation\":\"Unchanged: retain general joint LP, scalar graph special case and fixed-prediction estimator. Adopt exclusive serial-attainment clarification. Equal-column aggregation is optional preprocessing, not necessary main-paper notation.\",\"review_file\":\"/workspace/work/mas-paper-20261101/formulator-peer-review.md\",\"status\":\"Written review and exact finite arithmetic only; no formal or empirical acceptance. No new source claims.\",\"verified_counterexamples\":[{\"HT_mean\":\"2\",\"HT_variance\":\"64/9\",\"case\":\"Unequal inclusion probabilities\",\"difference_mean\":\"2\",\"difference_variance\":\"9\",\"implication\":\"Smaller unweighted prediction SSE need not reduce design variance.\",\"method\":\"independent exact Fraction calculation\"},{\"case\":\"Q=H in [1,2]\",\"method\":\"algebra\",\"ratio_set\":\"{1}\"},{\"case\":\"Q=H in [0,1], H>0\",\"implication\":\"H_min=0 alone does not imply unbounded ratio.\",\"method\":\"algebra\",\"ratio_set\":\"{1}\"},{\"case\":\"Q=1, H in (0,1]\",\"method\":\"algebra\",\"ratio_set\":\"[1,infinity), no attained maximum\"},{\"case\":\"A=(1/2,0,1/2), B=(0,1,0) in unit cells\",\"implication\":\"Exclusive attention does not imply one uninterrupted task session.\",\"method\":\"interval geometry\"}]},\"protocol\":\"1.0\",\"recipient\":\"challenger\",\"run_id\":\"73f2f5977c5349f3a110c4d50d2acfcc\",\"sender\":\"formulator\",\"transport\":\"mas-envelope/1\"}",
+        "object_hash": "08e7b42a103f2e3c20f05201842084d1125954eb7ade2db182d90f92cca48eaa",
+        "created": 1793543324.5252957,
+        "ack": 0,
+        "attempts": 2,
+        "last_delivery": 1793543495.4451497,
+        "payload": {
+          "confidence_projection_review": {
+            "conditions": "Coverage must be simultaneous, structural P0 must be correct, and closed polyhedral C_s gives attained extrema whenever nonempty P0 is compact. Empty sample-based set is a statistical flag, not an exact-data logical contradiction.",
+            "proof": "On the observation-coverage event, the true x* is feasible in P_s; its target is therefore in the projection.",
+            "statement": "If fixed x* belongs to deterministic P0 and Pr(Ax* in C_s)>=1-alpha, then Pr(h(x*) in h(P0 intersect {x:Ax in C_s}))>=1-alpha. Also Pr(P_s empty)<=alpha."
+          },
+          "confirmed_statement": "For every feasible cell vector, consecutive within-cell exclusive stream blocks and idle remainder preserve every cell integral and finite collection of cell-linear targets. At most K(S+1) pieces and K(S+1)-1 internal switches per person suffice. This constructs a representative history; it does not preserve the actual pointwise history or impose an arbitrary external session budget.",
+          "consumed_message_ids": [
+            "f115bd6606feb959e56d1a1470fe1e975102ec6d8fddbbf93ee91c495df6b2e4",
+            "b4102ad9b8ee911093bf1d57e49ce3165939efa6810b39e6d657330cfd6499ca"
+          ],
+          "hypothesis_limits": [
+            "No minimum session duration, switching costs, nonpreemption, precedence, synchronisation or resumption delay is added.",
+            "Arbitrary within-cell target weights or instantaneous sample observations are not automatically preserved.",
+            "Cell totals may remain fractional; original observation matrix need not be TU.",
+            "Aggregation is target-specific and must retain all extra individual constraints."
+          ],
+          "kind": "formulation_peer_review",
+          "recommendation": "Unchanged: retain general joint LP, scalar graph special case and fixed-prediction estimator. Adopt exclusive serial-attainment clarification. Equal-column aggregation is optional preprocessing, not necessary main-paper notation.",
+          "review_file": "/workspace/work/mas-paper-20261101/formulator-peer-review.md",
+          "status": "Written review and exact finite arithmetic only; no formal or empirical acceptance. No new source claims.",
+          "verified_counterexamples": [
+            {
+              "HT_mean": "2",
+              "HT_variance": "64/9",
+              "case": "Unequal inclusion probabilities",
+              "difference_mean": "2",
+              "difference_variance": "9",
+              "implication": "Smaller unweighted prediction SSE need not reduce design variance.",
+              "method": "independent exact Fraction calculation"
+            },
+            {
+              "case": "Q=H in [1,2]",
+              "method": "algebra",
+              "ratio_set": "{1}"
+            },
+            {
+              "case": "Q=H in [0,1], H>0",
+              "implication": "H_min=0 alone does not imply unbounded ratio.",
+              "method": "algebra",
+              "ratio_set": "{1}"
+            },
+            {
+              "case": "Q=1, H in (0,1]",
+              "method": "algebra",
+              "ratio_set": "[1,infinity), no attained maximum"
+            },
+            {
+              "case": "A=(1/2,0,1/2), B=(0,1,0) in unit cells",
+              "implication": "Exclusive attention does not imply one uninterrupted task session.",
+              "method": "interval geometry"
+            }
+          ]
+        },
+        "integrity_scope": "transport and payload"
+      },
+      {
+        "id": "528db5b51d6673525b1684e0418c36d631042dfd8135ba7523d4862ae4228798",
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "sender": "checker",
+        "recipient": "formulator",
+        "version": "1.0",
+        "wire": "message \"1.0\" {\"id\":\"528db5b51d6673525b1684e0418c36d631042dfd8135ba7523d4862ae4228798\",\"payload\":{\"additional_peer_review\":\"Formulator message 3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737 consumed; statements and limits agree with independent evaluation.\",\"consumed_inbox_message_ids\":[\"f5defb817f33f8f7bca33d33ba9ad503bc11f5ca8879836dce9682477a9f5bdb\",\"a7787a3878505f1b4343d867c4dec4875d81b39c603baa8f08bf3146e8d0b821\",\"5d77563e15926a0205dbaeacfc9fc032f7f16ba5fd46ca2753ffa16ee28108a7\",\"3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737\"],\"findings\":{\"aggregation\":\"Valid within fixed person-cell for exact matching observation and every retained target column, subject to baseline lift; no worst-case reduction.\",\"dual\":\"For P={x>=0:Ax<=b}, lambda,mu>=0 with A^T lambda>=w and A^T mu>=-w correctly certify -mu^T b<=w^T x<=lambda^T b. Feasible bounded LP strong duality supplies tight certificates without strict feasibility.\",\"finite_switch_bound\":\"At most K(S+1) blocks per person and K(S+1)-1 internal switches with consistent endpoint convention; final endpoint may take final block value.\",\"perturbation\":\"For e>=0 same witnesses certify [-mu^T(b+e),lambda^T(b+e)] and P subset P_e. Set e=0 on deterministic capacity rows when describing measurement uncertainty. No derivative or exact marginal-value claim.\",\"recommendation\":\"Retain LP, scalar graph and fixed-prediction estimator; concise strengthening is preferable to replacement.\",\"serial_attainment\":\"Valid for every feasible x and every cell-linear target; binary histories preserve the entire feasible target image. For intermediate values interpolate feasible cell vectors and serialise anew; do not interpolate binary histories.\",\"source_correspondence\":\"Independently inspected Boyd-Vandenberghe 5.2.3-5.2.4 and 5.6.2; KRS Section 2 Theorem DWW text supports finite atomless purification attribution, but serial proof provides finite-piece bound itself.\"},\"implementation_correspondence\":\"Explicitly authorised current partial-identification.tex and main.tex abstract inspected. Full-range interpolation/reconstruction, dual signs, unchanged-row perturbation zeros, simultaneous coverage and empty-set handling match reviewed statements; no substantive mismatch. Final endpoint convention is harmless and coordinator plans literal block-count clarification.\",\"proof_status\":\"Independent written proof and source-hypothesis review; no machine certification or empirical validation.\",\"report_path\":\"/workspace/work/mas-paper-20261101/checker-final.md\",\"verdict\":\"Recommend candidate with minor endpoint and row-specific relaxation clarifications.\"},\"protocol\":\"1.0\",\"recipient\":\"formulator\",\"run_id\":\"73f2f5977c5349f3a110c4d50d2acfcc\",\"sender\":\"checker\",\"transport\":\"mas-envelope/1\"}",
+        "object_hash": "0881d4bffb381efcde32c24531663bab785d7498ee6373277286bd4cf60022c9",
+        "created": 1793543495.440586,
+        "ack": 0,
+        "attempts": 1,
+        "last_delivery": 1793543495.4603653,
+        "payload": {
+          "additional_peer_review": "Formulator message 3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737 consumed; statements and limits agree with independent evaluation.",
+          "consumed_inbox_message_ids": [
+            "f5defb817f33f8f7bca33d33ba9ad503bc11f5ca8879836dce9682477a9f5bdb",
+            "a7787a3878505f1b4343d867c4dec4875d81b39c603baa8f08bf3146e8d0b821",
+            "5d77563e15926a0205dbaeacfc9fc032f7f16ba5fd46ca2753ffa16ee28108a7",
+            "3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737"
+          ],
+          "findings": {
+            "aggregation": "Valid within fixed person-cell for exact matching observation and every retained target column, subject to baseline lift; no worst-case reduction.",
+            "dual": "For P={x>=0:Ax<=b}, lambda,mu>=0 with A^T lambda>=w and A^T mu>=-w correctly certify -mu^T b<=w^T x<=lambda^T b. Feasible bounded LP strong duality supplies tight certificates without strict feasibility.",
+            "finite_switch_bound": "At most K(S+1) blocks per person and K(S+1)-1 internal switches with consistent endpoint convention; final endpoint may take final block value.",
+            "perturbation": "For e>=0 same witnesses certify [-mu^T(b+e),lambda^T(b+e)] and P subset P_e. Set e=0 on deterministic capacity rows when describing measurement uncertainty. No derivative or exact marginal-value claim.",
+            "recommendation": "Retain LP, scalar graph and fixed-prediction estimator; concise strengthening is preferable to replacement.",
+            "serial_attainment": "Valid for every feasible x and every cell-linear target; binary histories preserve the entire feasible target image. For intermediate values interpolate feasible cell vectors and serialise anew; do not interpolate binary histories.",
+            "source_correspondence": "Independently inspected Boyd-Vandenberghe 5.2.3-5.2.4 and 5.6.2; KRS Section 2 Theorem DWW text supports finite atomless purification attribution, but serial proof provides finite-piece bound itself."
+          },
+          "implementation_correspondence": "Explicitly authorised current partial-identification.tex and main.tex abstract inspected. Full-range interpolation/reconstruction, dual signs, unchanged-row perturbation zeros, simultaneous coverage and empty-set handling match reviewed statements; no substantive mismatch. Final endpoint convention is harmless and coordinator plans literal block-count clarification.",
+          "proof_status": "Independent written proof and source-hypothesis review; no machine certification or empirical validation.",
+          "report_path": "/workspace/work/mas-paper-20261101/checker-final.md",
+          "verdict": "Recommend candidate with minor endpoint and row-specific relaxation clarifications."
+        },
+        "integrity_scope": "transport and payload"
+      },
+      {
+        "id": "8bf946c97cab134788936ef9dcaa89b66e91c6921b1fd9ddb480b0b4830a74e3",
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "sender": "checker",
+        "recipient": "challenger",
+        "version": "1.0",
+        "wire": "message \"1.0\" {\"id\":\"8bf946c97cab134788936ef9dcaa89b66e91c6921b1fd9ddb480b0b4830a74e3\",\"payload\":{\"additional_peer_review\":\"Formulator message 3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737 consumed; statements and limits agree with independent evaluation.\",\"consumed_inbox_message_ids\":[\"f5defb817f33f8f7bca33d33ba9ad503bc11f5ca8879836dce9682477a9f5bdb\",\"a7787a3878505f1b4343d867c4dec4875d81b39c603baa8f08bf3146e8d0b821\",\"5d77563e15926a0205dbaeacfc9fc032f7f16ba5fd46ca2753ffa16ee28108a7\",\"3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737\"],\"findings\":{\"confidence_projection\":\"Correct when observation intervals have simultaneous coverage and true history obeys deterministic assumptions; empty random P is an empty result on coverage failure, not a zero-width interval. No conditional coverage or empirical validity inferred.\",\"counterexamples\":\"Determinant -2, interrupted-session, unequal-probability variance (64/9 versus 9), coupled-ratio and zero-denominator cases all pass independent checking.\",\"estimator_extensions\":\"No-uniform-SRS-improvement, predictor-clipping counterexample, reciprocal-ratio bias and bounded-measurement-error triangle inequality pass. Independently inspected Bardenet-Maillard Corollary 2.5; stated rho and two-sided halfwidth are correct for fixed residual population under SRS.\",\"limits\":\"No machine certification; no full original DWW proof audit; optional scheduling/aggregation papers not independently re-audited and are unnecessary proof dependencies.\",\"ratio_decision\":\"Defer linear-fractional extension until evidenced joint output-labour feasible constraints exist. Fixed-Q positive-denominator inversion already exact.\",\"serial_attainment\":\"Full-attention construction and full-range preservation pass; convex interpolation occurs in cell space followed by reserialisation. Finite block count requires harmless endpoint convention.\"},\"implementation_correspondence\":\"Explicitly authorised current partial-identification.tex and main.tex abstract inspected. Full-range interpolation/reconstruction, dual signs, unchanged-row perturbation zeros, simultaneous coverage and empty-set handling match reviewed statements; no substantive mismatch. Final endpoint convention is harmless and coordinator plans literal block-count clarification.\",\"proof_status\":\"Independent written proof and source-hypothesis review; no machine certification or empirical validation.\",\"report_path\":\"/workspace/work/mas-paper-20261101/checker-final.md\",\"verdict\":\"Recommend candidate with minor endpoint and row-specific relaxation clarifications.\"},\"protocol\":\"1.0\",\"recipient\":\"challenger\",\"run_id\":\"73f2f5977c5349f3a110c4d50d2acfcc\",\"sender\":\"checker\",\"transport\":\"mas-envelope/1\"}",
+        "object_hash": "d8956e4003c3c18eceaa5b79bbc8cee357cbbb94aa857c3b8de28ea255c46188",
+        "created": 1793543495.4406443,
+        "ack": 0,
+        "attempts": 1,
+        "last_delivery": 1793543495.4472163,
+        "payload": {
+          "additional_peer_review": "Formulator message 3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737 consumed; statements and limits agree with independent evaluation.",
+          "consumed_inbox_message_ids": [
+            "f5defb817f33f8f7bca33d33ba9ad503bc11f5ca8879836dce9682477a9f5bdb",
+            "a7787a3878505f1b4343d867c4dec4875d81b39c603baa8f08bf3146e8d0b821",
+            "5d77563e15926a0205dbaeacfc9fc032f7f16ba5fd46ca2753ffa16ee28108a7",
+            "3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737"
+          ],
+          "findings": {
+            "confidence_projection": "Correct when observation intervals have simultaneous coverage and true history obeys deterministic assumptions; empty random P is an empty result on coverage failure, not a zero-width interval. No conditional coverage or empirical validity inferred.",
+            "counterexamples": "Determinant -2, interrupted-session, unequal-probability variance (64/9 versus 9), coupled-ratio and zero-denominator cases all pass independent checking.",
+            "estimator_extensions": "No-uniform-SRS-improvement, predictor-clipping counterexample, reciprocal-ratio bias and bounded-measurement-error triangle inequality pass. Independently inspected Bardenet-Maillard Corollary 2.5; stated rho and two-sided halfwidth are correct for fixed residual population under SRS.",
+            "limits": "No machine certification; no full original DWW proof audit; optional scheduling/aggregation papers not independently re-audited and are unnecessary proof dependencies.",
+            "ratio_decision": "Defer linear-fractional extension until evidenced joint output-labour feasible constraints exist. Fixed-Q positive-denominator inversion already exact.",
+            "serial_attainment": "Full-attention construction and full-range preservation pass; convex interpolation occurs in cell space followed by reserialisation. Finite block count requires harmless endpoint convention."
+          },
+          "implementation_correspondence": "Explicitly authorised current partial-identification.tex and main.tex abstract inspected. Full-range interpolation/reconstruction, dual signs, unchanged-row perturbation zeros, simultaneous coverage and empty-set handling match reviewed statements; no substantive mismatch. Final endpoint convention is harmless and coordinator plans literal block-count clarification.",
+          "proof_status": "Independent written proof and source-hypothesis review; no machine certification or empirical validation.",
+          "report_path": "/workspace/work/mas-paper-20261101/checker-final.md",
+          "verdict": "Recommend candidate with minor endpoint and row-specific relaxation clarifications."
+        },
+        "integrity_scope": "transport and payload"
+      }
+    ],
+    "events": [
+      {
+        "seq": 1,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "run_created",
+        "body_json": "{\"agents\":[\"formulator\",\"challenger\",\"estimator\",\"checker\"],\"limits\":{\"calls\":12,\"seconds\":2700,\"tokens\":120000,\"usd\":1},\"question_hash\":\"da5ccb53d792a1de6f6be634766399baa96dfe18aa9b752b8b78c612fc0137d7\"}",
+        "created": 1793542755.534222
+      },
+      {
+        "seq": 2,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "context_read",
+        "body_json": "{\"agent\":\"formulator\",\"incoming\":[],\"private_hash\":\"601b50298ea3ebf7735a2c1a8ff1570350e4810cffd75c84f7cefbabf4e47233\"}",
+        "created": 1793542755.5370047
+      },
+      {
+        "seq": 3,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "context_read",
+        "body_json": "{\"agent\":\"challenger\",\"incoming\":[],\"private_hash\":\"601b50298ea3ebf7735a2c1a8ff1570350e4810cffd75c84f7cefbabf4e47233\"}",
+        "created": 1793542755.5386913
+      },
+      {
+        "seq": 4,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "context_read",
+        "body_json": "{\"agent\":\"estimator\",\"incoming\":[],\"private_hash\":\"601b50298ea3ebf7735a2c1a8ff1570350e4810cffd75c84f7cefbabf4e47233\"}",
+        "created": 1793542755.540552
+      },
+      {
+        "seq": 5,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "context_read",
+        "body_json": "{\"agent\":\"checker\",\"incoming\":[],\"private_hash\":\"601b50298ea3ebf7735a2c1a8ff1570350e4810cffd75c84f7cefbabf4e47233\"}",
+        "created": 1793542755.5428557
+      },
+      {
+        "seq": 6,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "message_sent",
+        "body_json": "{\"bytes\":4010,\"hash\":\"5c13fadc3cd945b90591a683212d64d89bc5ad47fb9833bde7e58a1bed29f1e0\",\"id\":\"f5defb817f33f8f7bca33d33ba9ad503bc11f5ca8879836dce9682477a9f5bdb\",\"recipient\":\"checker\",\"sender\":\"formulator\",\"version\":\"1.0\"}",
+        "created": 1793543110.6574018
+      },
+      {
+        "seq": 7,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "message_sent",
+        "body_json": "{\"bytes\":4013,\"hash\":\"836ddb6bdd12154322d0784d497608dfdb691e4fc184f745f2388f92147826e3\",\"id\":\"aa57cca78767995878b70fe3336e54e77938675ae69c87cd717db3c9100c5e45\",\"recipient\":\"challenger\",\"sender\":\"formulator\",\"version\":\"1.0\"}",
+        "created": 1793543110.6574273
+      },
+      {
+        "seq": 8,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "agent_response",
+        "body_json": "{\"agent\":\"formulator\",\"provenance\":{\"execution_identity\":\"/root/mas_formulator:turn1\",\"mode\":\"host-assisted\"},\"response\":{\"messages\":[{\"payload\":{\"aggregation_statement\":\"Within each fixed person-cell capacity block, merge only variables with identical columns across all observation and retained target rows. Their sum is the aggregate variable; lifting all mass to one representative proves exact equality of feasible target sets, infeasibility and extrema. Include any additional individual constraints in the signature/lift.\",\"checks_path\":\"/workspace/work/mas-paper-20261101/formulator-check-results.json\",\"exact_statement\":\"For every feasible cell vector x in the baseline model, there is a finite-piece measurable history with each a_ijr in {0,1} and sum_ir a_ijr<=1 for every person, preserving every stream cell integral and every cell-linear target. Partition each person-cell consecutively into stream blocks of lengths x_ijrk and an idle remainder. Conversely these histories are admissible, hence their feasible cell/target sets equal the baseline sets. This requires arbitrary preemption and no minimum-session, switching, synchronisation or extra pointwise constraints; it does not imply integral cell totals.\",\"findings_path\":\"/workspace/work/mas-paper-20261101/formulator-findings.md\",\"finite_checks\":{\"arithmetic\":\"exact Fraction\",\"determinant\":-2,\"serialisation_cases\":165,\"status\":\"finite checks only; paper proof awaits independent review\"},\"kind\":\"formulation_proposal\",\"network_counterexample\":\"One person, one [0,2] cell, streams A,B,C, observations A+B=A+C=B+C=1: matrix determinant -2, unique x=(1/2,1/2,1/2), sum=3/2<=2. Thus the arbitrary-group observation matrix is not automatically TU and integral-data cell totals need not be integral. This refutes a blanket original-matrix integral-flow claim, not all possible extended network representations.\",\"proof\":\"For each j,k order streams and assign stream s the half-open interval from b_(k-1)+sum_(t<s)x_tjk to b_(k-1)+sum_(t<=s)x_tjk. Capacity fits these disjoint blocks in the cell. Their lengths are exactly x; all observations and targets are sums of these preserved integrals. Binary histories are a subset of fractional histories.\",\"proof_obligations\":[\"Independently review serialisation and observational scope; do not infer binary cell totals.\",\"Review equal-column lift under exactly baseline constraints.\",\"Review no-interruption and matrix-TU counterexamples.\",\"No empirical or formal acceptance is claimed.\"],\"published_comparators\":[{\"doi\":\"10.1007/s00182-005-0004-3\",\"name\":\"Khan, Rath and Sun 2006, Section 2 Theorem DWW; author manuscript inspected\",\"relation\":\"Published atomless finite-action purification; serial construction is elementary finite-partition case.\",\"url\":\"https://www.researchgate.net/publication/24058874_The_Dvoretzky-Wald-Wolfowitz_theorem_and_purification_in_atomless_finite-action_games\"},{\"doi\":\"10.1287/mnsc.6.1.1\",\"name\":\"McNaughton 1959 Section 2 p.4, Theorem 2.2; primary scan inspected\",\"relation\":\"No splitting under its special completion-loss objective does not extend to observed cell totals; (1/2,0,1/2) rules out single uninterrupted session.\",\"url\":\"https://www.columbia.edu/~cs2035/courses/ieor6400.F07/mcn1.pdf\"},{\"name\":\"Miller 1966 pp.52-57 and Lee 1966 pp.58-61 primary reprint inspected\",\"relation\":\"Exact optimisation aggregation requires conditions; equal-column projection/lift is directly proved and avoids representative-person assumptions.\",\"url\":\"https://upload.wikimedia.org/wikipedia/commons/3/37/Exact_aggregation_in_linear_programming_models_%28microform%29._-_%28IA_exactaggregation300unse%29.pdf\"}],\"recommendation\":\"Retain joint LP. Adopt serial attainment corollary and narrow claim that fractional instantaneous allocations are necessary; optionally use equal-column preprocessing. Reject unproved pooling, no-interruption restriction and universal graph replacement.\"},\"recipient\":\"checker\"},{\"payload\":{\"aggregation_statement\":\"Within each fixed person-cell capacity block, merge only variables with identical columns across all observation and retained target rows. Their sum is the aggregate variable; lifting all mass to one representative proves exact equality of feasible target sets, infeasibility and extrema. Include any additional individual constraints in the signature/lift.\",\"checks_path\":\"/workspace/work/mas-paper-20261101/formulator-check-results.json\",\"exact_statement\":\"For every feasible cell vector x in the baseline model, there is a finite-piece measurable history with each a_ijr in {0,1} and sum_ir a_ijr<=1 for every person, preserving every stream cell integral and every cell-linear target. Partition each person-cell consecutively into stream blocks of lengths x_ijrk and an idle remainder. Conversely these histories are admissible, hence their feasible cell/target sets equal the baseline sets. This requires arbitrary preemption and no minimum-session, switching, synchronisation or extra pointwise constraints; it does not imply integral cell totals.\",\"findings_path\":\"/workspace/work/mas-paper-20261101/formulator-findings.md\",\"finite_checks\":{\"arithmetic\":\"exact Fraction\",\"determinant\":-2,\"serialisation_cases\":165,\"status\":\"finite checks only; paper proof awaits independent review\"},\"kind\":\"formulation_proposal\",\"network_counterexample\":\"One person, one [0,2] cell, streams A,B,C, observations A+B=A+C=B+C=1: matrix determinant -2, unique x=(1/2,1/2,1/2), sum=3/2<=2. Thus the arbitrary-group observation matrix is not automatically TU and integral-data cell totals need not be integral. This refutes a blanket original-matrix integral-flow claim, not all possible extended network representations.\",\"proof\":\"For each j,k order streams and assign stream s the half-open interval from b_(k-1)+sum_(t<s)x_tjk to b_(k-1)+sum_(t<=s)x_tjk. Capacity fits these disjoint blocks in the cell. Their lengths are exactly x; all observations and targets are sums of these preserved integrals. Binary histories are a subset of fractional histories.\",\"proof_obligations\":[\"Independently review serialisation and observational scope; do not infer binary cell totals.\",\"Review equal-column lift under exactly baseline constraints.\",\"Review no-interruption and matrix-TU counterexamples.\",\"No empirical or formal acceptance is claimed.\"],\"published_comparators\":[{\"doi\":\"10.1007/s00182-005-0004-3\",\"name\":\"Khan, Rath and Sun 2006, Section 2 Theorem DWW; author manuscript inspected\",\"relation\":\"Published atomless finite-action purification; serial construction is elementary finite-partition case.\",\"url\":\"https://www.researchgate.net/publication/24058874_The_Dvoretzky-Wald-Wolfowitz_theorem_and_purification_in_atomless_finite-action_games\"},{\"doi\":\"10.1287/mnsc.6.1.1\",\"name\":\"McNaughton 1959 Section 2 p.4, Theorem 2.2; primary scan inspected\",\"relation\":\"No splitting under its special completion-loss objective does not extend to observed cell totals; (1/2,0,1/2) rules out single uninterrupted session.\",\"url\":\"https://www.columbia.edu/~cs2035/courses/ieor6400.F07/mcn1.pdf\"},{\"name\":\"Miller 1966 pp.52-57 and Lee 1966 pp.58-61 primary reprint inspected\",\"relation\":\"Exact optimisation aggregation requires conditions; equal-column projection/lift is directly proved and avoids representative-person assumptions.\",\"url\":\"https://upload.wikimedia.org/wikipedia/commons/3/37/Exact_aggregation_in_linear_programming_models_%28microform%29._-_%28IA_exactaggregation300unse%29.pdf\"}],\"recommendation\":\"Retain joint LP. Adopt serial attainment corollary and narrow claim that fractional instantaneous allocations are necessary; optionally use equal-column preprocessing. Reject unproved pooling, no-interruption restriction and universal graph replacement.\"},\"recipient\":\"challenger\"}],\"note\":\"Independent initial formulation search complete. Primary sources inspected as labelled; no formal or empirical acceptance. Retain general LP; useful result is exclusive serial attainment, with optional exact equal-column aggregation.\",\"objects\":[]}}",
+        "created": 1793543110.6575663
+      },
+      {
+        "seq": 9,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "message_sent",
+        "body_json": "{\"bytes\":2683,\"hash\":\"55dbf34659013459dac951e946d9c0b1966df60025525dceb4c63f2388fc033e\",\"id\":\"a7787a3878505f1b4343d867c4dec4875d81b39c603baa8f08bf3146e8d0b821\",\"recipient\":\"checker\",\"sender\":\"estimator\",\"version\":\"1.0\"}",
+        "created": 1793543110.666029
+      },
+      {
+        "seq": 10,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "message_sent",
+        "body_json": "{\"bytes\":1606,\"hash\":\"1b877c2ab9e76cb4060efbac69afa0d573d8dd2f46c781396066ec4e70ebcda1\",\"id\":\"f115bd6606feb959e56d1a1470fe1e975102ec6d8fddbbf93ee91c495df6b2e4\",\"recipient\":\"formulator\",\"sender\":\"estimator\",\"version\":\"1.0\"}",
+        "created": 1793543110.6660867
+      },
+      {
+        "seq": 11,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "agent_response",
+        "body_json": "{\"agent\":\"estimator\",\"provenance\":{\"execution_identity\":\"/root/mas_estimator:turn1\",\"mode\":\"host-assisted\"},\"response\":{\"messages\":[{\"payload\":{\"claims_for_independent_check\":[{\"proof\":\"Take y constant inside [0,d]. HT is constant, variance zero; residual variance of y-f equals variance of f and is positive when f is nonconstant.\",\"statement\":\"For SRS of fixed size 1<=n<M on equal-duration intervals, no nonconstant fixed predictor uniformly weakly improves HT variance over all admissible labour vectors.\"},{\"exact_case\":{\"M\":2,\"d\":[\"1\",\"1\"],\"estimates_clipped\":[\"0\",\"2\"],\"estimates_original\":[\"1\",\"1\"],\"f\":[\"-1\",\"0\"],\"f_clipped\":[\"0\",\"0\"],\"n\":1,\"variance_clipped\":\"1\",\"variance_original\":\"0\",\"y\":[\"0\",\"1\"]},\"statement\":\"Clipping physically impossible predictions need not lower design variance.\"},{\"exact_case\":{\"H\":\"4\",\"HT_values\":[\"2\",\"6\"],\"M\":2,\"Q\":\"1\",\"d\":[\"3\",\"3\"],\"f\":[\"0\",\"0\"],\"mean_plugin_ratio\":\"1/3\",\"n\":1,\"true_ratio\":\"1/4\",\"y\":[\"1\",\"3\"]},\"statement\":\"Positive unbiased labour denominator can give biased productivity ratio.\"},{\"hypotheses\":\"M>=2, 1<=n<=M, 0<alpha<1, y_m in [0,d_m], fixed finite f_m. Census and R=0 exact. Known valid finite-population residual range, not selected-sample extrema.\",\"source\":\"Bardenet and Maillard 2015 Corollary 2.5, https://arxiv.org/pdf/1309.4029\",\"statement\":\"Under fixed finite true y and f and uniform size-n SRS, a two-sided Hoeffding-Serfling labour confidence interval has halfwidth M*R*sqrt(rho*log(2/alpha)/(2*n)), where R=max_m(d_m-f_m)-min_m(-f_m) and rho=1-(n-1)/M if n<=M/2, else (1-n/M)*(1+1/n).\"},{\"proof\":\"Pointwise estimator difference bounded by weighted errors; triangle inequality on sampling event. Does not give unbiased measured estimator.\",\"statement\":\"If selected measurements satisfy |ytilde_m-y_m|<=e_m, a valid true-data sampling halfwidth eps extends to eps+sum_s e_m/pi_m for measured-data difference estimator.\"},{\"proof\":\"On event A x_true in C_s, x_true is feasible, so its labour is in projected extrema. Joint coverage, not independence or marginal coverage, is required.\",\"statement\":\"A simultaneous confidence region C_s for true observation vector A x_true yields labour coverage by projecting {x in P0:A x in C_s}.\"}],\"findings_file\":\"/workspace/work/mas-paper-20261101/estimator-findings.md\",\"recommendation\":\"Keep baseline fixed-prediction difference estimator and joint capacity LP. Optional finite-population confidence-set projection is a constructive bridge, not deterministic sharp identification.\",\"subject\":\"Sampling, measurement error, ratio counterexamples and optional confidence projection\"},\"recipient\":\"checker\"},{\"payload\":{\"findings_file\":\"/workspace/work/mas-paper-20261101/estimator-findings.md\",\"formulation\":\"P_s={x in P0:A x in C_s}; if Pr(A x_true in C_s)>=1-alpha, the h-projection covers true labour at least 1-alpha. Polyhedral C_s leaves LP unchanged in class. Rectangular simultaneous intervals can use Bonferroni with total failure probabilities <=alpha, without independence. Empty P_s is a statistical flag possible on failure event, not exact-data contradiction.\",\"measurement\":\"Certified bounded measurement errors can be handled deterministically; sampling and measurement halfwidths add by triangle inequality. Corrected estimator endpoints from sampled measurement intervals bound the hypothetical sample estimator, not H.\",\"precision\":\"For fixed coefficient beta, Var(Hhat_beta)=V_y-2 beta C+beta^2 V_f. Oracle beta=C/V_f depends on unknown labour; sample-fitted coefficients need new design proof. Frozen prediction, predictor clipping and iid prediction-powered results do not guarantee precision improvements.\",\"ratio\":\"Fixed Q>=0 and H interval with lower>0 needs only reciprocal endpoint inversion. Joint uncertain Q,H requires joint feasible/confidence set; Q=H in [1,2] has ratio1 despite rectangular outer interval[1/2,2]. No extra dependence restrictions may be assumed.\",\"subject\":\"Keep targets; use same LP for justified error or design-valid confidence regions\"},\"recipient\":\"formulator\"}],\"note\":\"Independent estimator worker findings from authorised frozen baseline and primary research. Exact rational counterexamples enumerated; published concentration theorem applied with explicit hypotheses. No empirical validation, no formal acceptance, no repository/contract/runtime DB mutation.\",\"objects\":[]}}",
+        "created": 1793543110.6661534
+      },
+      {
+        "seq": 12,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "context_read",
+        "body_json": "{\"agent\":\"challenger\",\"incoming\":[\"aa57cca78767995878b70fe3336e54e77938675ae69c87cd717db3c9100c5e45\"],\"private_hash\":\"601b50298ea3ebf7735a2c1a8ff1570350e4810cffd75c84f7cefbabf4e47233\"}",
+        "created": 1793543110.6704566
+      },
+      {
+        "seq": 13,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "context_read",
+        "body_json": "{\"agent\":\"checker\",\"incoming\":[\"f5defb817f33f8f7bca33d33ba9ad503bc11f5ca8879836dce9682477a9f5bdb\",\"a7787a3878505f1b4343d867c4dec4875d81b39c603baa8f08bf3146e8d0b821\"],\"private_hash\":\"601b50298ea3ebf7735a2c1a8ff1570350e4810cffd75c84f7cefbabf4e47233\"}",
+        "created": 1793543110.6771905
+      },
+      {
+        "seq": 14,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "context_read",
+        "body_json": "{\"agent\":\"estimator\",\"incoming\":[],\"private_hash\":\"601b50298ea3ebf7735a2c1a8ff1570350e4810cffd75c84f7cefbabf4e47233\"}",
+        "created": 1793543110.679344
+      },
+      {
+        "seq": 15,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "context_read",
+        "body_json": "{\"agent\":\"formulator\",\"incoming\":[\"f115bd6606feb959e56d1a1470fe1e975102ec6d8fddbbf93ee91c495df6b2e4\"],\"private_hash\":\"601b50298ea3ebf7735a2c1a8ff1570350e4810cffd75c84f7cefbabf4e47233\"}",
+        "created": 1793543110.6838558
+      },
+      {
+        "seq": 16,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "coordinator_disclosure",
+        "body_json": "{\"candidate_revision\":1,\"channels\":[\"native preliminary challenger message and coordinator response\",\"coordinator primary source search\",\"native preliminary estimator message\"],\"content\":\"# Coordinator candidate, revision 1\\n\\nThis candidate is additional disclosed input, not an agent-approved result.\\n\\nRetain the finite-cell LP, strengthen its reconstruction with per-person, per-cell consecutive 0/1 activity intervals, and use published LP duality to expose independently checkable endpoint bounds.\\n\\nLet P={x>=0: A x<=b} be the existing nonempty bounded cell polytope and h(x)=w^T x. All observation lower inequalities are multiplied by -1 in A,b. Nonnegative vectors lambda and mu satisfying A^T lambda>=w and A^T mu>=-w give -b^T mu<=w^T x<=b^T lambda for every x in P. LP strong duality gives vectors attaining the exact endpoints. Matching these bounds to primal attaining vectors supplies exact optimality certificates by arithmetic alone.\\n\\nFor a relaxation b -> b+e with e>=0, the same vectors certify [-mu^T(b+e),lambda^T(b+e)] for every newly feasible x; extrema may be tighter. Original feasible points remain feasible. Do not claim derivatives or exact marginal measurement values from this global one-sided inequality.\\n\\nProof: w^T x <= lambda^T A x <=lambda^T b, and the same argument for -w. Relaxed right hand sides repeat that argument. Existence of optimal dual vectors uses standard feasible bounded LP duality, without strict feasibility. Boyd and Vandenberghe (2004), sections 5.2.3\\u20135.2.4 and 5.6 inspected at https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf.\\n\\nOptional short statistical statement: if random observation intervals jointly contain all true observation totals with probability at least 1-alpha, and true history satisfies deterministic allocation assumptions, the true history belongs to the resulting random P on that event; optimizing then covers the true target total with at least 1-alpha. Empty P is not automatically a zero-width interval. Constructing those simultaneous intervals remains sampling-design-specific. No assertion of empirical validity or implementing a generic confidence interval.\\n\\nPotential linear-fractional extension: preserve as an optional reviewed alternative unless a joint linear feasible set for uncertain retained output and labour is actually supplied. Existing paper's fixed-output quotient is already exact. Do not invent such output/labour constraints to justify an extra theorem.\\n\\nDisclosure: challenger native preliminary message suggested the binary reconstruction; coordinator independently checked its interval scheduling construction. Other candidates here are coordinator contributions. Initial literature search had nominated strong duality and Charnes\\u2013Cooper; no mathematical candidate was supplied to initial independent workers.\\n\",\"path\":\"/workspace/work/mas-paper-20261101/coordinator-candidate.md\",\"provenance\":\"Root mathematical proposal; not worker approved\",\"recipient\":\"checker\"}",
+        "created": 1793543110.9506772
+      },
+      {
+        "seq": 17,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "message_sent",
+        "body_json": "{\"bytes\":5909,\"hash\":\"3920b06dbaecc0558f32c1420bf5cd91cc16ba29e3506bb7a39c7e010be54780\",\"id\":\"5d77563e15926a0205dbaeacfc9fc032f7f16ba5fd46ca2753ffa16ee28108a7\",\"recipient\":\"checker\",\"sender\":\"challenger\",\"version\":\"1.0\"}",
+        "created": 1793543124.9870796
+      },
+      {
+        "seq": 18,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "message_sent",
+        "body_json": "{\"bytes\":5936,\"hash\":\"0d86b6c440571ec45b24c95ee46279120ef63be2de0f7ffe5e4f50ad2b63620d\",\"id\":\"b4102ad9b8ee911093bf1d57e49ce3165939efa6810b39e6d657330cfd6499ca\",\"recipient\":\"formulator\",\"sender\":\"challenger\",\"version\":\"1.0\"}",
+        "created": 1793543124.9871154
+      },
+      {
+        "seq": 19,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "agent_response",
+        "body_json": "{\"agent\":\"challenger\",\"provenance\":{\"execution_identity\":\"/root/mas_challenger:turn1\",\"mode\":\"host-assisted\"},\"response\":{\"messages\":[{\"payload\":{\"exact_counterexamples\":[{\"case\":\"One person, one cell d=2, three streams, x1+x2=x1+x3=x2+x3=1.\",\"claim_refuted\":\"Cell LP generally has an integral network-flow structure in original x coordinates with integral data.\",\"limit\":\"Refutes direct integrality/TU shortcut, not every conceivable extended graph representation.\",\"result\":\"Unique x=(1/2,1/2,1/2), sum=3/2<=2. Pair matrix determinant -2. Full-attention schedule uses successive half-hour blocks then half-hour idle.\"},{\"case\":\"One person, three unit cells; exact A=(1/2,0,1/2), B=(0,1,0).\",\"claim_refuted\":\"Full attention also permits one uninterrupted session per task.\",\"result\":\"LP feasible and full-attention scheduling feasible, but A cannot have one contiguous session.\"},{\"case\":\"M=2, exactly one selected with pi=(9/10,1/10); y=(1,1), fixed f=(1,0), H=2.\",\"claim_refuted\":\"Smaller unweighted prediction SSE guarantees lower sampling variance under arbitrary design.\",\"result\":\"HT values=(10/9,10), variance=64/9. Difference values=(1,11), variance=9. Both mean 2; residual SSE improves 2 to 1.\"},{\"case\":\"H in [1,2], joint equality Q=H.\",\"claim_refuted\":\"Independent marginal productivity bounds are always sharp.\",\"result\":\"Exact ratio set {1}; marginal interval arithmetic gives [1/2,2].\"},{\"case\":\"H in [0,1], Q=H, restrict H>0.\",\"claim_refuted\":\"H_min=0 always makes positive-denominator productivity unbounded.\",\"result\":\"Ratio is always 1. With Q=1 instead, positive-denominator ratio set is [1,infinity), with no attained maximum.\"}],\"findings_file\":\"/workspace/work/mas-paper-20261101/challenger-findings.md\",\"independence\":\"Read supplied challenger context and authorised baseline only; no other worker output or repository changes.\",\"main_claim\":{\"construction\":\"For each person and cell independently, order S streams; starting at cell left endpoint, allocate exclusively to stream s for duration x_s. Capacity makes total duration at most cell length. Idle for the remaining duration. Use half-open blocks and omit zero-length blocks.\",\"implication\":\"Repair the text claiming exact correspondence depends on measurable fractional allocations. Distinguish fractional person-hour totals from fractional instantaneous attention.\",\"limits\":\"Minimum session lengths, nonpreemption, bounds on number of sessions, smoothness, switching costs, arbitrary within-cell target weights, precedence or resume delays are not preserved.\",\"quantifiers\":\"Finite task, person and work-type sets; finite cells with positive durations; no extra within-cell pointwise constraints beyond each person capacity; observations and any finite collection of target coefficients constant on cells; every feasible x, not only extrema.\",\"statement\":\"For every feasible cell vector x, there exists a finite Borel step-function history with each allocation in {0,1} and each person assigned to at most one stream at every time, reproducing every cell integral simultaneously. Hence the whole target image remains unchanged when simultaneous fractional attention is forbidden, provided arbitrary switching remains allowed.\",\"switch_bound\":\"Per person at most S+1 nonempty constant pieces per cell, at most K(S+1) pieces over K cells, and at most K(S+1)-1 internal switching times.\"},\"proof_status\":\"Elementary written proofs and exact rational finite checks only; no mechanical formalisation, empirical validation or full-source purification-theorem audit.\",\"published_comparison\":{\"original\":{\"authors\":\"Dvoretzky, Wald and Wolfowitz\",\"doi\":\"10.1214/aoms/1177729689\",\"issue\":\"1\",\"journal\":\"Annals of Mathematical Statistics\",\"pages\":\"1-21\",\"status\":\"Crossref metadata verified; publisher original full text inaccessible.\",\"title\":\"Elimination of Randomization in Certain Statistical Decision Procedures and Zero-Sum Two-Person Games\",\"volume\":\"22\",\"year\":1951},\"related_accessible_source\":{\"authors\":\"Khan, Rath and Sun\",\"doi\":\"10.1007/s00182-005-0004-3\",\"journal\":\"International Journal of Game Theory\",\"pages\":\"91-104\",\"status\":\"Publisher abstract inspected. It states finite-action mixed strategies admit pure strategies preserving integrals for finitely many atomless measures. Full theorem proof not inspected.\",\"title\":\"The Dvoretzky-Wald-Wolfowitz theorem and purification in atomless finite-action games\",\"url\":\"https://link.springer.com/article/10.1007/s00182-005-0004-3\",\"volume\":\"34\",\"year\":2006},\"use\":\"Optional related purification attribution. The elementary cellwise proof independently establishes the restricted result and avoids extra theorem hypotheses. No novelty claim.\"},\"recommendation\":\"Retain current joint cell LP, scalar graph special case and fixed-prediction sampling estimator. Correct the fractional-allocation necessity statement; make no generic precision, sensitivity or ratio sharpness shortcut.\",\"request\":\"Independently check the full-attention construction, finite-switch bound, original sentence repair and exact counterexamples.\",\"role\":\"challenger\",\"simpler_valid_candidate\":{\"limits\":\"No worst-case dimension reduction. New targets may split groups. Do not pool distinct persons without further equivalence proof.\",\"name\":\"Identical-column aggregation within a person-cell\",\"proof\":\"Forward sum maps every original solution to reduced solution; reverse lift assigns the merged mass to one representative stream, preserving capacity, observations and retained targets. Apply original or full-attention reconstruction.\",\"recommendation\":\"Optional implementation preprocessing, not necessary main-paper notation.\",\"rule\":\"Merge streams only when their observation coefficients and all retained target weights coincide, keeping the same person and cell. New variable is sum of merged columns.\"}},\"recipient\":\"checker\"},{\"payload\":{\"exact_counterexamples\":[{\"case\":\"One person, one cell d=2, three streams, x1+x2=x1+x3=x2+x3=1.\",\"claim_refuted\":\"Cell LP generally has an integral network-flow structure in original x coordinates with integral data.\",\"limit\":\"Refutes direct integrality/TU shortcut, not every conceivable extended graph representation.\",\"result\":\"Unique x=(1/2,1/2,1/2), sum=3/2<=2. Pair matrix determinant -2. Full-attention schedule uses successive half-hour blocks then half-hour idle.\"},{\"case\":\"One person, three unit cells; exact A=(1/2,0,1/2), B=(0,1,0).\",\"claim_refuted\":\"Full attention also permits one uninterrupted session per task.\",\"result\":\"LP feasible and full-attention scheduling feasible, but A cannot have one contiguous session.\"},{\"case\":\"M=2, exactly one selected with pi=(9/10,1/10); y=(1,1), fixed f=(1,0), H=2.\",\"claim_refuted\":\"Smaller unweighted prediction SSE guarantees lower sampling variance under arbitrary design.\",\"result\":\"HT values=(10/9,10), variance=64/9. Difference values=(1,11), variance=9. Both mean 2; residual SSE improves 2 to 1.\"},{\"case\":\"H in [1,2], joint equality Q=H.\",\"claim_refuted\":\"Independent marginal productivity bounds are always sharp.\",\"result\":\"Exact ratio set {1}; marginal interval arithmetic gives [1/2,2].\"},{\"case\":\"H in [0,1], Q=H, restrict H>0.\",\"claim_refuted\":\"H_min=0 always makes positive-denominator productivity unbounded.\",\"result\":\"Ratio is always 1. With Q=1 instead, positive-denominator ratio set is [1,infinity), with no attained maximum.\"}],\"findings_file\":\"/workspace/work/mas-paper-20261101/challenger-findings.md\",\"independence\":\"Read supplied challenger context and authorised baseline only; no other worker output or repository changes.\",\"main_claim\":{\"construction\":\"For each person and cell independently, order S streams; starting at cell left endpoint, allocate exclusively to stream s for duration x_s. Capacity makes total duration at most cell length. Idle for the remaining duration. Use half-open blocks and omit zero-length blocks.\",\"implication\":\"Repair the text claiming exact correspondence depends on measurable fractional allocations. Distinguish fractional person-hour totals from fractional instantaneous attention.\",\"limits\":\"Minimum session lengths, nonpreemption, bounds on number of sessions, smoothness, switching costs, arbitrary within-cell target weights, precedence or resume delays are not preserved.\",\"quantifiers\":\"Finite task, person and work-type sets; finite cells with positive durations; no extra within-cell pointwise constraints beyond each person capacity; observations and any finite collection of target coefficients constant on cells; every feasible x, not only extrema.\",\"statement\":\"For every feasible cell vector x, there exists a finite Borel step-function history with each allocation in {0,1} and each person assigned to at most one stream at every time, reproducing every cell integral simultaneously. Hence the whole target image remains unchanged when simultaneous fractional attention is forbidden, provided arbitrary switching remains allowed.\",\"switch_bound\":\"Per person at most S+1 nonempty constant pieces per cell, at most K(S+1) pieces over K cells, and at most K(S+1)-1 internal switching times.\"},\"proof_status\":\"Elementary written proofs and exact rational finite checks only; no mechanical formalisation, empirical validation or full-source purification-theorem audit.\",\"published_comparison\":{\"original\":{\"authors\":\"Dvoretzky, Wald and Wolfowitz\",\"doi\":\"10.1214/aoms/1177729689\",\"issue\":\"1\",\"journal\":\"Annals of Mathematical Statistics\",\"pages\":\"1-21\",\"status\":\"Crossref metadata verified; publisher original full text inaccessible.\",\"title\":\"Elimination of Randomization in Certain Statistical Decision Procedures and Zero-Sum Two-Person Games\",\"volume\":\"22\",\"year\":1951},\"related_accessible_source\":{\"authors\":\"Khan, Rath and Sun\",\"doi\":\"10.1007/s00182-005-0004-3\",\"journal\":\"International Journal of Game Theory\",\"pages\":\"91-104\",\"status\":\"Publisher abstract inspected. It states finite-action mixed strategies admit pure strategies preserving integrals for finitely many atomless measures. Full theorem proof not inspected.\",\"title\":\"The Dvoretzky-Wald-Wolfowitz theorem and purification in atomless finite-action games\",\"url\":\"https://link.springer.com/article/10.1007/s00182-005-0004-3\",\"volume\":\"34\",\"year\":2006},\"use\":\"Optional related purification attribution. The elementary cellwise proof independently establishes the restricted result and avoids extra theorem hypotheses. No novelty claim.\"},\"recommendation\":\"Retain current joint cell LP, scalar graph special case and fixed-prediction sampling estimator. Correct the fractional-allocation necessity statement; make no generic precision, sensitivity or ratio sharpness shortcut.\",\"request\":\"Consider the full-attention clarification as a strict improvement; retain LP generally. Challenge optional quotient notation against exposition cost.\",\"role\":\"challenger\",\"simpler_valid_candidate\":{\"limits\":\"No worst-case dimension reduction. New targets may split groups. Do not pool distinct persons without further equivalence proof.\",\"name\":\"Identical-column aggregation within a person-cell\",\"proof\":\"Forward sum maps every original solution to reduced solution; reverse lift assigns the merged mass to one representative stream, preserving capacity, observations and retained targets. Apply original or full-attention reconstruction.\",\"recommendation\":\"Optional implementation preprocessing, not necessary main-paper notation.\",\"rule\":\"Merge streams only when their observation coefficients and all retained target weights coincide, keeping the same person and cell. New variable is sum of merged columns.\"}},\"recipient\":\"formulator\"}],\"note\":\"Initial independent challenger turn. Direct coordinator update disclosed full-attention finding before this bus response. No reserved theoretical acceptance kinds emitted.\",\"objects\":[]}}",
+        "created": 1793543124.9872603
+      },
+      {
+        "seq": 20,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "context_read",
+        "body_json": "{\"agent\":\"challenger\",\"incoming\":[\"aa57cca78767995878b70fe3336e54e77938675ae69c87cd717db3c9100c5e45\"],\"private_hash\":\"601b50298ea3ebf7735a2c1a8ff1570350e4810cffd75c84f7cefbabf4e47233\"}",
+        "created": 1793543124.9919748
+      },
+      {
+        "seq": 21,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "context_read",
+        "body_json": "{\"agent\":\"checker\",\"incoming\":[\"f5defb817f33f8f7bca33d33ba9ad503bc11f5ca8879836dce9682477a9f5bdb\",\"a7787a3878505f1b4343d867c4dec4875d81b39c603baa8f08bf3146e8d0b821\",\"5d77563e15926a0205dbaeacfc9fc032f7f16ba5fd46ca2753ffa16ee28108a7\"],\"private_hash\":\"601b50298ea3ebf7735a2c1a8ff1570350e4810cffd75c84f7cefbabf4e47233\"}",
+        "created": 1793543125.000204
+      },
+      {
+        "seq": 22,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "context_read",
+        "body_json": "{\"agent\":\"estimator\",\"incoming\":[],\"private_hash\":\"601b50298ea3ebf7735a2c1a8ff1570350e4810cffd75c84f7cefbabf4e47233\"}",
+        "created": 1793543125.0022354
+      },
+      {
+        "seq": 23,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "context_read",
+        "body_json": "{\"agent\":\"formulator\",\"incoming\":[\"f115bd6606feb959e56d1a1470fe1e975102ec6d8fddbbf93ee91c495df6b2e4\",\"b4102ad9b8ee911093bf1d57e49ce3165939efa6810b39e6d657330cfd6499ca\"],\"private_hash\":\"601b50298ea3ebf7735a2c1a8ff1570350e4810cffd75c84f7cefbabf4e47233\"}",
+        "created": 1793543125.0084941
+      },
+      {
+        "seq": 24,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "message_sent",
+        "body_json": "{\"bytes\":2995,\"hash\":\"54179c52a69d5ae5d8255de024ee36319f821b658675497647c4fda09d74681a\",\"id\":\"3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737\",\"recipient\":\"checker\",\"sender\":\"formulator\",\"version\":\"1.0\"}",
+        "created": 1793543324.5252724
+      },
+      {
+        "seq": 25,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "message_sent",
+        "body_json": "{\"bytes\":2998,\"hash\":\"08e7b42a103f2e3c20f05201842084d1125954eb7ade2db182d90f92cca48eaa\",\"id\":\"1310deddf7f4f6056752369c824661566d7963afafe91dcf844f2c0c160a97a5\",\"recipient\":\"challenger\",\"sender\":\"formulator\",\"version\":\"1.0\"}",
+        "created": 1793543324.5253105
+      },
+      {
+        "seq": 26,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "agent_response",
+        "body_json": "{\"agent\":\"formulator\",\"provenance\":{\"execution_identity\":\"/root/mas_formulator:turn2\",\"mode\":\"host-assisted\"},\"response\":{\"messages\":[{\"payload\":{\"confidence_projection_review\":{\"conditions\":\"Coverage must be simultaneous, structural P0 must be correct, and closed polyhedral C_s gives attained extrema whenever nonempty P0 is compact. Empty sample-based set is a statistical flag, not an exact-data logical contradiction.\",\"proof\":\"On the observation-coverage event, the true x* is feasible in P_s; its target is therefore in the projection.\",\"statement\":\"If fixed x* belongs to deterministic P0 and Pr(Ax* in C_s)>=1-alpha, then Pr(h(x*) in h(P0 intersect {x:Ax in C_s}))>=1-alpha. Also Pr(P_s empty)<=alpha.\"},\"confirmed_statement\":\"For every feasible cell vector, consecutive within-cell exclusive stream blocks and idle remainder preserve every cell integral and finite collection of cell-linear targets. At most K(S+1) pieces and K(S+1)-1 internal switches per person suffice. This constructs a representative history; it does not preserve the actual pointwise history or impose an arbitrary external session budget.\",\"consumed_message_ids\":[\"f115bd6606feb959e56d1a1470fe1e975102ec6d8fddbbf93ee91c495df6b2e4\",\"b4102ad9b8ee911093bf1d57e49ce3165939efa6810b39e6d657330cfd6499ca\"],\"hypothesis_limits\":[\"No minimum session duration, switching costs, nonpreemption, precedence, synchronisation or resumption delay is added.\",\"Arbitrary within-cell target weights or instantaneous sample observations are not automatically preserved.\",\"Cell totals may remain fractional; original observation matrix need not be TU.\",\"Aggregation is target-specific and must retain all extra individual constraints.\"],\"kind\":\"formulation_peer_review\",\"recommendation\":\"Unchanged: retain general joint LP, scalar graph special case and fixed-prediction estimator. Adopt exclusive serial-attainment clarification. Equal-column aggregation is optional preprocessing, not necessary main-paper notation.\",\"review_file\":\"/workspace/work/mas-paper-20261101/formulator-peer-review.md\",\"status\":\"Written review and exact finite arithmetic only; no formal or empirical acceptance. No new source claims.\",\"verified_counterexamples\":[{\"HT_mean\":\"2\",\"HT_variance\":\"64/9\",\"case\":\"Unequal inclusion probabilities\",\"difference_mean\":\"2\",\"difference_variance\":\"9\",\"implication\":\"Smaller unweighted prediction SSE need not reduce design variance.\",\"method\":\"independent exact Fraction calculation\"},{\"case\":\"Q=H in [1,2]\",\"method\":\"algebra\",\"ratio_set\":\"{1}\"},{\"case\":\"Q=H in [0,1], H>0\",\"implication\":\"H_min=0 alone does not imply unbounded ratio.\",\"method\":\"algebra\",\"ratio_set\":\"{1}\"},{\"case\":\"Q=1, H in (0,1]\",\"method\":\"algebra\",\"ratio_set\":\"[1,infinity), no attained maximum\"},{\"case\":\"A=(1/2,0,1/2), B=(0,1,0) in unit cells\",\"implication\":\"Exclusive attention does not imply one uninterrupted task session.\",\"method\":\"interval geometry\"}]},\"recipient\":\"checker\"},{\"payload\":{\"confidence_projection_review\":{\"conditions\":\"Coverage must be simultaneous, structural P0 must be correct, and closed polyhedral C_s gives attained extrema whenever nonempty P0 is compact. Empty sample-based set is a statistical flag, not an exact-data logical contradiction.\",\"proof\":\"On the observation-coverage event, the true x* is feasible in P_s; its target is therefore in the projection.\",\"statement\":\"If fixed x* belongs to deterministic P0 and Pr(Ax* in C_s)>=1-alpha, then Pr(h(x*) in h(P0 intersect {x:Ax in C_s}))>=1-alpha. Also Pr(P_s empty)<=alpha.\"},\"confirmed_statement\":\"For every feasible cell vector, consecutive within-cell exclusive stream blocks and idle remainder preserve every cell integral and finite collection of cell-linear targets. At most K(S+1) pieces and K(S+1)-1 internal switches per person suffice. This constructs a representative history; it does not preserve the actual pointwise history or impose an arbitrary external session budget.\",\"consumed_message_ids\":[\"f115bd6606feb959e56d1a1470fe1e975102ec6d8fddbbf93ee91c495df6b2e4\",\"b4102ad9b8ee911093bf1d57e49ce3165939efa6810b39e6d657330cfd6499ca\"],\"hypothesis_limits\":[\"No minimum session duration, switching costs, nonpreemption, precedence, synchronisation or resumption delay is added.\",\"Arbitrary within-cell target weights or instantaneous sample observations are not automatically preserved.\",\"Cell totals may remain fractional; original observation matrix need not be TU.\",\"Aggregation is target-specific and must retain all extra individual constraints.\"],\"kind\":\"formulation_peer_review\",\"recommendation\":\"Unchanged: retain general joint LP, scalar graph special case and fixed-prediction estimator. Adopt exclusive serial-attainment clarification. Equal-column aggregation is optional preprocessing, not necessary main-paper notation.\",\"review_file\":\"/workspace/work/mas-paper-20261101/formulator-peer-review.md\",\"status\":\"Written review and exact finite arithmetic only; no formal or empirical acceptance. No new source claims.\",\"verified_counterexamples\":[{\"HT_mean\":\"2\",\"HT_variance\":\"64/9\",\"case\":\"Unequal inclusion probabilities\",\"difference_mean\":\"2\",\"difference_variance\":\"9\",\"implication\":\"Smaller unweighted prediction SSE need not reduce design variance.\",\"method\":\"independent exact Fraction calculation\"},{\"case\":\"Q=H in [1,2]\",\"method\":\"algebra\",\"ratio_set\":\"{1}\"},{\"case\":\"Q=H in [0,1], H>0\",\"implication\":\"H_min=0 alone does not imply unbounded ratio.\",\"method\":\"algebra\",\"ratio_set\":\"{1}\"},{\"case\":\"Q=1, H in (0,1]\",\"method\":\"algebra\",\"ratio_set\":\"[1,infinity), no attained maximum\"},{\"case\":\"A=(1/2,0,1/2), B=(0,1,0) in unit cells\",\"implication\":\"Exclusive attention does not imply one uninterrupted task session.\",\"method\":\"interval geometry\"}]},\"recipient\":\"challenger\"}],\"note\":\"Consumed actual message IDs f115bd6606feb959e56d1a1470fe1e975102ec6d8fddbbf93ee91c495df6b2e4, b4102ad9b8ee911093bf1d57e49ce3165939efa6810b39e6d657330cfd6499ca. No other peer/coordinator/checker private files read. Recommendation unchanged; confidence-region projection hypotheses and zero-denominator boundary made explicit.\",\"objects\":[]}}",
+        "created": 1793543324.5255332
+      },
+      {
+        "seq": 27,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "message_acknowledged",
+        "body_json": "{\"agent\":\"formulator\",\"id\":\"f115bd6606feb959e56d1a1470fe1e975102ec6d8fddbbf93ee91c495df6b2e4\"}",
+        "created": 1793543324.5282753
+      },
+      {
+        "seq": 28,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "message_acknowledged",
+        "body_json": "{\"agent\":\"formulator\",\"id\":\"b4102ad9b8ee911093bf1d57e49ce3165939efa6810b39e6d657330cfd6499ca\"}",
+        "created": 1793543324.5293195
+      },
+      {
+        "seq": 29,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "context_read",
+        "body_json": "{\"agent\":\"checker\",\"incoming\":[\"f5defb817f33f8f7bca33d33ba9ad503bc11f5ca8879836dce9682477a9f5bdb\",\"a7787a3878505f1b4343d867c4dec4875d81b39c603baa8f08bf3146e8d0b821\",\"5d77563e15926a0205dbaeacfc9fc032f7f16ba5fd46ca2753ffa16ee28108a7\",\"3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737\"],\"private_hash\":\"601b50298ea3ebf7735a2c1a8ff1570350e4810cffd75c84f7cefbabf4e47233\"}",
+        "created": 1793543324.54024
+      },
+      {
+        "seq": 30,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "context_read",
+        "body_json": "{\"agent\":\"challenger\",\"incoming\":[\"aa57cca78767995878b70fe3336e54e77938675ae69c87cd717db3c9100c5e45\",\"1310deddf7f4f6056752369c824661566d7963afafe91dcf844f2c0c160a97a5\"],\"private_hash\":\"601b50298ea3ebf7735a2c1a8ff1570350e4810cffd75c84f7cefbabf4e47233\"}",
+        "created": 1793543324.5484712
+      },
+      {
+        "seq": 31,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "message_sent",
+        "body_json": "{\"bytes\":2783,\"hash\":\"0881d4bffb381efcde32c24531663bab785d7498ee6373277286bd4cf60022c9\",\"id\":\"528db5b51d6673525b1684e0418c36d631042dfd8135ba7523d4862ae4228798\",\"recipient\":\"formulator\",\"sender\":\"checker\",\"version\":\"1.0\"}",
+        "created": 1793543495.4406276
+      },
+      {
+        "seq": 32,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "message_sent",
+        "body_json": "{\"bytes\":2738,\"hash\":\"d8956e4003c3c18eceaa5b79bbc8cee357cbbb94aa857c3b8de28ea255c46188\",\"id\":\"8bf946c97cab134788936ef9dcaa89b66e91c6921b1fd9ddb480b0b4830a74e3\",\"recipient\":\"challenger\",\"sender\":\"checker\",\"version\":\"1.0\"}",
+        "created": 1793543495.4406562
+      },
+      {
+        "seq": 33,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "agent_response",
+        "body_json": "{\"agent\":\"checker\",\"provenance\":{\"execution_identity\":\"/root/mas_checker:turn1\",\"mode\":\"host-assisted\"},\"response\":{\"messages\":[{\"payload\":{\"additional_peer_review\":\"Formulator message 3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737 consumed; statements and limits agree with independent evaluation.\",\"consumed_inbox_message_ids\":[\"f5defb817f33f8f7bca33d33ba9ad503bc11f5ca8879836dce9682477a9f5bdb\",\"a7787a3878505f1b4343d867c4dec4875d81b39c603baa8f08bf3146e8d0b821\",\"5d77563e15926a0205dbaeacfc9fc032f7f16ba5fd46ca2753ffa16ee28108a7\",\"3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737\"],\"findings\":{\"aggregation\":\"Valid within fixed person-cell for exact matching observation and every retained target column, subject to baseline lift; no worst-case reduction.\",\"dual\":\"For P={x>=0:Ax<=b}, lambda,mu>=0 with A^T lambda>=w and A^T mu>=-w correctly certify -mu^T b<=w^T x<=lambda^T b. Feasible bounded LP strong duality supplies tight certificates without strict feasibility.\",\"finite_switch_bound\":\"At most K(S+1) blocks per person and K(S+1)-1 internal switches with consistent endpoint convention; final endpoint may take final block value.\",\"perturbation\":\"For e>=0 same witnesses certify [-mu^T(b+e),lambda^T(b+e)] and P subset P_e. Set e=0 on deterministic capacity rows when describing measurement uncertainty. No derivative or exact marginal-value claim.\",\"recommendation\":\"Retain LP, scalar graph and fixed-prediction estimator; concise strengthening is preferable to replacement.\",\"serial_attainment\":\"Valid for every feasible x and every cell-linear target; binary histories preserve the entire feasible target image. For intermediate values interpolate feasible cell vectors and serialise anew; do not interpolate binary histories.\",\"source_correspondence\":\"Independently inspected Boyd-Vandenberghe 5.2.3-5.2.4 and 5.6.2; KRS Section 2 Theorem DWW text supports finite atomless purification attribution, but serial proof provides finite-piece bound itself.\"},\"implementation_correspondence\":\"Explicitly authorised current partial-identification.tex and main.tex abstract inspected. Full-range interpolation/reconstruction, dual signs, unchanged-row perturbation zeros, simultaneous coverage and empty-set handling match reviewed statements; no substantive mismatch. Final endpoint convention is harmless and coordinator plans literal block-count clarification.\",\"proof_status\":\"Independent written proof and source-hypothesis review; no machine certification or empirical validation.\",\"report_path\":\"/workspace/work/mas-paper-20261101/checker-final.md\",\"verdict\":\"Recommend candidate with minor endpoint and row-specific relaxation clarifications.\"},\"recipient\":\"formulator\"},{\"payload\":{\"additional_peer_review\":\"Formulator message 3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737 consumed; statements and limits agree with independent evaluation.\",\"consumed_inbox_message_ids\":[\"f5defb817f33f8f7bca33d33ba9ad503bc11f5ca8879836dce9682477a9f5bdb\",\"a7787a3878505f1b4343d867c4dec4875d81b39c603baa8f08bf3146e8d0b821\",\"5d77563e15926a0205dbaeacfc9fc032f7f16ba5fd46ca2753ffa16ee28108a7\",\"3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737\"],\"findings\":{\"confidence_projection\":\"Correct when observation intervals have simultaneous coverage and true history obeys deterministic assumptions; empty random P is an empty result on coverage failure, not a zero-width interval. No conditional coverage or empirical validity inferred.\",\"counterexamples\":\"Determinant -2, interrupted-session, unequal-probability variance (64/9 versus 9), coupled-ratio and zero-denominator cases all pass independent checking.\",\"estimator_extensions\":\"No-uniform-SRS-improvement, predictor-clipping counterexample, reciprocal-ratio bias and bounded-measurement-error triangle inequality pass. Independently inspected Bardenet-Maillard Corollary 2.5; stated rho and two-sided halfwidth are correct for fixed residual population under SRS.\",\"limits\":\"No machine certification; no full original DWW proof audit; optional scheduling/aggregation papers not independently re-audited and are unnecessary proof dependencies.\",\"ratio_decision\":\"Defer linear-fractional extension until evidenced joint output-labour feasible constraints exist. Fixed-Q positive-denominator inversion already exact.\",\"serial_attainment\":\"Full-attention construction and full-range preservation pass; convex interpolation occurs in cell space followed by reserialisation. Finite block count requires harmless endpoint convention.\"},\"implementation_correspondence\":\"Explicitly authorised current partial-identification.tex and main.tex abstract inspected. Full-range interpolation/reconstruction, dual signs, unchanged-row perturbation zeros, simultaneous coverage and empty-set handling match reviewed statements; no substantive mismatch. Final endpoint convention is harmless and coordinator plans literal block-count clarification.\",\"proof_status\":\"Independent written proof and source-hypothesis review; no machine certification or empirical validation.\",\"report_path\":\"/workspace/work/mas-paper-20261101/checker-final.md\",\"verdict\":\"Recommend candidate with minor endpoint and row-specific relaxation clarifications.\"},\"recipient\":\"challenger\"}],\"note\":\"Consumed all four actual inbox IDs listed in both payloads. Independently reviewed candidate and authorised current implementation; no substantive mathematical discrepancy. Endpoint convention is harmless; no machine or empirical certification.\",\"objects\":[]}}",
+        "created": 1793543495.4407198
+      },
+      {
+        "seq": 34,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "context_read",
+        "body_json": "{\"agent\":\"challenger\",\"incoming\":[\"1310deddf7f4f6056752369c824661566d7963afafe91dcf844f2c0c160a97a5\",\"8bf946c97cab134788936ef9dcaa89b66e91c6921b1fd9ddb480b0b4830a74e3\"],\"private_hash\":\"601b50298ea3ebf7735a2c1a8ff1570350e4810cffd75c84f7cefbabf4e47233\"}",
+        "created": 1793543495.4472773
+      },
+      {
+        "seq": 35,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "context_read",
+        "body_json": "{\"agent\":\"checker\",\"incoming\":[\"5d77563e15926a0205dbaeacfc9fc032f7f16ba5fd46ca2753ffa16ee28108a7\",\"3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737\"],\"private_hash\":\"601b50298ea3ebf7735a2c1a8ff1570350e4810cffd75c84f7cefbabf4e47233\"}",
+        "created": 1793543495.4541771
+      },
+      {
+        "seq": 36,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "context_read",
+        "body_json": "{\"agent\":\"estimator\",\"incoming\":[],\"private_hash\":\"601b50298ea3ebf7735a2c1a8ff1570350e4810cffd75c84f7cefbabf4e47233\"}",
+        "created": 1793543495.4563684
+      },
+      {
+        "seq": 37,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "context_read",
+        "body_json": "{\"agent\":\"formulator\",\"incoming\":[\"528db5b51d6673525b1684e0418c36d631042dfd8135ba7523d4862ae4228798\"],\"private_hash\":\"601b50298ea3ebf7735a2c1a8ff1570350e4810cffd75c84f7cefbabf4e47233\"}",
+        "created": 1793543495.4604418
+      },
+      {
+        "seq": 38,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "message_acknowledged",
+        "body_json": "{\"agent\":\"checker\",\"id\":\"f5defb817f33f8f7bca33d33ba9ad503bc11f5ca8879836dce9682477a9f5bdb\"}",
+        "created": 1793543495.4973557
+      },
+      {
+        "seq": 39,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "message_acknowledged",
+        "body_json": "{\"agent\":\"checker\",\"id\":\"a7787a3878505f1b4343d867c4dec4875d81b39c603baa8f08bf3146e8d0b821\"}",
+        "created": 1793543495.4990447
+      },
+      {
+        "seq": 40,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "message_acknowledged",
+        "body_json": "{\"agent\":\"checker\",\"id\":\"5d77563e15926a0205dbaeacfc9fc032f7f16ba5fd46ca2753ffa16ee28108a7\"}",
+        "created": 1793543495.4999213
+      },
+      {
+        "seq": 41,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "message_acknowledged",
+        "body_json": "{\"agent\":\"checker\",\"id\":\"3155d4299e2b7b1530a57d0d84b28ff340ac3950133ee7a0d91e6db6f0ecd737\"}",
+        "created": 1793543495.5009458
+      },
+      {
+        "seq": 42,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "coordinator_disclosure",
+        "body_json": "{\"authorised_shared_reads\":[\"paper/article/partial-identification.tex\",\"paper/article/main.tex abstract\"],\"purpose\":\"Verify current implementation against reviewed candidate; read after independent first pass\",\"recipient\":\"checker\",\"result\":\"Worker report records source correspondence; exact source hashes will be retained in final manifest\"}",
+        "created": 1793543495.5017118
+      },
+      {
+        "seq": 43,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "host_execution_attribution",
+        "body_json": "{\"actual_native_turns\":6,\"initial_audit_before_candidate_disclosure\":true,\"initial_checker_audit\":\"findings/checker-initial.md\",\"meaning\":\"first imported checker bus response, produced in actual native turn 2\",\"native_usage\":\"unavailable\",\"provider_calls_executed\":0,\"recorded_checker_response_identity\":\"/root/mas_checker:turn1\"}",
+        "created": 1793543792.8998027
+      },
+      {
+        "seq": 44,
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "kind": "bounded_review_completed",
+        "body_json": "{\"decision\":\"Retain joint LP; include reviewed serial attainment, dual certificates and simultaneous-coverage implication\",\"proof_status\":\"independent written review and exact finite checks; no formal acceptance\",\"protocol_adaptation\":false}",
+        "created": 1793543792.89993
+      }
+    ],
+    "protocols": [
+      {
+        "run_id": "73f2f5977c5349f3a110c4d50d2acfcc",
+        "version": "1.0",
+        "spec_json": "{\"field_aliases\":{},\"keyword\":\"message\",\"version\":\"1.0\"}",
+        "origin": "human bootstrap",
+        "report_json": "{}",
+        "state": "active"
+      }
+    ],
+    "objects": []
+  }
+}

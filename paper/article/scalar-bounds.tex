@@ -1,7 +1,7 @@
 \section{A shortest-path solution for one allocation stream}
 \label{app:scalar}
 
-For one allocation stream $0\leq a\leq1$, the interval observations of Section~\ref{sec:sharp-identification} can be represented by cumulative labour at their endpoints. Using the sorted endpoints and cell lengths defined there, set $z_k=\int_{b_0}^{b_k}a(t)\,dt$. Write an inequality $z_q-z_p\leq w$ as a directed edge $p\to q$ of weight $w$. Adjacent endpoints receive edges $k-1\to k$ of weight $d_k$ and $k\to k-1$ of weight zero. Observation bounds on $[b_p,b_q]$ add edges $p\to q$ of weight $v^+$ and $q\to p$ of weight $-v^-$. An exact observed labour total $v$ therefore gives edge weights $v$ and $-v$. This is the standard difference-constraints representation \cite[Slides~6--11]{indyk2011}.
+For one person's work of one type on one task, let $0\leq a\leq1$ be the allocation function. The interval observations of Section~\ref{sec:sharp-identification} can be represented by cumulative labour at their endpoints. Using the sorted endpoints and cell lengths defined there, set $z_k=\int_{b_0}^{b_k}a(t)\,dt$. Write an inequality $z_q-z_p\leq w$ as a directed edge $p\to q$ of weight $w$. Adjacent endpoints receive edges $k-1\to k$ of weight $d_k$ and $k\to k-1$ of weight zero. Observation bounds on $[b_p,b_q]$ add edges $p\to q$ of weight $v^+$ and $q\to p$ of weight $-v^-$. An exact observed labour total $v$ therefore gives edge weights $v$ and $-v$. This is the standard difference-constraints representation \cite[Slides~6--11]{indyk2011}.
 
 \begin{proposition}[Attainable cumulative bounds from graph distances]
 \label{prop:graph-bounds}

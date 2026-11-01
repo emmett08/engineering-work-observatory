@@ -1,5 +1,53 @@
 # Paper validation history
 
+## 1 November 2026 terminology and MAS Math Lab review
+
+The current PDF builds to 15 pages. All six compiled sources and the figure
+caption received a terminology review, followed by an independent read. The
+repairs distinguish study inclusion, permitted AI use, original comparison-group
+allocation, labour attribution, work type, scoring inputs and follow-up checks.
+The final pass also makes the observation constraints explicit in the exact
+cell-reduction proposition's quantified history class.
+
+Four fresh MAS Math Lab worker contexts independently considered formulations,
+counterexamples, estimation and proof checking. The checker saved an initial
+audit before candidate disclosure and then checked the source and hypotheses of
+the proposed changes. The [review record](review/mas-model-2026-11-01/README.md)
+retains the bounded contract, actual messages and acknowledgements, source
+comparisons, proof review, exact calculations and checkpoint.
+
+The strengthened reconstruction preserves all feasible cell totals using
+consecutive full-attention blocks. The new certificate and observation-relaxation
+equations use published LP duality, and the sampling argument explicitly requires
+simultaneous coverage. These are written proofs with independent review and
+finite computational checks, outside the historical Lean receipt's coverage.
+The plugin's arbitrary-new-theorem proof-acceptance route is unavailable here.
+
+The dependency-free new checker passes in record and non-writing check modes.
+It verifies 1,225 exhaustive histories, 33,075 independently integrated
+equalities, 284 scalar parameter cases, exact endpoint and relaxed-observation
+certificates, infeasibility/unavailability cases, and structural counterexamples.
+Five structured cases scale from 4 to 48 variables with zero primal-dual gaps.
+Their recorded operation timings concern certificate checks and reconstruction,
+not generic solver performance or arbitrary-input tractability. Memory accounting
+normalises macOS byte and Linux KiB `ru_maxrss` units.
+
+`make -C paper check` passes using the task-local pinned Rust 1.85.1 toolchain for
+the unchanged performance package. It includes the preserved package/inventory/
+receipt checks, figure review, exact measurement and identification examples,
+forecast checks, seven Rust kernel tests and 11 Python collector tests. No
+application source changes were made. `make -C paper article` passes; all pages
+were rendered and the changed proof/certificate pages were inspected at readable
+size. There are no undefined citations/references, overfull or underfull boxes.
+The existing BibTeX missing-pages warning for `cui2026` remains.
+
+All pre-existing displayed equations remain unchanged; two certificate equations
+are added and the reconstruction proof is strengthened. The bibliography adds
+Boyd and Vandenberghe without altering earlier entries. The removed
+Reproducibility section remains absent. No empirical measurement study, generic
+solver benchmark, new Lean execution, or MAS-versus-single-agent comparison is
+claimed.
+
 The original package and the new extension have separate verification boundaries.
 The earlier sections retain the validation history of PR #2 and the subsequent
 sharp-identification revision. The final section records the 30 October 2026

@@ -1,0 +1,25 @@
+{
+  "files": {
+    ".github/workflows/ci.yml": "67a83e3354fef7f594092acd7977250ed44c885eaee3a06bd163d57294abd109",
+    "paper/Makefile": "2f1670772e507978bdacfeb994dc4da4d4eeae995ffb839979d503c9e7408c05",
+    "paper/ai-assisted-software-engineering.pdf": "8a60bf94281edaeb3a45193559ea021fae75bf28f63a9d007c518f7fc4d2257f",
+    "paper/article/design-based-estimation.tex": "d3595154e1b0fcc5fdfeaf27c6b7aa30ac464becb8134998192c19a0f07024e8",
+    "paper/article/event-history.tex": "109478fc3dec578c5b41c2609b686893848b8bf31381b8c686405bc789d6a063",
+    "paper/article/main.tex": "93b2a071ac2320fa1c4cfbc91ff5d10c258df381238852a1d3d8c7895fd85cd8",
+    "paper/article/partial-identification.tex": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
+    "paper/article/references.bib": "d58b8c27c7796a98149b4d7f47be06e39ca48f0d010195682d1fb278d6b71f7c",
+    "paper/article/sampling-validation.tex": "2973ca7a3ba88d1e840b4e29e104b0d94a962681ccf1199349dbd7d7a4347355",
+    "paper/article/scalar-bounds.tex": "907c793b1f6511d6f34a8fc021f5ae43de280586cb32919db51be03846b31306",
+    "paper/review/mas-model-2026-11-01/calculations/check_model.py": "0a67e412778bf522e0a6dc0708c531fc85de8320c900cf07680a0f718211a951",
+    "paper/review/mas-model-2026-11-01/calculations/results.json": "2e231fc71bf69549200eac5eaddb85d41b3c764197e51517343a4525885769d3",
+    "paper/review/mas-model-2026-11-01/calculations/scaling.json": "4d37ac47df59486d8bcb1b5ffac8d000901c49f83213840d4b43cf9180f03548",
+    "paper/review/mas-model-2026-11-01/candidate.md": "bc6663c280dbcccc4006cbe7fafa376c0f7f1332e68a1507bf3ac81148db3c37",
+    "paper/review/mas-model-2026-11-01/checkpoint.zip": "c20c4273feda478f8607cc2d7f0945953e3386d48ae3162242b2ffaeccb6156b",
+    "paper/review/mas-model-2026-11-01/contract.json": "f31952793f527ede15b0385fe79d2ae1914780cb4c831466633e4de7d5037e5b"
+  },
+  "hash_algorithm": "sha256",
+  "pdf_pages": 15,
+  "proof_status": "Independent written proof/source review plus exact finite computations; no new Lean certification",
+  "revision": "paper-model-review/1",
+  "scope": "Current compiled sources, computation inputs/code/results and retained execution"
+}

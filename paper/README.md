@@ -65,6 +65,18 @@ contributions into an exactly known combined first-hour total. Its
 [design and build record](figures/shared-capacity/README.md) retain the constructed
 inputs, exact calculation, alternative composition and review.
 
+The subsequent [terminology and MAS Math Lab review](review/mas-model-2026-11-01/README.md)
+replaces administrative labels with the particular inclusion rules, work types,
+scoring inputs, study-group allocations and follow-up checks intended. It retains
+the joint linear programme and strengthens its reconstruction: every feasible
+cell vector also has a finite schedule in which each person does one activity at
+a time, with unrestricted interruption. Published LP duality supplies exact
+endpoint certificates and bounds after observation-error limits are widened.
+A simultaneous-coverage argument explains when sampled observation intervals
+can support a labour confidence interval. The review includes actual separate
+agent exchanges, independent proof/source checking, exact constructed examples
+and a resumable checkpoint. It adds no Lean certification or empirical validation.
+
 ## Original paper and proof evidence
 
 [`effort-speed-ai/`](effort-speed-ai/) is the complete original package moved from

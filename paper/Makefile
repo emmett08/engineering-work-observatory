@@ -26,6 +26,7 @@ check:
 	$(PYTHON) figures/shared-capacity/verify.py --review
 	$(PYTHON) check_measurement_examples.py
 	$(PYTHON) check_sharp_identification.py
+	$(PYTHON) review/mas-model-2026-11-01/calculations/check_model.py --check
 	$(PYTHON) forecasting/check_reference_results.py --self-test
 	cd performance && cargo test --locked
 	cd performance && $(PYTHON) -m unittest discover -s tests -v
