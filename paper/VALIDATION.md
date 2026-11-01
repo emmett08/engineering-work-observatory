@@ -1,5 +1,40 @@
 # Paper validation history
 
+## 1 November 2026 paragraph organisation and continuity
+
+Baseline: `07c80fde31a520da012fc54d2dffb50ced420e8a`. The revision covers the seven
+sources compiled into the current labour manuscript and the forecasting
+companion's main source. Paragraphs develop their governing question before
+moving to a new decision. The task-counting example now explains how acceptance
+timing changes output recognised by a deadline. Equation lead-ins connect the
+accounting question to the quantity being defined. A subsequent economy pass
+removes repeated framing while retaining those explanations.
+
+Ordered source comparisons preserve all 301 mathematical spans, five complete
+propositions, five complete proofs and 122 citation/reference/label/input
+commands across the eight edited sources. Bibliographies, numerical results,
+figure sources, historical packages and Lean definitions are unchanged. An
+independent review of the main source and partial-identification section restored
+the explicit incompleteness of quality observations and the reconstruction's
+unrestricted-interruption assumption. The existing concordance report and
+current-manuscript binding are renewed in place. Static receipt validation and
+an isolated changed-byte rejection check pass. This revision adds no Lean
+execution or empirical validation.
+
+`make -C paper article forecasting` passes. The PDFs remain 17 and eight pages,
+respectively. All pages were rendered and inspected, including readable views
+of the task-accounting passage. The final logs have no undefined references,
+undefined citations or overfull/underfull boxes. The existing BibTeX warning
+about missing pages in the online-first `cui2026` entry remains.
+
+The preserved-package hash check, measurement examples, sharp-identification
+checker, MAS model calculations, causal-protocol validator, shared-capacity
+calculation check and forecasting reference self-test pass. Static proof-receipt
+checks and `git diff --check` pass. Application and performance code are unchanged.
+Rust tests and fresh Lean replay were not run in this environment, which has
+neither toolchain on PATH. Readability remains an editorial judgement pending
+representative-reader evidence.
+
 ## 1 November 2026 editorial and statistical revision
 
 The new revision applies wording/statistical audits before experienced-engineer
