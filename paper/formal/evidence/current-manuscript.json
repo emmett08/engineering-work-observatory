@@ -1,28 +1,26 @@
 {
   "schema": "current-manuscript-concordance/1",
   "repository_relative_path": "paper/article/partial-identification.tex",
-  "sha256": "574287fea71e64e8078b6593d15ce3e004ce502c4c2ed59700a3d28b465682c6",
+  "sha256": "f0f955912e9da22dd14187610ca290f99a837c184b3b25813ecd4f9cf233a927",
   "frozen_target": {
     "path": "targets/partial-identification.tex",
     "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
     "origin_commit": "38c4ce40b789d4c5420c98ff1d568b39c3b1e798"
   },
   "independent_review": {
-    "reviewer": "/root/formal_guard",
+    "reviewer": "/root/supporting_sections_edit",
     "outcome": "MATHEMATICAL_STATEMENTS_UNCHANGED",
     "report": {
       "path": "evidence/current-manuscript-editorial-review.md",
-      "sha256": "d631b21efbf296aed27104d2cd19c3debcec3ba7903b544a0067bbe1a77ae6f7"
+      "sha256": "7f239daa9b091b3dd18a338852617506aef3eb707f23efc158e45de97dd6401e"
     },
     "differences": [
-      "Identified-range opening and simultaneous attainment conditions stated directly.",
-      "Observation group membership and sampling-uncertainty warning clarified.",
-      "Binary reconstruction proof sentence split; mathematical construction and proof steps preserved.",
-      "Purification citation punctuation and sensitivity/coverage explanations clarified without changing scope.",
-      "Formal coverage described through integral sums, capacity, serial schedules, supplied multipliers and conditional coverage; explicit Rust-source exclusion retained.",
-      "Earlier timeline callout, purification attributions and formal-supplement paragraph remain relative to frozen target."
+      "Paragraphs now develop single-interval capacity, joint feasibility, finite-cell reduction, endpoint certification and sampling coverage in order.",
+      "Equation lead-ins state the question being answered; theorem statements, proofs and mathematical expressions are unchanged from the previous current article.",
+      "Independent review retained explicit unrestricted-interruption and measurement limitations; a subsequent economy pass removed repeated framing.",
+      "Pre-existing contextual attributions and proof-scope exclusions remain relative to the immutable target."
     ],
-    "statement_preservation": "Mathematical definitions, hypotheses, proposition statements, equations, proof steps and formal-scope boundaries retain their meaning. Mathematical spans, full proposition environments and labels are byte-identical to both the previous current article and immutable target. Proof prose contains a sentence split and is semantically preserved, not byte-identical."
+    "statement_preservation": "All mathematical expressions, complete propositions and complete proofs, citations, labels and references are byte-identical and in order relative to the previous current article. The immutable target, Lean sources and historical proof execution evidence are unchanged."
   },
   "invalidation": "A current-article byte change requires renewed current concordance/hash binding. A proof-source change requires renewed proof/source review and checking. This record does not identify current bytes with frozen target bytes."
 }

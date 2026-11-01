@@ -2,37 +2,48 @@
 
 Outcome: **MATHEMATICAL_STATEMENTS_UNCHANGED / PASS**.
 
-Independent reviewer agent: `/root/formal_guard`. This reviewer did not draft the candidate prose or the underlying Lean development. This is a fallible source-concordance review, not a new Lean execution or empirical validation.
+Independent reviewer agent: `/root/supporting_sections_edit`. The reviewer authored neither reviewed source nor the Lean development. The review covers the two sources below, their complete diff against repository baseline `07c80fde31a520da012fc54d2dffb50ced420e8a`, and the immutable proof target. It is a source-concordance review. It supplies no new Lean execution, kernel replay or empirical validation.
 
 ## Exact reviewed sources
 
 | Source | SHA-256 |
 |---|---|
-| Candidate `paper/article/partial-identification.tex` | `574287fea71e64e8078b6593d15ce3e004ce502c4c2ed59700a3d28b465682c6` |
-| Previous current article at `5936f2c28fd075217b679c0b2ad3aba57b9801f3` | `9fa0f67b732dea619417902459d3854e7cc211253f918a5b7f0f1f74e2391716` |
-| Frozen `paper/formal/targets/partial-identification.tex` from `38c4ce40b789d4c5420c98ff1d568b39c3b1e798` | `5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb` |
-
-Read the full candidate, immutable target and complete candidate-versus-previous diff. Also checked the local labour and cohort-productivity definitions in the current main article, the formal semantic map, scope inventory and retained source-review descriptions. No material mathematical mismatch was found.
+| Candidate `paper/article/partial-identification.tex` | `f0f955912e9da22dd14187610ca290f99a837c184b3b25813ecd4f9cf233a927` |
+| Baseline current `paper/article/partial-identification.tex` | `574287fea71e64e8078b6593d15ce3e004ce502c4c2ed59700a3d28b465682c6` |
+| Frozen `paper/formal/targets/partial-identification.tex` | `5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb` |
+| Candidate `paper/article/main.tex` | `1df5662bbc1b6a2036c60141789bf7c95e6baa810079b9f04060fb1edb97622d` |
 
 ## Literal checks
 
-The ordered sequences of all 99 inline mathematical spans, the single bracketed mathematical display, the six equation/align environments, both complete proposition environments and all 11 labels are byte-identical to both previous current article and immutable target. Proposition statements retain all original quantifiers, hypotheses, boundary cases and conclusions. These are source observations, not proof that all mathematical meaning is confined to extracted spans.
+Ordered extraction from the candidate and baseline confirms exact equality of the following source spans:
 
-All six citation commands, arguments and optional locators are byte-identical to the previous current article. The frozen target has fewer citations because the earlier reviewed manuscript added purification and Lean/mathlib attributions. Those remain contextual and do not change the proof target.
+| Category | `partial-identification.tex` | `main.tex` |
+|---|---:|---:|
+| Inline mathematical spans | 99 | 43 |
+| Bracketed mathematical displays | 1 | 0 |
+| Equation/align environments | 6 | 5 |
+| Complete proposition environments | 2 | 1 |
+| Complete proof environments | 2 | 1 |
+| Citation commands with arguments and optional locators | 6 | 9 |
+| Labels | 11 | 12 |
+| Reference/eqref commands | 10 | 9 |
 
-## Semantic review of changed passages
+The partial-identification candidate also matches the frozen target exactly for all mathematical spans, complete propositions, labels and reference commands. Its complete proofs match the repository baseline exactly. Relative to the frozen target, the only proof-text difference is the previously retained replacement of a semicolon by a full stop in the binary schedule construction. The original instructions to set one allocation to one, set the others to zero and leave remaining time idle retain their meaning. The frozen target has fewer citations because the previously reviewed manuscript added contextual purification and Lean/mathlib attributions. These are retained unchanged by this revision.
 
-1. **Identified range.** The opening retains both inclusions: every listed total has a history satisfying observations and allocation constraints, and every such history gives a listed total. The promised extrema and intermediate attainability are established under the explicit nonempty-feasible-set hypothesis of the unchanged proposition.
-2. **Separate bounds.** Separate sentences name simultaneous attainment of all component minima or all component maxima. The original necessary conditions, distinct lower/upper cases and exception for linked contributions are preserved. The prose does not claim independently calculated valid bounds are jointly sharp.
-3. **Observation groups.** “Streams whose labour the observation includes” identifies membership in the same set used by the integral constraint. The interval, groups, finite bounds and units are unchanged. The revised Horvitz–Thompson warning still requires accounting for sampling uncertainty before justifying either inequality.
-4. **Binary reconstruction.** Inside the proof, the only prose change splits the instruction setting the corresponding allocation to one and the others to zero from the instruction leaving remaining time idle. Block lengths, half-open boundaries, zero-length handling, endpoint convention, measurability, cell totals, observation bounds, target preservation and arbitrary-switching assumptions retain their meaning. Proof prose is semantically preserved but is not byte-identical.
-5. **Purification attribution.** Replacing the semicolon by a sentence boundary retains the Dvoretzky–Wald–Wolfowitz and Khan–Rath–Sun citations at the same finite-partition interpretation. This review checks citation attachment and claim scope, not a new primary-source bibliographic audit.
-6. **Sensitivity.** The revised explanation names the weighted sums of inequalities that reuse nonnegative dual multipliers. The changed right-hand-side vector, its nonnegative relaxation, possible improvement after reoptimisation and observational justification for error limits remain intact.
-7. **Sampling coverage.** The text still distinguishes marginal from simultaneous coverage, preserves event inclusion, the probability lower bound, `0 < alpha < 1`, empty-feasible-set failure, the union-bound condition and the need for an argument for the actual sampling and measurement process. It does not promote individually calibrated marginal intervals to the same joint coverage.
-8. **Formal scope.** The new description of integral/cell identities, integrated capacity, one-activity-at-a-time schedules, supplied allocation/multiplier checks and conditional coverage matches the recorded Lean components. It still excludes extrema existence, dual-multiplier existence, the numerical block-count proof and Rust source refinement. The final explicit reference to the Rust solver's source code resolves the potentially ambiguous pronoun without changing this exclusion. The paragraph does not claim that empirical assumptions hold or that a single theorem packages every indexing choice.
+These literal checks supplement the semantic review. They do not assume that mathematical meaning is confined to extracted spans. The final economy pass was reviewed again: its shorter framing retains the same definitions, example mechanisms and qualifications, and the literal checks above were repeated on the final bytes.
 
-## Comparison with frozen target and preserved boundary
+## Semantic review
 
-The three earlier additions remain: the Figure 1(c) schedule callout, contextual purification citations and formal-supplement coverage paragraph. This editorial pass changes their wording only as described above. Mathematical definitions, assumptions, proposition statements, proof steps and interpretations retain their prior meaning. Acceptance times and retained fractions remain fixed during allocation optimisation. Positivity and joint-attainability conditions on productivity bounds are unchanged.
+The partial-identification revision preserves both inclusions defining the identified range, nonempty-feasible-set conditions for attainability, the distinction between separately valid bounds and simultaneous endpoint attainment, and the need to retain observation cells outside target windows. The examples remain constructed calculations. The allocation assumptions, interval bounds and fixed target weights are unchanged.
 
-The immutable target, Lean sources, dependencies, checker scripts, semantic map, original semantic review and original proof-replay evidence were not changed. This report binds only the exact candidate bytes above. A later byte change requires a new concordance review and binding. The review supplies no new proof, implementation refinement, measurement premise or causal-identification evidence.
+The revised explanation of fractional cell totals still requires unrestricted interruption and switching within each cell. Independent review identified a weaker formulation of that assumption, and the candidate now states explicitly that reconstruction requires work to be allowed to start, stop and change type or task at arbitrary times. Restrictions on session lengths, interruption, smoothness and switching costs continue to require separate analysis.
+
+The certificate and observation-error paragraphs retain nonnegative dual multipliers, the sign-reversed lower observation inequality, nonnegative relaxation of right-hand sides, possible improvement by reoptimisation and the need to justify error limits. Sampling coverage still requires simultaneous coverage, counts an empty feasible set as failure, and preserves the union-bound condition. Productivity bounds retain positive lower labour, joint feasibility of output and labour, and fixed acceptance times and retained fractions throughout allocation optimisation.
+
+The main-source revision preserves task identity and output-counting rules, separate access/use records, per-person capacity, abandonment/censoring, reference-score calibration, the three clocks and the positive-denominator condition. Its two-component example illustrates the existing grouping-and-acceptance mechanism without claiming a workplace observation. Independent review also restored the explicit incompleteness of line-survival, testing and incident observations of quality. Sampling, measurement and causal-study qualifications remain visible. No new empirical or causal result is asserted.
+
+## Preserved proof boundary
+
+The retained Lean-coverage paragraph is unchanged. It continues to exclude existence of extrema and dual multipliers, the numerical bound on schedule blocks and Rust source refinement. The immutable proof target and Lean sources were not changed by this editorial review. Historical proof execution and replay evidence retain their recorded scope.
+
+This review binds only the candidate bytes identified above. It does not review the other included manuscript sources or establish manuscript-wide semantic fidelity. A later change to either reviewed source requires a fresh review of the changed content and an updated binding where applicable.

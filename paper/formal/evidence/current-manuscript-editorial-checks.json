@@ -2,50 +2,165 @@
   "schema": "current-manuscript-editorial-checks/1",
   "status": "PASS",
   "date": "2026-11-01",
-  "candidate_sha256": "574287fea71e64e8078b6593d15ce3e004ce502c4c2ed59700a3d28b465682c6",
+  "baseline_commit": "07c80fde31a520da012fc54d2dffb50ced420e8a",
+  "candidate_sha256": "f0f955912e9da22dd14187610ca290f99a837c184b3b25813ecd4f9cf233a927",
   "checker_sha256": "c0ba27cfee9502c3fd5352b9c1b3154dca6047eb773bb3e7acaab25add0fc00f",
   "static_validation": {
     "command": "make -C paper/formal check-receipt",
     "exit_status": 0,
-    "stdout": "make: Entering directory '/workspace/work/paper-editorial-20261101/paper/formal'\npython3 scripts/check_scope.py\n{\n  \"status\": \"PASS\",\n  \"inventory_items\": 10,\n  \"checked_component_groups\": 5,\n  \"checker_scripts_sha256\": \"MATCHED\",\n  \"recorded_toolchain_identity_sha256\": \"MATCHED\",\n  \"current_manuscript_sha256\": \"MATCHED\",\n  \"other_dispositions\": {\n    \"strong-dual-existence\": \"DEFERRED_DEPENDENCY\",\n    \"empirical-adequacy\": \"EMPIRICAL_CONTEXTUAL\",\n    \"rust-refinement\": \"NOT_REQUIRED\",\n    \"finite-block-count\": \"DEFERRED_DEPENDENCY\",\n    \"lp-extrema-existence\": \"DEFERRED_DEPENDENCY\"\n  },\n  \"scope\": \"Inventory and exclusion consistency only; not a proof of excluded or empirical claims.\"\n}\npython3 scripts/validate_formal_receipt.py formal-verification-receipt.json --base .\n{\n  \"status\": \"PASS\",\n  \"errors\": []\n}\nmake: Leaving directory '/workspace/work/paper-editorial-20261101/paper/formal'\n"
+    "stdout": "make: Entering directory '/workspace/scratch/ba0b18c8e420/engineering-work-observatory/paper/formal'\npython3 scripts/check_scope.py\n{\n  \"status\": \"PASS\",\n  \"inventory_items\": 10,\n  \"checked_component_groups\": 5,\n  \"checker_scripts_sha256\": \"MATCHED\",\n  \"recorded_toolchain_identity_sha256\": \"MATCHED\",\n  \"current_manuscript_sha256\": \"MATCHED\",\n  \"other_dispositions\": {\n    \"strong-dual-existence\": \"DEFERRED_DEPENDENCY\",\n    \"empirical-adequacy\": \"EMPIRICAL_CONTEXTUAL\",\n    \"rust-refinement\": \"NOT_REQUIRED\",\n    \"finite-block-count\": \"DEFERRED_DEPENDENCY\",\n    \"lp-extrema-existence\": \"DEFERRED_DEPENDENCY\"\n  },\n  \"scope\": \"Inventory and exclusion consistency only; not a proof of excluded or empirical claims.\"\n}\npython3 scripts/validate_formal_receipt.py formal-verification-receipt.json --base .\n{\n  \"status\": \"PASS\",\n  \"errors\": []\n}\nmake: Leaving directory '/workspace/scratch/ba0b18c8e420/engineering-work-observatory/paper/formal'\n"
   },
   "isolated_mutation": {
-    "isolation": "Copied formal package and canonical article into task scratch; repository article untouched.",
+    "isolation": "Copied formal package and canonical article to task scratch; repository article untouched.",
     "unchanged_article_exit_status": 0,
     "changed_article_exit_status": 1,
     "rejection": "Current manuscript changed; renew its independent concordance binding."
   },
-  "literal_checks": {
-    "inline_math": {
-      "count": 99,
-      "equal_baseline": true,
-      "equal_frozen": true
+  "source_protection": {
+    "paper/article/design-based-estimation.tex": {
+      "math": {
+        "count": 63,
+        "ordered_byte_equality": true
+      },
+      "propositions": {
+        "count": 1,
+        "ordered_byte_equality": true
+      },
+      "proofs": {
+        "count": 1,
+        "ordered_byte_equality": true
+      },
+      "commands": {
+        "count": 16,
+        "ordered_byte_equality": true
+      }
     },
-    "display_bracket": {
-      "count": 1,
-      "equal_baseline": true,
-      "equal_frozen": true
+    "paper/article/event-history.tex": {
+      "math": {
+        "count": 3,
+        "ordered_byte_equality": true
+      },
+      "propositions": {
+        "count": 0,
+        "ordered_byte_equality": true
+      },
+      "proofs": {
+        "count": 0,
+        "ordered_byte_equality": true
+      },
+      "commands": {
+        "count": 2,
+        "ordered_byte_equality": true
+      }
     },
-    "display_environments": {
-      "count": 6,
-      "equal_baseline": true,
-      "equal_frozen": true
+    "paper/article/main.tex": {
+      "math": {
+        "count": 48,
+        "ordered_byte_equality": true
+      },
+      "propositions": {
+        "count": 1,
+        "ordered_byte_equality": true
+      },
+      "proofs": {
+        "count": 1,
+        "ordered_byte_equality": true
+      },
+      "commands": {
+        "count": 36,
+        "ordered_byte_equality": true
+      }
     },
-    "propositions": {
-      "count": 2,
-      "equal_baseline": true,
-      "equal_frozen": true
+    "paper/article/partial-identification.tex": {
+      "math": {
+        "count": 106,
+        "ordered_byte_equality": true
+      },
+      "propositions": {
+        "count": 2,
+        "ordered_byte_equality": true
+      },
+      "proofs": {
+        "count": 2,
+        "ordered_byte_equality": true
+      },
+      "commands": {
+        "count": 29,
+        "ordered_byte_equality": true
+      }
     },
-    "citations": {
-      "count": 6,
-      "equal_baseline": true,
-      "equal_frozen": false
+    "paper/article/sampling-validation.tex": {
+      "math": {
+        "count": 17,
+        "ordered_byte_equality": true
+      },
+      "propositions": {
+        "count": 0,
+        "ordered_byte_equality": true
+      },
+      "proofs": {
+        "count": 0,
+        "ordered_byte_equality": true
+      },
+      "commands": {
+        "count": 0,
+        "ordered_byte_equality": true
+      }
     },
-    "labels": {
-      "count": 11,
-      "equal_baseline": true,
-      "equal_frozen": true
+    "paper/article/scalar-bounds.tex": {
+      "math": {
+        "count": 37,
+        "ordered_byte_equality": true
+      },
+      "propositions": {
+        "count": 1,
+        "ordered_byte_equality": true
+      },
+      "proofs": {
+        "count": 1,
+        "ordered_byte_equality": true
+      },
+      "commands": {
+        "count": 6,
+        "ordered_byte_equality": true
+      }
+    },
+    "paper/forecasting/main.tex": {
+      "math": {
+        "count": 25,
+        "ordered_byte_equality": true
+      },
+      "propositions": {
+        "count": 0,
+        "ordered_byte_equality": true
+      },
+      "proofs": {
+        "count": 0,
+        "ordered_byte_equality": true
+      },
+      "commands": {
+        "count": 27,
+        "ordered_byte_equality": true
+      }
+    },
+    "paper/study/ai-labour-causal/causal-study.tex": {
+      "math": {
+        "count": 2,
+        "ordered_byte_equality": true
+      },
+      "propositions": {
+        "count": 0,
+        "ordered_byte_equality": true
+      },
+      "proofs": {
+        "count": 0,
+        "ordered_byte_equality": true
+      },
+      "commands": {
+        "count": 6,
+        "ordered_byte_equality": true
+      }
     }
   },
-  "boundary": "Static hashes, inventory and declared receipt consistency only. No new Lean execution, kernel replay or empirical validation is claimed."
+  "boundary": "Source concordance, static receipt validation and freshness-guard check. No new Lean execution, kernel replay or empirical validation."
 }
