@@ -1,0 +1,47 @@
+# Copy into the observed repository's DEFAULT branch after this PR is merged.
+# Select actual workflow names and pin Observatory ref to a reviewed full SHA.
+# This does not check out or execute the triggering workflow's source revision.
+name: Observe execution evidence
+on:
+  workflow_run:
+    workflows: [Instrumented ordinary tool, Assistant requirement workflow]
+    types: [completed]
+permissions:
+  actions: read
+  contents: read
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out trusted collector code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: emmett08/engineering-work-observatory
+          ref: main # Replace with a reviewed full SHA, never workflow_run.head_sha.
+          path: observatory-code
+          persist-credentials: false
+      - name: Build the trusted collector
+        working-directory: observatory-code
+        run: cargo build --locked --release
+      - name: Collect every conclusion, including failure and cancellation
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OBSERVED_REPOSITORY: ${{ github.repository }}
+          OBSERVED_RUN_ID: ${{ github.event.workflow_run.id }}
+        run: |
+          ./observatory-code/target/release/observatory \
+            --state "$RUNNER_TEMP/observer-state" collect-github-executions \
+            --repository "$OBSERVED_REPOSITORY" --run-id "$OBSERVED_RUN_ID"
+      - name: Retain the isolated observer store for collection diagnostics
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: observatory-observer-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/observer-state
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: '7'
+          overwrite: false
+# Archive expiry still applies. Run the durable central collector on a schedule;
+# it downloads original execution bundles and independently reconciles metadata.
+# Never place parallel job SQLite files into a shared mutable archive/store.

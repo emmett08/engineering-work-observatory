@@ -1,7 +1,8 @@
 //! Retain source responses and ingest a collection under its explicit completeness policy.
 use crate::{
-    collectors::Collection,
-    model::Evidence,
+    collectors::{Collection, Coverage},
+    importers::validate_execution_records,
+    model::{Evidence, validate_records},
     store::{Store, digest},
 };
 use anyhow::{Result, bail};
@@ -17,6 +18,72 @@ pub enum CollectionRequirements {
 pub struct CollectionReceipt {
     pub new_records: usize,
     pub manifest_sha256: String,
+}
+
+fn execution_interpretation(source: Option<&str>) -> bool {
+    matches!(
+        source,
+        Some(
+            "observatory.tool_receipt"
+                | "observatory.execution_bundle"
+                | "github.execution_reconciliation"
+                | "github.execution_job_reconciliation"
+        )
+    )
+}
+
+/// Preserve independent GitHub observations when an execution delivery conflicts
+/// with a previously retained receipt. Quarantine every execution interpretation
+/// in that collection rather than choosing one conflicting representation.
+/// Raw archives, inventory, runs and jobs remain retained and verifiable; the
+/// incomplete coverage makes the command fail after those observations persist.
+pub fn persist_execution_collection(
+    store: &mut Store,
+    mut collection: Collection,
+    source: &str,
+) -> Result<CollectionReceipt> {
+    let mut combined = store.records(None)?;
+    combined.extend(
+        collection
+            .records
+            .iter()
+            .filter(|record| execution_interpretation(record.data["source"].as_str()))
+            .map(|record| Evidence {
+                id: record.id.clone(),
+                kind: record.kind.clone(),
+                data: record.data.clone(),
+            }),
+    );
+    if let Err(error) =
+        validate_records(&combined).and_then(|()| validate_execution_records(&combined))
+    {
+        let before = collection.records.len();
+        collection
+            .records
+            .retain(|record| !execution_interpretation(record.data["source"].as_str()));
+        let quarantined = before - collection.records.len();
+        for coverage in &mut collection.coverage {
+            if coverage.source == "github.execution_artifact_bundle" && coverage.state == "complete"
+            {
+                coverage.state = "incomplete".into();
+                coverage.records = 0;
+                coverage.detail = Some(
+                    "Raw artifact retained; execution interpretations quarantined because this collection conflicts with retained evidence".into(),
+                );
+            }
+        }
+        collection.coverage.push(Coverage {
+            source: "observatory.execution_ingestion".into(),
+            scope: source.into(),
+            state: "incomplete".into(),
+            pages: 0,
+            records: 0,
+            detail: Some(format!(
+                "Quarantined {quarantined} execution interpretations; independent GitHub metadata and raw archives retained: {error}"
+            )),
+        });
+    }
+    persist_collection(store, collection, source, CollectionRequirements::Full)
 }
 
 /// Retain partial evidence before reporting failure; never promote omitted required sources.

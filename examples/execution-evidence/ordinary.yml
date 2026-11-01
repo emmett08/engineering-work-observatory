@@ -1,0 +1,36 @@
+# Copy into the observed repository after this action is merged.
+# Pin both Observatory uses to the same reviewed full commit SHA before the pilot.
+name: Instrumented ordinary tool
+on:
+  workflow_dispatch:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    name: Build (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      # Install the project's pinned toolchain using its existing setup here.
+      - uses: emmett08/engineering-work-observatory@main
+        with:
+          controller: unknown
+          job-name: Build (${{ matrix.os }})
+          matrix: ${{ toJSON(matrix) }} # This example's matrix contains only os.
+      - name: Run tests with execution evidence
+        run: |
+          python3 "$OBSERVATORY_RECORDER" run \
+            --tool cargo --tool-version "$(cargo --version)" \
+            --purpose development --logical-call-id cargo-tests \
+            --check-name cargo-test -- cargo test --locked
+      - name: Publish this job's receipts
+        if: always()
+        uses: emmett08/engineering-work-observatory@main
+        with:
+          mode: publish
+          retention-days: '30'

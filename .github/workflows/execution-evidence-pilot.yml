@@ -1,0 +1,95 @@
+name: Execution evidence pilot
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - action.yml
+      - instrumentation/**
+      - schemas/**
+      - src/importers/executions.rs
+      - src/collectors/github/**
+      - .github/workflows/execution-evidence-pilot.yml
+
+permissions:
+  contents: read
+
+jobs:
+  public-workflow-check:
+    name: Execution pilot (${{ matrix.subject }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - subject: engarg
+            repository: emmett08/engarg
+            revision: dd848f3aefc6421e41bc0420ae5c40aae3553893
+          - subject: eal-mcp
+            repository: emmett08/eal-mcp
+            revision: fe4a5cc4ef518b62ed0180646da1b7bccfd54249
+    env:
+      CARGO_PROFILE_DEV_DEBUG: line-tables-only
+      CARGO_PROFILE_TEST_DEBUG: line-tables-only
+      CARGO_INCREMENTAL: '0'
+    steps:
+      - name: Check out Observatory instrumentation
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: observatory
+          persist-credentials: false
+      - name: Check out the pinned public subject
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ matrix.repository }}
+          ref: ${{ matrix.revision }}
+          path: subject
+          persist-credentials: false
+      - name: Verify the subject revision
+        working-directory: subject
+        env:
+          SUBJECT_REVISION: ${{ matrix.revision }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$SUBJECT_REVISION"
+          git rev-parse HEAD > "$RUNNER_TEMP/observatory-subject-revision.txt"
+      - name: Install the EAL experiment toolchain
+        if: matrix.subject == 'eal-mcp'
+        run: rustup toolchain install 1.90.0 --profile minimal
+      - name: Configure explicit evidence recording
+        id: evidence
+        uses: ./observatory
+        with:
+          job-name: Execution pilot (${{ matrix.subject }})
+          matrix: ${{ toJSON(matrix) }}
+          protocol-id: observatory-execution-pilot-v1
+          task-id: ${{ matrix.subject }}-ci-check
+      - name: Replay the EngArg Python check
+        if: matrix.subject == 'engarg'
+        working-directory: subject
+        run: |
+          python3 "$OBSERVATORY_RECORDER" run \
+            --tool python3 --tool-version "$(python3 --version)" \
+            --purpose development --check-name engarg-python-tests \
+            --logical-call-id engarg-ci-python-check \
+            --input source-revision="$RUNNER_TEMP/observatory-subject-revision.txt" \
+            --input workflow-definition=.github/workflows/ci.yml \
+            -- python3 -m unittest discover -s tests -p 'test_*.py'
+      - name: Replay the EAL experiment test
+        if: matrix.subject == 'eal-mcp'
+        working-directory: subject
+        run: |
+          python3 "$OBSERVATORY_RECORDER" run \
+            --tool cargo --tool-version "$(cargo --version)" \
+            --purpose development --check-name eal-context-experiment-tests \
+            --logical-call-id eal-context-ci-tests \
+            --input source-revision="$RUNNER_TEMP/observatory-subject-revision.txt" \
+            --input workflow-definition=.github/workflows/rust.yml \
+            --input dependency-lock=experiments/eal-context-001/Cargo.lock \
+            -- cargo test --manifest-path experiments/eal-context-001/Cargo.toml --locked
+      - name: Publish the job's execution bundle
+        if: ${{ always() && steps.evidence.outcome == 'success' }}
+        uses: ./observatory
+        with:
+          mode: publish
+          directory: ${{ steps.evidence.outputs.directory }}

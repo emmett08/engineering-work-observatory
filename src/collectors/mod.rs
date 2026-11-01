@@ -4,7 +4,7 @@ mod github;
 
 pub use git::collect_git;
 pub use github::{
-    collect_github, collect_github_cached, collect_github_throughput,
+    collect_github, collect_github_cached, collect_github_executions, collect_github_throughput,
     collect_github_throughput_cached,
 };
 

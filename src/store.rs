@@ -130,6 +130,7 @@ impl Store {
         all.extend_from_slice(records);
         validate_records(&all)?;
         validate_call_identities(&all)?;
+        crate::importers::validate_execution_records(&all)?;
         let mut inserted = 0;
         for record in records {
             let payload = serde_json::to_string(record)?;
@@ -206,6 +207,7 @@ impl Store {
         let records = self.records(None)?;
         validate_records(&records)?;
         validate_call_identities(&records)?;
+        crate::importers::validate_execution_records(&records)?;
         Ok(count)
     }
 

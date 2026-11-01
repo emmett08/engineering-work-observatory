@@ -1,4 +1,7 @@
 //! GitHub HTTP enumeration, pagination, conditional refresh and retrieval coverage.
+mod executions;
+pub use executions::collect_github_executions;
+
 use super::{Collection, Coverage, RawResponse, digest, push_record};
 use anyhow::{Context, Result, bail};
 use chrono::{DateTime, Utc};
@@ -689,13 +692,12 @@ pub fn collect_github_throughput_cached(
     )
 }
 
-fn collect_github_impl(
+fn new_collector(
     repo: &str,
     token: Option<&str>,
     api_base: &str,
     cache_dir: Option<&Path>,
-    profile: CollectionProfile,
-) -> Result<Collection> {
+) -> Result<GithubCollector> {
     let parts: Vec<_> = repo.split('/').collect();
     if parts.len() != 2
         || parts.iter().any(|s| {
@@ -736,7 +738,7 @@ fn collect_github_impl(
         .timeout(Duration::from_secs(20))
         .redirect(Policy::none())
         .build()?;
-    let mut c = GithubCollector {
+    Ok(GithubCollector {
         client,
         base,
         token: token.map(str::to_owned),
@@ -752,7 +754,17 @@ fn collect_github_impl(
             ),
         }),
         output: Collection::default(),
-    };
+    })
+}
+
+fn collect_github_impl(
+    repo: &str,
+    token: Option<&str>,
+    api_base: &str,
+    cache_dir: Option<&Path>,
+    profile: CollectionProfile,
+) -> Result<Collection> {
+    let mut c = new_collector(repo, token, api_base, cache_dir)?;
     if let Some(metadata) = c.singleton("github.repository", "") {
         if profile == CollectionProfile::Throughput {
             validate_throughput_payloads(&mut c.output, "github.repository", &[&metadata]);
