@@ -1,0 +1,401 @@
+{
+  "source_revision": "e252eae943a2cc5de27c2db9f60ed9c73a790536",
+  "slides": [
+    {
+      "slide": 1,
+      "section": "ENGINEERING WORK OBSERVATORY",
+      "title": "From activity to evidence",
+      "status": "Model definition",
+      "sources": [
+        "A",
+        "X"
+      ]
+    },
+    {
+      "slide": 2,
+      "section": "01 / THE QUESTION",
+      "title": "A tool ran for 20 minutes. How much human work?",
+      "status": "Illustrative thought experiment",
+      "sources": [
+        "P",
+        "X"
+      ]
+    },
+    {
+      "slide": 3,
+      "section": "01 / THE MAP",
+      "title": "Three questions need three kinds of evidence",
+      "status": "Model definition",
+      "sources": [
+        "A",
+        "P",
+        "F",
+        "X"
+      ]
+    },
+    {
+      "slide": 4,
+      "section": "01 / THE STORY",
+      "title": "Follow one requirement through many activities",
+      "status": "Illustrative engineering example",
+      "sources": [
+        "P",
+        "A"
+      ]
+    },
+    {
+      "slide": 5,
+      "section": "02 / EVIDENCE",
+      "title": "Keep the source, the interpretation and the cut",
+      "status": "Model definition",
+      "sources": [
+        "A"
+      ]
+    },
+    {
+      "slide": 6,
+      "section": "02 / IDENTITY",
+      "title": "The GitHub account is not the controller",
+      "status": "Model definition",
+      "sources": [
+        "G",
+        "X"
+      ]
+    },
+    {
+      "slide": 7,
+      "section": "02 / IDENTITY",
+      "title": "The same account can hide two different stories",
+      "status": "Illustrative provenance scenarios",
+      "sources": [
+        "G",
+        "X"
+      ]
+    },
+    {
+      "slide": 8,
+      "section": "02 / IDENTITY",
+      "title": "Identify an execution at the right level",
+      "status": "Model definition",
+      "sources": [
+        "X",
+        "R"
+      ]
+    },
+    {
+      "slide": 9,
+      "section": "02 / LIFECYCLE",
+      "title": "Write a start before the tool can fail",
+      "status": "Illustrative execution timeline",
+      "sources": [
+        "X"
+      ]
+    },
+    {
+      "slide": 10,
+      "section": "02 / OBSERVABILITY",
+      "title": "A wrapper observes only the boundary you wrap",
+      "status": "Model definition",
+      "sources": [
+        "X"
+      ]
+    },
+    {
+      "slide": 11,
+      "section": "02 / ARCHITECTURE",
+      "title": "Three components cooperate",
+      "status": "Model definition",
+      "sources": [
+        "X",
+        "W"
+      ]
+    },
+    {
+      "slide": 12,
+      "section": "02 / MISSINGNESS",
+      "title": "A missing receipt is an observation gap",
+      "status": "Model definition",
+      "sources": [
+        "X"
+      ]
+    },
+    {
+      "slide": 13,
+      "section": "02 / THE RECEIPT",
+      "title": "A receipt answers six practical questions",
+      "status": "Model definition",
+      "sources": [
+        "R",
+        "X"
+      ]
+    },
+    {
+      "slide": 14,
+      "section": "02 / RESOURCES",
+      "title": "Configured, reported and unknown stay separate",
+      "status": "Model definition",
+      "sources": [
+        "X",
+        "R"
+      ]
+    },
+    {
+      "slide": 15,
+      "section": "02 / TRUST",
+      "title": "A fingerprint checks bytes. Evidence checks claims.",
+      "status": "Model definition",
+      "sources": [
+        "X",
+        "A"
+      ]
+    },
+    {
+      "slide": 16,
+      "section": "03 / MEASUREMENT",
+      "title": "Now link the execution to a requirement",
+      "status": "Model definition",
+      "sources": [
+        "P",
+        "A",
+        "X"
+      ]
+    },
+    {
+      "slide": 17,
+      "section": "03 / UNITS",
+      "title": "Three clocks answer different questions",
+      "status": "Illustrative units",
+      "sources": [
+        "P",
+        "A"
+      ]
+    },
+    {
+      "slide": 18,
+      "section": "03 / CAPACITY",
+      "title": "One person has one hour of capacity per hour",
+      "status": "Illustrative capacity arithmetic",
+      "sources": [
+        "P",
+        "L"
+      ]
+    },
+    {
+      "slide": 19,
+      "section": "03 / HORIZONS",
+      "title": "Freeze the deadlines before observing outcomes",
+      "status": "Illustrative protocol: 30 + 30 days",
+      "sources": [
+        "P"
+      ]
+    },
+    {
+      "slide": 20,
+      "section": "03 / OUTPUT",
+      "title": "Count retained requirement credit, then divide",
+      "status": "Illustrative complete direct observations",
+      "sources": [
+        "P"
+      ]
+    },
+    {
+      "slide": 21,
+      "section": "03 / INTERPRETATION",
+      "title": "Zero, unknown and pending are different states",
+      "status": "Model definition",
+      "sources": [
+        "P"
+      ]
+    },
+    {
+      "slide": 22,
+      "section": "04 / BOUNDS",
+      "title": "An interval total may leave its timing unknown",
+      "status": "Illustrative exact interval observation",
+      "sources": [
+        "P",
+        "L"
+      ]
+    },
+    {
+      "slide": 23,
+      "section": "04 / SHARED CAPACITY",
+      "title": "Shared capacity can tighten the answer",
+      "status": "Repository synthetic example, verified",
+      "sources": [
+        "L",
+        "J"
+      ]
+    },
+    {
+      "slide": 24,
+      "section": "04 / SAMPLING",
+      "title": "Use a random sample to correct frozen predictions",
+      "status": "Illustrative probability sample",
+      "sources": [
+        "E"
+      ]
+    },
+    {
+      "slide": 25,
+      "section": "04 / UNCERTAINTY",
+      "title": "A bound and a sampling estimate answer different questions",
+      "status": "Model definition",
+      "sources": [
+        "L",
+        "E"
+      ]
+    },
+    {
+      "slide": 26,
+      "section": "05 / FORECASTING",
+      "title": "A separate model forecasts merged-PR counts",
+      "status": "Observed public history: 24\u201329 October 2026",
+      "sources": [
+        "F",
+        "D"
+      ]
+    },
+    {
+      "slide": 27,
+      "section": "05 / VALIDATION",
+      "title": "Preserve the awkward results",
+      "status": "Retained public case; retrospective checks",
+      "sources": [
+        "D",
+        "F"
+      ]
+    },
+    {
+      "slide": 28,
+      "section": "06 / CLAIMS",
+      "title": "More evidence does not automatically identify an AI effect",
+      "status": "Model definition",
+      "sources": [
+        "P",
+        "A",
+        "X"
+      ]
+    },
+    {
+      "slide": 29,
+      "section": "06 / THE PILOT",
+      "title": "The public pilot verified the evidence path",
+      "status": "Observed live pilot: run 41329655162",
+      "sources": [
+        "T",
+        "X"
+      ]
+    },
+    {
+      "slide": 30,
+      "section": "06 / ADOPTION",
+      "title": "Adopt one explicit boundary at a time",
+      "status": "Model definition",
+      "sources": [
+        "X",
+        "W"
+      ]
+    },
+    {
+      "slide": 31,
+      "section": "06 / DISCUSSION",
+      "title": "Which claim can we defend?",
+      "status": "Audience exercise; answers in speaker notes",
+      "sources": [
+        "X",
+        "P",
+        "L"
+      ]
+    },
+    {
+      "slide": 32,
+      "section": "06 / TAKE WITH YOU",
+      "title": "Make the evidence strong enough for the claim",
+      "status": "Model definition",
+      "sources": [
+        "A",
+        "X",
+        "P",
+        "F"
+      ]
+    },
+    {
+      "slide": 33,
+      "section": "APPENDIX / FIELD MAP",
+      "title": "Receipt fields and their provenance",
+      "status": "Model definition",
+      "sources": [
+        "R",
+        "X"
+      ]
+    },
+    {
+      "slide": 34,
+      "section": "APPENDIX / INVARIANTS",
+      "title": "The implementation rejects ambiguous substitutions",
+      "status": "Model definition",
+      "sources": [
+        "R",
+        "X"
+      ]
+    },
+    {
+      "slide": 35,
+      "section": "APPENDIX / ARITHMETIC",
+      "title": "The small set of equations behind the pictures",
+      "status": "Model definition",
+      "sources": [
+        "P",
+        "L"
+      ]
+    },
+    {
+      "slide": 36,
+      "section": "APPENDIX / ESTIMATION",
+      "title": "Correct prediction errors with the actual sampling design",
+      "status": "Model definition",
+      "sources": [
+        "E"
+      ]
+    },
+    {
+      "slide": 37,
+      "section": "APPENDIX / FORECAST RULES",
+      "title": "The forecast is a reproducible reference, not a capacity model",
+      "status": "Model definition",
+      "sources": [
+        "F",
+        "D"
+      ]
+    },
+    {
+      "slide": 38,
+      "section": "APPENDIX / SOURCES",
+      "title": "Sources for execution evidence",
+      "status": "Model definition",
+      "sources": [
+        "X",
+        "R",
+        "T",
+        "G",
+        "W",
+        "A"
+      ]
+    },
+    {
+      "slide": 39,
+      "section": "APPENDIX / SOURCES",
+      "title": "Sources for measurement and forecasting",
+      "status": "Model definition",
+      "sources": [
+        "P",
+        "L",
+        "J",
+        "E",
+        "F",
+        "D"
+      ]
+    }
+  ]
+}

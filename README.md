@@ -28,6 +28,11 @@ activity alone does not establish those quantities, an AI causal effect or a
 staffing requirement. The [measurement protocol](docs/measurement-protocol.md)
 defines that path; it is not a prerequisite for automatic forecasting.
 
+The [engineer's presentation](docs/presentations/observatory-model/README.md)
+explains execution evidence, human-work measurement and the separate forecast
+through diagrams and worked examples. It includes an editable PowerPoint, a PDF
+handout and speaker notes; no advanced mathematics is assumed.
+
 ## Install and run
 
 Requires Git and Rust 1.99.1; `rust-toolchain.toml` pins compiler, formatter and
