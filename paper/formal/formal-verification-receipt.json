@@ -1,0 +1,1079 @@
+{
+  "schema_version": "formal-verification-receipt/1.0",
+  "source_snapshot": {
+    "repository": "emmett08/engineering-work-observatory",
+    "commit": "38c4ce40b789d4c5420c98ff1d568b39c3b1e798"
+  },
+  "toolchain": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "v4.33.1",
+    "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "lakefile_sha256": "740f131b80f0eb2c71291df5d93cebcd9eb1bd5ee96472ae70d3ef85106541aa",
+    "lake_manifest_sha256": "a6c0f904e9f14f8fa0708552f39440a11a5c0d5e19fec412a96801229e5e418b"
+  },
+  "inventory_ids": [
+    "cell-integrals",
+    "serial-reconstruction",
+    "weak-dual-certificates",
+    "observation-relaxation",
+    "simultaneous-coverage",
+    "strong-dual-existence",
+    "empirical-adequacy",
+    "rust-refinement",
+    "finite-block-count",
+    "lp-extrema-existence"
+  ],
+  "formal_sources": [
+    {
+      "path": "LabourBounds.lean",
+      "sha256": "e86c46d2f8490d0d3bf3c28479b7938770a030658cf0bceee588036bde507a21"
+    },
+    {
+      "path": "LabourBounds/CellIntegrals.lean",
+      "sha256": "5dc0ebd29f48fdbb024c2f4854b92ed9e6392572d1910c877a07752a4db63da4"
+    },
+    {
+      "path": "LabourBounds/Certificates.lean",
+      "sha256": "ce562fa2137a4170bb014e3cde5353679d38d151e3a812fb19955478ba73df75"
+    },
+    {
+      "path": "AxiomAudit.lean",
+      "sha256": "ed29a1fea20d9e0dd0d72f4846dbe3e56a38f053cf7278e62de0816d9f66ae53"
+    }
+  ],
+  "results": [
+    {
+      "result_id": "cell-integrals",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "source": {
+        "path": "targets/partial-identification.tex",
+        "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
+        "statement_locator": "prop:cell-reduction; eq:interval-information and eq:cell-information"
+      },
+      "formal_statement": {
+        "declaration": "LabourBounds.localized_grouped_observation_on_grid",
+        "path": "LabourBounds/CellIntegrals.lean",
+        "status": "CHECKED_WITH_DECLARED_AXIOMS",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "supporting_formal_statements": [
+        {
+          "declaration": "LabourBounds.bounded_measurable_intervalIntegrable",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.allocation_integrable_of_capacity",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.history_to_cell_constraints",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.zero_extension_measurable",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.zero_extension_nonnegative",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.zero_extension_capacity",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.zero_extension_preserves_integral",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.localized_history_intervalIntegrable",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.localized_history_to_cell_constraints",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.cell_integrals_recover_interval",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.grouped_observation_from_cells",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.interval_observation_iff_cells",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.grid_cell_subset_domain",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "MATCHED",
+        "reviewer": "/root/proof_fidelity",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "c2b047284a65727fb2c0fd4ea4973cd2d5602f4ade577f3cf8cace87484fdbd1"
+        },
+        "differences": [],
+        "report": {
+          "path": "evidence/semantic-review.md",
+          "sha256": "d34c00e44e216c0a1f33468025897d6cdb9a5da4bcd0f443bf666f540a031c22"
+        }
+      },
+      "checks": [
+        {
+          "command": "lake build",
+          "exit_status": 0,
+          "output_path": "evidence/lake-build.log",
+          "output_sha256": "61b2e369f82ab6a7deeccbc109fd02c7d56af5bace30f5129a6fcbef68620919"
+        },
+        {
+          "command": "lake env lean AxiomAudit.lean",
+          "exit_status": 0,
+          "output_path": "evidence/axiom-audit.log",
+          "output_sha256": "5beadc231581ecb62953e9a0d30c61a2ef0b5571fa155198e8c8ab922a91a751"
+        },
+        {
+          "command": "lake env leanchecker --fresh -v LabourBounds",
+          "exit_status": 0,
+          "output_path": "evidence/fresh-replay.log",
+          "output_sha256": "21ba4df9851a57e2049e0eebefd69b720354917252beb2e56d5756fc7717abef"
+        }
+      ],
+      "scope_boundary": "Only the mapped Lean statement and explicit hypotheses are checked. External implementations remain TESTED_ONLY; empirical premises and excluded existence/count claims are not established."
+    },
+    {
+      "result_id": "serial-reconstruction",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "source": {
+        "path": "targets/partial-identification.tex",
+        "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
+        "statement_locator": "prop:cell-reduction binary reconstruction and weighted target"
+      },
+      "formal_statement": {
+        "declaration": "LabourBounds.full_attention_reconstruction",
+        "path": "LabourBounds/CellIntegrals.lean",
+        "status": "CHECKED_WITH_DECLARED_AXIOMS",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "supporting_formal_statements": [
+        {
+          "declaration": "LabourBounds.prefixMass_succ",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.prefixMass_nonneg",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.prefixMass_mono",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.serialBlock_subset_cell",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.serialBlock_disjoint",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.serialAllocation_binary",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.serialAllocation_measurable",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.serialAllocation_capacity",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.serialAllocation_integral",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.serialAllocation_cell_integral",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.stitchedAllocation_measurable",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.stitchedAllocation_on_cell",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.stitchedAllocation_outside",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.stitchedAllocation_binary",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.stitchedAllocation_capacity",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.stitchedAllocation_cell_integral",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.stitchedAllocation_intervalIntegrable",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.ordered_cells_disjoint",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.reconstructed_cellMass",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.reconstructed_observation",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.reconstructed_weighted_target",
+          "path": "LabourBounds/CellIntegrals.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "MATCHED",
+        "reviewer": "/root/proof_fidelity",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "c2b047284a65727fb2c0fd4ea4973cd2d5602f4ade577f3cf8cace87484fdbd1"
+        },
+        "differences": [],
+        "report": {
+          "path": "evidence/semantic-review.md",
+          "sha256": "d34c00e44e216c0a1f33468025897d6cdb9a5da4bcd0f443bf666f540a031c22"
+        }
+      },
+      "checks": [
+        {
+          "command": "lake build",
+          "exit_status": 0,
+          "output_path": "evidence/lake-build.log",
+          "output_sha256": "61b2e369f82ab6a7deeccbc109fd02c7d56af5bace30f5129a6fcbef68620919"
+        },
+        {
+          "command": "lake env lean AxiomAudit.lean",
+          "exit_status": 0,
+          "output_path": "evidence/axiom-audit.log",
+          "output_sha256": "5beadc231581ecb62953e9a0d30c61a2ef0b5571fa155198e8c8ab922a91a751"
+        },
+        {
+          "command": "lake env leanchecker --fresh -v LabourBounds",
+          "exit_status": 0,
+          "output_path": "evidence/fresh-replay.log",
+          "output_sha256": "21ba4df9851a57e2049e0eebefd69b720354917252beb2e56d5756fc7717abef"
+        }
+      ],
+      "scope_boundary": "Only the mapped Lean statement and explicit hypotheses are checked. External implementations remain TESTED_ONLY; empirical premises and excluded existence/count claims are not established."
+    },
+    {
+      "result_id": "weak-dual-certificates",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "source": {
+        "path": "targets/partial-identification.tex",
+        "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
+        "statement_locator": "eq:bound-certificates; matching attained endpoint paragraph"
+      },
+      "formal_statement": {
+        "declaration": "LabourBounds.Certificates.weak_dual_bounds",
+        "path": "LabourBounds/Certificates.lean",
+        "status": "CHECKED_WITH_DECLARED_AXIOMS",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "supporting_formal_statements": [
+        {
+          "declaration": "LabourBounds.Certificates.transpose_objective",
+          "path": "LabourBounds/Certificates.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.Certificates.objective_neg",
+          "path": "LabourBounds/Certificates.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.Certificates.weak_dual_upper",
+          "path": "LabourBounds/Certificates.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.Certificates.weak_dual_lower",
+          "path": "LabourBounds/Certificates.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.Certificates.equality_certifies_maximum",
+          "path": "LabourBounds/Certificates.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.Certificates.equality_certifies_minimum",
+          "path": "LabourBounds/Certificates.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.Certificates.equality_certifies_isGreatest",
+          "path": "LabourBounds/Certificates.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.Certificates.equality_certifies_isLeast",
+          "path": "LabourBounds/Certificates.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "MATCHED",
+        "reviewer": "/root/proof_fidelity",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "c2b047284a65727fb2c0fd4ea4973cd2d5602f4ade577f3cf8cace87484fdbd1"
+        },
+        "differences": [],
+        "report": {
+          "path": "evidence/semantic-review.md",
+          "sha256": "d34c00e44e216c0a1f33468025897d6cdb9a5da4bcd0f443bf666f540a031c22"
+        }
+      },
+      "checks": [
+        {
+          "command": "lake build",
+          "exit_status": 0,
+          "output_path": "evidence/lake-build.log",
+          "output_sha256": "61b2e369f82ab6a7deeccbc109fd02c7d56af5bace30f5129a6fcbef68620919"
+        },
+        {
+          "command": "lake env lean AxiomAudit.lean",
+          "exit_status": 0,
+          "output_path": "evidence/axiom-audit.log",
+          "output_sha256": "5beadc231581ecb62953e9a0d30c61a2ef0b5571fa155198e8c8ab922a91a751"
+        },
+        {
+          "command": "lake env leanchecker --fresh -v LabourBounds",
+          "exit_status": 0,
+          "output_path": "evidence/fresh-replay.log",
+          "output_sha256": "21ba4df9851a57e2049e0eebefd69b720354917252beb2e56d5756fc7717abef"
+        }
+      ],
+      "scope_boundary": "Only the mapped Lean statement and explicit hypotheses are checked. External implementations remain TESTED_ONLY; empirical premises and excluded existence/count claims are not established."
+    },
+    {
+      "result_id": "observation-relaxation",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "source": {
+        "path": "targets/partial-identification.tex",
+        "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
+        "statement_locator": "eq:relaxed-certificates"
+      },
+      "formal_statement": {
+        "declaration": "LabourBounds.Certificates.relaxed_bounds",
+        "path": "LabourBounds/Certificates.lean",
+        "status": "CHECKED_WITH_DECLARED_AXIOMS",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "supporting_formal_statements": [
+        {
+          "declaration": "LabourBounds.Certificates.feasible_after_relaxation",
+          "path": "LabourBounds/Certificates.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.Certificates.relaxed_upper_ge",
+          "path": "LabourBounds/Certificates.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.Certificates.relaxed_lower_le",
+          "path": "LabourBounds/Certificates.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "MATCHED",
+        "reviewer": "/root/proof_fidelity",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "c2b047284a65727fb2c0fd4ea4973cd2d5602f4ade577f3cf8cace87484fdbd1"
+        },
+        "differences": [],
+        "report": {
+          "path": "evidence/semantic-review.md",
+          "sha256": "d34c00e44e216c0a1f33468025897d6cdb9a5da4bcd0f443bf666f540a031c22"
+        }
+      },
+      "checks": [
+        {
+          "command": "lake build",
+          "exit_status": 0,
+          "output_path": "evidence/lake-build.log",
+          "output_sha256": "61b2e369f82ab6a7deeccbc109fd02c7d56af5bace30f5129a6fcbef68620919"
+        },
+        {
+          "command": "lake env lean AxiomAudit.lean",
+          "exit_status": 0,
+          "output_path": "evidence/axiom-audit.log",
+          "output_sha256": "5beadc231581ecb62953e9a0d30c61a2ef0b5571fa155198e8c8ab922a91a751"
+        },
+        {
+          "command": "lake env leanchecker --fresh -v LabourBounds",
+          "exit_status": 0,
+          "output_path": "evidence/fresh-replay.log",
+          "output_sha256": "21ba4df9851a57e2049e0eebefd69b720354917252beb2e56d5756fc7717abef"
+        }
+      ],
+      "scope_boundary": "Only the mapped Lean statement and explicit hypotheses are checked. External implementations remain TESTED_ONLY; empirical premises and excluded existence/count claims are not established."
+    },
+    {
+      "result_id": "simultaneous-coverage",
+      "classification": "PURE_THEOREM",
+      "disposition": "FORMALISE_NOW",
+      "source": {
+        "path": "targets/partial-identification.tex",
+        "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
+        "statement_locator": "Section Checking the bounds and allowing observation error: simultaneous coverage paragraph"
+      },
+      "formal_statement": {
+        "declaration": "LabourBounds.Certificates.certificate_coverage_probability",
+        "path": "LabourBounds/Certificates.lean",
+        "status": "CHECKED_WITH_DECLARED_AXIOMS",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "supporting_formal_statements": [
+        {
+          "declaration": "LabourBounds.Certificates.true_vector_feasible_on_simultaneous_event",
+          "path": "LabourBounds/Certificates.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.Certificates.simultaneous_event_subset_target",
+          "path": "LabourBounds/Certificates.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.Certificates.simultaneous_event_subset_certificate_target",
+          "path": "LabourBounds/Certificates.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "LabourBounds.Certificates.simultaneous_coverage_probability",
+          "path": "LabourBounds/Certificates.lean",
+          "status": "CHECKED_WITH_DECLARED_AXIOMS",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "MATCHED",
+        "reviewer": "/root/proof_fidelity",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "c2b047284a65727fb2c0fd4ea4973cd2d5602f4ade577f3cf8cace87484fdbd1"
+        },
+        "differences": [],
+        "report": {
+          "path": "evidence/semantic-review.md",
+          "sha256": "d34c00e44e216c0a1f33468025897d6cdb9a5da4bcd0f443bf666f540a031c22"
+        }
+      },
+      "checks": [
+        {
+          "command": "lake build",
+          "exit_status": 0,
+          "output_path": "evidence/lake-build.log",
+          "output_sha256": "61b2e369f82ab6a7deeccbc109fd02c7d56af5bace30f5129a6fcbef68620919"
+        },
+        {
+          "command": "lake env lean AxiomAudit.lean",
+          "exit_status": 0,
+          "output_path": "evidence/axiom-audit.log",
+          "output_sha256": "5beadc231581ecb62953e9a0d30c61a2ef0b5571fa155198e8c8ab922a91a751"
+        },
+        {
+          "command": "lake env leanchecker --fresh -v LabourBounds",
+          "exit_status": 0,
+          "output_path": "evidence/fresh-replay.log",
+          "output_sha256": "21ba4df9851a57e2049e0eebefd69b720354917252beb2e56d5756fc7717abef"
+        }
+      ],
+      "scope_boundary": "Only the mapped Lean statement and explicit hypotheses are checked. External implementations remain TESTED_ONLY; empirical premises and excluded existence/count claims are not established."
+    },
+    {
+      "result_id": "strong-dual-existence",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "targets/partial-identification.tex",
+        "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
+        "statement_locator": "General feasible bounded LP strong duality supplies attaining multipliers; only claim new formal coverage if a faithful checked library theorem is obtained."
+      },
+      "formal_statement": {
+        "path": null,
+        "declaration": null,
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "/root/proof_fidelity",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "c2b047284a65727fb2c0fd4ea4973cd2d5602f4ade577f3cf8cace87484fdbd1"
+        },
+        "differences": [],
+        "report": {
+          "path": "evidence/semantic-review.md",
+          "sha256": "d34c00e44e216c0a1f33468025897d6cdb9a5da4bcd0f443bf666f540a031c22"
+        }
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_scope.py",
+          "exit_status": 0,
+          "output_path": "evidence/scope-check.json",
+          "output_sha256": "973593bfbfe309d988f3a552c8d2891f499f918d3c9cd003dd27306d97dc7117"
+        }
+      ],
+      "scope_boundary": "The retained scope audit checks inventory/exclusion consistency only, not a kernel proof of this item. General feasible bounded LP strong duality supplies attaining multipliers; only claim new formal coverage if a faithful checked library theorem is obtained."
+    },
+    {
+      "result_id": "empirical-adequacy",
+      "classification": "EMPIRICAL_CONTEXTUAL",
+      "disposition": "EMPIRICAL_CONTEXTUAL",
+      "source": {
+        "path": "targets/partial-identification.tex",
+        "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
+        "statement_locator": "empirical-adequacy"
+      },
+      "formal_statement": {
+        "path": null,
+        "declaration": null,
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "/root/proof_fidelity",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "c2b047284a65727fb2c0fd4ea4973cd2d5602f4ade577f3cf8cace87484fdbd1"
+        },
+        "differences": [],
+        "report": {
+          "path": "evidence/semantic-review.md",
+          "sha256": "d34c00e44e216c0a1f33468025897d6cdb9a5da4bcd0f443bf666f540a031c22"
+        }
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_scope.py",
+          "exit_status": 0,
+          "output_path": "evidence/scope-check.json",
+          "output_sha256": "973593bfbfe309d988f3a552c8d2891f499f918d3c9cd003dd27306d97dc7117"
+        }
+      ],
+      "scope_boundary": "The retained scope audit checks inventory/exclusion consistency only, not a kernel proof of this item. Empirical adequacy is not established by Lean."
+    },
+    {
+      "result_id": "rust-refinement",
+      "classification": "PURE_THEOREM",
+      "disposition": "NOT_REQUIRED",
+      "source": {
+        "path": "targets/partial-identification.tex",
+        "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
+        "statement_locator": "External Rust/Python implementations remain TESTED_ONLY; no source-semantics refinement is claimed."
+      },
+      "formal_statement": {
+        "path": null,
+        "declaration": null,
+        "status": "NOT_REQUIRED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "/root/proof_fidelity",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "c2b047284a65727fb2c0fd4ea4973cd2d5602f4ade577f3cf8cace87484fdbd1"
+        },
+        "differences": [],
+        "report": {
+          "path": "evidence/semantic-review.md",
+          "sha256": "d34c00e44e216c0a1f33468025897d6cdb9a5da4bcd0f443bf666f540a031c22"
+        }
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_scope.py",
+          "exit_status": 0,
+          "output_path": "evidence/scope-check.json",
+          "output_sha256": "973593bfbfe309d988f3a552c8d2891f499f918d3c9cd003dd27306d97dc7117"
+        }
+      ],
+      "scope_boundary": "The retained scope audit checks inventory/exclusion consistency only, not a kernel proof of this item. External Rust/Python implementations remain TESTED_ONLY; no source-semantics refinement is claimed."
+    },
+    {
+      "result_id": "finite-block-count",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "targets/partial-identification.tex",
+        "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
+        "statement_locator": "The source construction uses finitely many interval indicators; the separate K*(n+1) piece/switch bound is not separately formalised."
+      },
+      "formal_statement": {
+        "path": null,
+        "declaration": null,
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "/root/proof_fidelity",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "c2b047284a65727fb2c0fd4ea4973cd2d5602f4ade577f3cf8cace87484fdbd1"
+        },
+        "differences": [],
+        "report": {
+          "path": "evidence/semantic-review.md",
+          "sha256": "d34c00e44e216c0a1f33468025897d6cdb9a5da4bcd0f443bf666f540a031c22"
+        }
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_scope.py",
+          "exit_status": 0,
+          "output_path": "evidence/scope-check.json",
+          "output_sha256": "973593bfbfe309d988f3a552c8d2891f499f918d3c9cd003dd27306d97dc7117"
+        }
+      ],
+      "scope_boundary": "The retained scope audit checks inventory/exclusion consistency only, not a kernel proof of this item. The source construction uses finitely many interval indicators; the separate K*(n+1) piece/switch bound is not separately formalised."
+    },
+    {
+      "result_id": "lp-extrema-existence",
+      "classification": "PURE_THEOREM",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "source": {
+        "path": "targets/partial-identification.tex",
+        "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
+        "statement_locator": "Compactness/linear objective extremum existence is not a new checked claim; attained optimality is established when feasible matching certificates are supplied."
+      },
+      "formal_statement": {
+        "path": null,
+        "declaration": null,
+        "status": "NOT_FORMALISED",
+        "axioms": []
+      },
+      "supporting_formal_statements": [],
+      "algorithm": null,
+      "semantic_concordance": {
+        "status": "REVIEWED",
+        "outcome": "NOT_APPLICABLE",
+        "reviewer": "/root/proof_fidelity",
+        "mapping": {
+          "path": "semantic-map.md",
+          "sha256": "c2b047284a65727fb2c0fd4ea4973cd2d5602f4ade577f3cf8cace87484fdbd1"
+        },
+        "differences": [],
+        "report": {
+          "path": "evidence/semantic-review.md",
+          "sha256": "d34c00e44e216c0a1f33468025897d6cdb9a5da4bcd0f443bf666f540a031c22"
+        }
+      },
+      "checks": [
+        {
+          "command": "python3 scripts/check_scope.py",
+          "exit_status": 0,
+          "output_path": "evidence/scope-check.json",
+          "output_sha256": "973593bfbfe309d988f3a552c8d2891f499f918d3c9cd003dd27306d97dc7117"
+        }
+      ],
+      "scope_boundary": "The retained scope audit checks inventory/exclusion consistency only, not a kernel proof of this item. Compactness/linear objective extremum existence is not a new checked claim; attained optimality is established when feasible matching certificates are supplied."
+    }
+  ],
+  "exported_theorem_count": 54,
+  "proof_replay": {
+    "mode": "leanchecker --fresh; all imported and local constants replayed from empty Lean environment",
+    "metrics_path": "evidence/fresh-replay-metrics.json",
+    "metrics_sha256": "eefad2478f8840765633c33f7154f6e8483d2ed894acfd9ebc55d0819cf05a1d"
+  },
+  "independent_semantic_review": {
+    "schema": "independent-semantic-review/1",
+    "reviewer": "/root/proof_fidelity",
+    "status": "REVIEWED",
+    "outcome": "MATCHED",
+    "formal_source_sha256": {
+      "LabourBounds/CellIntegrals.lean": "5dc0ebd29f48fdbb024c2f4854b92ed9e6392572d1910c877a07752a4db63da4",
+      "LabourBounds/Certificates.lean": "ce562fa2137a4170bb014e3cde5353679d38d151e3a812fb19955478ba73df75",
+      "semantic-map.md": "c2b047284a65727fb2c0fd4ea4973cd2d5602f4ade577f3cf8cace87484fdbd1"
+    },
+    "report": {
+      "path": "evidence/semantic-review.md",
+      "sha256": "d34c00e44e216c0a1f33468025897d6cdb9a5da4bcd0f443bf666f540a031c22"
+    },
+    "boundary": "Source statement correspondence and independently repeated axiom audit; no empirical or Rust-refinement claim."
+  },
+  "checker_scripts": [
+    {
+      "path": "scripts/check_scope.py",
+      "sha256": "c0ba27cfee9502c3fd5352b9c1b3154dca6047eb773bb3e7acaab25add0fc00f"
+    },
+    {
+      "path": "scripts/verify.sh",
+      "sha256": "e1fe31998af4f175b6f88186aa78f98ef9300e2e89a789eafcd1c1b47154d845"
+    },
+    {
+      "path": "scripts/validate_formal_receipt.py",
+      "sha256": "020734599de54041f3af983f3fcf4cc14e8818707ba7d3df99cc16d94bb43e1f"
+    }
+  ],
+  "recorded_toolchain_identity": {
+    "path": "evidence/toolchain-identity.json",
+    "sha256": "fe432945166149aa719727f7771082775b2e5b1e05f326c603eaa20fc046f106",
+    "scope": "Recorded native executable identities; architecture-specific hashes are not a requirement on a different host."
+  },
+  "current_manuscript": {
+    "path": "evidence/current-manuscript.json",
+    "sha256": "ca9794b436a9533037da2d654b5da2a888338b7c5554821be7a74c2468ab1845",
+    "scope": "Separate independently reviewed current-article binding; immutable target remains the formal source origin."
+  },
+  "external_implementation_relationship": "TESTED_ONLY; no Lean-to-Rust or Lean-to-Python refinement is claimed.",
+  "scope_boundary": "Checked components are integral/cell correspondence, binary schedule construction and stitching, supplied bound certificates and relaxation, and conditional simultaneous coverage. General strong-duality existence, full LP extrema existence and the separate switch-count bound remain outside new formal coverage. Empirical adequacy and decision authority remain external."
+}

@@ -1,0 +1,94 @@
+{
+  "messages": [
+    {
+      "recipient": "checker",
+      "payload": {
+        "kind": "formulation_proposal",
+        "exact_statement": "For every feasible cell vector x in the baseline model, there is a finite-piece measurable history with each a_ijr in {0,1} and sum_ir a_ijr<=1 for every person, preserving every stream cell integral and every cell-linear target. Partition each person-cell consecutively into stream blocks of lengths x_ijrk and an idle remainder. Conversely these histories are admissible, hence their feasible cell/target sets equal the baseline sets. This requires arbitrary preemption and no minimum-session, switching, synchronisation or extra pointwise constraints; it does not imply integral cell totals.",
+        "proof": "For each j,k order streams and assign stream s the half-open interval from b_(k-1)+sum_(t<s)x_tjk to b_(k-1)+sum_(t<=s)x_tjk. Capacity fits these disjoint blocks in the cell. Their lengths are exactly x; all observations and targets are sums of these preserved integrals. Binary histories are a subset of fractional histories.",
+        "aggregation_statement": "Within each fixed person-cell capacity block, merge only variables with identical columns across all observation and retained target rows. Their sum is the aggregate variable; lifting all mass to one representative proves exact equality of feasible target sets, infeasibility and extrema. Include any additional individual constraints in the signature/lift.",
+        "network_counterexample": "One person, one [0,2] cell, streams A,B,C, observations A+B=A+C=B+C=1: matrix determinant -2, unique x=(1/2,1/2,1/2), sum=3/2<=2. Thus the arbitrary-group observation matrix is not automatically TU and integral-data cell totals need not be integral. This refutes a blanket original-matrix integral-flow claim, not all possible extended network representations.",
+        "recommendation": "Retain joint LP. Adopt serial attainment corollary and narrow claim that fractional instantaneous allocations are necessary; optionally use equal-column preprocessing. Reject unproved pooling, no-interruption restriction and universal graph replacement.",
+        "published_comparators": [
+          {
+            "name": "Khan, Rath and Sun 2006, Section 2 Theorem DWW; author manuscript inspected",
+            "doi": "10.1007/s00182-005-0004-3",
+            "url": "https://www.researchgate.net/publication/24058874_The_Dvoretzky-Wald-Wolfowitz_theorem_and_purification_in_atomless_finite-action_games",
+            "relation": "Published atomless finite-action purification; serial construction is elementary finite-partition case."
+          },
+          {
+            "name": "McNaughton 1959 Section 2 p.4, Theorem 2.2; primary scan inspected",
+            "doi": "10.1287/mnsc.6.1.1",
+            "url": "https://www.columbia.edu/~cs2035/courses/ieor6400.F07/mcn1.pdf",
+            "relation": "No splitting under its special completion-loss objective does not extend to observed cell totals; (1/2,0,1/2) rules out single uninterrupted session."
+          },
+          {
+            "name": "Miller 1966 pp.52-57 and Lee 1966 pp.58-61 primary reprint inspected",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Exact_aggregation_in_linear_programming_models_%28microform%29._-_%28IA_exactaggregation300unse%29.pdf",
+            "relation": "Exact optimisation aggregation requires conditions; equal-column projection/lift is directly proved and avoids representative-person assumptions."
+          }
+        ],
+        "proof_obligations": [
+          "Independently review serialisation and observational scope; do not infer binary cell totals.",
+          "Review equal-column lift under exactly baseline constraints.",
+          "Review no-interruption and matrix-TU counterexamples.",
+          "No empirical or formal acceptance is claimed."
+        ],
+        "finite_checks": {
+          "arithmetic": "exact Fraction",
+          "serialisation_cases": 165,
+          "determinant": -2,
+          "status": "finite checks only; paper proof awaits independent review"
+        },
+        "findings_path": "/workspace/work/mas-paper-20261101/formulator-findings.md",
+        "checks_path": "/workspace/work/mas-paper-20261101/formulator-check-results.json"
+      }
+    },
+    {
+      "recipient": "challenger",
+      "payload": {
+        "kind": "formulation_proposal",
+        "exact_statement": "For every feasible cell vector x in the baseline model, there is a finite-piece measurable history with each a_ijr in {0,1} and sum_ir a_ijr<=1 for every person, preserving every stream cell integral and every cell-linear target. Partition each person-cell consecutively into stream blocks of lengths x_ijrk and an idle remainder. Conversely these histories are admissible, hence their feasible cell/target sets equal the baseline sets. This requires arbitrary preemption and no minimum-session, switching, synchronisation or extra pointwise constraints; it does not imply integral cell totals.",
+        "proof": "For each j,k order streams and assign stream s the half-open interval from b_(k-1)+sum_(t<s)x_tjk to b_(k-1)+sum_(t<=s)x_tjk. Capacity fits these disjoint blocks in the cell. Their lengths are exactly x; all observations and targets are sums of these preserved integrals. Binary histories are a subset of fractional histories.",
+        "aggregation_statement": "Within each fixed person-cell capacity block, merge only variables with identical columns across all observation and retained target rows. Their sum is the aggregate variable; lifting all mass to one representative proves exact equality of feasible target sets, infeasibility and extrema. Include any additional individual constraints in the signature/lift.",
+        "network_counterexample": "One person, one [0,2] cell, streams A,B,C, observations A+B=A+C=B+C=1: matrix determinant -2, unique x=(1/2,1/2,1/2), sum=3/2<=2. Thus the arbitrary-group observation matrix is not automatically TU and integral-data cell totals need not be integral. This refutes a blanket original-matrix integral-flow claim, not all possible extended network representations.",
+        "recommendation": "Retain joint LP. Adopt serial attainment corollary and narrow claim that fractional instantaneous allocations are necessary; optionally use equal-column preprocessing. Reject unproved pooling, no-interruption restriction and universal graph replacement.",
+        "published_comparators": [
+          {
+            "name": "Khan, Rath and Sun 2006, Section 2 Theorem DWW; author manuscript inspected",
+            "doi": "10.1007/s00182-005-0004-3",
+            "url": "https://www.researchgate.net/publication/24058874_The_Dvoretzky-Wald-Wolfowitz_theorem_and_purification_in_atomless_finite-action_games",
+            "relation": "Published atomless finite-action purification; serial construction is elementary finite-partition case."
+          },
+          {
+            "name": "McNaughton 1959 Section 2 p.4, Theorem 2.2; primary scan inspected",
+            "doi": "10.1287/mnsc.6.1.1",
+            "url": "https://www.columbia.edu/~cs2035/courses/ieor6400.F07/mcn1.pdf",
+            "relation": "No splitting under its special completion-loss objective does not extend to observed cell totals; (1/2,0,1/2) rules out single uninterrupted session."
+          },
+          {
+            "name": "Miller 1966 pp.52-57 and Lee 1966 pp.58-61 primary reprint inspected",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Exact_aggregation_in_linear_programming_models_%28microform%29._-_%28IA_exactaggregation300unse%29.pdf",
+            "relation": "Exact optimisation aggregation requires conditions; equal-column projection/lift is directly proved and avoids representative-person assumptions."
+          }
+        ],
+        "proof_obligations": [
+          "Independently review serialisation and observational scope; do not infer binary cell totals.",
+          "Review equal-column lift under exactly baseline constraints.",
+          "Review no-interruption and matrix-TU counterexamples.",
+          "No empirical or formal acceptance is claimed."
+        ],
+        "finite_checks": {
+          "arithmetic": "exact Fraction",
+          "serialisation_cases": 165,
+          "determinant": -2,
+          "status": "finite checks only; paper proof awaits independent review"
+        },
+        "findings_path": "/workspace/work/mas-paper-20261101/formulator-findings.md",
+        "checks_path": "/workspace/work/mas-paper-20261101/formulator-check-results.json"
+      }
+    }
+  ],
+  "objects": [],
+  "note": "Independent initial formulation search complete. Primary sources inspected as labelled; no formal or empirical acceptance. Retain general LP; useful result is exclusive serial attainment, with optional exact equal-column aggregation."
+}

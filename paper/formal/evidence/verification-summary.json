@@ -1,0 +1,24 @@
+{
+  "lean": "leanprover/lean4:v4.33.1",
+  "mathlib": "v4.33.1",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "formal_sources_unchanged_after_review": true,
+  "exported_theorems": 54,
+  "checked_component_groups": 5,
+  "receipt_validation": "PASS",
+  "kernel_replay": {
+    "command": [
+      "lake",
+      "env",
+      "leanchecker",
+      "--fresh",
+      "-v",
+      "LabourBounds"
+    ],
+    "exit_status": 0,
+    "wall_seconds": 320.4464697629992,
+    "maximum_child_rss_KiB": 3099096,
+    "timeout_seconds": 480
+  },
+  "external_implementation_relationship": "TESTED_ONLY"
+}

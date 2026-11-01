@@ -1,0 +1,95 @@
+make: Entering directory '/workspace/work/engineering-work-observatory/paper'
+make -C effort-speed-ai check
+make[1]: Entering directory '/workspace/work/engineering-work-observatory/paper/effort-speed-ai'
+python3 check_package.py
+PASS: 82 packaged file hashes; manuscript copies match.
+cd formal && python3 scripts/check_inventory.py
+{
+  "result_count": 54,
+  "unique_export_count": 43,
+  "hashes_and_label_locators": "MATCHED",
+  "dispositions": "COMPLETE",
+  "scope": "Inventory consistency only; not a mathematical or empirical proof."
+}
+cd formal && python3 scripts/validate_formal_receipt.py formal-verification-receipt.json --base .
+{
+  "status": "PASS",
+  "errors": []
+}
+make[1]: Leaving directory '/workspace/work/engineering-work-observatory/paper/effort-speed-ai'
+python3 figures/shared-capacity/verify.py --review
+{"calculation": {"exceeds_first_hour_capacity": 528, "exceeds_second_hour_capacity": 528, "explicit_feasible_witnesses": 3, "explicit_rejections": 4, "grid_pairs": 1089, "jointly_feasible": 33, "mode": "check", "status": "PASS"}, "declared_files": 11, "figure_id": "shared-capacity", "review": "accept", "scope": "project-local bounded checks", "status": "PASS"}
+python3 check_measurement_examples.py
+{"sampling_example": "PASS", "exact_bin_cases": 2304, "scope": "Finite manufactured checks; analytical proofs are in the paper."}
+python3 check_sharp_identification.py
+{"arithmetic": "fractions.Fraction; no floating-point optimisation", "bounded_observation_enumeration": {"infeasible_cases": 150, "target_cases": 1500}, "capacity_and_window_boundaries": "PASS", "exact_observation_enumeration": {"enumerated_histories": 141, "target_cases": 5445}, "explicit_inconsistency_cases": 7, "scope": "Manufactured finite checks and witness validation; general proofs are in the paper.", "single_interval_cases": 284, "status": "PASS"}
+python3 review/mas-model-2026-11-01/calculations/check_model.py --check
+{"status": "passed", "mode": "check", "histories": 1225, "scalar_parameter_cases": 284, "scaling_dimensions": [4, 8, 16, 32, 48], "outputs": ["/workspace/work/engineering-work-observatory/paper/review/mas-model-2026-11-01/calculations/results.json", "/workspace/work/engineering-work-observatory/paper/review/mas-model-2026-11-01/calculations/scaling.json"]}
+python3 forecasting/check_reference_results.py --self-test
+{
+  "corruption_checks_passed": 5,
+  "evaluation_weeks": 26,
+  "frame_end": "2026-10-26T00:00:00+00:00",
+  "frame_start": "2025-04-28T00:00:00+00:00",
+  "initial_training_weeks": 52,
+  "interpretation": "Score verification is not prospective validation, calibrated coverage, or evidence of transfer to user repositories.",
+  "ledger_file_sha256": "fa2cb43151c9efcba77813147fa0119ce2ec2cc3cba50c29cc1da3fff1dd14e7",
+  "ledger_payload_sha256": "ca99b42fc2507c2756286df6452283d1b7473f6a3f697274c00c88f7b7d70de3",
+  "mean_rps": {
+    "empirical_expanding": 2.2749298489708307,
+    "empirical_recent": 2.5258413461538463,
+    "poisson_prior_four_period_mean": 2.766030831594785,
+    "previous_period_point_mass": 4.5,
+    "zero_point_mass": 4.615384615384615
+  },
+  "recent_relative_rps_increase": 0.11029416898131039,
+  "source_snapshot_file_sha256": "5e0580a0aa44a8c3e8447148f83d5d803f7aaddc6bd4893af2c4246cb2e1c20e",
+  "source_snapshot_sha256": "00c506a39f120b004b9e6b3e41ad78b5fe1d88f49238bf0499ee7d00a54de4ef",
+  "verified_method_origin_scores": 130,
+  "visible_prs": 742
+}
+cd performance && cargo test --locked
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.05s
+     Running unittests src/lib.rs (target/debug/deps/cohort_horizon_performance-fb424f92e9901c1d)
+
+running 7 tests
+test tests::accumulation_exceeds_u64_without_loss ... ok
+test tests::duplicate_inclusive_boundaries_unsorted_queries_and_zero_weights ... ok
+test tests::empty_inputs_and_empty_queries ... ok
+test tests::horizon_overflow_is_an_explicit_error ... ok
+test tests::index_owns_a_snapshot ... ok
+test tests::unaccepted_tasks_keep_their_labour_and_zero_labour_keeps_output ... ok
+test tests::generated_cases_match_direct_oracle ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src/bin/horizon-bench.rs (target/debug/deps/horizon_bench-10d972757ee8d427)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests cohort_horizon_performance
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+cd performance && python3 -m unittest discover -s tests -v
+test_build_uses_cargo_artifact_instead_of_a_guessed_target_directory (test_collection.ArtifactTests.test_build_uses_cargo_artifact_instead_of_a_guessed_target_directory) ... ok
+test_configured_target_artifact_wins_over_stale_default_and_other_targets (test_collection.ArtifactTests.test_configured_target_artifact_wins_over_stale_default_and_other_targets) ... ok
+test_missing_or_ambiguous_executable_is_rejected (test_collection.ArtifactTests.test_missing_or_ambiguous_executable_is_rejected) ... ok
+test_existing_output_and_retained_results_are_refused_before_build (test_collection.CollectionIsolationTests.test_existing_output_and_retained_results_are_refused_before_build) ... ok
+test_new_summary_stays_in_the_selected_collection (test_collection.CollectionIsolationTests.test_new_summary_stays_in_the_selected_collection) ... ok
+test_summary_replaces_output_aliases_without_mutating_retained_targets (test_collection.CollectionIsolationTests.test_summary_replaces_output_aliases_without_mutating_retained_targets) ... ok
+test_collector_and_summary_share_row_checks_and_bound_the_helper_source (test_collection.ProtocolValidationTests.test_collector_and_summary_share_row_checks_and_bound_the_helper_source) ... ok
+test_collector_rejects_a_valid_row_for_the_wrong_requested_key (test_collection.ProtocolValidationTests.test_collector_rejects_a_valid_row_for_the_wrong_requested_key) ... ok
+test_invalid_raw_does_not_replace_existing_summaries (test_collection.ProtocolValidationTests.test_invalid_raw_does_not_replace_existing_summaries) ... ok
+test_standalone_summary_rejects_each_invalid_protocol_or_timing_field (test_collection.ProtocolValidationTests.test_standalone_summary_rejects_each_invalid_protocol_or_timing_field) ... ok
+test_summary_requires_complete_keys_and_declared_order (test_collection.ProtocolValidationTests.test_summary_requires_complete_keys_and_declared_order) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.009s
+
+OK
+make: Leaving directory '/workspace/work/engineering-work-observatory/paper'

@@ -1,0 +1,654 @@
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded anstyle-query v1.1.5
+  Downloaded anstream v1.0.0
+  Downloaded anstyle-parse v1.0.0
+  Downloaded autocfg v1.5.1
+  Downloaded base64 v0.23.1
+  Downloaded aho-corasick v1.1.5
+  Downloaded anstyle v1.0.14
+  Downloaded chacha20 v0.10.2
+  Downloaded clap v4.6.7
+  Downloaded cfg-if v1.0.5
+  Downloaded atomic-waker v1.1.2
+  Downloaded block-buffer v0.12.1
+  Downloaded clap_lex v1.1.1
+  Downloaded cmake v0.1.58
+  Downloaded anyhow v1.0.104
+  Downloaded colorchoice v1.0.5
+  Downloaded cpufeatures v0.3.1
+  Downloaded bitflags v2.13.2
+  Downloaded const-oid v0.10.2
+  Downloaded cfg_aliases v0.2.2
+  Downloaded clap_derive v4.6.7
+  Downloaded digest v0.11.3
+  Downloaded clap_builder v4.6.7
+  Downloaded errno v0.3.14
+  Downloaded fallible-iterator v0.3.0
+  Downloaded fallible-streaming-iterator v0.1.9
+  Downloaded crypto-common v0.2.2
+  Downloaded displaydoc v0.2.7
+  Downloaded bytes v1.12.1
+  Downloaded fastrand v2.5.0
+  Downloaded cc v1.10.0
+  Downloaded foldhash v0.2.0
+  Downloaded fs_extra v1.3.0
+  Downloaded dunce v1.0.5
+  Downloaded aws-lc-rs v1.19.0
+  Downloaded getrandom v0.2.17
+  Downloaded getrandom v0.4.3
+  Downloaded futures-io v0.3.34
+  Downloaded heck v0.5.0
+  Downloaded chrono v0.4.45
+  Downloaded futures-task v0.3.34
+  Downloaded find-msvc-tools v0.1.15
+  Downloaded form_urlencoded v1.2.2
+  Downloaded futures-core v0.3.34
+  Downloaded futures-channel v0.3.34
+  Downloaded futures-util v0.3.34
+  Downloaded hashlink v0.11.1
+  Downloaded http-body v1.1.0
+  Downloaded http-body-util v0.1.5
+  Downloaded hashbrown v0.16.1
+  Downloaded httparse v1.10.1
+  Downloaded hyper v1.12.0
+  Downloaded hybrid-array v0.4.15
+  Downloaded futures-sink v0.3.34
+  Downloaded http v1.5.0
+  Downloaded hyper-util v0.1.21
+  Downloaded icu_normalizer_data v2.4.0
+  Downloaded icu_locale_core v2.4.0
+  Downloaded icu_properties_data v2.4.0
+  Downloaded iana-time-zone v0.1.65
+  Downloaded icu_collections v2.4.0
+  Downloaded icu_normalizer v2.4.0
+  Downloaded icu_provider v2.4.0
+  Downloaded idna v1.1.0
+  Downloaded hyper-rustls v0.27.10
+  Downloaded idna_adapter v1.2.2
+  Downloaded icu_properties v2.4.0
+  Downloaded ipnet v2.12.2
+  Downloaded log v0.4.34
+  Downloaded litemap v0.8.3
+  Downloaded is_terminal_polyfill v1.70.2
+  Downloaded libc v0.2.191
+  Downloaded lru-slab v0.1.3
+  Downloaded matchers v0.2.0
+  Downloaded jobserver v0.1.35
+  Downloaded lazy_static v1.5.1
+  Downloaded mio v1.2.4
+  Downloaded nu-ansi-term v0.50.3
+  Downloaded num-integer v0.1.47
+  Downloaded num-rational v0.4.2
+  Downloaded num-bigint v0.4.8
+  Downloaded once_cell v1.21.4
+  Downloaded num-traits v0.2.19
+  Downloaded openssl-probe v0.2.2
+  Downloaded pin-project-lite v0.2.17
+  Downloaded pkg-config v0.3.34
+  Downloaded percent-encoding v2.3.2
+  Downloaded quinn v0.11.12
+  Downloaded potential_utf v0.1.6
+  Downloaded rand v0.10.3
+  Downloaded rand_core v0.10.1
+  Downloaded regex-automata v0.4.18
+  Downloaded quinn-udp v0.5.16
+  Downloaded rustls-pki-types v1.15.1
+  Downloaded quinn-proto v0.11.19
+  Downloaded rand_pcg v0.10.2
+  Downloaded serde v1.0.229
+  Downloaded regex-syntax v0.8.11
+  Downloaded linux-raw-sys v0.12.1
+  Downloaded reqwest v0.13.5
+  Downloaded rustc-hash v2.1.3
+  Downloaded sharded-slab v0.1.7
+  Downloaded syn v3.0.9
+  Downloaded socket2 v0.6.5
+  Downloaded thiserror v2.0.21
+  Downloaded tinystr v0.8.5
+  Downloaded tower v0.5.3
+  Downloaded tower-layer v0.3.3
+  Downloaded tracing-attributes v0.1.31
+  Downloaded tokio-rustls v0.26.6
+  Downloaded tracing-core v0.1.36
+  Downloaded tower-service v0.3.3
+  Downloaded untrusted v0.9.0
+  Downloaded thread_local v1.1.10
+  Downloaded typenum v1.20.1
+  Downloaded tracing-log v0.2.0
+  Downloaded tinyvec v1.13.3
+  Downloaded tracing-subscriber v0.3.23
+  Downloaded utf8_iter v1.0.4
+  Downloaded vcpkg v0.2.15
+  Downloaded utf8parse v0.2.2
+  Downloaded writeable v0.6.4
+  Downloaded try-lock v0.2.5
+  Downloaded thiserror-impl v2.0.21
+  Downloaded yoke v0.8.4
+  Downloaded yoke-derive v0.8.4
+  Downloaded libsqlite3-sys v0.36.0
+  Downloaded zerofrom-derive v0.1.8
+  Downloaded zerovec v0.11.9
+  Downloaded want v0.3.2
+  Downloaded zerotrie v0.2.5
+  Downloaded rusqlite v0.38.0
+  Downloaded tower-http v0.6.11
+  Downloaded url v2.5.8
+  Downloaded zeroize v1.9.1
+  Downloaded zmij v1.0.23
+  Downloaded tracing v0.1.44
+  Downloaded zerovec-derive v0.11.7
+  Downloaded serde_derive v1.0.229
+  Downloaded tokio v1.54.1
+  Downloaded zerofrom v0.1.8
+  Downloaded rustls v0.23.46
+  Downloaded rustls-platform-verifier v0.7.1
+  Downloaded serde_json v1.0.154
+  Downloaded smallvec v1.16.4
+  Downloaded serde_core v1.0.229
+  Downloaded slab v0.4.12
+  Downloaded rustls-webpki v0.103.16
+  Downloaded ring v0.17.14
+  Downloaded rustls-native-certs v0.8.5
+  Downloaded stable_deref_trait v1.2.1
+  Downloaded strsim v0.11.1
+  Downloaded sync_wrapper v1.0.2
+  Downloaded subtle v2.6.1
+  Downloaded sha2 v0.11.1
+  Downloaded synstructure v0.14.0
+  Downloaded shlex v2.0.1
+  Downloaded tempfile v3.27.0
+  Downloaded rustix v1.1.6
+  Downloaded aws-lc-sys v0.47.0
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.27
+   Compiling quote v1.0.47
+   Compiling libc v0.2.191
+   Compiling syn v3.0.9
+   Compiling jobserver v0.1.35
+   Compiling find-msvc-tools v0.1.15
+   Compiling shlex v2.0.1
+   Compiling cc v1.10.0
+   Compiling synstructure v0.14.0
+   Compiling pkg-config v0.3.34
+   Compiling zerofrom-derive v0.1.8
+   Compiling yoke-derive v0.8.4
+   Compiling zerofrom v0.1.8
+   Compiling stable_deref_trait v1.2.1
+   Compiling zerovec-derive v0.11.7
+   Compiling yoke v0.8.4
+   Compiling displaydoc v0.2.7
+   Compiling cmake v0.1.58
+   Compiling zerovec v0.11.9
+   Compiling pin-project-lite v0.2.17
+   Compiling dunce v1.0.5
+   Compiling fs_extra v1.3.0
+   Compiling aws-lc-sys v0.47.0
+   Compiling bytes v1.12.1
+   Compiling smallvec v1.16.4
+   Compiling once_cell v1.21.4
+   Compiling futures-core v0.3.34
+   Compiling tinystr v0.8.5
+   Compiling litemap v0.8.3
+   Compiling zeroize v1.9.1
+   Compiling aws-lc-rs v1.19.0
+   Compiling itoa v1.0.18
+   Compiling writeable v0.6.4
+   Compiling icu_locale_core v2.4.0
+   Compiling potential_utf v0.1.6
+   Compiling zerotrie v0.2.5
+   Compiling socket2 v0.6.5
+   Compiling mio v1.2.4
+   Compiling icu_normalizer_data v2.4.0
+   Compiling utf8_iter v1.0.4
+   Compiling icu_properties_data v2.4.0
+   Compiling icu_collections v2.4.0
+   Compiling tokio v1.54.1
+   Compiling icu_provider v2.4.0
+   Compiling http v1.5.0
+   Compiling rustls-pki-types v1.15.1
+   Compiling cfg-if v1.0.5
+   Compiling futures-sink v0.3.34
+   Compiling memchr v2.8.3
+   Compiling typenum v1.20.1
+   Compiling autocfg v1.5.1
+   Compiling num-traits v0.2.19
+   Compiling hybrid-array v0.4.15
+   Compiling http-body v1.1.0
+   Compiling tracing-core v0.1.36
+   Compiling syn v2.0.119
+   Compiling slab v0.4.12
+   Compiling untrusted v0.9.0
+   Compiling futures-task v0.3.34
+   Compiling percent-encoding v2.3.2
+   Compiling futures-io v0.3.34
+   Compiling serde_core v1.0.229
+   Compiling httparse v1.10.1
+   Compiling rustls v0.23.46
+   Compiling futures-util v0.3.34
+   Compiling tracing-attributes v0.1.31
+   Compiling icu_properties v2.4.0
+   Compiling icu_normalizer v2.4.0
+   Compiling subtle v2.6.1
+   Compiling try-lock v0.2.5
+   Compiling bitflags v2.13.2
+   Compiling tower-service v0.3.3
+   Compiling want v0.3.2
+   Compiling idna_adapter v1.2.2
+   Compiling tracing v0.1.44
+   Compiling block-buffer v0.12.1
+   Compiling crypto-common v0.2.2
+   Compiling const-oid v0.10.2
+   Compiling zmij v1.0.23
+   Compiling atomic-waker v1.1.2
+   Compiling log v0.4.34
+   Compiling vcpkg v0.2.15
+   Compiling serde v1.0.229
+   Compiling utf8parse v0.2.2
+   Compiling anstyle-parse v1.0.0
+   Compiling libsqlite3-sys v0.36.0
+   Compiling hyper v1.12.0
+   Compiling digest v0.11.3
+   Compiling idna v1.1.0
+   Compiling form_urlencoded v1.2.2
+   Compiling futures-channel v0.3.34
+   Compiling sync_wrapper v1.0.2
+   Compiling serde_derive v1.0.229
+   Compiling base64 v0.23.1
+   Compiling openssl-probe v0.2.2
+   Compiling cpufeatures v0.3.1
+   Compiling ipnet v2.12.2
+   Compiling serde_json v1.0.154
+   Compiling regex-syntax v0.8.11
+   Compiling rustls-webpki v0.103.16
+   Compiling colorchoice v1.0.5
+   Compiling anstyle-query v1.1.5
+   Compiling is_terminal_polyfill v1.70.2
+   Compiling getrandom v0.4.3
+   Compiling rustix v1.1.6
+   Compiling tower-layer v0.3.3
+   Compiling anstyle v1.0.14
+   Compiling foldhash v0.2.0
+   Compiling hashbrown v0.16.1
+   Compiling anstream v1.0.0
+   Compiling tower v0.5.3
+   Compiling regex-automata v0.4.18
+   Compiling tokio-rustls v0.26.6
+   Compiling hyper-util v0.1.21
+   Compiling sha2 v0.11.1
+   Compiling rustls-native-certs v0.8.5
+   Compiling url v2.5.8
+   Compiling num-integer v0.1.47
+   Compiling linux-raw-sys v0.12.1
+   Compiling heck v0.5.0
+   Compiling clap_lex v1.1.1
+   Compiling lazy_static v1.5.1
+   Compiling strsim v0.11.1
+   Compiling anyhow v1.0.104
+   Compiling clap_builder v4.6.7
+   Compiling sharded-slab v0.1.7
+   Compiling clap_derive v4.6.7
+   Compiling num-bigint v0.4.8
+   Compiling tower-http v0.6.11
+   Compiling engineering-work-observatory v0.1.0 (/workspace/work/engineering-work-observatory)
+   Compiling rustls-platform-verifier v0.7.1
+   Compiling hyper-rustls v0.27.10
+   Compiling matchers v0.2.0
+   Compiling hashlink v0.11.1
+   Compiling tracing-log v0.2.0
+   Compiling http-body-util v0.1.5
+   Compiling thread_local v1.1.10
+   Compiling fallible-iterator v0.3.0
+   Compiling fallible-streaming-iterator v0.1.9
+   Compiling fastrand v2.5.0
+   Compiling iana-time-zone v0.1.65
+   Compiling nu-ansi-term v0.50.3
+   Compiling chrono v0.4.45
+   Compiling tracing-subscriber v0.3.23
+   Compiling rusqlite v0.38.0
+   Compiling tempfile v3.27.0
+   Compiling reqwest v0.13.5
+   Compiling num-rational v0.4.2
+   Compiling clap v4.6.7
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3m 38s
+     Running unittests src/lib.rs (target/debug/deps/observatory-d0e0caec202e4213)
+
+running 19 tests
+test analysis::bounds::tests::all_overlap_geometries_match_attainable_discrete_extrema ... ok
+test analysis::bounds::tests::enlarging_window_cannot_decrease_either_bound ... ok
+test identification::exact::tests::preserves_integer_precision_and_normalises_fractions ... ok
+test analysis::bounds::tests::only_literal_endpoint_allocations_collapse_a_partial_interval ... ok
+test identification::exact::tests::rejects_float_and_malformed_inputs ... ok
+test identification::model_validation_tests::rejects_malformed_domains_unknown_targets_and_missing_schema ... ok
+test identification::model_validation_tests::retains_the_reproducible_input ... ok
+test identification::simplex::tests::duplicate_equalities_and_degenerate_bases ... ok
+test identification::simplex::tests::bland_rule_resolves_classical_cycling_example ... ok
+test identification::simplex::tests::fractional_optimum_and_negative_objective ... ok
+test identification::simplex::tests::empty_dimensions_and_unbounded_objectives ... ok
+test identification::simplex::tests::phase_one_handles_lower_bounds_and_inconsistency ... ok
+test report::tests::user_text_cannot_become_html_or_formula ... ok
+test simulations::tests::paper_slow_agent_example ... ok
+test simulations::tests::zero_attempts_has_no_ratio ... ok
+test simulations::tests::zero_success_cap_keeps_unsuccessful_effort ... ok
+test report::usage::tests::summaries_deduplicate_enrich_and_keep_synthetic_separate ... ok
+test identification::simplex::tests::malformed_and_resource_limited_inputs_are_errors ... ok
+test identification::simplex::tests::bounded_programmes_match_independent_vertex_enumeration ... ok
+
+test result: ok. 19 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.42s
+
+     Running unittests src/main.rs (target/debug/deps/observatory-fa3e3167ea9dafc0)
+
+running 1 test
+test tests::malformed_batch_does_not_accept_prefix ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/cli.rs (target/debug/deps/cli-1fd33f30c2b7c4b4)
+
+running 4 tests
+test oversized_input_is_rejected_before_retaining_objects ... ok
+test cli_eal_import_uses_a_nonexistent_backup_destination ... ok
+test cli_engarg_fixture_retains_missing_tokens_and_synthetic_classification ... ok
+test study_import_freeze_report_and_replay_work_from_the_command_line ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.27s
+
+     Running tests/collectors.rs (target/debug/deps/collectors-83d1ecad8b905f4b)
+
+running 12 tests
+test cross_origin_pagination_is_rejected_without_transmitting_bearer_token ... ok
+test conditional_cache_is_separate_for_different_tokens ... ok
+test conditional_refresh_304_keeps_payload_provenance_and_follows_cached_pagination ... ok
+test corrupt_conditional_cache_is_refetched_without_validators ... ok
+test failed_middle_page_preserves_prefix_and_cannot_claim_completeness ... ok
+test long_rate_limit_delay_stops_requests_and_reports_remaining_scopes ... ok
+test paginated_comments_are_retained_with_complete_endpoint_coverage ... ok
+test reported_inventory_total_cannot_be_silently_truncated ... ok
+test repository_metadata_endpoint_has_no_trailing_slash ... ok
+test workflow_reruns_keep_distinct_attempts_and_jobs ... ok
+test unchanged_github_content_has_stable_ids_across_collection_times ... ok
+test local_git_collects_graph_refs_and_dependency_content_without_running_hooks ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.79s
+
+     Running tests/forecast.rs (target/debug/deps/forecast-b5805e481ac6581e)
+
+running 15 tests
+test exact_midnight_target_can_begin_at_issue_time ... ok
+test clock_cutoffs_exclude_current_and_stale_periods ... ok
+test expanding_fortnight_reference_keeps_whole_observed_pairs ... ok
+test fourteen_days_uses_four_observed_disjoint_pairs ... ok
+test expanding_reference_and_recent_challenger_have_explicit_distinct_rules ... ok
+test partial_first_day_and_nonexistent_repository_time_are_excluded ... ok
+test fixed_backtest_uses_only_mature_preceding_bins ... ok
+test quantiles_median_and_empirical_mass_are_explicit ... ok
+test incomplete_coverage_abstains_and_is_not_zero ... ok
+test portfolio_is_aggregated_before_empirical_forecasting ... ok
+test sparse_daily_forecast_does_not_invent_weekly_support ... ok
+test unsupported_or_contradictory_evidence_fails_closed ... ok
+test rps_matches_independent_pairwise_oracle_including_unseen_tails ... ok
+test predeclared_frame_reserves_training_then_scores_only_holdout ... ok
+test valid_new_repository_after_common_exposure_cut_has_no_full_bins ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/forecast_archive.rs (target/debug/deps/forecast_archive-cdd6d358d0751ed4)
+
+running 5 tests
+test directory_scores_originals_and_reports_corrupt_replays_without_mutating_any_receipt ... ok
+test receipt_rejects_fabricated_counts_even_with_internally_consistent_distribution ... ok
+test repository_rename_preserves_numeric_portfolio_when_scoring ... ok
+test receipts_reject_replays_modified_history_sources_and_post_target_creation ... ok
+test archived_source_bound_forecast_scores_only_after_exposure_and_counts_new_arrival ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+     Running tests/forecast_cli.rs (target/debug/deps/forecast_cli-8c1337aea477a4ea)
+
+running 4 tests
+test existing_export_is_rejected_before_network_or_forecast_archive_changes ... ok
+test failed_inventory_retains_evidence_but_cannot_issue_forecast_or_export ... ok
+test short_history_weekly_forecast_remains_unavailable_in_command_output ... ok
+test forecast_command_collects_archives_exports_replays_and_scores_prior_receipts ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.47s
+
+     Running tests/forecast_validation.rs (target/debug/deps/forecast_validation-07f7254efe1bfded)
+
+running 12 tests
+test a_fully_observed_zero_outcome_is_scoreable ... ok
+test incomplete_inventory_is_unavailable_instead_of_a_zero_outcome ... ok
+test knowledge_time_does_not_mature_a_stale_source_or_score_early_positives ... ok
+test changed_numeric_portfolio_is_unavailable_even_if_the_name_is_unchanged ... ok
+test malformed_prior_clocks_calendar_training_and_model_reject ... ok
+test every_stored_distribution_summary_is_bound_to_frozen_counts ... ok
+test future_duplicate_and_out_of_scope_later_events_reject ... ok
+test method_is_preserved_and_checked_without_reinterpreting_old_saved_forecasts ... ok
+test mature_half_open_target_counts_arrivals_and_reopened_merges_with_empty_origin_queue ... ok
+test source_frame_excluding_target_and_snapshot_before_issue_cannot_score ... ok
+test unavailable_weekly_forecast_is_not_warmed_up_or_scaled_from_daily_counts ... ok
+test legitimate_saved_distributions_with_fractional_masses_round_trip ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s
+
+     Running tests/identification.rs (target/debug/deps/identification-3bee20199628895c)
+
+running 7 tests
+test grouped_observations_require_fractional_joint_vertices ... ok
+test shared_capacity_collapses_the_sum_of_marginal_ranges ... ok
+test overlapping_scalar_observations_and_unequal_interval_averages_are_feasible ... ok
+test subsecond_rational_boundaries_and_unobserved_cells_preserve_mass ... ok
+test zero_lower_labour_withholds_productivity_and_malformed_constraints_are_errors ... ok
+test results_are_invariant_to_record_order_and_covary_with_time_scale ... ok
+test exact_joint_results_match_independent_vertex_enumeration ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.37s
+
+     Running tests/importers.rs (target/debug/deps/importers-5d09de24a39a1bc3)
+
+running 11 tests
+test explicit_synthetic_execution_class_is_preserved_without_model_label_inference ... ok
+test explicit_eal_json_export_accepts_negative_outcome_and_rejects_unknown_schema ... ok
+test audit_failure_preserves_completed_call_without_promoting_run_success ... ok
+test historical_http_unknown_usage_and_zero_are_distinct_and_private_text_is_omitted ... ok
+test eal_sqlite_online_backup_includes_wal_and_never_exports_private_payload ... ok
+test native_failure_without_completion_does_not_invent_tokens_or_calls ... ok
+test identical_completions_are_distinct_calls_but_representations_share_identity ... ok
+test optional_metadata_enrichment_keeps_core_identity_and_missing_null_normalize ... ok
+test unknown_schemas_bad_counts_and_ambiguous_order_are_errors ... ok
+test native_and_generic_assistant_identities_follow_actual_contract ... ok
+test resumed_report_reuses_parent_ordinal_and_new_provider_is_scoped_to_suffix ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/inference.rs (target/debug/deps/inference-f81a6105540b978c)
+
+running 14 tests
+test census_variance_is_zero_including_a_single_unit ... ok
+test enumerate_all_srs_samples_unbiasedness_and_variance_benefit_and_harm ... ok
+test invalid_probabilities_nonfinite_values_and_overflow_reject ... ok
+test large_common_prediction_offsets_preserve_small_labels_and_residual_variance ... ok
+test negative_difference_estimates_are_reported_without_clipping ... ok
+test sample_fitting_counterexample_defeats_fixed_prediction_guarantee ... ok
+test serde_rejects_ambiguous_observation_and_unknown_fields ... ok
+test signed_frozen_predictions_are_valid_auxiliary_values ... ok
+test srs_requires_the_declared_selected_count_and_probabilities ... ok
+test srs_rounding_does_not_turn_constant_predictions_into_nonzero_corrections ... ok
+test enumerate_an_unequal_probability_general_design ... ok
+test zero_observation_unselected_and_nonresponse_are_distinct ... ok
+test incomplete_frame_duplicate_identity_and_missing_provenance_reject ... ok
+test every_srs_sample_preserves_predictions_with_representable_common_offsets ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/inference_cli.rs (target/debug/deps/inference_cli-d21d612058750309)
+
+running 4 tests
+test estimator_command_keeps_a_negative_design_estimate ... ok
+test estimator_command_rejects_nonresponse_without_manufacturing_a_total ... ok
+test estimator_command_rejects_an_unknown_design_field ... ok
+test estimator_example_runs_offline_without_creating_an_evidence_store ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/inference_geometry.rs (target/debug/deps/inference_geometry-c96e5e9dfde7d12c)
+
+running 10 tests
+test adjacent_units_and_concurrent_different_people_preserve_the_estimator ... ok
+test interior_and_boundary_gaps_reject ... ok
+test exact_elapsed_conversion_handles_long_and_fractional_windows ... ok
+test invalid_person_references_and_person_frames_reject ... ok
+test predictions_remain_unbounded_and_signed_corrections_are_preserved ... ok
+test overlap_is_rejected_even_with_different_unit_ids ... ok
+test observed_capacity_is_checked_without_rounding_tolerance ... ok
+test schema_and_unknown_fields_are_rejected_at_each_boundary ... ok
+test unknown_duplicate_or_missing_geometry_rejects ... ok
+test zero_negative_and_out_of_frame_intervals_reject ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/ingestion.rs (target/debug/deps/ingestion-d6918b42f299e9d9)
+
+running 10 tests
+test full_policy_does_not_invent_throughput_requirements_for_local_collection ... ok
+test conflicting_source_identity_does_not_overwrite_previously_retained_evidence ... ok
+test duplicate_rows_and_repeated_collection_are_idempotent ... ok
+test full_policy_preserves_legacy_omissions_and_not_applicable_scopes ... ok
+test incomplete_collection_preserves_prefix_failure_bytes_and_verifiable_manifest ... ok
+test throughput_does_not_treat_failed_optional_requests_as_deliberate_omissions ... ok
+test throughput_allows_deliberately_omitted_optional_families ... ok
+test ambiguous_required_scope_cannot_be_promoted_by_another_complete_entry ... ok
+test full_policy_rejects_other_omissions_and_any_incomplete_legacy_exception ... ok
+test throughput_requires_both_required_sources_present_and_complete ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+     Running tests/labour_bounds.rs (target/debug/deps/labour_bounds-228d74735c5b13a1)
+
+running 14 tests
+test a_complete_empty_direct_frame_is_zero_and_outside_work_is_excluded ... ok
+test boundary_bounds_combine_with_identified_mass_but_do_not_replace_it ... ok
+test boundary_mass_has_sharp_marginal_bounds_without_an_exact_total ... ok
+test cohort_total_requires_every_task_to_have_a_direct_frame ... ok
+test exact_direct_endpoints_and_whole_observations_collapse_bounds ... ok
+test incomplete_frames_never_acquire_finite_complete_total_bounds ... ok
+test known_output_and_positive_direct_labour_produce_conditional_productivity_range ... ok
+test known_zero_output_has_zero_productivity_bounds_only_with_positive_labour ... ok
+test nonresponse_and_unfinished_observations_do_not_bound_complete_labour ... ok
+test sampled_points_and_mixed_frames_do_not_become_exact_population_mass ... ok
+test shared_person_capacity_makes_marginal_sum_conservative_not_jointly_sharp ... ok
+test productivity_bounds_require_quality_positive_direct_labour_and_counted_tasks ... ok
+test exported_report_keeps_unknown_point_and_qualified_bounds_visible ... ok
+test subsecond_boundary_mass_and_near_endpoint_fractions_remain_distinct ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/model_analysis.rs (target/debug/deps/model_analysis-4e255634a65f4125)
+
+running 37 tests
+test abandonment_and_lost_observation_have_different_outcomes ... ok
+test assessment_correction_chain_is_explicit_and_as_of_sensitive ... ok
+test aggregate_productivity_is_ratio_of_totals ... ok
+test correction_branches_cycles_and_nonstudy_targets_are_rejected ... ok
+test corrected_effective_study_still_obeys_allocation_and_reference_constraints ... ok
+test baseline_scope_rule_requires_explicit_original_scope_measurements ... ok
+test boundary_crossing_average_allocation_requires_observed_splits ... ok
+test defect_repair_references_cannot_point_at_an_unrelated_task ... ok
+test coverage_correction_changes_partial_frame_to_complete ... ok
+test corrections_resolve_nonresponse_without_mutating_raw_history ... ok
+test early_retention_does_not_close_fixed_labour_horizon ... ok
+test different_categories_preserve_direct_sample_and_sampled_unit_constraints ... ok
+test full_direct_average_identifies_work_across_the_boundary ... ok
+test future_assessment_is_not_used_before_as_of_cut ... ok
+test idempotent_records_are_allowed_but_conflicts_and_unknown_kinds_reject ... ok
+test implementation_children_share_the_requirement_clock ... ok
+test late_acceptance_gets_no_deadline_output_but_keeps_labour ... ok
+test ht_sampled_effort_uses_inclusion_probability_without_claiming_variance ... ok
+test later_correction_cannot_hide_invalid_historical_replacement ... ok
+test feasible_unequal_interval_averages_receive_a_conservative_screen_diagnostic ... ok
+test long_effort_duration_does_not_require_an_i64_nanosecond_count ... ok
+test missing_effort_coverage_is_not_a_complete_zero_or_total ... ok
+test parent_and_child_cannot_both_create_output ... ok
+test pair_work_adds_both_people_and_excess_interval_average_sums_are_rejected ... ok
+test policy_metadata_links_and_defects_preserve_independent_evidence ... ok
+test coverage_union_preserves_gaps_method_matching_and_partial_veto ... ok
+test missing_retention_is_not_perfect_or_zero_retention ... ok
+test same_category_overlap_is_rejected_but_other_roles_and_touching_intervals_remain_valid ... ok
+test same_method_coverage_composes_without_splitting_effort_observations ... ok
+test sample_nonresponse_is_unavailable_not_zero ... ok
+test scope_change_default_excludes_output_and_keeps_labour ... ok
+test score_must_be_frozen_before_enrolment ... ok
+test zero_direct_average_identifies_zero_work_across_the_boundary ... ok
+test submillisecond_effort_remains_positive_when_subdivided ... ok
+test uncounted_implementation_child_still_requires_explicit_labour_coverage ... ok
+test zero_total_labour_has_no_ratio ... ok
+test stored_corrections_preserve_raw_payloads_and_actual_observation_cuts ... ok
+
+test result: ok. 37 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+     Running tests/model_commands.rs (target/debug/deps/model_commands-94a3fecb610fcceb)
+
+running 5 tests
+test estimator_v2_rejects_physical_overlap_before_reporting_a_total ... ok
+test inconsistent_observations_return_no_numeric_extrema ... ok
+test estimator_v2_keeps_the_geometry_with_the_statistical_result ... ok
+test exact_input_errors_do_not_print_approximate_results ... ok
+test joint_bounds_command_returns_exact_shared_capacity_and_witnesses_offline ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/scope_endpoint.rs (target/debug/deps/scope_endpoint-fb1b1b14e1ab7f52)
+
+running 2 tests
+test predeclared_baseline_rule_retains_explicit_original_scope_endpoints ... ok
+test late_scope_penalty_preserves_known_acceptance_and_qualifies_suppressed_endpoints ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/storage_snapshot.rs (target/debug/deps/storage_snapshot-22a3c328e1fb693d)
+
+running 7 tests
+test conflicting_logical_calls_are_rejected_but_unknown_usage_can_be_enriched ... ok
+test freeze_rejects_a_dependency_not_yet_observed_at_cut ... ok
+test frozen_facts_select_latest_receipt_available_at_each_cut ... ok
+test historical_cut_excludes_later_observations_and_has_stable_identity ... ok
+test idempotence_conflicts_and_source_corruption_are_checked ... ok
+test nested_evidence_cannot_disappear_unnoticed ... ok
+test concurrent_batches_validate_against_committed_person_allocation ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running tests/throughput_collection.rs (target/debug/deps/throughput_collection-a4f9caa48d13ff7c)
+
+running 10 tests
+test failed_later_page_retains_prefix_and_marks_summary_incomplete ... ok
+test conflicting_duplicate_pages_are_not_ordered_by_content_hash ... ok
+test cached_profile_revalidates_inventory_and_preserves_original_payload_identity ... ok
+test lightweight_profile_collects_only_identity_and_pull_inventory ... ok
+test malformed_http_success_is_not_a_complete_inventory ... ok
+test missing_nullable_timestamps_and_malformed_repository_are_not_silently_accepted ... ok
+test paginated_inventory_keeps_every_page_without_nested_requests ... ok
+test successful_empty_inventory_and_open_null_timestamps_are_valid ... ok
+test impossible_or_future_event_chronology_cannot_establish_complete_coverage ... ok
+test malformed_timestamp_identity_and_state_fields_keep_raw_evidence_but_fail_coverage ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.61s
+
+     Running tests/throughput_history.rs (target/debug/deps/throughput_history-3ff14dde8d569ea7)
+
+running 13 tests
+test a_manual_coverage_attestation_does_not_replace_automatic_inventory ... ok
+test conflicting_same_receipt_variants_and_post_collection_events_fail_closed ... ok
+test empty_complete_queue_has_observed_zero_optional_predicates ... ok
+test conflicts_in_an_unselected_repository_do_not_poison_the_selected_scope ... ok
+test crossing_midnight_uses_common_scan_start_and_latest_repository_birth ... ok
+test exact_duplicate_pages_are_idempotent_with_automatic_duplicate_accounting ... ok
+test incomplete_latest_scan_cannot_fall_back_to_older_success_or_zero ... ok
+test optional_current_predicates_overlap_and_do_not_become_historical_features ... ok
+test missing_requested_repository_invalidates_portfolio_instead_of_reducing_scope ... ok
+test later_source_versions_do_not_change_an_earlier_knowledge_cut ... ok
+test missing_optional_request_field_is_unknown_unless_an_observed_request_is_positive ... ok
+test projects_machine_identity_once_and_reports_only_observed_pressure ... ok
+test stale_snapshot_does_not_extend_exposure_or_age_old_state_as_current ... ok
+
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s

@@ -31,6 +31,7 @@ pub struct LabourStream {
     pub id: String,
     pub person_id: String,
     pub task_id: String,
+    /// Type of work, such as implementation or review; the JSON name is retained.
     pub role: String,
 }
 
@@ -86,7 +87,8 @@ pub struct Extremum {
 #[derive(Clone, Debug, Serialize)]
 pub struct StreamAllocation {
     pub stream_id: String,
-    /// One mass per report cell. Divide by cell length to reconstruct a constant allocation.
+    /// One mass per report cell. Compatible histories include constant allocations
+    /// and consecutive full-attention blocks when interruption is unrestricted.
     pub person_hours: Vec<Exact>,
 }
 

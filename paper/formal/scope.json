@@ -1,0 +1,74 @@
+{
+  "schema": "labour-proof-scope/1",
+  "source_snapshot": {
+    "repository": "emmett08/engineering-work-observatory",
+    "commit": "38c4ce40b789d4c5420c98ff1d568b39c3b1e798"
+  },
+  "toolchain": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "v4.33.1"
+  },
+  "source_sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
+  "definitions": {
+    "time": "real-valued calendar hours",
+    "allocation": "Lebesgue measurable real-valued history",
+    "cell_mass": "Lebesgue/interval integral over ordered endpoints",
+    "streams": "finite index sets",
+    "capacity": "sum of nonnegative stream allocations at most one",
+    "error_limits": "real deterministic right hand side relaxations"
+  },
+  "targets": [
+    {
+      "id": "cell-integrals",
+      "disposition": "FORMALISE_NOW",
+      "statement": "The integral over adjacent finite cells sums to the integral over their combined interval, under integrability and ordered endpoints."
+    },
+    {
+      "id": "serial-reconstruction",
+      "disposition": "FORMALISE_NOW",
+      "statement": "Every finite vector of nonnegative real stream masses whose sum is at most cell duration admits measurable mutually exclusive binary indicator allocations with the same cell integrals."
+    },
+    {
+      "id": "weak-dual-certificates",
+      "disposition": "FORMALISE_NOW",
+      "statement": "Exact primal and dual feasibility imply endpoint bounds; equality of primal and dual values establishes optimality."
+    },
+    {
+      "id": "observation-relaxation",
+      "disposition": "FORMALISE_NOW",
+      "statement": "The same nonnegative dual multipliers certify all points satisfying right-hand-side relaxed inequalities."
+    },
+    {
+      "id": "simultaneous-coverage",
+      "disposition": "FORMALISE_NOW",
+      "statement": "Inclusion of simultaneous observation coverage event in target coverage event transfers the probability lower bound."
+    },
+    {
+      "id": "strong-dual-existence",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "General feasible bounded LP strong duality supplies attaining multipliers; only claim new formal coverage if a faithful checked library theorem is obtained."
+    },
+    {
+      "id": "empirical-adequacy",
+      "disposition": "EMPIRICAL_CONTEXTUAL"
+    },
+    {
+      "id": "rust-refinement",
+      "disposition": "NOT_REQUIRED",
+      "statement": "External Rust/Python implementations remain TESTED_ONLY; no source-semantics refinement is claimed."
+    },
+    {
+      "id": "finite-block-count",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "The source construction uses finitely many interval indicators; the separate K*(n+1) piece/switch bound is not separately formalised."
+    },
+    {
+      "id": "lp-extrema-existence",
+      "disposition": "DEFERRED_DEPENDENCY",
+      "statement": "Compactness/linear objective extremum existence is not a new checked claim; attained optimality is established when feasible matching certificates are supplied."
+    }
+  ],
+  "source_path_at_snapshot": "paper/article/partial-identification.tex",
+  "frozen_source_path": "targets/partial-identification.tex",
+  "source_binding_note": "Source hash is for the recorded commit and immutable target copy, not the subsequently edited current article."
+}

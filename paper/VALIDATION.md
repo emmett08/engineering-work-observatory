@@ -1,5 +1,95 @@
 # Paper validation history
 
+## 1 November 2026 timeline, Lean and causal-study completion
+
+The current revision adds a timeline panel to Figure 1, retains its original
+152.4 by 80 mm size, and verifies the marked midpoint's half-hour task blocks by
+exact overlap integration. A fresh independent reader reconstructed the figure
+before inspecting its specification and accepted the compact layout. Both
+layouts and final review/audit hashes are retained.
+
+The new `formal/` supplement has 54 checked declarations under pinned Lean 4.33.1
+and mathlib v4.33.1. The integral-to-cell correspondence includes actual interval
+integrals, local integrability and integrated capacity, global binary stitching,
+grouped observations and weighted targets. Separate declarations check supplied
+certificates, relaxation and conditional simultaneous coverage. All-export axiom
+audits, independent statement correspondence and fresh kernel replay passed.
+The only exported axioms are `propext`, `Classical.choice` and `Quot.sound`.
+The receipt binds sources, pins, checker/executable identities, current-manuscript
+freshness, review and actual logs. Static validation is distinct from proof replay.
+General LP existence/strong-duality existence, separate piece counts, empirical
+premises and source-language refinement remain outside this new formal coverage.
+
+The causal-study companion is specified and unrun. Its paired-team comparison
+keeps initial requirements and denominators fixed, uses the paper's 336+336-hour
+clocks and requires both meaningful labour reduction and retained-output
+noninferiority. Twenty thousand simulations in each of 24 design--scenario cells
+reproduce; neither principal candidate meets the provisional joint target across
+the required assumptions. A separate pilot and conditional allocation rule are
+therefore retained. The bounded local validator checks 86 assessment results and
+records the six failed joint-adequacy cells without promoting readiness.
+
+All 216 application tests, formatting and Clippy pass. The complete paper check,
+figure checks, planning reproduction and protocol consistency checks pass.
+The rebuilt 16-page PDF was rendered throughout and the changed material inspected
+at readable size. There are no unresolved references/citations or overfull or
+underfull boxes. The online-first Cui reference retains its existing missing-pages
+warning. Ten used methodological/tool references are added after primary-source
+inspection. The Reproducibility section remains absent and the historical formal
+package is untouched.
+
+See the [completion record](review/timeline-formal-causal-2026-11-01.md),
+[new formal supplement](formal/README.md) and
+[study design](study/ai-labour-causal/README.md) for exact scope and reproduction.
+
+## 1 November 2026 terminology and MAS Math Lab review
+
+The current PDF builds to 15 pages. All six compiled sources and the figure
+caption received a terminology review, followed by an independent read. The
+repairs distinguish study inclusion, permitted AI use, original comparison-group
+allocation, labour attribution, work type, scoring inputs and follow-up checks.
+The final pass also makes the observation constraints explicit in the exact
+cell-reduction proposition's quantified history class.
+
+Four fresh MAS Math Lab worker contexts independently considered formulations,
+counterexamples, estimation and proof checking. The checker saved an initial
+audit before candidate disclosure and then checked the source and hypotheses of
+the proposed changes. The [review record](review/mas-model-2026-11-01/README.md)
+retains the bounded contract, actual messages and acknowledgements, source
+comparisons, proof review, exact calculations and checkpoint.
+
+The strengthened reconstruction preserves all feasible cell totals using
+consecutive full-attention blocks. The new certificate and observation-relaxation
+equations use published LP duality, and the sampling argument explicitly requires
+simultaneous coverage. These are written proofs with independent review and
+finite computational checks, outside the historical Lean receipt's coverage.
+The plugin's arbitrary-new-theorem proof-acceptance route is unavailable here.
+
+The dependency-free new checker passes in record and non-writing check modes.
+It verifies 1,225 exhaustive histories, 33,075 independently integrated
+equalities, 284 scalar parameter cases, exact endpoint and relaxed-observation
+certificates, infeasibility/unavailability cases, and structural counterexamples.
+Five structured cases scale from 4 to 48 variables with zero primal-dual gaps.
+Their recorded operation timings concern certificate checks and reconstruction,
+not generic solver performance or arbitrary-input tractability. Memory accounting
+normalises macOS byte and Linux KiB `ru_maxrss` units.
+
+`make -C paper check` passes using the task-local pinned Rust 1.85.1 toolchain for
+the unchanged performance package. It includes the preserved package/inventory/
+receipt checks, figure review, exact measurement and identification examples,
+forecast checks, seven Rust kernel tests and 11 Python collector tests. No
+application source changes were made. `make -C paper article` passes; all pages
+were rendered and the changed proof/certificate pages were inspected at readable
+size. There are no undefined citations/references, overfull or underfull boxes.
+The existing BibTeX missing-pages warning for `cui2026` remains.
+
+All pre-existing displayed equations remain unchanged; two certificate equations
+are added and the reconstruction proof is strengthened. The bibliography adds
+Boyd and Vandenberghe without altering earlier entries. The removed
+Reproducibility section remains absent. No empirical measurement study, generic
+solver benchmark, new Lean execution, or MAS-versus-single-agent comparison is
+claimed.
+
 The original package and the new extension have separate verification boundaries.
 The earlier sections retain the validation history of PR #2 and the subsequent
 sharp-identification revision. The final section records the 30 October 2026
@@ -342,3 +432,100 @@ cross-references match `f626b44`; all 33 labels are unique and all 13 cited sour
 resolve. An independent wording review found no substantive mathematical or
 evidential regression. `git diff --check` passes. This revision changes prose
 and the generated PDF; application code and calculations are unchanged.
+
+## Literal quantities and relations, 1 November 2026
+
+Baseline: `3df96e77b213db4c0cd46e0f15e313ed0ab83d8b`. The
+[wording review](review/literal-prose-2026-11-01.md) covers every paragraph in
+all six files compiled into the current labour article, including its abstract,
+propositions, proofs and appendix. It replaces unexplained abstractions with
+the person-hours, time periods, work allocations and sampling relations intended.
+
+Ordered baseline comparisons preserve all 20 displayed mathematical blocks,
+226 inline expressions, 74 label/reference/citation/input/URL/bibliography
+commands and 58 environment begin/end commands byte for byte. The bibliography
+source is unchanged. All 33 labels are unique and all 13 cited sources resolve.
+The prose review preserves the stated assumptions, necessary and sufficient
+conditions, and distinctions between labour totals, work schedules, sampling
+uncertainty and measurement error.
+
+`make -C paper article` builds 13 pages. All final pages were rendered and
+visually inspected, with no clipped or overlapping material. The final log has
+no undefined references/citations or overfull boxes. One underfull vertical-box
+notice on page 11 was inspected; the existing BibTeX missing-pages warning for
+`cui2026` remains. `make -C paper check` and `git diff --check` pass. The review
+records the checks and their scope. No application code, reference calculations
+or historical proof files changed, and Lean was not rerun.
+
+### Second wording pass
+
+The follow-up starts at PR #7 commit `8395320fb45ffcf653f53d190db9d3bb6ddea2b9`.
+Two separate agents and the primary editor reread all six compiled sources.
+The [review record](review/literal-prose-2026-11-01.md#second-pass-against-8395320)
+lists the remaining findings and their repairs. In particular, the revision
+distinguishes when work was done from when it was assigned, different timing
+rules from necessarily different times, allocation fractions from person-hours,
+and the second predictor's variance from its HT comparison baseline. It defines
+the noninferiority limit and clarifies the rounding-containment statement.
+
+All 20 displayed mathematical blocks, 226 inline expressions, 74 reference-related
+commands, 58 environment commands and bibliography bytes match both `8395320`
+and the original `3df96e7`. A separate final fidelity review accepted the applied
+changes and compression without finding a material regression. The paper still
+has 13 pages; every final page was rendered and inspected. The final LaTeX log has
+no undefined references/citations or overfull/underfull boxes. The existing
+BibTeX missing-pages warning remains. `make -C paper check` and
+`git diff --check` pass. Application code and numerical reference results remain
+unchanged.
+
+### Final pass and removal of Reproducibility
+
+Starting at `4f174560ebe8a2506ee5780d5b0a2bfc2a84859a`, remove the requested
+Reproducibility heading and both paragraphs. The primary editor and two new
+reviewing agents reread all six compiled sources. The only further repair makes
+the definition of point identification require at least one admissible allocation,
+so that an inconsistent record cannot qualify vacuously. The conclusion-to-appendix
+transition and all surviving references remain coherent.
+
+All 20 displayed mathematical blocks, 226 inline expressions, 58 environment
+commands, 33 labels, citations and bibliography bytes are unchanged. The section's
+repository URL is removed; the remaining 73 reference-related commands are
+preserved exactly and all 13 cited sources resolve. The rebuilt PDF has 13 pages,
+all rendered and visually inspected, with no undefined references/citations or
+overfull/underfull boxes. The existing BibTeX missing-pages warning remains.
+`make -C paper check` and `git diff --check` pass. The
+[final review record](review/literal-prose-2026-11-01.md#final-pass-and-reproducibility-removal)
+records the precise scope, permitted changes and PDF hash.
+
+
+### Shared-capacity figure
+
+Figure 1 is added after the two-task example in Section 4.1, with an include-ready
+source at `figures/shared-capacity/tikz.tex`, separate caption, vector PDF and
+alternative composition. The [figure record](figures/shared-capacity/README.md)
+and `shared-capacity.spec.json` identify the constructed inputs, quantities,
+closed constraint sets, projection, physical size and interpretation limits.
+
+Exact rational calculation checks 1,089 grid pairs, including 33 feasible diagonal
+points and 528 violations of each hour's capacity, plus three explicit feasible
+histories and four rejected pairs. The continuum claim follows from the two
+capacity inequalities. A separate agent first reconstructed the result from the
+render and caption, then compared both rendered layouts with the specification.
+The selected 152.4 × 80 mm side-by-side layout retains the same plotted sizes in
+31 mm less height than the stacked alternative. Its current audit and accepted
+review bind the source, caption, data, specification and vector PDF by hashes.
+The schemas were available but the skill's bundled scripts were not; the named
+project-local renderer and verifier report their bounded checks explicitly.
+
+`make -C paper figure`, `python3 paper/figures/shared-capacity/verify.py --review`
+and `make -C paper check` pass. CI now runs the new dependency-free calculation
+check. All 20 existing display-math blocks, 226 existing inline expressions and
+the bibliography bytes are preserved; there are now 34 unique labels, including
+the figure, and all 13 cited sources resolve. `make -C paper article` builds 14
+pages. Every page was rendered and visually inspected, including Figure 1 on
+page 6. There are no undefined references/citations, overfull boxes or clipped
+text. The inspected underfull vertical-box notice and existing BibTeX
+missing-pages warning are nonfatal. The requested Reproducibility removal is
+retained. No application code or empirical result changes.
+
+Human interpretation benefit remains unmeasured by agent screening.

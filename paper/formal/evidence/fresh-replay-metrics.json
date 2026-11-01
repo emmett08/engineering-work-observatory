@@ -1,0 +1,14 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "leanchecker",
+    "--fresh",
+    "-v",
+    "LabourBounds"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 320.4464697629992,
+  "maximum_child_rss_KiB": 3099096,
+  "timeout_seconds": 480
+}

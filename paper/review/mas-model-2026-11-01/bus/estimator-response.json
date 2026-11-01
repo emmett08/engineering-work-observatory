@@ -1,0 +1,104 @@
+{
+  "messages": [
+    {
+      "recipient": "checker",
+      "payload": {
+        "subject": "Sampling, measurement error, ratio counterexamples and optional confidence projection",
+        "recommendation": "Keep baseline fixed-prediction difference estimator and joint capacity LP. Optional finite-population confidence-set projection is a constructive bridge, not deterministic sharp identification.",
+        "claims_for_independent_check": [
+          {
+            "statement": "For SRS of fixed size 1<=n<M on equal-duration intervals, no nonconstant fixed predictor uniformly weakly improves HT variance over all admissible labour vectors.",
+            "proof": "Take y constant inside [0,d]. HT is constant, variance zero; residual variance of y-f equals variance of f and is positive when f is nonconstant."
+          },
+          {
+            "statement": "Clipping physically impossible predictions need not lower design variance.",
+            "exact_case": {
+              "M": 2,
+              "n": 1,
+              "d": [
+                "1",
+                "1"
+              ],
+              "y": [
+                "0",
+                "1"
+              ],
+              "f": [
+                "-1",
+                "0"
+              ],
+              "estimates_original": [
+                "1",
+                "1"
+              ],
+              "variance_original": "0",
+              "f_clipped": [
+                "0",
+                "0"
+              ],
+              "estimates_clipped": [
+                "0",
+                "2"
+              ],
+              "variance_clipped": "1"
+            }
+          },
+          {
+            "statement": "Positive unbiased labour denominator can give biased productivity ratio.",
+            "exact_case": {
+              "M": 2,
+              "n": 1,
+              "d": [
+                "3",
+                "3"
+              ],
+              "y": [
+                "1",
+                "3"
+              ],
+              "f": [
+                "0",
+                "0"
+              ],
+              "Q": "1",
+              "H": "4",
+              "HT_values": [
+                "2",
+                "6"
+              ],
+              "true_ratio": "1/4",
+              "mean_plugin_ratio": "1/3"
+            }
+          },
+          {
+            "statement": "Under fixed finite true y and f and uniform size-n SRS, a two-sided Hoeffding-Serfling labour confidence interval has halfwidth M*R*sqrt(rho*log(2/alpha)/(2*n)), where R=max_m(d_m-f_m)-min_m(-f_m) and rho=1-(n-1)/M if n<=M/2, else (1-n/M)*(1+1/n).",
+            "hypotheses": "M>=2, 1<=n<=M, 0<alpha<1, y_m in [0,d_m], fixed finite f_m. Census and R=0 exact. Known valid finite-population residual range, not selected-sample extrema.",
+            "source": "Bardenet and Maillard 2015 Corollary 2.5, https://arxiv.org/pdf/1309.4029"
+          },
+          {
+            "statement": "If selected measurements satisfy |ytilde_m-y_m|<=e_m, a valid true-data sampling halfwidth eps extends to eps+sum_s e_m/pi_m for measured-data difference estimator.",
+            "proof": "Pointwise estimator difference bounded by weighted errors; triangle inequality on sampling event. Does not give unbiased measured estimator."
+          },
+          {
+            "statement": "A simultaneous confidence region C_s for true observation vector A x_true yields labour coverage by projecting {x in P0:A x in C_s}.",
+            "proof": "On event A x_true in C_s, x_true is feasible, so its labour is in projected extrema. Joint coverage, not independence or marginal coverage, is required."
+          }
+        ],
+        "findings_file": "/workspace/work/mas-paper-20261101/estimator-findings.md"
+      }
+    },
+    {
+      "recipient": "formulator",
+      "payload": {
+        "subject": "Keep targets; use same LP for justified error or design-valid confidence regions",
+        "formulation": "P_s={x in P0:A x in C_s}; if Pr(A x_true in C_s)>=1-alpha, the h-projection covers true labour at least 1-alpha. Polyhedral C_s leaves LP unchanged in class. Rectangular simultaneous intervals can use Bonferroni with total failure probabilities <=alpha, without independence. Empty P_s is a statistical flag possible on failure event, not exact-data contradiction.",
+        "ratio": "Fixed Q>=0 and H interval with lower>0 needs only reciprocal endpoint inversion. Joint uncertain Q,H requires joint feasible/confidence set; Q=H in [1,2] has ratio1 despite rectangular outer interval[1/2,2]. No extra dependence restrictions may be assumed.",
+        "precision": "For fixed coefficient beta, Var(Hhat_beta)=V_y-2 beta C+beta^2 V_f. Oracle beta=C/V_f depends on unknown labour; sample-fitted coefficients need new design proof. Frozen prediction, predictor clipping and iid prediction-powered results do not guarantee precision improvements.",
+        "measurement": "Certified bounded measurement errors can be handled deterministically; sampling and measurement halfwidths add by triangle inequality. Corrected estimator endpoints from sampled measurement intervals bound the hypothetical sample estimator, not H.",
+        "findings_file": "/workspace/work/mas-paper-20261101/estimator-findings.md"
+      }
+    }
+  ],
+  "objects": [],
+  "note": "Independent estimator worker findings from authorised frozen baseline and primary research. Exact rational counterexamples enumerated; published concentration theorem applied with explicit hypotheses. No empirical validation, no formal acceptance, no repository/contract/runtime DB mutation."
+}

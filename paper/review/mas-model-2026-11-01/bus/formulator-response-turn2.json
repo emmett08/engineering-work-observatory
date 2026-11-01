@@ -1,0 +1,120 @@
+{
+  "messages": [
+    {
+      "recipient": "checker",
+      "payload": {
+        "kind": "formulation_peer_review",
+        "consumed_message_ids": [
+          "f115bd6606feb959e56d1a1470fe1e975102ec6d8fddbbf93ee91c495df6b2e4",
+          "b4102ad9b8ee911093bf1d57e49ce3165939efa6810b39e6d657330cfd6499ca"
+        ],
+        "review_file": "/workspace/work/mas-paper-20261101/formulator-peer-review.md",
+        "recommendation": "Unchanged: retain general joint LP, scalar graph special case and fixed-prediction estimator. Adopt exclusive serial-attainment clarification. Equal-column aggregation is optional preprocessing, not necessary main-paper notation.",
+        "confirmed_statement": "For every feasible cell vector, consecutive within-cell exclusive stream blocks and idle remainder preserve every cell integral and finite collection of cell-linear targets. At most K(S+1) pieces and K(S+1)-1 internal switches per person suffice. This constructs a representative history; it does not preserve the actual pointwise history or impose an arbitrary external session budget.",
+        "hypothesis_limits": [
+          "No minimum session duration, switching costs, nonpreemption, precedence, synchronisation or resumption delay is added.",
+          "Arbitrary within-cell target weights or instantaneous sample observations are not automatically preserved.",
+          "Cell totals may remain fractional; original observation matrix need not be TU.",
+          "Aggregation is target-specific and must retain all extra individual constraints."
+        ],
+        "confidence_projection_review": {
+          "statement": "If fixed x* belongs to deterministic P0 and Pr(Ax* in C_s)>=1-alpha, then Pr(h(x*) in h(P0 intersect {x:Ax in C_s}))>=1-alpha. Also Pr(P_s empty)<=alpha.",
+          "proof": "On the observation-coverage event, the true x* is feasible in P_s; its target is therefore in the projection.",
+          "conditions": "Coverage must be simultaneous, structural P0 must be correct, and closed polyhedral C_s gives attained extrema whenever nonempty P0 is compact. Empty sample-based set is a statistical flag, not an exact-data logical contradiction."
+        },
+        "verified_counterexamples": [
+          {
+            "case": "Unequal inclusion probabilities",
+            "method": "independent exact Fraction calculation",
+            "HT_mean": "2",
+            "HT_variance": "64/9",
+            "difference_mean": "2",
+            "difference_variance": "9",
+            "implication": "Smaller unweighted prediction SSE need not reduce design variance."
+          },
+          {
+            "case": "Q=H in [1,2]",
+            "method": "algebra",
+            "ratio_set": "{1}"
+          },
+          {
+            "case": "Q=H in [0,1], H>0",
+            "method": "algebra",
+            "ratio_set": "{1}",
+            "implication": "H_min=0 alone does not imply unbounded ratio."
+          },
+          {
+            "case": "Q=1, H in (0,1]",
+            "method": "algebra",
+            "ratio_set": "[1,infinity), no attained maximum"
+          },
+          {
+            "case": "A=(1/2,0,1/2), B=(0,1,0) in unit cells",
+            "method": "interval geometry",
+            "implication": "Exclusive attention does not imply one uninterrupted task session."
+          }
+        ],
+        "status": "Written review and exact finite arithmetic only; no formal or empirical acceptance. No new source claims."
+      }
+    },
+    {
+      "recipient": "challenger",
+      "payload": {
+        "kind": "formulation_peer_review",
+        "consumed_message_ids": [
+          "f115bd6606feb959e56d1a1470fe1e975102ec6d8fddbbf93ee91c495df6b2e4",
+          "b4102ad9b8ee911093bf1d57e49ce3165939efa6810b39e6d657330cfd6499ca"
+        ],
+        "review_file": "/workspace/work/mas-paper-20261101/formulator-peer-review.md",
+        "recommendation": "Unchanged: retain general joint LP, scalar graph special case and fixed-prediction estimator. Adopt exclusive serial-attainment clarification. Equal-column aggregation is optional preprocessing, not necessary main-paper notation.",
+        "confirmed_statement": "For every feasible cell vector, consecutive within-cell exclusive stream blocks and idle remainder preserve every cell integral and finite collection of cell-linear targets. At most K(S+1) pieces and K(S+1)-1 internal switches per person suffice. This constructs a representative history; it does not preserve the actual pointwise history or impose an arbitrary external session budget.",
+        "hypothesis_limits": [
+          "No minimum session duration, switching costs, nonpreemption, precedence, synchronisation or resumption delay is added.",
+          "Arbitrary within-cell target weights or instantaneous sample observations are not automatically preserved.",
+          "Cell totals may remain fractional; original observation matrix need not be TU.",
+          "Aggregation is target-specific and must retain all extra individual constraints."
+        ],
+        "confidence_projection_review": {
+          "statement": "If fixed x* belongs to deterministic P0 and Pr(Ax* in C_s)>=1-alpha, then Pr(h(x*) in h(P0 intersect {x:Ax in C_s}))>=1-alpha. Also Pr(P_s empty)<=alpha.",
+          "proof": "On the observation-coverage event, the true x* is feasible in P_s; its target is therefore in the projection.",
+          "conditions": "Coverage must be simultaneous, structural P0 must be correct, and closed polyhedral C_s gives attained extrema whenever nonempty P0 is compact. Empty sample-based set is a statistical flag, not an exact-data logical contradiction."
+        },
+        "verified_counterexamples": [
+          {
+            "case": "Unequal inclusion probabilities",
+            "method": "independent exact Fraction calculation",
+            "HT_mean": "2",
+            "HT_variance": "64/9",
+            "difference_mean": "2",
+            "difference_variance": "9",
+            "implication": "Smaller unweighted prediction SSE need not reduce design variance."
+          },
+          {
+            "case": "Q=H in [1,2]",
+            "method": "algebra",
+            "ratio_set": "{1}"
+          },
+          {
+            "case": "Q=H in [0,1], H>0",
+            "method": "algebra",
+            "ratio_set": "{1}",
+            "implication": "H_min=0 alone does not imply unbounded ratio."
+          },
+          {
+            "case": "Q=1, H in (0,1]",
+            "method": "algebra",
+            "ratio_set": "[1,infinity), no attained maximum"
+          },
+          {
+            "case": "A=(1/2,0,1/2), B=(0,1,0) in unit cells",
+            "method": "interval geometry",
+            "implication": "Exclusive attention does not imply one uninterrupted task session."
+          }
+        ],
+        "status": "Written review and exact finite arithmetic only; no formal or empirical acceptance. No new source claims."
+      }
+    }
+  ],
+  "objects": [],
+  "note": "Consumed actual message IDs f115bd6606feb959e56d1a1470fe1e975102ec6d8fddbbf93ee91c495df6b2e4, b4102ad9b8ee911093bf1d57e49ce3165939efa6810b39e6d657330cfd6499ca. No other peer/coordinator/checker private files read. Recommendation unchanged; confidence-region projection hypotheses and zero-denominator boundary made explicit."
+}

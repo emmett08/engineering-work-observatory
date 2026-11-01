@@ -1,0 +1,98 @@
+{
+  "audit_kind": "project-local bounded mechanical checks",
+  "limitation": "The skill's bundled figure_spec.py/render_tikz.py/figure_review.py were unavailable. This script does not claim their full validation coverage.",
+  "source": "figures/shared-capacity/tikz.tex",
+  "source_sha256": "5cf5a1f69b9792635184d92644be580ab8d33ede0f0b941f7226c27ba17f0888",
+  "pdf": "figures/shared-capacity/figure.pdf",
+  "pdf_sha256": "78e0d716dde404e578180954a2667e08219619d36083c1ffc58650aec23b0583",
+  "spec_sha256": "78df70692f07d47d4357b7840667b12c293bfa5198906443b0205f2f3d08536b",
+  "engine": "pdflatex",
+  "python": "3.12.14",
+  "python_packages": {
+    "PyMuPDF": "1.26.6",
+    "Pillow": "12.3.0",
+    "jsonschema": "4.26.0"
+  },
+  "width_mm": 152.399289449056,
+  "height_mm": 79.99941817389593,
+  "min_text_pt": 8.499874112606047,
+  "min_stroke_pt": 0.45000120136886834,
+  "fonts": [
+    "LMMathItalic10-Regular",
+    "LMMathItalic9-Regular",
+    "LMRoman10-Bold",
+    "LMRoman9-Regular"
+  ],
+  "raster_images": 0,
+  "inputs": [
+    {
+      "path": "figures/shared-capacity/alt-text.txt",
+      "sha256": "dd6ca79d69910133f448b84b7843b1d0a57c9afcf27c70306f7982a05bf4427d"
+    },
+    {
+      "path": "figures/shared-capacity/calculate.py",
+      "sha256": "a3112a4688725a541c9310a92d0d20d0bb44289a7e55619971637c9b116cf22f"
+    },
+    {
+      "path": "figures/shared-capacity/calculation.json",
+      "sha256": "46682424c3e0606f168bb1f670dca38f03d7b4664640cc1a0caf0498f0d5073d"
+    },
+    {
+      "path": "figures/shared-capacity/caption.tex",
+      "sha256": "f5bb12df4d2aa8cd6b8441f03cf3f4716f8509fe74794a288c2c11e90de966fd"
+    },
+    {
+      "path": "figures/shared-capacity/coordinates.tex",
+      "sha256": "1e7f223290a882f59f35ed5fa65ba2ebf987ac949a23d72f9039dee38910dddf"
+    },
+    {
+      "path": "figures/shared-capacity/inputs.json",
+      "sha256": "32de0c0d07a278623a0358ec08cccb1ddae992812009c2f79714d3ffae799dff"
+    },
+    {
+      "path": "figures/shared-capacity/prototypes/bottom-timeline.tikz.tex",
+      "sha256": "725eaf3ff3c82e69cca5a24b8c0f2843fa68347542279d57c5ff4f85e75bbcf6"
+    },
+    {
+      "path": "figures/shared-capacity/prototypes/compact-timeline.tikz.tex",
+      "sha256": "5cf5a1f69b9792635184d92644be580ab8d33ede0f0b941f7226c27ba17f0888"
+    },
+    {
+      "path": "figures/shared-capacity/render.py",
+      "sha256": "3e70e8e0eebdba0c470698384786ad1e5c3d420f35fcb155a34203b6bd5e3a94"
+    },
+    {
+      "path": "figures/shared-capacity/requirements.txt",
+      "sha256": "1edbb2ddb77db8364286ec800ab211665f408a9da5cc6395891d948071c1e274"
+    },
+    {
+      "path": "figures/shared-capacity/schemas/figure-review.schema.json",
+      "sha256": "4826560436d914c30d33253ccedb3c1d07cc3527f359fdbf7410e98cead39500"
+    },
+    {
+      "path": "figures/shared-capacity/schemas/figure-spec.schema.json",
+      "sha256": "be9b87b64ae3b9bcc7fdb66e019b79c2c0fc3fb2637cd8e309d0a935d77c3655"
+    },
+    {
+      "path": "figures/shared-capacity/verify.py",
+      "sha256": "d3ec643eeedd4d9a917fecb6d6e11e437d365fa3f3e873ad254e6a6d0deb147b"
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "typesetting_warnings": [
+    "Package shellesc Warning: Shell escape disabled on input line 73."
+  ],
+  "actual_local_tex_inputs": [
+    "figures/shared-capacity/coordinates.tex",
+    "figures/shared-capacity/tikz.tex"
+  ],
+  "packages": [
+    "standalone",
+    "fontenc[T1]",
+    "lmodern",
+    "amsmath",
+    "tikz"
+  ],
+  "semantic_review_required": true
+}

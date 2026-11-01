@@ -3,7 +3,7 @@
 `observatory bound-labour FILE` implements the finite-cell reduction in
 *How Much Human Work Is Behind AI-Assisted Software?* It computes the smallest
 and largest target values consistent with declared interval observations and
-each person's shared capacity across tasks and roles. It runs offline without
+each person's shared capacity across tasks and types of work. It runs offline without
 opening the evidence store.
 
 ```sh
@@ -33,6 +33,9 @@ quantities are person-hours. The input does not convert task-relative ages.
 | `target` | Additive terms with `stream_id`, `start`, `end` and signed `weight` |
 | `known_output` | Optional exact nonnegative reference output for a conditional productivity range |
 
+The existing JSON field `role` identifies the type of work, such as implementation
+or review. Its name is retained for input compatibility.
+
 An observation constrains the sum of labour across its listed streams during
 its interval. Equal lower and upper values declare an exact total. Different
 values declare deterministic bounds justified by the measurement process.
@@ -41,7 +44,7 @@ independent contributions. Include competing tasks outside the target when
 observations of those tasks constrain the same person's capacity.
 
 Target terms define a linear quantity. Ordinary cohort labour uses weight one
-on each included stream's enrolment-to-cutoff window. For productivity,
+on each included stream's window from the start of tracking to its stated end. For productivity,
 `known_output` requires this ordinary nonduplicated labour target. The result
 reports output divided by the opposite labour endpoint only when the minimum
 labour is positive. General signed weighted targets do not establish a
@@ -60,9 +63,21 @@ or optimality.
 A `feasible` `observatory.labour-bound/1` result contains exact `minimum` and
 `maximum` values, ordered cells, and allocations attaining both endpoints.
 Each allocation supplies the stream's person-hours in each cell. Dividing by
-cell duration reconstructs the piecewise-constant allocation used in the paper's
-proof. The implementation rechecks both returned allocations against every
+cell duration gives one compatible history with allocations constant within each
+cell. The revised paper proves a stronger construction: place each person's
+stream totals in consecutive blocks within the cell, doing one activity at a
+time and leaving any remaining time idle. Both constructions preserve the same
+cell totals and observations. The command returns cell totals, rather than a
+chronological schedule. It rechecks both returned vectors against every
 constraint and target value using exact arithmetic before reporting them.
+
+The paper also explains how primal and dual vectors can certify endpoint
+optimality and how simultaneous sampling bounds can give target-labour coverage.
+The command currently exports no dual certificate and constructs no sampling
+confidence intervals. Its exact simplex calculation and primal feasibility
+checks remain separate from those additional features. The research examples
+in `paper/review/mas-model-2026-11-01/calculations/` check supplied certificates
+and constructed schedules; they are not a general certificate-producing solver.
 
 An `inconsistent` result has no extrema: the supplied observations and capacity
 constraints admit no allocation. Invalid input and resource exhaustion are errors,
@@ -73,7 +88,8 @@ rational coefficient growth; see the constants in
 of the model, not a claim of practical scalability to arbitrary portfolios.
 
 The guarantee is conditional on the declared streams, observation bounds and
-measurable fractional-allocation model. Software checks do not establish roster
+per-person time limits. The equivalent one-activity-at-a-time construction permits
+work to start, stop and change activity at arbitrary times. Software checks do not establish roster
 completeness, accurate measurements or the absence of task-interruption
 restrictions. Sampled labour estimates do not become exact observation totals
 by entering them here. Use [`estimate-labour`](design-based-estimation.md) for

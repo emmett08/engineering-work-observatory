@@ -1,0 +1,218 @@
+[
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.bounded_measurable_intervalIntegrable"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.allocation_integrable_of_capacity"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.history_to_cell_constraints"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.zero_extension_measurable"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.zero_extension_nonnegative"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.zero_extension_capacity"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.zero_extension_preserves_integral"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.localized_history_intervalIntegrable"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.localized_history_to_cell_constraints"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.cell_integrals_recover_interval"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.grouped_observation_from_cells"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.interval_observation_iff_cells"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.prefixMass_succ"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.prefixMass_nonneg"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.prefixMass_mono"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.serialBlock_subset_cell"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.serialBlock_disjoint"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.serialAllocation_binary"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.serialAllocation_measurable"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.serialAllocation_capacity"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.serialAllocation_integral"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.serialAllocation_cell_integral"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.stitchedAllocation_measurable"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.stitchedAllocation_on_cell"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.stitchedAllocation_outside"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.stitchedAllocation_binary"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.stitchedAllocation_capacity"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.stitchedAllocation_cell_integral"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.stitchedAllocation_intervalIntegrable"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.grid_cell_subset_domain"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.localized_grouped_observation_on_grid"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.ordered_cells_disjoint"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.reconstructed_cellMass"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.reconstructed_observation"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.full_attention_reconstruction"
+  },
+  {
+    "path": "LabourBounds/CellIntegrals.lean",
+    "declaration": "LabourBounds.reconstructed_weighted_target"
+  },
+  {
+    "path": "LabourBounds/Certificates.lean",
+    "declaration": "LabourBounds.Certificates.transpose_objective"
+  },
+  {
+    "path": "LabourBounds/Certificates.lean",
+    "declaration": "LabourBounds.Certificates.weak_dual_upper"
+  },
+  {
+    "path": "LabourBounds/Certificates.lean",
+    "declaration": "LabourBounds.Certificates.objective_neg"
+  },
+  {
+    "path": "LabourBounds/Certificates.lean",
+    "declaration": "LabourBounds.Certificates.weak_dual_lower"
+  },
+  {
+    "path": "LabourBounds/Certificates.lean",
+    "declaration": "LabourBounds.Certificates.weak_dual_bounds"
+  },
+  {
+    "path": "LabourBounds/Certificates.lean",
+    "declaration": "LabourBounds.Certificates.equality_certifies_maximum"
+  },
+  {
+    "path": "LabourBounds/Certificates.lean",
+    "declaration": "LabourBounds.Certificates.equality_certifies_minimum"
+  },
+  {
+    "path": "LabourBounds/Certificates.lean",
+    "declaration": "LabourBounds.Certificates.equality_certifies_isGreatest"
+  },
+  {
+    "path": "LabourBounds/Certificates.lean",
+    "declaration": "LabourBounds.Certificates.equality_certifies_isLeast"
+  },
+  {
+    "path": "LabourBounds/Certificates.lean",
+    "declaration": "LabourBounds.Certificates.relaxed_bounds"
+  },
+  {
+    "path": "LabourBounds/Certificates.lean",
+    "declaration": "LabourBounds.Certificates.feasible_after_relaxation"
+  },
+  {
+    "path": "LabourBounds/Certificates.lean",
+    "declaration": "LabourBounds.Certificates.relaxed_upper_ge"
+  },
+  {
+    "path": "LabourBounds/Certificates.lean",
+    "declaration": "LabourBounds.Certificates.relaxed_lower_le"
+  },
+  {
+    "path": "LabourBounds/Certificates.lean",
+    "declaration": "LabourBounds.Certificates.true_vector_feasible_on_simultaneous_event"
+  },
+  {
+    "path": "LabourBounds/Certificates.lean",
+    "declaration": "LabourBounds.Certificates.simultaneous_event_subset_target"
+  },
+  {
+    "path": "LabourBounds/Certificates.lean",
+    "declaration": "LabourBounds.Certificates.simultaneous_event_subset_certificate_target"
+  },
+  {
+    "path": "LabourBounds/Certificates.lean",
+    "declaration": "LabourBounds.Certificates.simultaneous_coverage_probability"
+  },
+  {
+    "path": "LabourBounds/Certificates.lean",
+    "declaration": "LabourBounds.Certificates.certificate_coverage_probability"
+  }
+]

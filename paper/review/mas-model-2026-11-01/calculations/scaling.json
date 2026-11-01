@@ -1,0 +1,118 @@
+{
+  "all_registered_limits_passed": true,
+  "benchmark_scope": "Exact certificate verification and reconstruction for a structured family; no generic LP solve is timed.",
+  "cases": [
+    {
+      "explicit_rows": 6,
+      "inequalities_including_nonnegativity": 10,
+      "nanoseconds": {
+        "assembly_and_endpoint_sorting": 138506,
+        "binary_reconstruction": 63682,
+        "exact_primal_dual_certificate_checks": 392538,
+        "independent_interval_integration_checks": 162765,
+        "schedule_target_evaluation": 48128,
+        "whole_case": 850486
+      },
+      "process_cumulative_peak_rss_KiB": 14336,
+      "tracemalloc_peak_bytes": 5760,
+      "variables": 4
+    },
+    {
+      "explicit_rows": 12,
+      "inequalities_including_nonnegativity": 20,
+      "nanoseconds": {
+        "assembly_and_endpoint_sorting": 155723,
+        "binary_reconstruction": 96547,
+        "exact_primal_dual_certificate_checks": 1177855,
+        "independent_interval_integration_checks": 224488,
+        "schedule_target_evaluation": 66190,
+        "whole_case": 1742709
+      },
+      "process_cumulative_peak_rss_KiB": 14464,
+      "tracemalloc_peak_bytes": 8088,
+      "variables": 8
+    },
+    {
+      "explicit_rows": 24,
+      "inequalities_including_nonnegativity": 40,
+      "nanoseconds": {
+        "assembly_and_endpoint_sorting": 249858,
+        "binary_reconstruction": 168418,
+        "exact_primal_dual_certificate_checks": 4038588,
+        "independent_interval_integration_checks": 456259,
+        "schedule_target_evaluation": 133083,
+        "whole_case": 5068764
+      },
+      "process_cumulative_peak_rss_KiB": 14464,
+      "tracemalloc_peak_bytes": 13200,
+      "variables": 16
+    },
+    {
+      "explicit_rows": 48,
+      "inequalities_including_nonnegativity": 80,
+      "nanoseconds": {
+        "assembly_and_endpoint_sorting": 424308,
+        "binary_reconstruction": 323048,
+        "exact_primal_dual_certificate_checks": 14875798,
+        "independent_interval_integration_checks": 958946,
+        "schedule_target_evaluation": 275257,
+        "whole_case": 16885669
+      },
+      "process_cumulative_peak_rss_KiB": 14464,
+      "tracemalloc_peak_bytes": 31088,
+      "variables": 32
+    },
+    {
+      "explicit_rows": 72,
+      "inequalities_including_nonnegativity": 120,
+      "nanoseconds": {
+        "assembly_and_endpoint_sorting": 604225,
+        "binary_reconstruction": 559357,
+        "exact_primal_dual_certificate_checks": 33199799,
+        "independent_interval_integration_checks": 1463867,
+        "schedule_target_evaluation": 407945,
+        "whole_case": 36272000
+      },
+      "process_cumulative_peak_rss_KiB": 14464,
+      "tracemalloc_peak_bytes": 53264,
+      "variables": 48
+    }
+  ],
+  "complexity": {
+    "assembly_storage": "Dense matrix has R*N entries; assembly and storage O(R*N).",
+    "dense_certificate_dot_product_arithmetic": "4*R*N+2*N+2*R products and the same number of additions in the checked dot products: O(R*N), rational bit costs excluded. Counter records dot-product products/additions and rational comparisons, not Python bookkeeping or unary negation.",
+    "endpoint_sorting": "O(E log E) comparisons for E supplied endpoints; this structured family has 6 supplied, 3 distinct endpoints.",
+    "independent_integral_check": "Separate geometric overlap checks, O(N*B) worst case; not included in the linear reconstruction claim.",
+    "reconstruction": "After ordering/indexing: one visit to each mass and each person-cell, O(N+P*K); 2*N mass visits for two endpoint histories.",
+    "scope_limit": "Five structured cases do not establish generic LP-solver scaling, arbitrary-input tractability or empirical applicability.",
+    "target_scan": "O(B+P*K), B constructed activity/idle blocks, using advancing cell pointers."
+  },
+  "environment": {
+    "clock": "time.perf_counter_ns",
+    "implementation": "CPython",
+    "logical_cpus": 5,
+    "machine": "x86_64",
+    "memory": "tracemalloc plus ru_maxrss normalised to KiB (macOS bytes, Linux KiB), cumulative for this process",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "python_executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3"
+  },
+  "family": "Independent two-task/two-cell/person blocks, rational task totals and target weights; matching primal and dual certificates are constructed.",
+  "registered_limits": {
+    "dimensions": [
+      4,
+      8,
+      16,
+      32,
+      48
+    ],
+    "maximum_inequalities_including_nonnegativity": 144,
+    "maximum_input_numerator_or_denominator_bits": 16,
+    "peak_memory_MiB": 1024,
+    "per_case_seconds": 15,
+    "total_seconds": 180
+  },
+  "script_sha256": "0a67e412778bf522e0a6dc0708c531fc85de8320c900cf07680a0f718211a951",
+  "total_scaling_nanoseconds": 61895976,
+  "whole_check_nanoseconds": 540680819
+}

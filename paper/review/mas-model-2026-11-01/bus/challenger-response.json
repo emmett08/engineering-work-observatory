@@ -1,0 +1,164 @@
+{
+  "messages": [
+    {
+      "recipient": "checker",
+      "payload": {
+        "role": "challenger",
+        "independence": "Read supplied challenger context and authorised baseline only; no other worker output or repository changes.",
+        "findings_file": "/workspace/work/mas-paper-20261101/challenger-findings.md",
+        "main_claim": {
+          "statement": "For every feasible cell vector x, there exists a finite Borel step-function history with each allocation in {0,1} and each person assigned to at most one stream at every time, reproducing every cell integral simultaneously. Hence the whole target image remains unchanged when simultaneous fractional attention is forbidden, provided arbitrary switching remains allowed.",
+          "quantifiers": "Finite task, person and work-type sets; finite cells with positive durations; no extra within-cell pointwise constraints beyond each person capacity; observations and any finite collection of target coefficients constant on cells; every feasible x, not only extrema.",
+          "construction": "For each person and cell independently, order S streams; starting at cell left endpoint, allocate exclusively to stream s for duration x_s. Capacity makes total duration at most cell length. Idle for the remaining duration. Use half-open blocks and omit zero-length blocks.",
+          "switch_bound": "Per person at most S+1 nonempty constant pieces per cell, at most K(S+1) pieces over K cells, and at most K(S+1)-1 internal switching times.",
+          "implication": "Repair the text claiming exact correspondence depends on measurable fractional allocations. Distinguish fractional person-hour totals from fractional instantaneous attention.",
+          "limits": "Minimum session lengths, nonpreemption, bounds on number of sessions, smoothness, switching costs, arbitrary within-cell target weights, precedence or resume delays are not preserved."
+        },
+        "exact_counterexamples": [
+          {
+            "claim_refuted": "Cell LP generally has an integral network-flow structure in original x coordinates with integral data.",
+            "case": "One person, one cell d=2, three streams, x1+x2=x1+x3=x2+x3=1.",
+            "result": "Unique x=(1/2,1/2,1/2), sum=3/2<=2. Pair matrix determinant -2. Full-attention schedule uses successive half-hour blocks then half-hour idle.",
+            "limit": "Refutes direct integrality/TU shortcut, not every conceivable extended graph representation."
+          },
+          {
+            "claim_refuted": "Full attention also permits one uninterrupted session per task.",
+            "case": "One person, three unit cells; exact A=(1/2,0,1/2), B=(0,1,0).",
+            "result": "LP feasible and full-attention scheduling feasible, but A cannot have one contiguous session."
+          },
+          {
+            "claim_refuted": "Smaller unweighted prediction SSE guarantees lower sampling variance under arbitrary design.",
+            "case": "M=2, exactly one selected with pi=(9/10,1/10); y=(1,1), fixed f=(1,0), H=2.",
+            "result": "HT values=(10/9,10), variance=64/9. Difference values=(1,11), variance=9. Both mean 2; residual SSE improves 2 to 1."
+          },
+          {
+            "claim_refuted": "Independent marginal productivity bounds are always sharp.",
+            "case": "H in [1,2], joint equality Q=H.",
+            "result": "Exact ratio set {1}; marginal interval arithmetic gives [1/2,2]."
+          },
+          {
+            "claim_refuted": "H_min=0 always makes positive-denominator productivity unbounded.",
+            "case": "H in [0,1], Q=H, restrict H>0.",
+            "result": "Ratio is always 1. With Q=1 instead, positive-denominator ratio set is [1,infinity), with no attained maximum."
+          }
+        ],
+        "simpler_valid_candidate": {
+          "name": "Identical-column aggregation within a person-cell",
+          "rule": "Merge streams only when their observation coefficients and all retained target weights coincide, keeping the same person and cell. New variable is sum of merged columns.",
+          "proof": "Forward sum maps every original solution to reduced solution; reverse lift assigns the merged mass to one representative stream, preserving capacity, observations and retained targets. Apply original or full-attention reconstruction.",
+          "limits": "No worst-case dimension reduction. New targets may split groups. Do not pool distinct persons without further equivalence proof.",
+          "recommendation": "Optional implementation preprocessing, not necessary main-paper notation."
+        },
+        "published_comparison": {
+          "original": {
+            "authors": "Dvoretzky, Wald and Wolfowitz",
+            "year": 1951,
+            "title": "Elimination of Randomization in Certain Statistical Decision Procedures and Zero-Sum Two-Person Games",
+            "journal": "Annals of Mathematical Statistics",
+            "volume": "22",
+            "issue": "1",
+            "pages": "1-21",
+            "doi": "10.1214/aoms/1177729689",
+            "status": "Crossref metadata verified; publisher original full text inaccessible."
+          },
+          "related_accessible_source": {
+            "authors": "Khan, Rath and Sun",
+            "year": 2006,
+            "title": "The Dvoretzky-Wald-Wolfowitz theorem and purification in atomless finite-action games",
+            "journal": "International Journal of Game Theory",
+            "volume": "34",
+            "pages": "91-104",
+            "doi": "10.1007/s00182-005-0004-3",
+            "url": "https://link.springer.com/article/10.1007/s00182-005-0004-3",
+            "status": "Publisher abstract inspected. It states finite-action mixed strategies admit pure strategies preserving integrals for finitely many atomless measures. Full theorem proof not inspected."
+          },
+          "use": "Optional related purification attribution. The elementary cellwise proof independently establishes the restricted result and avoids extra theorem hypotheses. No novelty claim."
+        },
+        "recommendation": "Retain current joint cell LP, scalar graph special case and fixed-prediction sampling estimator. Correct the fractional-allocation necessity statement; make no generic precision, sensitivity or ratio sharpness shortcut.",
+        "proof_status": "Elementary written proofs and exact rational finite checks only; no mechanical formalisation, empirical validation or full-source purification-theorem audit.",
+        "request": "Independently check the full-attention construction, finite-switch bound, original sentence repair and exact counterexamples."
+      }
+    },
+    {
+      "recipient": "formulator",
+      "payload": {
+        "role": "challenger",
+        "independence": "Read supplied challenger context and authorised baseline only; no other worker output or repository changes.",
+        "findings_file": "/workspace/work/mas-paper-20261101/challenger-findings.md",
+        "main_claim": {
+          "statement": "For every feasible cell vector x, there exists a finite Borel step-function history with each allocation in {0,1} and each person assigned to at most one stream at every time, reproducing every cell integral simultaneously. Hence the whole target image remains unchanged when simultaneous fractional attention is forbidden, provided arbitrary switching remains allowed.",
+          "quantifiers": "Finite task, person and work-type sets; finite cells with positive durations; no extra within-cell pointwise constraints beyond each person capacity; observations and any finite collection of target coefficients constant on cells; every feasible x, not only extrema.",
+          "construction": "For each person and cell independently, order S streams; starting at cell left endpoint, allocate exclusively to stream s for duration x_s. Capacity makes total duration at most cell length. Idle for the remaining duration. Use half-open blocks and omit zero-length blocks.",
+          "switch_bound": "Per person at most S+1 nonempty constant pieces per cell, at most K(S+1) pieces over K cells, and at most K(S+1)-1 internal switching times.",
+          "implication": "Repair the text claiming exact correspondence depends on measurable fractional allocations. Distinguish fractional person-hour totals from fractional instantaneous attention.",
+          "limits": "Minimum session lengths, nonpreemption, bounds on number of sessions, smoothness, switching costs, arbitrary within-cell target weights, precedence or resume delays are not preserved."
+        },
+        "exact_counterexamples": [
+          {
+            "claim_refuted": "Cell LP generally has an integral network-flow structure in original x coordinates with integral data.",
+            "case": "One person, one cell d=2, three streams, x1+x2=x1+x3=x2+x3=1.",
+            "result": "Unique x=(1/2,1/2,1/2), sum=3/2<=2. Pair matrix determinant -2. Full-attention schedule uses successive half-hour blocks then half-hour idle.",
+            "limit": "Refutes direct integrality/TU shortcut, not every conceivable extended graph representation."
+          },
+          {
+            "claim_refuted": "Full attention also permits one uninterrupted session per task.",
+            "case": "One person, three unit cells; exact A=(1/2,0,1/2), B=(0,1,0).",
+            "result": "LP feasible and full-attention scheduling feasible, but A cannot have one contiguous session."
+          },
+          {
+            "claim_refuted": "Smaller unweighted prediction SSE guarantees lower sampling variance under arbitrary design.",
+            "case": "M=2, exactly one selected with pi=(9/10,1/10); y=(1,1), fixed f=(1,0), H=2.",
+            "result": "HT values=(10/9,10), variance=64/9. Difference values=(1,11), variance=9. Both mean 2; residual SSE improves 2 to 1."
+          },
+          {
+            "claim_refuted": "Independent marginal productivity bounds are always sharp.",
+            "case": "H in [1,2], joint equality Q=H.",
+            "result": "Exact ratio set {1}; marginal interval arithmetic gives [1/2,2]."
+          },
+          {
+            "claim_refuted": "H_min=0 always makes positive-denominator productivity unbounded.",
+            "case": "H in [0,1], Q=H, restrict H>0.",
+            "result": "Ratio is always 1. With Q=1 instead, positive-denominator ratio set is [1,infinity), with no attained maximum."
+          }
+        ],
+        "simpler_valid_candidate": {
+          "name": "Identical-column aggregation within a person-cell",
+          "rule": "Merge streams only when their observation coefficients and all retained target weights coincide, keeping the same person and cell. New variable is sum of merged columns.",
+          "proof": "Forward sum maps every original solution to reduced solution; reverse lift assigns the merged mass to one representative stream, preserving capacity, observations and retained targets. Apply original or full-attention reconstruction.",
+          "limits": "No worst-case dimension reduction. New targets may split groups. Do not pool distinct persons without further equivalence proof.",
+          "recommendation": "Optional implementation preprocessing, not necessary main-paper notation."
+        },
+        "published_comparison": {
+          "original": {
+            "authors": "Dvoretzky, Wald and Wolfowitz",
+            "year": 1951,
+            "title": "Elimination of Randomization in Certain Statistical Decision Procedures and Zero-Sum Two-Person Games",
+            "journal": "Annals of Mathematical Statistics",
+            "volume": "22",
+            "issue": "1",
+            "pages": "1-21",
+            "doi": "10.1214/aoms/1177729689",
+            "status": "Crossref metadata verified; publisher original full text inaccessible."
+          },
+          "related_accessible_source": {
+            "authors": "Khan, Rath and Sun",
+            "year": 2006,
+            "title": "The Dvoretzky-Wald-Wolfowitz theorem and purification in atomless finite-action games",
+            "journal": "International Journal of Game Theory",
+            "volume": "34",
+            "pages": "91-104",
+            "doi": "10.1007/s00182-005-0004-3",
+            "url": "https://link.springer.com/article/10.1007/s00182-005-0004-3",
+            "status": "Publisher abstract inspected. It states finite-action mixed strategies admit pure strategies preserving integrals for finitely many atomless measures. Full theorem proof not inspected."
+          },
+          "use": "Optional related purification attribution. The elementary cellwise proof independently establishes the restricted result and avoids extra theorem hypotheses. No novelty claim."
+        },
+        "recommendation": "Retain current joint cell LP, scalar graph special case and fixed-prediction sampling estimator. Correct the fractional-allocation necessity statement; make no generic precision, sensitivity or ratio sharpness shortcut.",
+        "proof_status": "Elementary written proofs and exact rational finite checks only; no mechanical formalisation, empirical validation or full-source purification-theorem audit.",
+        "request": "Consider the full-attention clarification as a strict improvement; retain LP generally. Challenge optional quotient notation against exposition cost."
+      }
+    }
+  ],
+  "objects": [],
+  "note": "Initial independent challenger turn. Direct coordinator update disclosed full-attention finding before this bus response. No reserved theoretical acceptance kinds emitted."
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "current-manuscript-concordance/1",
+  "repository_relative_path": "paper/article/partial-identification.tex",
+  "sha256": "9fa0f67b732dea619417902459d3854e7cc211253f918a5b7f0f1f74e2391716",
+  "frozen_target": {
+    "path": "targets/partial-identification.tex",
+    "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
+    "origin_commit": "38c4ce40b789d4c5420c98ff1d568b39c3b1e798"
+  },
+  "independent_review": {
+    "reviewer": "/root/proof_fidelity",
+    "outcome": "MATHEMATICAL_STATEMENTS_UNCHANGED",
+    "report": {
+      "path": "evidence/current-manuscript-review.md",
+      "sha256": "f2184b36e91b1282124b5cb13db75cfad5e2843b2d1a3322c5bcec8c7f120dd3"
+    },
+    "differences": [
+      "Timeline panel callout sentence.",
+      "Contextual Dvoretzky-Wald-Wolfowitz/Khan-Rath-Sun attribution and citations.",
+      "Formal coverage paragraph accurately naming checked components and exclusions."
+    ],
+    "statement_preservation": "Existing mathematical definitions, hypotheses, propositions, equations and proof text are unchanged."
+  },
+  "invalidation": "A current-article byte change requires renewed current concordance/hash binding. A proof-source change requires renewed proof/source review and checking. This record does not identify current bytes with frozen target bytes."
+}

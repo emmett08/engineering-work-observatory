@@ -1,0 +1,61 @@
+{
+  "revision": "paper-model-review/1",
+  "baseline_commit": "bd29b2b6faa05afb519b9f9d23d99d3d7e1d3377",
+  "purpose": "Find a mathematically simpler or more robust formulation for the paper, preserving its intended measurement questions. Produce defensible recommendation, not empirical validation or a novelty claim.",
+  "boundary": "Finite task/person/type-of-work sets; measurable fractional allocations a>=0 with sum over tasks and work types <=1 per person almost everywhere; bounded calendar time. Observations are exact interval sums or justified finite lower/upper person-hour limits. Sampling is a distinct observation process, not exact data.",
+  "targets": "Attainable labour totals in specified target windows; retained-output/person-hour productivity; design-unbiased estimation and precision with fixed predictions and known sampling probabilities.",
+  "units": "calendar time hours; cell labour person-hours; retained output specified reference-score units; probabilities dimensionless.",
+  "criteria": [
+    "Preserve target and explicit hypotheses",
+    "Compare current LP with published theorem/alternative and simpler baseline",
+    "Specify what each improvement buys and fails to buy",
+    "Separate proof from finite checks and empirical applicability",
+    "Keep original approach if rivals do not improve required quantities"
+  ],
+  "required_operations": [
+    "construct observation constraints",
+    "detect infeasibility",
+    "compute extrema and attaining histories",
+    "handle justified measurement uncertainty",
+    "evaluate sampling/ratio consequences",
+    "independent check of exact statements"
+  ],
+  "tractability": {
+    "scope": "research prototype, not production service guarantee",
+    "encoding": "rational inputs, test bit length <=16, real-valued formal theorem",
+    "test_dimensions": [
+      4,
+      8,
+      16,
+      32,
+      48
+    ],
+    "maximum_variables": 48,
+    "maximum_inequalities": 144,
+    "per_case_seconds": 15,
+    "total_computation_seconds": 180,
+    "peak_memory_MiB": 1024,
+    "numerical_policy": "exact rational verification for published examples and certificates; floating solver diagnostics separate from proofs",
+    "accuracy": "zero gap when an exact certificate is claimed; otherwise record unresolved gap",
+    "host": "Linux-6.18.57-x86_64-with-glibc2.41"
+  },
+  "execution": {
+    "mode": "host-assisted separate native contexts",
+    "wall_seconds": 2700,
+    "maximum_native_turns": 12,
+    "provider_calls": 0,
+    "native_tokens_and_cost": "unavailable; no paid provider fallback",
+    "protocol_adaptation": false
+  },
+  "proof_authority": "Published theorems with independently reviewed hypotheses and paper proofs; exact finite computations. MAS arbitrary new-theorem Lean acceptance unavailable (no isolated comparator/pinned toolchain); do not issue formal acceptance or substitute registry shear benchmarks.",
+  "coordinator_disclosure": "Coordinator knows the complete baseline and has nominated generic LP duality/robustness and linear-fractional programming literature for its own search. No candidate is prescribed to workers. All workers receive same baseline; initial work independently; later proposals delivered through Rust bus.",
+  "source_files": {
+    "main.tex": "427027951ec2666d05f5339e350e74ce4e8452a1165522d2837d51fd0921d684",
+    "partial-identification.tex": "9577e1b8e1281e37615b9fbd271fe27d188b49419fb6192a006134857cb143ed",
+    "scalar-bounds.tex": "b61ad694b6f29a6e6bf3bc78595ea69c5db6deb4028bc4da9b7df80f7e0c304e",
+    "design-based-estimation.tex": "df5817971e63070588cc07e8d66e1be42521ecea694962857e20ac69f96590ce",
+    "sampling-validation.tex": "a1c9e6d8a3c1696e2fbe72c944c68e754e81a044c473af2d3d39ec6b515e5c0c",
+    "event-history.tex": "109478fc3dec578c5b41c2609b686893848b8bf31381b8c686405bc789d6a063",
+    "references.bib": "63844a762fbbe59a565f5ad019b99a785063b123193b84de7d3528a9deb332df"
+  }
+}
