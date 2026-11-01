@@ -342,3 +342,27 @@ cross-references match `f626b44`; all 33 labels are unique and all 13 cited sour
 resolve. An independent wording review found no substantive mathematical or
 evidential regression. `git diff --check` passes. This revision changes prose
 and the generated PDF; application code and calculations are unchanged.
+
+## Literal quantities and relations, 1 November 2026
+
+Baseline: `3df96e77b213db4c0cd46e0f15e313ed0ab83d8b`. The
+[wording review](review/literal-prose-2026-11-01.md) covers every paragraph in
+all six files compiled into the current labour article, including its abstract,
+propositions, proofs and appendix. It replaces unexplained abstractions with
+the person-hours, time periods, work allocations and sampling relations intended.
+
+Ordered baseline comparisons preserve all 20 displayed mathematical blocks,
+226 inline expressions, 74 label/reference/citation/input/URL/bibliography
+commands and 58 environment begin/end commands byte for byte. The bibliography
+source is unchanged. All 33 labels are unique and all 13 cited sources resolve.
+The prose review preserves the stated assumptions, necessary and sufficient
+conditions, and distinctions between labour totals, work schedules, sampling
+uncertainty and measurement error.
+
+`make -C paper article` builds 13 pages. All final pages were rendered and
+visually inspected, with no clipped or overlapping material. The final log has
+no undefined references/citations or overfull boxes. One underfull vertical-box
+notice on page 11 was inspected; the existing BibTeX missing-pages warning for
+`cui2026` remains. `make -C paper check` and `git diff --check` pass. The review
+records the checks and their scope. No application code, reference calculations
+or historical proof files changed, and Lean was not rerun.

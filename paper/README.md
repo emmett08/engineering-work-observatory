@@ -51,6 +51,13 @@ three further whole-paper applications of `write-for-experienced-engineers`,
 each recorded in a separate commit, after the scope and terminology repairs.
 See [validation notes](VALIDATION.md) for checks and their limits.
 
+The 1 November 2026 [wording review](review/literal-prose-2026-11-01.md) covers
+all six sources compiled into this article. It replaces unexplained references
+to limits, ranges, allocations and sampling uncertainty with the particular
+person-hours, time periods and mathematical relations intended. The equations,
+inline mathematics, citations and cross-references are unchanged. The revised
+PDF is rebuilt from those sources.
+
 ## Original paper and proof evidence
 
 [`effort-speed-ai/`](effort-speed-ai/) is the complete original package moved from
