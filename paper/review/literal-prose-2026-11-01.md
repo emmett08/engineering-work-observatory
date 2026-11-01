@@ -113,6 +113,59 @@ historical proof evidence are unchanged. The original Lean proofs were not
 rerun. This is a bounded editorial and mathematical-fidelity review of the
 current article, not an empirical validation or an external peer review.
 
-Final PDF SHA-256:
+First-pass PDF SHA-256:
 `12f45601306b38706354ea26e843cfefb2c2990fb2f4b9ad3f77d64fcca62380`.
 Build timestamps may change PDF bytes without changing the inspected text.
+
+## Second pass against `8395320`
+
+The user requested a fresh pass for missed wording problems. The primary editor
+and two separate reviewing agents each read all six compiled sources. One agent
+concentrated on reader effort and the other on mathematical fidelity. The
+fidelity reviewer then checked the applied revisions and final compression.
+Neither final review found a further material issue within its scope.
+
+| Missed wording or relation | Repair |
+| --- | --- |
+| Abstract: an “exact” programme and “weighted differences” | State that the programme has the same possible labour totals even with overlapping observations and shared time; name inverse inclusion weights and the repeated-sample meaning of unbiasedness. The correction applies to the prediction total. |
+| Introduction: allocations compared with available time | State the dimensionless constraint: at any time the fractions assigned to tasks and roles sum to at most one. |
+| Introduction: person-intervals and inclusion probabilities | Define the sampling unit on first use and state that probabilities must be known and positive. |
+| Introduction: an identification interval “contains every” consistent total | Say “contains exactly” and include the allocation constraints, preserving the difference between an exact range and a conservative enclosing interval. |
+| Event model: parameters not determined “throughout” the family | State the counterexample directly: different parameter values can give identical commit distributions. |
+| Calibration: predictions “measure independently observed person-hours” | Compare model predictions with independently measured person-hours. |
+| Task regrouping: acceptance after “its last component” | Specify that all components must first have been accepted. |
+| Task age | State that age is measured from enrolment. |
+| Labour accounting: work “assigned to the task after acceptance” | Count work done after acceptance that is attributable to the task; the time of its assignment is irrelevant. |
+| Three clocks: quantities “measured at different times” | Distinguish the timing rules without asserting that their numerical times differ. |
+| Capacity example | Repeat the essential one-person assumption next to the example. |
+| Interval proof: “Their intersection” | State that the preceding inequalities together give the bound. |
+| Linear target: “continuous target” | Identify the continuous-time allocation history and the weighted sum of its cell integrals. Real weights, including negative weights, remain allowed. |
+| Reconstruction: “feasible set of cell labour totals” | Describe an assignment of totals satisfying the linear constraints, rather than conflating a feasible vector with the feasible set. |
+| Variance: “improves on HT” and “labour itself” | Name lower sampling variance as the comparison criterion and person-interval labour totals as the quantities whose population variance is compared with residual variance. |
+| Variance: “increases variance fourfold” | Name HT as the baseline. The second predictor has four times the HT variance, not four times the first predictor's variance. |
+| Noninferiority: “the margin is met” | Define the maximum acceptable quality reduction and say that failure to detect a reduction does not establish that the loss is within that limit. |
+| Floating-point bounds “outside the exact bounds” | State the containment guarantee at issue: the rounded interval contains its exact-arithmetic counterpart. |
+
+Repeated introductory and concluding announcements were removed where the
+neighbouring result already states their content. The labour definition,
+measurement boundaries, capacity constraint, attainable bounds and condition for
+improving those bounds remain explicit. The shorter sampling instructions still
+divide sampled observed-minus-predicted labour by inclusion probability and add
+these corrections to predictions fixed before sampling.
+
+Protected-content comparisons against both `8395320` and the original `3df96e7`
+preserve all 20 displayed mathematical blocks, 226 inline mathematical
+expressions, 74 reference-related commands, 58 environment commands and the
+bibliography bytes. No mathematical expression, citation or cross-reference was
+added, removed or changed. The positivity premise was already present in the
+estimator proposition; this pass makes it explicit in the summaries too.
+
+The final article remains **13 pages**. All pages were rendered and visually
+inspected; their text stays within the page boundaries. The final LaTeX log has
+no undefined references/citations or overfull/underfull boxes. The existing
+BibTeX missing-pages warning remains. `make -C paper check` and
+`git diff --check` pass. These checks and the separate agent reviews provide
+bounded editorial verification, not a claim that no possible defect remains.
+
+Second-pass PDF SHA-256:
+`15921bf4b606554c1a3692e4cbc57812b9532c1168e1cdb0b522bbadc4e0a36f`.

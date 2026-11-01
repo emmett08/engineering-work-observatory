@@ -366,3 +366,24 @@ notice on page 11 was inspected; the existing BibTeX missing-pages warning for
 `cui2026` remains. `make -C paper check` and `git diff --check` pass. The review
 records the checks and their scope. No application code, reference calculations
 or historical proof files changed, and Lean was not rerun.
+
+### Second wording pass
+
+The follow-up starts at PR #7 commit `8395320fb45ffcf653f53d190db9d3bb6ddea2b9`.
+Two separate agents and the primary editor reread all six compiled sources.
+The [review record](review/literal-prose-2026-11-01.md#second-pass-against-8395320)
+lists the remaining findings and their repairs. In particular, the revision
+distinguishes when work was done from when it was assigned, different timing
+rules from necessarily different times, allocation fractions from person-hours,
+and the second predictor's variance from its HT comparison baseline. It defines
+the noninferiority limit and clarifies the rounding-containment statement.
+
+All 20 displayed mathematical blocks, 226 inline expressions, 74 reference-related
+commands, 58 environment commands and bibliography bytes match both `8395320`
+and the original `3df96e7`. A separate final fidelity review accepted the applied
+changes and compression without finding a material regression. The paper still
+has 13 pages; every final page was rendered and inspected. The final LaTeX log has
+no undefined references/citations or overfull/underfull boxes. The existing
+BibTeX missing-pages warning remains. `make -C paper check` and
+`git diff --check` pass. Application code and numerical reference results remain
+unchanged.
