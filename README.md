@@ -108,6 +108,12 @@ creating an evidence store. Their [identification](docs/labour-identification.md
 and [sampling](docs/design-based-estimation.md) contracts state the different
 guarantees and measurement assumptions.
 
+The [issue-linked effort pipeline](docs/effort-estimation.md) imports selected
+ActivityWatch events, freezes activity-based predictions, samples short
+intervals for human checks and prepares issue/PR-linked estimates. It includes
+an offline review form and a synthetic end-to-end pilot; automatic activity
+remains distinct from observed human effort.
+
 ## Try a complete synthetic study
 
 ```sh

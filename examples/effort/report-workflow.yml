@@ -1,0 +1,143 @@
+# Adoption template: not an enabled workflow in Observatory.
+# Configure a private self-hosted runner carrying the `effort-collector` label.
+# Set EFFORT_EVIDENCE_DIRECTORY to a private completed batch containing
+# frame.json, sample.json and completed responses/*.json. Replace the checkout ref below
+# with a reviewed full Observatory commit SHA before enabling this workflow.
+# Real participant data is never uploaded as an Actions artifact by this file.
+name: Estimate a completed private effort batch
+
+on:
+  schedule:
+    - cron: '0 19 * * 1-5' # UTC; computes locally, never posts on a schedule.
+  workflow_dispatch:
+    inputs:
+      publish_comment:
+        description: Publish the aggregate report to the selected issues or PRs
+        type: boolean
+        required: true
+        default: false
+      report_numbers:
+        description: Comma-separated issue or PR numbers in this repository
+        type: string
+        required: false
+        default: ''
+      report_target:
+        description: Configured task_id for an issue, or total for the whole frame
+        type: string
+        required: true
+        default: total
+
+permissions:
+  contents: read
+
+concurrency:
+  group: private-effort-report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    # Do not run changed workflow code from an arbitrary dispatch branch.
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: [self-hosted, linux, effort-collector]
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      issues: write # Used only by the explicit publication step.
+    env:
+      EVIDENCE_DIRECTORY: ${{ vars.EFFORT_EVIDENCE_DIRECTORY }}
+      REPORT_TARGET: ${{ inputs.report_target || vars.EFFORT_REPORT_TARGET || 'total' }}
+      CARGO_INCREMENTAL: '0'
+    steps:
+      - name: Check out reviewed estimator code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: emmett08/engineering-work-observatory
+          ref: REPLACE_WITH_REVIEWED_COMMIT_SHA
+          path: observatory
+          persist-credentials: false
+      - name: Build the pinned estimator
+        working-directory: observatory
+        run: cargo build --locked --release
+      - name: Estimate without exposing participant inputs in logs
+        working-directory: observatory
+        run: |
+          test -n "$EVIDENCE_DIRECTORY"
+          report_directory="$EVIDENCE_DIRECTORY/reports/$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+          mkdir -p "$report_directory"
+          response_args=()
+          for response_file in "$EVIDENCE_DIRECTORY"/responses/*.json; do
+            test -f "$response_file"
+            response_args+=(--responses "$response_file")
+          done
+          if ! python3 instrumentation/effort.py estimate \
+            --frame "$EVIDENCE_DIRECTORY/frame.json" \
+            --sample "$EVIDENCE_DIRECTORY/sample.json" \
+            "${response_args[@]}" \
+            --observatory target/release/observatory \
+            --target "$REPORT_TARGET" \
+            --output "$report_directory/report.json" \
+            --markdown "$report_directory/report.md" \
+            > "$report_directory/command.log" 2>&1; then
+            echo "Effort estimation failed. Inspect the private runner's report directory."
+            exit 1
+          fi
+          echo "Effort report computed in the private runner's report directory."
+      - name: Publish the requested aggregate issue or PR comment
+        if: github.event_name == 'workflow_dispatch' && inputs.publish_comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPORT_NUMBERS: ${{ inputs.report_numbers }}
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, re, subprocess
+
+          numbers = os.environ['REPORT_NUMBERS'].split(',')
+          if not numbers or any(not re.fullmatch(r'[1-9][0-9]*', n.strip()) for n in numbers):
+              raise SystemExit('Supply positive issue/PR numbers for explicit publication.')
+          numbers = sorted({int(n.strip()) for n in numbers})
+          if len(numbers) > 10:
+              raise SystemExit('At most ten publication targets are allowed.')
+          repository = os.environ['GITHUB_REPOSITORY']
+          directory = pathlib.Path(os.environ['EVIDENCE_DIRECTORY']) / 'reports' / (
+              os.environ['GITHUB_RUN_ID'] + '-' + os.environ['GITHUB_RUN_ATTEMPT'])
+          report = json.loads((directory / 'report.json').read_text())
+          if report.get('synthetic') is not False:
+              raise SystemExit('Synthetic or unspecified evidence cannot be published as human effort.')
+          if report.get('mode') != 'sample_adjusted_estimate':
+              raise SystemExit('This publication template requires a sample-adjusted estimate.')
+          if report['target'] not in {'total', 'unattributed'}:
+              allowed = set()
+              for link in report['links']:
+                  if link['task_id'] != report['target']:
+                      continue
+                  allowed.add((link['repository'], link['issue_number']))
+                  allowed.update((link['repository'], pr) for pr in link['pull_requests'])
+                  for url in link.get('pull_request_urls', []):
+                      match = re.fullmatch(r'https://github\.com/([^/]+/[^/]+)/pull/([1-9][0-9]*)', url)
+                      if match:
+                          allowed.add((match[1], int(match[2])))
+              if any((repository, number) not in allowed for number in numbers):
+                  raise SystemExit('An issue-specific report can only be published to its retained issue/PR links.')
+          target_hash = hashlib.sha256(report['target'].encode()).hexdigest()
+          marker = '<!-- observatory-effort-report:' + target_hash + ' -->'
+          body = marker + '\n' + (directory / 'report.md').read_text()
+          if len(body) > 60000:
+              raise SystemExit('Aggregate comment exceeds the publication size limit.')
+          payload = directory / 'comment-payload.json'
+          payload.write_text(json.dumps({'body': body}))
+          for number in numbers:
+              endpoint = f'repos/{repository}/issues/{number}/comments'
+              pages = json.loads(subprocess.check_output(
+                  ['gh', 'api', '--paginate', '--slurp', endpoint], text=True))
+              own = [comment for page in pages for comment in page
+                     if comment.get('user', {}).get('login') == 'github-actions[bot]'
+                     and comment.get('body', '').startswith(marker)]
+              if own:
+                  comment_id = max(own, key=lambda comment: comment['id'])['id']
+                  method = 'PATCH'
+                  endpoint = f'repos/{repository}/issues/comments/{comment_id}'
+              else:
+                  method = 'POST'
+              subprocess.run(['gh', 'api', '--method', method, endpoint,
+                              '--input', str(payload), '--silent'], check=True)
+          PY
