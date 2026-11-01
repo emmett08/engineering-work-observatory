@@ -1,7 +1,8 @@
-//! Read-only adapters for retained EngArg and EAL artifacts.
+//! Read-only adapters for retained tool, EngArg and EAL artifacts.
 //!
-//! Imported calls describe product execution. They never establish development
-//! exposure, human effort, invoiced cost, or successful engineering outcomes.
+//! Receipts preserve execution purpose and provenance as supplied. They never
+//! establish human effort, invoiced cost, or successful engineering outcomes.
+//! EngArg and EAL imports describe product execution, not development exposure.
 use anyhow::{Context, Result, ensure};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
@@ -9,9 +10,11 @@ use std::{fs, path::Path};
 
 mod eal;
 mod engarg;
+mod executions;
 
 pub use eal::{eal_import, snapshot_eal_sqlite};
 pub use engarg::{EngargManifest, engarg_import};
+pub use executions::{executions_import, validate_execution_records};
 
 const MAX_ARTIFACT_BYTES: u64 = 128 * 1024 * 1024;
 

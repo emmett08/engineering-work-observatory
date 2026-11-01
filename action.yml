@@ -1,0 +1,119 @@
+name: Observatory execution evidence
+description: Configure explicit tool wrappers or publish a versioned, job-local evidence bundle.
+author: Engineering Work Observatory
+inputs:
+  mode:
+    description: setup freezes context; publish packages recorded receipts and uploads one immutable bundle.
+    required: false
+    default: setup
+  directory:
+    description: Existing job-local recording directory; defaults to the setup step's exported directory.
+    required: false
+    default: ''
+  controller:
+    description: Caller-declared controller, independent of GitHub actor (human, assistant, automation, unknown).
+    required: false
+    default: unknown
+  controller-provenance:
+    description: One opaque supporting provenance reference; never supply credentials or prompt text.
+    required: false
+    default: ''
+  protocol-id:
+    description: Declared research protocol ID.
+    required: false
+    default: ''
+  task-id:
+    description: Declared requirement or task ID.
+    required: false
+    default: ''
+  session-id:
+    description: Declared assistant/controller session ID; separate from a tool-reported Codex thread.
+    required: false
+    default: ''
+  job-name:
+    description: Exact matrix-expanded GitHub job display name for independent reconciliation.
+    required: false
+    default: unknown
+  job-id:
+    description: Numeric GitHub job ID, if independently available; github.job is a key, not this ID.
+    required: false
+    default: ''
+  matrix:
+    description: Explicit flat allowlisted matrix JSON object; do not pass a context or environment dump.
+    required: false
+    default: '{}'
+  retention-days:
+    description: Artifact retention days; durable collection must run before expiration.
+    required: false
+    default: '30'
+outputs:
+  recorder:
+    description: Absolute path to the Python recorder; invoke with python3.
+    value: ${{ steps.setup.outputs.recorder }}
+  directory:
+    description: Job-local receipt directory; also exported as OBSERVATORY_EVIDENCE_DIR.
+    value: ${{ steps.setup.outputs.directory }}
+  artifact-name:
+    description: Content-identified uploaded bundle name (publish mode).
+    value: ${{ steps.bundle.outputs.artifact-name }}
+  bundle-sha256:
+    description: SHA-256 of the exact uploaded bundle JSON bytes (publish mode).
+    value: ${{ steps.bundle.outputs.sha256 }}
+runs:
+  using: composite
+  steps:
+    - name: Validate mode
+      shell: bash
+      env:
+        OBSERVATORY_MODE: ${{ inputs.mode }}
+      run: |
+        case "$OBSERVATORY_MODE" in
+          setup|publish) ;;
+          *) echo 'Observatory mode must be setup or publish' >&2; exit 2 ;;
+        esac
+    - name: Configure explicit recording
+      if: inputs.mode == 'setup'
+      id: setup
+      shell: bash
+      env:
+        RECORDER_PATH: ${{ github.action_path }}/instrumentation/receipts.py
+        RECORD_DIRECTORY: ${{ inputs.directory }}
+        DECLARED_CONTROLLER: ${{ inputs.controller }}
+        DECLARED_PROVENANCE: ${{ inputs.controller-provenance }}
+        DECLARED_PROTOCOL: ${{ inputs.protocol-id }}
+        DECLARED_TASK: ${{ inputs.task-id }}
+        DECLARED_SESSION: ${{ inputs.session-id }}
+        DECLARED_JOB_NAME: ${{ inputs.job-name }}
+        DECLARED_JOB_ID: ${{ inputs.job-id }}
+        DECLARED_MATRIX: ${{ inputs.matrix }}
+      run: |
+        args=(init --controller "$DECLARED_CONTROLLER" --job-name "$DECLARED_JOB_NAME" --matrix "$DECLARED_MATRIX" --github-output "$GITHUB_OUTPUT" --github-env "$GITHUB_ENV")
+        [[ -z "$RECORD_DIRECTORY" ]] || args+=(--directory "$RECORD_DIRECTORY")
+        [[ -z "$DECLARED_PROVENANCE" ]] || args+=(--controller-provenance "$DECLARED_PROVENANCE")
+        [[ -z "$DECLARED_PROTOCOL" ]] || args+=(--protocol-id "$DECLARED_PROTOCOL")
+        [[ -z "$DECLARED_TASK" ]] || args+=(--task-id "$DECLARED_TASK")
+        [[ -z "$DECLARED_SESSION" ]] || args+=(--session-id "$DECLARED_SESSION")
+        [[ -z "$DECLARED_JOB_ID" ]] || args+=(--job-id "$DECLARED_JOB_ID")
+        python3 "$RECORDER_PATH" "${args[@]}"
+    - name: Package immutable receipts
+      if: inputs.mode == 'publish'
+      id: bundle
+      shell: bash
+      env:
+        RECORDER_PATH: ${{ github.action_path }}/instrumentation/receipts.py
+        RECORD_DIRECTORY: ${{ inputs.directory }}
+      run: |
+        args=(publish --github-output "$GITHUB_OUTPUT")
+        [[ -z "$RECORD_DIRECTORY" ]] || args+=(--directory "$RECORD_DIRECTORY")
+        python3 "$RECORDER_PATH" "${args[@]}"
+    - name: Upload execution evidence
+      if: inputs.mode == 'publish'
+      uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2 (Node.js 24)
+      with:
+        archive: true
+        name: ${{ steps.bundle.outputs.artifact-name }}
+        path: ${{ steps.bundle.outputs.path }}
+        if-no-files-found: error
+        overwrite: false
+        retention-days: ${{ inputs.retention-days }}
+        compression-level: '6'

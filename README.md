@@ -28,6 +28,11 @@ activity alone does not establish those quantities, an AI causal effect or a
 staffing requirement. The [measurement protocol](docs/measurement-protocol.md)
 defines that path; it is not a prerequisite for automatic forecasting.
 
+The [engineer's presentation](docs/presentations/observatory-model/README.md)
+explains execution evidence, human-work measurement and the separate forecast
+through diagrams and worked examples. It includes an editable PowerPoint, a PDF
+handout and speaker notes; no advanced mathematics is assumed.
+
 ## Install and run
 
 Requires Git and Rust 1.99.1; `rust-toolchain.toml` pins compiler, formatter and
@@ -137,7 +142,9 @@ Partial responses/errors are retained; incomplete collection returns nonzero.
 Refreshes use validated, credential-scoped ETag/Last-Modified caches, revisiting
 every page instead of assuming a PR timestamp covers all related events.
 Rate, page, attempt, body and request bounds never become complete-history claims.
-The collector does not download binary workflow artifact ZIPs or all job logs.
+The general collector does not download binary workflow artifact ZIPs or job logs.
+The separate `collect-github-executions` command downloads allowlisted execution
+bundles and independently reconciles workflow attempts and jobs.
 The `throughput` profile collects only repository metadata and PR inventories,
 with an automatic summary of required-source coverage. This is the profile used
 by `forecast-team`; review submissions, CI and timeline history are not collected.
@@ -151,6 +158,24 @@ retained bytes remain available after a later force push.
 Schedule collection/imports with your existing scheduler. One state directory is
 for one researcher's credential context. Ingestion never builds or runs the
 observed projects or invokes an assistant.
+
+## Record tool executions in Actions
+
+The [reusable action](action.yml) configures explicit command and Codex wrappers,
+then publishes immutable start/completion receipts in a separate bundle for each
+job. GitHub actors and trigger events remain separate from declared controllers,
+assistant sessions and requirement links. Unreported usage and provenance remain
+unknown; runtime never becomes human labour.
+
+```sh
+observatory --state /srv/observatory/study collect-github-executions \
+  --repository owner/repository
+observatory --state /srv/observatory/study import-executions artifact.zip
+```
+
+See [execution evidence](docs/execution-evidence.md) for schemas, wrapper usage,
+durable collection, independent completion observation and the public-repository
+pilot. Setup alone does not observe unwrapped tools or other jobs.
 
 ## Import EngArg and assistant records
 

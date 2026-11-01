@@ -1,0 +1,31 @@
+# Step fragment for an existing, provisioned Codex job; this is not a live pilot.
+# Pin both Observatory uses to the same reviewed full commit SHA before adoption.
+# The enclosing job must have name: Assistant requirement check.
+# Provision Codex and its existing authentication separately. A GitHub token
+# does not establish who controlled this invocation.
+- uses: emmett08/engineering-work-observatory@main
+  with:
+    controller: unknown
+    job-name: Assistant requirement check
+    # Set these from the research protocol when known; do not invent session IDs.
+    protocol-id: ${{ vars.OBSERVATORY_PROTOCOL_ID }}
+    task-id: ${{ vars.OBSERVATORY_TASK_ID }}
+    session-id: ${{ vars.OBSERVATORY_SESSION_ID }}
+- name: Execute the assistant with an allowlisted receipt
+  env:
+    CODEX_MODEL: ${{ vars.CODEX_MODEL }}
+  run: |
+    model_args=()
+    [[ -z "$CODEX_MODEL" ]] || model_args+=(--configured-model "$CODEX_MODEL")
+    python3 "$OBSERVATORY_RECORDER" codex \
+      --tool-version "$(codex --version)" \
+      "${model_args[@]}" --purpose development \
+      --logical-call-id requirement-check \
+      --input requirement=study/requirement.md \
+      -- - < study/assistant-request.txt
+- name: Publish this job's receipts
+  if: always()
+  uses: emmett08/engineering-work-observatory@main
+  with:
+    mode: publish
+    retention-days: '30'

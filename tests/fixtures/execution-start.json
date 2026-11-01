@@ -1,0 +1,56 @@
+{
+  "schema": "observatory.tool-receipt/1",
+  "invocation_id": "invocation-a",
+  "phase": "start",
+  "timestamp": "2026-11-01T12:00:00Z",
+  "platform": {
+    "source": "runner_environment",
+    "repository_id": "123",
+    "repository": "owner/repo",
+    "workflow_ref": "owner/repo/.github/workflows/check.yml@refs/heads/main",
+    "workflow_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "run_id": "456",
+    "run_attempt": 1,
+    "job_key": "test",
+    "job_name": "test (linux)",
+    "job_id": null,
+    "matrix": {
+      "os": "linux"
+    },
+    "actor": "credential-owner",
+    "triggering_actor": "rerun-person",
+    "event_name": "workflow_dispatch",
+    "job_context_source": "caller"
+  },
+  "declared": {
+    "source": "caller",
+    "controller": "assistant",
+    "controller_provenance": [
+      "study:operator-declaration"
+    ],
+    "protocol_id": "protocol-a",
+    "task_id": "task-a",
+    "session_id": "assistant-session",
+    "logical_call_id": "logical-a",
+    "parent_invocation_id": null
+  },
+  "tool": {
+    "adapter": "command",
+    "name": "cargo",
+    "version": null,
+    "purpose": "development",
+    "configured_model": null,
+    "configuration": {
+      "reasoning_effort": null,
+      "temperature": null,
+      "seed": null,
+      "max_output_tokens": null,
+      "configuration_sha256": null
+    }
+  },
+  "result": null,
+  "artifacts": [],
+  "missing_fields": [
+    "tool.version"
+  ]
+}

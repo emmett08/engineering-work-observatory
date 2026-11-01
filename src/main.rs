@@ -84,6 +84,19 @@ enum Command {
         #[arg(long)]
         manifest: PathBuf,
     },
+    /// Import a validated immutable tool-execution bundle (JSON or GitHub artifact ZIP).
+    ImportExecutions { file: PathBuf },
+    /// Collect execution bundles and independently reconcile workflow attempts and jobs.
+    CollectGithubExecutions {
+        #[arg(long)]
+        repository: String,
+        #[arg(long)]
+        run_id: Option<u64>,
+        #[arg(long, default_value = "https://api.github.com")]
+        api_base: String,
+        #[arg(long, default_value = "GH_TOKEN")]
+        token_env: String,
+    },
     /// Take a consistent read-only snapshot of an EAL SQLite store, or import an export.
     ImportEal {
         file: PathBuf,
@@ -495,6 +508,50 @@ fn execute(cli: Cli) -> Result<()> {
                     let hash = store.retain_bytes(&serde_json::to_vec(&import_manifest)?)?;
                     let count = store.insert_batch(&records, "engarg-export", Utc::now(), &hash)?;
                     println!("Imported {count} new EngArg evidence records");
+                }
+                Command::ImportExecutions { file } => {
+                    let bytes = read_input(&file)?;
+                    let records = importers::executions_import(&bytes)?
+                        .into_iter()
+                        .map(|r| Evidence {
+                            id: r.id,
+                            kind: r.kind,
+                            data: r.data,
+                        })
+                        .collect::<Vec<_>>();
+                    let artifact_hash = store.retain_bytes(&bytes)?;
+                    let manifest = json!({
+                        "schema":"observatory.import/1",
+                        "source":"observatory.tool_receipt",
+                        "raw_objects":[artifact_hash]
+                    });
+                    let hash = store.retain_bytes(&serde_json::to_vec(&manifest)?)?;
+                    let count =
+                        store.insert_batch(&records, "execution-bundle", Utc::now(), &hash)?;
+                    println!("Imported {count} new execution evidence records");
+                }
+                Command::CollectGithubExecutions {
+                    repository,
+                    run_id,
+                    api_base,
+                    token_env,
+                } => {
+                    let token = std::env::var(token_env).ok();
+                    let collection = collectors::collect_github_executions(
+                        &repository,
+                        token.as_deref(),
+                        &api_base,
+                        run_id,
+                    )?;
+                    let receipt = ingestion::persist_execution_collection(
+                        &mut store,
+                        collection,
+                        &format!("github-executions:{repository}"),
+                    )?;
+                    println!(
+                        "Retained {} new records; collection manifest {}",
+                        receipt.new_records, receipt.manifest_sha256
+                    );
                 }
                 Command::ImportEal { file, namespace } => {
                     let scratch = tempfile::tempdir()?;

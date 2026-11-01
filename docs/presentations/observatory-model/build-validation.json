@@ -1,0 +1,10 @@
+{
+  "source_revision": "e252eae943a2cc5de27c2db9f60ed9c73a790536",
+  "slide_count": 39,
+  "native_text_shapes": 529,
+  "all_slides_have_speaker_notes": true,
+  "geometry_bounds_pass": true,
+  "fact_checks_pass": true,
+  "pptx_sha256": "ac7110f7b2cd5a9e0eced6d6f08735e46586bdc2e35b27a3f1fa61641930eeff",
+  "render_review": "See README for the performed PDF and visual checks; XML checks alone do not prove layout quality."
+}
