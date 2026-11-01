@@ -58,7 +58,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: emmett08/engineering-work-observatory
-          ref: REPLACE_WITH_REVIEWED_COMMIT_SHA
+          ref: d993ef14a3cd98cae674b13b2b01458952c686e0
           path: observatory
           persist-credentials: false
       - name: Validate private storage and choose this batch
