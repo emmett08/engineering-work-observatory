@@ -1,8 +1,13 @@
 //! Export a frozen calculation and source coverage without sending private traces elsewhere.
 use crate::{analysis::analyse, snapshot::Snapshot};
 use anyhow::{Result, ensure};
+use serde::Serialize;
 use serde_json::json;
-use std::{fs, path::Path};
+use std::{
+    fs,
+    io::{BufWriter, Write},
+    path::Path,
+};
 mod html;
 mod usage;
 pub use usage::source_summary;
@@ -13,6 +18,13 @@ fn csv_cell(value: &str) -> String {
         safe.insert(0, '\'');
     }
     format!("\"{}\"", safe.replace('"', "\"\""))
+}
+
+fn write_json(path: &Path, value: &impl Serialize) -> Result<()> {
+    let mut writer = BufWriter::new(fs::File::create(path)?);
+    serde_json::to_writer_pretty(&mut writer, value)?;
+    writer.flush()?;
+    Ok(())
 }
 
 pub fn write_report(snapshot: &Snapshot, output: &Path) -> Result<()> {
@@ -34,29 +46,25 @@ pub fn write_report(snapshot: &Snapshot, output: &Path) -> Result<()> {
         use std::os::unix::fs::PermissionsExt;
         fs::set_permissions(output, fs::Permissions::from_mode(0o700))?;
     }
-    fs::write(
-        output.join("report.json"),
-        serde_json::to_vec_pretty(&document)?,
-    )?;
-    fs::write(
-        output.join("snapshot.json"),
-        serde_json::to_vec_pretty(snapshot)?,
-    )?;
-    let mut csv = String::from("id,kind,observed_at,source,data_json\n");
+    write_json(&output.join("report.json"), &document)?;
+    write_json(&output.join("snapshot.json"), snapshot)?;
+    let mut csv = BufWriter::new(fs::File::create(output.join("records.csv"))?);
+    writeln!(csv, "id,kind,observed_at,source,data_json")?;
     for r in &snapshot.records {
-        csv.push_str(
-            &[
+        writeln!(
+            csv,
+            "{}",
+            [
                 csv_cell(&r.record.id),
                 csv_cell(&r.record.kind),
                 csv_cell(&r.observed_at.to_rfc3339()),
                 csv_cell(&r.source),
                 csv_cell(&serde_json::to_string(&r.record.data)?),
             ]
-            .join(","),
-        );
-        csv.push('\n');
+            .join(",")
+        )?;
     }
-    fs::write(output.join("records.csv"), csv)?;
+    csv.flush()?;
     let html = html::render(snapshot, &report, &sources);
     fs::write(output.join("index.html"), html)?;
     Ok(())
