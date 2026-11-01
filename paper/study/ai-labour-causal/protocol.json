@@ -1,0 +1,2304 @@
+{
+  "analysis": {
+    "contrasts": [
+      "EST-L and EST-Q on original comparison groups"
+    ],
+    "exclusion_lock": "No post-group task/team removal for failure, abandonment, low tool use or incomplete work",
+    "inconclusive_handling": "Report all effects and limits; do not infer quality preservation from nonsignificance",
+    "missing_data": "No primary complete-case redefinition. An unresolved team endpoint returns a full parameter-domain confidence set and no rejection/benefit; report available physical/observation bounds separately.",
+    "models": [
+      {
+        "assumptions": [
+          "ASM-001",
+          "ASM-002",
+          "ASM-003",
+          "ASM-004",
+          "ASM-005",
+          "ASM-006"
+        ],
+        "diagnostics": [
+          "Per-outcome coverage calibration across supported nuisance ranges",
+          "Pair tails and missing records",
+          "Bias sensitivity"
+        ],
+        "estimand_ids": [
+          "EST-L",
+          "EST-Q"
+        ],
+        "id": "MOD-001",
+        "model_or_procedure": "Mean of within-pair AI-minus-comparator outcomes; Student-t standard error over pairs; expand by declared measurement-bias allowance",
+        "outputs": [
+          "Delta_L estimate and bounds",
+          "Delta_F estimate and bounds",
+          "Joint success and each component decision"
+        ]
+      }
+    ],
+    "multiplicity": "A false conjunction entails rejection of a true component null. Conditional on valid level.025 component procedures, the conjunction has level.025; the approximate t components have separately measured calibration under declared scenarios, not universal exact size.",
+    "preprocessing_lock": "Record hashes of initial task/score/group manifests and collection/scoring/analysis versions before outcomes",
+    "robustness_checks": [
+      "Bias allowance exceeded",
+      "Missing records and cross-group effects",
+      "Requirement changes",
+      "Alternative supported tail/dependence scenarios"
+    ],
+    "severe_defects": "Record and report separately. Statistical joint success concerns labour and retained required output only; it establishes no overall safety/adoption benefit. Severe-defect incidence is not simulated and is not silently included in planning power.",
+    "software_and_versions": [
+      "planning.py; Python3.12.14",
+      "numpy2.3.5",
+      "scipy1.17.0"
+    ],
+    "stopping_rule": "No interim efficacy decision; finish all28day windows before final analysis",
+    "uncertainty": "One-sided97.5% t bounds expanded by measurement-bias allowances. Reported coverage is for these sensitivity-expanded intervals; raw t coverage and exact finite-sample guarantees are not claimed."
+  },
+  "assumptions": [
+    {
+      "failure_consequence": "Selection bias or changed estimand",
+      "id": "ASM-001",
+      "role": "identification",
+      "statement": "Independent fair group selection within matched pairs and fixed initial task/score records",
+      "status": "untested",
+      "test_or_justification": "Audit seed, ledger and timestamps before outcomes"
+    },
+    {
+      "failure_consequence": "Simple team-level potential outcomes insufficient",
+      "id": "ASM-002",
+      "role": "identification",
+      "statement": "No material effects transmitted between comparison clusters",
+      "status": "untested",
+      "test_or_justification": "Map links before group selection. If one-team clusters cannot plausibly be separated, stop and revise weights, pairing, unit counts and simulations before group selection; log any later cross-group work."
+    },
+    {
+      "failure_consequence": "True-labour causal claim is not established",
+      "id": "ASM-003",
+      "role": "measurement",
+      "statement": "Allocation records cover the included human work with a defensible bound on differential bias",
+      "status": "untested",
+      "test_or_justification": "Pilot uses separate evidence, known-duration cases, off-keyboard and missing-contributor cases; agreement alone is insufficient"
+    },
+    {
+      "failure_consequence": "Quality preservation cannot be concluded",
+      "id": "ASM-004",
+      "role": "measurement",
+      "statement": "The same retained-output criteria apply across groups, with bounded differential scoring bias",
+      "status": "untested",
+      "test_or_justification": "Masked duplicate checks and known correct/incorrect/ambiguous requirements"
+    },
+    {
+      "failure_consequence": "Use a revised validated analysis or retain estimation-only conclusions",
+      "id": "ASM-005",
+      "role": "analysis",
+      "statement": "Independent pairs and the prespecified t approximation provide adequate coverage over supported nuisance ranges",
+      "status": "untested",
+      "test_or_justification": "Pilot ranges, finite calibration simulations and sensitivity; do not infer exact coverage from randomisation alone"
+    },
+    {
+      "failure_consequence": "No affirmative benefit claim if an endpoint remains missing",
+      "id": "ASM-006",
+      "role": "operational",
+      "statement": "Every team-level primary endpoint is recoverable or its missingness permits the declared conservative failure rule",
+      "status": "untested",
+      "test_or_justification": "Track all initial tasks and contributing people; no deletion of incomplete pairs"
+    }
+  ],
+  "bias_assessment": {
+    "falsification_checks": [
+      "Duplicate/overlapping time violates capacity",
+      "Prior outcomes cannot depend on later group coin"
+    ],
+    "negative_controls": [
+      "Deliberately absent/zero labour and failed output records"
+    ],
+    "positive_controls": [
+      "Known-duration work and known requirement defects"
+    ],
+    "reporting_controls": [
+      "Retain unsuccessful tasks, every group and every planned scenario"
+    ],
+    "researcher_degrees_of_freedom": [
+      "Task splitting",
+      "Reference scoring",
+      "Treatment threshold",
+      "Missingness exclusions"
+    ],
+    "residual_limitations": [
+      "No empirical calibration yet",
+      "No guarantee across all possible outcome distributions"
+    ],
+    "risks": [
+      {
+        "detection": "Pilot independent evidence and scoring disagreement",
+        "id": "BIAS-001",
+        "mechanism": "AI group omits prompting/review/repair or scores output more generously",
+        "prevention": "Same record process, blind checking and known adverse cases",
+        "residual_risk": "Unknown bias can invalidate causal true-labour interpretation",
+        "risk_type": "differential-measurement",
+        "sensitivity_or_correction": "Expand by supported bias bounds; simulate beyond-bound failure"
+      }
+    ]
+  },
+  "claims": [
+    {
+      "claim_type": "causal",
+      "failure_consequence": "Report harm, small effects or inconclusive intervals; no benefit claim from cheaper failure",
+      "id": "CLM-001",
+      "role": "primary",
+      "scope_limit": "Both conditions and validated measurement assumptions must hold; natural-unit thresholds remain provisional until substantively agreed",
+      "statement": "Providing the recorded AI workflow saves more than 1 person-hour per initial reference unit and reduces retained required output by less than 5 percentage points, for the participating fixed workloads",
+      "success_consequence": "Support the joint workflow benefit in the participating fixed workloads"
+    }
+  ],
+  "confounds": [
+    {
+      "causal_or_measurement_path": "Difficulty affects use and labour; conditioning on use changes contrast",
+      "control_or_adjustment": "Analyse original groups; use is diagnostic only",
+      "description": "Actual tool use responds to task difficulty",
+      "diagnostic": "Report access, refusals and use without selecting primary cases",
+      "id": "CF-001",
+      "residual_risk": "No causal dose or mediation conclusion"
+    },
+    {
+      "causal_or_measurement_path": "One team group affects another team outcome",
+      "control_or_adjustment": "Enlarge clusters before group choice; separate later resources",
+      "description": "Shared people/code/resources transmit effects between groups",
+      "diagnostic": "Link and deviation ledger",
+      "id": "CF-002",
+      "residual_risk": "Unknown cross-group effects may defeat simple causal interpretation"
+    }
+  ],
+  "constructs": [
+    {
+      "definition": "Sum of task person-hours through tau+Delta, including failed work and repair, divided by fixed initial reference score total",
+      "id": "CON-L",
+      "name": "All included human labour",
+      "proxy_for_claim_ids": [
+        "CLM-001"
+      ],
+      "role": "outcome",
+      "scope": "Every initial task and every included contributor",
+      "validity_evidence": [
+        "Not established; measurement pilot required"
+      ],
+      "validity_threats": [
+        "Missed reasoning, shared review or contributors",
+        "Differential recording under AI"
+      ]
+    },
+    {
+      "definition": "Sum of paper Q_i(tau,Delta) divided by fixed initial reference score total",
+      "id": "CON-Q",
+      "name": "Retained required output",
+      "proxy_for_claim_ids": [
+        "CLM-001"
+      ],
+      "role": "outcome",
+      "scope": "Every initial task; unaccepted tasks contribute zero",
+      "validity_evidence": [
+        "Not established; independent scoring pilot required"
+      ],
+      "validity_threats": [
+        "Assessor unblinding",
+        "Undetected severe defects",
+        "Counting only accepted tasks"
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "control_type": "active-comparator",
+      "description": "No-generative-AI ordinary workflow with the same test/review/release requirements",
+      "diagnostic_consequence": "Interpret as actually compared workflow bundles; suspend narrower AI-component claim",
+      "failure_mode_addressed": "Unequal non-AI process or resources mistaken for AI access effect",
+      "id": "CTRL-001",
+      "implementation": "Record both group manifests and deviations"
+    },
+    {
+      "control_type": "calibration",
+      "description": "Known-duration, omitted-person, overlap and off-keyboard labour cases plus correct/incorrect/ambiguous quality cases",
+      "diagnostic_consequence": "Repair collection/scoring or retain measurement-only purpose",
+      "failure_mode_addressed": "Consistent but inaccurate labour or retained-output measurement",
+      "id": "CTRL-002",
+      "implementation": "Pilot before principal study; retain adverse cases and uncertain reference values"
+    },
+    {
+      "control_type": "baseline",
+      "description": "Record pre-group workload, repository domain and experience",
+      "diagnostic_consequence": "Retain pairs in analysis; widen nuisance scenarios, never re-pair on outcomes",
+      "failure_mode_addressed": "Poor matching and selection on treatment outcomes",
+      "id": "CTRL-003",
+      "implementation": "Pair before randomisation without consulting trial outcomes"
+    }
+  ],
+  "decision_matrix": [
+    {
+      "analysis_outputs": [
+        "MOD-001 primary intervals and failure flags"
+      ],
+      "assumption_failure_response": "DM-005 overrides nominal success",
+      "claim_effects": [
+        {
+          "claim_ids": [
+            "CLM-001"
+          ],
+          "disposition": "strengthen",
+          "rationale": "Support joint benefit in fixed workloads",
+          "scope_limit": "Both conditions and validated measurement assumptions must hold; natural-unit thresholds remain provisional until substantively agreed"
+        }
+      ],
+      "decision_rule": "Support joint benefit in fixed workloads",
+      "discrimination_result": "parameter-estimated",
+      "hypothesis_effects": [
+        "Report component tests separately; no mediator conclusion"
+      ],
+      "id": "DM-001",
+      "next_action": "Independent replication or repaired measurement/design as appropriate",
+      "observation_region": "Both expanded primary bounds meet boundaries and no failure override",
+      "prediction_ids": []
+    },
+    {
+      "analysis_outputs": [
+        "MOD-001 primary intervals and failure flags"
+      ],
+      "assumption_failure_response": "DM-005 overrides nominal success",
+      "claim_effects": [
+        {
+          "claim_ids": [
+            "CLM-001"
+          ],
+          "disposition": "weaken",
+          "rationale": "Report harm; no efficiency benefit claim",
+          "scope_limit": "Both conditions and validated measurement assumptions must hold; natural-unit thresholds remain provisional until substantively agreed"
+        }
+      ],
+      "decision_rule": "Report retained-output harm; no joint labour/retained-output benefit claim",
+      "discrimination_result": "inconclusive",
+      "hypothesis_effects": [
+        "Report component tests separately; no mediator conclusion"
+      ],
+      "id": "DM-002",
+      "next_action": "Independent replication or repaired measurement/design as appropriate",
+      "observation_region": "Retained-output effect bound establishes a loss beyond the margin",
+      "prediction_ids": []
+    },
+    {
+      "analysis_outputs": [
+        "MOD-001 primary intervals and failure flags"
+      ],
+      "assumption_failure_response": "DM-005 overrides nominal success",
+      "claim_effects": [
+        {
+          "claim_ids": [
+            "CLM-001"
+          ],
+          "disposition": "revise",
+          "rationale": "Report practically small labour effect",
+          "scope_limit": "Both conditions and validated measurement assumptions must hold; natural-unit thresholds remain provisional until substantively agreed"
+        }
+      ],
+      "decision_rule": "Report practically small labour effect",
+      "discrimination_result": "inconclusive",
+      "hypothesis_effects": [
+        "Report component tests separately; no mediator conclusion"
+      ],
+      "id": "DM-003",
+      "next_action": "Independent replication or repaired measurement/design as appropriate",
+      "observation_region": "Precise intervals exclude worthwhile labour saving while quality preserved",
+      "prediction_ids": []
+    },
+    {
+      "analysis_outputs": [
+        "MOD-001 primary intervals and failure flags"
+      ],
+      "assumption_failure_response": "DM-005 overrides nominal success",
+      "claim_effects": [
+        {
+          "claim_ids": [
+            "CLM-001"
+          ],
+          "disposition": "no-change",
+          "rationale": "Report inconclusive result",
+          "scope_limit": "Both conditions and validated measurement assumptions must hold; natural-unit thresholds remain provisional until substantively agreed"
+        }
+      ],
+      "decision_rule": "Report inconclusive result",
+      "discrimination_result": "inconclusive",
+      "hypothesis_effects": [
+        "Report component tests separately; no mediator conclusion"
+      ],
+      "id": "DM-004",
+      "next_action": "Independent replication or repaired measurement/design as appropriate",
+      "observation_region": "Intervals cross either boundary without diagnosed measurement/assumption failure",
+      "prediction_ids": []
+    },
+    {
+      "analysis_outputs": [
+        "MOD-001 primary intervals and failure flags"
+      ],
+      "assumption_failure_response": "DM-005 overrides nominal success",
+      "claim_effects": [
+        {
+          "claim_ids": [
+            "CLM-001"
+          ],
+          "disposition": "suspend",
+          "rationale": "No affirmative benefit claim; publish failure and bounds",
+          "scope_limit": "Both conditions and validated measurement assumptions must hold; natural-unit thresholds remain provisional until substantively agreed"
+        }
+      ],
+      "decision_rule": "No affirmative benefit claim; publish failure and bounds",
+      "discrimination_result": "inconclusive",
+      "hypothesis_effects": [
+        "Report component tests separately; no mediator conclusion"
+      ],
+      "id": "DM-005",
+      "next_action": "Independent replication or repaired measurement/design as appropriate",
+      "observation_region": "Missing endpoint, failed measurement or material cross-group effect",
+      "prediction_ids": []
+    },
+    {
+      "analysis_outputs": [
+        "Separate severe-defect record"
+      ],
+      "assumption_failure_response": "Investigate separately and report; collection/measurement failures still trigger DM-005",
+      "claim_effects": [
+        {
+          "claim_ids": [
+            "CLM-001"
+          ],
+          "disposition": "no-change",
+          "rationale": "The bounded co-primary claim does not cover every severe consequence; interpretation must retain this limitation",
+          "scope_limit": "No overall safety/adoption conclusion"
+        }
+      ],
+      "decision_rule": "Report severe harm separately; do not interpret statistical co-primary success as overall safety or an adoption decision",
+      "discrimination_result": "inconclusive",
+      "hypothesis_effects": [
+        "No extra hypothesis test or simulated rare-event power claim"
+      ],
+      "id": "DM-006",
+      "next_action": "Domain-specific defect investigation before any adoption decision",
+      "observation_region": "A severe security/reliability defect occurs, whether or not co-primary bounds pass",
+      "prediction_ids": []
+    }
+  ],
+  "design": {
+    "allocation_concealment": "Independent analyst generates group coins only after signed task/score and pair ledger; release seed after records locked",
+    "assignment_method": "Record initial tasks/scores and match teams on pre-group characteristics; independent fair coin chooses AI access within each pair",
+    "comparator": "Same ordinary development/test/review practices without generative AI",
+    "control_ids": [
+      "CTRL-001",
+      "CTRL-002",
+      "CTRL-003"
+    ],
+    "design_type": "controlled-experiment",
+    "masking": "People cannot be masked to tool access; outcome reviewers and primary analysts use concealed group labels where feasible",
+    "rationale": "Parallel paired-team randomisation preserves fixed-workload question and avoids learning/code carryover; one team is one cluster in this version. If mapping requires multi-team clusters, stop, rederive weights, pairing, independent-unit count and planning before randomisation.",
+    "setting": "Participating teams/repositories not yet recruited",
+    "temporal_structure": "Separate six-pair measurement pilot; subsequent independent principal sample after conditional design selection"
+  },
+  "design_assessment": {
+    "budget_limit": 2112,
+    "budget_unit": "collection-review person-hours (provisional ceiling; not funded; excludes development labour and local setup)",
+    "candidate_designs": [
+      {
+        "allocation": "48teams in 24pairs;20initialtasks/team;28daywindows",
+        "cost": 1056,
+        "cost_unit": "collection-review person-hours",
+        "id": "D48",
+        "independent_units": 24
+      },
+      {
+        "allocation": "96teams in 48pairs;20initialtasks/team;28daywindows",
+        "cost": 2112,
+        "cost_unit": "collection-review person-hours",
+        "id": "D96",
+        "independent_units": 48
+      }
+    ],
+    "decision_use": "Choose an informative affordable principal trial only after measurement/nuisance pilot",
+    "discrimination": {},
+    "effect_or_precision_basis": "Provisional naturalunit decisions: Delta_L<-1hour/referenceunit and Delta_F>-.05. Useful planning effect -2,0; substantive agreement absent. These are not a computed MDE.",
+    "mode": "quantitative",
+    "nonstatistical_assessment": {},
+    "pilot_basis": "Six separate pairs/72tasks learn uncertain measurement and nuisance ranges; no real pilot supplied",
+    "primary_estimand_ids": [
+      "EST-L",
+      "EST-Q"
+    ],
+    "results": [
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.44096894446293694,
+          0.4547510848977148
+        ],
+        "mcse": 0.0035162506843227203,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "central-benefit",
+        "target_id": "T-JOINT",
+        "value": 0.44785
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9847517299244638,
+          0.9879614381965521
+        ],
+        "mcse": 0.0008175083332908587,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "central-benefit",
+        "target_id": "T-COV-L",
+        "value": 0.98645
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9956923559047284,
+          0.9973169138843485
+        ],
+        "mcse": 0.0004116090378016473,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "central-benefit",
+        "target_id": "T-COV-Q",
+        "value": 0.9966
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.018197529220441377,
+          0.022086806189813443
+        ],
+        "mcse": 0.000991160872411739,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "adverse-benefit",
+        "target_id": "T-JOINT",
+        "value": 0.02005
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9683746613129399,
+          0.9730445175366319
+        ],
+        "mcse": 0.0011905326538990857,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "adverse-benefit",
+        "target_id": "T-COV-L",
+        "value": 0.9708
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.978070287163221,
+          0.9819453198157073
+        ],
+        "mcse": 0.0009875218984913708,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "adverse-benefit",
+        "target_id": "T-COV-Q",
+        "value": 0.9801
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.00575193668791944,
+          0.008037487677822162
+        ],
+        "mcse": 0.000581109284042167,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "labour-boundary",
+        "target_id": "T-FALSE",
+        "value": 0.0068
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9827980003927365,
+          0.9862158782616869
+        ],
+        "mcse": 0.0008707135005270094,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "labour-boundary",
+        "target_id": "T-COV-L",
+        "value": 0.9846
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9957482370499539,
+          0.9973610135355174
+        ],
+        "mcse": 0.0004085815402095379,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "labour-boundary",
+        "target_id": "T-COV-Q",
+        "value": 0.99665
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.007133636352092857,
+          0.00965521190548043
+        ],
+        "mcse": 0.0006415259152988287,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "labour-boundary",
+        "target_id": "T-FALSE-L",
+        "value": 0.0083
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.00016955317759555281,
+          0.0007223484532697996
+        ],
+        "mcse": 0.0001322644132032498,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-boundary",
+        "target_id": "T-FALSE",
+        "value": 0.00035
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9859699754169379,
+          0.9890427510211489
+        ],
+        "mcse": 0.0007825036741127791,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-boundary",
+        "target_id": "T-COV-L",
+        "value": 0.9876
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9953579410940695,
+          0.997051443916641
+        ],
+        "mcse": 0.0004293198108636519,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-boundary",
+        "target_id": "T-COV-Q",
+        "value": 0.9963
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.0016393270230052992,
+          0.002951864074452466
+        ],
+        "mcse": 0.00033129744943177574,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-boundary",
+        "target_id": "T-FALSE-Q",
+        "value": 0.0022
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.0,
+          0.00019203605610462553
+        ],
+        "mcse": 0.0,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "both-boundaries",
+        "target_id": "T-FALSE",
+        "value": 0.0
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9861291155299508,
+          0.9891835532973192
+        ],
+        "mcse": 0.0007778154504765247,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "both-boundaries",
+        "target_id": "T-COV-L",
+        "value": 0.98775
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9955807217006262,
+          0.9972285864956619
+        ],
+        "mcse": 0.0004175972940525326,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "both-boundaries",
+        "target_id": "T-COV-Q",
+        "value": 0.9965
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.005248590473211333,
+          0.007441045132191986
+        ],
+        "mcse": 0.000557267328128969,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "both-boundaries",
+        "target_id": "T-FALSE-L",
+        "value": 0.00625
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.0013425368836908259,
+          0.0025487886390062127
+        ],
+        "mcse": 0.0003038566685132976,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "both-boundaries",
+        "target_id": "T-FALSE-Q",
+        "value": 0.00185
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.0,
+          0.00019203605610462553
+        ],
+        "mcse": 0.0,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "no-effect",
+        "target_id": "T-FALSE",
+        "value": 0.0
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9849104559230035,
+          0.9881026545871956
+        ],
+        "mcse": 0.0008130325946725619,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "no-effect",
+        "target_id": "T-COV-L",
+        "value": 0.9866
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9943623405481662,
+          0.9962473901274452
+        ],
+        "mcse": 0.0004784788396575155,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "no-effect",
+        "target_id": "T-COV-Q",
+        "value": 0.9954
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.0,
+          0.00019203605610462553
+        ],
+        "mcse": 0.0,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "no-effect",
+        "target_id": "T-FALSE-L",
+        "value": 0.0
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.0,
+          0.00019203605610462553
+        ],
+        "mcse": 0.0,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-harm",
+        "target_id": "T-FALSE",
+        "value": 0.0
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9845930541040252,
+          0.9878201716278073
+        ],
+        "mcse": 0.0008219583322772525,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-harm",
+        "target_id": "T-COV-L",
+        "value": 0.9863
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9951912571307401,
+          0.9969181854907873
+        ],
+        "mcse": 0.0004379028145604924,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-harm",
+        "target_id": "T-COV-Q",
+        "value": 0.99615
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.0,
+          0.00019203605610462553
+        ],
+        "mcse": 0.0,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-harm",
+        "target_id": "T-FALSE-Q",
+        "value": 0.0
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          8.826282272974824e-06,
+          0.0002831905702260402
+        ],
+        "mcse": 4.999874998437461e-05,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "bias-at-allowance",
+        "target_id": "T-FALSE",
+        "value": 5e-05
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9741507735049671,
+          0.978366273744382
+        ],
+        "mcse": 0.001074492380149807,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "bias-at-allowance",
+        "target_id": "T-COV-L",
+        "value": 0.97635
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9700372479491329,
+          0.9745813163850595
+        ],
+        "mcse": 0.0011584092541066814,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "bias-at-allowance",
+        "target_id": "T-COV-Q",
+        "value": 0.9724
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.019818385294829627,
+          0.023865297192834437
+        ],
+        "mcse": 0.0010314295298274139,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "bias-at-allowance",
+        "target_id": "T-FALSE-L",
+        "value": 0.02175
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.025418683614940506,
+          0.02996275205086714
+        ],
+        "mcse": 0.0011584092541066823,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "bias-at-allowance",
+        "target_id": "T-FALSE-Q",
+        "value": 0.0276
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.01929362008105204,
+          0.023290273646273747
+        ],
+        "mcse": 0.0010185911839398572,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "labour-boundary-bias",
+        "target_id": "T-FALSE",
+        "value": 0.0212
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9709733268704946,
+          0.9754448917987969
+        ],
+        "mcse": 0.0011398927581136734,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "labour-boundary-bias",
+        "target_id": "T-COV-L",
+        "value": 0.9733
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9957482370499539,
+          0.9973610135355174
+        ],
+        "mcse": 0.0004085815402095379,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "labour-boundary-bias",
+        "target_id": "T-COV-Q",
+        "value": 0.99665
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.022686366616716806,
+          0.026996163654610637
+        ],
+        "mcse": 0.0010985772048427002,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "labour-boundary-bias",
+        "target_id": "T-FALSE-L",
+        "value": 0.02475
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.004656485228974206,
+          0.006733400023302048
+        ],
+        "mcse": 0.0005276665613813329,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-boundary-bias",
+        "target_id": "T-FALSE",
+        "value": 0.0056
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9854399158198682,
+          0.9885730026542746
+        ],
+        "mcse": 0.0007979219886680659,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-boundary-bias",
+        "target_id": "T-COV-L",
+        "value": 0.9871
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.971858014471988,
+          0.9762598777360078
+        ],
+        "mcse": 0.0011220912953053338,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-boundary-bias",
+        "target_id": "T-COV-Q",
+        "value": 0.97415
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.023692201081066032,
+          0.02808992591454359
+        ],
+        "mcse": 0.0011210343438093232,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-boundary-bias",
+        "target_id": "T-FALSE-Q",
+        "value": 0.0258
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.3908874928225106,
+          0.40445181695817406
+        ],
+        "mcse": 0.003460668125521429,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "incomplete-pairs",
+        "target_id": "T-JOINT",
+        "value": 0.39765
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9864475715038155,
+          0.9894649821018207
+        ],
+        "mcse": 0.0007683487977474819,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "incomplete-pairs",
+        "target_id": "T-COV-L",
+        "value": 0.98805
+      },
+      {
+        "design_id": "D48",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9956365177601437,
+          0.9972727712325388
+        ],
+        "mcse": 0.00041461412783454167,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "incomplete-pairs",
+        "target_id": "T-COV-Q",
+        "value": 0.99655
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.7666380337794065,
+          0.7782573065700165
+        ],
+        "mcse": 0.002964319061774559,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "central-benefit",
+        "target_id": "T-JOINT",
+        "value": 0.7725
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9910443453944693,
+          0.9934665567010843
+        ],
+        "mcse": 0.0006160956703305115,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "central-benefit",
+        "target_id": "T-COV-L",
+        "value": 0.99235
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9986390788900333,
+          0.9994692115151574
+        ],
+        "mcse": 0.0002060676466600249,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "central-benefit",
+        "target_id": "T-COV-Q",
+        "value": 0.99915
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.06566712562032923,
+          0.07269837105282173
+        ],
+        "mcse": 0.0017933932920583817,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "adverse-benefit",
+        "target_id": "T-JOINT",
+        "value": 0.0691
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9699852625147383,
+          0.9745333210230598
+        ],
+        "mcse": 0.0011594282534939356,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "adverse-benefit",
+        "target_id": "T-COV-L",
+        "value": 0.97235
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9871915911421785,
+          0.9901206936129792
+        ],
+        "mcse": 0.0007457693175506747,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "adverse-benefit",
+        "target_id": "T-COV-Q",
+        "value": 0.98875
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.003081814509212734,
+          0.004808742869259887
+        ],
+        "mcse": 0.00043790281456049127,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "labour-boundary",
+        "target_id": "T-FALSE",
+        "value": 0.00385
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.990452279883063,
+          0.9929588334521525
+        ],
+        "mcse": 0.0006376817388007903,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "labour-boundary",
+        "target_id": "T-COV-L",
+        "value": 0.9918
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.998095808650383,
+          0.9991126545872582
+        ],
+        "mcse": 0.0002547852036520143,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "labour-boundary",
+        "target_id": "T-COV-Q",
+        "value": 0.9987
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.003081814509212734,
+          0.004808742869259887
+        ],
+        "mcse": 0.00043790281456049127,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "labour-boundary",
+        "target_id": "T-FALSE-L",
+        "value": 0.00385
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.0,
+          0.00019203605610462553
+        ],
+        "mcse": 0.0,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-boundary",
+        "target_id": "T-FALSE",
+        "value": 0.0
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9900225854955916,
+          0.9925886814684687
+        ],
+        "mcse": 0.0006529180653037581,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-boundary",
+        "target_id": "T-COV-L",
+        "value": 0.9914
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9984558140624349,
+          0.9993525339535727
+        ],
+        "mcse": 0.0002234949663862702,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-boundary",
+        "target_id": "T-COV-Q",
+        "value": 0.999
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.00016955317759555281,
+          0.0007223484532697996
+        ],
+        "mcse": 0.0001322644132032498,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-boundary",
+        "target_id": "T-FALSE-Q",
+        "value": 0.00035
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.0,
+          0.00019203605610462553
+        ],
+        "mcse": 0.0,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "both-boundaries",
+        "target_id": "T-FALSE",
+        "value": 0.0
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9899152729373634,
+          0.9924960324339082
+        ],
+        "mcse": 0.0006566700084517352,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "both-boundaries",
+        "target_id": "T-COV-L",
+        "value": 0.9913
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9983952643143006,
+          0.9993131029053126
+        ],
+        "mcse": 0.00022900846054239955,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "both-boundaries",
+        "target_id": "T-COV-Q",
+        "value": 0.99895
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.0036179020474892405,
+          0.005472424887716054
+        ],
+        "mcse": 0.0004706483559941541,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "both-boundaries",
+        "target_id": "T-FALSE-L",
+        "value": 0.00445
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.0003432700669267663,
+          0.0010485355459105335
+        ],
+        "mcse": 0.00017315311143609288,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "both-boundaries",
+        "target_id": "T-FALSE-Q",
+        "value": 0.0006
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.0,
+          0.00019203605610462553
+        ],
+        "mcse": 0.0,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "no-effect",
+        "target_id": "T-FALSE",
+        "value": 0.0
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9902373423014892,
+          0.9927738478481487
+        ],
+        "mcse": 0.0006453464186001177,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "no-effect",
+        "target_id": "T-COV-L",
+        "value": 0.9916
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9987007797717246,
+          0.9995074914298606
+        ],
+        "mcse": 0.00019991998399359966,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "no-effect",
+        "target_id": "T-COV-Q",
+        "value": 0.9992
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.0,
+          0.00019203605610462553
+        ],
+        "mcse": 0.0,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "no-effect",
+        "target_id": "T-FALSE-L",
+        "value": 0.0
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.0,
+          0.00019203605610462553
+        ],
+        "mcse": 0.0,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-harm",
+        "target_id": "T-FALSE",
+        "value": 0.0
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9899152729373634,
+          0.9924960324339082
+        ],
+        "mcse": 0.0006566700084517352,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-harm",
+        "target_id": "T-COV-L",
+        "value": 0.9913
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9985166196635774,
+          0.9993917091488246
+        ],
+        "mcse": 0.00021784139872852524,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-harm",
+        "target_id": "T-COV-Q",
+        "value": 0.99905
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.0,
+          0.00019203605610462553
+        ],
+        "mcse": 0.0,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-harm",
+        "target_id": "T-FALSE-Q",
+        "value": 0.0
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          7.777875605022842e-05,
+          0.0005141804856319553
+        ],
+        "mcse": 9.998999949994999e-05,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "bias-at-allowance",
+        "target_id": "T-FALSE",
+        "value": 0.0002
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9739421531841947,
+          0.9781749708795766
+        ],
+        "mcse": 0.0010789156014258028,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "bias-at-allowance",
+        "target_id": "T-COV-L",
+        "value": 0.97615
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9731080561839482,
+          0.9774093751375132
+        ],
+        "mcse": 0.0010964118181595807,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "bias-at-allowance",
+        "target_id": "T-COV-Q",
+        "value": 0.97535
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.021346845942050115,
+          0.025536222030234416
+        ],
+        "mcse": 0.0010678196828116627,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "bias-at-allowance",
+        "target_id": "T-FALSE-L",
+        "value": 0.02335
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.022590624862486818,
+          0.026891943816051842
+        ],
+        "mcse": 0.0010964118181595818,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "bias-at-allowance",
+        "target_id": "T-FALSE-Q",
+        "value": 0.02465
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.023500538086350335,
+          0.02788166572368173
+        ],
+        "mcse": 0.0011167954154633695,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "labour-boundary-bias",
+        "target_id": "T-FALSE",
+        "value": 0.0256
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9717539017232905,
+          0.9761640288919166
+        ],
+        "mcse": 0.0011242018835600665,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "labour-boundary-bias",
+        "target_id": "T-COV-L",
+        "value": 0.97405
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9986390788900333,
+          0.9994692115151574
+        ],
+        "mcse": 0.0002060676466600249,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "labour-boundary-bias",
+        "target_id": "T-COV-Q",
+        "value": 0.99915
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.023500538086350335,
+          0.02788166572368173
+        ],
+        "mcse": 0.0011167954154633695,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "labour-boundary-bias",
+        "target_id": "T-FALSE-L",
+        "value": 0.0256
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.012415381976272365,
+          0.01567129627386694
+        ],
+        "mcse": 0.0008293189223694344,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-boundary-bias",
+        "target_id": "T-FALSE",
+        "value": 0.01395
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9908288756030883,
+          0.9932821033068879
+        ],
+        "mcse": 0.0006240343540222775,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-boundary-bias",
+        "target_id": "T-COV-L",
+        "value": 0.99215
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9738900041999119,
+          0.9781271390674653
+        ],
+        "mcse": 0.0010800182868822184,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-boundary-bias",
+        "target_id": "T-COV-Q",
+        "value": 0.9761
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.021825029120423247,
+          0.02605784681580518
+        ],
+        "mcse": 0.001078915601425802,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "quality-boundary-bias",
+        "target_id": "T-FALSE-Q",
+        "value": 0.02385
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.5997598069479354,
+          0.6132992701685088
+        ],
+        "mcse": 0.003454324083666731,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "incomplete-pairs",
+        "target_id": "T-JOINT",
+        "value": 0.60655
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9932665999766979,
+          0.9953435147710257
+        ],
+        "mcse": 0.0005276665613813353,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "incomplete-pairs",
+        "target_id": "T-COV-L",
+        "value": 0.9944
+      },
+      {
+        "design_id": "D96",
+        "evidence": "planning-results.json; deterministic seeds and versions retained; Wilson95% interval describes MonteCarlo error. Incomplete endpoints return full parameter-domain sets; finite halfwidth/bias summaries use complete records only.",
+        "mc_interval": [
+          0.9990153237654903,
+          0.9996928514180666
+        ],
+        "mcse": 0.00016578562965469148,
+        "method": "simulation",
+        "replications": 20000,
+        "scenario_id": "incomplete-pairs",
+        "target_id": "T-COV-Q",
+        "value": 0.99945
+      }
+    ],
+    "scenario_coverage": "Useful benefit, adverse nuisance, labour-only and quality-only null boundaries, bothboundaries, no effect, harm, measurement-bias failure and endpoint loss",
+    "scenarios": [
+      {
+        "description": "{\"bias_l\": 0.0, \"bias_q\": 0.0, \"effect_l\": -2.0, \"effect_q\": 0.0, \"id\": \"central-benefit\", \"labour_log_sd\": 0.35, \"noise_l\": 0.2, \"noise_q\": 0.005, \"pair_loss\": 0.0, \"purpose\": \"information\", \"quality_logit_sd\": 1.4, \"required\": true, \"rho\": 0.7}",
+        "id": "central-benefit",
+        "kind": "information"
+      },
+      {
+        "description": "{\"bias_l\": 0.0, \"bias_q\": 0.0, \"effect_l\": -2.0, \"effect_q\": 0.0, \"id\": \"adverse-benefit\", \"labour_log_sd\": 0.65, \"noise_l\": 0.6, \"noise_q\": 0.03, \"pair_loss\": 0.0, \"purpose\": \"information\", \"quality_logit_sd\": 2.5, \"required\": true, \"rho\": 0.2}",
+        "id": "adverse-benefit",
+        "kind": "information"
+      },
+      {
+        "description": "{\"bias_l\": 0.0, \"bias_q\": 0.0, \"effect_l\": -1.0, \"effect_q\": 0.0, \"id\": \"labour-boundary\", \"labour_log_sd\": 0.35, \"noise_l\": 0.2, \"noise_q\": 0.005, \"pair_loss\": 0.0, \"purpose\": \"calibration\", \"quality_logit_sd\": 1.4, \"required\": true, \"rho\": 0.7}",
+        "id": "labour-boundary",
+        "kind": "calibration"
+      },
+      {
+        "description": "{\"bias_l\": 0.0, \"bias_q\": 0.0, \"effect_l\": -2.0, \"effect_q\": -0.05, \"id\": \"quality-boundary\", \"labour_log_sd\": 0.35, \"noise_l\": 0.2, \"noise_q\": 0.005, \"pair_loss\": 0.0, \"purpose\": \"calibration\", \"quality_logit_sd\": 1.4, \"required\": true, \"rho\": 0.7}",
+        "id": "quality-boundary",
+        "kind": "calibration"
+      },
+      {
+        "description": "{\"bias_l\": 0.0, \"bias_q\": 0.0, \"effect_l\": -1.0, \"effect_q\": -0.05, \"id\": \"both-boundaries\", \"labour_log_sd\": 0.35, \"noise_l\": 0.2, \"noise_q\": 0.005, \"pair_loss\": 0.0, \"purpose\": \"calibration\", \"quality_logit_sd\": 1.4, \"required\": true, \"rho\": 0.7}",
+        "id": "both-boundaries",
+        "kind": "calibration"
+      },
+      {
+        "description": "{\"bias_l\": 0.0, \"bias_q\": 0.0, \"effect_l\": 0.0, \"effect_q\": 0.0, \"id\": \"no-effect\", \"labour_log_sd\": 0.35, \"noise_l\": 0.2, \"noise_q\": 0.005, \"pair_loss\": 0.0, \"purpose\": \"calibration\", \"quality_logit_sd\": 1.4, \"required\": true, \"rho\": 0.7}",
+        "id": "no-effect",
+        "kind": "calibration"
+      },
+      {
+        "description": "{\"bias_l\": 0.0, \"bias_q\": 0.0, \"effect_l\": -2.0, \"effect_q\": -0.1, \"id\": \"quality-harm\", \"labour_log_sd\": 0.35, \"noise_l\": 0.2, \"noise_q\": 0.005, \"pair_loss\": 0.0, \"purpose\": \"harm\", \"quality_logit_sd\": 1.4, \"required\": true, \"rho\": 0.7}",
+        "id": "quality-harm",
+        "kind": "harm"
+      },
+      {
+        "description": "{\"bias_l\": -0.2, \"bias_q\": 0.01, \"effect_l\": -1.0, \"effect_q\": -0.05, \"id\": \"bias-at-allowance\", \"labour_log_sd\": 0.35, \"noise_l\": 0.2, \"noise_q\": 0.005, \"pair_loss\": 0.0, \"purpose\": \"calibration\", \"quality_logit_sd\": 1.4, \"required\": true, \"rho\": 0.7}",
+        "id": "bias-at-allowance",
+        "kind": "calibration"
+      },
+      {
+        "description": "{\"bias_l\": -0.2, \"bias_q\": 0.0, \"effect_l\": -1.0, \"effect_q\": 0.0, \"id\": \"labour-boundary-bias\", \"labour_log_sd\": 0.35, \"noise_l\": 0.2, \"noise_q\": 0.005, \"pair_loss\": 0.0, \"purpose\": \"calibration\", \"quality_logit_sd\": 1.4, \"required\": true, \"rho\": 0.7}",
+        "id": "labour-boundary-bias",
+        "kind": "calibration"
+      },
+      {
+        "description": "{\"bias_l\": 0.0, \"bias_q\": 0.01, \"effect_l\": -2.0, \"effect_q\": -0.05, \"id\": \"quality-boundary-bias\", \"labour_log_sd\": 0.35, \"noise_l\": 0.2, \"noise_q\": 0.005, \"pair_loss\": 0.0, \"purpose\": \"calibration\", \"quality_logit_sd\": 1.4, \"required\": true, \"rho\": 0.7}",
+        "id": "quality-boundary-bias",
+        "kind": "calibration"
+      },
+      {
+        "description": "{\"bias_l\": -1.0, \"bias_q\": 0.06, \"effect_l\": -1.0, \"effect_q\": -0.05, \"id\": \"bias-exceeds-allowance\", \"labour_log_sd\": 0.35, \"noise_l\": 0.2, \"noise_q\": 0.005, \"pair_loss\": 0.0, \"purpose\": \"assumption-failure\", \"quality_logit_sd\": 1.4, \"required\": false, \"rho\": 0.7}",
+        "id": "bias-exceeds-allowance",
+        "kind": "assumption-failure"
+      },
+      {
+        "description": "{\"bias_l\": 0.0, \"bias_q\": 0.0, \"effect_l\": -2.0, \"effect_q\": 0.0, \"id\": \"incomplete-pairs\", \"labour_log_sd\": 0.35, \"noise_l\": 0.2, \"noise_q\": 0.005, \"pair_loss\": 0.005, \"purpose\": \"missingness\", \"quality_logit_sd\": 1.4, \"required\": true, \"rho\": 0.7}",
+        "id": "incomplete-pairs",
+        "kind": "missingness"
+      }
+    ],
+    "selected_design_id": null,
+    "selection_rationale": "Neither allocation meets joint-success target in required hypothetical scenarios; principal selection deferred",
+    "single_design_reason": "",
+    "status": "evaluated",
+    "targets": [
+      {
+        "direction": "at-least",
+        "estimand_ids": [
+          "EST-L",
+          "EST-Q"
+        ],
+        "id": "T-JOINT",
+        "metric": "joint-success-probability",
+        "rationale": "Provisional high assurance for combined worthwhile savings and retained quality; failed candidates not promoted",
+        "required_scenario_ids": [
+          "central-benefit",
+          "adverse-benefit",
+          "incomplete-pairs"
+        ],
+        "threshold": 0.9,
+        "units": "probability"
+      },
+      {
+        "direction": "at-most",
+        "estimand_ids": [
+          "EST-L",
+          "EST-Q"
+        ],
+        "id": "T-FALSE",
+        "metric": "false-positive-rate",
+        "rationale": "Simulation calibration tolerance around nominal componentalpha.025; every partialnull tested",
+        "required_scenario_ids": [
+          "labour-boundary",
+          "quality-boundary",
+          "both-boundaries",
+          "no-effect",
+          "quality-harm",
+          "bias-at-allowance",
+          "labour-boundary-bias",
+          "quality-boundary-bias"
+        ],
+        "threshold": 0.035,
+        "units": "probability"
+      },
+      {
+        "direction": "at-least",
+        "estimand_ids": [
+          "EST-L"
+        ],
+        "id": "T-COV-L",
+        "metric": "coverage",
+        "rationale": "At least.94 lowerMCbound for sensitivity-expanded intervals based on nominal two-sided95% t intervals; no claim of exact raw t coverage",
+        "required_scenario_ids": [
+          "central-benefit",
+          "adverse-benefit",
+          "labour-boundary",
+          "quality-boundary",
+          "both-boundaries",
+          "no-effect",
+          "quality-harm",
+          "bias-at-allowance",
+          "labour-boundary-bias",
+          "quality-boundary-bias",
+          "incomplete-pairs"
+        ],
+        "threshold": 0.94,
+        "units": "probability"
+      },
+      {
+        "direction": "at-least",
+        "estimand_ids": [
+          "EST-Q"
+        ],
+        "id": "T-COV-Q",
+        "metric": "coverage",
+        "rationale": "At least.94 lowerMCbound for sensitivity-expanded intervals based on nominal two-sided95% t intervals; no claim of exact raw t coverage",
+        "required_scenario_ids": [
+          "central-benefit",
+          "adverse-benefit",
+          "labour-boundary",
+          "quality-boundary",
+          "both-boundaries",
+          "no-effect",
+          "quality-harm",
+          "bias-at-allowance",
+          "labour-boundary-bias",
+          "quality-boundary-bias",
+          "incomplete-pairs"
+        ],
+        "threshold": 0.94,
+        "units": "probability"
+      },
+      {
+        "direction": "at-most",
+        "estimand_ids": [
+          "EST-L"
+        ],
+        "id": "T-FALSE-L",
+        "metric": "false-positive-rate",
+        "rationale": "Check true labour-null component directly, not masked by failure of quality gate",
+        "required_scenario_ids": [
+          "labour-boundary",
+          "both-boundaries",
+          "no-effect",
+          "bias-at-allowance",
+          "labour-boundary-bias"
+        ],
+        "threshold": 0.035,
+        "units": "probability"
+      },
+      {
+        "direction": "at-most",
+        "estimand_ids": [
+          "EST-Q"
+        ],
+        "id": "T-FALSE-Q",
+        "metric": "false-positive-rate",
+        "rationale": "Check true quality-null component directly, not masked by failure of labour gate",
+        "required_scenario_ids": [
+          "quality-boundary",
+          "both-boundaries",
+          "quality-harm",
+          "bias-at-allowance",
+          "quality-boundary-bias"
+        ],
+        "threshold": 0.035,
+        "units": "probability"
+      }
+    ]
+  },
+  "estimands": [
+    {
+      "claim_ids": [
+        "CLM-001"
+      ],
+      "comparator": "No-generative-AI workflow",
+      "estimand_type": "causal",
+      "id": "EST-L",
+      "interpretation": "All included person-hours per fixed initial reference unit; not labour among completers",
+      "intervention_or_exposure": "Offer the recorded AI workflow",
+      "outcome_measurement_ids": [
+        "M-L"
+      ],
+      "population_or_system": "Participating software teams with independently tracked initial requirement sets; no population-wide transport claim",
+      "summary_measure": "Equal-team mean of L_g(1)-L_g(0), L_g=sum_i H_i(28)/B_g",
+      "time": "tau14days; Delta14days; labour to28days"
+    },
+    {
+      "claim_ids": [
+        "CLM-001"
+      ],
+      "comparator": "No-generative-AI workflow",
+      "estimand_type": "causal",
+      "id": "EST-Q",
+      "interpretation": "Required-output retained fraction with fixed initial denominator",
+      "intervention_or_exposure": "Offer the recorded AI workflow",
+      "outcome_measurement_ids": [
+        "M-Q"
+      ],
+      "population_or_system": "Participating software teams with independently tracked initial requirement sets; no population-wide transport claim",
+      "summary_measure": "Equal-team mean of F_g(1)-F_g(0), F_g=sum_i Q_i(14,14)/B_g",
+      "time": "tau14days; Delta14days; labour to28days"
+    }
+  ],
+  "ethics_and_safety": {
+    "applicable": true,
+    "mitigations": [
+      "Collect minimum necessary records under participating organisation rules",
+      "Record repository/tool permissions before use"
+    ],
+    "monitoring": [
+      "Severe quality failures and collection burden during any later pilot"
+    ],
+    "post_stop_actions": [
+      "Preserve records and deviations; no success claim from stopped study"
+    ],
+    "rationale": "Future workplace time and code records concern participants and organisation data; design only, no contact or collection authorised/executed",
+    "review_status": "planned",
+    "risks": [
+      "Work-record privacy",
+      "Tool access to repository information"
+    ],
+    "stop_authority": "Future study lead under participating institution requirements",
+    "stopping_rules": [
+      "Pause actual collection on unauthorised data access or unacceptable burden"
+    ]
+  },
+  "execution": {
+    "code_location": "planning.py (simulation only; actual workplace collection/scoring unimplemented)",
+    "completed_at": null,
+    "data_location": null,
+    "deviations": [],
+    "interpretation_status": "not-started",
+    "observed_results": [],
+    "protocol_version_used": null,
+    "started_at": null
+  },
+  "feasibility": {
+    "access": "No participating organisation, tool manifest or real outcome data supplied",
+    "apparatus_or_data": [
+      "Toolset manifest",
+      "Complete allocation ledger",
+      "Requirement scoring materials",
+      "planning.py"
+    ],
+    "blockers": [
+      "Principal joint success criterion not met",
+      "No empirical measurement-error/variance support",
+      "Tool manifest and institutional access missing"
+    ],
+    "current_status": "specified-unrun",
+    "dependencies": [
+      "Justify natural-unit margins from the intended decision/domain evidence",
+      "Record exact toolset manifest before preregistration",
+      "Run pilot and support nuisance/error/completeness ranges",
+      "Confirm actual team and observation budgets"
+    ],
+    "fallback": "Run pilot or precision-focused study; narrow claims without altering margins to obtain significance",
+    "resources": [
+      "Provisional pilot12teams/72tasks; principal48or96teams/960or1920tasks",
+      "Provisional pilot200 collection/review hours; principal1056or2112 observation/review hours excluding unknown development labour"
+    ],
+    "skills": [
+      "Software measurement",
+      "Clustered causal analysis",
+      "Independent requirement checking"
+    ]
+  },
+  "hypotheses": [
+    {
+      "auxiliary_assumption_ids": [
+        "ASM-001",
+        "ASM-002",
+        "ASM-003",
+        "ASM-005"
+      ],
+      "claim_ids": [
+        "CLM-001"
+      ],
+      "id": "H-L0",
+      "kind": "statistical-null",
+      "label": "Labour improvement does not exceed meaningful boundary",
+      "scope": "Fixed initial teams and tasks",
+      "statement": "Delta_L >= -1 person-hour per initial reference unit"
+    },
+    {
+      "auxiliary_assumption_ids": [
+        "ASM-001",
+        "ASM-002",
+        "ASM-004",
+        "ASM-005"
+      ],
+      "claim_ids": [
+        "CLM-001"
+      ],
+      "id": "H-Q0",
+      "kind": "statistical-null",
+      "label": "Quality loss reaches or exceeds maximum acceptable amount",
+      "scope": "Fixed initial teams and tasks",
+      "statement": "Delta_F <= -0.05"
+    }
+  ],
+  "identification": {
+    "assumption_ids": [
+      "ASM-001",
+      "ASM-002",
+      "ASM-003",
+      "ASM-004",
+      "ASM-005",
+      "ASM-006"
+    ],
+    "causal_and_measurement_structure": "Group coins independent within pairs identify mean offer effects, conditional on consistency/no between-cluster interference and valid outcomes; exact point expectation follows by averaging the two possible coins",
+    "diagnostics": [
+      "Prospective pair/task/score ledger",
+      "Collection calibration and blind checks",
+      "Cross-group link log"
+    ],
+    "identified_parameters": [
+      "Equal-team mean workflow-offer effects under stated hypotheses"
+    ],
+    "nonidentified_alternatives": [
+      "Actual-use dose effect",
+      "AI component mechanism",
+      "Organisation-wide changed-intake effect"
+    ],
+    "rescue_actions": [
+      "Repair measurement or enlarge clusters before randomisation",
+      "Report outcome bounds and retain inconclusive status after material assumption failure"
+    ],
+    "status": "identified",
+    "target_estimand_ids": [
+      "EST-L",
+      "EST-Q"
+    ],
+    "threats": [
+      "Measurement bias",
+      "Interference",
+      "Changed requirements or scores",
+      "Missing endpoints"
+    ]
+  },
+  "implementation": {
+    "analysis": {
+      "artifact": "planning.py implemented for hypothetical rehearsal; actual study analysis must be versioned before data",
+      "failure_response": "Retain specified status when calibration/information targets fail",
+      "procedure": "Mean of within-pair AI-minus-comparator outcomes; Student-t standard error over pairs; expand by declared measurement-bias allowance"
+    },
+    "assignment": {
+      "artifact": "Actual allocation script planned; hypothetical coin flips implemented in planning.py",
+      "failure_response": "Reject missing initial manifests or invalid group coin log",
+      "procedure": "Record initial tasks/scores and match teams on pre-group characteristics; independent fair coin chooses AI access within each pair"
+    },
+    "collection": {
+      "artifact": "Workplace ledger/collector planned; no field data collected",
+      "failure_response": "No benefit claim when primary endpoint unresolved",
+      "procedure": "Contemporaneous ledger plus contributing-person list, capacity checks and separately collected validation evidence"
+    },
+    "scoring": {
+      "artifact": "Requirement check materials planned",
+      "failure_response": "Repair criteria and retain scores/bounds; no readiness claim",
+      "procedure": "Recorded requirement criteria, two masked reviewers on all pilot tasks and a prespecified principal subset, severe-defect record"
+    },
+    "status": "planned",
+    "traceability": [
+      {
+        "artifact": "planning.py simulate and verification",
+        "check_ids": [
+          "V-ASSIGN",
+          "V-PIPE"
+        ],
+        "protocol_ref": "/design/assignment_method"
+      },
+      {
+        "artifact": "Ledger and collection materials planned",
+        "check_ids": [
+          "V-COLLECT",
+          "V-PIPE"
+        ],
+        "protocol_ref": "/measurements/0"
+      },
+      {
+        "artifact": "Independent requirement checking planned",
+        "check_ids": [
+          "V-SCORE",
+          "V-PIPE"
+        ],
+        "protocol_ref": "/measurements/1"
+      },
+      {
+        "artifact": "planning.py analyse",
+        "check_ids": [
+          "V-ANALYSE",
+          "V-PIPE"
+        ],
+        "protocol_ref": "/analysis/models/0"
+      }
+    ],
+    "verification": [
+      {
+        "case": "Average both possible coins in a pair",
+        "evidence": "planning.py verification(); planning-results.json/verification",
+        "expected_result": "Exact unbiased pair mean effect",
+        "id": "V-ASSIGN",
+        "observed_result": "Fraction identity passed",
+        "stage": "assignment",
+        "status": "passed"
+      },
+      {
+        "case": "Missing endpoint and omitted contributor detection",
+        "evidence": null,
+        "expected_result": "No silent complete-case benefit claim",
+        "id": "V-COLLECT",
+        "observed_result": null,
+        "stage": "collection",
+        "status": "planned"
+      },
+      {
+        "case": "Known correct/incorrect/ambiguous requirements",
+        "evidence": null,
+        "expected_result": "Measure sensitivity and disagreement under masked labels",
+        "id": "V-SCORE",
+        "observed_result": null,
+        "stage": "scoring",
+        "status": "planned"
+      },
+      {
+        "case": "Known benefit, quality harm and missing endpoint arrays",
+        "evidence": "planning.py verification(); planning-results.json/verification",
+        "expected_result": "Benefit only for complete beneficial rows",
+        "id": "V-ANALYSE",
+        "observed_result": "All asserted decision overrides passed",
+        "stage": "analysis",
+        "status": "passed"
+      },
+      {
+        "case": "Simulated pair allocation, team endpoint generation, measurement noise and analysis across24cells; no actual field collection/scoring execution",
+        "evidence": "planning-results.json",
+        "expected_result": "Retain partialnull/harm/failure cases and MonteCarlo uncertainty; no readinesspromotion",
+        "id": "V-PIPE",
+        "observed_result": "24cells\u00d720000replications evaluated; no principal candidate adequate",
+        "stage": "pipeline",
+        "status": "passed"
+      }
+    ]
+  },
+  "interventions_or_exposures": [
+    {
+      "admissibility": "conditional",
+      "description": "Provide one recorded AI coding-tool package and working practices",
+      "dose_or_intensity": "Access is the randomised condition; actual use and refusals are separately recorded",
+      "id": "INT-001",
+      "implementation": "Toolset manifest must record provider/model/build, prompts, context, repository read/edit/test permissions, maximum concurrent processes, resource budgets, review and release rules before pilot",
+      "kind": "intervention",
+      "manipulation_checks": [
+        "Tool access/version logs and actual-use record"
+      ],
+      "off_target_checks": [
+        "Review, concurrency, resource pressure and cross-group code/person sharing"
+      ],
+      "recovery_checks": [
+        "No crossover; record version changes as deviations, not replacement without amendment"
+      ],
+      "target": "Whole development workflow, including prompting, review and repair",
+      "timing": "No group switching; provide access after initial tasks and scores recorded; follow each task for28days"
+    }
+  ],
+  "investigation_id": "INV-AI-LABOUR-001",
+  "measurements": [
+    {
+      "blinding": "Outcome reviewers concealed from comparison labels where possible; record failures",
+      "calibration": "Known scripted-duration, overlap, missing-contributor and off-keyboard cases; account for residual reference uncertainty",
+      "construct_ids": [
+        "CON-L"
+      ],
+      "error_model": "Mean-zero cluster measurement variation in planning plus provisional difference-bias allowance 0.2 hours/reference unit; empirical justification absent",
+      "id": "M-L",
+      "instrument_or_procedure": "Contemporaneous ledger plus contributing-person list, capacity checks and separately collected validation evidence",
+      "measurement_invariance": "Same collection and scoring procedures across groups; pilot must assess differential error",
+      "observable": "Participant-recorded allocations by person, task and type of work in a complete 15-minute ledger",
+      "preprocessing": "Initial reference score is one unit per recorded requirement-task for this concrete plan. Every person interval appears once across tasks/teams. Use a prospective attribution rule for shared review/platform time, never double-count; retain ambiguous allocation as bounds or unresolved records, not exact imputed totals. Sampling estimates are not deterministic interval totals.",
+      "reactivity": "Recording and reviewer feedback may alter work; log feedback and count attributable repair within window",
+      "reliability": "Duplicate selected person-days and report disagreement without treating it as accuracy",
+      "scale_or_units": "person-hours per initial reference unit",
+      "timing": "Ledger throughout672hours for every initial task; no selection by first acceptance or eventual completion",
+      "validity": "True-labour interpretation conditional on contributor coverage, shared-work attribution and supported differential-bias evidence; ambiguous/missing endpoints block affirmative claim under this version."
+    },
+    {
+      "blinding": "Outcome reviewers concealed from comparison labels where possible; record failures",
+      "calibration": "Known correct/incorrect/ambiguous requirement cases and prospective score rules",
+      "construct_ids": [
+        "CON-Q"
+      ],
+      "error_model": "Mean-zero cluster scoring variation in planning plus provisional difference-bias allowance 0.01; empirical justification absent",
+      "id": "M-Q",
+      "instrument_or_procedure": "Recorded requirement criteria, two masked reviewers on all pilot tasks and a prespecified principal subset, severe-defect record",
+      "measurement_invariance": "Same collection and scoring procedures across groups; pilot must assess differential error",
+      "observable": "Acceptance status and fraction of accepted requirements still satisfied at follow-up",
+      "preprocessing": "Keep initial requirements, reference scores, scope changes and original group labels; no post-outcome exclusions",
+      "reactivity": "Recording and reviewer feedback may alter work; log feedback and count attributable repair within window",
+      "reliability": "Between-reviewer disagreement reported separately from validity",
+      "scale_or_units": "retained fraction of fixed initial reference total",
+      "timing": "Acceptance by336hours; retained output checked336hours after first acceptance; all labour followed672hours",
+      "validity": "Quality preservation pertains to required output; severe security/reliability consequences reported separately"
+    }
+  ],
+  "method_selection": {
+    "alternatives_considered": [
+      "48 versus96teams",
+      "Crossover rejected because learning/code carryover changes comparison",
+      "Task-only randomisation rejected where shared people/review transmit effects"
+    ],
+    "discovery_confirmation_separation": "Pilot tasks and outcomes not reused in principal trial; principal count not chosen from favourable pilot treatment effect",
+    "excluded_conclusions": [
+      "No organisation-wide adoption effect on incoming work",
+      "No effect of actual minutes of AI use",
+      "No component or mediator identification"
+    ],
+    "inference_framework": "Finite participating-team potential outcomes; unbiased paired mean estimate with empirically assessed t approximation",
+    "information_criterion": "Joint success>=.90 over required useful-effect scenarios; false joint success<=.035 at each partial null; coverage>=.94",
+    "permitted_conclusions": [
+      "Participating fixed-workload offer effect if assumptions and decisions pass",
+      "Measurement feasibility/nuisance findings from pilot"
+    ],
+    "primary_purpose": "causal-comparison",
+    "rationale": "Two workflow groups address an identified policy question; a pilot must resolve measurement before efficacy claims",
+    "secondary_purposes": [
+      "measurement",
+      "feasibility"
+    ],
+    "sources": [
+      "imai2009",
+      "hudgens2008",
+      "piaggio2012",
+      "morris2019",
+      "albers2018"
+    ]
+  },
+  "predictions": [],
+  "primary_claim_id": "CLM-001",
+  "provenance": {
+    "authors": [
+      "Codex design-scientific-investigations workflow; not an institutional investigator designation"
+    ],
+    "change_log": [
+      "1.0.0: specified pilot and conditional principal design; actual hypothetical planning evaluation, no workplace execution"
+    ],
+    "created_at": "2026-11-01T15:10:18.316518+00:00",
+    "knowledge_cut": "2026-11-01",
+    "sources": [
+      "imai2009",
+      "hudgens2008",
+      "piaggio2012",
+      "morris2019",
+      "albers2018"
+    ],
+    "updated_at": "2026-11-01T15:10:18.316518+00:00"
+  },
+  "question": "Does providing a specified AI toolset and working practices reduce all included person-hours per initial reference unit while preserving retained required output?",
+  "reproducibility": {
+    "code_plan": "Version and pin analysis before trial; planning.py/results retained here",
+    "data_plan": "Keep raw allocations and requirement checks, failed/missing records and provenance; no public release of sensitive work records assumed",
+    "deviation_and_amendment_plan": "Preserve original plan and time-stamped deviations; changes before confirmatory outcomes only with explicit new revision",
+    "immutable_materials": [
+      "Initial task/score/pair/group ledger",
+      "Tool manifest",
+      "Protocol and analysis code hashes"
+    ],
+    "preregistration_status": "planned",
+    "provenance_plan": "Record provider/model/tool/scoring and collector versions, timestamps and amendments",
+    "randomisation_or_seed_plan": "Study group coins generated by independent analyst after manifests recorded; reveal seed after group records fixed. Planning seed20261101 is separate.",
+    "registration": "Register final confirmed protocol before principal outcomes; no registration performed",
+    "replication_plan": "Separate teams/workloads needed for generalisation"
+  },
+  "sampling": {
+    "attrition_or_loss": "No affirmative claim if any team primary endpoint remains missing; all units retained in reporting",
+    "dependence_structure": "Independent pair coin flips; arbitrary within-team task dependence; no inflation of independent count by tasks/intervals",
+    "inputs": [
+      "No empirical nuisance inputs",
+      "Provisional thresholds and scenarios in planning.py"
+    ],
+    "method": "Institutional teams selected before group choice; fair within-pair coins; all initial tasks retained",
+    "minimum_detectable_effect": "Not estimated. Planning effect -2 hours/referenceunit differs from meaningful decision boundary -1; no effect-size substitution is made.",
+    "multiplicity": "Joint benefit requires both component conditions; secondary analyses descriptive",
+    "pilot_coverage": "Two pairs in each of three predeclared repository/work types within intended principal population; bounded procedural rehearsal, not precise variance or rare-loss estimation",
+    "result": "Neither principal candidate meets registered joint-success target over required hypothetical scenarios",
+    "sample_size_or_information_target": "Pilot6pairs\u00d72teams\u00d76tasks; compare principal24pairs/48teams with48pairs/96teams,20tasks/team",
+    "sensitivity_analysis": "Central/adverse matching and variation, each partial null with and without maximal favourable allowed bias, joint boundary, harm, beyond-bound bias failure and missing endpoints; no guarantee over arbitrary distributions",
+    "stopping_implications": "Fixed sample and complete28day follow-up; no efficacy peeking or optional extension"
+  },
+  "schema_version": "1.2",
+  "scope": {
+    "conditions": "Parallel AI-access versus no-generative-AI groups, exact delivery manifest required before pilot",
+    "exclusions": [
+      "No organisation-wide adoption effect on incoming work",
+      "No effect of actual minutes of AI use",
+      "No component or mediator identification"
+    ],
+    "knowledge_cut": "2026-11-01",
+    "spatial_scope": "Current design randomises one team/repository per cluster, with no material cross-cluster transmission; changed cluster definitions require a new estimator/planning revision preserving equal-team weighting",
+    "system_or_population": "Participating software teams with independently tracked initial requirement sets; no population-wide transport claim",
+    "temporal_scope": "Pilot and separate principal study: tau=Delta=336hours (14calendar days each); labour followup672hours (28days)"
+  },
+  "skill_application": {
+    "advertised_validator_resource": "scripts/validate_investigation.py",
+    "fallback": "validate_protocol.py bounded local record/reference/numeric checker; no bundled validation claim",
+    "package": "skill://user/6a6c2c1a28408191b2a9b61febb38667/design-scientific-investigations",
+    "resource_result": "failed to read skill resource",
+    "resources_read": [
+      "SKILL.md",
+      "references/power-and-allocation.md",
+      "references/design-and-inference-controls.md",
+      "references/implementation-workflow.md",
+      "references/investigation-protocol-contract.md",
+      "references/design-adequacy-contract.md"
+    ],
+    "skill": "design-scientific-investigations",
+    "template_resource": "assets/investigation-protocol.template.json",
+    "template_sha256": "7f8318f5142b1b1f6b13cd5f75db7500dc9c54b407ca2b362ef9ad007d9d002a"
+  },
+  "status": "specified",
+  "time_axis": {
+    "Delta": 336,
+    "calendar_conversion": "24hours percalendar day; each14dayinterval=336hours",
+    "labour_followup": 672,
+    "tau": 336,
+    "unit": "hours"
+  },
+  "title": "Fixed-workload paired-team AI workflow comparison",
+  "units": {
+    "analysis_unit": "Independent matched pair, each team given equal weight",
+    "assignment_unit": "Team within a matched pair",
+    "exclusion_criteria": [
+      "Dependencies that cannot be separated or clustered before randomisation",
+      "No valid retained-output criteria or labour record process"
+    ],
+    "experimental_unit": "One team/repository cluster in this version; a multi-team cluster requires revised estimator weights and planning before randomisation",
+    "inclusion_criteria": [
+      "Requirements and scoring inputs recorded before group choice",
+      "Positive fixed reference total",
+      "Team can supply complete labour and follow-up records"
+    ],
+    "observational_unit": "Task, person-time record and follow-up requirement check",
+    "recruitment_or_selection": "Convenience institutional participation before group choice; no representativeness claim; keep recruitment log",
+    "sampling_frame": "Complete roster of participating teams, initial requirements and all contributors; not a commit-selected frame",
+    "target_population_or_system": "Participating software teams with independently tracked initial requirement sets; no population-wide transport claim"
+  },
+  "version": "1.0.0"
+}

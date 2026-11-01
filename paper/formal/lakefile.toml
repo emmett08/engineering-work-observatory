@@ -1,0 +1,11 @@
+name = "LabourBounds"
+version = "0.1.0"
+defaultTargets = ["LabourBounds"]
+
+[[lean_lib]]
+name = "LabourBounds"
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.33.1"

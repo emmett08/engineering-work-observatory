@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "status": "derived",
-  "input_sha256": "d56ba16ee28db44c2a8fd7561f725b8cc06a7509c649cd213fafeaa092496272",
+  "input_sha256": "32de0c0d07a278623a0358ec08cccb1ddae992812009c2f79714d3ffae799dff",
   "arithmetic": "fractions.Fraction; all reported rational values are exact strings",
   "units": {
     "time": "hours",
@@ -53,6 +53,49 @@
     ]
   },
   "continuum_construction": "For each real x in [0,1], set y=1-x. Use constant rates (A,B)=(x,1-x) in the first hour and (1-x,x) in the second. Rates are nonnegative, sum to one in each hour, and give one person-hour per task.",
+  "timeline": {
+    "point_label": "P",
+    "first_hour_totals": [
+      "1/2",
+      "1/2"
+    ],
+    "allocation_rate_when_active": "1",
+    "blocks": [
+      {
+        "task": "A",
+        "start": "0",
+        "end": "1/2"
+      },
+      {
+        "task": "B",
+        "start": "1/2",
+        "end": "1"
+      },
+      {
+        "task": "A",
+        "start": "1",
+        "end": "3/2"
+      },
+      {
+        "task": "B",
+        "start": "3/2",
+        "end": "2"
+      }
+    ],
+    "interval_convention": "Half-open blocks; the final endpoint takes the final block's value. Endpoint values do not change labour integrals.",
+    "checks": {
+      "positive_disjoint_consecutive_blocks": true,
+      "full_interval_totals": {
+        "A": "1",
+        "B": "1"
+      },
+      "first_hour_totals": {
+        "A": "1/2",
+        "B": "1/2"
+      }
+    },
+    "scope": "One constructed attaining schedule for P. Neither the true schedule nor a unique schedule is inferred. Work may switch at arbitrary times."
+  },
   "verification": {
     "grid_denominator": 32,
     "grid_pairs": 1089,

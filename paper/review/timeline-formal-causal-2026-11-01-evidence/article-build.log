@@ -1,0 +1,10 @@
+make: Entering directory '/workspace/work/engineering-work-observatory/paper'
+cd article && latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error -outdir=../build main.tex
+Rc files read:
+  /etc/LatexMk
+Latexmk: This is Latexmk, John Collins, 11 Dec. 2024. Version 4.86.
+Latexmk: Nothing to do for 'main.tex'.
+Latexmk: All targets (/workspace/work/engineering-work-observatory/paper/build/main.pdf) are up-to-date
+
+cp build/main.pdf ai-assisted-software-engineering.pdf
+make: Leaving directory '/workspace/work/engineering-work-observatory/paper'

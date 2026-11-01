@@ -77,6 +77,44 @@ can support a labour confidence interval. The review includes actual separate
 agent exchanges, independent proof/source checking, exact constructed examples
 and a resumable checkpoint. It adds no Lean certification or empirical validation.
 
+Figure 1 now links its marked midpoint to a compact timeline: alternating half-hour
+periods on tasks A and B attain the same first-hour totals with one activity at a
+time. The figure retains its original dimensions and includes exact calculations,
+colour/greyscale exports, two layout prototypes and a fresh independent reading.
+
+The [causal-study protocol](study/ai-labour-causal/README.md) specifies a separate
+measurement pilot and a fixed-workload, matched-pair team experiment. The paper
+includes a concise account; the companion records estimands, clocks, measurement,
+analysis, missingness and a conditional principal-study selection rule. Its
+24 design--scenario cells each use 20,000 simulated experiments. Neither examined
+principal allocation meets the provisional joint labour-and-retained-output
+criterion across the required assumptions. These are planning calculations,
+not workplace observations or evidence of an AI benefit. The protocol remains
+specified and unrun.
+
+The [citation audit](review/citation-audit-2026-11-01/README.md) supplies missing
+attribution for the full-attention construction and the hidden-Markov-model
+identifiability qualification, together with the methodological references used
+by the study design. Every added bibliography entry is tied to text that uses it.
+
+The new [Lean supplement](formal/README.md) adds 54 checked theorems for the
+interval-integral/cell-total connection, local integrated capacity constraints,
+full-attention reconstruction, supplied primal--dual certificates and conditional
+sampling coverage. The pinned Lean 4.33.1/mathlib v4.33.1 build, all-export axiom
+audit, independent statement review and fresh kernel replay passed. Its receipt
+records the three standard logical axioms and exact source/evidence hashes.
+General LP existence and strong-duality existence, the separate block-count
+bound, empirical premises and Rust source refinement remain outside this new
+formal coverage. The earlier MAS review's unavailable-proof status describes
+that earlier run; the new supplement has its own evidence and preserves the
+historical proof package unchanged.
+
+Run `make -C paper formal` with the pinned Lean tools on PATH for a fresh build,
+axiom audit and kernel replay. The ordinary paper check also validates the
+committed receipt without claiming that static validation executes Lean.
+A dedicated workflow repeats the actual proof checks for changes to the formal
+sources and the corresponding manuscript section.
+
 ## Original paper and proof evidence
 
 [`effort-speed-ai/`](effort-speed-ai/) is the complete original package moved from

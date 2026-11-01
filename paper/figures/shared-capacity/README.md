@@ -18,15 +18,28 @@ are `[0,1]`; capacity in both hours forces their combined total to one person-ho
   and PDF hashes, bounded mechanical checks and separate agent review.
 
 The side-by-side layout leads from the constraint geometry to the combined total.
-`prototypes/stacked.tikz.tex` and `prototypes/stacked.pdf` retain a rendered
-111 mm-high alternative. Its additional 31 mm does not enlarge the square or
-intervals. The selected layout also retains explicit `x+y` labels. Both survive
-greyscale; the reviewer preferred the side-by-side reading order.
+The added panel (c) marks `P=(0.5,0.5)` on the same diagonal and supplies one
+attaining schedule: A for the first half-hour, B for the next, then A and B for
+another half-hour each. Every task receives one person-hour over the two hours,
+including half a person-hour in the first hour. The timeline assumes arbitrary
+interruption. It does not identify an observed or unique history.
+
+`prototypes/compact-timeline.tikz.tex` and its PDF retain the compact composition;
+`prototypes/bottom-timeline.tikz.tex` and its PDF retain a 112 mm-high alternative
+with the timeline below both original panels. The compact composition keeps the
+original 80 mm height and 52 mm-square plot, with a legible 54 mm time axis in the
+right column. The bottom alternative gives the timeline 104 mm but adds 32 mm
+of height without revealing another quantity. Both use the same point, intervals
+and type sizes. The earlier `stacked` prototype remains a historical comparison
+of the two-panel figure, rather than an alternative for the current three panels.
 
 The square contains pairs permitted by separate bounds; the diagonal contains
 jointly feasible pairs. The capped interval and diamond show the sum projections
 `[0,2]` and `{1}`. These are deterministic sets, with no probability or
-empirical-frequency meaning. A point gives interval totals, not a complete schedule.
+empirical-frequency meaning. A point alone gives interval totals. Panel (c)
+adds a particular complete schedule whose integrals equal the marked totals.
+Task identities remain directly labelled A and B in greyscale; the bars encode
+elapsed time, not probability or the number of people.
 
 ## Build and check
 
@@ -50,6 +63,11 @@ rational reconstruction checks 1,089 grid pairs: 33 feasible, 528 violating
 first-hour capacity and 528 violating second-hour capacity, plus three explicit
 feasible schedules and four rejected pairs. The continuum result follows from
 the two capacity inequalities; finite checks do not replace that argument.
+The midpoint timeline is derived from its exact cell masses. Separate overlap
+integration checks both whole-task totals, both first-hour totals and their
+combined first-hour total. The four blocks are positive, disjoint and consecutive,
+covering the observation interval at full attention. Their endpoints and task
+identity are retained in `calculation.json`, with generated TeX interval lists.
 
 `render.py` records PDF dimensions, text/stroke floors, vector content, expected
 labels, actual local TeX inputs and hashes. `verify.py` checks schemas, typed
@@ -65,3 +83,11 @@ toolchain. Different tool versions can change bytes and require renewed bindings
 
 The semantic review is agent screening. Human interpretation benefit remains
 unmeasured by agent screening.
+The current independent reader was `/root/timeline_panel/timeline_reader`.
+Its image-and-caption-only reconstruction was recorded before specification
+comparison; both stages are retained in `semantic-review-initial.md` and
+`semantic-review-final.md`. It preferred the compact layout and accepted the
+point-to-schedule relation, final caption and colour/greyscale reading at the
+declared size. The exact calculation and the general theorem are outside that
+visual review's authority. Final manuscript placement is inspected separately
+when the article is rebuilt.

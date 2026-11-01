@@ -1,7 +1,8 @@
 //! Compute attainable labour ranges under exact interval and shared-capacity constraints.
 //!
-//! Cell masses exactly represent measurable fractional allocations for the declared
-//! streams. Rational input strings preserve observations without floating-point
+//! Cell masses exactly represent the declared measurable allocations and also admit
+//! consecutive full-attention blocks when interruption is unrestricted.
+//! Rational input strings preserve observations without floating-point
 //! conversion. Infeasibility is a model result; resource exhaustion is an error.
 use anyhow::{Result, ensure};
 use num_traits::Zero;
@@ -37,7 +38,7 @@ pub fn bound_labour(input: &LabourBoundInput) -> Result<LabourBoundReport> {
         maximum: None,
         productivity: None,
         limitations: vec![
-            "Bounds are conditional on declared streams, person identities, interval totals or deterministic observation bounds, and measurable fractional allocations.".into(),
+            "Bounds are conditional on declared streams, person identities, interval totals or deterministic observation bounds, and each person's available time.".into(),
             "Frame completeness, observation accuracy and attribution are not established by input validation. Sampled labour estimates do not become exact interval observations.".into(),
             "No minimum session length, task-interruption rule, smoothness constraint, switching cost, or causal AI effect is inferred.".into(),
             "Supplying known_output requires unit-weight non-overlapping target windows; invalid targets are rejected. A zero lower labour bound leaves productivity unavailable.".into(),

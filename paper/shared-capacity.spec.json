@@ -2,19 +2,20 @@
   "schema_version": "1.0",
   "figure_id": "shared-capacity",
   "purpose": {
-    "reader_question": "Why can separately uncertain task totals determine the combined labour exactly?",
-    "expected_reading": "The marginal square contains jointly impossible pairs; enforcing capacity in both hours leaves a diagonal whose sum is always one person-hour.",
-    "claim": "For this constructed saturated one-person example, adding separate bounds gives [0,2] first-hour person-hours, while joint constraints give exactly one.",
-    "scope": "One person, two tasks each totaling one person-hour over [0,2] hours, target [0,1], measurable fractional allocations allowed.",
+    "reader_question": "How can shared capacity fix the combined labour while allowing different task allocations and schedules?",
+    "expected_reading": "The separate square contains impossible pairs, the joint diagonal has fixed sum one, and the marked midpoint has an explicit one-activity-at-a-time schedule.",
+    "claim": "For this constructed saturated one-person example, separate bounds sum to [0,2] first-hour person-hours, joint constraints give exactly one, and consecutive full-attention blocks attain P=(1/2,1/2).",
+    "scope": "One person, two tasks each totalling one person-hour over [0,2] hours, target [0,1]. Fractional cell totals and full-attention schedules with arbitrary interruption are permitted.",
     "permitted_inferences": [
       "Membership in the specified sets of first-hour totals.",
-      "Shared capacity can improve combined labour bounds without additional observations."
+      "Shared capacity can improve combined labour bounds without additional observations.",
+      "The marked point has the particular illustrated attaining schedule; this does not identify the actual work history."
     ],
     "prohibited_inferences": [
       "A measured workplace result or causal effect of AI.",
       "A probability distribution or statistical confidence interval.",
       "Shared capacity always point-identifies aggregate labour.",
-      "A plotted pair specifies a complete time-allocation history."
+      "The marked point uniquely specifies its schedule, or panel (c) is an observed work history."
     ]
   },
   "inputs": [
@@ -22,29 +23,29 @@
       "id": "case",
       "path": "figures/shared-capacity/inputs.json",
       "status": "illustrative",
-      "source_reference": "Constructed two-task example in Section 4.1 of article/partial-identification.tex; manuscript baseline 0cde2de1a79d54a0b1c557d8ba986375f9b283c9.",
-      "sha256": "d56ba16ee28db44c2a8fd7561f725b8cc06a7509c649cd213fafeaa092496272"
+      "source_reference": "Constructed two-task example in article/partial-identification.tex Sections 4.1\u20134.2, at manuscript baseline 38c4ce40b789d4c5420c98ff1d568b39c3b1e798. The midpoint is selected for one illustrative full-attention schedule.",
+      "sha256": "32de0c0d07a278623a0358ec08cccb1ddae992812009c2f79714d3ffae799dff"
     },
     {
       "id": "calculation",
       "path": "figures/shared-capacity/calculation.json",
       "status": "derived",
       "source_reference": "Exact rational calculation and independent allocation reconstruction in calculate.py; deterministic derived sets, no empirical measurements.",
-      "sha256": "de285404947996a405bd7250c272bf5d3da133463486d5f40835031f1be6623d"
+      "sha256": "46682424c3e0606f168bb1f670dca38f03d7b4664640cc1a0caf0498f0d5073d"
     },
     {
       "id": "caption",
       "path": "figures/shared-capacity/caption.tex",
       "status": "derived",
       "source_reference": "Proposed caption states the constructed inputs, quantities, deterministic feasible sets and scope.",
-      "sha256": "a85de5b5c674c1ce1838e275298a9de1dcd3eee5792889e4a9d97ed04739488c"
+      "sha256": "f5bb12df4d2aa8cd6b8441f03cf3f4716f8509fe74794a288c2c11e90de966fd"
     },
     {
       "id": "alternative-text",
       "path": "figures/shared-capacity/alt-text.txt",
       "status": "derived",
       "source_reference": "Accessible description of the two plotted projections and their limitations.",
-      "sha256": "8fb6384a48ad8d2100aad847c287ab248745a7ea67291ba9fc04ea16b404fd72"
+      "sha256": "dd6ca79d69910133f448b84b7843b1d0a57c9afcf27c70306f7982a05bf4427d"
     }
   ],
   "quantities": [
@@ -52,7 +53,7 @@
       "id": "x",
       "label": "Task A first-hour labour",
       "unit": "person-hours",
-      "definition": "Person-hours assigned to Task A in [0,1]; the full [0,2] task total is one person-hour.",
+      "definition": "Person-hours spent on Task A in [0,1]; the full [0,2] task total is one person-hour.",
       "input_ids": [
         "case",
         "calculation"
@@ -72,7 +73,7 @@
       "id": "y",
       "label": "Task B first-hour labour",
       "unit": "person-hours",
-      "definition": "Person-hours assigned to Task B in [0,1]; the full [0,2] task total is one person-hour.",
+      "definition": "Person-hours spent on Task B in [0,1]; the full [0,2] task total is one person-hour.",
       "input_ids": [
         "case",
         "calculation"
@@ -107,6 +108,26 @@
         "kind": "interval",
         "definition": "Deterministic permitted values: each component is in [0,1]; adding separate bounds yields [0,2], while enforcing both capacity constraints yields the singleton {1}. No probability coverage is assigned."
       }
+    },
+    {
+      "id": "time",
+      "label": "Elapsed time in the illustrated schedule",
+      "unit": "hours",
+      "definition": "Elapsed time from the start of the two-hour observation interval.",
+      "input_ids": [
+        "case",
+        "calculation"
+      ],
+      "transformation": "Construct consecutive full-attention task blocks from the derived midpoint cell totals; lengths equal person-hours because one person works at rate one.",
+      "statistical_role": "derived",
+      "missingness": {
+        "state": "not_applicable",
+        "treatment": "A constructed schedule, with no empirical missing observations."
+      },
+      "uncertainty": {
+        "kind": "none",
+        "definition": "The drawn intervals are exact rational constructions; the actual history remains unidentified."
+      }
     }
   ],
   "constructions": [
@@ -139,6 +160,16 @@
         "case",
         "calculation"
       ]
+    },
+    {
+      "id": "attaining-schedule",
+      "kind": "other",
+      "definition": "P=(1/2,1/2). A occupies [0,1/2) and [1,3/2); B occupies [1/2,1) and [3/2,2], with the final endpoint following B. Each task totals one person-hour, including half a person-hour before time one.",
+      "method": "In each one-hour cell, place the A mass then the B mass in consecutive full-attention blocks. Exact overlap integration verifies the first-hour and whole-interval totals.",
+      "input_ids": [
+        "case",
+        "calculation"
+      ]
     }
   ],
   "encodings": [
@@ -155,7 +186,7 @@
       ],
       "scale_or_mapping": {
         "type": "linear",
-        "definition": "Both axes run from 0 to 1 person-hour over equal 52 mm lengths.",
+        "definition": "Both axes run from 0 to 1 person-hour over equal 52 mm lengths; the marked midpoint uses these same scales.",
         "domain": [
           0,
           1
@@ -232,6 +263,89 @@
           "joint constraints"
         ]
       }
+    },
+    {
+      "id": "marked-midpoint",
+      "marks": "teal diamond on the diagonal with a leader and P=(0.5,0.5) label",
+      "mark_role": "data_mark",
+      "channel": "position",
+      "represents": "The first-hour task totals attained by the schedule in panel (c).",
+      "interpretation": "quantitative",
+      "quantity_ids": [
+        "x",
+        "y"
+      ],
+      "construction_ids": [
+        "attaining-schedule"
+      ],
+      "scale_or_mapping": {
+        "type": "linear",
+        "definition": "Same x,y scales as panel (a); the diamond lies at the exact midpoint of the joint segment.",
+        "domain": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "timeline-length",
+      "marks": "four contiguous thick horizontal time intervals with A/B text",
+      "mark_role": "data_mark",
+      "channel": "length",
+      "represents": "The elapsed durations during which the person works wholly on each task.",
+      "interpretation": "quantitative",
+      "quantity_ids": [
+        "time"
+      ],
+      "construction_ids": [
+        "attaining-schedule"
+      ],
+      "scale_or_mapping": {
+        "type": "linear",
+        "definition": "Time axis 0\u20132 hours, 27 mm per hour. Each task interval spans half an hour. Interval bars are data marks, not diagram nodes.",
+        "domain": [
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "id": "timeline-task",
+      "marks": "dark teal intervals labelled A and light grey intervals labelled B",
+      "mark_role": "data_mark",
+      "channel": "tone",
+      "represents": "Task identity during each full-attention block.",
+      "interpretation": "categorical",
+      "construction_ids": [
+        "attaining-schedule"
+      ],
+      "scale_or_mapping": {
+        "type": "nominal",
+        "definition": "A is dark teal with white A labels; B is light grey with black B labels. Direct text preserves identity in greyscale.",
+        "domain": [
+          "A",
+          "B"
+        ]
+      }
+    },
+    {
+      "id": "timeline-boundary",
+      "marks": "dashed vertical line at time one",
+      "mark_role": "boundary",
+      "channel": "position",
+      "represents": "The first-hour target boundary.",
+      "interpretation": "quantitative",
+      "quantity_ids": [
+        "time"
+      ],
+      "scale_or_mapping": {
+        "type": "linear",
+        "definition": "At one hour on the schedule time axis; the line separates the two cells and does not signify an observed event.",
+        "domain": [
+          0,
+          2
+        ]
+      }
     }
   ],
   "target": {
@@ -248,7 +362,9 @@
       "Combined first-hour labour",
       "Separate bounds added",
       "Joint constraints",
-      "Jointly feasible"
+      "Jointly feasible",
+      "One schedule for",
+      "Time (hours)"
     ]
   },
   "build": {
@@ -296,7 +412,9 @@
       "figures/shared-capacity/schemas/figure-spec.schema.json",
       "figures/shared-capacity/schemas/figure-review.schema.json",
       "figures/shared-capacity/verify.py",
-      "figures/shared-capacity/requirements.txt"
+      "figures/shared-capacity/requirements.txt",
+      "figures/shared-capacity/prototypes/compact-timeline.tikz.tex",
+      "figures/shared-capacity/prototypes/bottom-timeline.tikz.tex"
     ]
   }
 }

@@ -1,0 +1,16 @@
+{
+  "schema": "independent-semantic-review/1",
+  "reviewer": "/root/proof_fidelity",
+  "status": "REVIEWED",
+  "outcome": "MATCHED",
+  "formal_source_sha256": {
+    "LabourBounds/CellIntegrals.lean": "5dc0ebd29f48fdbb024c2f4854b92ed9e6392572d1910c877a07752a4db63da4",
+    "LabourBounds/Certificates.lean": "ce562fa2137a4170bb014e3cde5353679d38d151e3a812fb19955478ba73df75",
+    "semantic-map.md": "c2b047284a65727fb2c0fd4ea4973cd2d5602f4ade577f3cf8cace87484fdbd1"
+  },
+  "report": {
+    "path": "evidence/semantic-review.md",
+    "sha256": "d34c00e44e216c0a1f33468025897d6cdb9a5da4bcd0f443bf666f540a031c22"
+  },
+  "boundary": "Source statement correspondence and independently repeated axiom audit; no empirical or Rust-refinement claim."
+}

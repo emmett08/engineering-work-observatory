@@ -1,0 +1,26 @@
+ℹ [2569/2572] Built LabourBounds.Certificates (1.8s)
+info: LabourBounds/Certificates.lean:284:0: 'LabourBounds.Certificates.transpose_objective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LabourBounds/Certificates.lean:285:0: 'LabourBounds.Certificates.weak_dual_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LabourBounds/Certificates.lean:286:0: 'LabourBounds.Certificates.objective_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LabourBounds/Certificates.lean:287:0: 'LabourBounds.Certificates.weak_dual_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LabourBounds/Certificates.lean:288:0: 'LabourBounds.Certificates.weak_dual_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LabourBounds/Certificates.lean:289:0: 'LabourBounds.Certificates.equality_certifies_maximum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LabourBounds/Certificates.lean:290:0: 'LabourBounds.Certificates.equality_certifies_minimum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LabourBounds/Certificates.lean:291:0: 'LabourBounds.Certificates.equality_certifies_isGreatest' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LabourBounds/Certificates.lean:292:0: 'LabourBounds.Certificates.equality_certifies_isLeast' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LabourBounds/Certificates.lean:293:0: 'LabourBounds.Certificates.relaxed_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LabourBounds/Certificates.lean:294:0: 'LabourBounds.Certificates.feasible_after_relaxation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LabourBounds/Certificates.lean:295:0: 'LabourBounds.Certificates.relaxed_upper_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LabourBounds/Certificates.lean:296:0: 'LabourBounds.Certificates.relaxed_lower_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LabourBounds/Certificates.lean:297:0: 'LabourBounds.Certificates.true_vector_feasible_on_simultaneous_event' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: LabourBounds/Certificates.lean:298:0: 'LabourBounds.Certificates.simultaneous_event_subset_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LabourBounds/Certificates.lean:299:0: 'LabourBounds.Certificates.simultaneous_event_subset_certificate_target' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: LabourBounds/Certificates.lean:300:0: 'LabourBounds.Certificates.simultaneous_coverage_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LabourBounds/Certificates.lean:301:0: 'LabourBounds.Certificates.certificate_coverage_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [2570/2572] Built LabourBounds.CellIntegrals (2.3s)
+✔ [2571/2572] Built LabourBounds (1.4s)
+Build completed successfully (2572 jobs).

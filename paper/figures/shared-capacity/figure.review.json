@@ -1,108 +1,109 @@
 {
   "schema_version": "1.0",
   "figure_id": "shared-capacity",
-  "spec_sha256": "6a96c731c378943434c6bb500d79ef0e60992e92ccb6ef8d30238656ecefea47",
-  "audit_sha256": "8d67e489239460b8f0b7ecdf238b15cb0c32949541f755eaaafd5fad05d85b3e",
+  "spec_sha256": "78df70692f07d47d4357b7840667b12c293bfa5198906443b0205f2f3d08536b",
+  "audit_sha256": "bab8c8fa98fb6195b72083dcf9380dd6efa068be94980de23e64422fc8ff63e0",
   "artifacts": [
     {
       "role": "final_pdf",
       "path": "figures/shared-capacity/figure.pdf",
-      "sha256": "a998548f5f5990a3a6860c362badd98c1431604f9b3aeb1296fc863c5a1479be"
+      "sha256": "78e0d716dde404e578180954a2667e08219619d36083c1ffc58650aec23b0583"
     },
     {
       "role": "prototype",
-      "path": "figures/shared-capacity/figure.pdf",
-      "sha256": "a998548f5f5990a3a6860c362badd98c1431604f9b3aeb1296fc863c5a1479be"
+      "path": "figures/shared-capacity/prototypes/compact-timeline.pdf",
+      "sha256": "78e0d716dde404e578180954a2667e08219619d36083c1ffc58650aec23b0583"
     },
     {
       "role": "prototype",
-      "path": "figures/shared-capacity/prototypes/stacked.pdf",
-      "sha256": "a0f89b8768fd0cfcc01712cb367ee90c79a8b19c75102d3abaff7e81851f6f0a"
+      "path": "figures/shared-capacity/prototypes/bottom-timeline.pdf",
+      "sha256": "1244503509c286f244149a99353d1c2f9a448e0e14adb1973055dcd5e1bd519d"
     }
   ],
   "reviewer": {
-    "id": "figure_reader",
+    "id": "/root/timeline_panel/timeline_reader",
     "kind": "agent",
     "independence_declared": true,
     "scope": "agent_screening"
   },
   "candidates": [
     {
-      "id": "side-by-side",
-      "prototype": "figures/shared-capacity/figure.pdf",
+      "id": "compact-timeline",
+      "prototype": "figures/shared-capacity/prototypes/compact-timeline.pdf",
       "observations": {
-        "reading": "The initial blind reading reconstructed the marginal square, joint diagonal x+y=1, and projections [0,2] and {1}. A left-to-right reading connects constraints with their combined labour. The x+y axis and equality annotation expose the projection.",
-        "annotation_burden": "Direct labels avoid a separate legend. The lower-triangle exclusion takes one inferential step using the two-hour task totals. The rotated diagonal label adds a small reading burden but has no collision.",
-        "reproduction": "Readable colour and greyscale previews at 152.4 by 80 mm; 8.5--9.5 pt labels. Dark diagonal and diamond retain identity without colour."
+        "reading": "The image-and-caption-only reconstruction recovered separate square, joint diagonal and fixed combined total, and P-to-one-schedule linkage. The single row, labels and title made one-activity-at-a-time construction clear.",
+        "annotation_burden": "Direct A/B labels and P in the title/caption make another connector unnecessary. The compact rows remain readable; no collision or clipping was found.",
+        "reproduction": "152.4 by 80 mm, with unchanged 52 mm-square geometry and 54 mm time axis. Colour and greyscale preserve task identity, half-hour ticks and first-hour divider."
       }
     },
     {
-      "id": "stacked",
-      "prototype": "figures/shared-capacity/prototypes/stacked.pdf",
+      "id": "bottom-timeline",
+      "prototype": "figures/shared-capacity/prototypes/bottom-timeline.pdf",
       "observations": {
-        "reading": "Same square and diagonal above the combined-total comparison. Quantities and result can be recovered, but x+y axis/equality cues are absent.",
-        "annotation_burden": "Row labels sit nearer their marks, modestly aiding row identification. The plotting areas shift horizontally between panels, lengthening the visual path.",
-        "reproduction": "Same physical square and interval lengths, readable in greyscale, at 152.4 by 111 mm. Its additional 31 mm height does not resolve a collision or substantive reading problem."
+        "reading": "The same quantities, midpoint, four intervals and witness scope are recoverable. A longer timeline does not add another relation.",
+        "annotation_burden": "The simple schedule occupies almost the full width while panel (b) has substantial empty vertical space. The relation still depends on the explicit P title and caption.",
+        "reproduction": "152.4 by 112 mm, with a 104 mm time axis. Legible in colour and greyscale, but the extra 32 mm height adds no necessary semantic detail."
       }
     }
   ],
-  "selected_candidate": "side-by-side",
+  "selected_candidate": "compact-timeline",
   "initial_reconstruction": {
-    "claim": "First-hour capacity x+y<=1 and second-hour remaining labour 2-x-y<=1 intersect in x+y=1. Separately summed bounds give [0,2], while joint constraints give {1}.",
+    "claim": "First- and second-hour capacity restrict x+y to one. Adding separate bounds allows [0,2]. The marked P=(0.5,0.5) is realised by four alternating full-attention half-hour A/B intervals.",
     "quantities": [
-      "x: first-hour labour on Task A in person-hours.",
-      "y: first-hour labour on Task B in person-hours.",
-      "x+y: combined first-hour labour, with common 0--2 scale in panel (b)."
+      "x and y: first-hour labour on A and B in person-hours.",
+      "x+y: combined first-hour labour; panel-(b) rows are categorical, not a vertical quantity.",
+      "Panel-(c) position/length: elapsed time and task duration in hours; A/B text names the activity."
     ],
-    "evidence_status": "The caption explicitly identifies a constructed example, not measured evidence.",
-    "scope": "One person, two one-person-hour tasks and a two-hour completion window. The marks give interval totals rather than complete work schedules.",
+    "evidence_status": "The caption identifies a constructed example and an unobserved, nonunique schedule. No probability or estimated confidence is shown.",
+    "scope": "One person, two tasks totalling one person-hour each in two hours. The shown schedule witnesses only P; its arbitrary task switching is permitted by the model.",
     "unintended_inferences": [
-      "Shading can initially suggest joint feasibility; the regional labels, diagonal label and caption distinguish the square from the joint set.",
-      "The lower triangle requires reasoning about remaining work in the second hour.",
-      "Vertical positions of the rows in panel (b) have no quantitative meaning."
+      "The shaded square can initially suggest joint feasibility, but its exclusion labels and the caption identify it as the separate-bound set.",
+      "The single P witness does not prove the whole diagonal is attainable, identify the true history, or establish zero switching costs in real work.",
+      "The original subject \u201cschedule permits interruption\u201d was slightly imprecise; the revised caption makes switching a permission in the constructed example."
     ]
   },
   "comparison": {
     "matches": [
-      "The reconstructed inequalities and projected sets match the specification and exact rational calculation.",
-      "Fractional interval totals, deterministic status and the complete-schedule limitation remain clear.",
-      "Selected composition uses 31 mm less height while retaining the same plotted scales and the stronger projection labels."
+      "The independent reconstruction agrees with every specified quantity, interval, constraint and witness relation.",
+      "The compact rendering retains the original figure height and adequate direct labels.",
+      "Neither greyscale marks nor interval shapes introduce probability, causality or a unique-history claim."
     ],
     "findings": [
       {
-        "id": "shading",
+        "id": "caption-subject",
         "severity": "minor",
-        "description": "Readers may initially treat every shaded point as jointly feasible.",
-        "disposition": "accepted",
-        "reason": "The two excluded-region labels, directly labelled diagonal and caption explicitly state the separate-versus-joint distinction. The alternative retains the same residual burden."
+        "description": "The initial caption made the schedule the subject of permitting interruption.",
+        "disposition": "resolved",
+        "reason": "The final caption explicitly states that the example allows the person to switch tasks at arbitrary times. The reader confirmed that this resolves the caution."
       },
       {
-        "id": "diagonal-label",
+        "id": "separate-bounds",
         "severity": "minor",
-        "description": "The rotated label requires a small reading effort.",
+        "description": "\u201cSeparate bounds added\u201d requires the caption to distinguish marginal bounds from joint feasibility.",
         "disposition": "accepted",
-        "reason": "It follows the plotted line, avoids other marks and remains readable at final size and in greyscale."
+        "reason": "The caption states the separate-versus-joint calculation; the independent initial reconstruction recovered it correctly."
       },
       {
-        "id": "manuscript-placement",
+        "id": "point-linkage",
         "severity": "informational",
-        "description": "The selected figure is integrated at the start of page 6, after the Section 4.1 example and before the Section 4.2 formulation.",
+        "description": "No cross-panel arrow joins P to the timeline.",
         "disposition": "accepted",
-        "reason": "The complete page was inspected by the primary editor; the caption and following text fit without clipping."
+        "reason": "The marked point, \u201cOne schedule for P\u201d title and caption supplied an adequate explicit connection in the independent reader review."
       }
     ],
     "audit_warning_dispositions": [
       {
         "index": 0,
         "disposition": "accepted",
-        "reason": "The standalone class reports shell escape disabled. The ordinary TikZ picture compiles without external commands; enabling shell escape is unnecessary."
+        "reason": "The standalone class reports shell escape disabled. This ordinary TikZ picture uses no external commands and compiles without enabling shell escape."
       }
     ]
   },
   "decision": "accept",
   "limitations": [
     "Human interpretation benefit remains unmeasured by agent screening.",
-    "The skill schemas were available, but its bundled scripts were unavailable; the mechanical checks are the declared project-local subset.",
-    "The exact aggregate is a consequence of saturation in this constructed case; shared capacity need not always point-identify aggregate labour."
+    "The semantic reader did not independently execute the mathematical calculation or certify the general reconstruction proof. Exact calculation checks are a separate evidence item.",
+    "The skill schemas were available, but its bundled renderer/validator scripts were unavailable; project-local checks retain their declared bounded coverage.",
+    "The aggregate is exact because this constructed case saturates two hours of one person\u2019s capacity. That conclusion does not apply to every shared-capacity system."
   ]
 }

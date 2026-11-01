@@ -1,0 +1,46 @@
+{
+  "assessment_results": 86,
+  "bundled_skill_validator": "unavailable: exact advertised skill resource failed to read",
+  "designs": 2,
+  "failed_adequacy_cells": [
+    [
+      "D48",
+      "T-JOINT",
+      "central-benefit"
+    ],
+    [
+      "D48",
+      "T-JOINT",
+      "adverse-benefit"
+    ],
+    [
+      "D48",
+      "T-JOINT",
+      "incomplete-pairs"
+    ],
+    [
+      "D96",
+      "T-JOINT",
+      "central-benefit"
+    ],
+    [
+      "D96",
+      "T-JOINT",
+      "adverse-benefit"
+    ],
+    [
+      "D96",
+      "T-JOINT",
+      "incomplete-pairs"
+    ]
+  ],
+  "field_execution": "not-started",
+  "principal_adequacy": "unestablished",
+  "protocol_status": "specified",
+  "replications_per_cell": 20000,
+  "scenarios": 12,
+  "scope": "Record/calculation consistency only; not empirical or causal validation",
+  "simulation_cells": 24,
+  "status": "passed",
+  "validator": "bounded project-local structural/reference/numeric checks"
+}

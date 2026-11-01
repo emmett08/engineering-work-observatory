@@ -1,0 +1,526 @@
+{
+  "10.1007/s00182-005-0004-3": {
+    "DOI": "10.1007/s00182-005-0004-3",
+    "title": [
+      "The Dvoretzky-Wald-Wolfowitz theorem and purification in atomless finite-action games"
+    ],
+    "author": [
+      {
+        "given": "M. Ali",
+        "family": "Khan",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Kali P.",
+        "family": "Rath",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yeneng",
+        "family": "Sun",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "International Journal of Game Theory"
+    ],
+    "volume": "34",
+    "issue": "1",
+    "page": "91-104",
+    "published": {
+      "date-parts": [
+        [
+          2006,
+          3,
+          16
+        ]
+      ]
+    },
+    "published-online": {
+      "date-parts": [
+        [
+          2006,
+          3,
+          16
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2006,
+          4
+        ]
+      ]
+    }
+  },
+  "10.2140/pjm.1951.1.59": {
+    "DOI": "10.2140/pjm.1951.1.59",
+    "title": [
+      "Relations among certain ranges of vector measures"
+    ],
+    "author": [
+      {
+        "given": "A.",
+        "family": "Dvoretzky",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "A.",
+        "family": "Wald",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "J.",
+        "family": "Wolfowitz",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Pacific Journal of Mathematics"
+    ],
+    "volume": "1",
+    "issue": "1",
+    "page": "59-74",
+    "published": {
+      "date-parts": [
+        [
+          1951
+        ]
+      ]
+    },
+    "published-online": null,
+    "published-print": {
+      "date-parts": [
+        [
+          1951
+        ]
+      ]
+    }
+  },
+  "10.1214/09-AOS689": {
+    "DOI": "10.1214/09-aos689",
+    "title": [
+      "Identifiability of parameters in latent structure models with many observed variables"
+    ],
+    "author": [
+      {
+        "given": "Elizabeth S.",
+        "family": "Allman",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Catherine",
+        "family": "Matias",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "John A.",
+        "family": "Rhodes",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "The Annals of Statistics"
+    ],
+    "volume": "37",
+    "issue": "6A",
+    "page": "3099-3132",
+    "published": {
+      "date-parts": [
+        [
+          2009,
+          12,
+          1
+        ]
+      ]
+    },
+    "published-online": null,
+    "published-print": {
+      "date-parts": [
+        [
+          2009,
+          12,
+          1
+        ]
+      ]
+    }
+  },
+  "10.1287/mnsc.2025.00535": {
+    "DOI": "10.1287/mnsc.2025.00535",
+    "title": [
+      "The Effects of Generative AI on High-Skilled Work: Evidence from Three Field Experiments with Software Developers"
+    ],
+    "author": [
+      {
+        "given": "Kevin Zheyuan",
+        "family": "Cui",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Department of Economics, Princeton University, Princeton, New Jersey 08544"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-4300-4258",
+        "authenticated-orcid": false,
+        "given": "Mert",
+        "family": "Demirer",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Economics, Massachusetts Institute of Technology, Cambridge, Massachusetts 02139"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-8924-0294",
+        "authenticated-orcid": false,
+        "given": "Sonia",
+        "family": "Jaffe",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Microsoft Research, Microsoft Corporation, Redmond, Washington 98052"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-8409-6449",
+        "authenticated-orcid": false,
+        "given": "Leon",
+        "family": "Musolff",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "The Wharton School,  University of Pennsylvania, Philadelphia, Pennsylvania 19104"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Sida",
+        "family": "Peng",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Microsoft Research, Microsoft Corporation, Redmond, Washington 98052"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Tobias",
+        "family": "Salz",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Economics, Massachusetts Institute of Technology, Cambridge, Massachusetts 02139"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Management Science"
+    ],
+    "volume": null,
+    "issue": null,
+    "page": null,
+    "published": {
+      "date-parts": [
+        [
+          2026,
+          2,
+          27
+        ]
+      ]
+    },
+    "published-online": {
+      "date-parts": [
+        [
+          2026,
+          2,
+          27
+        ]
+      ]
+    },
+    "published-print": null
+  },
+  "10.3150/14-BEJ605": {
+    "DOI": "10.3150/14-bej605",
+    "title": [
+      "Concentration inequalities for sampling without replacement"
+    ],
+    "author": [
+      {
+        "given": "R\u00e9mi",
+        "family": "Bardenet",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Odalric-Ambrym",
+        "family": "Maillard",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Bernoulli"
+    ],
+    "volume": "21",
+    "issue": "3",
+    "page": "1361-1385",
+    "published": {
+      "date-parts": [
+        [
+          2015,
+          8,
+          1
+        ]
+      ]
+    },
+    "published-online": null,
+    "published-print": {
+      "date-parts": [
+        [
+          2015,
+          8,
+          1
+        ]
+      ]
+    }
+  },
+  "10.1007/978-3-030-79876-5_37": {
+    "DOI": "10.1007/978-3-030-79876-5_37",
+    "title": [
+      "The Lean 4 Theorem Prover and Programming Language"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-5158-4726",
+        "authenticated-orcid": false,
+        "given": "Leonardo de",
+        "family": "Moura",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-2777-8117",
+        "authenticated-orcid": false,
+        "given": "Sebastian",
+        "family": "Ullrich",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Lecture Notes in Computer Science",
+      "Automated Deduction \u2013 CADE 28"
+    ],
+    "volume": null,
+    "issue": null,
+    "page": "625-635",
+    "published": {
+      "date-parts": [
+        [
+          2021
+        ]
+      ]
+    },
+    "published-online": {
+      "date-parts": [
+        [
+          2021,
+          7,
+          5
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2021
+        ]
+      ]
+    }
+  },
+  "10.1145/3372885.3373824": {
+    "DOI": "10.1145/3372885.3373824",
+    "title": [
+      "The lean mathematical library"
+    ],
+    "author": [
+      {
+        "family": "The mathlib Community",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "n.n., n.n."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Proceedings of the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs"
+    ],
+    "volume": null,
+    "issue": null,
+    "page": "367-381",
+    "published": {
+      "date-parts": [
+        [
+          2020,
+          1,
+          20
+        ]
+      ]
+    },
+    "published-online": {
+      "date-parts": [
+        [
+          2020,
+          1,
+          22
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2020,
+          1,
+          20
+        ]
+      ]
+    }
+  }
+}

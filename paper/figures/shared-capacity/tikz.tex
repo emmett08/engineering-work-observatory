@@ -38,27 +38,54 @@
   \node[sccontext,text width=27mm] at (31.5,30)
     {Exceeds second-hour\\capacity};
   \node[rotate=-45,text=scaccent,font=\fontsize{8.5}{10}\selectfont]
-    at (44,48.5) {Jointly feasible};
+    at (32,60) {Jointly feasible};
+  \path[fill=scaccent,draw=white,line width=0.45pt]
+    (44,45.35) -- (45.35,44) -- (44,42.65) -- (42.65,44) -- cycle;
+  \draw[draw=scaccent,line width=0.45pt] (45.2,44.7) -- (48.5,47);
+  \node[anchor=west,text=scaccent,font=\fontsize{8.5}{10}\selectfont]
+    at (50,47) {$P=(\SCTimelineX,\SCTimelineY)$};
 
   % Panel (b): linear projection (x,y) -> x+y on a common 0--2 scale.
-  \node[anchor=west] at (91,62) {Separate bounds added};
+  \node[anchor=west] at (91,65) {Separate bounds added};
   \draw[draw=black!45,line width=2pt]
-    ({91+27*\SCSeparateTotalMinimum},55)
-    -- ({91+27*\SCSeparateTotalMaximum},55);
+    ({91+27*\SCSeparateTotalMinimum},59)
+    -- ({91+27*\SCSeparateTotalMaximum},59);
   \foreach \v in {\SCSeparateTotalMinimum,\SCSeparateTotalMaximum} {
     \draw[draw=black!55,line width=0.65pt]
-      ({91+27*\v},53.4) -- ({91+27*\v},56.6);
+      ({91+27*\v},57.4) -- ({91+27*\v},60.6);
   }
-  \node[anchor=west] at (91,45.5) {Joint constraints};
-  \path[fill=scaccent] ({91+27*\SCJointTotal},39)
+  \node[anchor=west] at (91,50.5) {Joint constraints};
+  \path[fill=scaccent] ({91+27*\SCJointTotal},46.85)
     -- ++(1.35,-1.35) -- ++(-1.35,-1.35) -- ++(-1.35,1.35) -- cycle;
-  \node[text=scaccent] at ({91+27*\SCJointTotal},30.5)
+  \node[anchor=west,text=scaccent] at (126,45.5)
     {$x+y=\SCJointTotal$};
-  \draw[scaxis] (91,20) -- (145,20);
+  \draw[scaxis] (91,41.5) -- (145,41.5);
   \foreach \v in {0,1,2} {
-    \draw[scaxis] ({91+27*\v},20) -- ({91+27*\v},18.7);
-    \node[anchor=north] at ({91+27*\v},16.5) {\v};
+    \draw[scaxis] ({91+27*\v},41.5) -- ({91+27*\v},40.2);
+    \node[anchor=north] at ({91+27*\v},38.5) {\v};
   }
-  \node[align=center] at (118,6)
-    {Combined labour, $x+y$\\(person-hours)};
+  \node[font=\fontsize{8.5}{10}\selectfont] at (118,32)
+    {Combined labour, $x+y$ (person-hours)};
+
+  % Panel (c): each thick interval is a quantitative time mark, not a node.
+  % The arbitrary within-hour switches construct one witness for the point P.
+  \node[sctitle] at (87,26) {(c) One schedule for $P$};
+  \foreach \start/\finish in \SCTaskABlocks {
+    \draw[draw=scaccent,line width=4mm,line cap=butt]
+      ({91+27*\start},20) -- ({91+27*\finish},20);
+    \node[text=white] at ({91+27*(\start+\finish)/2},20) {A};
+  }
+  \foreach \start/\finish in \SCTaskBBlocks {
+    \draw[draw=black!18,line width=4mm,line cap=butt]
+      ({91+27*\start},20) -- ({91+27*\finish},20);
+    \node at ({91+27*(\start+\finish)/2},20) {B};
+  }
+  \draw[scaxis,densely dashed] (118,15.5) -- (118,23.5);
+  \draw[scaxis] (91,15.5) -- (145,15.5);
+  \foreach \v in {0,0.5,1,1.5,2} {
+    \draw[scaxis] ({91+27*\v},15.5) -- ({91+27*\v},14.2);
+    \node[anchor=north,font=\fontsize{8.5}{10}\selectfont]
+      at ({91+27*\v},12.5) {\v};
+  }
+  \node[font=\fontsize{8.5}{10}\selectfont] at (118,3.5) {Time (hours)};
 \end{tikzpicture}%

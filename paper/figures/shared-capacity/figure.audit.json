@@ -2,10 +2,10 @@
   "audit_kind": "project-local bounded mechanical checks",
   "limitation": "The skill's bundled figure_spec.py/render_tikz.py/figure_review.py were unavailable. This script does not claim their full validation coverage.",
   "source": "figures/shared-capacity/tikz.tex",
-  "source_sha256": "db92a69eed3d3e5e1e695d4028e7e0a1e8c39184407ac2f6b7eabf854840f319",
+  "source_sha256": "5cf5a1f69b9792635184d92644be580ab8d33ede0f0b941f7226c27ba17f0888",
   "pdf": "figures/shared-capacity/figure.pdf",
-  "pdf_sha256": "a998548f5f5990a3a6860c362badd98c1431604f9b3aeb1296fc863c5a1479be",
-  "spec_sha256": "6a96c731c378943434c6bb500d79ef0e60992e92ccb6ef8d30238656ecefea47",
+  "pdf_sha256": "78e0d716dde404e578180954a2667e08219619d36083c1ffc58650aec23b0583",
+  "spec_sha256": "78df70692f07d47d4357b7840667b12c293bfa5198906443b0205f2f3d08536b",
   "engine": "pdflatex",
   "python": "3.12.14",
   "python_packages": {
@@ -18,6 +18,7 @@
   "min_text_pt": 8.499874112606047,
   "min_stroke_pt": 0.45000120136886834,
   "fonts": [
+    "LMMathItalic10-Regular",
     "LMMathItalic9-Regular",
     "LMRoman10-Bold",
     "LMRoman9-Regular"
@@ -26,27 +27,35 @@
   "inputs": [
     {
       "path": "figures/shared-capacity/alt-text.txt",
-      "sha256": "8fb6384a48ad8d2100aad847c287ab248745a7ea67291ba9fc04ea16b404fd72"
+      "sha256": "dd6ca79d69910133f448b84b7843b1d0a57c9afcf27c70306f7982a05bf4427d"
     },
     {
       "path": "figures/shared-capacity/calculate.py",
-      "sha256": "b87ebfe6b26f35660541269522d6a50408f7577722bcbb6cb307ec00f7b2edc0"
+      "sha256": "a3112a4688725a541c9310a92d0d20d0bb44289a7e55619971637c9b116cf22f"
     },
     {
       "path": "figures/shared-capacity/calculation.json",
-      "sha256": "de285404947996a405bd7250c272bf5d3da133463486d5f40835031f1be6623d"
+      "sha256": "46682424c3e0606f168bb1f670dca38f03d7b4664640cc1a0caf0498f0d5073d"
     },
     {
       "path": "figures/shared-capacity/caption.tex",
-      "sha256": "a85de5b5c674c1ce1838e275298a9de1dcd3eee5792889e4a9d97ed04739488c"
+      "sha256": "f5bb12df4d2aa8cd6b8441f03cf3f4716f8509fe74794a288c2c11e90de966fd"
     },
     {
       "path": "figures/shared-capacity/coordinates.tex",
-      "sha256": "4280b1c89608060f3566a65949f4bc4616100efe62e2ad050f66f89467642383"
+      "sha256": "1e7f223290a882f59f35ed5fa65ba2ebf987ac949a23d72f9039dee38910dddf"
     },
     {
       "path": "figures/shared-capacity/inputs.json",
-      "sha256": "d56ba16ee28db44c2a8fd7561f725b8cc06a7509c649cd213fafeaa092496272"
+      "sha256": "32de0c0d07a278623a0358ec08cccb1ddae992812009c2f79714d3ffae799dff"
+    },
+    {
+      "path": "figures/shared-capacity/prototypes/bottom-timeline.tikz.tex",
+      "sha256": "725eaf3ff3c82e69cca5a24b8c0f2843fa68347542279d57c5ff4f85e75bbcf6"
+    },
+    {
+      "path": "figures/shared-capacity/prototypes/compact-timeline.tikz.tex",
+      "sha256": "5cf5a1f69b9792635184d92644be580ab8d33ede0f0b941f7226c27ba17f0888"
     },
     {
       "path": "figures/shared-capacity/render.py",

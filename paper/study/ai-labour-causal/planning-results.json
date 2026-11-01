@@ -1,0 +1,2258 @@
+{
+  "adequate_candidates_in_registered_scenarios": [],
+  "analysis": {
+    "alpha_one_sided": 0.025,
+    "difference_bias_allowance_l": 0.2,
+    "difference_bias_allowance_q": 0.01,
+    "labour_boundary": -1.0,
+    "quality_boundary": -0.05,
+    "reported_coverage": "sensitivity-expanded intervals; raw t intervals are not claimed to have exact finite-sample coverage",
+    "success": "labour upper<boundary AND quality lower>boundary AND all team endpoints available"
+  },
+  "base_seed": 20261101,
+  "decision": "Principal-study adequacy unestablished; run specified measurement pilot and repeat planning with supported nuisance ranges. Never size from favourable pilot treatment effect.",
+  "designs": {
+    "D48": 24,
+    "D96": 48
+  },
+  "replications_per_cell": 20000,
+  "results": [
+    {
+      "collection_review_hours": 1056.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D48",
+      "joint_success": {
+        "count": 8957,
+        "denominator": 20000,
+        "estimate": 0.44785,
+        "mcse": 0.0035162506843227203,
+        "wilson_95": [
+          0.44096894446293694,
+          0.4547510848977148
+        ]
+      },
+      "labour_bias_complete_data": -0.0001556173188328458,
+      "labour_coverage": {
+        "count": 19729,
+        "denominator": 20000,
+        "estimate": 0.98645,
+        "mcse": 0.0008175083332908587,
+        "wilson_95": [
+          0.9847517299244638,
+          0.9879614381965521
+        ]
+      },
+      "labour_pass": {
+        "count": 9601,
+        "denominator": 20000,
+        "estimate": 0.48005,
+        "mcse": 0.0035327184822739554,
+        "wilson_95": [
+          0.4731304939273856,
+          0.48697716831125293
+        ]
+      },
+      "labour_true_null_rejection": null,
+      "mean_labour_halfwidth": 1.0375128566707847,
+      "mean_quality_halfwidth": 0.031694290353146096,
+      "pairs": 24,
+      "planned_task_count": 960,
+      "quality_bias_complete_data": 3.5707081096467766e-05,
+      "quality_coverage": {
+        "count": 19932,
+        "denominator": 20000,
+        "estimate": 0.9966,
+        "mcse": 0.0004116090378016473,
+        "wilson_95": [
+          0.9956923559047284,
+          0.9973169138843485
+        ]
+      },
+      "quality_pass": {
+        "count": 19052,
+        "denominator": 20000,
+        "estimate": 0.9526,
+        "mcse": 0.0015025518293889232,
+        "wilson_95": [
+          0.9495671373604043,
+          0.9554590316016097
+        ]
+      },
+      "quality_true_null_rejection": null,
+      "scenario_id": "central-benefit",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 48,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 1056.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D48",
+      "joint_success": {
+        "count": 401,
+        "denominator": 20000,
+        "estimate": 0.02005,
+        "mcse": 0.000991160872411739,
+        "wilson_95": [
+          0.018197529220441377,
+          0.022086806189813443
+        ]
+      },
+      "labour_bias_complete_data": 0.004128499214735015,
+      "labour_coverage": {
+        "count": 19416,
+        "denominator": 20000,
+        "estimate": 0.9708,
+        "mcse": 0.0011905326538990857,
+        "wilson_95": [
+          0.9683746613129399,
+          0.9730445175366319
+        ]
+      },
+      "labour_pass": {
+        "count": 1797,
+        "denominator": 20000,
+        "estimate": 0.08985,
+        "mcse": 0.0020220902242481663,
+        "wilson_95": [
+          0.08596513747812844,
+          0.09389238969869419
+        ]
+      },
+      "labour_true_null_rejection": null,
+      "mean_labour_halfwidth": 2.8884118704552892,
+      "mean_quality_halfwidth": 0.05942885072591107,
+      "pairs": 24,
+      "planned_task_count": 960,
+      "quality_bias_complete_data": -0.00021387412251513727,
+      "quality_coverage": {
+        "count": 19602,
+        "denominator": 20000,
+        "estimate": 0.9801,
+        "mcse": 0.0009875218984913708,
+        "wilson_95": [
+          0.978070287163221,
+          0.9819453198157073
+        ]
+      },
+      "quality_pass": {
+        "count": 6964,
+        "denominator": 20000,
+        "estimate": 0.3482,
+        "mcse": 0.0033686552213012242,
+        "wilson_95": [
+          0.3416272777875167,
+          0.3548310243591167
+        ]
+      },
+      "quality_true_null_rejection": null,
+      "scenario_id": "adverse-benefit",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 48,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 1056.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D48",
+      "joint_success": {
+        "count": 136,
+        "denominator": 20000,
+        "estimate": 0.0068,
+        "mcse": 0.000581109284042167,
+        "wilson_95": [
+          0.00575193668791944,
+          0.008037487677822162
+        ]
+      },
+      "labour_bias_complete_data": -0.002068909441422795,
+      "labour_coverage": {
+        "count": 19692,
+        "denominator": 20000,
+        "estimate": 0.9846,
+        "mcse": 0.0008707135005270094,
+        "wilson_95": [
+          0.9827980003927365,
+          0.9862158782616869
+        ]
+      },
+      "labour_pass": {
+        "count": 166,
+        "denominator": 20000,
+        "estimate": 0.0083,
+        "mcse": 0.0006415259152988287,
+        "wilson_95": [
+          0.007133636352092857,
+          0.00965521190548043
+        ]
+      },
+      "labour_true_null_rejection": {
+        "count": 166,
+        "denominator": 20000,
+        "estimate": 0.0083,
+        "mcse": 0.0006415259152988287,
+        "wilson_95": [
+          0.007133636352092857,
+          0.00965521190548043
+        ]
+      },
+      "mean_labour_halfwidth": 1.0376463756603824,
+      "mean_quality_halfwidth": 0.031670265854938075,
+      "pairs": 24,
+      "planned_task_count": 960,
+      "quality_bias_complete_data": -1.099234245148552e-05,
+      "quality_coverage": {
+        "count": 19933,
+        "denominator": 20000,
+        "estimate": 0.99665,
+        "mcse": 0.0004085815402095379,
+        "wilson_95": [
+          0.9957482370499539,
+          0.9973610135355174
+        ]
+      },
+      "quality_pass": {
+        "count": 19007,
+        "denominator": 20000,
+        "estimate": 0.95035,
+        "mcse": 0.0015359830321328418,
+        "wilson_95": [
+          0.9472520921204604,
+          0.9532749410038062
+        ]
+      },
+      "quality_true_null_rejection": null,
+      "scenario_id": "labour-boundary",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 48,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 1056.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D48",
+      "joint_success": {
+        "count": 7,
+        "denominator": 20000,
+        "estimate": 0.00035,
+        "mcse": 0.0001322644132032498,
+        "wilson_95": [
+          0.00016955317759555281,
+          0.0007223484532697996
+        ]
+      },
+      "labour_bias_complete_data": 0.006192898826864912,
+      "labour_coverage": {
+        "count": 19752,
+        "denominator": 20000,
+        "estimate": 0.9876,
+        "mcse": 0.0007825036741127791,
+        "wilson_95": [
+          0.9859699754169379,
+          0.9890427510211489
+        ]
+      },
+      "labour_pass": {
+        "count": 9459,
+        "denominator": 20000,
+        "estimate": 0.47295,
+        "mcse": 0.003530356196618126,
+        "wilson_95": [
+          0.46603648604355913,
+          0.47987390310707606
+        ]
+      },
+      "labour_true_null_rejection": null,
+      "mean_labour_halfwidth": 1.0379956734415496,
+      "mean_quality_halfwidth": 0.03164850679033,
+      "pairs": 24,
+      "planned_task_count": 960,
+      "quality_bias_complete_data": 5.539090071733643e-06,
+      "quality_coverage": {
+        "count": 19926,
+        "denominator": 20000,
+        "estimate": 0.9963,
+        "mcse": 0.0004293198108636519,
+        "wilson_95": [
+          0.9953579410940695,
+          0.997051443916641
+        ]
+      },
+      "quality_pass": {
+        "count": 44,
+        "denominator": 20000,
+        "estimate": 0.0022,
+        "mcse": 0.00033129744943177574,
+        "wilson_95": [
+          0.0016393270230052992,
+          0.002951864074452466
+        ]
+      },
+      "quality_true_null_rejection": {
+        "count": 44,
+        "denominator": 20000,
+        "estimate": 0.0022,
+        "mcse": 0.00033129744943177574,
+        "wilson_95": [
+          0.0016393270230052992,
+          0.002951864074452466
+        ]
+      },
+      "scenario_id": "quality-boundary",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 48,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 1056.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D48",
+      "joint_success": {
+        "count": 0,
+        "denominator": 20000,
+        "estimate": 0.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.0,
+          0.00019203605610462553
+        ]
+      },
+      "labour_bias_complete_data": 0.001681660101700122,
+      "labour_coverage": {
+        "count": 19755,
+        "denominator": 20000,
+        "estimate": 0.98775,
+        "mcse": 0.0007778154504765247,
+        "wilson_95": [
+          0.9861291155299508,
+          0.9891835532973192
+        ]
+      },
+      "labour_pass": {
+        "count": 125,
+        "denominator": 20000,
+        "estimate": 0.00625,
+        "mcse": 0.000557267328128969,
+        "wilson_95": [
+          0.005248590473211333,
+          0.007441045132191986
+        ]
+      },
+      "labour_true_null_rejection": {
+        "count": 125,
+        "denominator": 20000,
+        "estimate": 0.00625,
+        "mcse": 0.000557267328128969,
+        "wilson_95": [
+          0.005248590473211333,
+          0.007441045132191986
+        ]
+      },
+      "mean_labour_halfwidth": 1.0377819084822102,
+      "mean_quality_halfwidth": 0.03167569631229988,
+      "pairs": 24,
+      "planned_task_count": 960,
+      "quality_bias_complete_data": 9.616097043905342e-05,
+      "quality_coverage": {
+        "count": 19930,
+        "denominator": 20000,
+        "estimate": 0.9965,
+        "mcse": 0.0004175972940525326,
+        "wilson_95": [
+          0.9955807217006262,
+          0.9972285864956619
+        ]
+      },
+      "quality_pass": {
+        "count": 37,
+        "denominator": 20000,
+        "estimate": 0.00185,
+        "mcse": 0.0003038566685132976,
+        "wilson_95": [
+          0.0013425368836908259,
+          0.0025487886390062127
+        ]
+      },
+      "quality_true_null_rejection": {
+        "count": 37,
+        "denominator": 20000,
+        "estimate": 0.00185,
+        "mcse": 0.0003038566685132976,
+        "wilson_95": [
+          0.0013425368836908259,
+          0.0025487886390062127
+        ]
+      },
+      "scenario_id": "both-boundaries",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 48,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 1056.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D48",
+      "joint_success": {
+        "count": 0,
+        "denominator": 20000,
+        "estimate": 0.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.0,
+          0.00019203605610462553
+        ]
+      },
+      "labour_bias_complete_data": -0.0007579679814493232,
+      "labour_coverage": {
+        "count": 19732,
+        "denominator": 20000,
+        "estimate": 0.9866,
+        "mcse": 0.0008130325946725619,
+        "wilson_95": [
+          0.9849104559230035,
+          0.9881026545871956
+        ]
+      },
+      "labour_pass": {
+        "count": 0,
+        "denominator": 20000,
+        "estimate": 0.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.0,
+          0.00019203605610462553
+        ]
+      },
+      "labour_true_null_rejection": {
+        "count": 0,
+        "denominator": 20000,
+        "estimate": 0.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.0,
+          0.00019203605610462553
+        ]
+      },
+      "mean_labour_halfwidth": 1.0396712332273255,
+      "mean_quality_halfwidth": 0.03165272695261067,
+      "pairs": 24,
+      "planned_task_count": 960,
+      "quality_bias_complete_data": -3.910245477674624e-05,
+      "quality_coverage": {
+        "count": 19908,
+        "denominator": 20000,
+        "estimate": 0.9954,
+        "mcse": 0.0004784788396575155,
+        "wilson_95": [
+          0.9943623405481662,
+          0.9962473901274452
+        ]
+      },
+      "quality_pass": {
+        "count": 18944,
+        "denominator": 20000,
+        "estimate": 0.9472,
+        "mcse": 0.0015813310848775465,
+        "wilson_95": [
+          0.944013877439411,
+          0.9502143655120091
+        ]
+      },
+      "quality_true_null_rejection": null,
+      "scenario_id": "no-effect",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 48,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 1056.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D48",
+      "joint_success": {
+        "count": 0,
+        "denominator": 20000,
+        "estimate": 0.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.0,
+          0.00019203605610462553
+        ]
+      },
+      "labour_bias_complete_data": 0.0025442913411541923,
+      "labour_coverage": {
+        "count": 19726,
+        "denominator": 20000,
+        "estimate": 0.9863,
+        "mcse": 0.0008219583322772525,
+        "wilson_95": [
+          0.9845930541040252,
+          0.9878201716278073
+        ]
+      },
+      "labour_pass": {
+        "count": 9476,
+        "denominator": 20000,
+        "estimate": 0.4738,
+        "mcse": 0.0035306767056755566,
+        "wilson_95": [
+          0.46688569480781666,
+          0.48072436788152323
+        ]
+      },
+      "labour_true_null_rejection": null,
+      "mean_labour_halfwidth": 1.0360991827458446,
+      "mean_quality_halfwidth": 0.03170118128650844,
+      "pairs": 24,
+      "planned_task_count": 960,
+      "quality_bias_complete_data": -1.0165419777510842e-05,
+      "quality_coverage": {
+        "count": 19923,
+        "denominator": 20000,
+        "estimate": 0.99615,
+        "mcse": 0.0004379028145604924,
+        "wilson_95": [
+          0.9951912571307401,
+          0.9969181854907873
+        ]
+      },
+      "quality_pass": {
+        "count": 0,
+        "denominator": 20000,
+        "estimate": 0.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.0,
+          0.00019203605610462553
+        ]
+      },
+      "quality_true_null_rejection": {
+        "count": 0,
+        "denominator": 20000,
+        "estimate": 0.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.0,
+          0.00019203605610462553
+        ]
+      },
+      "scenario_id": "quality-harm",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 48,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 1056.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D48",
+      "joint_success": {
+        "count": 1,
+        "denominator": 20000,
+        "estimate": 5e-05,
+        "mcse": 4.999874998437461e-05,
+        "wilson_95": [
+          8.826282272974824e-06,
+          0.0002831905702260402
+        ]
+      },
+      "labour_bias_complete_data": -0.19771352891563598,
+      "labour_coverage": {
+        "count": 19527,
+        "denominator": 20000,
+        "estimate": 0.97635,
+        "mcse": 0.001074492380149807,
+        "wilson_95": [
+          0.9741507735049671,
+          0.978366273744382
+        ]
+      },
+      "labour_pass": {
+        "count": 435,
+        "denominator": 20000,
+        "estimate": 0.02175,
+        "mcse": 0.0010314295298274139,
+        "wilson_95": [
+          0.019818385294829627,
+          0.023865297192834437
+        ]
+      },
+      "labour_true_null_rejection": {
+        "count": 435,
+        "denominator": 20000,
+        "estimate": 0.02175,
+        "mcse": 0.0010314295298274139,
+        "wilson_95": [
+          0.019818385294829627,
+          0.023865297192834437
+        ]
+      },
+      "mean_labour_halfwidth": 1.0383795639103943,
+      "mean_quality_halfwidth": 0.03165617997729922,
+      "pairs": 24,
+      "planned_task_count": 960,
+      "quality_bias_complete_data": 0.010113855299851475,
+      "quality_coverage": {
+        "count": 19448,
+        "denominator": 20000,
+        "estimate": 0.9724,
+        "mcse": 0.0011584092541066814,
+        "wilson_95": [
+          0.9700372479491329,
+          0.9745813163850595
+        ]
+      },
+      "quality_pass": {
+        "count": 552,
+        "denominator": 20000,
+        "estimate": 0.0276,
+        "mcse": 0.0011584092541066823,
+        "wilson_95": [
+          0.025418683614940506,
+          0.02996275205086714
+        ]
+      },
+      "quality_true_null_rejection": {
+        "count": 552,
+        "denominator": 20000,
+        "estimate": 0.0276,
+        "mcse": 0.0011584092541066823,
+        "wilson_95": [
+          0.025418683614940506,
+          0.02996275205086714
+        ]
+      },
+      "scenario_id": "bias-at-allowance",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 48,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 1056.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D48",
+      "joint_success": {
+        "count": 424,
+        "denominator": 20000,
+        "estimate": 0.0212,
+        "mcse": 0.0010185911839398572,
+        "wilson_95": [
+          0.01929362008105204,
+          0.023290273646273747
+        ]
+      },
+      "labour_bias_complete_data": -0.2006390972532779,
+      "labour_coverage": {
+        "count": 19466,
+        "denominator": 20000,
+        "estimate": 0.9733,
+        "mcse": 0.0011398927581136734,
+        "wilson_95": [
+          0.9709733268704946,
+          0.9754448917987969
+        ]
+      },
+      "labour_pass": {
+        "count": 495,
+        "denominator": 20000,
+        "estimate": 0.02475,
+        "mcse": 0.0010985772048427002,
+        "wilson_95": [
+          0.022686366616716806,
+          0.026996163654610637
+        ]
+      },
+      "labour_true_null_rejection": {
+        "count": 495,
+        "denominator": 20000,
+        "estimate": 0.02475,
+        "mcse": 0.0010985772048427002,
+        "wilson_95": [
+          0.022686366616716806,
+          0.026996163654610637
+        ]
+      },
+      "mean_labour_halfwidth": 1.0371948916041835,
+      "mean_quality_halfwidth": 0.031653091737463404,
+      "pairs": 24,
+      "planned_task_count": 960,
+      "quality_bias_complete_data": 3.231398142481374e-05,
+      "quality_coverage": {
+        "count": 19933,
+        "denominator": 20000,
+        "estimate": 0.99665,
+        "mcse": 0.0004085815402095379,
+        "wilson_95": [
+          0.9957482370499539,
+          0.9973610135355174
+        ]
+      },
+      "quality_pass": {
+        "count": 18968,
+        "denominator": 20000,
+        "estimate": 0.9484,
+        "mcse": 0.0015642480621691685,
+        "wilson_95": [
+          0.9452471064414173,
+          0.9513806756234681
+        ]
+      },
+      "quality_true_null_rejection": null,
+      "scenario_id": "labour-boundary-bias",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 48,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 1056.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D48",
+      "joint_success": {
+        "count": 112,
+        "denominator": 20000,
+        "estimate": 0.0056,
+        "mcse": 0.0005276665613813329,
+        "wilson_95": [
+          0.004656485228974206,
+          0.006733400023302048
+        ]
+      },
+      "labour_bias_complete_data": 0.0035947684328776486,
+      "labour_coverage": {
+        "count": 19742,
+        "denominator": 20000,
+        "estimate": 0.9871,
+        "mcse": 0.0007979219886680659,
+        "wilson_95": [
+          0.9854399158198682,
+          0.9885730026542746
+        ]
+      },
+      "labour_pass": {
+        "count": 9509,
+        "denominator": 20000,
+        "estimate": 0.47545,
+        "mcse": 0.003531269584016491,
+        "wilson_95": [
+          0.4685342162631255,
+          0.48237521270722916
+        ]
+      },
+      "labour_true_null_rejection": null,
+      "mean_labour_halfwidth": 1.0375823435903238,
+      "mean_quality_halfwidth": 0.03166557493593422,
+      "pairs": 24,
+      "planned_task_count": 960,
+      "quality_bias_complete_data": 0.010109503993223162,
+      "quality_coverage": {
+        "count": 19483,
+        "denominator": 20000,
+        "estimate": 0.97415,
+        "mcse": 0.0011220912953053338,
+        "wilson_95": [
+          0.971858014471988,
+          0.9762598777360078
+        ]
+      },
+      "quality_pass": {
+        "count": 516,
+        "denominator": 20000,
+        "estimate": 0.0258,
+        "mcse": 0.0011210343438093232,
+        "wilson_95": [
+          0.023692201081066032,
+          0.02808992591454359
+        ]
+      },
+      "quality_true_null_rejection": {
+        "count": 516,
+        "denominator": 20000,
+        "estimate": 0.0258,
+        "mcse": 0.0011210343438093232,
+        "wilson_95": [
+          0.023692201081066032,
+          0.02808992591454359
+        ]
+      },
+      "scenario_id": "quality-boundary-bias",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 48,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 1056.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D48",
+      "joint_success": {
+        "count": 9561,
+        "denominator": 20000,
+        "estimate": 0.47805,
+        "mcse": 0.003532125404766937,
+        "wilson_95": [
+          0.4711320400750339,
+          0.4849763903078291
+        ]
+      },
+      "labour_bias_complete_data": -1.0026186916112128,
+      "labour_coverage": {
+        "count": 10350,
+        "denominator": 20000,
+        "estimate": 0.5175,
+        "mcse": 0.0035333677278200186,
+        "wilson_95": [
+          0.5105720300459,
+          0.5244212486921362
+        ]
+      },
+      "labour_pass": {
+        "count": 9650,
+        "denominator": 20000,
+        "estimate": 0.4825,
+        "mcse": 0.0035333677278200186,
+        "wilson_95": [
+          0.47557875130786365,
+          0.4894279699541
+        ]
+      },
+      "labour_true_null_rejection": {
+        "count": 9650,
+        "denominator": 20000,
+        "estimate": 0.4825,
+        "mcse": 0.0035333677278200186,
+        "wilson_95": [
+          0.47557875130786365,
+          0.4894279699541
+        ]
+      },
+      "mean_labour_halfwidth": 1.036502662949253,
+      "mean_quality_halfwidth": 0.03166398493468133,
+      "pairs": 24,
+      "planned_task_count": 960,
+      "quality_bias_complete_data": 0.06012430600906415,
+      "quality_coverage": {
+        "count": 113,
+        "denominator": 20000,
+        "estimate": 0.00565,
+        "mcse": 0.00053000365564777,
+        "wilson_95": [
+          0.004701915418971162,
+          0.00678795062969948
+        ]
+      },
+      "quality_pass": {
+        "count": 19887,
+        "denominator": 20000,
+        "estimate": 0.99435,
+        "mcse": 0.0005300036556477721,
+        "wilson_95": [
+          0.9932120493703004,
+          0.9952980845810288
+        ]
+      },
+      "quality_true_null_rejection": {
+        "count": 19887,
+        "denominator": 20000,
+        "estimate": 0.99435,
+        "mcse": 0.0005300036556477721,
+        "wilson_95": [
+          0.9932120493703004,
+          0.9952980845810288
+        ]
+      },
+      "scenario_id": "bias-exceeds-allowance",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 48,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 1056.0,
+      "complete_data": {
+        "count": 17712,
+        "denominator": 20000,
+        "estimate": 0.8856,
+        "mcse": 0.002250695892385286,
+        "wilson_95": [
+          0.8811144700695566,
+          0.8899374317239757
+        ]
+      },
+      "design_id": "D48",
+      "joint_success": {
+        "count": 7953,
+        "denominator": 20000,
+        "estimate": 0.39765,
+        "mcse": 0.003460668125521429,
+        "wilson_95": [
+          0.3908874928225106,
+          0.40445181695817406
+        ]
+      },
+      "labour_bias_complete_data": 0.003226675477906671,
+      "labour_coverage": {
+        "count": 19761,
+        "denominator": 20000,
+        "estimate": 0.98805,
+        "mcse": 0.0007683487977474819,
+        "wilson_95": [
+          0.9864475715038155,
+          0.9894649821018207
+        ]
+      },
+      "labour_pass": {
+        "count": 8504,
+        "denominator": 20000,
+        "estimate": 0.4252,
+        "mcse": 0.003495747130442933,
+        "wilson_95": [
+          0.41836346866621693,
+          0.4320652599277764
+        ]
+      },
+      "labour_true_null_rejection": null,
+      "mean_labour_halfwidth": 1.0327886496756549,
+      "mean_quality_halfwidth": 0.03163253296335628,
+      "pairs": 24,
+      "planned_task_count": 960,
+      "quality_bias_complete_data": 9.001729740519145e-05,
+      "quality_coverage": {
+        "count": 19931,
+        "denominator": 20000,
+        "estimate": 0.99655,
+        "mcse": 0.00041461412783454167,
+        "wilson_95": [
+          0.9956365177601437,
+          0.9972727712325388
+        ]
+      },
+      "quality_pass": {
+        "count": 16885,
+        "denominator": 20000,
+        "estimate": 0.84425,
+        "mcse": 0.0025640976726716167,
+        "wilson_95": [
+          0.8391584002277058,
+          0.849209382947666
+        ]
+      },
+      "quality_true_null_rejection": null,
+      "scenario_id": "incomplete-pairs",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 48,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 2112.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D96",
+      "joint_success": {
+        "count": 15450,
+        "denominator": 20000,
+        "estimate": 0.7725,
+        "mcse": 0.002964319061774559,
+        "wilson_95": [
+          0.7666380337794065,
+          0.7782573065700165
+        ]
+      },
+      "labour_bias_complete_data": -0.002991237379517564,
+      "labour_coverage": {
+        "count": 19847,
+        "denominator": 20000,
+        "estimate": 0.99235,
+        "mcse": 0.0006160956703305115,
+        "wilson_95": [
+          0.9910443453944693,
+          0.9934665567010843
+        ]
+      },
+      "labour_pass": {
+        "count": 15459,
+        "denominator": 20000,
+        "estimate": 0.77295,
+        "mcse": 0.002962248280445108,
+        "wilson_95": [
+          0.7670920046859604,
+          0.7787031628310122
+        ]
+      },
+      "labour_true_null_rejection": null,
+      "mean_labour_halfwidth": 0.7814109775356605,
+      "mean_quality_halfwidth": 0.024986946554180253,
+      "pairs": 48,
+      "planned_task_count": 1920,
+      "quality_bias_complete_data": 8.75027474837427e-05,
+      "quality_coverage": {
+        "count": 19983,
+        "denominator": 20000,
+        "estimate": 0.99915,
+        "mcse": 0.0002060676466600249,
+        "wilson_95": [
+          0.9986390788900333,
+          0.9994692115151574
+        ]
+      },
+      "quality_pass": {
+        "count": 19990,
+        "denominator": 20000,
+        "estimate": 0.9995,
+        "mcse": 0.00015807434959536366,
+        "wilson_95": [
+          0.9990797771249671,
+          0.9997283788549844
+        ]
+      },
+      "quality_true_null_rejection": null,
+      "scenario_id": "central-benefit",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 96,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 2112.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D96",
+      "joint_success": {
+        "count": 1382,
+        "denominator": 20000,
+        "estimate": 0.0691,
+        "mcse": 0.0017933932920583817,
+        "wilson_95": [
+          0.06566712562032923,
+          0.07269837105282173
+        ]
+      },
+      "labour_bias_complete_data": 0.010335463032752124,
+      "labour_coverage": {
+        "count": 19447,
+        "denominator": 20000,
+        "estimate": 0.97235,
+        "mcse": 0.0011594282534939356,
+        "wilson_95": [
+          0.9699852625147383,
+          0.9745333210230598
+        ]
+      },
+      "labour_pass": {
+        "count": 2761,
+        "denominator": 20000,
+        "estimate": 0.13805,
+        "mcse": 0.002439182214390717,
+        "wilson_95": [
+          0.13333875190344144,
+          0.14290026299757266
+        ]
+      },
+      "labour_true_null_rejection": null,
+      "mean_labour_halfwidth": 2.0826713892358795,
+      "mean_quality_halfwidth": 0.044173895574586744,
+      "pairs": 48,
+      "planned_task_count": 1920,
+      "quality_bias_complete_data": 0.00018455602998879514,
+      "quality_coverage": {
+        "count": 19775,
+        "denominator": 20000,
+        "estimate": 0.98875,
+        "mcse": 0.0007457693175506747,
+        "wilson_95": [
+          0.9871915911421785,
+          0.9901206936129792
+        ]
+      },
+      "quality_pass": {
+        "count": 12735,
+        "denominator": 20000,
+        "estimate": 0.63675,
+        "mcse": 0.003400731079488644,
+        "wilson_95": [
+          0.6300590169150893,
+          0.6433884612235663
+        ]
+      },
+      "quality_true_null_rejection": null,
+      "scenario_id": "adverse-benefit",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 96,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 2112.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D96",
+      "joint_success": {
+        "count": 77,
+        "denominator": 20000,
+        "estimate": 0.00385,
+        "mcse": 0.00043790281456049127,
+        "wilson_95": [
+          0.003081814509212734,
+          0.004808742869259887
+        ]
+      },
+      "labour_bias_complete_data": 0.0036386238426426853,
+      "labour_coverage": {
+        "count": 19836,
+        "denominator": 20000,
+        "estimate": 0.9918,
+        "mcse": 0.0006376817388007903,
+        "wilson_95": [
+          0.990452279883063,
+          0.9929588334521525
+        ]
+      },
+      "labour_pass": {
+        "count": 77,
+        "denominator": 20000,
+        "estimate": 0.00385,
+        "mcse": 0.00043790281456049127,
+        "wilson_95": [
+          0.003081814509212734,
+          0.004808742869259887
+        ]
+      },
+      "labour_true_null_rejection": {
+        "count": 77,
+        "denominator": 20000,
+        "estimate": 0.00385,
+        "mcse": 0.00043790281456049127,
+        "wilson_95": [
+          0.003081814509212734,
+          0.004808742869259887
+        ]
+      },
+      "mean_labour_halfwidth": 0.7816185010682326,
+      "mean_quality_halfwidth": 0.024977028631996814,
+      "pairs": 48,
+      "planned_task_count": 1920,
+      "quality_bias_complete_data": 1.1211799392096571e-05,
+      "quality_coverage": {
+        "count": 19974,
+        "denominator": 20000,
+        "estimate": 0.9987,
+        "mcse": 0.0002547852036520143,
+        "wilson_95": [
+          0.998095808650383,
+          0.9991126545872582
+        ]
+      },
+      "quality_pass": {
+        "count": 19988,
+        "denominator": 20000,
+        "estimate": 0.9994,
+        "mcse": 0.00017315311143609936,
+        "wilson_95": [
+          0.9989514644540893,
+          0.9996567299330732
+        ]
+      },
+      "quality_true_null_rejection": null,
+      "scenario_id": "labour-boundary",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 96,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 2112.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D96",
+      "joint_success": {
+        "count": 0,
+        "denominator": 20000,
+        "estimate": 0.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.0,
+          0.00019203605610462553
+        ]
+      },
+      "labour_bias_complete_data": -0.005688573069996927,
+      "labour_coverage": {
+        "count": 19828,
+        "denominator": 20000,
+        "estimate": 0.9914,
+        "mcse": 0.0006529180653037581,
+        "wilson_95": [
+          0.9900225854955916,
+          0.9925886814684687
+        ]
+      },
+      "labour_pass": {
+        "count": 15514,
+        "denominator": 20000,
+        "estimate": 0.7757,
+        "mcse": 0.0029494873283335194,
+        "wilson_95": [
+          0.7698664793552611,
+          0.7814276319634027
+        ]
+      },
+      "labour_true_null_rejection": null,
+      "mean_labour_halfwidth": 0.7811506052549441,
+      "mean_quality_halfwidth": 0.024986550223841154,
+      "pairs": 48,
+      "planned_task_count": 1920,
+      "quality_bias_complete_data": -6.415921958169424e-05,
+      "quality_coverage": {
+        "count": 19980,
+        "denominator": 20000,
+        "estimate": 0.999,
+        "mcse": 0.0002234949663862702,
+        "wilson_95": [
+          0.9984558140624349,
+          0.9993525339535727
+        ]
+      },
+      "quality_pass": {
+        "count": 7,
+        "denominator": 20000,
+        "estimate": 0.00035,
+        "mcse": 0.0001322644132032498,
+        "wilson_95": [
+          0.00016955317759555281,
+          0.0007223484532697996
+        ]
+      },
+      "quality_true_null_rejection": {
+        "count": 7,
+        "denominator": 20000,
+        "estimate": 0.00035,
+        "mcse": 0.0001322644132032498,
+        "wilson_95": [
+          0.00016955317759555281,
+          0.0007223484532697996
+        ]
+      },
+      "scenario_id": "quality-boundary",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 96,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 2112.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D96",
+      "joint_success": {
+        "count": 0,
+        "denominator": 20000,
+        "estimate": 0.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.0,
+          0.00019203605610462553
+        ]
+      },
+      "labour_bias_complete_data": 0.0020784822650758983,
+      "labour_coverage": {
+        "count": 19826,
+        "denominator": 20000,
+        "estimate": 0.9913,
+        "mcse": 0.0006566700084517352,
+        "wilson_95": [
+          0.9899152729373634,
+          0.9924960324339082
+        ]
+      },
+      "labour_pass": {
+        "count": 89,
+        "denominator": 20000,
+        "estimate": 0.00445,
+        "mcse": 0.0004706483559941541,
+        "wilson_95": [
+          0.0036179020474892405,
+          0.005472424887716054
+        ]
+      },
+      "labour_true_null_rejection": {
+        "count": 89,
+        "denominator": 20000,
+        "estimate": 0.00445,
+        "mcse": 0.0004706483559941541,
+        "wilson_95": [
+          0.0036179020474892405,
+          0.005472424887716054
+        ]
+      },
+      "mean_labour_halfwidth": 0.7805824885017509,
+      "mean_quality_halfwidth": 0.024995267025339503,
+      "pairs": 48,
+      "planned_task_count": 1920,
+      "quality_bias_complete_data": -9.656189322478081e-06,
+      "quality_coverage": {
+        "count": 19979,
+        "denominator": 20000,
+        "estimate": 0.99895,
+        "mcse": 0.00022900846054239955,
+        "wilson_95": [
+          0.9983952643143006,
+          0.9993131029053126
+        ]
+      },
+      "quality_pass": {
+        "count": 12,
+        "denominator": 20000,
+        "estimate": 0.0006,
+        "mcse": 0.00017315311143609288,
+        "wilson_95": [
+          0.0003432700669267663,
+          0.0010485355459105335
+        ]
+      },
+      "quality_true_null_rejection": {
+        "count": 12,
+        "denominator": 20000,
+        "estimate": 0.0006,
+        "mcse": 0.00017315311143609288,
+        "wilson_95": [
+          0.0003432700669267663,
+          0.0010485355459105335
+        ]
+      },
+      "scenario_id": "both-boundaries",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 96,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 2112.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D96",
+      "joint_success": {
+        "count": 0,
+        "denominator": 20000,
+        "estimate": 0.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.0,
+          0.00019203605610462553
+        ]
+      },
+      "labour_bias_complete_data": -0.0017294945999565107,
+      "labour_coverage": {
+        "count": 19832,
+        "denominator": 20000,
+        "estimate": 0.9916,
+        "mcse": 0.0006453464186001177,
+        "wilson_95": [
+          0.9902373423014892,
+          0.9927738478481487
+        ]
+      },
+      "labour_pass": {
+        "count": 0,
+        "denominator": 20000,
+        "estimate": 0.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.0,
+          0.00019203605610462553
+        ]
+      },
+      "labour_true_null_rejection": {
+        "count": 0,
+        "denominator": 20000,
+        "estimate": 0.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.0,
+          0.00019203605610462553
+        ]
+      },
+      "mean_labour_halfwidth": 0.7807038435957374,
+      "mean_quality_halfwidth": 0.025014761972494123,
+      "pairs": 48,
+      "planned_task_count": 1920,
+      "quality_bias_complete_data": 1.800748180035232e-05,
+      "quality_coverage": {
+        "count": 19984,
+        "denominator": 20000,
+        "estimate": 0.9992,
+        "mcse": 0.00019991998399359966,
+        "wilson_95": [
+          0.9987007797717246,
+          0.9995074914298606
+        ]
+      },
+      "quality_pass": {
+        "count": 19991,
+        "denominator": 20000,
+        "estimate": 0.99955,
+        "mcse": 0.0001499662462022622,
+        "wilson_95": [
+          0.9991449078924859,
+          0.99976322888386
+        ]
+      },
+      "quality_true_null_rejection": null,
+      "scenario_id": "no-effect",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 96,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 2112.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D96",
+      "joint_success": {
+        "count": 0,
+        "denominator": 20000,
+        "estimate": 0.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.0,
+          0.00019203605610462553
+        ]
+      },
+      "labour_bias_complete_data": -0.0025151841180868217,
+      "labour_coverage": {
+        "count": 19826,
+        "denominator": 20000,
+        "estimate": 0.9913,
+        "mcse": 0.0006566700084517352,
+        "wilson_95": [
+          0.9899152729373634,
+          0.9924960324339082
+        ]
+      },
+      "labour_pass": {
+        "count": 15382,
+        "denominator": 20000,
+        "estimate": 0.7691,
+        "mcse": 0.0029798086347951943,
+        "wilson_95": [
+          0.7632083376510478,
+          0.7748883085435566
+        ]
+      },
+      "labour_true_null_rejection": null,
+      "mean_labour_halfwidth": 0.7810822714481063,
+      "mean_quality_halfwidth": 0.02499081043836335,
+      "pairs": 48,
+      "planned_task_count": 1920,
+      "quality_bias_complete_data": 1.0402929198335964e-05,
+      "quality_coverage": {
+        "count": 19981,
+        "denominator": 20000,
+        "estimate": 0.99905,
+        "mcse": 0.00021784139872852524,
+        "wilson_95": [
+          0.9985166196635774,
+          0.9993917091488246
+        ]
+      },
+      "quality_pass": {
+        "count": 0,
+        "denominator": 20000,
+        "estimate": 0.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.0,
+          0.00019203605610462553
+        ]
+      },
+      "quality_true_null_rejection": {
+        "count": 0,
+        "denominator": 20000,
+        "estimate": 0.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.0,
+          0.00019203605610462553
+        ]
+      },
+      "scenario_id": "quality-harm",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 96,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 2112.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D96",
+      "joint_success": {
+        "count": 4,
+        "denominator": 20000,
+        "estimate": 0.0002,
+        "mcse": 9.998999949994999e-05,
+        "wilson_95": [
+          7.777875605022842e-05,
+          0.0005141804856319553
+        ]
+      },
+      "labour_bias_complete_data": -0.19623979116919799,
+      "labour_coverage": {
+        "count": 19523,
+        "denominator": 20000,
+        "estimate": 0.97615,
+        "mcse": 0.0010789156014258028,
+        "wilson_95": [
+          0.9739421531841947,
+          0.9781749708795766
+        ]
+      },
+      "labour_pass": {
+        "count": 467,
+        "denominator": 20000,
+        "estimate": 0.02335,
+        "mcse": 0.0010678196828116627,
+        "wilson_95": [
+          0.021346845942050115,
+          0.025536222030234416
+        ]
+      },
+      "labour_true_null_rejection": {
+        "count": 467,
+        "denominator": 20000,
+        "estimate": 0.02335,
+        "mcse": 0.0010678196828116627,
+        "wilson_95": [
+          0.021346845942050115,
+          0.025536222030234416
+        ]
+      },
+      "mean_labour_halfwidth": 0.7813844992878172,
+      "mean_quality_halfwidth": 0.02501268983132123,
+      "pairs": 48,
+      "planned_task_count": 1920,
+      "quality_bias_complete_data": 0.010103043867196168,
+      "quality_coverage": {
+        "count": 19507,
+        "denominator": 20000,
+        "estimate": 0.97535,
+        "mcse": 0.0010964118181595807,
+        "wilson_95": [
+          0.9731080561839482,
+          0.9774093751375132
+        ]
+      },
+      "quality_pass": {
+        "count": 493,
+        "denominator": 20000,
+        "estimate": 0.02465,
+        "mcse": 0.0010964118181595818,
+        "wilson_95": [
+          0.022590624862486818,
+          0.026891943816051842
+        ]
+      },
+      "quality_true_null_rejection": {
+        "count": 493,
+        "denominator": 20000,
+        "estimate": 0.02465,
+        "mcse": 0.0010964118181595818,
+        "wilson_95": [
+          0.022590624862486818,
+          0.026891943816051842
+        ]
+      },
+      "scenario_id": "bias-at-allowance",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 96,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 2112.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D96",
+      "joint_success": {
+        "count": 512,
+        "denominator": 20000,
+        "estimate": 0.0256,
+        "mcse": 0.0011167954154633695,
+        "wilson_95": [
+          0.023500538086350335,
+          0.02788166572368173
+        ]
+      },
+      "labour_bias_complete_data": -0.2017065574327801,
+      "labour_coverage": {
+        "count": 19481,
+        "denominator": 20000,
+        "estimate": 0.97405,
+        "mcse": 0.0011242018835600665,
+        "wilson_95": [
+          0.9717539017232905,
+          0.9761640288919166
+        ]
+      },
+      "labour_pass": {
+        "count": 512,
+        "denominator": 20000,
+        "estimate": 0.0256,
+        "mcse": 0.0011167954154633695,
+        "wilson_95": [
+          0.023500538086350335,
+          0.02788166572368173
+        ]
+      },
+      "labour_true_null_rejection": {
+        "count": 512,
+        "denominator": 20000,
+        "estimate": 0.0256,
+        "mcse": 0.0011167954154633695,
+        "wilson_95": [
+          0.023500538086350335,
+          0.02788166572368173
+        ]
+      },
+      "mean_labour_halfwidth": 0.781299435759975,
+      "mean_quality_halfwidth": 0.02502238886444915,
+      "pairs": 48,
+      "planned_task_count": 1920,
+      "quality_bias_complete_data": 3.9949093155616406e-05,
+      "quality_coverage": {
+        "count": 19983,
+        "denominator": 20000,
+        "estimate": 0.99915,
+        "mcse": 0.0002060676466600249,
+        "wilson_95": [
+          0.9986390788900333,
+          0.9994692115151574
+        ]
+      },
+      "quality_pass": {
+        "count": 19987,
+        "denominator": 20000,
+        "estimate": 0.99935,
+        "mcse": 0.00018021896404097425,
+        "wilson_95": [
+          0.9988881316487883,
+          0.9996200819419798
+        ]
+      },
+      "quality_true_null_rejection": null,
+      "scenario_id": "labour-boundary-bias",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 96,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 2112.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D96",
+      "joint_success": {
+        "count": 279,
+        "denominator": 20000,
+        "estimate": 0.01395,
+        "mcse": 0.0008293189223694344,
+        "wilson_95": [
+          0.012415381976272365,
+          0.01567129627386694
+        ]
+      },
+      "labour_bias_complete_data": -0.003981986421127015,
+      "labour_coverage": {
+        "count": 19843,
+        "denominator": 20000,
+        "estimate": 0.99215,
+        "mcse": 0.0006240343540222775,
+        "wilson_95": [
+          0.9908288756030883,
+          0.9932821033068879
+        ]
+      },
+      "labour_pass": {
+        "count": 15510,
+        "denominator": 20000,
+        "estimate": 0.7755,
+        "mcse": 0.0029504215800458078,
+        "wilson_95": [
+          0.7696646872668967,
+          0.7812295008661895
+        ]
+      },
+      "labour_true_null_rejection": null,
+      "mean_labour_halfwidth": 0.7807486126729868,
+      "mean_quality_halfwidth": 0.024993063509069664,
+      "pairs": 48,
+      "planned_task_count": 1920,
+      "quality_bias_complete_data": 0.009933296972736969,
+      "quality_coverage": {
+        "count": 19522,
+        "denominator": 20000,
+        "estimate": 0.9761,
+        "mcse": 0.0010800182868822184,
+        "wilson_95": [
+          0.9738900041999119,
+          0.9781271390674653
+        ]
+      },
+      "quality_pass": {
+        "count": 477,
+        "denominator": 20000,
+        "estimate": 0.02385,
+        "mcse": 0.001078915601425802,
+        "wilson_95": [
+          0.021825029120423247,
+          0.02605784681580518
+        ]
+      },
+      "quality_true_null_rejection": {
+        "count": 477,
+        "denominator": 20000,
+        "estimate": 0.02385,
+        "mcse": 0.001078915601425802,
+        "wilson_95": [
+          0.021825029120423247,
+          0.02605784681580518
+        ]
+      },
+      "scenario_id": "quality-boundary-bias",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 96,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 2112.0,
+      "complete_data": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "design_id": "D96",
+      "joint_success": {
+        "count": 15242,
+        "denominator": 20000,
+        "estimate": 0.7621,
+        "mcse": 0.0030108436525332896,
+        "wilson_95": [
+          0.7561488742032699,
+          0.7679504604961199
+        ]
+      },
+      "labour_bias_complete_data": -0.9964993948080927,
+      "labour_coverage": {
+        "count": 4758,
+        "denominator": 20000,
+        "estimate": 0.2379,
+        "mcse": 0.0030108436525332896,
+        "wilson_95": [
+          0.23204953950387994,
+          0.24385112579673004
+        ]
+      },
+      "labour_pass": {
+        "count": 15242,
+        "denominator": 20000,
+        "estimate": 0.7621,
+        "mcse": 0.0030108436525332896,
+        "wilson_95": [
+          0.7561488742032699,
+          0.7679504604961199
+        ]
+      },
+      "labour_true_null_rejection": {
+        "count": 15242,
+        "denominator": 20000,
+        "estimate": 0.7621,
+        "mcse": 0.0030108436525332896,
+        "wilson_95": [
+          0.7561488742032699,
+          0.7679504604961199
+        ]
+      },
+      "mean_labour_halfwidth": 0.7816120407561806,
+      "mean_quality_halfwidth": 0.025005559595993893,
+      "pairs": 48,
+      "planned_task_count": 1920,
+      "quality_bias_complete_data": 0.059933021335306175,
+      "quality_coverage": {
+        "count": 0,
+        "denominator": 20000,
+        "estimate": 0.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.0,
+          0.00019203605610462553
+        ]
+      },
+      "quality_pass": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "quality_true_null_rejection": {
+        "count": 20000,
+        "denominator": 20000,
+        "estimate": 1.0,
+        "mcse": 0.0,
+        "wilson_95": [
+          0.9998079639438954,
+          0.9999999999999999
+        ]
+      },
+      "scenario_id": "bias-exceeds-allowance",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 96,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    },
+    {
+      "collection_review_hours": 2112.0,
+      "complete_data": {
+        "count": 15788,
+        "denominator": 20000,
+        "estimate": 0.7894,
+        "mcse": 0.0028831201847997943,
+        "wilson_95": [
+          0.7836938823375068,
+          0.7949949671932197
+        ]
+      },
+      "design_id": "D96",
+      "joint_success": {
+        "count": 12131,
+        "denominator": 20000,
+        "estimate": 0.60655,
+        "mcse": 0.003454324083666731,
+        "wilson_95": [
+          0.5997598069479354,
+          0.6132992701685088
+        ]
+      },
+      "labour_bias_complete_data": -0.0004214134421047788,
+      "labour_coverage": {
+        "count": 19888,
+        "denominator": 20000,
+        "estimate": 0.9944,
+        "mcse": 0.0005276665613813353,
+        "wilson_95": [
+          0.9932665999766979,
+          0.9953435147710257
+        ]
+      },
+      "labour_pass": {
+        "count": 12139,
+        "denominator": 20000,
+        "estimate": 0.60695,
+        "mcse": 0.0034537059624409256,
+        "wilson_95": [
+          0.60016094127434,
+          0.6136979822132591
+        ]
+      },
+      "labour_true_null_rejection": null,
+      "mean_labour_halfwidth": 0.7811948747768656,
+      "mean_quality_halfwidth": 0.025007443205920504,
+      "pairs": 48,
+      "planned_task_count": 1920,
+      "quality_bias_complete_data": -9.920983056780743e-05,
+      "quality_coverage": {
+        "count": 19989,
+        "denominator": 20000,
+        "estimate": 0.99945,
+        "mcse": 0.00016578562965469148,
+        "wilson_95": [
+          0.9990153237654903,
+          0.9996928514180666
+        ]
+      },
+      "quality_pass": {
+        "count": 15779,
+        "denominator": 20000,
+        "estimate": 0.78895,
+        "mcse": 0.0028853760370183986,
+        "wilson_95": [
+          0.7832395488514627,
+          0.7945494735117145
+        ]
+      },
+      "quality_true_null_rejection": null,
+      "scenario_id": "incomplete-pairs",
+      "scope": "Hypothetical normal latent pair baselines with lognormal labour, bounded retained fractions, actual pair coin flips and the planned t/bias-allowance decision; not empirical power.",
+      "teams": 96,
+      "width_scope": "Mean finite sensitivity-expanded halfwidth among complete simulated records only; incomplete records return the full parameter domain and no component rejection"
+    }
+  ],
+  "scenarios": [
+    {
+      "bias_l": 0.0,
+      "bias_q": 0.0,
+      "effect_l": -2.0,
+      "effect_q": 0.0,
+      "id": "central-benefit",
+      "labour_log_sd": 0.35,
+      "noise_l": 0.2,
+      "noise_q": 0.005,
+      "pair_loss": 0.0,
+      "purpose": "information",
+      "quality_logit_sd": 1.4,
+      "required": true,
+      "rho": 0.7
+    },
+    {
+      "bias_l": 0.0,
+      "bias_q": 0.0,
+      "effect_l": -2.0,
+      "effect_q": 0.0,
+      "id": "adverse-benefit",
+      "labour_log_sd": 0.65,
+      "noise_l": 0.6,
+      "noise_q": 0.03,
+      "pair_loss": 0.0,
+      "purpose": "information",
+      "quality_logit_sd": 2.5,
+      "required": true,
+      "rho": 0.2
+    },
+    {
+      "bias_l": 0.0,
+      "bias_q": 0.0,
+      "effect_l": -1.0,
+      "effect_q": 0.0,
+      "id": "labour-boundary",
+      "labour_log_sd": 0.35,
+      "noise_l": 0.2,
+      "noise_q": 0.005,
+      "pair_loss": 0.0,
+      "purpose": "calibration",
+      "quality_logit_sd": 1.4,
+      "required": true,
+      "rho": 0.7
+    },
+    {
+      "bias_l": 0.0,
+      "bias_q": 0.0,
+      "effect_l": -2.0,
+      "effect_q": -0.05,
+      "id": "quality-boundary",
+      "labour_log_sd": 0.35,
+      "noise_l": 0.2,
+      "noise_q": 0.005,
+      "pair_loss": 0.0,
+      "purpose": "calibration",
+      "quality_logit_sd": 1.4,
+      "required": true,
+      "rho": 0.7
+    },
+    {
+      "bias_l": 0.0,
+      "bias_q": 0.0,
+      "effect_l": -1.0,
+      "effect_q": -0.05,
+      "id": "both-boundaries",
+      "labour_log_sd": 0.35,
+      "noise_l": 0.2,
+      "noise_q": 0.005,
+      "pair_loss": 0.0,
+      "purpose": "calibration",
+      "quality_logit_sd": 1.4,
+      "required": true,
+      "rho": 0.7
+    },
+    {
+      "bias_l": 0.0,
+      "bias_q": 0.0,
+      "effect_l": 0.0,
+      "effect_q": 0.0,
+      "id": "no-effect",
+      "labour_log_sd": 0.35,
+      "noise_l": 0.2,
+      "noise_q": 0.005,
+      "pair_loss": 0.0,
+      "purpose": "calibration",
+      "quality_logit_sd": 1.4,
+      "required": true,
+      "rho": 0.7
+    },
+    {
+      "bias_l": 0.0,
+      "bias_q": 0.0,
+      "effect_l": -2.0,
+      "effect_q": -0.1,
+      "id": "quality-harm",
+      "labour_log_sd": 0.35,
+      "noise_l": 0.2,
+      "noise_q": 0.005,
+      "pair_loss": 0.0,
+      "purpose": "harm",
+      "quality_logit_sd": 1.4,
+      "required": true,
+      "rho": 0.7
+    },
+    {
+      "bias_l": -0.2,
+      "bias_q": 0.01,
+      "effect_l": -1.0,
+      "effect_q": -0.05,
+      "id": "bias-at-allowance",
+      "labour_log_sd": 0.35,
+      "noise_l": 0.2,
+      "noise_q": 0.005,
+      "pair_loss": 0.0,
+      "purpose": "calibration",
+      "quality_logit_sd": 1.4,
+      "required": true,
+      "rho": 0.7
+    },
+    {
+      "bias_l": -0.2,
+      "bias_q": 0.0,
+      "effect_l": -1.0,
+      "effect_q": 0.0,
+      "id": "labour-boundary-bias",
+      "labour_log_sd": 0.35,
+      "noise_l": 0.2,
+      "noise_q": 0.005,
+      "pair_loss": 0.0,
+      "purpose": "calibration",
+      "quality_logit_sd": 1.4,
+      "required": true,
+      "rho": 0.7
+    },
+    {
+      "bias_l": 0.0,
+      "bias_q": 0.01,
+      "effect_l": -2.0,
+      "effect_q": -0.05,
+      "id": "quality-boundary-bias",
+      "labour_log_sd": 0.35,
+      "noise_l": 0.2,
+      "noise_q": 0.005,
+      "pair_loss": 0.0,
+      "purpose": "calibration",
+      "quality_logit_sd": 1.4,
+      "required": true,
+      "rho": 0.7
+    },
+    {
+      "bias_l": -1.0,
+      "bias_q": 0.06,
+      "effect_l": -1.0,
+      "effect_q": -0.05,
+      "id": "bias-exceeds-allowance",
+      "labour_log_sd": 0.35,
+      "noise_l": 0.2,
+      "noise_q": 0.005,
+      "pair_loss": 0.0,
+      "purpose": "assumption-failure",
+      "quality_logit_sd": 1.4,
+      "required": false,
+      "rho": 0.7
+    },
+    {
+      "bias_l": 0.0,
+      "bias_q": 0.0,
+      "effect_l": -2.0,
+      "effect_q": 0.0,
+      "id": "incomplete-pairs",
+      "labour_log_sd": 0.35,
+      "noise_l": 0.2,
+      "noise_q": 0.005,
+      "pair_loss": 0.005,
+      "purpose": "missingness",
+      "quality_logit_sd": 1.4,
+      "required": true,
+      "rho": 0.7
+    }
+  ],
+  "schema": "causal-study-planning/1",
+  "selected_principal_design": null,
+  "source_sha256": "9e89b6d4023f3a29bec8da3ed9c17188adf519f0730357b178ca2f33137e15ff",
+  "status": "evaluated-under-provisional-assumptions",
+  "verification": {
+    "known_benefit": "passed",
+    "missing_endpoint_override": "passed",
+    "pair_randomisation_expectation": "exact Fraction check passed",
+    "quality_harm_override": "passed"
+  },
+  "versions": {
+    "numpy": "2.3.5",
+    "python": "3.12.14",
+    "scipy": "1.17.0"
+  }
+}

@@ -1,5 +1,47 @@
 # Paper validation history
 
+## 1 November 2026 timeline, Lean and causal-study completion
+
+The current revision adds a timeline panel to Figure 1, retains its original
+152.4 by 80 mm size, and verifies the marked midpoint's half-hour task blocks by
+exact overlap integration. A fresh independent reader reconstructed the figure
+before inspecting its specification and accepted the compact layout. Both
+layouts and final review/audit hashes are retained.
+
+The new `formal/` supplement has 54 checked declarations under pinned Lean 4.33.1
+and mathlib v4.33.1. The integral-to-cell correspondence includes actual interval
+integrals, local integrability and integrated capacity, global binary stitching,
+grouped observations and weighted targets. Separate declarations check supplied
+certificates, relaxation and conditional simultaneous coverage. All-export axiom
+audits, independent statement correspondence and fresh kernel replay passed.
+The only exported axioms are `propext`, `Classical.choice` and `Quot.sound`.
+The receipt binds sources, pins, checker/executable identities, current-manuscript
+freshness, review and actual logs. Static validation is distinct from proof replay.
+General LP existence/strong-duality existence, separate piece counts, empirical
+premises and source-language refinement remain outside this new formal coverage.
+
+The causal-study companion is specified and unrun. Its paired-team comparison
+keeps initial requirements and denominators fixed, uses the paper's 336+336-hour
+clocks and requires both meaningful labour reduction and retained-output
+noninferiority. Twenty thousand simulations in each of 24 design--scenario cells
+reproduce; neither principal candidate meets the provisional joint target across
+the required assumptions. A separate pilot and conditional allocation rule are
+therefore retained. The bounded local validator checks 86 assessment results and
+records the six failed joint-adequacy cells without promoting readiness.
+
+All 216 application tests, formatting and Clippy pass. The complete paper check,
+figure checks, planning reproduction and protocol consistency checks pass.
+The rebuilt 16-page PDF was rendered throughout and the changed material inspected
+at readable size. There are no unresolved references/citations or overfull or
+underfull boxes. The online-first Cui reference retains its existing missing-pages
+warning. Ten used methodological/tool references are added after primary-source
+inspection. The Reproducibility section remains absent and the historical formal
+package is untouched.
+
+See the [completion record](review/timeline-formal-causal-2026-11-01.md),
+[new formal supplement](formal/README.md) and
+[study design](study/ai-labour-causal/README.md) for exact scope and reproduction.
+
 ## 1 November 2026 terminology and MAS Math Lab review
 
 The current PDF builds to 15 pages. All six compiled sources and the figure

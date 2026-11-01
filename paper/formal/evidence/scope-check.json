@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "inventory_items": 10,
+  "checked_component_groups": 5,
+  "checker_scripts_sha256": "MATCHED",
+  "recorded_toolchain_identity_sha256": "MATCHED",
+  "current_manuscript_sha256": "MATCHED",
+  "other_dispositions": {
+    "strong-dual-existence": "DEFERRED_DEPENDENCY",
+    "empirical-adequacy": "EMPIRICAL_CONTEXTUAL",
+    "rust-refinement": "NOT_REQUIRED",
+    "finite-block-count": "DEFERRED_DEPENDENCY",
+    "lp-extrema-existence": "DEFERRED_DEPENDENCY"
+  },
+  "scope": "Inventory and exclusion consistency only; not a proof of excluded or empirical claims."
+}
