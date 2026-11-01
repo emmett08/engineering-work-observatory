@@ -1,0 +1,92 @@
+{
+  "execution": {
+    "completed_invocation_count": 1,
+    "invocation_count": 1,
+    "invocations": [
+      {
+        "actor": "emmett08",
+        "compared_fields": [
+          "actor",
+          "event_name",
+          "repository_id",
+          "triggering_actor"
+        ],
+        "conflicting_fields": [],
+        "declared_controller": "unknown",
+        "declared_session_present": false,
+        "delivery": "github_artifact_collector",
+        "event_name": "pull_request",
+        "exit_code": 0,
+        "invocation_id": "4e79932b-56e5-4514-a312-cf14e557cdcc",
+        "job_id": 124946448923,
+        "job_name": "Observatory context experiment (ubuntu-latest)",
+        "lifecycle": "start_and_completion_observed",
+        "platform_comparison": "compared_with_retained_api",
+        "receipt_ids": [
+          "execution/1427362428/41339538299/1/4e79932b-56e5-4514-a312-cf14e557cdcc/completion",
+          "execution/1427362428/41339538299/1/4e79932b-56e5-4514-a312-cf14e557cdcc/start"
+        ],
+        "result": "success",
+        "run_attempt": 1,
+        "run_id": 41339538299,
+        "runtime_ms": 17050,
+        "tool": "cargo",
+        "triggering_actor": "emmett08"
+      }
+    ],
+    "jobs": [
+      {
+        "conclusion": "success",
+        "job_id": 124946448923,
+        "run_attempt": 1,
+        "run_id": 41339538299,
+        "selected_task_receipts": "matched",
+        "status": "completed"
+      }
+    ],
+    "jobs_without_matched_task_receipts": 0,
+    "receipt_integrity": "verified_store",
+    "reported_runtime_seconds": 17.05,
+    "repository_metadata_observed": true,
+    "selected_runs": [
+      {
+        "conclusion": "success",
+        "metadata_observed": true,
+        "run_id": 41339538299,
+        "status": "completed",
+        "url": "https://github.com/emmett08/eal-mcp/actions/runs/41339538299"
+      }
+    ],
+    "unlinked_invocations_in_selected_runs": 0
+  },
+  "human_effort": {
+    "estimate_person_hours": null,
+    "mode": "estimate_unavailable",
+    "proxy_hours": null,
+    "sampling": null,
+    "synthetic": false,
+    "unavailable_reasons": [
+      "private_activity_and_sampled_responses_not_configured"
+    ]
+  },
+  "issue_number": 36,
+  "issue_url": "https://github.com/emmett08/eal-mcp/issues/36",
+  "limitations": [
+    "Tool runtime is elapsed execution time, not human labour. Parallel runtimes may overlap.",
+    "Receipt hashes and schema validation establish integrity, not truthful controller, session or task declarations.",
+    "Missing receipts can mean uninstrumented work or failed delivery; they do not establish zero tool use.",
+    "Issue/PR links do not establish acceptance, retained quality or a causal AI effect.",
+    "Sampled responses are human declarations. Sampling standard errors exclude recall, attribution, roster and model-drift errors; they are not accuracy guarantees."
+  ],
+  "manifest_sha256": "f56ba8bbca349f40678f8ab2faa6211a06a46497588c91dcdd9b861f07c771a2",
+  "protocol_id": "observatory-linked-pilot-v1",
+  "pull_request_urls": [
+    "https://github.com/emmett08/eal-mcp/pull/37"
+  ],
+  "pull_requests": [
+    37
+  ],
+  "repository": "emmett08/eal-mcp",
+  "schema": "observatory.linked-pilot-report/1",
+  "task_id": "eal-context-effort-pilot"
+}

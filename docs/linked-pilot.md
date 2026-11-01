@@ -24,6 +24,12 @@ Observatory. This pilot collects the subject repositories' own run identities.
 EAL's full language/runtime workflow remains manual; only the bounded context
 pilot gains a PR trigger, as requested for this demo.
 
+The [retained live demo](linked-pilot-evidence/README.md) contains three successful
+tool invocations, six deduplicated receipts, verified GitHub relationships and
+the resulting aggregate reports. Human estimates remain unavailable. The sample
+task IDs apply only to their implementing PRs (plus EAL's explicit manual pilot);
+unmapped future PRs retain unknown task attribution.
+
 ## Run the execution-only demo now
 
 Build the reviewed Observatory revision with its pinned Rust toolchain, Python

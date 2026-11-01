@@ -1,0 +1,17 @@
+{
+  "reports": [
+    {
+      "json": "task-f8608a061be71b1e.json",
+      "markdown": "task-f8608a061be71b1e.md",
+      "sha256": "4db682e92939ea0c5b4d32463d79a4168f9ca2c2b3827ab450005ea2f3556731",
+      "task_id": "engarg-authoring-effort-pilot"
+    },
+    {
+      "json": "task-4e8873fa577efb0c.json",
+      "markdown": "task-4e8873fa577efb0c.md",
+      "sha256": "c5ffc83dbc92c73d31c448c0af4c1b429e13d7a7d5fe5b108c425f01d6bc30b8",
+      "task_id": "eal-context-effort-pilot"
+    }
+  ],
+  "schema": "observatory.pilot-report-index/1"
+}

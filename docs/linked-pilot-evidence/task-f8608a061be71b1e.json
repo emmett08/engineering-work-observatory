@@ -1,0 +1,170 @@
+{
+  "execution": {
+    "completed_invocation_count": 2,
+    "invocation_count": 2,
+    "invocations": [
+      {
+        "actor": "emmett08",
+        "compared_fields": [
+          "actor",
+          "event_name",
+          "repository_id",
+          "triggering_actor"
+        ],
+        "conflicting_fields": [],
+        "declared_controller": "unknown",
+        "declared_session_present": false,
+        "delivery": "github_artifact_collector",
+        "event_name": "pull_request",
+        "exit_code": 0,
+        "invocation_id": "42cae992-5081-48fe-a275-2415056fe1bb",
+        "job_id": 124946577689,
+        "job_name": "checks (macos-latest)",
+        "lifecycle": "start_and_completion_observed",
+        "platform_comparison": "compared_with_retained_api",
+        "receipt_ids": [
+          "execution/1431331749/41339566322/1/42cae992-5081-48fe-a275-2415056fe1bb/completion",
+          "execution/1431331749/41339566322/1/42cae992-5081-48fe-a275-2415056fe1bb/start"
+        ],
+        "result": "success",
+        "run_attempt": 1,
+        "run_id": 41339566322,
+        "runtime_ms": 28368,
+        "tool": "python3",
+        "triggering_actor": "emmett08"
+      },
+      {
+        "actor": "emmett08",
+        "compared_fields": [
+          "actor",
+          "event_name",
+          "repository_id",
+          "triggering_actor"
+        ],
+        "conflicting_fields": [],
+        "declared_controller": "unknown",
+        "declared_session_present": false,
+        "delivery": "github_artifact_collector",
+        "event_name": "pull_request",
+        "exit_code": 0,
+        "invocation_id": "a66dc7fd-4dba-4e3f-ae4f-84deec47b0fd",
+        "job_id": 124946577756,
+        "job_name": "checks (ubuntu-latest)",
+        "lifecycle": "start_and_completion_observed",
+        "platform_comparison": "compared_with_retained_api",
+        "receipt_ids": [
+          "execution/1431331749/41339566322/1/a66dc7fd-4dba-4e3f-ae4f-84deec47b0fd/completion",
+          "execution/1431331749/41339566322/1/a66dc7fd-4dba-4e3f-ae4f-84deec47b0fd/start"
+        ],
+        "result": "success",
+        "run_attempt": 1,
+        "run_id": 41339566322,
+        "runtime_ms": 14583,
+        "tool": "python3",
+        "triggering_actor": "emmett08"
+      }
+    ],
+    "jobs": [
+      {
+        "conclusion": null,
+        "job_id": 124946577551,
+        "run_attempt": 1,
+        "run_id": 41339566322,
+        "selected_task_receipts": "none_or_unresolved",
+        "status": "in_progress"
+      },
+      {
+        "conclusion": null,
+        "job_id": 124946577689,
+        "run_attempt": 1,
+        "run_id": 41339566322,
+        "selected_task_receipts": "matched",
+        "status": "in_progress"
+      },
+      {
+        "conclusion": null,
+        "job_id": 124946577756,
+        "run_attempt": 1,
+        "run_id": 41339566322,
+        "selected_task_receipts": "matched",
+        "status": "in_progress"
+      },
+      {
+        "conclusion": null,
+        "job_id": 124946577767,
+        "run_attempt": 1,
+        "run_id": 41339566322,
+        "selected_task_receipts": "none_or_unresolved",
+        "status": "in_progress"
+      },
+      {
+        "conclusion": null,
+        "job_id": 124946577859,
+        "run_attempt": 1,
+        "run_id": 41339566322,
+        "selected_task_receipts": "none_or_unresolved",
+        "status": "in_progress"
+      },
+      {
+        "conclusion": null,
+        "job_id": 124946577866,
+        "run_attempt": 1,
+        "run_id": 41339566322,
+        "selected_task_receipts": "none_or_unresolved",
+        "status": "in_progress"
+      },
+      {
+        "conclusion": null,
+        "job_id": 124946577869,
+        "run_attempt": 1,
+        "run_id": 41339566322,
+        "selected_task_receipts": "none_or_unresolved",
+        "status": "in_progress"
+      }
+    ],
+    "jobs_without_matched_task_receipts": 5,
+    "receipt_integrity": "verified_store",
+    "reported_runtime_seconds": 42.951,
+    "repository_metadata_observed": true,
+    "selected_runs": [
+      {
+        "conclusion": null,
+        "metadata_observed": true,
+        "run_id": 41339566322,
+        "status": "in_progress",
+        "url": "https://github.com/emmett08/engarg/actions/runs/41339566322"
+      }
+    ],
+    "unlinked_invocations_in_selected_runs": 0
+  },
+  "human_effort": {
+    "estimate_person_hours": null,
+    "mode": "estimate_unavailable",
+    "proxy_hours": null,
+    "sampling": null,
+    "synthetic": false,
+    "unavailable_reasons": [
+      "private_activity_and_sampled_responses_not_configured"
+    ]
+  },
+  "issue_number": 49,
+  "issue_url": "https://github.com/emmett08/engarg/issues/49",
+  "limitations": [
+    "Tool runtime is elapsed execution time, not human labour. Parallel runtimes may overlap.",
+    "Receipt hashes and schema validation establish integrity, not truthful controller, session or task declarations.",
+    "Missing receipts can mean uninstrumented work or failed delivery; they do not establish zero tool use.",
+    "Issue/PR links do not establish acceptance, retained quality or a causal AI effect.",
+    "Sampled responses are human declarations. Sampling standard errors exclude recall, attribution, roster and model-drift errors; they are not accuracy guarantees."
+  ],
+  "manifest_sha256": "f56ba8bbca349f40678f8ab2faa6211a06a46497588c91dcdd9b861f07c771a2",
+  "protocol_id": "observatory-linked-pilot-v1",
+  "pull_request_urls": [
+    "https://github.com/emmett08/engarg/pull/50"
+  ],
+  "pull_requests": [
+    50
+  ],
+  "repository": "emmett08/engarg",
+  "schema": "observatory.linked-pilot-report/1",
+  "task_id": "engarg-authoring-effort-pilot"
+}

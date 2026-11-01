@@ -1,0 +1,22 @@
+{
+  "schema": "observatory.linked-pilot-evidence/1",
+  "collection_run_url": "https://github.com/emmett08/engineering-work-observatory/actions/runs/41339863127",
+  "collection_revision": "c6e38fc2a99f6ac5f7f30aa31a4c1b1b57e0bcce",
+  "collection_artifact_id": 13096343134,
+  "collection_archive_sha256": "76404df05737cc0ff862b6906b29b65392afb220482b6ccfa59cc59753b1099f",
+  "human_observations": "not_configured",
+  "files_sha256": {
+    "collected-snapshot.json": "906c5713e414be0cdc4c325fb10a53725b55969845ff64278fdfa3bacc649b90",
+    "deduplication.json": "dfec2ce47e2c0c11fbcbcc1804044506565d84bdf81329e124be132aa4433456",
+    "eal-context-bundle.json": "bd136817f560cc175d755a6fa9ecaff91454095c298260fd5c2a7d3d2aec7d1d",
+    "engarg-macos-bundle.json": "db73e17fdcd8de6f9a3b11ea12c63a297a477d03dfc37a34157dd7fd263d0eaf",
+    "engarg-ubuntu-bundle.json": "79e5ce9bcb38ba0b1e7d33a93445e27dc132e06f3def7949bc7a7c2583eb5d2d",
+    "links-eal.json": "08a937d1b5e11451b513a803a09d645773025c281cb7f039cb83b756937ea882",
+    "links-engarg.json": "1468d49444561135fd712a4dfe8351f3a6ecd8cf7ea672cd30da9effc1825e28",
+    "report-index.json": "97f52816b2375c4aa7ee9bcbaa430ee574cc827292bac010bf447254d9ffebd4",
+    "task-4e8873fa577efb0c.json": "7067f57964af1b63e6b3c0cd4074aa12fd5496acd2484992fc231c675c191a25",
+    "task-4e8873fa577efb0c.md": "1e90e7d00f24026f4939a7eab8cba40208f1f89b1caa45663a25a15973c4c5e3",
+    "task-f8608a061be71b1e.json": "48fd35cf32b9798a56554ae5558d17362445a3c80ce8b15a9f28d08992d3a8b6",
+    "task-f8608a061be71b1e.md": "31789fd7575d769aece7160b5ea017a29b72258983675eaa225d44c47e663755"
+  }
+}
