@@ -1,0 +1,302 @@
+{
+  "schema_version": "1.0",
+  "figure_id": "shared-capacity",
+  "purpose": {
+    "reader_question": "Why can separately uncertain task totals determine the combined labour exactly?",
+    "expected_reading": "The marginal square contains jointly impossible pairs; enforcing capacity in both hours leaves a diagonal whose sum is always one person-hour.",
+    "claim": "For this constructed saturated one-person example, adding separate bounds gives [0,2] first-hour person-hours, while joint constraints give exactly one.",
+    "scope": "One person, two tasks each totaling one person-hour over [0,2] hours, target [0,1], measurable fractional allocations allowed.",
+    "permitted_inferences": [
+      "Membership in the specified sets of first-hour totals.",
+      "Shared capacity can improve combined labour bounds without additional observations."
+    ],
+    "prohibited_inferences": [
+      "A measured workplace result or causal effect of AI.",
+      "A probability distribution or statistical confidence interval.",
+      "Shared capacity always point-identifies aggregate labour.",
+      "A plotted pair specifies a complete time-allocation history."
+    ]
+  },
+  "inputs": [
+    {
+      "id": "case",
+      "path": "figures/shared-capacity/inputs.json",
+      "status": "illustrative",
+      "source_reference": "Constructed two-task example in Section 4.1 of article/partial-identification.tex; manuscript baseline 0cde2de1a79d54a0b1c557d8ba986375f9b283c9.",
+      "sha256": "d56ba16ee28db44c2a8fd7561f725b8cc06a7509c649cd213fafeaa092496272"
+    },
+    {
+      "id": "calculation",
+      "path": "figures/shared-capacity/calculation.json",
+      "status": "derived",
+      "source_reference": "Exact rational calculation and independent allocation reconstruction in calculate.py; deterministic derived sets, no empirical measurements.",
+      "sha256": "de285404947996a405bd7250c272bf5d3da133463486d5f40835031f1be6623d"
+    },
+    {
+      "id": "caption",
+      "path": "figures/shared-capacity/caption.tex",
+      "status": "derived",
+      "source_reference": "Proposed caption states the constructed inputs, quantities, deterministic feasible sets and scope.",
+      "sha256": "a85de5b5c674c1ce1838e275298a9de1dcd3eee5792889e4a9d97ed04739488c"
+    },
+    {
+      "id": "alternative-text",
+      "path": "figures/shared-capacity/alt-text.txt",
+      "status": "derived",
+      "source_reference": "Accessible description of the two plotted projections and their limitations.",
+      "sha256": "8fb6384a48ad8d2100aad847c287ab248745a7ea67291ba9fc04ea16b404fd72"
+    }
+  ],
+  "quantities": [
+    {
+      "id": "x",
+      "label": "Task A first-hour labour",
+      "unit": "person-hours",
+      "definition": "Person-hours assigned to Task A in [0,1]; the full [0,2] task total is one person-hour.",
+      "input_ids": [
+        "case",
+        "calculation"
+      ],
+      "transformation": "Integrate each task allocation in the first hour; sum for combined labour. Values and endpoints are derived with rational arithmetic.",
+      "statistical_role": "derived",
+      "missingness": {
+        "state": "not_applicable",
+        "treatment": "This is an exact constructed example, not a sampled or partially observed dataset."
+      },
+      "uncertainty": {
+        "kind": "interval",
+        "definition": "Deterministic permitted values: each component is in [0,1]; adding separate bounds yields [0,2], while enforcing both capacity constraints yields the singleton {1}. No probability coverage is assigned."
+      }
+    },
+    {
+      "id": "y",
+      "label": "Task B first-hour labour",
+      "unit": "person-hours",
+      "definition": "Person-hours assigned to Task B in [0,1]; the full [0,2] task total is one person-hour.",
+      "input_ids": [
+        "case",
+        "calculation"
+      ],
+      "transformation": "Integrate each task allocation in the first hour; sum for combined labour. Values and endpoints are derived with rational arithmetic.",
+      "statistical_role": "derived",
+      "missingness": {
+        "state": "not_applicable",
+        "treatment": "This is an exact constructed example, not a sampled or partially observed dataset."
+      },
+      "uncertainty": {
+        "kind": "interval",
+        "definition": "Deterministic permitted values: each component is in [0,1]; adding separate bounds yields [0,2], while enforcing both capacity constraints yields the singleton {1}. No probability coverage is assigned."
+      }
+    },
+    {
+      "id": "sum",
+      "label": "Combined first-hour labour",
+      "unit": "person-hours",
+      "definition": "The sum x+y of the two task first-hour totals for the same person.",
+      "input_ids": [
+        "case",
+        "calculation"
+      ],
+      "transformation": "Integrate each task allocation in the first hour; sum for combined labour. Values and endpoints are derived with rational arithmetic.",
+      "statistical_role": "derived",
+      "missingness": {
+        "state": "not_applicable",
+        "treatment": "This is an exact constructed example, not a sampled or partially observed dataset."
+      },
+      "uncertainty": {
+        "kind": "interval",
+        "definition": "Deterministic permitted values: each component is in [0,1]; adding separate bounds yields [0,2], while enforcing both capacity constraints yields the singleton {1}. No probability coverage is assigned."
+      }
+    }
+  ],
+  "constructions": [
+    {
+      "id": "marginal-square",
+      "kind": "constraint_region",
+      "definition": "0 <= x <= 1 and 0 <= y <= 1, all boundaries included. This is the Cartesian product of separately calculated task bounds, not the joint feasible set.",
+      "method": "Apply the one-person interval bound separately to each task total.",
+      "input_ids": [
+        "case",
+        "calculation"
+      ]
+    },
+    {
+      "id": "joint-line",
+      "kind": "constraint_region",
+      "definition": "The square intersected with x+y <= 1 and (1-x)+(1-y) <= 1; equivalently x+y=1. Closed endpoints (0,1),(1,0).",
+      "method": "First-hour capacity supplies the upper half-plane; second-hour remaining labour supplies the lower half-plane. Construct piecewise-constant feasible allocations for every point of the line.",
+      "input_ids": [
+        "case",
+        "calculation"
+      ]
+    },
+    {
+      "id": "sum-projections",
+      "kind": "projection",
+      "definition": "Map (x,y) to x+y: the square projects onto [0,2] and the joint line onto {1}. These are deterministic images of sets of interval totals.",
+      "method": "Linear projection; rational endpoints from calculate.py.",
+      "input_ids": [
+        "case",
+        "calculation"
+      ]
+    }
+  ],
+  "encodings": [
+    {
+      "id": "task-positions",
+      "marks": "horizontal and vertical Cartesian axes",
+      "mark_role": "data_mark",
+      "channel": "position",
+      "represents": "The two first-hour labour totals.",
+      "interpretation": "quantitative",
+      "quantity_ids": [
+        "x",
+        "y"
+      ],
+      "scale_or_mapping": {
+        "type": "linear",
+        "definition": "Both axes run from 0 to 1 person-hour over equal 52 mm lengths.",
+        "domain": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "separate-region",
+      "marks": "lightly filled square and closed boundary",
+      "mark_role": "boundary",
+      "channel": "area",
+      "represents": "Pairs allowed by the separate bounds.",
+      "interpretation": "relational",
+      "construction_ids": [
+        "marginal-square"
+      ],
+      "scale_or_mapping": {
+        "type": "explicit",
+        "definition": "Filled points satisfy both separate marginal bounds; darkness does not encode probability."
+      }
+    },
+    {
+      "id": "joint-boundary",
+      "marks": "solid dark teal descending line",
+      "mark_role": "boundary",
+      "channel": "incidence",
+      "represents": "Pairs satisfying both hours of shared capacity.",
+      "interpretation": "relational",
+      "construction_ids": [
+        "joint-line"
+      ],
+      "scale_or_mapping": {
+        "type": "explicit",
+        "definition": "The line includes exactly pairs with x+y=1; boundaries included. Two direct region labels state which hour rules out off-line pairs."
+      }
+    },
+    {
+      "id": "combined-position",
+      "marks": "grey interval and dark teal diamond",
+      "mark_role": "data_mark",
+      "channel": "position",
+      "represents": "Separate and joint possible combined totals.",
+      "interpretation": "quantitative",
+      "quantity_ids": [
+        "sum"
+      ],
+      "construction_ids": [
+        "sum-projections"
+      ],
+      "scale_or_mapping": {
+        "type": "linear",
+        "definition": "Common horizontal 0--2 person-hour scale, 27 mm per person-hour; vertical positions are categorical rows only.",
+        "domain": [
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "id": "calculation-kind",
+      "marks": "upper grey interval and lower dark teal diamond",
+      "mark_role": "data_mark",
+      "channel": "shape",
+      "represents": "Separate summed bounds versus the joint constrained result.",
+      "interpretation": "categorical",
+      "construction_ids": [
+        "sum-projections"
+      ],
+      "scale_or_mapping": {
+        "type": "nominal",
+        "definition": "Capped interval for [0,2]; single diamond at 1 for the singleton. Direct labels preserve meaning in greyscale.",
+        "domain": [
+          "separate bounds added",
+          "joint constraints"
+        ]
+      }
+    }
+  ],
+  "target": {
+    "width_mm": 152.4,
+    "width_mode": "exact",
+    "width_tolerance_mm": 0.1,
+    "min_text_pt": 8.5,
+    "min_math_script_pt": 6,
+    "min_stroke_pt": 0.45,
+    "colour_intent": "colour_and_greyscale",
+    "prohibit_block_circle_diagrams": true,
+    "expected_labels": [
+      "First-hour task totals",
+      "Combined first-hour labour",
+      "Separate bounds added",
+      "Joint constraints",
+      "Jointly feasible"
+    ]
+  },
+  "build": {
+    "renderer": "tikz",
+    "engine": "pdflatex",
+    "source": "figures/shared-capacity/tikz.tex",
+    "recipe": [
+      [
+        "python3",
+        "figures/shared-capacity/calculate.py",
+        "--check"
+      ],
+      [
+        "python3",
+        "figures/shared-capacity/render.py",
+        "--source",
+        "figures/shared-capacity/tikz.tex",
+        "--output",
+        "figures/shared-capacity/figure.pdf",
+        "--spec",
+        "shared-capacity.spec.json",
+        "--audit",
+        "figures/shared-capacity/figure.audit.json",
+        "--preview-dir",
+        "build/shared-capacity-preview"
+      ],
+      [
+        "python3",
+        "figures/shared-capacity/verify.py"
+      ]
+    ],
+    "outputs": {
+      "pdf": "figures/shared-capacity/figure.pdf",
+      "audit": "figures/shared-capacity/figure.audit.json",
+      "review": "figures/shared-capacity/figure.review.json"
+    },
+    "dependencies": [
+      "figures/shared-capacity/coordinates.tex",
+      "figures/shared-capacity/caption.tex",
+      "figures/shared-capacity/alt-text.txt",
+      "figures/shared-capacity/inputs.json",
+      "figures/shared-capacity/calculation.json",
+      "figures/shared-capacity/calculate.py",
+      "figures/shared-capacity/render.py",
+      "figures/shared-capacity/schemas/figure-spec.schema.json",
+      "figures/shared-capacity/schemas/figure-review.schema.json",
+      "figures/shared-capacity/verify.py",
+      "figures/shared-capacity/requirements.txt"
+    ]
+  }
+}

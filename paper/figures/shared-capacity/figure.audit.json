@@ -1,0 +1,89 @@
+{
+  "audit_kind": "project-local bounded mechanical checks",
+  "limitation": "The skill's bundled figure_spec.py/render_tikz.py/figure_review.py were unavailable. This script does not claim their full validation coverage.",
+  "source": "figures/shared-capacity/tikz.tex",
+  "source_sha256": "db92a69eed3d3e5e1e695d4028e7e0a1e8c39184407ac2f6b7eabf854840f319",
+  "pdf": "figures/shared-capacity/figure.pdf",
+  "pdf_sha256": "a998548f5f5990a3a6860c362badd98c1431604f9b3aeb1296fc863c5a1479be",
+  "spec_sha256": "6a96c731c378943434c6bb500d79ef0e60992e92ccb6ef8d30238656ecefea47",
+  "engine": "pdflatex",
+  "python": "3.12.14",
+  "python_packages": {
+    "PyMuPDF": "1.26.6",
+    "Pillow": "12.3.0",
+    "jsonschema": "4.26.0"
+  },
+  "width_mm": 152.399289449056,
+  "height_mm": 79.99941817389593,
+  "min_text_pt": 8.499874112606047,
+  "min_stroke_pt": 0.45000120136886834,
+  "fonts": [
+    "LMMathItalic9-Regular",
+    "LMRoman10-Bold",
+    "LMRoman9-Regular"
+  ],
+  "raster_images": 0,
+  "inputs": [
+    {
+      "path": "figures/shared-capacity/alt-text.txt",
+      "sha256": "8fb6384a48ad8d2100aad847c287ab248745a7ea67291ba9fc04ea16b404fd72"
+    },
+    {
+      "path": "figures/shared-capacity/calculate.py",
+      "sha256": "b87ebfe6b26f35660541269522d6a50408f7577722bcbb6cb307ec00f7b2edc0"
+    },
+    {
+      "path": "figures/shared-capacity/calculation.json",
+      "sha256": "de285404947996a405bd7250c272bf5d3da133463486d5f40835031f1be6623d"
+    },
+    {
+      "path": "figures/shared-capacity/caption.tex",
+      "sha256": "a85de5b5c674c1ce1838e275298a9de1dcd3eee5792889e4a9d97ed04739488c"
+    },
+    {
+      "path": "figures/shared-capacity/coordinates.tex",
+      "sha256": "4280b1c89608060f3566a65949f4bc4616100efe62e2ad050f66f89467642383"
+    },
+    {
+      "path": "figures/shared-capacity/inputs.json",
+      "sha256": "d56ba16ee28db44c2a8fd7561f725b8cc06a7509c649cd213fafeaa092496272"
+    },
+    {
+      "path": "figures/shared-capacity/render.py",
+      "sha256": "3e70e8e0eebdba0c470698384786ad1e5c3d420f35fcb155a34203b6bd5e3a94"
+    },
+    {
+      "path": "figures/shared-capacity/requirements.txt",
+      "sha256": "1edbb2ddb77db8364286ec800ab211665f408a9da5cc6395891d948071c1e274"
+    },
+    {
+      "path": "figures/shared-capacity/schemas/figure-review.schema.json",
+      "sha256": "4826560436d914c30d33253ccedb3c1d07cc3527f359fdbf7410e98cead39500"
+    },
+    {
+      "path": "figures/shared-capacity/schemas/figure-spec.schema.json",
+      "sha256": "be9b87b64ae3b9bcc7fdb66e019b79c2c0fc3fb2637cd8e309d0a935d77c3655"
+    },
+    {
+      "path": "figures/shared-capacity/verify.py",
+      "sha256": "d3ec643eeedd4d9a917fecb6d6e11e437d365fa3f3e873ad254e6a6d0deb147b"
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "typesetting_warnings": [
+    "Package shellesc Warning: Shell escape disabled on input line 73."
+  ],
+  "actual_local_tex_inputs": [
+    "figures/shared-capacity/coordinates.tex",
+    "figures/shared-capacity/tikz.tex"
+  ],
+  "packages": [
+    "standalone",
+    "fontenc[T1]",
+    "lmodern",
+    "amsmath",
+    "tikz"
+  ],
+  "semantic_review_required": true
+}

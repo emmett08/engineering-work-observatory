@@ -406,3 +406,36 @@ overfull/underfull boxes. The existing BibTeX missing-pages warning remains.
 `make -C paper check` and `git diff --check` pass. The
 [final review record](review/literal-prose-2026-11-01.md#final-pass-and-reproducibility-removal)
 records the precise scope, permitted changes and PDF hash.
+
+
+### Shared-capacity figure
+
+Figure 1 is added after the two-task example in Section 4.1, with an include-ready
+source at `figures/shared-capacity/tikz.tex`, separate caption, vector PDF and
+alternative composition. The [figure record](figures/shared-capacity/README.md)
+and `shared-capacity.spec.json` identify the constructed inputs, quantities,
+closed constraint sets, projection, physical size and interpretation limits.
+
+Exact rational calculation checks 1,089 grid pairs, including 33 feasible diagonal
+points and 528 violations of each hour's capacity, plus three explicit feasible
+histories and four rejected pairs. The continuum claim follows from the two
+capacity inequalities. A separate agent first reconstructed the result from the
+render and caption, then compared both rendered layouts with the specification.
+The selected 152.4 × 80 mm side-by-side layout retains the same plotted sizes in
+31 mm less height than the stacked alternative. Its current audit and accepted
+review bind the source, caption, data, specification and vector PDF by hashes.
+The schemas were available but the skill's bundled scripts were not; the named
+project-local renderer and verifier report their bounded checks explicitly.
+
+`make -C paper figure`, `python3 paper/figures/shared-capacity/verify.py --review`
+and `make -C paper check` pass. CI now runs the new dependency-free calculation
+check. All 20 existing display-math blocks, 226 existing inline expressions and
+the bibliography bytes are preserved; there are now 34 unique labels, including
+the figure, and all 13 cited sources resolve. `make -C paper article` builds 14
+pages. Every page was rendered and visually inspected, including Figure 1 on
+page 6. There are no undefined references/citations, overfull boxes or clipped
+text. The inspected underfull vertical-box notice and existing BibTeX
+missing-pages warning are nonfatal. The requested Reproducibility removal is
+retained. No application code or empirical result changes.
+
+Human interpretation benefit remains unmeasured by agent screening.

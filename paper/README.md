@@ -58,6 +58,13 @@ person-hours, time periods and mathematical relations intended. The equations,
 inline mathematics, citations and cross-references are unchanged. The revised
 PDF is rebuilt from those sources.
 
+Figure 1 shows how shared person-time constraints turn separately uncertain task
+contributions into an exactly known combined first-hour total. Its
+[include-ready TikZ source](figures/shared-capacity/tikz.tex),
+[vector PDF](figures/shared-capacity/figure.pdf) and
+[design and build record](figures/shared-capacity/README.md) retain the constructed
+inputs, exact calculation, alternative composition and review.
+
 ## Original paper and proof evidence
 
 [`effort-speed-ai/`](effort-speed-ai/) is the complete original package moved from
@@ -92,6 +99,7 @@ Run from this directory:
 
 ```sh
 make article
+make figure
 make forecasting
 make baseline
 ```

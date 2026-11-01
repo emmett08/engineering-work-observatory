@@ -26,7 +26,14 @@ Together, these inequalities give \eqref{eq:sharp-cutoff}. Conversely, for any $
 
 For one person, $3/2$ person-hours in a two-hour interval imply between $1/2$ and $1$ person-hours in its first hour. Nonnegativity alone would give $[0,3/2]$. In this example, the bounds do not determine the first-hour total or exactly when the person worked. If $v=u-\ell$, the total uses all the person's available time, so the labour before any time within it equals the elapsed time from its start. For an interior subinterval $[b,c]\subseteq[\ell,u]$, applying the same construction to that subinterval and the time outside it gives every possible labour total in the subinterval: $[\max\{0,v-((u-\ell)-(c-b))\},\min\{v,c-b\}]$.
 
-Bounds calculated separately for each contribution can be added when each contribution is counted once. The summed lower bound is possible only if allocations achieving every component minimum can occur together; the same condition applies to the upper bound and component maxima. Disjoint intervals of one person, or intervals belonging to distinct people, can be combined when no other constraints link them. Overlapping observations or several tasks competing for the same person's time require a joint calculation. For example, one person spends one person-hour on each of two tasks during $[0,2]$. Each task separately allows $[0,1]$ person-hours before time 1. Together, the tasks require exactly one person-hour before time 1, because they use all the person's available time on $[0,2]$. Adding the separately calculated bounds would give $[0,2]$.
+Bounds calculated separately for each contribution can be added when each contribution is counted once. The summed lower bound is possible only if allocations achieving every component minimum can occur together; the same condition applies to the upper bound and component maxima. Disjoint intervals of one person, or intervals belonging to distinct people, can be combined when no other constraints link them. Overlapping observations or several tasks competing for the same person's time require a joint calculation. For example, one person spends one person-hour on each of two tasks during $[0,2]$. Each task separately allows $[0,1]$ person-hours before time 1. Together, the tasks require exactly one person-hour before time 1, because they use all the person's available time on $[0,2]$. Adding the separately calculated bounds would give $[0,2]$. Figure~\ref{fig:shared-capacity} plots the separately permitted and jointly feasible first-hour totals.
+
+\begin{figure}[tbp]
+\centering
+\input{../figures/shared-capacity/tikz.tex}
+\caption[Shared capacity and first-hour labour]{\protect\input{../figures/shared-capacity/caption.tex}}
+\label{fig:shared-capacity}
+\end{figure}
 
 \subsection{Replacing allocation histories with interval totals}
 

@@ -1,0 +1,64 @@
+% Include-ready TikZ; compile from paper/article/ (see README.md).
+% Packages: tikz, amsmath, fontenc[T1], lmodern. No TikZ libraries required.
+% Final width: 152.4 mm; ordinary labels >= 8.5 pt; strokes >= 0.45 pt.
+% One teal accent; position, line weight and direct labels preserve greyscale meaning.
+\begin{tikzpicture}[x=1mm,y=1mm,
+  font=\fontsize{9}{11}\selectfont,
+  every node/.style={inner sep=0pt,outer sep=0pt},
+  scaxis/.style={draw=black!70,line width=0.45pt},
+  scjoint/.style={draw=scaccent,line width=1.5pt},
+  sctitle/.style={anchor=west,font=\fontsize{9.5}{11.5}\selectfont\bfseries},
+  sccontext/.style={align=center,text=black!75,font=\fontsize{8.5}{10}\selectfont}]
+  \definecolor{scaccent}{RGB}{0,88,92}
+  \input{../figures/shared-capacity/coordinates.tex}
+  \path[use as bounding box] (0,0) rectangle (152.4,80);
+  \node[sctitle] at (18,76) {(a) First-hour task totals};
+  \node[sctitle] at (87,76) {(b) Combined first-hour labour};
+
+  % Panel (a): the square is the Cartesian product of the separate bounds.
+  \begin{scope}[shift={(18,18)},x=52mm,y=52mm]
+    \fill[black!8] (\SCMarginalMinimum,\SCMarginalMinimum)
+      rectangle (\SCMarginalMaximum,\SCMarginalMaximum);
+    \draw[draw=black!35,line width=0.45pt]
+      (\SCMarginalMinimum,\SCMarginalMinimum)
+      rectangle (\SCMarginalMaximum,\SCMarginalMaximum);
+    \draw[scjoint] \SCFeasibleStart -- \SCFeasibleEnd;
+  \end{scope}
+  \draw[scaxis] (18,70) -- (18,18) -- (70,18);
+  \foreach \v in {0,0.5,1} {
+    \draw[scaxis] ({18+52*\v},18) -- ({18+52*\v},16.7);
+    \node[anchor=north] at ({18+52*\v},14.5) {\v};
+    \draw[scaxis] (18,{18+52*\v}) -- (16.7,{18+52*\v});
+    \node[anchor=east] at (14.5,{18+52*\v}) {\v};
+  }
+  \node at (44,6) {Task A, $x$ (person-hours)};
+  \node[rotate=90] at (3,44) {Task B, $y$ (person-hours)};
+  \node[sccontext,text width=27mm] at (55.5,60)
+    {Exceeds first-hour\\capacity};
+  \node[sccontext,text width=27mm] at (31.5,30)
+    {Exceeds second-hour\\capacity};
+  \node[rotate=-45,text=scaccent,font=\fontsize{8.5}{10}\selectfont]
+    at (44,48.5) {Jointly feasible};
+
+  % Panel (b): linear projection (x,y) -> x+y on a common 0--2 scale.
+  \node[anchor=west] at (91,62) {Separate bounds added};
+  \draw[draw=black!45,line width=2pt]
+    ({91+27*\SCSeparateTotalMinimum},55)
+    -- ({91+27*\SCSeparateTotalMaximum},55);
+  \foreach \v in {\SCSeparateTotalMinimum,\SCSeparateTotalMaximum} {
+    \draw[draw=black!55,line width=0.65pt]
+      ({91+27*\v},53.4) -- ({91+27*\v},56.6);
+  }
+  \node[anchor=west] at (91,45.5) {Joint constraints};
+  \path[fill=scaccent] ({91+27*\SCJointTotal},39)
+    -- ++(1.35,-1.35) -- ++(-1.35,-1.35) -- ++(-1.35,1.35) -- cycle;
+  \node[text=scaccent] at ({91+27*\SCJointTotal},30.5)
+    {$x+y=\SCJointTotal$};
+  \draw[scaxis] (91,20) -- (145,20);
+  \foreach \v in {0,1,2} {
+    \draw[scaxis] ({91+27*\v},20) -- ({91+27*\v},18.7);
+    \node[anchor=north] at ({91+27*\v},16.5) {\v};
+  }
+  \node[align=center] at (118,6)
+    {Combined labour, $x+y$\\(person-hours)};
+\end{tikzpicture}%

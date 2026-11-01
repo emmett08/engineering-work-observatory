@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "figure_id": "shared-capacity",
+  "spec_sha256": "6a96c731c378943434c6bb500d79ef0e60992e92ccb6ef8d30238656ecefea47",
+  "audit_sha256": "8d67e489239460b8f0b7ecdf238b15cb0c32949541f755eaaafd5fad05d85b3e",
+  "artifacts": [
+    {
+      "role": "final_pdf",
+      "path": "figures/shared-capacity/figure.pdf",
+      "sha256": "a998548f5f5990a3a6860c362badd98c1431604f9b3aeb1296fc863c5a1479be"
+    },
+    {
+      "role": "prototype",
+      "path": "figures/shared-capacity/figure.pdf",
+      "sha256": "a998548f5f5990a3a6860c362badd98c1431604f9b3aeb1296fc863c5a1479be"
+    },
+    {
+      "role": "prototype",
+      "path": "figures/shared-capacity/prototypes/stacked.pdf",
+      "sha256": "a0f89b8768fd0cfcc01712cb367ee90c79a8b19c75102d3abaff7e81851f6f0a"
+    }
+  ],
+  "reviewer": {
+    "id": "figure_reader",
+    "kind": "agent",
+    "independence_declared": true,
+    "scope": "agent_screening"
+  },
+  "candidates": [
+    {
+      "id": "side-by-side",
+      "prototype": "figures/shared-capacity/figure.pdf",
+      "observations": {
+        "reading": "The initial blind reading reconstructed the marginal square, joint diagonal x+y=1, and projections [0,2] and {1}. A left-to-right reading connects constraints with their combined labour. The x+y axis and equality annotation expose the projection.",
+        "annotation_burden": "Direct labels avoid a separate legend. The lower-triangle exclusion takes one inferential step using the two-hour task totals. The rotated diagonal label adds a small reading burden but has no collision.",
+        "reproduction": "Readable colour and greyscale previews at 152.4 by 80 mm; 8.5--9.5 pt labels. Dark diagonal and diamond retain identity without colour."
+      }
+    },
+    {
+      "id": "stacked",
+      "prototype": "figures/shared-capacity/prototypes/stacked.pdf",
+      "observations": {
+        "reading": "Same square and diagonal above the combined-total comparison. Quantities and result can be recovered, but x+y axis/equality cues are absent.",
+        "annotation_burden": "Row labels sit nearer their marks, modestly aiding row identification. The plotting areas shift horizontally between panels, lengthening the visual path.",
+        "reproduction": "Same physical square and interval lengths, readable in greyscale, at 152.4 by 111 mm. Its additional 31 mm height does not resolve a collision or substantive reading problem."
+      }
+    }
+  ],
+  "selected_candidate": "side-by-side",
+  "initial_reconstruction": {
+    "claim": "First-hour capacity x+y<=1 and second-hour remaining labour 2-x-y<=1 intersect in x+y=1. Separately summed bounds give [0,2], while joint constraints give {1}.",
+    "quantities": [
+      "x: first-hour labour on Task A in person-hours.",
+      "y: first-hour labour on Task B in person-hours.",
+      "x+y: combined first-hour labour, with common 0--2 scale in panel (b)."
+    ],
+    "evidence_status": "The caption explicitly identifies a constructed example, not measured evidence.",
+    "scope": "One person, two one-person-hour tasks and a two-hour completion window. The marks give interval totals rather than complete work schedules.",
+    "unintended_inferences": [
+      "Shading can initially suggest joint feasibility; the regional labels, diagonal label and caption distinguish the square from the joint set.",
+      "The lower triangle requires reasoning about remaining work in the second hour.",
+      "Vertical positions of the rows in panel (b) have no quantitative meaning."
+    ]
+  },
+  "comparison": {
+    "matches": [
+      "The reconstructed inequalities and projected sets match the specification and exact rational calculation.",
+      "Fractional interval totals, deterministic status and the complete-schedule limitation remain clear.",
+      "Selected composition uses 31 mm less height while retaining the same plotted scales and the stronger projection labels."
+    ],
+    "findings": [
+      {
+        "id": "shading",
+        "severity": "minor",
+        "description": "Readers may initially treat every shaded point as jointly feasible.",
+        "disposition": "accepted",
+        "reason": "The two excluded-region labels, directly labelled diagonal and caption explicitly state the separate-versus-joint distinction. The alternative retains the same residual burden."
+      },
+      {
+        "id": "diagonal-label",
+        "severity": "minor",
+        "description": "The rotated label requires a small reading effort.",
+        "disposition": "accepted",
+        "reason": "It follows the plotted line, avoids other marks and remains readable at final size and in greyscale."
+      },
+      {
+        "id": "manuscript-placement",
+        "severity": "informational",
+        "description": "The selected figure is integrated at the start of page 6, after the Section 4.1 example and before the Section 4.2 formulation.",
+        "disposition": "accepted",
+        "reason": "The complete page was inspected by the primary editor; the caption and following text fit without clipping."
+      }
+    ],
+    "audit_warning_dispositions": [
+      {
+        "index": 0,
+        "disposition": "accepted",
+        "reason": "The standalone class reports shell escape disabled. The ordinary TikZ picture compiles without external commands; enabling shell escape is unnecessary."
+      }
+    ]
+  },
+  "decision": "accept",
+  "limitations": [
+    "Human interpretation benefit remains unmeasured by agent screening.",
+    "The skill schemas were available, but its bundled scripts were unavailable; the mechanical checks are the declared project-local subset.",
+    "The exact aggregate is a consequence of saturation in this constructed case; shared capacity need not always point-identify aggregate labour."
+  ]
+}

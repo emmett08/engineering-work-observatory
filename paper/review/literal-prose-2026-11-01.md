@@ -203,3 +203,20 @@ calculations; they do not constitute empirical validation.
 
 Final-pass PDF SHA-256:
 `660ac7ec4833eac2dc22b7625b5831449e3c0669a46a1ad59d7e336ce634696c`.
+
+
+## Shared-capacity figure added after the prose review
+
+At the user's request, Figure 1 now visualises the Section 4.1 two-task example.
+The exact calculation, include-ready `tikz.tex`, separate caption, vector PDF,
+rendered alternative, specification, audit and independent agent review are
+retained under [figures/shared-capacity](../figures/shared-capacity/README.md).
+The figure is a constructed mathematical example. Its square contains pairs
+permitted by separate bounds; its diagonal and singleton enforce shared capacity
+in both hours. No empirical or statistical-coverage interpretation is intended.
+
+The figure is placed on page 6 before the general cell formulation. The full
+article now has 14 pages. Existing mathematical expressions and bibliography
+bytes are unchanged. The manuscript's Reproducibility section remains removed.
+The figure verifier, exact calculation, paper checks and rendered inspection pass;
+see the figure's audit and review for their bounded scope and qualifications.

@@ -1,0 +1,222 @@
+{
+  "schema_version": "1.0",
+  "status": "derived",
+  "input_sha256": "d56ba16ee28db44c2a8fd7561f725b8cc06a7509c649cd213fafeaa092496272",
+  "arithmetic": "fractions.Fraction; all reported rational values are exact strings",
+  "units": {
+    "time": "hours",
+    "labour": "person-hours",
+    "allocation_rate": "dimensionless"
+  },
+  "coordinates": {
+    "x": "Task A labour during the first hour",
+    "y": "Task B labour during the first hour"
+  },
+  "marginal_bounds": {
+    "A": [
+      "0",
+      "1"
+    ],
+    "B": [
+      "0",
+      "1"
+    ]
+  },
+  "joint_constraints": [
+    "0 <= x <= 1",
+    "0 <= y <= 1",
+    "x + y <= 1",
+    "(1 - x) + (1 - y) <= 1"
+  ],
+  "joint_segment": {
+    "equation": "x + y = 1",
+    "boundary_included": true,
+    "endpoints": [
+      [
+        "0",
+        "1"
+      ],
+      [
+        "1",
+        "0"
+      ]
+    ]
+  },
+  "combined_first_hour_labour": {
+    "separate_bounds_added": [
+      "0",
+      "2"
+    ],
+    "joint_bounds": [
+      "1",
+      "1"
+    ]
+  },
+  "continuum_construction": "For each real x in [0,1], set y=1-x. Use constant rates (A,B)=(x,1-x) in the first hour and (1-x,x) in the second. Rates are nonnegative, sum to one in each hour, and give one person-hour per task.",
+  "verification": {
+    "grid_denominator": 32,
+    "grid_pairs": 1089,
+    "jointly_feasible": 33,
+    "exceeds_first_hour_capacity": 528,
+    "exceeds_second_hour_capacity": 528,
+    "explicit_feasible_witnesses": [
+      {
+        "first_hour_totals": [
+          "0",
+          "1"
+        ],
+        "feasible": true,
+        "nonnegative": true,
+        "individual_capacity": true,
+        "first_hour_capacity": true,
+        "second_hour_capacity": true,
+        "observed_totals": true,
+        "rates": {
+          "A": [
+            "0",
+            "1"
+          ],
+          "B": [
+            "1",
+            "0"
+          ]
+        }
+      },
+      {
+        "first_hour_totals": [
+          "1",
+          "0"
+        ],
+        "feasible": true,
+        "nonnegative": true,
+        "individual_capacity": true,
+        "first_hour_capacity": true,
+        "second_hour_capacity": true,
+        "observed_totals": true,
+        "rates": {
+          "A": [
+            "1",
+            "0"
+          ],
+          "B": [
+            "0",
+            "1"
+          ]
+        }
+      },
+      {
+        "first_hour_totals": [
+          "1/2",
+          "1/2"
+        ],
+        "feasible": true,
+        "nonnegative": true,
+        "individual_capacity": true,
+        "first_hour_capacity": true,
+        "second_hour_capacity": true,
+        "observed_totals": true,
+        "rates": {
+          "A": [
+            "1/2",
+            "1/2"
+          ],
+          "B": [
+            "1/2",
+            "1/2"
+          ]
+        }
+      }
+    ],
+    "explicit_rejections": [
+      {
+        "first_hour_totals": [
+          "1",
+          "1"
+        ],
+        "feasible": false,
+        "nonnegative": true,
+        "individual_capacity": true,
+        "first_hour_capacity": false,
+        "second_hour_capacity": true,
+        "observed_totals": true,
+        "rates": {
+          "A": [
+            "1",
+            "0"
+          ],
+          "B": [
+            "1",
+            "0"
+          ]
+        }
+      },
+      {
+        "first_hour_totals": [
+          "0",
+          "0"
+        ],
+        "feasible": false,
+        "nonnegative": true,
+        "individual_capacity": true,
+        "first_hour_capacity": true,
+        "second_hour_capacity": false,
+        "observed_totals": true,
+        "rates": {
+          "A": [
+            "0",
+            "1"
+          ],
+          "B": [
+            "0",
+            "1"
+          ]
+        }
+      },
+      {
+        "first_hour_totals": [
+          "-1/2",
+          "3/2"
+        ],
+        "feasible": false,
+        "nonnegative": false,
+        "individual_capacity": false,
+        "first_hour_capacity": true,
+        "second_hour_capacity": true,
+        "observed_totals": true,
+        "rates": {
+          "A": [
+            "-1/2",
+            "3/2"
+          ],
+          "B": [
+            "3/2",
+            "-1/2"
+          ]
+        }
+      },
+      {
+        "first_hour_totals": [
+          "3/2",
+          "-1/2"
+        ],
+        "feasible": false,
+        "nonnegative": false,
+        "individual_capacity": false,
+        "first_hour_capacity": true,
+        "second_hour_capacity": true,
+        "observed_totals": true,
+        "rates": {
+          "A": [
+            "3/2",
+            "-1/2"
+          ],
+          "B": [
+            "-1/2",
+            "3/2"
+          ]
+        }
+      }
+    ],
+    "scope": "Finite checks of the derived sets and reconstructed histories; the continuum argument is stated separately."
+  }
+}
