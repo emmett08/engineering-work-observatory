@@ -177,6 +177,15 @@ fn read_input(path: &Path) -> Result<Vec<u8>> {
     Ok(bytes)
 }
 
+/// Aggregate snapshots can exceed the per-import limit as a study grows.
+/// Parse through a buffer instead of allocating another copy of the whole file.
+fn read_snapshot(path: &Path) -> Result<Snapshot> {
+    let file =
+        fs::File::open(path).with_context(|| format!("cannot open snapshot {}", path.display()))?;
+    serde_json::from_reader(std::io::BufReader::new(file))
+        .with_context(|| format!("cannot parse snapshot {}", path.display()))
+}
+
 fn parse_records(bytes: &[u8]) -> Result<Vec<Evidence>> {
     if let Ok(value) = serde_json::from_slice::<Value>(bytes) {
         if value.get("schema").is_some() {
@@ -309,7 +318,7 @@ fn collect_repositories(
 fn execute(cli: Cli) -> Result<()> {
     match cli.command {
         Command::Analyse { snapshot, output } => {
-            let snapshot: Snapshot = serde_json::from_slice(&read_input(&snapshot)?)?;
+            let snapshot = read_snapshot(&snapshot)?;
             report::write_report(&snapshot, &output)?;
             println!("Report written to {}", output.display());
         }
@@ -352,7 +361,7 @@ fn execute(cli: Cli) -> Result<()> {
             initial_training_bins,
             output,
         } => {
-            let snapshot: Snapshot = serde_json::from_slice(&read_input(&snapshot)?)?;
+            let snapshot = read_snapshot(&snapshot)?;
             ensure!(
                 backtest || history_bins.is_none(),
                 "history window options require --backtest"
@@ -385,7 +394,7 @@ fn execute(cli: Cli) -> Result<()> {
             output,
         } => {
             let prior = serde_json::from_slice(&read_input(&bundle)?)?;
-            let later = serde_json::from_slice(&read_input(&later_snapshot)?)?;
+            let later = read_snapshot(&later_snapshot)?;
             let score = observatory::forecast::archive::score_issued(&prior, &later)?;
             let bytes = serde_json::to_vec_pretty(&score)?;
             if let Some(output) = output {

@@ -116,6 +116,33 @@ fn frozen_facts_select_latest_receipt_available_at_each_cut() {
     );
 }
 
+#[test]
+fn snapshot_digest_preserves_the_original_v1_serialization() {
+    let root = tempfile::tempdir().unwrap();
+    let mut store = Store::open(root.path()).unwrap();
+    let hash = store.retain_bytes(b"synthetic raw evidence").unwrap();
+    let time = at("2026-01-01T00:00:00.123456789Z");
+    for include_record in [false, true] {
+        if include_record {
+            let evidence = record(
+                "unicode-\u{03bb}",
+                "source_record",
+                json!({"text":"quotes \" newline\n \u{03bb}","nested":[null,true,{"small":1e-20,"zero":-0.0,"integer":9007199254740993_u64}]}),
+            );
+            store
+                .insert_batch(&[evidence], "test", time, &hash)
+                .unwrap();
+        }
+        let snapshot = Snapshot::freeze(&store, time).unwrap();
+        let mut original_content = snapshot.clone();
+        original_content.sha256.clear();
+        let original_digest =
+            observatory::store::digest(&serde_json::to_vec(&original_content).unwrap());
+        assert_eq!(snapshot.sha256, original_digest);
+        snapshot.verify().unwrap();
+    }
+}
+
 fn task_records() -> Vec<Evidence> {
     vec![
         record(

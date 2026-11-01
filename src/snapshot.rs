@@ -1,11 +1,13 @@
 //! Freeze an inspectable, content-identified knowledge cut for reproducible analysis.
 use crate::{
     model::Evidence,
-    store::{RetainedRecord, Store, digest},
+    store::{RetainedRecord, Store},
 };
 use anyhow::{Result, ensure};
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
+use sha2::{Digest, Sha256};
+use std::io::{BufWriter, Write};
 
 pub const CALCULATION_VERSION: &str = "observatory.task-accounting/1";
 
@@ -40,9 +42,51 @@ impl Snapshot {
     }
 
     fn compute_digest(&self) -> Result<String> {
-        let mut content = self.clone();
-        content.sha256.clear();
-        Ok(digest(&serde_json::to_vec(&content)?))
+        // Preserve the v1 digest's field order and empty hash without cloning
+        // every retained record or allocating its complete JSON representation.
+        #[derive(Serialize)]
+        struct Content<'a> {
+            schema: &'a str,
+            calculation_version: &'a str,
+            package_version: &'a str,
+            implementation_revision: &'a str,
+            implementation_source_sha256: &'a str,
+            as_of: DateTime<Utc>,
+            records: &'a [RetainedRecord],
+            sha256: &'a str,
+        }
+        struct HashWriter<'a>(&'a mut Sha256);
+        impl Write for HashWriter<'_> {
+            fn write(&mut self, bytes: &[u8]) -> std::io::Result<usize> {
+                self.0.update(bytes);
+                Ok(bytes.len())
+            }
+
+            fn flush(&mut self) -> std::io::Result<()> {
+                Ok(())
+            }
+        }
+        let content = Content {
+            schema: &self.schema,
+            calculation_version: &self.calculation_version,
+            package_version: &self.package_version,
+            implementation_revision: &self.implementation_revision,
+            implementation_source_sha256: &self.implementation_source_sha256,
+            as_of: self.as_of,
+            records: &self.records,
+            sha256: "",
+        };
+        let mut hash = Sha256::new();
+        {
+            let mut writer = BufWriter::new(HashWriter(&mut hash));
+            serde_json::to_writer(&mut writer, &content)?;
+            writer.flush()?;
+        }
+        Ok(hash
+            .finalize()
+            .iter()
+            .map(|byte| format!("{byte:02x}"))
+            .collect())
     }
 
     pub fn verify(&self) -> Result<()> {

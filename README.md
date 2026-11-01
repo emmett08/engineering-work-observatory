@@ -306,7 +306,11 @@ cargo run --locked -- simulate examples/retry-scenario.json
 Historical cuts use observation time: collecting an old event today does not make
 it available in yesterday's cut. Snapshots fix membership, source hashes,
 protocols and build identities. Reports identify both snapshot producer and
-current analyser revisions. Exact reproduction needs the same source revision,
+current analyser revisions. Snapshot inputs for `analyse`, `forecast-snapshot`
+and `score-forecast` use buffered JSON reading without the 128 MiB per-import
+limit, so collected evidence can grow beyond an individual import. Integrity
+checks still apply. Analysis keeps parsed records in memory; this is not a
+constant-memory pipeline. Exact reproduction needs the same source revision,
 `Cargo.lock`, snapshot and pinned toolchain.
 
 Reports contain JSON, escaped offline HTML, a snapshot and CSV records. They are
