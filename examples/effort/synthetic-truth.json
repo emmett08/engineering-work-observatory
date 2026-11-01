@@ -1,0 +1,95 @@
+{
+  "description": "Manufactured allocations for software verification only. No human observations. Some labour occurs during idle or missing telemetry.",
+  "units": [
+    {
+      "person_id": "participant-a",
+      "start": "2026-11-01T09:00:00Z",
+      "allocations": [
+        {
+          "task_id": "issue-alpha",
+          "role": "implementation",
+          "minutes": 12
+        }
+      ],
+      "non_work_minutes": 3
+    },
+    {
+      "person_id": "participant-a",
+      "start": "2026-11-01T09:15:00Z",
+      "allocations": [
+        {
+          "task_id": "issue-alpha",
+          "role": "specification",
+          "minutes": 9
+        }
+      ],
+      "non_work_minutes": 6
+    },
+    {
+      "person_id": "participant-a",
+      "start": "2026-11-01T09:30:00Z",
+      "allocations": [
+        {
+          "task_id": "issue-beta",
+          "role": "review",
+          "minutes": 15
+        }
+      ],
+      "non_work_minutes": 0
+    },
+    {
+      "person_id": "participant-a",
+      "start": "2026-11-01T09:45:00Z",
+      "allocations": [],
+      "non_work_minutes": 15
+    },
+    {
+      "person_id": "participant-b",
+      "start": "2026-11-01T09:00:00Z",
+      "allocations": [
+        {
+          "task_id": "issue-alpha",
+          "role": "review",
+          "minutes": 15
+        }
+      ],
+      "non_work_minutes": 0
+    },
+    {
+      "person_id": "participant-b",
+      "start": "2026-11-01T09:15:00Z",
+      "allocations": [
+        {
+          "task_id": "unattributed",
+          "role": "coordination",
+          "minutes": 10
+        }
+      ],
+      "non_work_minutes": 5
+    },
+    {
+      "person_id": "participant-b",
+      "start": "2026-11-01T09:30:00Z",
+      "allocations": [
+        {
+          "task_id": "issue-beta",
+          "role": "specification",
+          "minutes": 5
+        }
+      ],
+      "non_work_minutes": 10
+    },
+    {
+      "person_id": "participant-b",
+      "start": "2026-11-01T09:45:00Z",
+      "allocations": [
+        {
+          "task_id": "issue-beta",
+          "role": "repair",
+          "minutes": 8
+        }
+      ],
+      "non_work_minutes": 7
+    }
+  ]
+}

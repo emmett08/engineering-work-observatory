@@ -1,0 +1,163 @@
+{
+  "buckets": {
+    "aw-watcher-afk_laptop-a": {
+      "id": "aw-watcher-afk_laptop-a",
+      "type": "afkstatus",
+      "client": "synthetic-example",
+      "hostname": "private-host-must-not-be-retained",
+      "events": [
+        {
+          "id": 1,
+          "timestamp": "2026-11-01T09:00:00Z",
+          "duration": 900,
+          "data": {
+            "status": "not-afk"
+          }
+        },
+        {
+          "id": 2,
+          "timestamp": "2026-11-01T09:15:00Z",
+          "duration": 900,
+          "data": {
+            "status": "afk"
+          }
+        },
+        {
+          "id": 3,
+          "timestamp": "2026-11-01T09:30:00Z",
+          "duration": 1800,
+          "data": {
+            "status": "not-afk"
+          }
+        }
+      ]
+    },
+    "aw-watcher-vscode_laptop-a": {
+      "id": "aw-watcher-vscode_laptop-a",
+      "type": "app.editor.activity",
+      "client": "synthetic-example",
+      "hostname": "private-host-must-not-be-retained",
+      "events": [
+        {
+          "id": 1,
+          "timestamp": "2026-11-01T09:00:00Z",
+          "duration": 1800,
+          "data": {
+            "project": "alpha",
+            "branch": "issue-101-report",
+            "language": "python",
+            "file": "/private/path/do-not-export.py",
+            "category": "coding"
+          }
+        },
+        {
+          "id": 2,
+          "timestamp": "2026-11-01T09:30:00Z",
+          "duration": 900,
+          "data": {
+            "project": "beta",
+            "branch": "issue-202-check",
+            "category": "code reviewing"
+          }
+        },
+        {
+          "id": 3,
+          "timestamp": "2026-11-01T09:45:00Z",
+          "duration": 900,
+          "data": {
+            "project": "alpha",
+            "branch": "issue-101-report",
+            "category": "building"
+          }
+        }
+      ]
+    },
+    "aw-watcher-afk_desktop-a": {
+      "id": "aw-watcher-afk_desktop-a",
+      "type": "afkstatus",
+      "client": "synthetic-example",
+      "hostname": "private-host-must-not-be-retained",
+      "events": [
+        {
+          "id": 1,
+          "timestamp": "2026-11-01T09:00:00Z",
+          "duration": 900,
+          "data": {
+            "status": "not-afk"
+          }
+        }
+      ]
+    },
+    "aw-watcher-vscode_desktop-a": {
+      "id": "aw-watcher-vscode_desktop-a",
+      "type": "app.editor.activity",
+      "client": "synthetic-example",
+      "hostname": "private-host-must-not-be-retained",
+      "events": [
+        {
+          "id": 1,
+          "timestamp": "2026-11-01T09:00:00Z",
+          "duration": 900,
+          "data": {
+            "project": "alpha",
+            "branch": "issue-101-report",
+            "category": "coding"
+          }
+        }
+      ]
+    },
+    "aw-watcher-afk_laptop-b": {
+      "id": "aw-watcher-afk_laptop-b",
+      "type": "afkstatus",
+      "client": "synthetic-example",
+      "hostname": "private-host-must-not-be-retained",
+      "events": [
+        {
+          "id": 1,
+          "timestamp": "2026-11-01T09:00:00Z",
+          "duration": 1800,
+          "data": {
+            "status": "not-afk"
+          }
+        },
+        {
+          "id": 2,
+          "timestamp": "2026-11-01T09:30:00Z",
+          "duration": 900,
+          "data": {
+            "status": "afk"
+          }
+        }
+      ]
+    },
+    "aw-watcher-vscode_laptop-b": {
+      "id": "aw-watcher-vscode_laptop-b",
+      "type": "app.editor.activity",
+      "client": "synthetic-example",
+      "hostname": "private-host-must-not-be-retained",
+      "events": [
+        {
+          "id": 1,
+          "timestamp": "2026-11-01T09:00:00Z",
+          "duration": 900,
+          "data": {
+            "project": "alpha",
+            "branch": "issue-101-report",
+            "category": "coding"
+          }
+        },
+        {
+          "id": 2,
+          "timestamp": "2026-11-01T09:15:00Z",
+          "duration": 900,
+          "data": {
+            "project": "unconfigured-private-project",
+            "branch": "private-topic",
+            "file": "/private/do-not-export.txt",
+            "category": "coding"
+          }
+        }
+      ]
+    }
+  }
+}

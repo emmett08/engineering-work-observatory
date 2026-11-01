@@ -1,0 +1,79 @@
+{
+  "schema": "observatory.effort-config/1",
+  "protocol_id": "synthetic-effort-pilot-v1",
+  "frame_id": "synthetic-two-people-one-hour",
+  "frames": [
+    {
+      "person_id": "participant-a",
+      "start": "2026-11-01T09:00:00Z",
+      "end": "2026-11-01T10:00:00Z"
+    },
+    {
+      "person_id": "participant-b",
+      "start": "2026-11-01T09:00:00Z",
+      "end": "2026-11-01T10:00:00Z"
+    }
+  ],
+  "interval_minutes": 15,
+  "sources": [
+    {
+      "person_id": "participant-a",
+      "device_id": "laptop-a",
+      "afk_bucket": "aw-watcher-afk_laptop-a",
+      "context_buckets": [
+        "aw-watcher-vscode_laptop-a"
+      ]
+    },
+    {
+      "person_id": "participant-a",
+      "device_id": "desktop-a",
+      "afk_bucket": "aw-watcher-afk_desktop-a",
+      "context_buckets": [
+        "aw-watcher-vscode_desktop-a"
+      ]
+    },
+    {
+      "person_id": "participant-b",
+      "device_id": "laptop-b",
+      "afk_bucket": "aw-watcher-afk_laptop-b",
+      "context_buckets": [
+        "aw-watcher-vscode_laptop-b",
+        "aw-watcher-web_laptop-b"
+      ]
+    }
+  ],
+  "links": [
+    {
+      "task_id": "issue-alpha",
+      "repository": "example/alpha",
+      "issue_number": 101,
+      "branches": [
+        "issue-101-report"
+      ],
+      "pull_requests": [
+        11,
+        12
+      ],
+      "projects": [
+        "alpha"
+      ]
+    },
+    {
+      "task_id": "issue-beta",
+      "repository": "example/beta",
+      "issue_number": 202,
+      "branches": [
+        "issue-202-check"
+      ],
+      "pull_requests": [
+        22
+      ],
+      "projects": [
+        "beta"
+      ]
+    }
+  ],
+  "frame_complete": true,
+  "attended_waiting_counts": false,
+  "synthetic": true
+}

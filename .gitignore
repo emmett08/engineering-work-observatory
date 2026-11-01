@@ -28,6 +28,7 @@ rustc-ice-*.txt
 # Private research evidence, credentials, caches and generated reports
 /.observatory/
 /reports/
+/work/
 *.sqlite3
 *.sqlite3-wal
 *.sqlite3-shm
