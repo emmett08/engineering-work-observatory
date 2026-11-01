@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/emmett08/engineering-work-observatory/schemas/effort-observation-v1.schema.json",
+  "title": "Declared task effort observation v1",
+  "description": "A caller declaration, never an API measurement of labour. Unknown values remain unknown. Task links must additionally match the configured protocol and task registry.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "protocol_id", "task", "declared_minutes", "method", "coverage", "scope", "completed_at", "synthetic"],
+  "properties": {
+    "schema": {"const": "observatory.effort-observation/1"},
+    "protocol_id": {"$ref": "#/$defs/identifier"},
+    "task": {"$ref": "#/$defs/task"},
+    "declared_minutes": {"type": ["number", "null"], "minimum": 0, "maximum": 1000000000},
+    "method": {"enum": ["timer", "recall", "unknown"]},
+    "coverage": {"enum": ["complete", "partial", "unknown"]},
+    "scope": {"enum": ["task_total", "partial_task", "unknown"]},
+    "completed_at": {"type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?(?:Z|\\+00:00)$", "format": "date-time"},
+    "synthetic": {"type": "boolean", "description": "Live issue imports require false; synthetic evidence remains in a separate demonstration namespace."}
+  },
+  "$defs": {
+    "identifier": {"type": "string", "minLength": 1, "maxLength": 256, "pattern": "^[^\\u0000-\\u001f]+$"},
+    "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"},
+    "number": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+    "task": {
+      "type": "object", "additionalProperties": false,
+      "required": ["repository", "issue_number", "task_id", "pull_requests"],
+      "properties": {
+        "repository": {"$ref": "#/$defs/repository"},
+        "issue_number": {"$ref": "#/$defs/number"},
+        "task_id": {"$ref": "#/$defs/identifier"},
+        "pull_requests": {"type": "array", "maxItems": 1000, "uniqueItems": true, "items": {"$ref": "#/$defs/number"}}
+      }
+    }
+  }
+}

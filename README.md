@@ -119,6 +119,12 @@ to receipts from those repositories' CI jobs. Its private-runner template joins
 execution evidence with sampled effort when observations exist, and reports
 human effort as unavailable until then.
 
+The [public observation-learning demo](docs/automatic-observation-learning.md)
+imports declared effort from open and closed issues, retains observed revisions,
+and shows declarations beside execution receipts. It runs on GitHub-hosted
+Actions without a private runner. A separate synthetic example exercises guarded
+model promotion; the single live declaration does not establish improved accuracy.
+
 ## Try a complete synthetic study
 
 ```sh

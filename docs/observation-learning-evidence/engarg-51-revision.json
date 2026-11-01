@@ -1,0 +1,42 @@
+{
+  "body": "## Protocol ID\n\n`observatory-linked-pilot-v1`\n\n## Task ID\n\n`engarg-authoring-effort-pilot`\n\n## Task issue and related PR\n\n- Task: #49\n- Implementation: #50\n- Implementation head: `c9330e1cc3155393e84752ad5f189960277a9026`\n\n## Human effort\n\n**3 human person-minutes (0.05 person-hours).**\n\nObservation basis: explicit user declaration: \u201cActual human effort was 3 minutes.\u201d Recorded by the assistant at the user's request. This is a declared aggregate observation for #49, not an API measurement or a probability-sampled response.\n\nParticipant identifier: not supplied. The GitHub posting account is not used to infer the identity of the person performing the work.\n\nWork role: unknown / mixed; no allocation among specification, implementation, review, testing, coordination or repair was supplied.\n\n## API-observed lifecycle timestamps (UTC)\n\n| Event | Timestamp |\n| --- | --- |\n| Task issue #49 created | 2026-11-01T18:57:25Z |\n| PR #50 opened | 2026-11-01T18:59:47Z |\n| PR #50 merged | 2026-11-01T19:18:31Z |\n| Task issue #49 closed | 2026-11-01T19:18:33Z |\n\nSources: GitHub issue API for #49 and pull-request API for #50, queried when recording this observation. PR open-to-merge elapsed time was **18 minutes 44 seconds**. Issue creation-to-closure elapsed time was **21 minutes 8 seconds**. These durations describe the GitHub lifecycle; neither is human effort. The exact start/end of the 3 minutes of human activity is unknown.\n\n## Scope and uncertainty\n\nThe reported 3 minutes applies to the work associated with #49 and #50. It is not extrapolated to EAL, Observatory, other contributors or the wider study. Measurement method (timer versus recall), uncertainty bounds, role allocation and possible overlap with other observations were not supplied.\n\nThis record supplements the execution evidence. It does not replace frozen frame/sample responses, enter the sampled estimator automatically, establish complete labour coverage, or imply that the selected CI runtime was human work. No raw activity or private response data is attached.\n\n- [x] The effort value is retained as a user declaration, distinguishable from platform-observed timestamps.\n- [x] Missing provenance and timing remain unknown.\n",
+  "record": {
+    "errors": [],
+    "observation": {
+      "completed_at": null,
+      "coverage": "unknown",
+      "declared_minutes": 3.0,
+      "method": "unknown",
+      "protocol_id": "observatory-linked-pilot-v1",
+      "schema": "observatory.effort-observation/1",
+      "scope": "task_total",
+      "synthetic": false,
+      "task": {
+        "issue_number": 49,
+        "pull_requests": [
+          50
+        ],
+        "repository": "emmett08/engarg",
+        "task_id": "engarg-authoring-effort-pilot"
+      }
+    },
+    "observation_id": "9e16b854f957761cc5553ee9c450aca05a38b8ec60e000c6467206f2be1a5423",
+    "observed_at": "2026-11-01T20:25:31.854567Z",
+    "revision_id": "c5d384c016e0a9f1adc23e3c801365cc6e42b12e1f82e9e06e8283fb640b19ba",
+    "schema": "observatory.observation-revision/1",
+    "source": {
+      "author_login": "emmett08",
+      "body_sha256": "9fadd6eded223343e074aae259aa9e0aea76554633fb8dbd0016ea772c844775",
+      "created_at": "2026-11-01T19:33:03Z",
+      "issue_id": 6151139225,
+      "issue_number": 51,
+      "repository": "emmett08/engarg",
+      "repository_id": 1431331749,
+      "state": "closed",
+      "updated_at": "2026-11-01T20:01:07Z",
+      "url": "https://github.com/emmett08/engarg/issues/51"
+    },
+    "status": "accepted"
+  },
+  "title": "[Effort observation] Issue #49 / PR #50: 3 minutes of declared human effort"
+}

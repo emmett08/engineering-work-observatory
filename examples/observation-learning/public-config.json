@@ -1,0 +1,20 @@
+{
+  "schema": "observatory.observation-config/1",
+  "protocol_id": "observatory-linked-pilot-v1",
+  "sources": [
+    {
+      "repository": "emmett08/engarg",
+      "issue_numbers": [51],
+      "title_prefix": "[Effort observation]",
+      "max_pages": 10
+    }
+  ],
+  "task_links": [
+    {
+      "repository": "emmett08/engarg",
+      "issue_number": 49,
+      "task_id": "engarg-authoring-effort-pilot",
+      "pull_requests": [50]
+    }
+  ]
+}
