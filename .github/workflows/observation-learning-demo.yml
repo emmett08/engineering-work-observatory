@@ -1,0 +1,128 @@
+name: Public observation learning demo
+
+on:
+  workflow_dispatch:
+    inputs:
+      bootstrap:
+        description: 'First default-branch run only: explicitly start empty history'
+        type: boolean
+        default: false
+  workflow_call:
+    inputs:
+      core-ref:
+        description: 'Full reviewed core commit SHA; must match the reusable workflow pin'
+        required: true
+        type: string
+      bootstrap:
+        description: 'First default-branch run only; never resets missing or corrupt history'
+        type: boolean
+        default: false
+  schedule:
+    - cron: '43 6 * * 1'
+  pull_request:
+    paths:
+      - instrumentation/learn_effort.py
+      - instrumentation/observations/**
+      - instrumentation/test_observation*.py
+      - examples/observation-learning/**
+      - docs/automatic-observation-learning.md
+      - .github/workflows/observation-learning-demo.yml
+
+permissions:
+  contents: read
+  issues: read
+  actions: read
+
+# Serial publication prevents two updates from starting with the same state.
+# A caller's concurrency group must use a different suffix from this group.
+concurrency:
+  group: observation-learning-core-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  learn:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CARGO_INCREMENTAL: '0'
+      CARGO_PROFILE_DEV_DEBUG: line-tables-only
+    steps:
+      - name: Validate the reusable core pin
+        env:
+          CORE_REF: ${{ inputs.core-ref }}
+        run: |
+          if [[ -n "$CORE_REF" && ! "$CORE_REF" =~ ^[0-9a-f]{40}$ ]]; then
+            echo 'core-ref must be a full reviewed commit SHA' >&2
+            exit 1
+          fi
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ inputs.core-ref != '' && 'emmett08/engineering-work-observatory' || github.repository }}
+          ref: ${{ inputs.core-ref || github.sha }}
+          persist-credentials: false
+      - name: Test observation import, model evaluation and checkpoint boundaries
+        run: python3 -m unittest discover -s instrumentation -p 'test_observation*.py'
+      - name: Restore trusted state or initialize an isolated demonstration
+        env:
+          BOOTSTRAP: ${{ inputs.bootstrap }}
+        run: |
+          arguments=()
+          if [[ "$BOOTSTRAP" == 'true' ]]; then arguments+=(--bootstrap); fi
+          python3 instrumentation/observations/checkpoint.py restore \
+            --directory "$RUNNER_TEMP/observation-state" \
+            --receipt "$RUNNER_TEMP/checkpoint-restore.json" "${arguments[@]}"
+      - name: Install pinned Rust toolchain
+        run: rustup toolchain install 1.99.1 --profile minimal
+      - name: Build the canonical execution collector once
+        run: cargo build --locked
+      - name: Import public observations and execution evidence, then evaluate candidates
+        run: |
+          arguments=()
+          if [[ "$(jq -r '.context.scope' "$RUNNER_TEMP/checkpoint-restore.json")" == 'trusted_default_branch' ]]; then
+            arguments+=(--enable-live-learning)
+          fi
+          python3 instrumentation/learn_effort.py run \
+            --config examples/observation-learning/public-config.json \
+            --manifest examples/observation-learning/execution-manifest.json \
+            --state "$RUNNER_TEMP/observation-state" \
+            --output "$RUNNER_TEMP/observation-report" \
+            --observatory target/debug/observatory "${arguments[@]}"
+          cp "$RUNNER_TEMP/checkpoint-restore.json" "$RUNNER_TEMP/observation-report/checkpoint-restore.json"
+      - name: Show the evidence and evaluation summary
+        run: cat "$RUNNER_TEMP/observation-report/report.md" >> "$GITHUB_STEP_SUMMARY"
+      - name: Seal immutable state and verify a fresh local restore
+        run: |
+          python3 instrumentation/observations/checkpoint.py seal \
+            --directory "$RUNNER_TEMP/observation-state" \
+            --archive "$RUNNER_TEMP/checkpoint.zip" \
+            --receipt "$RUNNER_TEMP/checkpoint-restore.json"
+          python3 instrumentation/observations/checkpoint.py verify \
+            --directory "$RUNNER_TEMP/observation-roundtrip-local" \
+            --archive "$RUNNER_TEMP/checkpoint.zip" \
+            --receipt "$RUNNER_TEMP/checkpoint-restore.json"
+      - name: Publish the public checkpoint
+        id: checkpoint
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          archive: true
+          name: observatory-observation-state-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/checkpoint.zip
+          if-no-files-found: error
+          retention-days: 30
+      - name: Download and verify this run's delivered checkpoint in a fresh directory
+        env:
+          ARTIFACT_ID: ${{ steps.checkpoint.outputs.artifact-id }}
+        run: |
+          python3 instrumentation/observations/checkpoint.py verify-delivery \
+            --directory "$RUNNER_TEMP/observation-roundtrip-delivered" \
+            --receipt "$RUNNER_TEMP/checkpoint-restore.json" \
+            --artifact-id "$ARTIFACT_ID"
+      - name: Publish public evidence, coverage and model evaluation report
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          archive: true
+          name: observatory-observation-report-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/observation-report/
+          if-no-files-found: warn
+          retention-days: 30
