@@ -93,3 +93,61 @@ jobs:
         with:
           mode: publish
           directory: ${{ steps.evidence.outputs.directory }}
+
+  reconcile:
+    name: Reconcile pilot execution evidence
+    needs: public-workflow-check
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      actions: read
+    env:
+      CARGO_PROFILE_DEV_DEBUG: line-tables-only
+      CARGO_INCREMENTAL: '0'
+    steps:
+      - name: Check out the Observatory revision under test
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install the pinned Observatory toolchain
+        run: rustup toolchain install 1.99.1 --profile minimal
+      - name: Build the durable collector
+        id: build
+        run: cargo build --locked
+      - name: Collect the current run twice and verify receipt deduplication
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          evidence_directory="$RUNNER_TEMP/observatory-pilot-reconciliation"
+          mkdir -p "$evidence_directory"
+          for delivery in first second; do
+            target/debug/observatory --state "$evidence_directory/store" \
+              collect-github-executions --repository "$GITHUB_REPOSITORY" \
+              --run-id "$GITHUB_RUN_ID"
+            target/debug/observatory --state "$evidence_directory/store" verify
+            target/debug/observatory --state "$evidence_directory/store" \
+              snapshot --output "$evidence_directory/$delivery.json"
+          done
+          python3 instrumentation/verify_pilot_collection.py \
+            "$evidence_directory/first.json" "$evidence_directory/second.json" \
+            --run-id "$GITHUB_RUN_ID" --run-attempt "$GITHUB_RUN_ATTEMPT" \
+            --output "$evidence_directory/verification.json"
+      - name: Preserve the final retained state even after incomplete collection
+        if: ${{ always() && steps.build.outcome == 'success' }}
+        run: |
+          evidence_directory="$RUNNER_TEMP/observatory-pilot-reconciliation"
+          if test -f "$evidence_directory/store/observatory.sqlite3"; then
+            target/debug/observatory --state "$evidence_directory/store" verify
+            target/debug/observatory --state "$evidence_directory/store" \
+              snapshot --output "$evidence_directory/final.json"
+          fi
+      - name: Upload the isolated collector state and snapshots
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: observatory-pilot-reconciliation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/observatory-pilot-reconciliation/
+          if-no-files-found: warn
+          retention-days: 14

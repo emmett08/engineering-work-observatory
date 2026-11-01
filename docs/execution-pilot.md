@@ -6,9 +6,9 @@ their platform repository and run identity belong to Observatory. The subject
 repository and pinned source revision are separate caller-declared matrix
 metadata. Neither subject repository's workflow is modified.
 
-The user selected any two public repositories in `emmett08` in place of the
-initial NBCUDTC pilot. Repository metadata confirmed both subjects public on
-1 November 2026.
+Repository metadata confirmed both subjects public on 1 November 2026. This
+bounded public pilot prepares wider adoption without changing the subjects'
+workflows.
 
 | Subject and pinned revision | Source workflow and selected check |
 | --- | --- |
@@ -22,12 +22,43 @@ omitted checks.
 
 ## Live Actions trial
 
+[Run 41329132331, attempt 1](https://github.com/emmett08/engineering-work-observatory/actions/runs/41329132331)
+completed successfully at instrumentation commit
+`9fe7717a9eb561b582967dd0ef18b6993316ff55`.
+
+| Job | Retained bundle | Result and observed runtime |
+| --- | --- | --- |
+| [EngArg](https://github.com/emmett08/engineering-work-observatory/actions/runs/41329132331/job/124915331148) | [GitHub EngArg bundle](execution-pilot/github-attempt1-engarg.bundle.json), artifact `13092343025` | Exit 0; 12,814 ms |
+| [EAL](https://github.com/emmett08/engineering-work-observatory/actions/runs/41329132331/job/124915331467) | [GitHub EAL bundle](execution-pilot/github-attempt1-eal-mcp.bundle.json), artifact `13092353087` | Exit 0; 16,522 ms |
+
+The exact bundle SHA-256 hashes are:
+
+```text
+github-attempt1-engarg.bundle.json  3ee28f020e09ca8118232e58726704fa071095197984cb21e7ca00fab58f214b
+github-attempt1-eal-mcp.bundle.json 81ee870908aa74a0ef393d56e74bfe226697d6c56c18da31726385981d57b528
+```
+
+Both artifact ZIPs downloaded through the GitHub connector passed the Rust
+importer: six records on first import, zero new records on repeated imports,
+and six verified records. The development workspace's direct artifact download
+transport rejected the signed redirects; that acquisition retained independent
+API metadata and explicit incomplete coverage. The pilot's `reconcile` job
+exercises direct artifact collection on a GitHub runner.
+
 [The pilot workflow](../.github/workflows/execution-evidence-pilot.yml) runs on
 pull requests changing the instrumentation and can also be dispatched manually.
 Its two matrix jobs check out the pinned subjects into separate directories,
 hash the source-revision file and source workflow, execute the selected check,
 and publish separate immutable bundles. The EAL receipt also hashes its
 dependency lockfile. Checkout credentials are not persisted.
+
+After both subject jobs finish, a separate job downloads their artifacts using
+the Rust collector, repeats collection, verifies the retained store, and checks
+that two complete invocation pairs map to the two matrix jobs without duplicate
+receipt identities. Its own job is still running during this check; that status
+is preserved rather than presented as workflow-completion evidence. The
+independent `workflow_run` observer template and scheduled collector handle
+completed workflows.
 
 The workflow leaves controller and assistant session provenance unknown. A
 GitHub account triggering this workflow does not establish its actual human or
