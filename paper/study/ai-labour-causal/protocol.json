@@ -140,7 +140,7 @@
   "claims": [
     {
       "claim_type": "causal",
-      "failure_consequence": "Report harm, small effects or inconclusive intervals; no benefit claim from cheaper failure",
+      "failure_consequence": "Report harm, exclusion of worthwhile labour savings or inconclusive intervals. No benefit claim follows from cheaper failure.",
       "id": "CLM-001",
       "role": "primary",
       "scope_limit": "Both conditions and validated measurement assumptions must hold; natural-unit thresholds remain provisional until substantively agreed",
@@ -291,18 +291,18 @@
             "CLM-001"
           ],
           "disposition": "revise",
-          "rationale": "Report practically small labour effect",
+          "rationale": "Exclude a worthwhile labour saving; report any increase or unresolved harm",
           "scope_limit": "Both conditions and validated measurement assumptions must hold; natural-unit thresholds remain provisional until substantively agreed"
         }
       ],
-      "decision_rule": "Report practically small labour effect",
+      "decision_rule": "Exclude a worthwhile labour saving; report any increase or unresolved harm",
       "discrimination_result": "inconclusive",
       "hypothesis_effects": [
         "Report component tests separately; no mediator conclusion"
       ],
       "id": "DM-003",
       "next_action": "Independent replication or repaired measurement/design as appropriate",
-      "observation_region": "Precise intervals exclude worthwhile labour saving while quality preserved",
+      "observation_region": "Expanded labour lower bound is at least -1 hour per reference unit while retained-output noninferiority is established; this excludes worthwhile savings but does not establish practical equivalence",
       "prediction_ids": []
     },
     {
@@ -2198,7 +2198,8 @@
       "Codex design-scientific-investigations workflow; not an institutional investigator designation"
     ],
     "change_log": [
-      "1.0.0: specified pilot and conditional principal design; actual hypothetical planning evaluation, no workplace execution"
+      "1.0.0: specified pilot and conditional principal design; actual hypothetical planning evaluation, no workplace execution",
+      "1.0.1: correct DM-003 interpretation: excluding worthwhile savings does not establish practical equivalence or rule out increased labour; numerical design and simulation unchanged"
     ],
     "created_at": "2026-11-01T15:10:18.316518+00:00",
     "knowledge_cut": "2026-11-01",
@@ -2209,7 +2210,7 @@
       "morris2019",
       "albers2018"
     ],
-    "updated_at": "2026-11-01T15:10:18.316518+00:00"
+    "updated_at": "2026-11-01T16:28:20.454465+00:00"
   },
   "question": "Does providing a specified AI toolset and working practices reduce all included person-hours per initial reference unit while preserving retained required output?",
   "reproducibility": {
@@ -2238,7 +2239,7 @@
     "minimum_detectable_effect": "Not estimated. Planning effect -2 hours/referenceunit differs from meaningful decision boundary -1; no effect-size substitution is made.",
     "multiplicity": "Joint benefit requires both component conditions; secondary analyses descriptive",
     "pilot_coverage": "Two pairs in each of three predeclared repository/work types within intended principal population; bounded procedural rehearsal, not precise variance or rare-loss estimation",
-    "result": "Neither principal candidate meets registered joint-success target over required hypothetical scenarios",
+    "result": "Neither principal candidate meets specified joint-success target over required hypothetical scenarios",
     "sample_size_or_information_target": "Pilot6pairs\u00d72teams\u00d76tasks; compare principal24pairs/48teams with48pairs/96teams,20tasks/team",
     "sensitivity_analysis": "Central/adverse matching and variation, each partial null with and without maximal favourable allowed bias, joint boundary, harm, beyond-bound bias failure and missing endpoints; no guarantee over arbitrary distributions",
     "stopping_implications": "Fixed sample and complete28day follow-up; no efficacy peeking or optional extension"
@@ -2300,5 +2301,5 @@
     "sampling_frame": "Complete roster of participating teams, initial requirements and all contributors; not a commit-selected frame",
     "target_population_or_system": "Participating software teams with independently tracked initial requirement sets; no population-wide transport claim"
   },
-  "version": "1.0.0"
+  "version": "1.0.1"
 }

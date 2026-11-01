@@ -1,5 +1,27 @@
 # Paper validation history
 
+## 1 November 2026 editorial and statistical revision
+
+The new revision applies wording/statistical audits before experienced-engineer
+and technical-prose rewriting, then source-bound prose refinement and Workbench
+comparison. All seven compiled text sources received review. It corrects the
+protocol's inference from excluded worthwhile savings to a "small" effect,
+exposes the provisional interval and missing-data rules, and resolves the
+conclusion's inconsistency about the already specified experiment.
+
+All mathematical spans, citations, labels and input commands remain byte-identical.
+The independent current-manuscript concordance and receipt binding were renewed,
+with static validation and changed-byte rejection checks passing. The existing
+Lean proofs and historical checking evidence were preserved, not rerun.
+
+`make check` and `make article` pass. The rebuilt PDF has 17 pages, with all
+citations/references resolved and no overfull boxes. One bibliography underfull
+vbox and the existing online-first Cui missing-pages warning are recorded.
+All pages were rendered. Candidate-only agent answers to 71 source-grounded
+questions supplied 150 checked quotations. These are editorial checks, not
+human-reader validation. Tool-version metadata and unavailable bundled tooling
+are recorded explicitly in the [review](review/editorial-statistics-2026-11-01/README.md).
+
 ## 1 November 2026 timeline, Lean and causal-study completion
 
 The current revision adds a timeline panel to Figure 1, retains its original

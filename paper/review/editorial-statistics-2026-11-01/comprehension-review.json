@@ -1,0 +1,1748 @@
+{
+  "schema": "editorial-source-bound-comprehension/1",
+  "baseline_revision": "5936f2c28fd075217b679c0b2ad3aba57b9801f3",
+  "audience": "Experienced software engineers able to follow elementary mathematical reasoning, outside the sampling/identification specialism",
+  "method": "Manual source-category and comprehension review; unavailable text_lab CLI was not run. All questions prepared from immutable git source before candidate review. Not a semantic-equivalence proof or human reader study.",
+  "baseline_sources": [
+    {
+      "path": "paper/article/main.tex",
+      "sha256": "ce9192eb83942af7fc2779065bb8a84d37addb84f5b3db5e7c1b9a28eaad3ad0",
+      "lines": 169
+    },
+    {
+      "path": "paper/article/event-history.tex",
+      "sha256": "109478fc3dec578c5b41c2609b686893848b8bf31381b8c686405bc789d6a063",
+      "lines": 4
+    },
+    {
+      "path": "paper/article/partial-identification.tex",
+      "sha256": "9fa0f67b732dea619417902459d3854e7cc211253f918a5b7f0f1f74e2391716",
+      "lines": 112
+    },
+    {
+      "path": "paper/article/design-based-estimation.tex",
+      "sha256": "d3595154e1b0fcc5fdfeaf27c6b7aa30ac464becb8134998192c19a0f07024e8",
+      "lines": 83
+    },
+    {
+      "path": "paper/article/sampling-validation.tex",
+      "sha256": "2973ca7a3ba88d1e840b4e29e104b0d94a962681ccf1199349dbd7d7a4347355",
+      "lines": 21
+    },
+    {
+      "path": "paper/article/scalar-bounds.tex",
+      "sha256": "907c793b1f6511d6f34a8fc021f5ae43de280586cb32919db51be03846b31306",
+      "lines": 20
+    },
+    {
+      "path": "paper/study/ai-labour-causal/causal-study.tex",
+      "sha256": "9b03d37b8d05df9def6be1c3103c6de8dc77de7a768c93811a99278d45636e7d",
+      "lines": 8
+    }
+  ],
+  "candidate_sources": {
+    "paper/article/main.tex": "b6060ee82d09d45dc60cb6b02c73dd8346f0a97f2f6a2084f6a40691b02b06b3",
+    "paper/article/event-history.tex": "9f4cdc267c248e517df40658744241141f2cdba7029f9c46bcd62ffa80a3ec33",
+    "paper/article/partial-identification.tex": "574287fea71e64e8078b6593d15ce3e004ce502c4c2ed59700a3d28b465682c6",
+    "paper/article/design-based-estimation.tex": "89756222dd144a9ac9fd5317f23216acf67311de346ad87870ffb3b49f14aeb0",
+    "paper/article/sampling-validation.tex": "50331455dd4027b685252eb71cfec11dac177bdd1b5a5b97618311b15aabb694",
+    "paper/article/scalar-bounds.tex": "0a653a5f2906630fb29d81650dfd785d45ebd2c49b23055d14a46d47e96f747f",
+    "paper/study/ai-labour-causal/causal-study.tex": "9871ecbca23b95b6b2a4b17c2f07fab4915d544bb58ac9fefde667a1853184e8"
+  },
+  "frozen_question_bank_sha256": "635f419e6a859498a96b9c8fc9f2ddf00401de0099c249df3632f89598cb9d84",
+  "candidate_answers_sha256": "85c3945f932ac7599a0b3324e3a5c95a19a2aea68654df0682aad6737b0407c4",
+  "reader": "/root/refinement_setup/candidate_reader",
+  "reader_context": "fresh context; candidate sources and answer-free question view only; no baseline, answer key or intended diagnosis supplied",
+  "answer_reviewer": "/root/refinement_setup",
+  "summary": {
+    "questions": 71,
+    "preserved": 70,
+    "authorised_clarification": 1,
+    "unanswerable_or_uncertain": 0,
+    "validated_exact_evidence_items": 150,
+    "candidate_hashes_current": true
+  },
+  "questions": [
+    {
+      "id": "q001",
+      "path": "paper/article/main.tex",
+      "line": 25,
+      "question": "What do the paper’s mathematical and computational results establish, and what remains empirically unvalidated?",
+      "expected_answer": "They determine labour totals consistent with interval observations and capacity, prove finite reduction and unbiased difference estimation under stated conditions, and check constructed examples. Accuracy and completeness of workplace measurements still require empirical validation.",
+      "baseline_evidence_sha256": "c645df7b97e6d54f96c02bbecb12696b02127d74e4171ef5f73edb05777a5ce5",
+      "candidate_answer": "When the observations admit an allocation, the mathematical and finite computational results establish attainable labour ranges, design-unbiased estimation under the stated sampling/measurement assumptions, and conditions for prediction-assisted precision. The proposed measurements still need empirical validation; the causal experiment remains unrun.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 25,
+          "quote": "When the observations admit an allocation, the minimum and maximum are attainable, as is every total between them."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 25,
+          "quote": "Analytical proofs, Lean-checked interval-integral and schedule-construction lemmas, and exact finite calculations establish these results under their stated assumptions. The proposed measurements still require empirical validation."
+        },
+        {
+          "path": "paper/study/ai-labour-causal/causal-study.tex",
+          "line": 10,
+          "quote": "The experiment remains specified and unrun. These hypothetical planning calculations report no causal workplace result."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q002",
+      "path": "paper/article/main.tex",
+      "line": 32,
+      "question": "If one person supplies three person-hours in four elapsed hours, how much can occur in the first two, and why?",
+      "expected_answer": "Between one and two person-hours. At most two can occur after the boundary and at most two before; schedules attaining both endpoints exist.",
+      "baseline_evidence_sha256": "710d9a85bd8e7196c24b2205e931d0aa97f37f06aecee67f713dffa7e5c101ae",
+      "candidate_answer": "Between one and two person-hours, inclusive. Capacity permits at most two hours in either half, so at least one of the three must be in the first half; both endpoints can be scheduled.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 32,
+          "quote": "If one person did all the work, at least one person-hour must fall in the first half, because at most two can fall in the second. At most two person-hours can fall in the first half. The person could work one hour in the first half and two in the second, or two in the first and one in the second."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q003",
+      "path": "paper/article/main.tex",
+      "line": 34,
+      "question": "Which work is counted as labour, and which time-allocation condition applies?",
+      "expected_answer": "Included human work, including unsuccessful work and post-acceptance repair, in person-hours. Each person’s fractions across tasks and work types sum to at most one at any time. Acceptance elapsed time and retained output remain separate.",
+      "baseline_evidence_sha256": "5c16847f22287f4a77bbe17ecef52f88361dd8eb490eb3e8d774811006766ada",
+      "candidate_answer": "Labour is human time on included work, in person-hours, including unsuccessful work and post-acceptance repair. At each time, a person’s allocations across tasks and work types sum to at most one. Consistent minimum/maximum labour totals require at least one allocation permitted by the observations and capacity.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 34,
+          "quote": "\\emph{Labour} is human time allocated to the included work, measured in person-hours."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 34,
+          "quote": "The accounting includes unsuccessful work and post-acceptance repair. At any time, the fractions of a person's time allocated to different tasks and types of work must sum to at most one."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 34,
+          "quote": "When the observations and each person's available time permit at least one allocation, our linear programme gives the minimum and maximum consistent labour totals."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q004",
+      "path": "paper/article/main.tex",
+      "line": 36,
+      "question": "When is sampled labour unbiased, and when can telemetry predictions improve precision?",
+      "expected_answer": "A complete person-interval frame, known positive inclusion probabilities and accurate allocations permit design-unbiased estimation. Predictions fixed independently of which correction sample is selected improve precision only when the residual correction has lower sampling variance than the unassisted estimator.",
+      "baseline_evidence_sha256": "d6889f9ba687b3f92092c68d554ee2d286c99b7e17d4736a62dccdf24042c044",
+      "candidate_answer": "It is unbiased over repeated samples when inclusion probabilities are known and positive and allocations are accurately measured, with a frame covering the target work. Fixed telemetry predictions improve precision when the sampling variance of their residual correction is lower than that of estimating labour without predictions.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 36,
+          "quote": "a probability sample of person-intervals (time intervals for individual people) can give an estimate that is unbiased over repeated samples, provided inclusion probabilities are known and positive and allocations are measured accurately."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 162,
+          "quote": "Probability sampling permits design-unbiased estimation when the frame covers the target work, inclusion probabilities are known and positive, and sampled allocations are measured accurately."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 36,
+          "quote": "The correction improves precision when its sampling variance is lower than that of the labour estimate without predictions."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q005",
+      "path": "paper/article/main.tex",
+      "line": 38,
+      "question": "What is inferred by the Standard Coder approach, and what is needed to interpret SCH as person-hours?",
+      "expected_answer": "It infers coding-activity labels from commits and predicts those labels from code changes. SCH may serve as a reference index, but measurement of person-hours requires calibration against independently observed labour.",
+      "baseline_evidence_sha256": "827d5168bfc2aa034d8faa13ff2072e6c769f4799a3b6fad9cda065f80f5e72b",
+      "candidate_answer": "Standard Coder infers coding activity from commit timing and predicts the resulting labels from code-change features. SCH is a common reference index; interpreting it as person-hours needs calibration against independently observed labour.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 38,
+          "quote": "Wright and Ziegler's Standard Coder approach \\cite{wright2019} infers coding activity from commit timing and predicts the resulting labels from code-change features. Standard Coding Hours (SCH) can serve as a common reference index. Using SCH to measure person-hours requires calibration against independently observed labour."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q006",
+      "path": "paper/article/main.tex",
+      "line": 40,
+      "question": "Why cannot the cited AI-study estimates be used interchangeably, and does this paper reanalyse their data?",
+      "expected_answer": "They concern different populations, AI tools and practices, and outcomes such as completer times, adjusted maintainer completion times and weekly completed PRs. The calculations here use none of their data.",
+      "baseline_evidence_sha256": "54ffb2c1704406420575e2a3b902a8e2f3027502fb7189bb787aaf03b04c0594",
+      "candidate_answer": "They concern different populations, tools, practices and outcomes—exercise completion time, adjusted log completion times for maintainers, or weekly completed pull requests—so their estimates answer different questions. This paper uses none of their data.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 40,
+          "quote": "Peng et al.\\ examine completion time among completers of a programming exercise \\cite{peng2023}. Becker et al.\\ study experienced maintainers in familiar repositories, comparing log completion times after adjustment for forecast times \\cite{becker2025}. Cui et al.\\ study weekly completed pull requests in organisational experiments \\cite{cui2026}"
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 40,
+          "quote": "The studies differ in their populations, AI tools, working practices and measured outcomes. Their estimates therefore answer different questions."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 40,
+          "quote": "The calculations here use no data from these studies."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q007",
+      "path": "paper/article/main.tex",
+      "line": 47,
+      "question": "What do Z and C denote, and does an event model validate Z as measured labour?",
+      "expected_answer": "Z is a binary minute activity state and C a commit-event indicator. Interpreting the state as coding requires independent labour validation; different activity laws can yield the same commit law.",
+      "baseline_evidence_sha256": "fabf2ff026ac84b34a565475564fdb2c9aba8b1bc16d2b76bed59edca5067d54",
+      "candidate_answer": "Z_t is a binary minute-indexed hidden activity state; C_t is a binary commit indicator. Fitting an event model does not itself validate Z_t=1 as coding labour; independent labour measurement is required.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 47,
+          "quote": "Let a minute-indexed hidden variable $Z_t\\in\\{0,1\\}$ indicate an activity state, and let $C_t\\in\\{0,1\\}$ record a commit event."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 47,
+          "quote": "Interpreting $Z_t=1$ as ``coding'' requires validation against independently measured labour."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q008",
+      "path": "paper/article/main.tex",
+      "line": 51,
+      "question": "What parameter combination determines the independent commit law and what differs between the two examples?",
+      "expected_answer": "Only the product pi*c determines the independent Bernoulli commit law. (1/2,1/5) and (1/4,2/5) both produce probability1/10, while expected active times are n/2 and n/4 minutes.",
+      "baseline_evidence_sha256": "76d5de2002f19a8b6aa9618c9ca2f4f81201bb037b0ce84a9ad5b4d8ebe9504a",
+      "candidate_answer": "The independent commit law depends only on θ=πc. Both (π,c)=(1/2,1/5) and (1/4,2/5) give θ=1/10, but expected active time is n/2 versus n/4 minutes.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 51,
+          "quote": "The joint distribution of all commit observations depends on $(\\pi,c)$ only through $\\pi c$."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 61,
+          "quote": "Both parameter pairs give $\\theta=1/10$."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 66,
+          "quote": "which is $n/2$ minutes in the first model and $n/4$ in the second."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q009",
+      "path": "paper/article/main.tex",
+      "line": 69,
+      "question": "Does the counterexample refute every restricted HMM-identifiability result?",
+      "expected_answer": "No. It lies in an independent-state subfamily. Generic HMM results exclude exceptional sets and permit relabelling. Restrictions, code features or independent activity observations may distinguish models.",
+      "baseline_evidence_sha256": "5280b32fad74537810693b721f38bbe3567ec0c1fb3be603d322e3024869f250",
+      "candidate_answer": "No. It establishes nonidentification in the unrestricted family, using an independent-state subfamily. Generic results exclude exceptional sets and allow relabelling; restrictions, informative features or independent observations may distinguish the models.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 69,
+          "quote": "The example shows that different parameter values in the unrestricted model family can give the same distribution of commits. Generic-identifiability results for finite-state hidden Markov models concern parameters outside exceptional sets and permit hidden-state relabelling \\cite[Section~6.1]{allman2009}."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 69,
+          "quote": "Restrictions on the probability model for activity, informative code-change features or independent activity observations may distinguish models that commit timing alone cannot distinguish."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q010",
+      "path": "paper/article/main.tex",
+      "line": 78,
+      "question": "How is task identity maintained, and how are splitting and requirement changes handled?",
+      "expected_answer": "Track from s_i with recorded requirements, inclusion conditions and acceptance criteria. Identity follows the requirement, not commits/PRs. Prespecify split/merge/scope handling, avoid counting both parent and components as output, and retain history with analysis rules.",
+      "baseline_evidence_sha256": "4815b48976134a08fcb2b986ee728468e22d85cf9e09a867fc9b8d3bbf7b5720",
+      "candidate_answer": "Identify a task by its recorded requirement from tracking start, independent of commit or pull-request changes. Prespecify split, merge and scope-change rules; an original identifier may retain component records, without counting both as output. Keep requirement and acceptance-criteria histories and state their analysis.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 78,
+          "quote": "Identify each task by its requirement, so changing its commits or pull requests does not change which task is counted as output. Before observing outcomes, define how split tasks, merged tasks and scope changes will be handled."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 78,
+          "quote": "When a task is split, the original task can retain its identifier while separate records describe work on its components. Counting both the original task and its components as delivered output would count the same work twice. Keep a history of changes to requirements and acceptance criteria, and state how tasks with those changes will be analysed."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q011",
+      "path": "paper/article/main.tex",
+      "line": 80,
+      "question": "Why can regrouping accepted components change output by a deadline even when scores add?",
+      "expected_answer": "A parent may be accepted only after all components are accepted. Grouping changes the acceptance time and which score is credited by the deadline; additive scoring alone does not preserve deadline output.",
+      "baseline_evidence_sha256": "39dd22f98f6c370be04663a7f875d44fdd057137ccd706b7e6c78b0827a83b9a",
+      "candidate_answer": "A parent accepted only after every component can miss a deadline that some separately accepted components meet. Thus additive scores do not remove dependence on grouping and acceptance rules.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 80,
+          "quote": "Consider separately accepted components regrouped into a parent task that is accepted only after all its components have been accepted. Even when component reference scores add to the parent's score, regrouping can change how much output is counted by a deadline."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q012",
+      "path": "paper/article/main.tex",
+      "line": 82,
+      "question": "What must be specified for AI groups and why must actual use be recorded separately?",
+      "expected_answer": "Tools/model versions, permitted tasks/autonomous actions, review responsibilities and release requirements. Difficulty can increase actual use and people can decline access, so use is distinct from the specified group condition.",
+      "baseline_evidence_sha256": "02a62188fe1d07647d6bb0042291e68c00fe4adfe61eb04827440f01e8f39e51",
+      "candidate_answer": "Specify tools and model versions, permitted tasks and autonomous actions, reviewers and release requirements. Record actual use separately from access and prescribed practices because difficult tasks can induce more use and people may decline available tools, confounding comparisons by use.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 82,
+          "quote": "For each comparison group, specify the available AI tools and model versions, the tasks on which they may be used, the actions they may perform autonomously, who reviews their work and the requirements for release."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 82,
+          "quote": "Difficult tasks may prompt more tool use, and people may decline to use an available tool. Comparing groups by actual use alone can therefore mix the effect of access with differences in task difficulty."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q013",
+      "path": "paper/article/main.tex",
+      "line": 84,
+      "question": "What does each allocation index denote and what are the units of H?",
+      "expected_answer": "i is task, j person, r type of work, t calendar time. a is a fraction of one person’s time. Integrating and summing gives person-hours through task age u measured from s_i.",
+      "baseline_evidence_sha256": "61a28a980649155494dda2ddc02e877c70e24e583bda416b79cd2cf85d45afd6",
+      "candidate_answer": "In a_ijr(t), i is task, j person, r work type, and t calendar time; u is task age from tracking start s_i. H_i(u) integrates those allocations from s_i to s_i+u and sums over people and work types; with hours as time units it is person-hours.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 84,
+          "quote": "Let $a_{ijr}(t)$ be the fraction of person $j$'s time spent on task $i$ doing work of type $r$, such as implementation or review, at calendar time $t$."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 84,
+          "quote": "through task age $u\\geq0$, measured from the start of tracking"
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 88,
+          "quote": " H_i(u)=\\sum_{j,r}\\int_{s_i}^{s_i+u}a_{ijr}(t)\\,dt."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 90,
+          "quote": "With time in hours, $H_i(u)$ has units of person-hours."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q014",
+      "path": "paper/article/main.tex",
+      "line": 90,
+      "question": "How are pair work, concurrent sessions, waiting and unattended tool execution counted?",
+      "expected_answer": "Two people working together may contribute two person-hours in one hour; one person cannot give each of two concurrent sessions a full hour. State the attended-waiting rule. Unattended tool execution is computing use, not human labour.",
+      "baseline_evidence_sha256": "e97b787e1a37555f69ca310146f61b891fa28ffe07e5e0ade2a08494bddb2506",
+      "candidate_answer": "Pair work may supply two person-hours per elapsed hour. One person cannot give two concurrent sessions a full hour each. State whether attended waiting counts as labour; unattended tool execution is computing-resource use.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 90,
+          "quote": "Pair work can contribute two person-hours in one elapsed hour. For one person, two concurrent sessions cannot each receive a full hour of attention. State whether attended waiting belongs in the labour total. Record unattended tool execution as computing-resource use."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q015",
+      "path": "paper/article/main.tex",
+      "line": 92,
+      "question": "How are shared, unattributed and computing-resource quantities treated?",
+      "expected_answer": "Prespecify attribution of shared review/platform person-hours. Record work with unknown task attribution separately. Define agent instances/resource classes; record computing running time, tokens and charges separately. Combining with person-hours requires an economic conversion and changes the measure to cost.",
+      "baseline_evidence_sha256": "07bbe38c9cf00411123e1dfcbb1381b89ba7804310192b50b6933937bcfe314e",
+      "candidate_answer": "Specify task attribution of shared review/platform hours and separately record unattributable work. Define agent instances and resource categories; record runtime, tokens and charges separately from person-hours. Combining them needs an explicit economic conversion and measures cost.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 92,
+          "quote": "To measure the task labour defined in Equation~\\eqref{eq:labour}, specify how person-hours spent on shared review and platform work are attributed to tasks. Record separately any work that the observations cannot attribute to a particular task."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 92,
+          "quote": "Define what counts as one agent instance and the categories of computing resource used when reporting its running time. Record those running times, token use and charges separately from person-hours. Combining these quantities requires an explicit economic conversion and changes the question from labour to cost."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q016",
+      "path": "paper/article/main.tex",
+      "line": 94,
+      "question": "What starts the acceptance clock, and how do abandonment, censoring and deployment differ?",
+      "expected_answer": "T_i runs from s_i to first acceptance, including queueing/reasoning/specification after s_i. Permanent abandonment before acceptance has infinite T_i; loss of observation is censoring. Deployment is separately recorded when different.",
+      "baseline_evidence_sha256": "1ddca4529efe490975e7a7b3004b3852404823fa687bd44e143b6db45b526751",
+      "candidate_answer": "The clock starts at tracking start s_i, including queueing and pre-commit reasoning/specification, and runs to first acceptance. Permanent abandonment sets T_i=∞ and is an outcome; loss of observation is censoring. Record deployment separately when it differs from acceptance.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 94,
+          "quote": "Let $T_i$ be elapsed time from the start of tracking to first acceptance. Starting this clock at $s_i$ includes queueing and any reasoning and specification between $s_i$ and the first commit. If the task is permanently abandoned before acceptance, put $T_i=\\infty$. Abandonment is an outcome, whereas loss of observation is censoring. Record deployment separately whenever acceptance and deployment differ."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q017",
+      "path": "paper/article/main.tex",
+      "line": 98,
+      "question": "What remains common in the reference score and what calibration does a labour-denominated score require?",
+      "expected_answer": "Retain each task’s nonnegative reference score and use common rule/weights across groups. The score may count tasks, functional units or SCH. Person-hour interpretation needs independent calibration with population, work types, quality requirements and stopping event stated.",
+      "baseline_evidence_sha256": "e424d22d30e5e5e377a36fa6d92208c9a898a042a152e774d31bad3118308280",
+      "candidate_answer": "Keep each task’s reference score and the same scoring rule and weights across groups. A score expressed in person-hours needs independent labour calibration specifying whose labour, included work types, quality requirements and recording endpoint.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 98,
+          "quote": "The superscript $0$ denotes the common reference: retain each task's score and use the same scoring rule and weights across comparison groups."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 98,
+          "quote": "A score expressed in person-hours needs calibration against independently measured labour. Specify whose labour is used for calibration, which types of work are counted, the quality requirements and the event at which labour recording ends."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q018",
+      "path": "paper/article/main.tex",
+      "line": 100,
+      "question": "Why use initial requirements rather than final code as scoring inputs, and how is duplicate output avoided?",
+      "expected_answer": "AI can change final code; retrospective code scores are implementation-dependent. Nonlinear scores can change under splitting/squashing. Score the same requirements once or use additive component scores; retries/failures/reverts do not create extra retained-output units.",
+      "baseline_evidence_sha256": "c118e1ac549ddcd87cd72efb5bbccb060735f567b6464d3bec9694b4d131dec3",
+      "candidate_answer": "For fixed requirements, initial requirements keep the reference from depending on AI-changed final code. Nonlinear scores can change with splitting/squashing; score the same recorded information once or use an additive requirement rule. Failed attempts, retries and reverts add no new retained output.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 100,
+          "quote": "For a causal comparison of fixed task requirements, prefer the requirements recorded when tracking begins as the basis for the reference score. AI can change the final code, so scoring its differences can make the reference depend on the tool being compared."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 100,
+          "quote": "Score the same recorded task information once, or use a requirement-scoring rule whose component scores add to its total. A failed attempt, retry or revert must not generate another unit of retained output."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q019",
+      "path": "paper/article/main.tex",
+      "line": 102,
+      "question": "At what times are acceptance eligibility and retained output measured?",
+      "expected_answer": "Acceptance must occur by task age tau>0. For accepted tasks, R in[0,1] measures the fraction of requirements met at s_i+T_i+Delta, Delta>=0. Q=S_i^0 R if T_i<=tau, otherwise zero.",
+      "baseline_evidence_sha256": "300ed7fe2f89d32c806d4ef1729aa64e20e63ffa97fe38ac5449b901525bee37",
+      "candidate_answer": "Acceptance eligibility is T_i≤τ, measured by task age from tracking start. For eligible tasks the retained fraction is checked Δ after actual acceptance, at calendar time s_i+T_i+Δ; later acceptance yields zero retained output in this measure.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 102,
+          "quote": "Choose an acceptance deadline at task age $\\tau>0$ and a follow-up duration $\\Delta\\geq0$. State the criteria for judging what fraction of an accepted requirement remains satisfied. For accepted tasks, let $R_i(\\Delta)\\in[0,1]$ be that fraction at time $s_i+T_i+\\Delta$, judged using these criteria. Retained reference output is"
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 105,
+          "quote": " Q_i(\\tau,\\Delta)=\\begin{cases} S_i^0 R_i(\\Delta),&T_i\\leq\\tau,\\\\ 0,&T_i>\\tau.\\end{cases}"
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q020",
+      "path": "paper/article/main.tex",
+      "line": 107,
+      "question": "What can quality observations and reviewer agreement establish?",
+      "expected_answer": "Rules distinguish intentional replacement from defect-driven loss and define fractions. Surviving lines, tests and no incidents provide limited quality observations, not complete correctness. Agreement and detectable-defect scope must be measured.",
+      "baseline_evidence_sha256": "4e26669489bdc0c0b8a187a29a5ca2ba852b3b277bb7d0d02c2dbbafe60c3011",
+      "candidate_answer": "Surviving lines, tests and incident absence offer different incomplete quality observations. State detectable defects and retention criteria, distinguish replacement from defect-driven loss, and measure reviewer agreement; neither agreement nor these partial observations establishes all quality consequences.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 107,
+          "quote": "Specify how the follow-up check distinguishes an intentional replacement from a defect-driven loss and how the retained fraction is calculated. Surviving lines, successful tests and absence of recorded incidents provide different, incomplete observations of quality. Document which defects the tests and follow-up criteria can detect, and measure agreement between reviewers."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 151,
+          "quote": "Report severe defects separately because a retained fraction cannot describe every security or reliability consequence."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q021",
+      "path": "paper/article/main.tex",
+      "line": 115,
+      "question": "What is the productivity denominator and why does it differ from ending labour at acceptance plus Delta?",
+      "expected_answer": "It sums all task labour through common task age tau+Delta, including rejected/unfinished/abandoned work and attributable repair. Early acceptance leaves longer for repair. Ending each at T_i+Delta would define another denominator.",
+      "baseline_evidence_sha256": "d267aa1aaee5c47b27d4abd46fa75a736515746c4075ce35c3c05fc82cabbc51",
+      "candidate_answer": "The denominator is Σ_i H_i(τ+Δ), through the same task age for all tasks. It includes rejected, unfinished, abandoned and post-acceptance task work. Early acceptance allows more repair time inside this window; stopping each task at T_i+Δ gives a different denominator.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 113,
+          "quote": " =\\frac{\\sum_i Q_i(\\tau,\\Delta)}{\\sum_i H_i(\\tau+\\Delta)}."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 115,
+          "quote": "The denominator sums labour through the same task age $\\tau+\\Delta$ for every task in that set. It includes labour on rejected, unfinished and abandoned tasks, together with work done after acceptance that is attributable to the task. Early acceptance leaves more time for repair within this labour window than late acceptance. Stopping repair accounting exactly $\\Delta$ after each acceptance would define a different denominator."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q022",
+      "path": "paper/article/main.tex",
+      "line": 117,
+      "question": "When is the productivity ratio defined and can zero-labour tasks contribute output?",
+      "expected_answer": "Zero-labour tasks may contribute retained output. The cohort ratio requires positive total labour; report output and person-hours separately.",
+      "baseline_evidence_sha256": "279af214cad2c38d4d5ff3a31ca87390ea6d5a523050a43d8de38592343250ee",
+      "candidate_answer": "It is defined only for a finite task set with positive total labour. Individual zero-human-labour tasks may contribute retained output; report output and person-hours separately.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 109,
+          "quote": "For a specified finite set of tasks with positive total labour, define"
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 117,
+          "quote": "Tasks with zero human labour can contribute retained output. The productivity ratio is defined only when the tasks' total labour is positive. Report retained output and total person-hours separately."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q023",
+      "path": "paper/article/main.tex",
+      "line": 126,
+      "question": "Why must an estimate from probability sampling not be inserted as an exact interval total?",
+      "expected_answer": "Sampling varies the estimate and may make the true work allocation infeasible under falsely exact constraints. Difference estimation instead averages to true labour under sampling/measurement assumptions.",
+      "baseline_evidence_sha256": "876fb319b32655e44c1df3dcfd67ef418f91fd48dd9a2341d0ed8138797f341e",
+      "candidate_answer": "A sample estimate varies with the selected person-intervals, so treating it as an exact total can exclude the true allocation through sampling error. Its sampling uncertainty needs accounting before it justifies bounds.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 126,
+          "quote": "A labour estimate from a probability sample varies with the selected person-intervals. Entering it as an exact interval total can exclude the true work allocation through sampling error."
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 49,
+          "quote": "A Horvitz--Thompson estimate varies with the selected sample. Its sampling uncertainty must be accounted for before the estimate can justify either inequality."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q024",
+      "path": "paper/article/main.tex",
+      "line": 128,
+      "question": "What must the frame cover and what extra measurement problems remain?",
+      "expected_answer": "All target person-intervals including off-keyboard reasoning, review and coordination. Diaries/records supply allocations, independently checked subsamples report disagreement. Nonresponse, recall error and outside-frame work require investigation.",
+      "baseline_evidence_sha256": "84e07d266a4b3296e3a5021f3c40f6dcfc69c922ca6e4467ecf80bd7f48bdc2a",
+      "candidate_answer": "The complete person-interval frame must cover all target work, including off-keyboard reasoning, review and coordination. Independently check a subsample, report disagreement and investigate nonresponse, recall error and work outside the frame separately.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 128,
+          "quote": "Activity sampling estimates labour from selected person-intervals. The sampling frame---the complete list of intervals from which the sample is drawn---must cover all target work, including off-keyboard reasoning, review and coordination."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 128,
+          "quote": "Check a subsample of the recorded allocations independently, stating who checks them and what evidence they use. Report disagreement and investigate its causes. Nonresponse, inaccurate recall and work outside the frame can each affect the labour estimate and require separate investigation."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q025",
+      "path": "paper/article/main.tex",
+      "line": 135,
+      "question": "What is the purpose and scope of the measurement-validation stage?",
+      "expected_answer": "Test accuracy and coverage of person-hours before causal comparison. Prespecify tasks/work/attribution, frame/scores/deadlines/output criteria, and record disagreement, nonresponse, follow-up completeness and collection burden by group/work/task category to plan sampling and precision.",
+      "baseline_evidence_sha256": "0fe49b765e443aeb9fa078c9b22d32f34f079b7803f73d57c2a4d2a91a4a3f85",
+      "candidate_answer": "Before AI comparisons, test person-hour accuracy and coverage of included work. Prespecify tasks, work types, task attribution, frame, score, deadline and retention criteria; pilot allocation disagreement, nonresponse, follow-up completeness and collection effort by group/work/task category to inform later sampling and precision.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 135,
+          "quote": "Before comparing AI tools, test whether the proposed observations measure person-hours accurately and cover the included work. Define the tasks and types of work to include, how hours are attributed to tasks, and the person-intervals available for sampling. Record the reference scoring rule, acceptance deadline and retained-output criteria before collection. These choices determine what the measurements describe."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 137,
+          "quote": "The measurement pilot should record disagreement over allocations, nonresponse, follow-up completeness and the time needed to collect records. Report each by comparison group, type of work and task category, stating how tasks are categorised. These observations inform the sampling effort and precision that a later comparison can support."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q026",
+      "path": "paper/article/main.tex",
+      "line": 137,
+      "question": "Which comparisons test benefits of joint constraints and fixed predictions?",
+      "expected_answer": "Use independently checked interval totals with justified error limits; compare separately summed bounds against joint optimisation on prespecified windows. Compare repeated-sample variance with and without fixed predictions, retaining inclusion and joint-design information.",
+      "baseline_evidence_sha256": "473660d6ce7404cb8a6d68c1b3369dd2381bfa4987b5fb6995963c08b21bc8d3",
+      "candidate_answer": "On independently checked interval totals with justified measurement-error limits and prespecified target windows, compare summed separate bounds with joint minima/maxima. For sampled labour compare repeated-sample variance with versus without predictions fixed before sampling; retain inclusion and joint-design information.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 139,
+          "quote": "For interval bounds, use independently checked totals with justified limits on measurement error. For target windows chosen before observing outcomes, compare the sums of separately calculated lower and upper labour bounds with the joint minimum and maximum. This shows whether accounting jointly for each person's available time raises the minimum or lowers the maximum. For sampled labour, compare the variance over repeated samples with and without predictions calculated before sampling and kept unchanged whichever sample is drawn. Retain the inclusion probabilities and joint sampling-design information needed to calculate uncertainty."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q027",
+      "path": "paper/article/main.tex",
+      "line": 145,
+      "question": "How do fixed-workload and organisation-wide adoption populations differ?",
+      "expected_answer": "Fixed workload uses inclusion rules before allocation, fixed requirements/population and stated weighting, recording prior/postponed/rejected/abandoned work. Organisation-wide adoption may change incoming work, requiring a common calendar window and incoming/WIP records.",
+      "baseline_evidence_sha256": "8881e95191e9a2c1ef6b57b9a09bc51f77fda44de3e602d036bf575ded38c07e",
+      "candidate_answer": "A fixed-workload study freezes inclusion conditions before allocation, states pre-allocation work accounting and records postponed/rejected/abandoned requests. An adoption study concerns eligible incoming organisational work, which AI may change, and needs a common calendar window plus incoming-request/work-in-progress records and population weights.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 147,
+          "quote": "A subsequent causal study must define whether it concerns a fixed set of tasks or an organisation's incoming work that meets stated conditions for inclusion. AI adoption can change which work is requested or undertaken. For a fixed-workload comparison, set the conditions for including tasks before allocating tasks, people or teams to comparison groups, and keep those conditions unchanged. State how work done before group allocation is counted. Record postponed, rejected and abandoned requests. An organisation-wide adoption comparison instead needs a common calendar window and records of incoming requests and work in progress. State which population each comparison concerns and how its observations are weighted."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q028",
+      "path": "paper/article/main.tex",
+      "line": 147,
+      "question": "How should interference and uncertainty respect the original allocation units?",
+      "expected_answer": "Shared reviewers/resources/code may transmit effects, so group formation and analysis must account for them. Analyse by original groups, record actual use separately, calculate uncertainty at allocation units plus labour/quality sampling uncertainty; extra commits add no independent allocation units.",
+      "baseline_evidence_sha256": "a058300030059f702ccfdc9a8251a8206e36af6c9016030b2e291034ea9a67a4",
+      "candidate_answer": "Account for cross-team effects from reviewers, agent resources and reusable components when grouping and analysing. Use original group allocation, record use separately, and compute uncertainty at the allocated-unit level while allowing labour/quality subsampling; commits do not add independently allocated teams.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 149,
+          "quote": "The AI tools and working practices specified for one team can affect another team through shared reviewers, limited computing resources for agents or reusable components. Account for these effects when forming comparison groups and analysing outcomes. Analyse outcomes by the original allocation to comparison groups, recording actual tool use separately. Calculate uncertainty at the level at which teams, people or other units were allocated to groups. Also allow for sampling labour and checking quality in subsets. More commits within a team provide more records, but do not create additional independently allocated teams."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q029",
+      "path": "paper/article/main.tex",
+      "line": 149,
+      "question": "Why are reviewer blinding, feedback, subset selection and severe defects separately recorded?",
+      "expected_answer": "Use same retained-output checks across groups and independent double checks for disagreement. Learning group identity can bias review; feedback can cause repair counted in labour. Subset extrapolation needs known selection probabilities and assumptions about feedback effects. Retention fractions omit some severe security/reliability consequences.",
+      "baseline_evidence_sha256": "2d71b9b1c8fbc1625a07e2994abefa9099ed0915a6fa76e374571733b9298ada",
+      "candidate_answer": "Blinding loss may reveal group identity; feedback can trigger repair, which must enter the labour window. Independent duplicate review measures disagreement. Subset extrapolation needs known selection probabilities and assumptions about checks affecting later work. Severe defects need separate reporting because retention fractions omit consequences.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 151,
+          "quote": "Use the same criteria and follow-up procedure for checking retained output across comparison groups. Have two reviewers check a subset independently to measure disagreement between them. Record any loss of reviewer blinding---reviewers learning which group a task belongs to---and the timing of feedback, since the check can trigger repair. Count that repair within the stated labour window. Estimating retained output for all tasks from a checked subset requires known selection probabilities and assumptions addressing any effect of the check on subsequent work. Report severe defects separately because a retained fraction cannot describe every security or reliability consequence."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q030",
+      "path": "paper/article/main.tex",
+      "line": 151,
+      "question": "What is required for missing follow-up, ratio uncertainty and a noninferiority claim?",
+      "expected_answer": "Follow tasks through tau+Delta; distinguish abandonment from lost observation and state missingness assumptions/bounds. Report labour/acceptance/output and ratio with joint uncertainty. Prespecify practical improvement and maximum quality-loss margins; nonsignificance does not prove noninferiority.",
+      "baseline_evidence_sha256": "c856664c155e24a3e8f58ea20a2d0dc6c000181f9b1a471c895836b32392a4bb",
+      "candidate_answer": "Follow every task through τ+Δ; distinguish abandonment from lost observation and state missing-outcome assumptions/bounds. Report output, positive labour and their ratio with uncertainty and dependence. Prespecify useful improvement thresholds and a maximum acceptable quality loss; failure to detect a reduction does not establish noninferiority.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 153,
+          "quote": "Complete follow-up through $\\tau+\\Delta$ as required by Section~\\ref{sec:accounting}. Distinguish permanent abandonment from loss of observation. If follow-up is incomplete, state the assumptions or bounds used to handle missing outcomes. Report labour, acceptance and retained output together, since reduced labour may accompany more abandonment. Report retained output and positive total labour alongside their productivity ratio, and account for uncertainty in both quantities and their dependence. Prespecify practically useful improvement thresholds and any maximum acceptable reduction in quality (the noninferiority margin). Failure to detect a quality reduction does not establish that the loss is within that limit."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q031",
+      "path": "paper/article/main.tex",
+      "line": 158,
+      "question": "What does the paper conclude about separately adding labour bounds?",
+      "expected_answer": "Only jointly compatible component extrema make summed bounds exact. Joint interval/capacity optimisation can exclude totals requiring overwork, and its finite partition gives the same attainable labour totals as continuous allocation.",
+      "baseline_evidence_sha256": "39f43df0660646339eac10d3555138b3a1882a23f8bc8bb5c2f42468c5aedbe6",
+      "candidate_answer": "Separate component bounds can be added when counted once, but the summed endpoints are exact only when allocations attaining their respective component extrema are jointly possible. Otherwise summing can admit totals requiring a person to exceed available time.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 160,
+          "quote": "Adding separately calculated interval bounds can include totals that would require someone to work beyond their available time. The summed lower and upper bounds are exact only if work allocations achieving the respective component bounds can occur together."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q032",
+      "path": "paper/article/main.tex",
+      "line": 160,
+      "question": "What empirical assumptions still constrain unbiasedness, precision and causal claims?",
+      "expected_answer": "Frame completeness, positive known probabilities, accurate measurements and sampling design remain required. Fixed prediction helps only if residual-total sampling variance is lower. Diary accuracy/off-keyboard coverage need evidence; AI causal benefit needs a further valid comparison.",
+      "baseline_evidence_sha256": "c0df0e3a520e6a6ae11b5c8f1929f277201452a5947b92185281bc626bef9eb2",
+      "candidate_answer": "Unbiasedness needs target-frame coverage, known positive inclusion probabilities and accurate sampled allocations. Precision gains need lower residual-total sampling variance. Diaries’ coverage of reasoning/coordination and allocation accuracy need empirical evidence; causal benefit needs a further designed comparison.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 162,
+          "quote": "Probability sampling permits design-unbiased estimation when the frame covers the target work, inclusion probabilities are known and positive, and sampled allocations are measured accurately. A fixed telemetry predictor improves precision only when estimating its total residual has lower sampling variance than estimating labour without predictions. Diaries and task records can supply the observations. Whether they capture reasoning and coordination and accurately record how people divide their time requires empirical evidence. The unbiasedness and precision results depend on the stated measurement and sampling assumptions. Establishing a causal benefit from AI adoption requires a further comparison of AI tools and working practices."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q033",
+      "path": "paper/article/main.tex",
+      "line": 162,
+      "question": "What is the next empirical step rather than an already demonstrated workplace result?",
+      "expected_answer": "Check task records account for all included person-hours and independently checked output over required follow-up, quantify disagreement/missingness/burden, then choose the causal study population/design. No workplace causal effect has been established.",
+      "baseline_evidence_sha256": "c628733e34ee693b0f82ee1e905703716d7cc38b72546497498e43a835338853",
+      "candidate_answer": "Run the specified measurement pilot to test whether task records capture included person-hours and independently check retained output through follow-up. Use disagreement, missingness and effort to refine measurement and size the fixed-workload experiment; no workplace causal result is yet shown.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/main.tex",
+          "line": 164,
+          "quote": "The next empirical step is the measurement pilot specified in Section~\\ref{sec:causal-experiment}. It must test whether task records capture person-hours across the included types of work and support independent checks of retained output through follow-up. Disagreement, missing records and collection effort will inform the measurement procedure and size of the proposed fixed-workload experiment."
+        },
+        {
+          "path": "paper/study/ai-labour-causal/causal-study.tex",
+          "line": 10,
+          "quote": "The experiment remains specified and unrun. These hypothetical planning calculations report no causal workplace result."
+        }
+      ],
+      "judgement": "authorised_clarification",
+      "basis": "The candidate replaces the baseline conclusion’s generic instruction to choose a causal population/design with the already specified measurement pilot and fixed-workload experiment. The complete baseline itself contains that specified experiment, so this resolves a source inconsistency. It retains the absence of a workplace causal result and does not pretend to be a literal paraphrase of the old concluding paragraph."
+    },
+    {
+      "id": "q034",
+      "path": "paper/article/event-history.tex",
+      "line": 4,
+      "question": "How do the three clocks and realised point-identification differ from population-parameter identification?",
+      "expected_answer": "Acceptance by tau, retention at T_i+Delta and labour through tau+Delta. A record point-identifies realised labour if feasible allocations exist and all give same total. The event-model proposition instead concerns identification of a population parameter from an event distribution.",
+      "baseline_evidence_sha256": "79dc3926c6cb2a0811436c546b64a98395487656bcd840b640d69d12d9975e1f",
+      "candidate_answer": "Acceptance is judged at τ; retention at T_i+Δ after actual acceptance; labour through τ+Δ for every task. Realised point-identification requires at least one consistent allocation and identical labour totals for all consistent allocations. Population identification instead asks whether the observed-event distribution uniquely fixes a parameter.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/event-history.tex",
+          "line": 4,
+          "quote": "Acceptance is judged against the deadline $\\tau$. Retained output is checked at task age $T_i+\\Delta$, using actual acceptance as the start of follow-up. Labour is counted through task age $\\tau+\\Delta$ for every task, whether or not it has been accepted. A complete task history must therefore supply observations through these different endpoints. Recording acceptance alone does not establish how much output survives or how much repair work follows. A record \\emph{point-identifies} realised labour when at least one time allocation is consistent with the recorded observations and model constraints, and every such allocation gives the same total. Proposition~\\ref{prop:nonidentification} instead asks whether the probability distribution of observed events uniquely determines a population parameter. The next section derives the smallest and largest labour totals consistent with interval observations."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q035",
+      "path": "paper/article/partial-identification.tex",
+      "line": 4,
+      "question": "What is the identified range, including its attainability interpretation?",
+      "expected_answer": "Exactly all target labour totals produced by at least one allocation satisfying interval observations and capacity; no satisfying allocation lies outside it. This is not a confidence interval based on a selected sample.",
+      "baseline_evidence_sha256": "1ac22693efd9189218f7a5e4a88b8df227fa76e7daefc880c6920b08809b60b7",
+      "candidate_answer": "It is exactly the set of target labour totals produced by allocations satisfying every observation and allocation constraint. Every included total is attainable, none outside is feasible, and the proofs establish attained extrema and every value between.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 4,
+          "quote": "An interval total can leave open when people worked within it. We seek every labour total that the specified target windows could contain while satisfying the observations and the allocation constraint in \\eqref{eq:labour}. The \\emph{identified range} contains exactly these totals. Each has at least one time allocation satisfying all observations and constraints, and no such allocation produces a total outside the range. This definition follows the general partial-identification perspective \\cite[Section~1]{torgovitsky2019}. The proofs below establish the smallest and largest possible totals and show how to attain every value between them."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q036",
+      "path": "paper/article/partial-identification.tex",
+      "line": 12,
+      "question": "What bounds the pre-cutoff contribution of one person and what happens at endpoint/invalid totals?",
+      "expected_answer": "The range is[max(0,v-(u-c)),min(v,c-ell)] for ell<u,c in[ell,u],v in[0,u-ell]. A piecewise-constant allocation attains every value; omit zero-length pieces at endpoints. Invalid total v has no feasible allocation.",
+      "baseline_evidence_sha256": "6ca8c26fcd5ee579a439018cc90dbe22a6c28e678d4be18bed18ed41115be2bb",
+      "candidate_answer": "For one person with total v on [ℓ,u], pre-c labour ranges from max(0,v−(u−c)) to min(v,c−ℓ). Thus c=ℓ gives 0, c=u gives v, v=0 gives 0, and v=u−ℓ gives c−ℓ. Omit zero-length construction pieces at endpoint cutoffs; v outside [0,u−ℓ] is infeasible.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 12,
+          "quote": "Let $\\ell<u$, $c\\in[\\ell,u]$ and $v\\in[0,u-\\ell]$. Among measurable allocations $a:[\\ell,u]\\to[0,1]$ with $\\int_\\ell^u a(t)\\,dt=v$, the attainable values of $x=\\int_\\ell^c a(t)\\,dt$ are exactly"
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 15,
+          "quote": " \\left[\\max\\{0,v-(u-c)\\},\\;\\min\\{v,c-\\ell\\}\\right]."
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 17,
+          "quote": "If $v<0$ or $v>u-\\ell$, no such allocation exists."
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 24,
+          "quote": "Omit a zero-length piece when $c$ is an endpoint: the corresponding numerator is then zero."
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 27,
+          "quote": "If $v=u-\\ell$, the total uses all the person's available time, so the labour before any time within it equals the elapsed time from its start."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q037",
+      "path": "paper/article/partial-identification.tex",
+      "line": 29,
+      "question": "When can component bounds be summed exactly and what does Figure1 establish?",
+      "expected_answer": "Count each contribution once and require allocations attaining respective minima/maxima simultaneously. Independent/disjoint unconstrained intervals can combine. Two tasks each using one hour over[0,2] force their first-hour sum to1 although separate bounds sum to[0,2]. Midpoint timeline is one admissible schedule.",
+      "baseline_evidence_sha256": "686fd43244b5ce543058f621faf2905b6be4ae02a00aa81f7c545b744022b390",
+      "candidate_answer": "Each contribution must be counted once, and component minima (or maxima) must be jointly attainable for the summed endpoint to be exact. Disjoint person-intervals or distinct people suffice absent other links. Figure 1 illustrates two task totals separately allowing [0,2] before time 1, while joint capacity fixes their sum at 1; panel (c) constructs a midpoint schedule.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 29,
+          "quote": "Bounds calculated separately for each contribution can be added when each contribution is counted once. Attaining the summed lower bound requires allocations that achieve every component minimum together. Attaining the summed upper bound requires allocations that achieve every component maximum together. Disjoint intervals of one person, or intervals belonging to distinct people, can be combined when no other constraints link them. Overlapping observations or several tasks competing for the same person's time require a joint calculation. For example, one person spends one person-hour on each of two tasks during $[0,2]$. Each task separately allows $[0,1]$ person-hours before time 1. Together, the tasks require exactly one person-hour before time 1, because they use all the person's available time on $[0,2]$. Adding the separately calculated bounds would give $[0,2]$. Figure~\\ref{fig:shared-capacity} plots the separately permitted and jointly feasible first-hour totals. Panel (c) gives one schedule for the marked midpoint, illustrating the one-activity-at-a-time reconstruction proved below."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q038",
+      "path": "paper/article/partial-identification.tex",
+      "line": 40,
+      "question": "What is a stream, what domains/sets are fixed and what must measurement establish?",
+      "expected_answer": "One person’s work of one type on one task. Finite tasks/people/work types, study tasks subset and bounded calendar domain cover intervals/windows. Histories are measurable/nonnegative and obey per-person capacity almost everywhere. Actual roster and attribution coverage require evidence; outside-study work can consume capacity.",
+      "baseline_evidence_sha256": "58107d590e3c8c051a1bc42d135be25d787dced74bea9a3180aa02a9f5f99786",
+      "candidate_answer": "A stream is one person’s work of one type on one task. Fix finite task/person/type sets, studied subset C, and a bounded calendar domain covering all observations and targets. Histories are measurable nonnegative allocations with per-person sum ≤1 almost everywhere. Coverage and attribution still need measurement evidence; outside-C work may share capacity without entering the target.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 40,
+          "quote": "To account for tasks sharing a person's time, call one person's work of one type on one task a stream. Fix finite sets of tasks $\\mathcal I$, people $\\mathcal J$ and types of work $\\mathcal R$, a set of tasks to be studied $\\mathcal C\\subseteq\\mathcal I$, and a bounded calendar-time domain $[b_0,b_K]$ with $b_0<b_K$ containing every observation interval and target window. An admissible history consists of measurable $a_{ijr}\\geq0$ satisfying $\\sum_{i,r}a_{ijr}(t)\\leq1$ almost everywhere for every person $j$. The list of people and the rules for attributing time to tasks determine whose labour and which work are included. Whether these records cover the intended work requires measurement evidence. Work outside $\\mathcal C$ can be recorded separately when it uses the same people's time without contributing to the labour total for $\\mathcal C$."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q039",
+      "path": "paper/article/partial-identification.tex",
+      "line": 42,
+      "question": "What does an observation constrain and how do exact, measurement-error and sampled totals differ?",
+      "expected_answer": "A specified group of streams over an interval has finite lower/upper person-hour bounds. Equality gives exact totals; justified rounding/measurement limits may differ. A sampled HT estimate needs a separate uncertainty argument before either inequality is warranted.",
+      "baseline_evidence_sha256": "68dbe303489b77a62acc2482d69ca4c3aa82f68c1b43935709d53c580962a619",
+      "candidate_answer": "An observation bounds the summed integrated labour of its specified stream set over its interval, in person-hours. Exact totals set equal lower/upper limits; justified rounding/error limits may differ. A sampled HT total needs sampling uncertainty accounted for before it supports either limit.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 42,
+          "quote": "For observations $\\nu=1,\\ldots,M$, specify an interval $[\\ell_\\nu,u_\\nu]$ within this domain, a set $G_\\nu\\subseteq\\mathcal I\\times\\mathcal J\\times\\mathcal R$ of streams whose labour the observation includes, and finite labour bounds $v_\\nu^-\\leq v_\\nu^+$, in person-hours. Impose"
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 45,
+          "quote": " v_\\nu^-\\leq"
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 46,
+          "quote": " \\sum_{(i,j,r)\\in G_\\nu}\\int_{\\ell_\\nu}^{u_\\nu}a_{ijr}(t)\\,dt"
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 47,
+          "quote": " \\leq v_\\nu^+."
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 49,
+          "quote": "Exact interval totals use $v_\\nu^-=v_\\nu^+$. Justified limits on rounding or measurement error may instead give different lower and upper bounds. A Horvitz--Thompson estimate varies with the selected sample. Its sampling uncertainty must be accounted for before the estimate can justify either inequality."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q040",
+      "path": "paper/article/partial-identification.tex",
+      "line": 51,
+      "question": "How are cells and target windows formed, including observations extending outside targets?",
+      "expected_answer": "Partition calendar time at domain/observation/target endpoints, include s_i and c_i=s_i+tau+Delta, and retain cells outside targets if spanned by observations. Positive cell length d_k and x_ijrk represent stream labour within cells.",
+      "baseline_evidence_sha256": "11aebb09a68e39ec661879bc1cb4e07d291801e25eb207f5efe6cff722f508cc",
+      "candidate_answer": "Use all distinct domain, observation and target endpoints to form cells. Convert each task’s age window [s_i,s_i+τ+Δ] to calendar time so simultaneous work shares capacity. Retain outside-target cells spanned by observations because observed labour may lie there; x_ijrk is a stream’s labour in cell k.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 51,
+          "quote": "Form the sorted distinct endpoints $b_0<\\cdots<b_K$ from the domain boundaries, every observation endpoint and every target boundary. Call the intervals between successive endpoints cells. For the denominator in \\eqref{eq:cohort-productivity}, target boundaries include the start of tracking $s_i$ and the end of the labour observation window $c_i=s_i+\\tau+\\Delta$ for every task in $\\mathcal C$. Translate time since tracking began into calendar time before partitioning, so that simultaneous work by the same person shares one capacity constraint. Keep cells outside a target window whenever an observation spans them: some of the observed labour may have occurred outside the window. Put $d_k=b_k-b_{k-1}>0$ and let $x_{ijrk}$ denote the labour allocated to stream $(i,j,r)$ in cell $k$."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q041",
+      "path": "paper/article/partial-identification.tex",
+      "line": 55,
+      "question": "Which finite constraints and targets are exactly equivalent to allocation histories?",
+      "expected_answer": "Nonnegative cell masses, per-person cell sums<=length and grouped observation bounds define P. Any real cell weights w yield same target set h(P) as histories. Nonempty P is compact/convex with attained extrema and every intermediate target, even binary allocations; empty P is inconsistent.",
+      "baseline_evidence_sha256": "cff53bfa2af785c9eba0fb66d0ea86a42ac4f76299a9231bf84dd401edb1b8fe",
+      "candidate_answer": "Nonnegative cell labour x, per-person/cell sums ≤ cell duration d_k, and every observed stream/cell sum within its bounds exactly reproduce history feasibility. Every linear target with real weights constant on cells has the same attainable values; the productivity denominator weights only studied tasks within their target windows. A nonempty set gives a closed attained interval; empty means inconsistency.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 58,
+          "quote": " x_{ijrk}&\\geq0,&\\sum_{i,r}x_{ijrk}&\\leq d_k"
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 59,
+          "quote": " &&\\text{for every }j,k,\\\\"
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 61,
+          "quote": " v_\\nu^-&\\leq"
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 62,
+          "quote": " \\sum_{(i,j,r)\\in G_\\nu}"
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 63,
+          "quote": " \\sum_{k:\\,[b_{k-1},b_k]\\subseteq[\\ell_\\nu,u_\\nu]}x_{ijrk}"
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 64,
+          "quote": " \\leq v_\\nu^+ &&\\text{for every }\\nu."
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 66,
+          "quote": "Fix real weights $w_{ijrk}$ and define the target for a continuous-time allocation history by multiplying each cell integral by $w_{ijrk}$ and summing. The attainable target values over histories satisfying the capacity and observation constraints equal $h(\\mathcal P)$, where $h(x)=\\sum_{i,j,r,k}w_{ijrk}x_{ijrk}$. In particular, the denominator in \\eqref{eq:cohort-productivity} uses $w_{ijrk}=1$ exactly when $i\\in\\mathcal C$ and $[b_{k-1},b_k]\\subseteq[s_i,c_i]$, and zero otherwise. If $\\mathcal P$ is nonempty, its target range is the closed interval"
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 72,
+          "quote": "Both endpoints and every value between them are attained, even if every $a_{ijr}(t)$ is restricted to $\\{0,1\\}$, so that each person does at most one type of work on one task at a time. If $\\mathcal P$ is empty, the observations and capacity assumptions are inconsistent."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q042",
+      "path": "paper/article/partial-identification.tex",
+      "line": 77,
+      "question": "How does binary reconstruction preserve integrals and what timing freedom is required?",
+      "expected_answer": "For each person/cell order task-work pairs into nonoverlapping consecutive blocks of lengths x, use allocation1 for that stream and0 elsewhere with idle remainder. Measurable binary history reproduces all cells/observations/targets. Arbitrary start/stop/switching is allowed; session-length/interruption/smoothness/switch-cost restrictions need separate analysis.",
+      "baseline_evidence_sha256": "3af117bc76c7c12b69d93461839e2289504dd4b3b4b30882ba7018c8350c0aa3",
+      "candidate_answer": "Within each person/cell, place each task/type’s cell total as a consecutive block of that length, activate only that stream, and leave slack idle. Half-open blocks avoid overlap and preserve cell integrals, all observations and weighted targets. Start/stop/task/type switches must be allowed at arbitrary within-cell times; restrictions require separate analysis.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 77,
+          "quote": "Conversely, fix $x\\in\\mathcal P$. For each person and cell, order the task--type-of-work pairs and divide the cell into consecutive blocks whose lengths are their respective $x_{ijrk}$. The capacity constraint ensures that these blocks fit inside the cell. Use half-open blocks to avoid overlap at their boundaries. During each block, set the corresponding allocation to one and all others to zero. Leave any remaining time idle. Omit zero-length blocks and give the final domain endpoint the same allocation values as the last block. These measurable allocations reproduce every cell labour total, so all observation bounds remain satisfied and the target value is unchanged. Each person works on at most one task and type of work at a time, with finitely many changes. Thus even these restricted allocation functions give exactly the same possible target values as the finite feasible set."
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 82,
+          "quote": "Work must be allowed to start, stop and change type or task at arbitrary times within a cell. Minimum session lengths, restrictions on interruption, smoothness constraints and switching costs require a separate analysis."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q043",
+      "path": "paper/article/partial-identification.tex",
+      "line": 82,
+      "question": "What are the LP size and finite block-count bounds, and how is unavailability represented?",
+      "expected_answer": "Each LP has |I||J||R|K variables, |J|K capacity constraints and2M observation inequalities plus nonnegativity. Add unavailability endpoints and set those person-cell masses to0. Reconstruction uses at most |I||R|+1 constant blocks/person/cell including idle.",
+      "baseline_evidence_sha256": "f17ac1d5829e7732cfda338c89067ed72ab520609824fd23d10286e6729341f8",
+      "candidate_answer": "Each LP has |I||J||R|K variables, |J|K shared-capacity constraints and 2M observation inequalities plus nonnegativity. Reconstruction uses at most |I||R|+1 constant blocks per person/cell, including idle. Add unavailability boundaries to the partition and force that person’s affected cell labour to zero.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 82,
+          "quote": "The minimum and maximum target totals can be computed by linear programmes, each with $|\\mathcal I||\\mathcal J||\\mathcal R|K$ variables, $|\\mathcal J|K$ shared-capacity constraints and $2M$ observation inequalities, in addition to nonnegativity. A known period of unavailability can be included by adding its boundaries to the partition and setting that person's cell labour totals to zero within it. The reconstruction uses at most $|\\mathcal I||\\mathcal R|+1$ constant blocks per person in each cell, including idle time."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q044",
+      "path": "paper/article/partial-identification.tex",
+      "line": 88,
+      "question": "What do primal/dual certificates prove and what is the role of strong duality?",
+      "expected_answer": "With nonnegative x and Ax<=b, nonnegative lambda/mu with transpose conditions bound target above/below. Strong duality yields exact endpoints for nonempty P. A feasible endpoint allocation and equal dual bound certify it, rational checks use exact arithmetic; solver success alone is insufficient.",
+      "baseline_evidence_sha256": "0ed1426edcfb8584fdeedaa0204dc05fcf085475fbc1927d67c33598fff09d15",
+      "candidate_answer": "Nonnegative dual multipliers satisfying Aᵀλ≥w and Aᵀμ≥−w prove −μᵀb≤h(x)≤λᵀb for all feasible x. A feasible endpoint allocation plus a matching dual bound certifies that endpoint. Strong duality guarantees matching multipliers for a nonempty feasible set; rational certificates admit exact checks, unlike a solver success flag alone.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 88,
+          "quote": "Collect the cell totals and target weights into vectors $x$ and $w$, and write the capacity and observation inequalities as $Ax\\leq b$, with $x\\geq0$ kept separate. A lower observation bound is included by reversing its sign. Nonnegative multipliers $\\lambda$ and $\\mu$ satisfying"
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 91,
+          "quote": " A^\\mathsf{T}\\lambda\\geq w,\\qquad"
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 92,
+          "quote": " A^\\mathsf{T}\\mu\\geq-w"
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 94,
+          "quote": " -\\mu^\\mathsf{T}b\\leq h(x)\\leq\\lambda^\\mathsf{T}b"
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 97,
+          "quote": "give bounds by weighted sums of the original inequalities: $w^\\mathsf{T}x\\leq\\lambda^\\mathsf{T}Ax\\leq\\lambda^\\mathsf{T}b$, and likewise for $-w$. For a nonempty $\\mathcal P$, linear-programming strong duality ensures that suitable multipliers give exactly $H_{\\min}$ and $H_{\\max}$ \\cite[Sections~5.2--5.3]{boydvandenberghe2004}. An allocation attaining an endpoint and multipliers giving the same bound together certify that endpoint. Rational certificates can be checked by exact arithmetic without repeating the optimisation. A numerical solver's success flag alone does not supply this check."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q045",
+      "path": "paper/article/partial-identification.tex",
+      "line": 99,
+      "question": "How do observation relaxations affect certificate bounds?",
+      "expected_answer": "Increasing upper/decreasing lower observation bounds gives b+epsilon,epsilon>=0. Existing multipliers still enclose newly feasible targets by[-mu^T(b+epsilon),lambda^T(b+epsilon)]. Reoptimisation may tighten the enclosure; error limits need evidence.",
+      "baseline_evidence_sha256": "117481009691be8481c8e5cd3d3b3934202db53f7bd586826f5644a1b2991320",
+      "candidate_answer": "Relaxing upper limits upward or lower limits downward gives b+ε with ε≥0. Existing multipliers remain valid, yielding [−μᵀ(b+ε), λᵀ(b+ε)]; reoptimising may tighten it. The observation process must justify the error limits.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 99,
+          "quote": "Increasing an upper observation bound or decreasing a lower one increases the corresponding entry of $b$. If these changes give $b+\\varepsilon$, with $\\varepsilon\\geq0$ and zero entries for unchanged constraints, the same multipliers bound every newly permitted target total by"
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 102,
+          "quote": " [-\\mu^\\mathsf{T}(b+\\varepsilon),\\;\\lambda^\\mathsf{T}(b+\\varepsilon)]."
+        },
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 104,
+          "quote": "The same weighted sums of inequalities give these bounds, as in the sensitivity analysis of \\cite[Section~5.6]{boydvandenberghe2004}. Reoptimising may give a smaller interval. The observation process must still justify the error limits."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q046",
+      "path": "paper/article/partial-identification.tex",
+      "line": 106,
+      "question": "What simultaneous event yields sampling coverage of the optimised target interval?",
+      "expected_answer": "All true observation totals must be enclosed simultaneously with probability>=1-alpha and true history satisfy capacity. Then true cell vector is feasible and target covered on that event. Empty feasible sets count as failure. Separate marginal coverage does not imply joint coverage; union bound can suffice.",
+      "baseline_evidence_sha256": "850a64ca741a3d7d71490583c946856b39d4b62e43d212dd570e9842e364e476",
+      "candidate_answer": "All true observation totals must simultaneously lie within their random bounds with probability at least 1−α, and the true history must satisfy allocation constraints. Then its cell vector is feasible and the optimised interval covers the target on that event. Empty sets fail coverage; marginal coverage alone is insufficient, though marginal errors summing to ≤α suffice.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 106,
+          "quote": "Sampling requires an additional coverage argument. Suppose random lower and upper bounds contain all true observation totals simultaneously with probability at least $1-\\alpha$, where $0<\\alpha<1$. If the true history satisfies the allocation constraints, its cell vector belongs to the resulting random feasible set on that event. Optimising then gives an interval containing the true target total with probability at least $1-\\alpha$. Count an empty feasible set as a failure to cover. Coverage of $1-\\alpha$ for each observation separately does not establish the same probability of covering them all. By the union bound, marginal error probabilities whose sum is at most $\\alpha$ suffice. Constructing these bounds requires an argument for the actual sampling and measurement process. The resulting interval has a sampling-coverage guarantee, rather than the exact-data interpretation of \\eqref{eq:sharp-labour-range}."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q047",
+      "path": "paper/article/partial-identification.tex",
+      "line": 108,
+      "question": "What does Lean check and which assertions/implementation relationships remain outside its supplement?",
+      "expected_answer": "Actual integral/cell identities, integrated capacity, binary reconstruction preserving observations/weighted targets, supplied primal-dual certificates and conditional coverage. Extrema/dual existence, numeric block-count bound and Rust source refinement are excluded; Rust is separately tested.",
+      "baseline_evidence_sha256": "19c20c3105b6dc4086554f23b0a354fd706dfe35aebf728002051a78449dd37a",
+      "candidate_answer": "Lean checks interval-to-cell integral identities, integrated capacity, one-activity schedules preserving observations/targets, supplied allocation/dual bounds, and the simultaneous-observation-to-target coverage implication. Existence of optimisers and duals and the block-count bound remain outside it. Rust is tested separately; the supplement does not prove that the Rust solver’s source code implements the Lean definitions.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 108,
+          "quote": "A separate development in Lean~4, using mathlib \\cite{demouraullrich2021,mathlib2020}, checks that interval integrals equal sums of cell totals and that integrating each person's allocation limit gives the cell-capacity constraint. It constructs schedules in which each person does at most one activity at a time, preserving the observation totals and weighted targets. It also checks the bounds from supplied allocations and dual multipliers, and the implication from simultaneous coverage of observation totals to coverage of the target total. The existence of minimising and maximising allocations and dual multipliers, and the stated bound on the number of blocks, remain outside this formal supplement. The Rust solver is tested separately. The supplement does not prove that the Rust solver's source code implements the Lean definitions."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q048",
+      "path": "paper/article/partial-identification.tex",
+      "line": 112,
+      "question": "How do labour/output bounds translate to productivity and when is the bound exact?",
+      "expected_answer": "For exactly known Q>=0 and Hmin>0, ratio range[Q/Hmax,Q/Hmin]. Q bounds give enclosing[Q-/Hmax,Q+/Hmin], exact only with jointly attainable ratios, all Cartesian pairs sufficient. Hmin=0 cannot divide. Acceptance/output retention remain fixed during allocation optimisation.",
+      "baseline_evidence_sha256": "cdde53f64b70e294060eecdd38d14836d814bf083174d98c6f4c2425a6087b7b",
+      "candidate_answer": "With exact Q≥0 and H_min>0, productivity has exact range [Q/H_max,Q/H_min]. Separate justified output bounds give an enclosing [Q_−/H_max,Q_+/H_min], exact only when every ratio is jointly attainable; permitting the full output–labour rectangle suffices. Zero lower labour cannot divide, and acceptance/retention observations stay fixed.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/partial-identification.tex",
+          "line": 112,
+          "quote": "For the denominator in \\eqref{eq:cohort-productivity}, let $Q=\\sum_{i\\in\\mathcal C}Q_i(\\tau,\\Delta)$ be retained output known exactly. With $Q\\geq0$ and $H_{\\min}>0$, dividing this output by the largest and smallest possible labour totals gives the identified productivity interval $[Q/H_{\\max},Q/H_{\\min}]$. Justified quality bounds $0\\leq Q_-\\leq Q\\leq Q_+$ give an interval $[Q_-/H_{\\max},Q_+/H_{\\min}]$ containing every feasible output-to-labour ratio. It is the exact range only when every ratio in it can be produced by an output total and labour total that are jointly permitted. It is sufficient for every pair in $[Q_-,Q_+]\\times[H_{\\min},H_{\\max}]$ to be permitted. A lower labour bound of zero cannot be used as a divisor. The acceptance times and the recorded fractions of requirements still met in \\eqref{eq:retention} remain fixed throughout the allocation optimisation."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q049",
+      "path": "paper/article/design-based-estimation.tex",
+      "line": 4,
+      "question": "What correction is added to a prediction total and why does it work?",
+      "expected_answer": "For sampled person-intervals observed minus predicted labour divided by inclusion probability is added to the fixed full-frame prediction total. Repeated-sample residual correction averages to true minus predicted total under accurate sampling conditions.",
+      "baseline_evidence_sha256": "4f876b7e971b1df80fcfbabe6ce49d54ff3da590b08ea8bb13655fac1273ea1f",
+      "candidate_answer": "Add sampled residuals (observed labour minus fixed prediction), each divided by its inclusion probability, to the total of all frame predictions. Since each selection indicator has expectation π_m, the correction averages to true labour minus predicted total.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 4,
+          "quote": "In each sampled interval, observed labour minus predicted labour is the residual. Divide each residual by its inclusion probability and sum the results. Under the conditions below, this correction averages over repeated samples to the true total minus the prediction total."
+        },
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 13,
+          "quote": " =\\sum_{m\\in U}f_m+\\sum_{m\\in s}\\frac{y_m-f_m}{\\pi_m}."
+        },
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 20,
+          "quote": "Write $I_m=\\ind\\{m\\in s\\}$. Linearity and $\\E_s[I_m]=\\pi_m$ give"
+        },
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 23,
+          "quote": " =\\sum_Uf_m+\\sum_U\\frac{\\E_s[I_m]}{\\pi_m}(y_m-f_m)"
+        },
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 24,
+          "quote": " =\\sum_Uy_m."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q050",
+      "path": "paper/article/design-based-estimation.tex",
+      "line": 6,
+      "question": "What are the frame units, labour units and fixed-prediction requirement?",
+      "expected_answer": "Nonoverlapping person-interval frame U, lengths d>0, allocations a in[0,1], labour y=da in person-hours, H=sum y. Predictions f for every frame unit must be in person-hours and unchanged whichever sample is selected; SCH needs conversion. Independent earlier training is one sufficient route.",
+      "baseline_evidence_sha256": "af636be982d89ca4899bc9d5296e0bcc6e601ae135b7d9dfee46fa12a41308ba",
+      "candidate_answer": "The frame partitions every person’s target observation period into non-overlapping person-intervals. Unit labour is interval hours times average allocation, y_m=d_ma_m person-hours. f_m is also in person-hours (SCH needs conversion), and each prediction must be unchanged whichever sample is drawn; independent earlier training can achieve this.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 6,
+          "quote": "Partition each person's target observation period into non-overlapping intervals. Let $U=\\{1,\\ldots,M\\}$, $M\\geq1$, be the complete, fixed frame of these person-intervals. For interval $m$, let $d_m>0$ be its length in hours and $a_m\\in[0,1]$ its average allocation to the target work. Its labour is $y_m=d_ma_m$ person-hours, and the population total is $H=\\sum_Uy_m$. For every frame unit, retain a prediction $f_m$ in person-hours. A raw SCH value requires a stated conversion to labour units before it can serve as $f_m$. Each unit's prediction must remain the same whichever sample is drawn. Training on an independent earlier population can satisfy this condition: hold all predictions fixed, then sample allocations to correct the predicted total."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q051",
+      "path": "paper/article/design-based-estimation.tex",
+      "line": 10,
+      "question": "What assumptions yield design-unbiasedness of the difference estimator?",
+      "expected_answer": "Known positive first-order inclusion probabilities, y and f fixed under the design, accurate observation of selected labour. Then sum f plus sample inverse-probability residuals has design expectation H.",
+      "baseline_evidence_sha256": "67d2be6107183f937b1944182089a080a3d86637f6e4492ea1da852607c9615f",
+      "candidate_answer": "Use a complete fixed frame covering target work and a probability sample with known positive inclusion probabilities. Under the design y_m and f_m are fixed, predictions remain unchanged across samples, and every sampled labour value is accurately observed. Then the difference estimate’s design expectation is H.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 6,
+          "quote": "Let $U=\\{1,\\ldots,M\\}$, $M\\geq1$, be the complete, fixed frame of these person-intervals."
+        },
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 10,
+          "quote": "For a probability sample $s\\subseteq U$ with known first-order inclusion probabilities $\\pi_m>0$, set $r_m=y_m-f_m$ and"
+        },
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 16,
+          "quote": "If $y_m$ and $f_m$ are fixed under the design and every sampled labour value is observed accurately, then $\\E_s[\\widehat H_{\\mathrm{diff}}]=H$, where $\\E_s$ averages over the sampling design."
+        },
+        {
+          "path": "paper/article/main.tex",
+          "line": 162,
+          "quote": "Probability sampling permits design-unbiased estimation when the frame covers the target work, inclusion probabilities are known and positive, and sampled allocations are measured accurately."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q052",
+      "path": "paper/article/design-based-estimation.tex",
+      "line": 28,
+      "question": "How are zero, nonresponse and unselected observations distinguished and how does measurement error affect unbiasedness?",
+      "expected_answer": "The input states are selected+observed(including0), selected+missing(nonresponse), or unselected. The proof is for true allocations; measurement error requires extra assumptions. Setting all f=0 gives HT.",
+      "baseline_evidence_sha256": "12d380c1c5741a7985781e03f11659d435ee3439093f5c2c9785ade03071a60d",
+      "candidate_answer": "Record selected with a measured allocation (including zero), selected without a measurement (nonresponse), or unselected. The proof concerns true allocations; measurement error requires additional assumptions for unbiasedness.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 33,
+          "quote": "For every frame interval, record one of three states: selected with an observed allocation (including zero), selected with no recorded allocation value (nonresponse), or unselected. The proof concerns true allocation values. Unbiasedness in the presence of measurement error requires additional assumptions on that error."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q053",
+      "path": "paper/article/design-based-estimation.tex",
+      "line": 38,
+      "question": "What information enters exact variance and what prevents direct calculation from only sampled residuals?",
+      "expected_answer": "All joint inclusion probabilities and all population residual products enter the exact variance. Unsampled residuals are generally unknown, so an estimator requires actual sampling-design details and conditions on joint inclusion.",
+      "baseline_evidence_sha256": "3c8265135c1a676d59aff7391cdea5af4a3eca9bfdd1b19ff3f049bc2678fa0b",
+      "candidate_answer": "Exact variance uses all residual products r_mr_k and pair inclusion probabilities π_mk (including diagonal π_mm=π_m), through (π_mk−π_mπ_k)/(π_mπ_k). Unsampled residuals are generally unknown, so sampled residuals alone do not calculate it; preserve the sampling design and meet joint-probability conditions for the chosen variance estimator.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 38,
+          "quote": "Let $\\pi_{mk}=\\E_s[I_mI_k]$ be the probability that both frame units are selected, including $\\pi_{mm}=\\pi_m$. The exact variance over repeated samples is"
+        },
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 41,
+          "quote": " =\\sum_{m,k\\in U}"
+        },
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 42,
+          "quote": " \\frac{\\pi_{mk}-\\pi_m\\pi_k}{\\pi_m\\pi_k}\\,r_mr_k."
+        },
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 45,
+          "quote": "Expanding the variance of $\\sum_U I_mr_m/\\pi_m$ gives this expression. How often pairs of units are selected together determines the covariances in this calculation. The variance formula in \\eqref{eq:difference-general-variance} also uses residuals for unsampled units, which are generally unknown. To estimate it, retain the actual sampling design and satisfy the chosen variance estimator's conditions on joint inclusion probabilities."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q054",
+      "path": "paper/article/design-based-estimation.tex",
+      "line": 47,
+      "question": "Under SRS without replacement, what controls variance and when is the unbiased variance estimate available?",
+      "expected_answer": "M>=2,1<=n<=M,all n-subsets equally likely. Variance=M²/n*(1-n/M)*S_r² and HT substitutes S_y². Sample residual variance gives unbiased variance estimate for n>=2. One-unit sample from multiple units cannot give that estimate; census sampling variance is0.",
+      "baseline_evidence_sha256": "3463d6fd8ef2571bbd0f023634e811b7cca01ec7dec7749aba784e2d9babea33",
+      "candidate_answer": "Under SRS without replacement, Var(H_diff)=M²(1−n/M)S_r²/n; HT substitutes S_y². For 2≤n≤M, replacing S_r² by sample residual variance s_r² gives an unbiased design-variance estimate. A one-unit sample from a larger population cannot; a census has zero sampling variance, including a one-unit population.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 47,
+          "quote": "For simple random sampling without replacement from $M\\geq2$ units, let the fixed sample size satisfy $1\\leq n\\leq M$. Every size-$n$ subset has the same probability and $\\pi_m=n/M$. Write"
+        },
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 55,
+          "quote": " \\Var_s(\\widehat H_{\\mathrm{diff}})"
+        },
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 56,
+          "quote": " =\\frac{M^2}{n}\\left(1-\\frac nM\\right)S_r^2,"
+        },
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 58,
+          "quote": " \\Var_s(\\widehat H_{\\mathrm{HT}})"
+        },
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 59,
+          "quote": " =\\frac{M^2}{n}\\left(1-\\frac nM\\right)S_y^2."
+        },
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 62,
+          "quote": "For $2\\leq n\\leq M$, an unbiased estimator of the design variance is"
+        },
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 65,
+          "quote": " =\\frac{M^2}{n}\\left(1-\\frac nM\\right)s_r^2,"
+        },
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 67,
+          "quote": " s_r^2=\\frac{1}{n-1}\\sum_{m\\in s}(r_m-\\bar r_s)^2."
+        },
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 70,
+          "quote": "Indeed, $s_r^2=[n(n-1)]^{-1}\\sum_{m<k,\\,m,k\\in s}(r_m-r_k)^2$. Each pair has inclusion probability $n(n-1)/[M(M-1)]$, so $\\E_s[s_r^2]=S_r^2$. A one-unit sample from a larger population cannot supply this variance estimate. Measuring every unit gives zero sampling variance, including in a single-unit population. Measurement error remains a separate question."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q055",
+      "path": "paper/article/design-based-estimation.tex",
+      "line": 72,
+      "question": "When does a fixed predictor lower variance and what do the finite examples show?",
+      "expected_answer": "For noncensus SRS exactly when population residual variance is below labour variance. M4,n2,y(0,2,4,6) gives H12,HT80/3; f(1,3,3,5) gives16/3, reverse f(6,4,2,0) gives320/3. All six samples establish these examples, not workplace performance.",
+      "baseline_evidence_sha256": "d736ad9e6eb7b70ad05762d58f17f0f9ebcfecc6d7266369202f1cbf78798608",
+      "candidate_answer": "For n<M under SRS, lower variance occurs exactly when S_r²<S_y². For M=4,n=2,y=(0,2,4,6), H=12 and HT variance is 80/3; f=(1,3,3,5) gives 16/3, while f=(6,4,2,0) gives 320/3 (four times HT). All six samples confirm unbiasedness and variance-estimator calculations for both. Workplace precision still needs study.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 72,
+          "quote": "For $n<M$, the difference estimator has lower sampling variance than HT exactly when $S_r^2<S_y^2$: the residuals must have lower population variance than the person-interval labour totals. Consider $M=4$, $n=2$, and $y=(0,2,4,6)$. The true total is $12$, and HT variance is $80/3$. Using $f=(1,3,3,5)$ for every sample yields variance $16/3$. Using $f=(6,4,2,0)$ yields $320/3$. Enumerating all six samples reproduces these variances and confirms that each estimator averages to the true total. It also verifies that \\eqref{eq:difference-srs-variance-estimator} averages to each corresponding variance. The second predictor gives four times the HT variance. The difference estimator remains design-unbiased with either predictor. These finite checks establish the calculations for these two predictors. A workplace study must determine whether its code-derived predictions give a residual total with lower sampling variance than the labour estimate without predictions."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q056",
+      "path": "paper/article/design-based-estimation.tex",
+      "line": 77,
+      "question": "What fails if a prediction rule memorises the same correction sample?",
+      "expected_answer": "For M2,n1,y(0,2),predict selected outcome and0 elsewhere. Residual0 but estimate0/2,expectation1 rather than H2. Fitting on correction sample requires a separate design-specific proof.",
+      "baseline_evidence_sha256": "e9ee3c162dedbba42a226fe7f700b63bd8bc1db7df641a50543eb0ed613e67f8",
+      "candidate_answer": "The fixed-prediction unbiasedness proof fails. With M=2,n=1,y=(0,2), memorising the selected outcome and predicting zero elsewhere leaves zero sampled residual but estimates 0 or 2, averaging 1 instead of H=2. Same-sample fitting needs a separate design argument.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 77,
+          "quote": "The proof above does not cover predictions fitted to the sample used for correction. For $M=2$, $n=1$ and $y=(0,2)$, suppose a fitted rule memorises the selected outcome and predicts zero for the other unit. Its observed residual is always zero. The difference estimate is nevertheless $0$ or $2$, each with probability $1/2$, giving expectation $1$ rather than $H=2$. A method trained on the sampled units needs a separate unbiasedness argument under the actual finite-population sampling design."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q057",
+      "path": "paper/article/design-based-estimation.tex",
+      "line": 79,
+      "question": "Why retain signed estimates and why is output divided by unbiased labour not necessarily unbiased?",
+      "expected_answer": "Nonnegative true labour can yield signed difference estimates. For y(0,0),f(10,0),n1 estimate±10 has mean0; clipping gives mean5. Ratios are nonlinear, so unbiased denominator does not ensure unbiased productivity.",
+      "baseline_evidence_sha256": "0f779a3402e4009f18e1f74ae08b4263ea318fea124fc5fe2cd6cb1614d03b70",
+      "candidate_answer": "The design-unbiased estimate can be negative; clipping changes its expectation (the example changes 0 to 5), so retain its sign and investigate implausibility. Unbiasedness of a denominator does not establish unbiasedness of output divided by it.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 79,
+          "quote": "The estimate can also be negative even though true labour is nonnegative. With $y=(0,0)$, $f=(10,0)$ and one uniformly selected unit, \\eqref{eq:difference-estimator} is $-10$ or $10$ with equal probability. Clipping at zero changes its expectation from $0$ to $5$. Preserve the signed estimate when reporting this estimator and investigate an implausible result. Dividing retained output by an unbiased labour estimate also need not yield an unbiased productivity estimate."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q058",
+      "path": "paper/article/design-based-estimation.tex",
+      "line": 81,
+      "question": "What do implementation tests establish and what still requires collection/coverage evidence?",
+      "expected_answer": "Input rules and finite calculation behaviour, preserving signs/zeros/nonresponse; general designs point estimates, SRS variance/SE under conditions. Tests do not establish frame coverage/measurement/design fidelity. Confidence-interval coverage needs a separate argument.",
+      "baseline_evidence_sha256": "ec3846c88e6ee7c88c7615845c8bb7e17765e31e1d01315773b9e4a47bafa05c",
+      "candidate_answer": "Tests check finite examples, input rules, censuses and single-unit populations; implementation preserves signed estimates and zeros and distinguishes nonresponse. They do not establish frame coverage, measurement accuracy or actual adherence to the sampling method—collection evidence must. Confidence-interval coverage needs a separate argument.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 81,
+          "quote": "The accompanying implementation reports estimates with their calculated sign, preserves observed zeros, and records nonresponse separately from unselected units. It rejects inputs with missing required information, selected intervals without allocation measurements, and inconsistent values. For a supplied general sampling design it reports point estimates. For simple random sampling it also reports variance and standard error under the conditions above. The implementation checks the supplied records against these input rules. Evidence from collection must establish that the frame covers the work, allocations are measured accurately and units were sampled by the stated method."
+        },
+        {
+          "path": "paper/article/design-based-estimation.tex",
+          "line": 83,
+          "quote": "Exhaustive finite tests check the examples above, input validation, complete censuses and single-unit populations. A confidence interval requires a separate argument that its stated coverage holds under the sampling design."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q059",
+      "path": "paper/article/sampling-validation.tex",
+      "line": 1,
+      "question": "Why must prediction validation account for labour-sampling error and independent fitting?",
+      "expected_answer": "Disagreement between prediction and sampled estimate contains sampling error. Evaluate on excluded teams/periods with fixed predictions and report group/type/category; correlation of averages does not establish bias or individual accuracy.",
+      "baseline_evidence_sha256": "03a995d207c0a40a1f2f819461b9097d467373ab4eb9d58cb5f76499e52aecc6",
+      "candidate_answer": "A sampled labour comparison includes sampling error as well as prediction error. Validate on teams/periods excluded from fitting, freeze predictions across validation samples, and allow sampling error. Otherwise correlation/group agreement need not reveal bias or individual accuracy; aggregate uncertainty also depends on cross-task covariance.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/sampling-validation.tex",
+          "line": 1,
+          "quote": "Comparing a prediction with sampled labour combines prediction error with sampling error. Compare telemetry predictions with labour recorded for teams or periods excluded when fitting the prediction rule. Keep predictions unchanged whichever validation sample is drawn, allow for sampling error, and report comparisons by study group, type of work and task category. State how tasks are categorised. Correlation between group averages does not establish whether predictions systematically overstate or understate labour, or how far individual predictions are from true labour. The following calculations separate prediction error against true labour from sampling variance."
+        },
+        {
+          "path": "paper/article/sampling-validation.tex",
+          "line": 8,
+          "quote": "Aggregate uncertainty additionally depends on covariances between tasks' estimates."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q060",
+      "path": "paper/article/sampling-validation.tex",
+      "line": 3,
+      "question": "What are expected signed and squared errors against a design-unbiased labour estimate?",
+      "expected_answer": "For fixed H,f and unbiased Hhat with finite variance,E(f-Hhat)=f-H and E(f-Hhat)^2=(f-H)^2+Var(Hhat). Task aggregation also depends on covariances.",
+      "baseline_evidence_sha256": "9ee022f44ad94f5738d357f6537b7c2f86111377d368cb7a9c0526d17817449f",
+      "candidate_answer": "For fixed f,H and a design-unbiased finite-variance H_hat, E_s[f−H_hat]=f−H and E_s[(f−H_hat)²]=(f−H)²+Var_s(H_hat). The cross term vanishes by unbiasedness.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/sampling-validation.tex",
+          "line": 3,
+          "quote": "Treat each task's labour $H$ in a finite validation population as fixed. Let $f$ be its prediction, calculated before validation sampling and unchanged whichever sample is drawn, and suppose $\\E_{\\!s}[\\widehat H]=H$ with finite design variance. Then"
+        },
+        {
+          "path": "paper/article/sampling-validation.tex",
+          "line": 5,
+          "quote": " \\E_{\\!s}[f-\\widehat H]&=f-H,\\\\"
+        },
+        {
+          "path": "paper/article/sampling-validation.tex",
+          "line": 6,
+          "quote": " \\E_{\\!s}[(f-\\widehat H)^2]&=(f-H)^2+\\Var_{\\!s}(\\widehat H)."
+        },
+        {
+          "path": "paper/article/sampling-validation.tex",
+          "line": 8,
+          "quote": "Expand the square: the cross term vanishes because $\\E_{\\!s}[\\widehat H-H]=0$."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q061",
+      "path": "paper/article/sampling-validation.tex",
+      "line": 10,
+      "question": "What cancels when comparing two fixed predictions against the same sample, and what does not follow?",
+      "expected_answer": "Common labour-estimate variance cancels in expected difference of squared errors, giving true squared-error difference. Estimating each absolute squared error or comparison uncertainty still needs design information; absolute error needs separate analysis.",
+      "baseline_evidence_sha256": "b235a536572d7024f114c849385d9b3e413c9df039bd20e8b6b728aac41631f1",
+      "candidate_answer": "For two predictions fixed before the same validation sample, the common sampling variance cancels in the expected difference of squared errors, giving their squared-error difference against true H. This does not identify either absolute squared error or comparison uncertainty without more design information; absolute error needs separate analysis.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/sampling-validation.tex",
+          "line": 10,
+          "quote": "For a second prediction $g$ calculated before the same validation sample and unchanged whichever sample is drawn, subtraction cancels the common sampling variance:"
+        },
+        {
+          "path": "paper/article/sampling-validation.tex",
+          "line": 12,
+          "quote": " \\E_{\\!s}[(f-\\widehat H)^2-(g-\\widehat H)^2]"
+        },
+        {
+          "path": "paper/article/sampling-validation.tex",
+          "line": 13,
+          "quote": " =(f-H)^2-(g-H)^2."
+        },
+        {
+          "path": "paper/article/sampling-validation.tex",
+          "line": 15,
+          "quote": "Over repeated validation samples, the average difference between the two squared prediction errors equals their difference calculated against true labour. Estimating either predictor's squared error against true labour, or quantifying sampling uncertainty in their comparison, requires further sampling-design information. Absolute error requires a separate analysis."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q062",
+      "path": "paper/article/sampling-validation.tex",
+      "line": 17,
+      "question": "What does the eight-interval example show about validating against sampled labour?",
+      "expected_answer": "Four allocated and four empty one-hour intervals,true H4. Sampling one HT0/8 equally. Perfect f4 has apparent absolute error4;[3.5,4.5]always covers truth but never sampled estimate. Signed error remains unbiased; apparent absolute error/coverage includes sampling error.",
+      "baseline_evidence_sha256": "ebb98032aa9547cea1c9f9871189be07b508280486333c54d7d9837686761fd5",
+      "candidate_answer": "With four active and four inactive one-hour intervals, one uniform draw yields HT=0 or 8 despite H=4. A perfect f=4 then appears to have absolute error 4; [3.5,4.5] always covers H but never H_hat. Thus sampled-target absolute error/coverage includes sampling noise, though signed error remains unbiased.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/sampling-validation.tex",
+          "line": 17,
+          "quote": "For example, eight one-hour person-intervals have allocations $(1,1,1,1,0,0,0,0)$. Sample one uniformly, with inclusion probability $1/8$. True labour is $H=4$, whereas its HT estimate is $0$ or $8$, each with probability $1/2$. A perfect prediction $f=4$ has apparent absolute error $4$ against the sampled estimate. The interval $[3.5,4.5]$ always contains true labour but never contains the sampled estimate. The signed difference between prediction and sampled estimate remains unbiased for the prediction's error against true labour. Absolute error and interval coverage calculated against $\\widehat H$ measure agreement with the sampled estimate, including its sampling error."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q063",
+      "path": "paper/article/sampling-validation.tex",
+      "line": 19,
+      "question": "How can validation examine accuracy against true labour and handle remaining measurement error?",
+      "expected_answer": "Select tasks and record every person-interval in target windows, independently check records using stated evidence and report remaining error. Or specify an identifying measurement model. Retain inclusion/joint-design info for uncertainty.",
+      "baseline_evidence_sha256": "9f843993b5038df73432d6ac9f49d2f5eaceefde8fc99f0cd6df20a8bef2db60",
+      "candidate_answer": "On a validation task subset, record every person-interval in each target window and specify independent checking, discrepancy evidence and remaining measurement error. Alternatively specify a measurement model identifying the accuracy measure. Retain first- and joint-inclusion/design information for uncertainty.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/sampling-validation.tex",
+          "line": 19,
+          "quote": "To examine accuracy against true labour, select a validation subset of tasks and record allocations for every person-interval in each task's target window. State who checks those records, what evidence they use to resolve discrepancies and how they remain independent of the original recording. Report remaining measurement error. Alternatively, specify a measurement model under which the observations uniquely determine the chosen measure of prediction accuracy. Retain inclusion probabilities and joint sampling-design information for uncertainty calculations."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q064",
+      "path": "paper/article/sampling-validation.tex",
+      "line": 21,
+      "question": "Which scoring and missingness sensitivity checks affect comparisons between study groups?",
+      "expected_answer": "Test score changes under splitting/squashing/changed inputs; report reviewer disagreement and follow-up. Recalculate with plausible missing labour/disputed output; reversed rankings leave measurement uncertainty that must be resolved or explicitly accepted.",
+      "baseline_evidence_sha256": "aaf32dbc51b3830bf33f4f127e01805472834da8036c699b66a6b78af043116d",
+      "candidate_answer": "Test score sensitivity to splitting, code squashing and changed task inputs; report reviewer disagreement and follow-up completeness. Recompute group comparisons for plausible missing labour and disputed retained-output scores. Reversal under plausible errors makes the decision depend on resolving or accepting that uncertainty.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/sampling-validation.tex",
+          "line": 21,
+          "quote": "Validation should also test whether task splitting, code-change squashing or changes to the task information supplied to the scoring rule alter the reference score. Report reviewer disagreement and follow-up completeness alongside prediction error. Recalculate comparisons between study groups using plausible amounts of missing labour and disputed retained-output scores. If plausible measurement errors reverse which group has the better outcome, the choice between AI tools and working practices depends on how that uncertainty is resolved or accepted."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q065",
+      "path": "paper/article/scalar-bounds.tex",
+      "line": 4,
+      "question": "How do scalar interval labour constraints become graph edges?",
+      "expected_answer": "Cumulative z_k=integral a to endpoint. z_q-z_p<=w is p->q weight w. Adjacent forward d_k/back0; observation upper forward v+,lower backward-v-. Exact v produces v/-v edges. Only one person/task/work-type stream.",
+      "baseline_evidence_sha256": "fb5fe01117de8f814e721c41f4dfa9abe17385fdc7ccf057d175379ff6b74977",
+      "candidate_answer": "Set cumulative labour z_k at endpoints. Encode z_q−z_p≤w as edge p→q of weight w. Adjacent capacity/nonnegativity edges have forward weight d_k and reverse zero. Interval upper/lower bounds add forward v⁺ and reverse −v⁻; exact totals give v and −v.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/scalar-bounds.tex",
+          "line": 4,
+          "quote": "For one person's work of one type on one task, let $0\\leq a\\leq1$ be the allocation function. The interval observations of Section~\\ref{sec:sharp-identification} can be represented by cumulative labour at their endpoints. Using the sorted endpoints and cell lengths defined there, set $z_k=\\int_{b_0}^{b_k}a(t)\\,dt$. Write an inequality $z_q-z_p\\leq w$ as a directed edge $p\\to q$ of weight $w$. Adjacent endpoints receive edges $k-1\\to k$ of weight $d_k$ and $k\\to k-1$ of weight zero. Observation bounds on $[b_p,b_q]$ add edges $p\\to q$ of weight $v^+$ and $q\\to p$ of weight $-v^-$. An exact observed labour total $v$ therefore gives edge weights $v$ and $-v$. This is the standard difference-constraints representation \\cite[Slides~6--11]{indyk2011}."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q066",
+      "path": "paper/article/scalar-bounds.tex",
+      "line": 8,
+      "question": "What characterises scalar feasibility and target bounds?",
+      "expected_answer": "Feasible iff no negative directed cycle. Finite shortest distances when feasible give attainable interval[-D(q,p),D(p,q)] for p<=q. Adjacent bidirectional edges ensure reachability.",
+      "baseline_evidence_sha256": "1b8872eef5395a6f76a41eca0cc398e998753e9f51e654bf9363923332f2ee7b",
+      "candidate_answer": "A scalar allocation is feasible exactly when the graph has no negative directed cycle. When feasible, the target interval [b_p,b_q] has identified range [−D(q,p),D(p,q)] from shortest-path distances.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/scalar-bounds.tex",
+          "line": 8,
+          "quote": "The observations for this single allocation function admit an allocation if and only if this graph has no directed cycle of negative total weight. When such an allocation exists, let $D(p,q)$ be the shortest-path weight from $p$ to $q$. For any endpoint pair $p\\leq q$, the identified range of $\\int_{b_p}^{b_q}a(t)\\,dt$ is"
+        },
+        {
+          "path": "paper/article/scalar-bounds.tex",
+          "line": 11,
+          "quote": " [-D(q,p),\\;D(p,q)]."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q067",
+      "path": "paper/article/scalar-bounds.tex",
+      "line": 15,
+      "question": "Why are graph bounds attainable?",
+      "expected_answer": "Negative cycles contradict summed inequalities. Distances from any start satisfy edges by triangle inequality,shift z0 to0; adjacent differences are feasible cell totals. Starts p and q attain upper/lower; convex combination attains intermediate totals.",
+      "baseline_evidence_sha256": "60dd3d8780ff1491bc0bb991d2e19a5af8f6c2e2b64de3a4f46f7ba7fb7716b7",
+      "candidate_answer": "Shortest-path potentials z_k=D(r,k) satisfy every edge inequality; shifting z_0 to zero gives cell totals in [0,d_k], realisable by constant cell allocations. Start at p for the upper endpoint and q for the lower; convex combinations realise all intermediate totals.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/scalar-bounds.tex",
+          "line": 15,
+          "quote": "Summing edge inequalities around a cycle gives $0$ at the left, so a negative cycle is inconsistent. Conversely, adjacent edges make every vertex reachable from every other. In the absence of negative cycles, all shortest-path weights are finite and $D(r,r)=0$. For any starting vertex $r$, the values $z_k=D(r,k)$ satisfy each edge inequality because $D(r,v)\\leq D(r,u)+w$ for an edge $u\\to v$ of weight $w$. Subtracting $z_0$ makes initial cumulative labour zero without changing differences. The inequalities for adjacent endpoints give cell labour totals in $[0,d_k]$. Allocations constant within each cell can produce these totals and satisfy the observations."
+        },
+        {
+          "path": "paper/article/scalar-bounds.tex",
+          "line": 17,
+          "quote": "Summing inequalities along paths yields $z_q-z_p\\leq D(p,q)$ and $z_q-z_p\\geq-D(q,p)$. Using $p$ as the starting vertex gives an allocation achieving the upper bound. Using $q$ gives an allocation achieving the lower bound. Convex combinations of these allocations give every labour total between those bounds."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q068",
+      "path": "paper/article/scalar-bounds.tex",
+      "line": 20,
+      "question": "What does the scalar reference checker verify and what are its computational and modelling limits?",
+      "expected_answer": "Exact rational all-pairs graph vs independent finite enumeration including overlaps/inconsistency; with indexed sorted endpoints arithmetic O((K+1)^3+M),storage O((K+1)^2+M),bit costs depend inputs. Constructed checks do not validate measurements; multiple shared-capacity streams need joint LP.",
+      "baseline_evidence_sha256": "c97b7f86c7577113069cc1ac728299da4db127818ca2c3d214d8d8838374f072",
+      "candidate_answer": "The checker uses exact rational all-pairs shortest paths and compares bounds and attaining allocations with independent finite enumeration, including overlapping/inconsistent examples. Given sorted indexed endpoints it uses O((K+1)^3+M) arithmetic operations and O((K+1)^2+M) storage; bit cost depends on rational encoding. Examples do not validate measurement, and shared person capacity across streams needs the joint LP.",
+      "candidate_evidence": [
+        {
+          "path": "paper/article/scalar-bounds.tex",
+          "line": 20,
+          "quote": "The reference checker uses exact rational arithmetic and an all-pairs shortest-path calculation. Given indexed, sorted endpoints, graph construction and this calculation use $O((K+1)^3+M)$ arithmetic operations and $O((K+1)^2+M)$ storage. Bit costs depend on the encoded rational inputs. The checker compares the bounds and the allocations attaining them against an independent enumeration of finite allocations, including overlapping interval observations and inconsistent inputs. These constructed examples check the calculation against the proved result. Empirical measurements are still needed to validate the observation process. Several task streams sharing a person's capacity require the joint formulation in Proposition~\\ref{prop:cell-reduction}, because the scalar graph represents only one allocation."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q069",
+      "path": "paper/study/ai-labour-causal/causal-study.tex",
+      "line": 4,
+      "question": "How are teams compared and randomised, and how is interference handled?",
+      "expected_answer": "Record requirements/criteria/scores before allocation; pair by domain/workload/experience,independent fair coin per pair AI toolset vs ordinary process without generative AI. Parallel groups. Shared reviewer/person/code/compute effects may require multi-team groups,requiring replanned weights to keep equal-team target. Do not select analysis by uptake.",
+      "baseline_evidence_sha256": "c4fa62c6b901b7d5175ab4acaab448757868808274e52da58b7f70e3b73b2d7d",
+      "candidate_answer": "Compare recorded AI access/practices with ordinary development/review without generative AI, in parallel groups. Record requirements, criteria and scores first; pair by domain, prior workload and experience and independently fair-coin-randomise AI access within pairs. If interference needs multi-team groups, revise weights/planning before randomisation to preserve equal-team targeting; primary analysis follows allocation, not uptake.",
+      "candidate_evidence": [
+        {
+          "path": "paper/study/ai-labour-causal/causal-study.tex",
+          "line": 4,
+          "quote": "A fixed-workload experiment would compare teams given a recorded AI toolset and working practices with teams using the same ordinary development and review process without generative AI. Before choosing groups, record each team's task requirements, acceptance criteria and reference scores. Pair teams using repository domain, previous workload and experience, then use an independent fair coin within each pair to choose which team receives AI access \\cite{imai2009}. Use parallel groups throughout. Shared reviewers, developers, computing capacity or code can transmit effects between teams \\cite{hudgens2008}. If these links require groups containing several teams, revise the estimator weights and planning before randomisation to preserve the equal-team target. Record actual tool use without selecting the primary analysis by uptake."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q070",
+      "path": "paper/study/ai-labour-causal/causal-study.tex",
+      "line": 6,
+      "question": "What are the two equal-team causal outcomes and conditions for a benefit claim?",
+      "expected_answer": "Team labour through tau+Delta divided by initial score total,and retained output divided by same fixed total. Average paired AI-minus-comparator differences gives equal-team contrasts. Failed/abandoned work remains; missed-deadline output0. Benefit requires worthwhile labour saving and bounded retained-output loss; nonsignificance insufficient.",
+      "baseline_evidence_sha256": "8e3bec2e699aa5468582617e9f1e1fbf29607bf248503dc36e603192c4c8fbcf",
+      "candidate_answer": "The equal-team causal outcomes are labour through τ+Δ divided by initial reference-score total, and retained output divided by that same total. Average AI-minus-comparator paired differences. A benefit needs worthwhile labour saving and retention loss below the maximum; provisional thresholds are >1 person-hour/reference-unit saving and <5 percentage-point loss, both passing expanded one-sided 97.5% t bounds. Unresolved endpoints block a claim; allowances and practical thresholds still need justification/agreement.",
+      "candidate_evidence": [
+        {
+          "path": "paper/study/ai-labour-causal/causal-study.tex",
+          "line": 6,
+          "quote": "For each team, divide total labour through task age $\\tau+\\Delta$ by its initial reference-score total, and divide retained output by that same fixed total. The two primary causal quantities are the equal-team mean differences in these outcomes. Failed and abandoned tasks remain in the labour total and contribute no retained output when they miss the acceptance deadline. Average the AI-minus-comparator differences within team pairs. A benefit claim requires both a worthwhile labour reduction and a retained-output loss smaller than a stated maximum. Failure to detect a quality reduction does not meet that requirement \\cite{piaggio2012}."
+        },
+        {
+          "path": "paper/study/ai-labour-causal/causal-study.tex",
+          "line": 8,
+          "quote": "The provisional criteria require a saving exceeding one person-hour per reference unit and a retained-output loss below five percentage points. The protocol uses approximate one-sided 97.5\\% Student-t bounds from independent pair differences, expanded by 0.2 person-hours per reference unit for labour and 0.01 for the retained fraction. Both expanded bounds must meet their respective criteria. These measurement-bias allowances require empirical justification, and the practical thresholds require substantive agreement before a principal study. Any unresolved team endpoint prevents a benefit claim under this plan."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    },
+    {
+      "id": "q071",
+      "path": "paper/study/ai-labour-causal/causal-study.tex",
+      "line": 8,
+      "question": "What has planning selected or established, and what must pilot information be used for?",
+      "expected_answer": "Specified six-pair measurement pilot,provisional tau=Delta336h(14days),labour saving>1h/reference unit,retained-loss<5percentage points.20k simulations/design/scenario compare48/96teams,including null/bias/missingness. Neither meets joint target across scenarios. Establish measurement-error/variability before size selection; do not select from pilot effect. No workplace causal result.",
+      "baseline_evidence_sha256": "9456aa85614bae2773a8ebac94b6f0ef14384809963560f5ab4a0526faa4e82b",
+      "candidate_answer": "Planning specifies a separate six-pair pilot and provisional τ=Δ=336 hours (14 days each). Hypothetical simulations compared 48/96 teams; neither met 90% joint success across required useful-effect scenarios, so no principal sample size or workplace benefit is established. The pilot must bound measurement error, variability and endpoint completeness before sizing; its observed treatment effect must not choose the size.",
+      "candidate_evidence": [
+        {
+          "path": "paper/study/ai-labour-causal/causal-study.tex",
+          "line": 10,
+          "quote": "The accompanying protocol specifies a separate six-pair measurement pilot and provisional $\\tau=\\Delta=336$-hour clocks (14 calendar days each). Twenty thousand simulated experiments per design and scenario compare 48 and 96 teams under hypothetical outcome distributions, measurement bias and missing endpoints, including cases at each benefit boundary \\cite{morris2019}. Neither team count reaches the required 90\\% probability of meeting both criteria across the required useful-effect scenarios. Before choosing a principal sample size, the pilot must establish defensible ranges for measurement error, variability and endpoint completeness. Its observed treatment effect must not determine that choice \\cite{albers2018}. The experiment remains specified and unrun. These hypothetical planning calculations report no causal workplace result."
+        }
+      ],
+      "judgement": "preserved",
+      "basis": "The answer and exact candidate evidence retain the baseline source-grounded objects, scope, conditions and evidence boundary relevant to this question. Reviewed against the expected answer and full native manuscript, including formal content omitted by the lexical projection."
+    }
+  ],
+  "limits": [
+    "Attributable agent editorial judgement, not semantic-equivalence proof or human comprehension/engagement evidence.",
+    "Advertised refine-native analyser/freeze/map validators unavailable through skills.read. Manual native-line/SHA binding was used, supplemented by actual hosted Workbench observations.",
+    "Workbench excludes proposition/proof environments and truncates main sentence/boundary lists; whole native source was read separately.",
+    "skills.read failed for scripts/text_lab.py and scripts/linguistic_core.py",
+    "Native projected sentence IDs, CLI freeze/map validation and native semantic triage unavailable. Native source lines and SHA-256 used instead."
+  ],
+  "evidence_note": "Original source evidence is bound by the baseline revision, native line and quote hash. Candidate quotations below were checked verbatim against their native source line. The frozen bank and answer view were prepared before manuscript edits were applied; final answer evidence was refreshed after the two disclosed final wording clarifications."
+}

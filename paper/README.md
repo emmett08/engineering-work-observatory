@@ -21,7 +21,13 @@ on attainable labour bounds from interval observations and shared per-person
 capacity, an exact finite-cell reduction, and fixed-prediction design-based
 estimation. It distinguishes labour, elapsed time to acceptance and retained
 reference output. A short validation section states the measurements and
-assumptions needed before an empirical intervention comparison.
+assumptions needed before an empirical comparison of AI tools and working practices.
+
+The [1 November editorial and statistical review](review/editorial-statistics-2026-11-01/README.md)
+applies the six requested skills in dependency order, corrects interpretation of
+excluded worthwhile savings, and checks the revised prose against the unchanged
+mathematics. It retains exact-source diagnostics, candidate-only comprehension
+checks and a renewed current-manuscript binding to the existing Lean supplement.
 
 The 30 October 2026 revision removes the execution/retry/detection tutorials,
 Standard Coder correction appendix, runtime benchmark appendix and detailed
