@@ -1,0 +1,36 @@
+{
+  "checkpoint_local_and_delivered_verification": "passed",
+  "checkpoint_manifest_sha256": "8a4dcb7b3e66c78b79774ac4a8588c59abce68fd1bb2c567e8c502937fdcb0a2",
+  "event": "pull_request",
+  "implementation_sha": "159f3de6345d1f787922a52e642e21b7373f4659",
+  "independent_download_hash_verification": "passed",
+  "independent_rust_store_verification_records": 37,
+  "limitations": [
+    "This PR run is isolated; default-branch scheduled state requires first bootstrap after merge.",
+    "Synthetic validation verifies implementation only; no real predictive improvement is established.",
+    "Tool runtime is not human effort.",
+    "Artifact archives expire after30 days; these committed report snapshots retain selected public results."
+  ],
+  "live_declaration_minutes": 3,
+  "live_eligible_tasks": 0,
+  "live_learning_enabled": false,
+  "observation_revision_sha256": "87e7a1c1fa8f21bc84ac6d7afb043af26d859e2b44cf3561e832cab268d2a22c",
+  "report_artifact": {
+    "id": 13099895721,
+    "sha256": "ef984ef13e32404a20c44b206062aac89c54f06e41998e92b20c43b09c12649a"
+  },
+  "report_file_sha256": "0a029caf81561ffb889bed22857866934c1fb7d4fdc53c3331e3b19fb87eb632",
+  "repository": "emmett08/engineering-work-observatory",
+  "run_attempt": 1,
+  "run_conclusion": "success",
+  "run_id": 41346681618,
+  "schema": "observatory.observation-demo-verification/1",
+  "scope": "isolated_demo",
+  "state_artifact": {
+    "id": 13099915619,
+    "sha256": "b3a2fa6c38880504a942403356eb8ad05c5117d2b8bd79d4faf7724b591e151f"
+  },
+  "synthetic_evaluation_id": "6f0e939012c061a947c8bb5724097aee5959bdb63ae7bf16f3a9fa15f9473ca8",
+  "synthetic_fixture_sha256": "781ba6db3f38df1468a2e8861cea3b4a6d8231cf6521e137ef817d00b73e9bfa",
+  "url": "https://github.com/emmett08/engineering-work-observatory/actions/runs/41346681618"
+}

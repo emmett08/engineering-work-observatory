@@ -13,6 +13,9 @@ when that observation issue is closed. Its method and coverage were not supplied
 so the report displays it but excludes it from training. It does not claim to have
 measured three minutes or improved real predictive accuracy.
 
+The [verified hosted run](observation-learning-evidence/README.md) includes the
+public report, imported revision and artifact verification metadata.
+
 ## Run the hosted demo
 
 1. Open a PR changing the demo's code, configuration or workflow. A PR run starts

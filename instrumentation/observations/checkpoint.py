@@ -3,7 +3,8 @@
 
 This is a bounded artifact checkpoint, not an archival database. Never restore
 pull-request state into the default branch. Missing trusted history is an error,
-including artifact expiry; bootstrap is permitted only without prior trusted runs.
+including artifact expiry; bootstrap requires explicit intent and no prior state
+evolution. GitHub job records must prove import was skipped after any failed run.
 """
 import argparse
 import hashlib
@@ -372,7 +373,7 @@ def main():
     restoring = commands.add_parser("restore")
     restoring.add_argument("--directory", required=True)
     restoring.add_argument("--receipt", required=True)
-    restoring.add_argument("--bootstrap", action="store_true", help="Permit first trusted run only, never reset existing history")
+    restoring.add_argument("--bootstrap", action="store_true", help="Permit first trusted state only, never reset evolved history")
     for name in ("seal", "verify"):
         command = commands.add_parser(name)
         command.add_argument("--directory", required=True)

@@ -1,0 +1,1768 @@
+{
+  "acquisition": {
+    "complete": true,
+    "errors": [],
+    "imported": 1,
+    "observed_at": "2026-11-01T20:25:31.854567Z",
+    "schema": "observatory.observation-coverage/1",
+    "sources": [
+      {
+        "complete": true,
+        "errors": [],
+        "issues_seen": 2,
+        "pages": 1,
+        "public_verified": true,
+        "repository": "emmett08/engarg",
+        "revisions_imported": 1
+      }
+    ]
+  },
+  "config_sha256": "50820dbd44ac681764277e085312eab50bf080a38198eb1a3677b3541d71b299",
+  "execution_manifest_sha256": "3c832c203c17f6e975f974fef69f1cb514fee7ac37151eabaf9e58030f4d0528",
+  "executions": {
+    "complete": true,
+    "reason": null,
+    "tasks": [
+      {
+        "execution": {
+          "completed_invocation_count": 2,
+          "invocation_count": 2,
+          "invocations": [
+            {
+              "actor": "emmett08",
+              "compared_fields": [
+                "actor",
+                "event_name",
+                "repository_id",
+                "triggering_actor"
+              ],
+              "conflicting_fields": [],
+              "declared_controller": "unknown",
+              "declared_session_present": false,
+              "delivery": "github_artifact_collector",
+              "event_name": "pull_request",
+              "exit_code": 0,
+              "invocation_id": "42cae992-5081-48fe-a275-2415056fe1bb",
+              "job_id": 124946577689,
+              "job_name": "checks (macos-latest)",
+              "lifecycle": "start_and_completion_observed",
+              "platform_comparison": "compared_with_retained_api",
+              "receipt_ids": [
+                "execution/1431331749/41339566322/1/42cae992-5081-48fe-a275-2415056fe1bb/completion",
+                "execution/1431331749/41339566322/1/42cae992-5081-48fe-a275-2415056fe1bb/start"
+              ],
+              "result": "success",
+              "run_attempt": 1,
+              "run_id": 41339566322,
+              "runtime_ms": 28368,
+              "tool": "python3",
+              "triggering_actor": "emmett08"
+            },
+            {
+              "actor": "emmett08",
+              "compared_fields": [
+                "actor",
+                "event_name",
+                "repository_id",
+                "triggering_actor"
+              ],
+              "conflicting_fields": [],
+              "declared_controller": "unknown",
+              "declared_session_present": false,
+              "delivery": "github_artifact_collector",
+              "event_name": "pull_request",
+              "exit_code": 0,
+              "invocation_id": "a66dc7fd-4dba-4e3f-ae4f-84deec47b0fd",
+              "job_id": 124946577756,
+              "job_name": "checks (ubuntu-latest)",
+              "lifecycle": "start_and_completion_observed",
+              "platform_comparison": "compared_with_retained_api",
+              "receipt_ids": [
+                "execution/1431331749/41339566322/1/a66dc7fd-4dba-4e3f-ae4f-84deec47b0fd/completion",
+                "execution/1431331749/41339566322/1/a66dc7fd-4dba-4e3f-ae4f-84deec47b0fd/start"
+              ],
+              "result": "success",
+              "run_attempt": 1,
+              "run_id": 41339566322,
+              "runtime_ms": 14583,
+              "tool": "python3",
+              "triggering_actor": "emmett08"
+            }
+          ],
+          "jobs": [
+            {
+              "conclusion": "success",
+              "job_id": 124946577551,
+              "run_attempt": 1,
+              "run_id": 41339566322,
+              "selected_task_receipts": "none_or_unresolved",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "job_id": 124946577689,
+              "run_attempt": 1,
+              "run_id": 41339566322,
+              "selected_task_receipts": "matched",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "job_id": 124946577756,
+              "run_attempt": 1,
+              "run_id": 41339566322,
+              "selected_task_receipts": "matched",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "job_id": 124946577767,
+              "run_attempt": 1,
+              "run_id": 41339566322,
+              "selected_task_receipts": "none_or_unresolved",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "job_id": 124946577859,
+              "run_attempt": 1,
+              "run_id": 41339566322,
+              "selected_task_receipts": "none_or_unresolved",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "job_id": 124946577866,
+              "run_attempt": 1,
+              "run_id": 41339566322,
+              "selected_task_receipts": "none_or_unresolved",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "job_id": 124946577869,
+              "run_attempt": 1,
+              "run_id": 41339566322,
+              "selected_task_receipts": "none_or_unresolved",
+              "status": "completed"
+            }
+          ],
+          "jobs_without_matched_task_receipts": 5,
+          "receipt_integrity": "verified_store",
+          "reported_runtime_seconds": 42.951,
+          "repository_metadata_observed": true,
+          "selected_runs": [
+            {
+              "conclusion": "success",
+              "metadata_observed": true,
+              "run_id": 41339566322,
+              "status": "completed",
+              "url": "https://github.com/emmett08/engarg/actions/runs/41339566322"
+            }
+          ],
+          "unlinked_invocations_in_selected_runs": 0
+        },
+        "human_effort": {
+          "estimate_person_hours": null,
+          "mode": "estimate_unavailable",
+          "proxy_hours": null,
+          "sampling": null,
+          "synthetic": false,
+          "unavailable_reasons": [
+            "private_activity_and_sampled_responses_not_configured"
+          ]
+        },
+        "issue_number": 49,
+        "issue_url": "https://github.com/emmett08/engarg/issues/49",
+        "limitations": [
+          "Tool runtime is elapsed execution time, not human labour. Parallel runtimes may overlap.",
+          "Receipt hashes and schema validation establish integrity, not truthful controller, session or task declarations.",
+          "Missing receipts can mean uninstrumented work or failed delivery; they do not establish zero tool use.",
+          "Issue/PR links do not establish acceptance, retained quality or a causal AI effect.",
+          "Sampled responses are human declarations. Sampling standard errors exclude recall, attribution, roster and model-drift errors; they are not accuracy guarantees."
+        ],
+        "manifest_sha256": "3c832c203c17f6e975f974fef69f1cb514fee7ac37151eabaf9e58030f4d0528",
+        "protocol_id": "observatory-linked-pilot-v1",
+        "pull_request_urls": [
+          "https://github.com/emmett08/engarg/pull/50"
+        ],
+        "pull_requests": [
+          50
+        ],
+        "repository": "emmett08/engarg",
+        "schema": "observatory.linked-pilot-report/1",
+        "task_id": "engarg-authoring-effort-pilot"
+      }
+    ]
+  },
+  "generated_at": "2026-11-01T20:25:34.384687Z",
+  "limitations": [
+    "Declared effort is a human report, not certified actual labour. Source accounts do not establish worker identity.",
+    "Unknown method, incomplete coverage, partial totals and conflicting task claims are excluded from training; they remain visible.",
+    "Only configured public sources and registered task links are imported. Open and closed issues are both queried.",
+    "Observed revisions are retained; edits between polls cannot be reconstructed. Missing acquisition pauses live prediction and promotion.",
+    "The fixed task-total predictor uses declared totals and repository groups, never workflow duration. It does not replace the interval-sampling estimator.",
+    "Task-group holdout is retrospective. Training fit and reused validation are not evidence of future accuracy; consumed validation tasks cannot approve another candidate.",
+    "The 8-training/4-validation minima and error-reduction gates are demonstration policies, not precision or statistical-power guarantees.",
+    "Synthetic promotion proves software operation only. No real-data improvement or causal AI productivity effect is established.",
+    "GitHub artifact checkpoints expire after 30 days. Missing or corrupt prior trusted state stops automatic continuation; it does not silently reset history."
+  ],
+  "live_learning_enabled": false,
+  "live_model": {
+    "active_model": null,
+    "active_model_id": null,
+    "artifact_paths": {
+      "candidate_model": null,
+      "evaluation": null,
+      "frozen_predictions": null
+    },
+    "candidate_model_id": null,
+    "consumed_validation_tasks": [],
+    "counts": {
+      "eligible": 0,
+      "train": 0,
+      "unused_validation": null,
+      "validation": 0
+    },
+    "current_active_model_id": null,
+    "decision": "observation_only",
+    "exclusions": [
+      {
+        "issue_number": 49,
+        "method": "unknown",
+        "observation_id": "9e16b854f957761cc5553ee9c450aca05a38b8ec60e000c6467206f2be1a5423",
+        "partition": "train",
+        "reason": "unknown_measurement_method;incomplete_or_unknown_coverage",
+        "repository": "emmett08/engarg",
+        "revision_id": "c5d384c016e0a9f1adc23e3c801365cc6e42b12e1f82e9e06e8283fb640b19ba",
+        "source_issue_number": 51,
+        "source_repository": "emmett08/engarg",
+        "task_key": "02b22200cebaea32a2fe1f0ba3651aaa15ee6af7bdbda01ed84d47db204f9418"
+      }
+    ],
+    "frozen_predictions_sha256": null,
+    "interpretation": "Observation eligibility only; no fitting, holdout scoring, or model promotion. Validation availability is unknown without trusted durable state.",
+    "metrics": null,
+    "policy": {
+      "min_absolute_mae_improvement_minutes": 1.0,
+      "min_relative_mae_improvement": 0.1,
+      "min_train_tasks": 8,
+      "min_validation_tasks": 4,
+      "prior_weight": 3,
+      "protocol_id": "observatory-linked-pilot-v1",
+      "schema": "observatory.task-total-policy/1",
+      "split_train_percent": 70
+    },
+    "policy_sha256": "cbe5ec17a716851f1348660d7117a4e0d5ae88013d0466803e0f1da7ec0cc854",
+    "protocol_id": "observatory-linked-pilot-v1",
+    "retired_model_id": null,
+    "retirement_reasons": [],
+    "schema": "observatory.task-total-assessment/1",
+    "synthetic": false
+  },
+  "observations": [
+    {
+      "active_model_prediction_minutes": null,
+      "comparison": "unavailable",
+      "coverage": "unknown",
+      "declared_minutes": 3.0,
+      "errors": [],
+      "method": "unknown",
+      "model_exclusion": "unknown_measurement_method;incomplete_or_unknown_coverage",
+      "model_partition": "train",
+      "observation_id": "9e16b854f957761cc5553ee9c450aca05a38b8ec60e000c6467206f2be1a5423",
+      "revision_id": "c5d384c016e0a9f1adc23e3c801365cc6e42b12e1f82e9e06e8283fb640b19ba",
+      "scope": "task_total",
+      "source": {
+        "author_login": "emmett08",
+        "body_sha256": "9fadd6eded223343e074aae259aa9e0aea76554633fb8dbd0016ea772c844775",
+        "created_at": "2026-11-01T19:33:03Z",
+        "issue_id": 6151139225,
+        "issue_number": 51,
+        "repository": "emmett08/engarg",
+        "repository_id": 1431331749,
+        "state": "closed",
+        "updated_at": "2026-11-01T20:01:07Z",
+        "url": "https://github.com/emmett08/engarg/issues/51"
+      },
+      "source_currentness": "acquired_this_run",
+      "status": "accepted",
+      "task": {
+        "issue_number": 49,
+        "pull_requests": [
+          50
+        ],
+        "repository": "emmett08/engarg",
+        "task_id": "engarg-authoring-effort-pilot"
+      }
+    }
+  ],
+  "protocol_id": "observatory-linked-pilot-v1",
+  "retained_revision_count": 1,
+  "schema": "observatory.observation-learning-report/1",
+  "source_states": {
+    "closed": 1
+  },
+  "synthetic_demo": {
+    "evaluation": {
+      "active_model": {
+        "global_median_minutes": 45,
+        "method": "repository_median_shrunk_to_training_global_median",
+        "model_id": "2a53ed1abc8ae3dce198ca8925b80a5690c6c378e37c8fabf432ed02b5a222d1",
+        "policy_sha256": "b74734e8bd02d9432410a6f04eb1f423849ea17137d6c1d6b3017948d69e50b2",
+        "prior_weight": 3,
+        "protocol_id": "synthetic-task-total-demo-v1",
+        "repositories": {
+          "synthetic/long": {
+            "median_minutes": 47.0,
+            "prediction_minutes": 46.86666666666667,
+            "training_tasks": 42
+          },
+          "synthetic/short": {
+            "median_minutes": 7,
+            "prediction_minutes": 9.59090909090909,
+            "training_tasks": 41
+          }
+        },
+        "schema": "observatory.task-total-model/1",
+        "synthetic": true,
+        "target": "declared_complete_task_total_minutes",
+        "training_units": [
+          {
+            "issue_number": 40,
+            "method": "timer",
+            "minutes": 5,
+            "observation_id": "fd0f3e3b9b8cffec1c1c884b9987615781f105ccd910de09d1200c2f859db1fc",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "ff88396d8392449cddb9436e84a65b86867d4a34517436dbdedf2dd2ac455fc8",
+            "source_issue_number": 40,
+            "source_repository": "synthetic/short",
+            "task_key": "000d90b7c1f10a91e9712d02f27af71ed1f89f2814be525c455ee702e1b8e526"
+          },
+          {
+            "issue_number": 10,
+            "method": "timer",
+            "minutes": 5,
+            "observation_id": "06cfd1f14e19d10a88b4d18622024b6affe99f71192c88614597d236bfdf733f",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "3f4cac751bd392f99bc75db3887bfd6a8683a6f4c72215da1b007d1461f59155",
+            "source_issue_number": 10,
+            "source_repository": "synthetic/short",
+            "task_key": "009210c113a75ac255ddc249b534b04d1f9c59cc6a500497f5870e21d6219472"
+          },
+          {
+            "issue_number": 3,
+            "method": "timer",
+            "minutes": 8,
+            "observation_id": "46938c2423812055144d0c18fff1902f886ddc5a00a6125550a3934bbcd5972b",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "510d6e73e1713e66439113cd891e47083f4519769564ac8c72ff0bb53896bd5d",
+            "source_issue_number": 3,
+            "source_repository": "synthetic/short",
+            "task_key": "00c33d62525e26796cfb6ac2ba8aba890f28200a9138498f80db8e1f7b188201"
+          },
+          {
+            "issue_number": 20,
+            "method": "timer",
+            "minutes": 5,
+            "observation_id": "cdafdf96ec345becdc6bfbad52676784036a58c761cac0e865e92610ab450ad8",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "2440a669e67f70b8def4d915893547894150dd7151828a8eec770a8dd45554d0",
+            "source_issue_number": 20,
+            "source_repository": "synthetic/short",
+            "task_key": "028fb72734eb531c76626e4e26d90fc44e1f4a37f949ee7cd35b66c64f9ab2ac"
+          },
+          {
+            "issue_number": 21,
+            "method": "timer",
+            "minutes": 46,
+            "observation_id": "8970cb776b1c94009e149bbb56a328ac2b67d378988b7cac293e4297a1148ba9",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "55031f2733d2cc93e78200911164db051e88cb4623b4fdd9d118ebaa2098e2b7",
+            "source_issue_number": 21,
+            "source_repository": "synthetic/long",
+            "task_key": "03f02769c237d1a7a117dd7983dcf8c6c49c12b2c75602d669ce0ba8824684a6"
+          },
+          {
+            "issue_number": 59,
+            "method": "timer",
+            "minutes": 49,
+            "observation_id": "8d10640b9e19df1a016bab0bb802c3523f5c4fe018909673cfaa538f19c49dda",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "53cdb1e0f65caa037156036d971e83fc785250c9b9ac1f6d909673108100cb41",
+            "source_issue_number": 59,
+            "source_repository": "synthetic/long",
+            "task_key": "043b5e2ee9baf98024d1a7bf9574895c056fd5fc7dda0dc299d8e70e0f5b76a3"
+          },
+          {
+            "issue_number": 8,
+            "method": "timer",
+            "minutes": 48,
+            "observation_id": "57ba9fbe58de91c98a2a2ea2e546ebc1dc76981e89868c8d497455510a7ccfa8",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "5c8cf52b92eb6014eb516b44b8d3cc68d7f374ec2fbbbf05a54e590c069c061b",
+            "source_issue_number": 8,
+            "source_repository": "synthetic/long",
+            "task_key": "05f1834ca99b16ec306fc9f211b61fa03ce6994b654dc9aed5e71577e7d8c0c8"
+          },
+          {
+            "issue_number": 56,
+            "method": "timer",
+            "minutes": 6,
+            "observation_id": "bce0b45c9ec927c25e8e571f3287ef795dafc190fc0b822d7cc61f572cbc5570",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "2db0116da984e3c63433a771e2eb7f33ca82a218324a162cd3476ad5b734a979",
+            "source_issue_number": 56,
+            "source_repository": "synthetic/short",
+            "task_key": "111fe5a50525c0d8266625e6e0b1f85c2bbf5328ff6e1d8ce1f34c8d9e0dda5c"
+          },
+          {
+            "issue_number": 20,
+            "method": "timer",
+            "minutes": 45,
+            "observation_id": "d5c3580d5feee611cdd3e9e020b1c2bf8429c2f94fd68a17d8d768baaad41981",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "bfef6c8fc00971e27cf4538ccb4b25a98f2e668857d8dd1bc48af59721e760c8",
+            "source_issue_number": 20,
+            "source_repository": "synthetic/long",
+            "task_key": "151543b06581b04f16199da4522b76a4c1f00459f29febb6495c6f66a78a447d"
+          },
+          {
+            "issue_number": 43,
+            "method": "timer",
+            "minutes": 8,
+            "observation_id": "879edd1e72e874e332107785fdc477aaabbf7c15ef4026b64a58ecbdbba224c4",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "3dc7e463bbc8fc2e15e63e10f000a522733763949bce68390591951fcf522e9c",
+            "source_issue_number": 43,
+            "source_repository": "synthetic/short",
+            "task_key": "151cc6bd4d2fa43417f0e56337ca6826c170b9c689ec9b353a4b6568ecb6d99f"
+          },
+          {
+            "issue_number": 57,
+            "method": "timer",
+            "minutes": 47,
+            "observation_id": "639eae4d58c3a94e140d293d57649a87bd0c31d499728b393e0aa4acf9731795",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "d9658bd6281922be75eab27e62b2a5035703d7a33224eced0dd0fe01af6d3b91",
+            "source_issue_number": 57,
+            "source_repository": "synthetic/long",
+            "task_key": "1ba3d1ba04aa3fc7d96ebc45bc8da15bb7a0c000151a00d1c81f0e04218a1e32"
+          },
+          {
+            "issue_number": 36,
+            "method": "timer",
+            "minutes": 6,
+            "observation_id": "596103e9d4524fcd5f236b608942d656abad72aa47c7c45a2cb48d0895a53828",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "cbffb29368096f67d8a40f0878cbb01d6fee8851d4132e520f3fdcfe02238ac4",
+            "source_issue_number": 36,
+            "source_repository": "synthetic/short",
+            "task_key": "1caddb1b0eb08d28d4e2e7c4931595ec69dc547043d023f47b734f552f810cff"
+          },
+          {
+            "issue_number": 55,
+            "method": "timer",
+            "minutes": 45,
+            "observation_id": "480eec3164025f1fa73e459e0866b4f2e8649871cf52e6aacab8936af476c2ea",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "46c3bb40a7a3ef6cd6022bd02ad699dae36aae7173e7048e776798264f02a0df",
+            "source_issue_number": 55,
+            "source_repository": "synthetic/long",
+            "task_key": "1d4b4d2aa4d1e9d3f6463a073a0ed05595464af3536c524e9bc0cd232bd5124d"
+          },
+          {
+            "issue_number": 6,
+            "method": "timer",
+            "minutes": 6,
+            "observation_id": "0fb1e42718ef88d37ae3a56551ee6f89601fddc2cf6df696c35f421caed3bf0e",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "5fc352cd8a4d3096fa4d1597906f14d070cc04c64e6a6323b33e5e0788cec603",
+            "source_issue_number": 6,
+            "source_repository": "synthetic/short",
+            "task_key": "1dc59d00444c1b71c122fa8585ae32b88ba4faf121c28ef4a7c0f8013f814594"
+          },
+          {
+            "issue_number": 30,
+            "method": "timer",
+            "minutes": 5,
+            "observation_id": "d24c103faf473296f893266a260f50d51b161836d32550df5aacb3a5f8383708",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "bef54b6b17ac993dc4fb5e36324a927671f7edd38b796ad57efa76df4a2d8be5",
+            "source_issue_number": 30,
+            "source_repository": "synthetic/short",
+            "task_key": "27a2ee77dd8d956b2e8abb42630f1d066cbc4b1e4f1a0be24e949ccf06a94934"
+          },
+          {
+            "issue_number": 13,
+            "method": "timer",
+            "minutes": 8,
+            "observation_id": "7a0277c4f1fb6750c0deaaa108c8b98e0bf7399ae5ef724ade8bebd59582664b",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "8e0748310f50e120a418f40361fd574d56f5ef31f1f4acf7dddfae5bd4252b57",
+            "source_issue_number": 13,
+            "source_repository": "synthetic/short",
+            "task_key": "28418a79e8ec2504849c3e13f7918b87b9417566050237f2bb628ecb544e6e5d"
+          },
+          {
+            "issue_number": 49,
+            "method": "timer",
+            "minutes": 49,
+            "observation_id": "287016e973578f678fd476c5f68e0c58fcbbb98846da5eb7847e339d25668f5a",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "934bd5343f322cd5cc6a835293752c56efddc4e7dd78f7f6da5f816f10ae4263",
+            "source_issue_number": 49,
+            "source_repository": "synthetic/long",
+            "task_key": "28bc8ece83cbabab2b6bd92dcb5f3d75c99d6a5791f2fc5a43419533e2c0f99b"
+          },
+          {
+            "issue_number": 7,
+            "method": "timer",
+            "minutes": 47,
+            "observation_id": "66cd69d244f9a518de37a2a00d742f5567a27ca1f91cb6ad7d31cfcf800e60b2",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "faeea48568265093eaec26bbb37859f2ff0b239579a16bd0bd1d1d296e5ced1a",
+            "source_issue_number": 7,
+            "source_repository": "synthetic/long",
+            "task_key": "2902bd2068914675d01c7acfbe96e3b386add072c68477726b1fe39d2fa7ad32"
+          },
+          {
+            "issue_number": 34,
+            "method": "timer",
+            "minutes": 9,
+            "observation_id": "d471007a2f2addc83f7c09840ed50ff64aa2e1c5adfc563341fdbde856807460",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "8df7ebcb01fed3c55aea1f546a8227945651b72990b02b9a1aa40e72e8933ea4",
+            "source_issue_number": 34,
+            "source_repository": "synthetic/short",
+            "task_key": "2a114149a2ac7e7b94f40cd0cd824f6305e013bf2f77068e8369019115bd65d5"
+          },
+          {
+            "issue_number": 55,
+            "method": "timer",
+            "minutes": 5,
+            "observation_id": "94f12ea00699e3e794110b6d2fc7d97002d1f6b9f03e667a6ebae0dc14095b2f",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "7ded929aa6776c544291c23ef0532a14b2ed3880b665ad6504020090b9a81012",
+            "source_issue_number": 55,
+            "source_repository": "synthetic/short",
+            "task_key": "2bb0ff748e7e9ed2776c59f80c3aac38d5075a255e22d905170abc4d664a7db3"
+          },
+          {
+            "issue_number": 27,
+            "method": "timer",
+            "minutes": 7,
+            "observation_id": "d767b7320758cd83306cc7e11de36c0eabd42d1442898993d6dacbea1f46f9df",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "e74615e125079345e40c3256d828ae19467f02fe2d82c9f7936074690d933622",
+            "source_issue_number": 27,
+            "source_repository": "synthetic/short",
+            "task_key": "2c1ccaa27be8305868a1ecaa4f50a6563e8fe4f8e5ed5508b72ff39838786e05"
+          },
+          {
+            "issue_number": 18,
+            "method": "timer",
+            "minutes": 8,
+            "observation_id": "745fbc49a55d943b0816cfea651e2c75bf396a53c5c93e16333c094f8635a6e4",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "1f6bb3d18ea4564ef3aae00010535309ca34f0a4c290446060263ffe9378463a",
+            "source_issue_number": 18,
+            "source_repository": "synthetic/short",
+            "task_key": "377e888f538a82cb496506e1852947cd00830ac05186df9bfc0f0ddb994f5714"
+          },
+          {
+            "issue_number": 60,
+            "method": "timer",
+            "minutes": 45,
+            "observation_id": "d1102d263e9ea498bc2df846dd5649233988b738554d12b065cfbf63159736ec",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "c73622a6bbc0a0c463fe069f7f4ba00a795fa2f3da03d7dd7e8e03685eea9ac6",
+            "source_issue_number": 60,
+            "source_repository": "synthetic/long",
+            "task_key": "3fbf42f6d6c035fdbcb3df54107c9566e79a35ca838ab1783840ad2e748de515"
+          },
+          {
+            "issue_number": 64,
+            "method": "timer",
+            "minutes": 49,
+            "observation_id": "5bba90e0eeb87dc2b3e5a2d6113e44e337408d9a4ad969856a7cc8242e331082",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "5e4c841af2b8656557050eb63e40e207d337e19f51840f1d1645e017ca69ec07",
+            "source_issue_number": 64,
+            "source_repository": "synthetic/long",
+            "task_key": "405bd3160c06782cacb6d457d3b9004f3abdf3672c11ba76db876b8ad63e1081"
+          },
+          {
+            "issue_number": 32,
+            "method": "timer",
+            "minutes": 7,
+            "observation_id": "2127657c6e691e15e1a391afb68e021cf06a9636f72df6670d988144243c4d38",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "27cfaea1e22c98c2da38790dadbb00ebd3fbf2785188f84128e05d7d54893f98",
+            "source_issue_number": 32,
+            "source_repository": "synthetic/short",
+            "task_key": "40b603f5d6784923668b230d5e96b24287ba48f2f92ad2ac4a6f671440832254"
+          },
+          {
+            "issue_number": 1,
+            "method": "timer",
+            "minutes": 46,
+            "observation_id": "ddeb04960a1c9acd0f855adc01f49a74a4da565f6098cca6a678a37ea30e4aca",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "36b10e30de8d662144c7632f86977e770d73b747b6fee682e16686320b39d9c0",
+            "source_issue_number": 1,
+            "source_repository": "synthetic/long",
+            "task_key": "4261319cc8c1d7acc77fc9946adcf9c0b6b23e90b830c4f14d06ebebd366b905"
+          },
+          {
+            "issue_number": 30,
+            "method": "timer",
+            "minutes": 45,
+            "observation_id": "ddbb7db411b03cdfbbfce1b88f7472b505c250da7318e4ee8482af69fe4a295b",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "22bcc29f9228df263c70d0868aaa157f10432f9403bfcd53a79def9bbb339785",
+            "source_issue_number": 30,
+            "source_repository": "synthetic/long",
+            "task_key": "42683a7a4bdc8d6ccd1c4a8473b7673b978b965e39c1dff4749da04d6bea9172"
+          },
+          {
+            "issue_number": 38,
+            "method": "timer",
+            "minutes": 48,
+            "observation_id": "7347d792fbca1bf824038a6a89fe0a3e911f39779e98de0171fa074892f065ea",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "0795ddb9d58a5e315b5a7316beab6037a775ca8d229e7b7e1631b8cca7d8b475",
+            "source_issue_number": 38,
+            "source_repository": "synthetic/long",
+            "task_key": "4b33f2bfeb0af6fa4f205aa7566be6e457023013520f0e4594a522c72e50883d"
+          },
+          {
+            "issue_number": 9,
+            "method": "timer",
+            "minutes": 9,
+            "observation_id": "a4d88644537315694b79b3c2094baba09da367b5ffde0aafeb6c3f4931f410fe",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "e715749dfacd322aa0cea1ac4dcdd1945555cd38b4e719cb1a410414a2365e4a",
+            "source_issue_number": 9,
+            "source_repository": "synthetic/short",
+            "task_key": "4c06f60240d136ecd9f1949af76ed70f94ea2654a7920b14567e6805da6c71e7"
+          },
+          {
+            "issue_number": 54,
+            "method": "timer",
+            "minutes": 49,
+            "observation_id": "14b5bc79d663bac736c7fb8b7916f9f6ea06c463727294f7da0ff238f21df23a",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "4f238509ae50f78e900f6d8044c9b791ab6adca3d3ec71c997b8d1edbdc8f1a9",
+            "source_issue_number": 54,
+            "source_repository": "synthetic/long",
+            "task_key": "4d2f41662753e77d1a0fd50af90e3a95747b8fc760606b591ccd71738dfd1412"
+          },
+          {
+            "issue_number": 52,
+            "method": "timer",
+            "minutes": 7,
+            "observation_id": "a8ec72bfccb7fe46f8ebc545be1a1dc193f604d78db2425934d6b03c776551b0",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "89923bd73af93e4806587c42e8ee329b4f7d8e5a1f00c119d84dae559b5d7e36",
+            "source_issue_number": 52,
+            "source_repository": "synthetic/short",
+            "task_key": "4d741454c9a76aabafa670c003a38a1c85de0617e3bc27517dbf135cba9bbd61"
+          },
+          {
+            "issue_number": 34,
+            "method": "timer",
+            "minutes": 49,
+            "observation_id": "3e034c7242433ede1b135dabd4d6dcc5e2300d7b6e2947f0a8054757520e0692",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "0df83e55d020712a60e8c70aaac03ed5ffa18d88385300ca30a277107559dc32",
+            "source_issue_number": 34,
+            "source_repository": "synthetic/long",
+            "task_key": "4dc31cc5e4c98deb837f9fab1e2330643d0e6b7a84add356c4a49ab2e27b3350"
+          },
+          {
+            "issue_number": 33,
+            "method": "timer",
+            "minutes": 48,
+            "observation_id": "870e441d11ab1303e86fde030cdbb6d2245e58c585115022feab9815c2afd340",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "c049526262e0dd67066ddc712f32ae7ad19049269600d65cc32a7fb04600dbb2",
+            "source_issue_number": 33,
+            "source_repository": "synthetic/long",
+            "task_key": "55481e18f25f932d3a3a2a9958ef1a65b9698827002fbded2079d9401d2db73b"
+          },
+          {
+            "issue_number": 6,
+            "method": "timer",
+            "minutes": 46,
+            "observation_id": "7d8f274eeb5963e9668b4fdada74c49186815e9d9ce9592e201e7c3a13785f32",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "66906d5e3d11607547853143687e3d51be8921f4547070a913b89d6919976251",
+            "source_issue_number": 6,
+            "source_repository": "synthetic/long",
+            "task_key": "567d44fef17e9ae229dfdba9e933df968cdc6f4dcbc7673dfb886eb07982df57"
+          },
+          {
+            "issue_number": 23,
+            "method": "timer",
+            "minutes": 8,
+            "observation_id": "c124c07e635053eb724d5e4311c9486cec869934a57ff9f91477cf4d81d462af",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "35ad14268617ece799ebd3a3dba4aee5b890561169c4af7b003aac3b6dc23e1f",
+            "source_issue_number": 23,
+            "source_repository": "synthetic/short",
+            "task_key": "579a29962b47cb51fcd3afddeeeab4c27ee6f7829402f3a59e2203f230465fb3"
+          },
+          {
+            "issue_number": 62,
+            "method": "timer",
+            "minutes": 7,
+            "observation_id": "8f322027fba4e70124bab5961025877ddc6229b6cbdf3b114aec0e274f358a8c",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "3c1d22b4ab52cd5df5be524412928351f7c2c2388fafb60c04afc2ef666d2720",
+            "source_issue_number": 62,
+            "source_repository": "synthetic/short",
+            "task_key": "5d99290a6735aec02ca6bdca302323907005d218dc497d38b84ae674b740303a"
+          },
+          {
+            "issue_number": 41,
+            "method": "timer",
+            "minutes": 46,
+            "observation_id": "2c1929f73738417bb79569c23d9553b3b3595f66b01757b094fbe021455e2d13",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "ccb3193135bef40944c4d22600f995cabfe7eb33e2dbe394e1d0029517a9f8eb",
+            "source_issue_number": 41,
+            "source_repository": "synthetic/long",
+            "task_key": "601a1af424a090666afeadb737e3bddaf04b46ae4fb29b6612e3cb1b9264b946"
+          },
+          {
+            "issue_number": 37,
+            "method": "timer",
+            "minutes": 47,
+            "observation_id": "879aa31801292a2f3c01879c8ab9ad73673736ef7f9e67b0a4188f47045a0f76",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "07caebe04b43fb5908e12d1542c60e468a3f28b62e5b8f129e01ae846ea9ae92",
+            "source_issue_number": 37,
+            "source_repository": "synthetic/long",
+            "task_key": "63bf7638f0aeaf83fbe2448ca4e8d9593bec89f675563b45747614a4cb4d6860"
+          },
+          {
+            "issue_number": 35,
+            "method": "timer",
+            "minutes": 5,
+            "observation_id": "d116fa0e5fb341e171d81aac17a478b16738173db81aa7e4f6f52211c994e9b2",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "5634ef2ef8d137f3b57260e739976eb52b7e82b928a1ecf4453b8e8a3ea8cabf",
+            "source_issue_number": 35,
+            "source_repository": "synthetic/short",
+            "task_key": "661f80a8df181b8e6b290f7252e138ce53a34d8c024efc623b83ce702c9e9422"
+          },
+          {
+            "issue_number": 22,
+            "method": "timer",
+            "minutes": 47,
+            "observation_id": "dcd55669c012ef24224e77c3c0539b66ecc0964b34b50e9c27025866a12609e6",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "57fabfba749d6552f9a4169edf16f9807610ef17f332af228f5546a6953b4d03",
+            "source_issue_number": 22,
+            "source_repository": "synthetic/long",
+            "task_key": "6658a93dbd0998df6b4d8ed5d6cd21a064b2ab451292aeac27fd509bb3770bb7"
+          },
+          {
+            "issue_number": 31,
+            "method": "timer",
+            "minutes": 6,
+            "observation_id": "d49340b4240b8e83316e39706a255f770f9cd98b20929a04704644c48baa5b5a",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "0ba342e1bd0e609cf23d075fec0d74ecc0e55e6559de1b85ac0bbe6ac60b6028",
+            "source_issue_number": 31,
+            "source_repository": "synthetic/short",
+            "task_key": "686d3c292ff728d4c2ec743c358e3211542f4f5c447f6a821d4a674d59daa308"
+          },
+          {
+            "issue_number": 11,
+            "method": "timer",
+            "minutes": 46,
+            "observation_id": "fefa4c20b62f3b2f05aaada5a186e2c312c6662cf02c6a9faa38d60b9ff4eec8",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "f78edb622dba623e1c0463a8bcf37c8eaccc30d5f003e631261b892abcc113ec",
+            "source_issue_number": 11,
+            "source_repository": "synthetic/long",
+            "task_key": "6ec8adce3bbcba9871b8f292697e32b6d120f51d91d9986a1f42bf3ae832f753"
+          },
+          {
+            "issue_number": 29,
+            "method": "timer",
+            "minutes": 49,
+            "observation_id": "3d6ce5b7ad826e534b0772452d5d036d31a672848181576869f793632eee022d",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "34bcaa722a035c2b2d40fd2bea4303794e2acab7424c1f6a8c86b79d6df02c5b",
+            "source_issue_number": 29,
+            "source_repository": "synthetic/long",
+            "task_key": "7040b37aa4914c4969daa6d0b0e1fa5e02f76d31eb787f27e37f12ed8edd5301"
+          },
+          {
+            "issue_number": 45,
+            "method": "timer",
+            "minutes": 5,
+            "observation_id": "3e486535b9c91d443277057ad2d06ed2156c43ad2c65f186cd9cebc6282e7891",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "f96b5fb29ef802f9e8b7185387ecbc66ce0132d667698617b0510184d5781df9",
+            "source_issue_number": 45,
+            "source_repository": "synthetic/short",
+            "task_key": "70b3c63b17f1fe912f4b72d7de12d65ea7b5685384d7eefc7dba6b0f03c55423"
+          },
+          {
+            "issue_number": 3,
+            "method": "timer",
+            "minutes": 48,
+            "observation_id": "0a53b146fe5009e0b698d5ff15862e4840944e1da4b8802a7f0862d3488955b9",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "f8e32289fdcc17f505d9940a52ca50422cc94f029838a545f00c165fee86e015",
+            "source_issue_number": 3,
+            "source_repository": "synthetic/long",
+            "task_key": "73edb3c14cb4aea2a31d29eda5703108355a5b66067dfba431f607baf80ee1ea"
+          },
+          {
+            "issue_number": 41,
+            "method": "timer",
+            "minutes": 6,
+            "observation_id": "16753cd00ed6acd5a75deec35b5f10a18f17d1cf3207492f25aed347c56feeb7",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "b626729726b5577929f1802999bae079f0083d795ef10e08f41e20f2e9a9c0a4",
+            "source_issue_number": 41,
+            "source_repository": "synthetic/short",
+            "task_key": "7633534ea272ad3583afa107c83b98c49e55a92d875321bbeeb5c22c4a946ab5"
+          },
+          {
+            "issue_number": 38,
+            "method": "timer",
+            "minutes": 8,
+            "observation_id": "4394052a10a1d7a8cc2418a221ae8ae3ab0ea0994fa5cb73f32cf26665a5335b",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "58833e9ffe9dc7ed9cad1c7c9ef23b427d3670077001d16114f9f3f6bf1fb50c",
+            "source_issue_number": 38,
+            "source_repository": "synthetic/short",
+            "task_key": "77cc35834c46a9d2b45fdafaac7dad696210bb4db00fe24f5850b2f715f30275"
+          },
+          {
+            "issue_number": 11,
+            "method": "timer",
+            "minutes": 6,
+            "observation_id": "bb1b9389748c4a02d8155552e752c9138ca7132885a6b9da7f7455f9c9a42532",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "b025194a2f8db1aa7a6212846a224c65420ca204e4f10fa804a4024a0e10d79c",
+            "source_issue_number": 11,
+            "source_repository": "synthetic/short",
+            "task_key": "7873c8efde93008dc88ab2f643daa78ad4439c179106be74a2a9dc47786d8c2f"
+          },
+          {
+            "issue_number": 16,
+            "method": "timer",
+            "minutes": 46,
+            "observation_id": "0f9bcc6dce3b03ab7c0f0e211918392b842783ce9eeaa6f0ff2883859f200999",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "8984c5cd546d5be2461476fd9c22ed1fe43d50226da10f85de7b9639dfe24e84",
+            "source_issue_number": 16,
+            "source_repository": "synthetic/long",
+            "task_key": "79b7ae2689ce8ca10ca0e90ba525837325fe5ed61af812397d5e674c5fde67f8"
+          },
+          {
+            "issue_number": 25,
+            "method": "timer",
+            "minutes": 45,
+            "observation_id": "bc7eff4e83cdb85898832420a1e095aae5f837f19d15d872e5b06eedcef0e4db",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "46e3b078b47fb95f65f7db04de455009b2e53ff76df02be48a8ba23b252d4b0a",
+            "source_issue_number": 25,
+            "source_repository": "synthetic/long",
+            "task_key": "7b3a532f2d9a6b407677eb2ae4a46333078e30214245178f8fd252307974f0b0"
+          },
+          {
+            "issue_number": 21,
+            "method": "timer",
+            "minutes": 6,
+            "observation_id": "86a0bb0780a2339f42778575354e6acf7af6f8e091ad723ad0ea5c932c23c45f",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "e2541912059ca7e50dc58361f7f66d5e5970204af2cdfb214013e08b482ae90b",
+            "source_issue_number": 21,
+            "source_repository": "synthetic/short",
+            "task_key": "8576ccbe2e0cc75f3eeaa830f126ed55dd21ed8ee95143a79d2d77de29212fd3"
+          },
+          {
+            "issue_number": 28,
+            "method": "timer",
+            "minutes": 48,
+            "observation_id": "aecf17f4b0602700268e164e7e0a0ef8ff5808c88107b1c388c7718f456996c0",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "1a68575b241a7c83018f3144e7f8614fa76252a75428055d7592a35a623d3e3e",
+            "source_issue_number": 28,
+            "source_repository": "synthetic/long",
+            "task_key": "86309bd28be1bbd63ad5774c062974992601347c35d827e45235b9d53d02dd2e"
+          },
+          {
+            "issue_number": 50,
+            "method": "timer",
+            "minutes": 5,
+            "observation_id": "403fa70b4dab2fc9a397d1ffd192d991db9be6ec37426c01605218d5c8d7acdb",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "8c45aa32f39882217061e884c9bcc4e9bdcb96b8d20ceda33e5ed4fb51f9a39a",
+            "source_issue_number": 50,
+            "source_repository": "synthetic/short",
+            "task_key": "863168c5891076cc8ca6cd158cd8ba8261301227971159de7203533dc858df54"
+          },
+          {
+            "issue_number": 16,
+            "method": "timer",
+            "minutes": 6,
+            "observation_id": "d01b46112220f055d45159c25c256a9bc53f4d5991c0fb438f4657c93bc38148",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "29d5de06a1858df338c44ce36301b5126c121790ef194602524c39eca73fce02",
+            "source_issue_number": 16,
+            "source_repository": "synthetic/short",
+            "task_key": "87f8eb1010fa5889eacb9c61c9c3bc8fa2c3e819dcfc7c392228049d79a0241d"
+          },
+          {
+            "issue_number": 35,
+            "method": "timer",
+            "minutes": 45,
+            "observation_id": "40e79ac2eb2d83e9ae715d0319313ea9d66cb921ff866a4157fb276f11d73961",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "4e687d7ccf2409f597103009f1d7f672482c63964351dc4cabc5834a01ed3679",
+            "source_issue_number": 35,
+            "source_repository": "synthetic/long",
+            "task_key": "9666e73b0f67f727c2577099b7586cc9529df24d6b9fc45daea9ed52e5250d5a"
+          },
+          {
+            "issue_number": 54,
+            "method": "timer",
+            "minutes": 9,
+            "observation_id": "2098ee769eecc54078659c5848c44b6127d142f26cb0e04d40dfd1f9987b5c9c",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "8cad361d99120a4103cf02618f96b014691cfbfad83669ba5dbcc9887340b40e",
+            "source_issue_number": 54,
+            "source_repository": "synthetic/short",
+            "task_key": "97dc853e0b063bdd4c6837b994906b795eaec1941fa3289c1cc04bfc9873d358"
+          },
+          {
+            "issue_number": 51,
+            "method": "timer",
+            "minutes": 46,
+            "observation_id": "c0ca3a3e524f3fe162e67e9c6ae83124628e3a33c8c3a6f650c56932c4f553c6",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "35b98315e720b0f85f35cf07396304297d0319d190dacd8781a492c8431c0ad0",
+            "source_issue_number": 51,
+            "source_repository": "synthetic/long",
+            "task_key": "99d135c7ab97df9cacffaaf0655bc977a60a970e2b50972f515d0eb037747610"
+          },
+          {
+            "issue_number": 46,
+            "method": "timer",
+            "minutes": 6,
+            "observation_id": "b7b41d59008a2751a9f0f3e9fca9f1251965141840aaf4d5031f2df9abef5dfe",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "7ab0ded799ef63f8305879b77454d8c543d525590d0858d4611ef531214edacf",
+            "source_issue_number": 46,
+            "source_repository": "synthetic/short",
+            "task_key": "9aa00e86fc703a482ca9e19e701d8cc71b27c68487183830c72b04a12f0b0321"
+          },
+          {
+            "issue_number": 29,
+            "method": "timer",
+            "minutes": 9,
+            "observation_id": "0c857aa9f5d486b98139d96522f7a96ff1b25c7c5d3e0488b5eff9fc0eaa3f99",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "7217f42f7a67924dfb0129a57c8767b4c55707d309baccc21286b1d2f045898a",
+            "source_issue_number": 29,
+            "source_repository": "synthetic/short",
+            "task_key": "a1c0e71f468250b364ce17aa1b2ceef2174dbc0c040ecf2f4da6b463eebc7aba"
+          },
+          {
+            "issue_number": 14,
+            "method": "timer",
+            "minutes": 49,
+            "observation_id": "48dd363eec1e68b9d76d5b9aeddc0242939fd94d1fc8694b2a418fa24c2b551b",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "2449aa1d652b8502a4cf426b4e00bc2cd4699f4ee0c23617f161da0d391b31ba",
+            "source_issue_number": 14,
+            "source_repository": "synthetic/long",
+            "task_key": "a452f0dd8705df256cc58ffe41d847f4337c02f0354c8f9fa4fd3df22e22be84"
+          },
+          {
+            "issue_number": 19,
+            "method": "timer",
+            "minutes": 9,
+            "observation_id": "ffae7a686e8768d75cdb3e7301312aa3d9fea8b1366b84e495e401b5a8494601",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "071ea2d83cf17cee8c52f768f7a038ed10b3412d0de17c0a3f555cbd53cdfee3",
+            "source_issue_number": 19,
+            "source_repository": "synthetic/short",
+            "task_key": "a93742e067d33d29691fec4b5109349f0fdb632c4ca4aef1f6dadbf7a908fe1c"
+          },
+          {
+            "issue_number": 61,
+            "method": "timer",
+            "minutes": 46,
+            "observation_id": "cd4eb568cb0e9618d685685e7da7abe28ad18029b5c2339d79c83fce81a0cbcb",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "7e3ae24f1856a73c77952c06915d82bd21625278844c0fb864688eda466ba1ed",
+            "source_issue_number": 61,
+            "source_repository": "synthetic/long",
+            "task_key": "aa86266dfde7092b57b373d474ee5adf39e0a0c3ce9a13e5b027eb3d46f776f0"
+          },
+          {
+            "issue_number": 48,
+            "method": "timer",
+            "minutes": 8,
+            "observation_id": "f948959c0fdf19e9eab26f8da8ba054ece4e57c708e342f5f8fe51e91c052fd4",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "e5e0fd420fb6730b94dc7b87c7300e6cbfeae7e5cb7f7f06ff9265c9a7e10281",
+            "source_issue_number": 48,
+            "source_repository": "synthetic/short",
+            "task_key": "afca708911c06d8e6364c0b669c0e0e0b8d486ee521060fe8b033fd43a3c1ce0"
+          },
+          {
+            "issue_number": 23,
+            "method": "timer",
+            "minutes": 48,
+            "observation_id": "cb93fe16f02ed3ab98daf1139798ca75f11dd8fcfc227143520e4e7bbf62b575",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "28deaf725c7e457a3bec5ad61d90a39170b7889b226689016690a22c7aec927a",
+            "source_issue_number": 23,
+            "source_repository": "synthetic/long",
+            "task_key": "b5dcdb794a24c00d8d075035b842fa4454d4f8bb1e8d314af575d64021783859"
+          },
+          {
+            "issue_number": 48,
+            "method": "timer",
+            "minutes": 48,
+            "observation_id": "61ececa64bd93413631054247c6a5d455cc459aec8c5a0d34964025f85e0a7e0",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "ff77e3b4f4a9c75ff47a1736d55f73e0ab0ed832f0d9ef6ea4a179b0c48ce2ac",
+            "source_issue_number": 48,
+            "source_repository": "synthetic/long",
+            "task_key": "bb349224a3268d78ddc4aae62ae801bd8e083b5d177b975cd083917f566e32d4"
+          },
+          {
+            "issue_number": 28,
+            "method": "timer",
+            "minutes": 8,
+            "observation_id": "f7179e629d77681fc6bd0dea94b45b25c8482d9b7feb15a6c3eb856ad28915ca",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "d036adedb6a390d23393ae77980491a8723302d0fe9112de4173e517fcefe7af",
+            "source_issue_number": 28,
+            "source_repository": "synthetic/short",
+            "task_key": "bc71badbe0568dddf1059c0b6540d7678868a0bee0357497fca948bd030db557"
+          },
+          {
+            "issue_number": 63,
+            "method": "timer",
+            "minutes": 48,
+            "observation_id": "097c0c09f963aad9ef0d09a0252687e9b75df17063a1bb9bd1bb35025be56460",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "5e21df36fced602fa335862240a5cdea6f9c5672b36731d4e1b200d2edefa616",
+            "source_issue_number": 63,
+            "source_repository": "synthetic/long",
+            "task_key": "bde0ce4be0eecebe708b134b2bd454e0df81f4925d0575e841439da7f77a0c5e"
+          },
+          {
+            "issue_number": 63,
+            "method": "timer",
+            "minutes": 8,
+            "observation_id": "672a7294779f2c4de285a0893e499207558ac451d5470fd1a5c9bef788d2b3af",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "dcece994324c1ff346e68b21fefd05eb9118c0bd8dba95baf2424db085919e1b",
+            "source_issue_number": 63,
+            "source_repository": "synthetic/short",
+            "task_key": "beace3fa3d6ab5cbb561621552c408fba7fb783bdf4e97093bcbccd13c619c09"
+          },
+          {
+            "issue_number": 1,
+            "method": "timer",
+            "minutes": 6,
+            "observation_id": "528121b679c6d954979701999bb4e126d45d9fb1e9482df7b4f2b3f1861d2c1b",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "9a6aec922ee0651eb48a71591541b6af4612746daacb8a012b52f67d479646f0",
+            "source_issue_number": 1,
+            "source_repository": "synthetic/short",
+            "task_key": "c3f7178fac81571e85b346a6a53c3e99b280748bd4cc72335c409b4bdb0fd161"
+          },
+          {
+            "issue_number": 26,
+            "method": "timer",
+            "minutes": 46,
+            "observation_id": "e45c5f1b2734e2e12f3f9033693c237f80a168a962b177d8997d637f730cde46",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "795c0e8cd4990113549d8445bc5ea6937b498140ce1a6d0091dcc643135ba04e",
+            "source_issue_number": 26,
+            "source_repository": "synthetic/long",
+            "task_key": "c4b1519ecfa741959a4cfb3f15d838c94aeec31f092d99b27f9a02b297ea9ccb"
+          },
+          {
+            "issue_number": 42,
+            "method": "timer",
+            "minutes": 47,
+            "observation_id": "9c56625220e4c38e1c4942ff18d9372d48e77ad5dcd97acde4b9e433b8cfaea7",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "4802283da752b775f26c70eee5a6235966b96611e480bd1cd2e1907bf740b52f",
+            "source_issue_number": 42,
+            "source_repository": "synthetic/long",
+            "task_key": "c59963e8a2a70af6b4f60986848484981b8dfd682f13f11b233d27f9306b40ff"
+          },
+          {
+            "issue_number": 10,
+            "method": "timer",
+            "minutes": 45,
+            "observation_id": "767c7a62e5622e2e8a23b4f7dce032eff3fcab9d1d2624eb561900f2a41023d6",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "dee905f6ee3840c3d71b6632b8c8b0b3aa5d3cf55b315d86272a1923013f4c68",
+            "source_issue_number": 10,
+            "source_repository": "synthetic/long",
+            "task_key": "c6730e6574c4f68880da97591c5008c6808e444dc40f169d2bc71b960c32ff53"
+          },
+          {
+            "issue_number": 14,
+            "method": "timer",
+            "minutes": 9,
+            "observation_id": "45beaa3fbd5f5088a6dd5f92d68de365b03436a1bc24fa57890fe73387faf2fc",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "b457a6e02aa03e93315c04bdff5b87c07a3fbce5bd5203fe164db7ed22faa23f",
+            "source_issue_number": 14,
+            "source_repository": "synthetic/short",
+            "task_key": "c781451e7db832e5727f46a6ab3ef92bd1830589e880801ea96c8aa5fda81b3d"
+          },
+          {
+            "issue_number": 56,
+            "method": "timer",
+            "minutes": 46,
+            "observation_id": "c87a7bc28d4579dee32b541975b86ca1dd5b9da3be942ef7216e2d7bdaecbec2",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "5670d3fbca2ea70081325fec0ea67b925dda585f54f390bb544b5efbec14a662",
+            "source_issue_number": 56,
+            "source_repository": "synthetic/long",
+            "task_key": "ceac3d70dbdd0f3b080d390cf5b5fe4a3a5ac0c8ac458f39b08948907f3235c1"
+          },
+          {
+            "issue_number": 8,
+            "method": "timer",
+            "minutes": 8,
+            "observation_id": "1dffdc0fe3222d37bc9cf5b790cf749a59adcad571c8f17a8333492f62ce4f28",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "6f05ce94fc2c29feaa73c441699fe8000a642c9e1b0190aa3eeabe4c7a1a0f38",
+            "source_issue_number": 8,
+            "source_repository": "synthetic/short",
+            "task_key": "d2f5afd985e057d791816312d45f33c84e8f36d6e5b3feb9a7c2ce3a86e729c5"
+          },
+          {
+            "issue_number": 43,
+            "method": "timer",
+            "minutes": 48,
+            "observation_id": "46959e0d8c14b68fbcee6a629e38e7f4d8cd6caf3bbc36007d708d2855ca4ad0",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "b61e4f61946173ad6d355b224f6686727a6d15ab85869e333830a4a8db2b1ff0",
+            "source_issue_number": 43,
+            "source_repository": "synthetic/long",
+            "task_key": "d3fcd6e5f30916acd29fcfcaab60d085cb573d9ad8f2428417a1e7f21e01fc82"
+          },
+          {
+            "issue_number": 57,
+            "method": "timer",
+            "minutes": 7,
+            "observation_id": "f79143fd540ef97f1c2c44b311b4d1b9fdf2407a47f2e3139eadf6aa74d5905c",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "b55cd082cf185b66a5af4b025b026a91051689ac32d718f68881e1e0f4e7ba79",
+            "source_issue_number": 57,
+            "source_repository": "synthetic/short",
+            "task_key": "d4d6e0aabb8518e0a614fe96d913650edc04b155f92809130016f122d6014a2d"
+          },
+          {
+            "issue_number": 31,
+            "method": "timer",
+            "minutes": 46,
+            "observation_id": "61f3b871d0dc63b257858fc1575050c85e73cea0b7f87d2f81d0c2eb63e88875",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "84ddba8dc51ca4b9c35d3448a498bf6bdaaaa9416fa8f3da8bb2168819051c8d",
+            "source_issue_number": 31,
+            "source_repository": "synthetic/long",
+            "task_key": "d58b8d2daf0b429ecf83af9d78d73df80b44783916fdedccec750cfe806c64e0"
+          },
+          {
+            "issue_number": 19,
+            "method": "timer",
+            "minutes": 49,
+            "observation_id": "e57aad9f0a97c428cc2badb016d079d36a477f5713237f0acfa74cfc19b4e5ad",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "38080560ad9fa2e3907ec1f4967e52a6cd19f4f8469210dd2ec8d7b5f9a7962e",
+            "source_issue_number": 19,
+            "source_repository": "synthetic/long",
+            "task_key": "d83161cbd11f90978c3a67a48b9590f2d02fdf5c962bbe654c64895567e75e31"
+          },
+          {
+            "issue_number": 13,
+            "method": "timer",
+            "minutes": 48,
+            "observation_id": "5c37fdbfa61008cf5e37cc3d2912b7673a3413b574c2bdfebbad947ec4eecc5a",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "5f74a4e072a4c42012b01b8b0f49869df795318dc9bebe8f56a6b1b3ec32a142",
+            "source_issue_number": 13,
+            "source_repository": "synthetic/long",
+            "task_key": "e4a580c38100ce9b8991da5b20f63e4ebc1a5ecb10ce124f186fadb4cc9c5dfb"
+          },
+          {
+            "issue_number": 39,
+            "method": "timer",
+            "minutes": 49,
+            "observation_id": "9a86a0519488a9c6ff1db11d649cdd926063ad33cee3f5e14ab2b5194e6c35be",
+            "partition": "train",
+            "repository": "synthetic/long",
+            "revision_id": "2ac764c379f1dbfa37fe95d5dbb1660ef8cd5105293ef30c848f2b217e9f0b60",
+            "source_issue_number": 39,
+            "source_repository": "synthetic/long",
+            "task_key": "f00bbf1fe7f8a90a10ee937bb585fe50952c582893a9abd17321ccbe458272ae"
+          },
+          {
+            "issue_number": 39,
+            "method": "timer",
+            "minutes": 9,
+            "observation_id": "69d1af096ae62ac1d62f39718d9b87b7089b62df78910cc4f037db92fecd8545",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "8a45e3bef56f44c4047f1dce7a1a2dc258e48ab19dce474361022777cecd80af",
+            "source_issue_number": 39,
+            "source_repository": "synthetic/short",
+            "task_key": "f7b1ff7bf74e16498b92693ec41058f48e1cf9cd355ca4c0e45e5b7c9cfd6324"
+          },
+          {
+            "issue_number": 7,
+            "method": "timer",
+            "minutes": 7,
+            "observation_id": "a755dc93aa2cd9560f58266c51c35af03b90c1e577d9f53eac95442b0a98ae30",
+            "partition": "train",
+            "repository": "synthetic/short",
+            "revision_id": "63f84017374fb262ec2730e1f37bf20fab3e55576b577f33cfea91f01b02883a",
+            "source_issue_number": 7,
+            "source_repository": "synthetic/short",
+            "task_key": "f9d1beb148e3e5158453f043ca18d746f3ab5548dd7265120f7b8928afd4d00a"
+          }
+        ]
+      },
+      "active_model_id": "2a53ed1abc8ae3dce198ca8925b80a5690c6c378e37c8fabf432ed02b5a222d1",
+      "artifact_paths": {
+        "candidate_model": "/home/runner/work/_temp/observation-state/model-learning/synthetic/models/2a53ed1abc8ae3dce198ca8925b80a5690c6c378e37c8fabf432ed02b5a222d1.json",
+        "evaluation": "/home/runner/work/_temp/observation-state/model-learning/synthetic/evaluations/00000001-6f0e939012c061a947c8bb5724097aee5959bdb63ae7bf16f3a9fa15f9473ca8.json",
+        "frozen_predictions": "/home/runner/work/_temp/observation-state/model-learning/synthetic/predictions/e6800519c984bbbc668fd63be26e29b8f8900d8b0da762a6d7604ba3212ef6b7.json"
+      },
+      "candidate_model_id": "2a53ed1abc8ae3dce198ca8925b80a5690c6c378e37c8fabf432ed02b5a222d1",
+      "consumed_validation_tasks": [
+        "03fe4d937d20754aba4c2e54350b01029d04806209a0d32a91df06d199c65f5b",
+        "06adc1f174e27db0e887ae55c62a2031a265ea4e057513972f78084d701040bb",
+        "0a5866119ebc943c6d9d29b8c244e39e89a5d363772b425aa2a6b839d42cd01a",
+        "1317e890696e95fdbc4180b7cec631c85a10ebdd228cbb009ad069f43ed05ebd",
+        "14dc9aa405b5fdd44921fc3e2a5a80b9ef4c051df38d7bb28d00e999f6503250",
+        "1cf6c5a237e797a2d28350f82e79815d5fad39b2a5bc00c208c45628df288dec",
+        "419269fae90ee50ce0fce601d7f384a71873d52e85e750e4df7fec1d39892d64",
+        "41ec591a4be314d78cbf16ca328a544363da0740408b989cb0aad488fe57abb9",
+        "4562da38a9464e344d0ed3793ddf3d7002c718ce188182813629fa90921fc6e8",
+        "58c06dfb36315cdf01f74745d20b988113d055bbf7500ca38ee5a36c8ee74fa6",
+        "5a078545c54465fe178be2a53597cd6f137e92860b37034ea1155a0dcd205336",
+        "5f010f6fd6696d33466aa393cf7359acd0a7661a4aac21a0f6953b97266c1f34",
+        "62c501e656b8bbcd5c88250daa2a55554a106fdb19802acc013c362a62084329",
+        "658e6d2f5353a5ccac3e57333f91c976e1e383b4c87f1fd8d1b13e40131d72f2",
+        "660a9829ddbcfab5c91d2e2a90cd6894b09bc22de6f18f9166dd51d8a0761423",
+        "6734cab03b044296c302713c9138596c488ab2798ebe53dc5fc22b236e9dc9ae",
+        "6ae68ae31e911dd9514a9498350927672fd2630659746c98cd1afb76c4823e57",
+        "6b112881fe993cae332d5eb8569ea8c79706ea5deb2efebc2bb470d3947a4277",
+        "728cc7b0953e5f57cfb27955867d11f73f98384d8728b2f37cabb10ef159e453",
+        "74347a2d3dae19f98aebf1fd8eaaec1f340faa60919468a4a69aa77407c229dd",
+        "75f25e1c5076c2b439872141a7f4220e9dc1432bda0f9e34a7dc72d1d7c75d93",
+        "88b50c488335900bf007f15a90cc40212081e0586e6918489b8ad1195a4e5941",
+        "88fc2890dd239ebc3722b2e7cd59fed8d6e44127fada8310ef088476c5a6e92f",
+        "8ab81ed4c5b00a3984be5004ec8545ac1e4a2bb26204506b43e6c94e2252a842",
+        "8e1fc20271e79686e15ccca00119fb1df8a96428442f678c954354f8ce7c0b5f",
+        "9069ae065b4ed48dc4f7eb8abebabbe39fe4ead86a930cbdb579a5dae077ee49",
+        "9686a26761e10eb68dedbd700841bc4c74ef13b6cf19326ba1f433131f6236e4",
+        "973b6082a5808ff6c783f4a5d80d3e916cdd236a0578e60348c3214530c951f4",
+        "9a944b4e3f975b320006b56912d797965879d594681a46fa4c62c556676121c3",
+        "a53ae1c37e1f821bad3907d40ffdacc04efe9bff5ea836dc2b11e7f545a0957b",
+        "a82664b2db6ca2bbac1bce3c6929388973cb6c91e2adbf6d114823afaecfbca2",
+        "aa0a0cac69f10072745e666608e3397bcb72ae2cf3a29938498bc8e478563bad",
+        "c620310aeedad67ee06a8a914f170e0c9d2fe98e5b43c5e7fdaf21b115176a05",
+        "c638e2ec29a1f11a569e8409efcc0b9beb231145ec06f2c8da6e988107a8cd4b",
+        "c7015003f0e46dca912e575498faf14898409d463e763da185046e0ef0540c3c",
+        "cb559eb4faab830e87018368ebfb1e5fb29fae0597b7ebb58fc49251aaffa8f3",
+        "cc8b5b84b77911cbc10ece89deaef4fe6c19346b0c82b61ffaaaaf24b1599693",
+        "d5eed7c8ecc7625d266a60b1daac295fb801fd9a41ab402b59a4c1548c41bf97",
+        "dcd9177710145d4a88321bf70871bca18dbb0d3756d7353724553994d67ed512",
+        "dea18711e1032429e40d8dd640b063c11fd839e37db0e3a095572a6f6ce46462",
+        "e8e8aa5d1cd0b1d55c9a074d206559543ffb10d5566b7ae7ba732253da433b58",
+        "f473ca0e644e477c8e9f36f890cadd70021c6dbb01836bdfdb4e2ab4ec8966f4",
+        "f5063e25f8b7423e577c21cff377b53128d3b7991d652300e324ad0b618e066d",
+        "f9f9c3b933ecdecf03a126e7bfac15da84fe7e8dc49a73fc9be96586c7549f75",
+        "fb519605965c66b8909ff051462af2bf27b27aa67ce883a6bd3590f2b1be577f"
+      ],
+      "counts": {
+        "eligible": 128,
+        "train": 83,
+        "unused_validation": 45,
+        "validation": 45
+      },
+      "current_active_model_id": "2a53ed1abc8ae3dce198ca8925b80a5690c6c378e37c8fabf432ed02b5a222d1",
+      "decision": "promoted",
+      "evaluation_id": "6f0e939012c061a947c8bb5724097aee5959bdb63ae7bf16f3a9fa15f9473ca8",
+      "exclusions": [],
+      "frozen_predictions_sha256": "e6800519c984bbbc668fd63be26e29b8f8900d8b0da762a6d7604ba3212ef6b7",
+      "gates": {
+        "absolute_improvement": true,
+        "no_incumbent_regression": true,
+        "relative_improvement": true
+      },
+      "input_sha256": "c2337e2b01b24d6f96a3bd71372c73ecd7d4c93096ba7df456ca2938ad06a6f0",
+      "interpretation": "Retrospective held-out comparison of declared task totals; operational thresholds do not establish prospective accuracy or causality.",
+      "metrics": {
+        "absolute_improvement": 18.518720538720537,
+        "baseline_bias": 18.377777777777776,
+        "baseline_mae": 20.288888888888888,
+        "candidate_bias": 1.1923905723905721,
+        "candidate_mae": 1.7701683501683496,
+        "incumbent_bias": null,
+        "incumbent_mae": null,
+        "relative_improvement": 0.9127518337814066
+      },
+      "policy": {
+        "min_absolute_mae_improvement_minutes": 1.0,
+        "min_relative_mae_improvement": 0.1,
+        "min_train_tasks": 8,
+        "min_validation_tasks": 4,
+        "prior_weight": 3,
+        "protocol_id": "synthetic-task-total-demo-v1",
+        "schema": "observatory.task-total-policy/1",
+        "split_train_percent": 70
+      },
+      "policy_sha256": "b74734e8bd02d9432410a6f04eb1f423849ea17137d6c1d6b3017948d69e50b2",
+      "previous_evaluation_sha256": null,
+      "protocol_id": "synthetic-task-total-demo-v1",
+      "retired_model_id": null,
+      "retirement_reasons": [],
+      "schema": "observatory.task-total-evaluation/1",
+      "sequence": 1,
+      "synthetic": true,
+      "validation_targets": [
+        {
+          "declared_minutes": 8,
+          "method": "timer",
+          "observation_id": "07febea5eb49394896dc573765e1cc69553ca8bfa4bb1da33cc60cc1b432f29d",
+          "revision_id": "e480e174eafd2ed80b3bfb737f844357994415df33a5b9cbf85f8827efcd46a5",
+          "task_key": "03fe4d937d20754aba4c2e54350b01029d04806209a0d32a91df06d199c65f5b"
+        },
+        {
+          "declared_minutes": 6,
+          "method": "timer",
+          "observation_id": "504b9893c29e8a4a1eaa4920b5b481952a6a65f3d9781c7f19e130020175d2ac",
+          "revision_id": "89bb5c9b195f19ff540d7f15e28a676fa143fc18f7491f04f6c4ab692028be18",
+          "task_key": "06adc1f174e27db0e887ae55c62a2031a265ea4e057513972f78084d701040bb"
+        },
+        {
+          "declared_minutes": 47,
+          "method": "timer",
+          "observation_id": "3aad4d61265026d1b6fa5eeeade6aff0d799db20b5aa98f935ee3c40a31c53ed",
+          "revision_id": "b1c86dd4c8f9a4b14625a0b519bd706fc4eeb959ac647e8a782bea15e54ccaef",
+          "task_key": "0a5866119ebc943c6d9d29b8c244e39e89a5d363772b425aa2a6b839d42cd01a"
+        },
+        {
+          "declared_minutes": 45,
+          "method": "timer",
+          "observation_id": "9ba5037ebd73789a875b5677a48704312027e537965f3caaa955b60386655529",
+          "revision_id": "f23a601521ffbf2f14efab54722f245e70057234ebbefc8eda6ffa5e102bd676",
+          "task_key": "1317e890696e95fdbc4180b7cec631c85a10ebdd228cbb009ad069f43ed05ebd"
+        },
+        {
+          "declared_minutes": 48,
+          "method": "timer",
+          "observation_id": "fd1761f6e402977ad34c6946b4bfa66fdfad569282ff36c8e2513ced802fea9a",
+          "revision_id": "4e7233e66a3b84d9a55bee63e0437b9597e5aacffcb69559082534cb16151bf0",
+          "task_key": "14dc9aa405b5fdd44921fc3e2a5a80b9ef4c051df38d7bb28d00e999f6503250"
+        },
+        {
+          "declared_minutes": 8,
+          "method": "timer",
+          "observation_id": "937abee03ad3cf4d05470473235550ca75338ba0775217d84fc2844cbf002ebd",
+          "revision_id": "a32d8d1dc9dd873a30dd7cadcea18e340792268b9b3b63c65ee77310b78f4c39",
+          "task_key": "1cf6c5a237e797a2d28350f82e79815d5fad39b2a5bc00c208c45628df288dec"
+        },
+        {
+          "declared_minutes": 45,
+          "method": "timer",
+          "observation_id": "6d21f9093abbe2035be509e39de46ebecadc461ef047fed3f914ed0fe9d9a885",
+          "revision_id": "a715f2c4cab504972c9066f4ca4151b0a2b0ebea0fdf6f6f1d190cf6f46e1835",
+          "task_key": "419269fae90ee50ce0fce601d7f384a71873d52e85e750e4df7fec1d39892d64"
+        },
+        {
+          "declared_minutes": 49,
+          "method": "timer",
+          "observation_id": "3abfbc4787a361f0b1fdfc8018a50e5790caba6de1a462040efb06f847fe87d4",
+          "revision_id": "a13f1a9aa5e9564e761f8962a1cbd29127c09d8d70af9a6722838c761cdf83a7",
+          "task_key": "41ec591a4be314d78cbf16ca328a544363da0740408b989cb0aad488fe57abb9"
+        },
+        {
+          "declared_minutes": 49,
+          "method": "timer",
+          "observation_id": "2e3bec1a7c0c3e45ec10734e66851d43249d3b0a48021586b78a601184c6ab94",
+          "revision_id": "1f93c8c512552b67c3be524521c865615e2eade897125a98e53be0ade99b7a30",
+          "task_key": "4562da38a9464e344d0ed3793ddf3d7002c718ce188182813629fa90921fc6e8"
+        },
+        {
+          "declared_minutes": 45,
+          "method": "timer",
+          "observation_id": "963fc4ffba92d647106a2ebbe7a715e56588a9247efabe29da2d16c324e5613e",
+          "revision_id": "b7c51a5fa0104293d9b756c51734d3e00c819acf629e4aad52a347f0592f45b5",
+          "task_key": "58c06dfb36315cdf01f74745d20b988113d055bbf7500ca38ee5a36c8ee74fa6"
+        },
+        {
+          "declared_minutes": 5,
+          "method": "timer",
+          "observation_id": "25706ed302c9d5cf37cc8f0735880f7343a4b9e849c2bb179c5358acdf902109",
+          "revision_id": "d39420e1bdcfbff202b9b6d31867402998e5b4761b2603ebd448e2846f651365",
+          "task_key": "5a078545c54465fe178be2a53597cd6f137e92860b37034ea1155a0dcd205336"
+        },
+        {
+          "declared_minutes": 9,
+          "method": "timer",
+          "observation_id": "b5105ae2f96815447ffe046168a5268b9e4b570ed8f674d049953a128edc9460",
+          "revision_id": "e8eac98101d71d98ff6e965ea1489e93a99880f01356b42d1883dead0e677e75",
+          "task_key": "5f010f6fd6696d33466aa393cf7359acd0a7661a4aac21a0f6953b97266c1f34"
+        },
+        {
+          "declared_minutes": 47,
+          "method": "timer",
+          "observation_id": "71d62442a3971ef32adcd98d59a7e8cb682cce7fcbd782dd1d7237432b4850d8",
+          "revision_id": "139108cf0ed4d77b6b29d3c23964529c45c8e5a2e1d5b4deddf8b9a1d25bfa29",
+          "task_key": "62c501e656b8bbcd5c88250daa2a55554a106fdb19802acc013c362a62084329"
+        },
+        {
+          "declared_minutes": 5,
+          "method": "timer",
+          "observation_id": "eb252a16a03ea2e45dcbf5f6a0e822d54476a908066981d524914c1fb438cb52",
+          "revision_id": "a037d4fb94c2db98c50a6cf0c33be6b4651dec95a762746d0393c1ace7ef265a",
+          "task_key": "658e6d2f5353a5ccac3e57333f91c976e1e383b4c87f1fd8d1b13e40131d72f2"
+        },
+        {
+          "declared_minutes": 9,
+          "method": "timer",
+          "observation_id": "dc554ec724567e05065550124affdabb1669df99c14eb936a21292a2666bcc8f",
+          "revision_id": "5b002e411fcd9b220bced3969a1291cdd68dd2df4fe96eade60f8d9a73107169",
+          "task_key": "660a9829ddbcfab5c91d2e2a90cd6894b09bc22de6f18f9166dd51d8a0761423"
+        },
+        {
+          "declared_minutes": 7,
+          "method": "timer",
+          "observation_id": "84507921087e9d07a14f4754043842a481993f44839b8ba7f64d3ab59a8ff972",
+          "revision_id": "07bf439b18703021584f38356b0e63126efb5c6bf64899d4c7c21a3b926231b6",
+          "task_key": "6734cab03b044296c302713c9138596c488ab2798ebe53dc5fc22b236e9dc9ae"
+        },
+        {
+          "declared_minutes": 7,
+          "method": "timer",
+          "observation_id": "76cb48d6477baf52215ddf768252bc6c33e212f899c6d51947e394adf43410cf",
+          "revision_id": "873363f3df7912ef391a4e337f032886d5c8926a2f5639209bd8b40b8c98a295",
+          "task_key": "6ae68ae31e911dd9514a9498350927672fd2630659746c98cd1afb76c4823e57"
+        },
+        {
+          "declared_minutes": 7,
+          "method": "timer",
+          "observation_id": "fb3fdb7d8cfce145b449517adf0945cae4c828026b4fd8350b18ea5956fd874e",
+          "revision_id": "2cc817a50570989e37d1ae6f3c7c6bf9fbe5292af4631f3e4e9d5f65c6831917",
+          "task_key": "6b112881fe993cae332d5eb8569ea8c79706ea5deb2efebc2bb470d3947a4277"
+        },
+        {
+          "declared_minutes": 47,
+          "method": "timer",
+          "observation_id": "fdc8a138208503cd8c3e376341cff07a491708a76505d07f72629bc983038fe0",
+          "revision_id": "bd4130f97b257771d3ee7f6a3535a158724c204554e9cce48997180fcbebc803",
+          "task_key": "728cc7b0953e5f57cfb27955867d11f73f98384d8728b2f37cabb10ef159e453"
+        },
+        {
+          "declared_minutes": 6,
+          "method": "timer",
+          "observation_id": "104abd2404a224ede9fe7e15e3a698a736fafa6aef13af6174d1ec4541e2cec7",
+          "revision_id": "b8d77979c2160dc86c5e21ca218adab841e3f39ee696e01a8f6dac514f24066b",
+          "task_key": "74347a2d3dae19f98aebf1fd8eaaec1f340faa60919468a4a69aa77407c229dd"
+        },
+        {
+          "declared_minutes": 9,
+          "method": "timer",
+          "observation_id": "e9c19aa05733ee55fc74f138d7c54e8704f6736ed91bf71453f0c30109eb451d",
+          "revision_id": "4cc9a6e1bd41b8d45b5dcf1c16fde6723652db960cb6a719dab59527bcd58e8a",
+          "task_key": "75f25e1c5076c2b439872141a7f4220e9dc1432bda0f9e34a7dc72d1d7c75d93"
+        },
+        {
+          "declared_minutes": 45,
+          "method": "timer",
+          "observation_id": "99147305e70388d1674de4ce22dfa17bafa80f9246565c35ac2e9197b651cb71",
+          "revision_id": "54a42df0f2e8d45c5dcfaf5884928a4e43074cf00074d56689a3a179168f8ff1",
+          "task_key": "88b50c488335900bf007f15a90cc40212081e0586e6918489b8ad1195a4e5941"
+        },
+        {
+          "declared_minutes": 47,
+          "method": "timer",
+          "observation_id": "8c06f209ed1194026cc27a8e629cbbc5f61ccc8d0d1a90ba6020ba915ad3a39e",
+          "revision_id": "43a1480249f41403c9bf9b2d34e7d79aa7870c00b16e42a1ef6b0fd76add2291",
+          "task_key": "88fc2890dd239ebc3722b2e7cd59fed8d6e44127fada8310ef088476c5a6e92f"
+        },
+        {
+          "declared_minutes": 45,
+          "method": "timer",
+          "observation_id": "dd53f9929c7585abde13cb0233bff9b4834a7164dec95450185f49036326ee65",
+          "revision_id": "3c0f9bfe71813080d739e47db2adf1e6e0861f5443d0822306ff43998daa3566",
+          "task_key": "8ab81ed4c5b00a3984be5004ec8545ac1e4a2bb26204506b43e6c94e2252a842"
+        },
+        {
+          "declared_minutes": 7,
+          "method": "timer",
+          "observation_id": "798a87537081ee1b966ff59e7c1b37bcba05b3b85b516e4aab11b6e436509bba",
+          "revision_id": "ecaa84afb1c8bd109f642b545efee675f892a62f0c642b5fa8f7012be6e117e2",
+          "task_key": "8e1fc20271e79686e15ccca00119fb1df8a96428442f678c954354f8ce7c0b5f"
+        },
+        {
+          "declared_minutes": 47,
+          "method": "timer",
+          "observation_id": "70584980845adefa5d9b4cd76d429fd4659a9ed9d6a2279f1f42c3b08f046c62",
+          "revision_id": "69931e00b3a09903995be150b22a6c52ad518cefceb685288c8db2f1bfc55454",
+          "task_key": "9069ae065b4ed48dc4f7eb8abebabbe39fe4ead86a930cbdb579a5dae077ee49"
+        },
+        {
+          "declared_minutes": 6,
+          "method": "timer",
+          "observation_id": "2f0eb70fcac8c944d6114a74480f4ce0e7d36eb4bbe5b03f38f3f39f59370c77",
+          "revision_id": "c95492457f68e425ef8f551d209728baffdad73de0e7ab216a6568ef964a3c2a",
+          "task_key": "9686a26761e10eb68dedbd700841bc4c74ef13b6cf19326ba1f433131f6236e4"
+        },
+        {
+          "declared_minutes": 9,
+          "method": "timer",
+          "observation_id": "07122ccb444e8305b8bf3c4fcbc3bfe5d7f564ce15f99834053b9e7aabe0bf44",
+          "revision_id": "fa54463546d1af3df3abf0671612ff96ac7638a49e8c38420f3387d10953a93d",
+          "task_key": "973b6082a5808ff6c783f4a5d80d3e916cdd236a0578e60348c3214530c951f4"
+        },
+        {
+          "declared_minutes": 9,
+          "method": "timer",
+          "observation_id": "4efaab60df141911fbce7ffd7534e3cf6cd0aa9fb35393abf3fcff9d25439735",
+          "revision_id": "6d847b7eabf9794f53d139d73033f23973a9494a50be77825981a40db874ada5",
+          "task_key": "9a944b4e3f975b320006b56912d797965879d594681a46fa4c62c556676121c3"
+        },
+        {
+          "declared_minutes": 5,
+          "method": "timer",
+          "observation_id": "82634539b64f870604f73318c13a53ae0812922c6e0302982a8db92358858f6a",
+          "revision_id": "c71c85e3fa467ce13a44231af61b58e82908ac9af6e236cddecf309a88070351",
+          "task_key": "a53ae1c37e1f821bad3907d40ffdacc04efe9bff5ea836dc2b11e7f545a0957b"
+        },
+        {
+          "declared_minutes": 49,
+          "method": "timer",
+          "observation_id": "6b9312e3ac345923bb1a7b73b3eb32b492812d6f96a87dc39a6bc8cd0eb83eb1",
+          "revision_id": "54401cdb9289e5e21907cdc9427dac7e958c63d05e9ed325cdb5a3c99f9577b4",
+          "task_key": "a82664b2db6ca2bbac1bce3c6929388973cb6c91e2adbf6d114823afaecfbca2"
+        },
+        {
+          "declared_minutes": 8,
+          "method": "timer",
+          "observation_id": "b97610b47ea6c1eecd05de2e45e6c70ad5092a6a9320f087298e9d1ebfab395a",
+          "revision_id": "0804177a600341e49fb988470b876019494b24d49291ccd3d951788a07a0ce81",
+          "task_key": "aa0a0cac69f10072745e666608e3397bcb72ae2cf3a29938498bc8e478563bad"
+        },
+        {
+          "declared_minutes": 47,
+          "method": "timer",
+          "observation_id": "cd54ebf56ef3cbc6048ad64f5231c0d59cc4857f8064ed8c3c6b1309cbe5c698",
+          "revision_id": "310023b5b7b48393b643085ab0670927167aeb010556621da186ec3fa2d011b6",
+          "task_key": "c620310aeedad67ee06a8a914f170e0c9d2fe98e5b43c5e7fdaf21b115176a05"
+        },
+        {
+          "declared_minutes": 47,
+          "method": "timer",
+          "observation_id": "7fee35b4418efb30070ae8ecb7fcb791845c6d77a916ad7ea66fb154eb4fe83e",
+          "revision_id": "642983a393897398ba8e5514c272e40780d841d3c559001aa74219ac139f5bba",
+          "task_key": "c638e2ec29a1f11a569e8409efcc0b9beb231145ec06f2c8da6e988107a8cd4b"
+        },
+        {
+          "declared_minutes": 7,
+          "method": "timer",
+          "observation_id": "bf294fabe40607ec2cdb232b6734a2019dc8fc5656af86d40c8a18cfa2fbaaaa",
+          "revision_id": "2e1335d75318b45a79335743eb0117e0439ddf2be05b2ce3b6aa646e2e2fab37",
+          "task_key": "c7015003f0e46dca912e575498faf14898409d463e763da185046e0ef0540c3c"
+        },
+        {
+          "declared_minutes": 49,
+          "method": "timer",
+          "observation_id": "de01695e024a80930e1c8ab93d20f90cc30a8de61b96f57c05111c0cb8706e51",
+          "revision_id": "552be6e2fd491514c0caddc3f80f302fed14e4a754f92e94fbc0292f7cbb463d",
+          "task_key": "cb559eb4faab830e87018368ebfb1e5fb29fae0597b7ebb58fc49251aaffa8f3"
+        },
+        {
+          "declared_minutes": 46,
+          "method": "timer",
+          "observation_id": "61af6775f6ef33325453ae4fc6080acc20f92ea0728577caf3310edaf26235b5",
+          "revision_id": "5f9f09b51accc020f564b1a412b2346839061246ebc33f1d7fc362ebe1c61b74",
+          "task_key": "cc8b5b84b77911cbc10ece89deaef4fe6c19346b0c82b61ffaaaaf24b1599693"
+        },
+        {
+          "declared_minutes": 7,
+          "method": "timer",
+          "observation_id": "83ca7076e53dfe404419a00eb6797486ed94bdab1b14e20883178a544e9b77d6",
+          "revision_id": "aee45d02adf3ff65798fde80abf5eb7a6e0c8c0774afb526d76879370db7e27d",
+          "task_key": "d5eed7c8ecc7625d266a60b1daac295fb801fd9a41ab402b59a4c1548c41bf97"
+        },
+        {
+          "declared_minutes": 7,
+          "method": "timer",
+          "observation_id": "9f31bfef339813aef8dccfeaab5b46c9e6b035aeda879d92b319eb70d2d207cf",
+          "revision_id": "6a2cd1e1a21a75a479b5a5362f285db278137fbd1e8409bfcb125167ff66dc8e",
+          "task_key": "dcd9177710145d4a88321bf70871bca18dbb0d3756d7353724553994d67ed512"
+        },
+        {
+          "declared_minutes": 5,
+          "method": "timer",
+          "observation_id": "390a27907aa30ea86358acb4ced9766cac454858814bf8f8f6d85c45a1086363",
+          "revision_id": "6a15b2e74839680cd523c22399b8b7b8e96cfce9471e4cc887ee6b60752647ec",
+          "task_key": "dea18711e1032429e40d8dd640b063c11fd839e37db0e3a095572a6f6ce46462"
+        },
+        {
+          "declared_minutes": 48,
+          "method": "timer",
+          "observation_id": "a53adcec8ca19a2147abc1e4b464e3fb75bd4a5a77de23181b878e54aae4343e",
+          "revision_id": "0d80801858d05a0089e868402d50e7667b24d5f35dfb66ee692a25e4c9ac62f2",
+          "task_key": "e8e8aa5d1cd0b1d55c9a074d206559543ffb10d5566b7ae7ba732253da433b58"
+        },
+        {
+          "declared_minutes": 9,
+          "method": "timer",
+          "observation_id": "da3152e6d6d511caa4158b13a166be1abf7f963579f749a0464066809d5b74e7",
+          "revision_id": "de6c6cca369bdaccfe86d2995ca1936ebe1174261f7d60fa90302b75948421b8",
+          "task_key": "f473ca0e644e477c8e9f36f890cadd70021c6dbb01836bdfdb4e2ab4ec8966f4"
+        },
+        {
+          "declared_minutes": 47,
+          "method": "timer",
+          "observation_id": "9e2103ce9039d61a5f59026e4dd8f38cb75bfe1658f61819ef42fe27ae3e178e",
+          "revision_id": "3a927d651127fd4d90b27c9b5d745930122e8f0091aa5e98c5a3118fff8cb0a8",
+          "task_key": "f5063e25f8b7423e577c21cff377b53128d3b7991d652300e324ad0b618e066d"
+        },
+        {
+          "declared_minutes": 46,
+          "method": "timer",
+          "observation_id": "a5f3f5594fe9f9373a9d111ef0ea96fb5181269e03f225a747f5a55c8c3a092f",
+          "revision_id": "0533a46c702e86d51c6f5fbb5afa5994df11d5495c43d002dcd6e87f88d416dc",
+          "task_key": "f9f9c3b933ecdecf03a126e7bfac15da84fe7e8dc49a73fc9be96586c7549f75"
+        },
+        {
+          "declared_minutes": 48,
+          "method": "timer",
+          "observation_id": "f58e602b081bd788817ff77d9d6aebd968daa4e703876ceb319f005124639b53",
+          "revision_id": "0c2d477c8402571be5e0307a437f09d2bb8c7c23d91186a1ceef65ef9ff69a59",
+          "task_key": "fb519605965c66b8909ff051462af2bf27b27aa67ce883a6bd3590f2b1be577f"
+        }
+      ]
+    },
+    "fixture_rows": 128,
+    "fixture_sha256": "781ba6db3f38df1468a2e8861cea3b4a6d8231cf6521e137ef817d00b73e9bfa",
+    "future_predictions": [
+      {
+        "issue_number": 10001,
+        "observed_minutes": null,
+        "prediction_minutes": 9.59090909090909,
+        "repository": "synthetic/short",
+        "synthetic": true
+      },
+      {
+        "issue_number": 10001,
+        "observed_minutes": null,
+        "prediction_minutes": 46.86666666666667,
+        "repository": "synthetic/long",
+        "synthetic": true
+      }
+    ],
+    "replay_idempotent": true,
+    "synthetic": true
+  }
+}
