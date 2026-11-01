@@ -1,0 +1,62 @@
+{
+  "collected_at": "2026-11-01T19:03:45.100273Z",
+  "input_config_sha256": "cde45d70bdf60a66ed4276f8ed07d58af4f382602d6898755d6228d3a140fd8c",
+  "limitations": [
+    "Only the explicitly requested PRs and API closing-issue relationships were queried; this is not complete work coverage.",
+    "Issue registration, project aliases and original configuration bindings remain caller declarations.",
+    "A retained relationship is evidence at collection time; it does not identify attention, duration or human control.",
+    "Existing bindings are not silently deleted; stale queried PR associations require a reviewed configuration.",
+    "Page records retain only queried identity fields. Response hashes refer to canonical decoded API JSON, not raw transport bytes."
+  ],
+  "observations": [
+    {
+      "closing_issues": [
+        {
+          "number": 36,
+          "repository": "emmett08/eal-mcp",
+          "url": "https://github.com/emmett08/eal-mcp/issues/36"
+        }
+      ],
+      "head_branch": "feat/observatory-effort-pilot",
+      "head_repository": "emmett08/eal-mcp",
+      "matched_task_ids": [
+        "eal-context-effort-pilot"
+      ],
+      "number": 37,
+      "pages": [
+        {
+          "record": {
+            "closing_issues": [
+              {
+                "number": 36,
+                "repository": "emmett08/eal-mcp",
+                "url": "https://github.com/emmett08/eal-mcp/issues/36"
+              }
+            ],
+            "end_cursor": "MQ",
+            "has_next_page": false,
+            "pull_request": {
+              "head_branch": "feat/observatory-effort-pilot",
+              "head_repository": "emmett08/eal-mcp",
+              "number": 37,
+              "repository": "emmett08/eal-mcp",
+              "url": "https://github.com/emmett08/eal-mcp/pull/37"
+            },
+            "request_cursor": null,
+            "total_count": 1
+          },
+          "sha256": "0e69cb28689fc3b1971e65446cd2200b98a7bc7ddec21298d0dfcdd3d0364e3d"
+        }
+      ],
+      "repository": "emmett08/eal-mcp",
+      "response_sha256": [
+        "6441c529d1da1e54be5b1e9ecc624d803ecf3864ddc59fb18c6cc775fd1ff1d6"
+      ],
+      "url": "https://github.com/emmett08/eal-mcp/pull/37"
+    }
+  ],
+  "output_config_sha256": "33f17960757a363886d8fddcfecc7caf2a0698bc25cf79954ce89bb0a14883c7",
+  "requested_repository": "emmett08/eal-mcp",
+  "schema": "observatory.github-task-links/1",
+  "source": "github_graphql_closing_issues"
+}

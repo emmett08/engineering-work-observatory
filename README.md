@@ -114,6 +114,11 @@ intervals for human checks and prepares issue/PR-linked estimates. It includes
 an offline review form and a synthetic end-to-end pilot; automatic activity
 remains distinct from observed human effort.
 
+The [linked EngArg/EAL pilot](docs/linked-pilot.md) connects real issues and PRs
+to receipts from those repositories' CI jobs. Its private-runner template joins
+execution evidence with sampled effort when observations exist, and reports
+human effort as unavailable until then.
+
 ## Try a complete synthetic study
 
 ```sh

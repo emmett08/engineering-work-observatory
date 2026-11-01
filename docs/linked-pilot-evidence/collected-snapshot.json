@@ -1,0 +1,3899 @@
+{
+  "schema": "observatory.snapshot/1",
+  "calculation_version": "observatory.task-accounting/1",
+  "package_version": "0.1.0",
+  "implementation_revision": "074253b7ef17326285a24c50e245be400f215717",
+  "implementation_source_sha256": "b85544bac63e33282c5a1ffd5e8640809d207bf096d1d5748b4cb58de85d0e5e",
+  "as_of": "2026-11-01T19:05:40.700432852Z",
+  "records": [
+    {
+      "record": {
+        "id": "coverage:07fdcf9dbef1590b0dfac726add052df255b9f3106d90ddd5fd0c0a2c51fa44a",
+        "kind": "source_record",
+        "data": {
+          "coverage": {
+            "detail": "Deleted runs and expired artifacts cannot be reconstructed. No receipts do not establish zero executions; runner loss may prevent every upload.",
+            "pages": 0,
+            "records": 0,
+            "scope": "emmett08/eal-mcp",
+            "source": "github.history",
+            "state": "not_collected"
+          },
+          "record_type": "collection_coverage"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:38.954375217Z",
+      "source": "github-executions:emmett08/eal-mcp",
+      "raw_sha256": "bf450ab4accedd556c2092f5b1588a5168a70603428f99309fb869aa7c79e350"
+    },
+    {
+      "record": {
+        "id": "coverage:0b40cc6cc10290376f3e92355edff60a225d7d124b79385661ab7cd10387f941",
+        "kind": "source_record",
+        "data": {
+          "coverage": {
+            "detail": "Validated schema and receipt hashes; known platform fields compared with available API metadata. Unknown provenance and controller declarations remain unverified",
+            "pages": 1,
+            "records": 3,
+            "scope": "run:41339566322/artifact:13096269445",
+            "source": "github.execution_artifact_bundle",
+            "state": "complete"
+          },
+          "record_type": "collection_coverage"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "coverage:20de604d731e873efe539935b2ee2037ea00a2b04217655b1f14026436a4e774",
+        "kind": "source_record",
+        "data": {
+          "coverage": {
+            "detail": null,
+            "pages": 1,
+            "records": 1,
+            "scope": "https://api.github.com/repos/emmett08/eal-mcp/actions/runs/41339538299/attempts/1/jobs?per_page=100",
+            "source": "github.workflow_job",
+            "state": "complete"
+          },
+          "record_type": "collection_coverage"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:38.954375217Z",
+      "source": "github-executions:emmett08/eal-mcp",
+      "raw_sha256": "bf450ab4accedd556c2092f5b1588a5168a70603428f99309fb869aa7c79e350"
+    },
+    {
+      "record": {
+        "id": "coverage:257adbb15ec36fc702964d9712e029553255d37acf12b203963ea39bb75ffd04",
+        "kind": "source_record",
+        "data": {
+          "coverage": {
+            "detail": null,
+            "pages": 1,
+            "records": 1,
+            "scope": "https://api.github.com/repos/emmett08/eal-mcp/actions/runs/41339538299",
+            "source": "github.workflow_run",
+            "state": "complete"
+          },
+          "record_type": "collection_coverage"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:38.954375217Z",
+      "source": "github-executions:emmett08/eal-mcp",
+      "raw_sha256": "bf450ab4accedd556c2092f5b1588a5168a70603428f99309fb869aa7c79e350"
+    },
+    {
+      "record": {
+        "id": "coverage:2736ded19ac0982e4678269905dae61145efe23e10cd4d87a82e0fe30a5cd081",
+        "kind": "source_record",
+        "data": {
+          "coverage": {
+            "detail": null,
+            "pages": 1,
+            "records": 7,
+            "scope": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322/attempts/1/jobs?per_page=100",
+            "source": "github.workflow_job",
+            "state": "complete"
+          },
+          "record_type": "collection_coverage"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "coverage:3ada4c45432bf2de5b01b77e14f084a336665eef845f31d19c33c69a508d2330",
+        "kind": "source_record",
+        "data": {
+          "coverage": {
+            "detail": null,
+            "pages": 1,
+            "records": 1,
+            "scope": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322",
+            "source": "github.workflow_run",
+            "state": "complete"
+          },
+          "record_type": "collection_coverage"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "coverage:79491ca2a7ed9aab1e7b4721b6645bde5ad6b806bb98a8e8816418cc3282de1a",
+        "kind": "source_record",
+        "data": {
+          "coverage": {
+            "detail": null,
+            "pages": 1,
+            "records": 1,
+            "scope": "https://api.github.com/repos/emmett08/eal-mcp/actions/runs/41339538299/artifacts?per_page=100",
+            "source": "github.execution_artifact",
+            "state": "complete"
+          },
+          "record_type": "collection_coverage"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:38.954375217Z",
+      "source": "github-executions:emmett08/eal-mcp",
+      "raw_sha256": "bf450ab4accedd556c2092f5b1588a5168a70603428f99309fb869aa7c79e350"
+    },
+    {
+      "record": {
+        "id": "coverage:7c556be4a051baf7144cb7f4f96943c80fb0caba2f5a4885db8bb81874eb9f9a",
+        "kind": "source_record",
+        "data": {
+          "coverage": {
+            "detail": null,
+            "pages": 1,
+            "records": 1,
+            "scope": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322/attempts/1",
+            "source": "github.workflow_attempt",
+            "state": "complete"
+          },
+          "record_type": "collection_coverage"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "coverage:8d898a2df9a96d7c2eb4b284c36ff0bf87f6cc3584b7ba8346c8560dbff1790a",
+        "kind": "source_record",
+        "data": {
+          "coverage": {
+            "detail": null,
+            "pages": 1,
+            "records": 1,
+            "scope": "https://api.github.com/repos/emmett08/eal-mcp/actions/runs/41339538299/attempts/1",
+            "source": "github.workflow_attempt",
+            "state": "complete"
+          },
+          "record_type": "collection_coverage"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:38.954375217Z",
+      "source": "github-executions:emmett08/eal-mcp",
+      "raw_sha256": "bf450ab4accedd556c2092f5b1588a5168a70603428f99309fb869aa7c79e350"
+    },
+    {
+      "record": {
+        "id": "coverage:991d076d99f94f9478e15993c979464ae0a6847a491d326add9a3e2d84fe5776",
+        "kind": "source_record",
+        "data": {
+          "coverage": {
+            "detail": null,
+            "pages": 1,
+            "records": 1,
+            "scope": "https://api.github.com/repos/emmett08/engarg",
+            "source": "github.repository",
+            "state": "complete"
+          },
+          "record_type": "collection_coverage"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "coverage:a6baa432ba7f49365f257a5ff505295f9316513e1367fbbbe54fa1a5c729a2d7",
+        "kind": "source_record",
+        "data": {
+          "coverage": {
+            "detail": null,
+            "pages": 1,
+            "records": 1,
+            "scope": "https://api.github.com/repos/emmett08/eal-mcp",
+            "source": "github.repository",
+            "state": "complete"
+          },
+          "record_type": "collection_coverage"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:38.954375217Z",
+      "source": "github-executions:emmett08/eal-mcp",
+      "raw_sha256": "bf450ab4accedd556c2092f5b1588a5168a70603428f99309fb869aa7c79e350"
+    },
+    {
+      "record": {
+        "id": "coverage:ab5dff1c431a7ea7fd772fa108c9eaea1981bfeeffd7332717746b1905d444af",
+        "kind": "source_record",
+        "data": {
+          "coverage": {
+            "detail": null,
+            "pages": 1,
+            "records": 2,
+            "scope": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322/artifacts?per_page=100",
+            "source": "github.execution_artifact",
+            "state": "complete"
+          },
+          "record_type": "collection_coverage"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "coverage:f41d99fd6fad679d8302a31d31d54922092162015c21742ed97686b46750723a",
+        "kind": "source_record",
+        "data": {
+          "coverage": {
+            "detail": "Validated schema and receipt hashes; known platform fields compared with available API metadata. Unknown provenance and controller declarations remain unverified",
+            "pages": 1,
+            "records": 3,
+            "scope": "run:41339538299/artifact:13096169900",
+            "source": "github.execution_artifact_bundle",
+            "state": "complete"
+          },
+          "record_type": "collection_coverage"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:38.954375217Z",
+      "source": "github-executions:emmett08/eal-mcp",
+      "raw_sha256": "bf450ab4accedd556c2092f5b1588a5168a70603428f99309fb869aa7c79e350"
+    },
+    {
+      "record": {
+        "id": "coverage:f5217b5050bad1618995f42e188499e3431a307c0467267cd3e4171fedb679f9",
+        "kind": "source_record",
+        "data": {
+          "coverage": {
+            "detail": "Validated schema and receipt hashes; known platform fields compared with available API metadata. Unknown provenance and controller declarations remain unverified",
+            "pages": 1,
+            "records": 3,
+            "scope": "run:41339566322/artifact:13096961719",
+            "source": "github.execution_artifact_bundle",
+            "state": "complete"
+          },
+          "record_type": "collection_coverage"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "coverage:f6432cc67b215f89904ef46bd7e9fa9044a582c8f00e31431beaaefe6f4ca557",
+        "kind": "source_record",
+        "data": {
+          "coverage": {
+            "detail": "Deleted runs and expired artifacts cannot be reconstructed. No receipts do not establish zero executions; runner loss may prevent every upload.",
+            "pages": 0,
+            "records": 0,
+            "scope": "emmett08/engarg",
+            "source": "github.history",
+            "state": "not_collected"
+          },
+          "record_type": "collection_coverage"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "execution-bundle/79e5ce9bcb38ba0b1e7d33a93445e27dc132e06f3def7949bc7a7c2583eb5d2d",
+        "kind": "source_record",
+        "data": {
+          "payload": {
+            "bundle_sha256": "79e5ce9bcb38ba0b1e7d33a93445e27dc132e06f3def7949bc7a7c2583eb5d2d",
+            "platform": {
+              "actor": "emmett08",
+              "event_name": "pull_request",
+              "job_context_source": "caller",
+              "job_id": null,
+              "job_key": "checks",
+              "job_name": "checks (ubuntu-latest)",
+              "matrix": {
+                "os": "ubuntu-latest"
+              },
+              "repository": "emmett08/engarg",
+              "repository_id": "1431331749",
+              "run_attempt": 1,
+              "run_id": "41339566322",
+              "source": "runner_environment",
+              "triggering_actor": "emmett08",
+              "workflow_ref": "emmett08/engarg/.github/workflows/ci.yml@refs/pull/50/merge",
+              "workflow_sha": "0d09594fd516f66c9886cca958c64f0c09847b46"
+            },
+            "receipt_count": 2
+          },
+          "record_type": "execution_bundle",
+          "schema_version": 1,
+          "source": "observatory.execution_bundle"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "execution-bundle/bd136817f560cc175d755a6fa9ecaff91454095c298260fd5c2a7d3d2aec7d1d",
+        "kind": "source_record",
+        "data": {
+          "payload": {
+            "bundle_sha256": "bd136817f560cc175d755a6fa9ecaff91454095c298260fd5c2a7d3d2aec7d1d",
+            "platform": {
+              "actor": "emmett08",
+              "event_name": "pull_request",
+              "job_context_source": "caller",
+              "job_id": null,
+              "job_key": "context-experiment",
+              "job_name": "Observatory context experiment (ubuntu-latest)",
+              "matrix": {},
+              "repository": "emmett08/eal-mcp",
+              "repository_id": "1427362428",
+              "run_attempt": 1,
+              "run_id": "41339538299",
+              "source": "runner_environment",
+              "triggering_actor": "emmett08",
+              "workflow_ref": "emmett08/eal-mcp/.github/workflows/observatory-pilot.yml@refs/pull/37/merge",
+              "workflow_sha": "eb416513eca3542a40dad06af8f1d2f1a2cf93ae"
+            },
+            "receipt_count": 2
+          },
+          "record_type": "execution_bundle",
+          "schema_version": 1,
+          "source": "observatory.execution_bundle"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:38.954375217Z",
+      "source": "github-executions:emmett08/eal-mcp",
+      "raw_sha256": "bf450ab4accedd556c2092f5b1588a5168a70603428f99309fb869aa7c79e350"
+    },
+    {
+      "record": {
+        "id": "execution-bundle/db73e17fdcd8de6f9a3b11ea12c63a297a477d03dfc37a34157dd7fd263d0eaf",
+        "kind": "source_record",
+        "data": {
+          "payload": {
+            "bundle_sha256": "db73e17fdcd8de6f9a3b11ea12c63a297a477d03dfc37a34157dd7fd263d0eaf",
+            "platform": {
+              "actor": "emmett08",
+              "event_name": "pull_request",
+              "job_context_source": "caller",
+              "job_id": null,
+              "job_key": "checks",
+              "job_name": "checks (macos-latest)",
+              "matrix": {
+                "os": "macos-latest"
+              },
+              "repository": "emmett08/engarg",
+              "repository_id": "1431331749",
+              "run_attempt": 1,
+              "run_id": "41339566322",
+              "source": "runner_environment",
+              "triggering_actor": "emmett08",
+              "workflow_ref": "emmett08/engarg/.github/workflows/ci.yml@refs/pull/50/merge",
+              "workflow_sha": "0d09594fd516f66c9886cca958c64f0c09847b46"
+            },
+            "receipt_count": 2
+          },
+          "record_type": "execution_bundle",
+          "schema_version": 1,
+          "source": "observatory.execution_bundle"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "execution/1427362428/41339538299/1/4e79932b-56e5-4514-a312-cf14e557cdcc/completion",
+        "kind": "source_record",
+        "data": {
+          "payload": {
+            "artifacts": [],
+            "declared": {
+              "controller": "unknown",
+              "controller_provenance": [],
+              "logical_call_id": "eal-context-experiment-tests",
+              "parent_invocation_id": null,
+              "protocol_id": "observatory-linked-pilot-v1",
+              "session_id": null,
+              "source": "caller",
+              "task_id": "eal-context-effort-pilot"
+            },
+            "invocation_id": "4e79932b-56e5-4514-a312-cf14e557cdcc",
+            "missing_fields": [
+              "declared.controller",
+              "declared.parent_invocation_id",
+              "declared.session_id",
+              "platform.job_id",
+              "result.cached_input_tokens",
+              "result.charge_amount",
+              "result.charge_currency",
+              "result.input_tokens",
+              "result.observed_model",
+              "result.observed_session_id",
+              "result.output_tokens",
+              "result.usage_source",
+              "tool.configuration.configuration_sha256",
+              "tool.configuration.max_output_tokens",
+              "tool.configuration.reasoning_effort",
+              "tool.configuration.seed",
+              "tool.configuration.temperature",
+              "tool.configured_model"
+            ],
+            "phase": "completion",
+            "platform": {
+              "actor": "emmett08",
+              "event_name": "pull_request",
+              "job_context_source": "caller",
+              "job_id": null,
+              "job_key": "context-experiment",
+              "job_name": "Observatory context experiment (ubuntu-latest)",
+              "matrix": {},
+              "repository": "emmett08/eal-mcp",
+              "repository_id": "1427362428",
+              "run_attempt": 1,
+              "run_id": "41339538299",
+              "source": "runner_environment",
+              "triggering_actor": "emmett08",
+              "workflow_ref": "emmett08/eal-mcp/.github/workflows/observatory-pilot.yml@refs/pull/37/merge",
+              "workflow_sha": "eb416513eca3542a40dad06af8f1d2f1a2cf93ae"
+            },
+            "result": {
+              "cached_input_tokens": null,
+              "charge_amount": null,
+              "charge_currency": null,
+              "checks": [
+                {
+                  "name": "eal-context-experiment-tests",
+                  "status": "passed"
+                }
+              ],
+              "exit_code": 0,
+              "input_tokens": null,
+              "observed_model": null,
+              "observed_session_id": null,
+              "output_tokens": null,
+              "runtime_ms": 17050,
+              "status": "success",
+              "usage_source": "unknown"
+            },
+            "schema": "observatory.tool-receipt/1",
+            "timestamp": "2026-11-01T19:01:35.693Z",
+            "tool": {
+              "adapter": "command",
+              "configuration": {
+                "configuration_sha256": null,
+                "max_output_tokens": null,
+                "reasoning_effort": null,
+                "seed": null,
+                "temperature": null
+              },
+              "configured_model": null,
+              "name": "cargo",
+              "purpose": "development",
+              "version": "cargo 1.90.0 (840b83a10 2025-07-30)"
+            }
+          },
+          "record_type": "tool_execution_receipt",
+          "schema_version": 1,
+          "source": "observatory.tool_receipt"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:38.954375217Z",
+      "source": "github-executions:emmett08/eal-mcp",
+      "raw_sha256": "bf450ab4accedd556c2092f5b1588a5168a70603428f99309fb869aa7c79e350"
+    },
+    {
+      "record": {
+        "id": "execution/1427362428/41339538299/1/4e79932b-56e5-4514-a312-cf14e557cdcc/start",
+        "kind": "source_record",
+        "data": {
+          "payload": {
+            "artifacts": [],
+            "declared": {
+              "controller": "unknown",
+              "controller_provenance": [],
+              "logical_call_id": "eal-context-experiment-tests",
+              "parent_invocation_id": null,
+              "protocol_id": "observatory-linked-pilot-v1",
+              "session_id": null,
+              "source": "caller",
+              "task_id": "eal-context-effort-pilot"
+            },
+            "invocation_id": "4e79932b-56e5-4514-a312-cf14e557cdcc",
+            "missing_fields": [
+              "platform.job_id",
+              "declared.controller",
+              "declared.parent_invocation_id",
+              "declared.session_id",
+              "tool.configured_model",
+              "tool.configuration.configuration_sha256",
+              "tool.configuration.max_output_tokens",
+              "tool.configuration.reasoning_effort",
+              "tool.configuration.seed",
+              "tool.configuration.temperature"
+            ],
+            "phase": "start",
+            "platform": {
+              "actor": "emmett08",
+              "event_name": "pull_request",
+              "job_context_source": "caller",
+              "job_id": null,
+              "job_key": "context-experiment",
+              "job_name": "Observatory context experiment (ubuntu-latest)",
+              "matrix": {},
+              "repository": "emmett08/eal-mcp",
+              "repository_id": "1427362428",
+              "run_attempt": 1,
+              "run_id": "41339538299",
+              "source": "runner_environment",
+              "triggering_actor": "emmett08",
+              "workflow_ref": "emmett08/eal-mcp/.github/workflows/observatory-pilot.yml@refs/pull/37/merge",
+              "workflow_sha": "eb416513eca3542a40dad06af8f1d2f1a2cf93ae"
+            },
+            "result": null,
+            "schema": "observatory.tool-receipt/1",
+            "timestamp": "2026-11-01T19:01:18.640Z",
+            "tool": {
+              "adapter": "command",
+              "configuration": {
+                "configuration_sha256": null,
+                "max_output_tokens": null,
+                "reasoning_effort": null,
+                "seed": null,
+                "temperature": null
+              },
+              "configured_model": null,
+              "name": "cargo",
+              "purpose": "development",
+              "version": "cargo 1.90.0 (840b83a10 2025-07-30)"
+            }
+          },
+          "record_type": "tool_execution_receipt",
+          "schema_version": 1,
+          "source": "observatory.tool_receipt"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:38.954375217Z",
+      "source": "github-executions:emmett08/eal-mcp",
+      "raw_sha256": "bf450ab4accedd556c2092f5b1588a5168a70603428f99309fb869aa7c79e350"
+    },
+    {
+      "record": {
+        "id": "execution/1431331749/41339566322/1/42cae992-5081-48fe-a275-2415056fe1bb/completion",
+        "kind": "source_record",
+        "data": {
+          "payload": {
+            "artifacts": [],
+            "declared": {
+              "controller": "unknown",
+              "controller_provenance": [],
+              "logical_call_id": "authoring-script-preflight",
+              "parent_invocation_id": null,
+              "protocol_id": "observatory-linked-pilot-v1",
+              "session_id": null,
+              "source": "caller",
+              "task_id": "engarg-authoring-effort-pilot"
+            },
+            "invocation_id": "42cae992-5081-48fe-a275-2415056fe1bb",
+            "missing_fields": [
+              "declared.controller",
+              "declared.parent_invocation_id",
+              "declared.session_id",
+              "platform.job_id",
+              "result.cached_input_tokens",
+              "result.charge_amount",
+              "result.charge_currency",
+              "result.input_tokens",
+              "result.observed_model",
+              "result.observed_session_id",
+              "result.output_tokens",
+              "result.usage_source",
+              "tool.configuration.configuration_sha256",
+              "tool.configuration.max_output_tokens",
+              "tool.configuration.reasoning_effort",
+              "tool.configuration.seed",
+              "tool.configuration.temperature",
+              "tool.configured_model"
+            ],
+            "phase": "completion",
+            "platform": {
+              "actor": "emmett08",
+              "event_name": "pull_request",
+              "job_context_source": "caller",
+              "job_id": null,
+              "job_key": "checks",
+              "job_name": "checks (macos-latest)",
+              "matrix": {
+                "os": "macos-latest"
+              },
+              "repository": "emmett08/engarg",
+              "repository_id": "1431331749",
+              "run_attempt": 1,
+              "run_id": "41339566322",
+              "source": "runner_environment",
+              "triggering_actor": "emmett08",
+              "workflow_ref": "emmett08/engarg/.github/workflows/ci.yml@refs/pull/50/merge",
+              "workflow_sha": "0d09594fd516f66c9886cca958c64f0c09847b46"
+            },
+            "result": {
+              "cached_input_tokens": null,
+              "charge_amount": null,
+              "charge_currency": null,
+              "checks": [
+                {
+                  "name": "authoring-script-preflight",
+                  "status": "passed"
+                }
+              ],
+              "exit_code": 0,
+              "input_tokens": null,
+              "observed_model": null,
+              "observed_session_id": null,
+              "output_tokens": null,
+              "runtime_ms": 28368,
+              "status": "success",
+              "usage_source": "unknown"
+            },
+            "schema": "observatory.tool-receipt/1",
+            "timestamp": "2026-11-01T19:02:26.499Z",
+            "tool": {
+              "adapter": "command",
+              "configuration": {
+                "configuration_sha256": null,
+                "max_output_tokens": null,
+                "reasoning_effort": null,
+                "seed": null,
+                "temperature": null
+              },
+              "configured_model": null,
+              "name": "python3",
+              "purpose": "development",
+              "version": "Python 3.15.1"
+            }
+          },
+          "record_type": "tool_execution_receipt",
+          "schema_version": 1,
+          "source": "observatory.tool_receipt"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "execution/1431331749/41339566322/1/42cae992-5081-48fe-a275-2415056fe1bb/start",
+        "kind": "source_record",
+        "data": {
+          "payload": {
+            "artifacts": [],
+            "declared": {
+              "controller": "unknown",
+              "controller_provenance": [],
+              "logical_call_id": "authoring-script-preflight",
+              "parent_invocation_id": null,
+              "protocol_id": "observatory-linked-pilot-v1",
+              "session_id": null,
+              "source": "caller",
+              "task_id": "engarg-authoring-effort-pilot"
+            },
+            "invocation_id": "42cae992-5081-48fe-a275-2415056fe1bb",
+            "missing_fields": [
+              "platform.job_id",
+              "declared.controller",
+              "declared.parent_invocation_id",
+              "declared.session_id",
+              "tool.configured_model",
+              "tool.configuration.configuration_sha256",
+              "tool.configuration.max_output_tokens",
+              "tool.configuration.reasoning_effort",
+              "tool.configuration.seed",
+              "tool.configuration.temperature"
+            ],
+            "phase": "start",
+            "platform": {
+              "actor": "emmett08",
+              "event_name": "pull_request",
+              "job_context_source": "caller",
+              "job_id": null,
+              "job_key": "checks",
+              "job_name": "checks (macos-latest)",
+              "matrix": {
+                "os": "macos-latest"
+              },
+              "repository": "emmett08/engarg",
+              "repository_id": "1431331749",
+              "run_attempt": 1,
+              "run_id": "41339566322",
+              "source": "runner_environment",
+              "triggering_actor": "emmett08",
+              "workflow_ref": "emmett08/engarg/.github/workflows/ci.yml@refs/pull/50/merge",
+              "workflow_sha": "0d09594fd516f66c9886cca958c64f0c09847b46"
+            },
+            "result": null,
+            "schema": "observatory.tool-receipt/1",
+            "timestamp": "2026-11-01T19:01:58.124Z",
+            "tool": {
+              "adapter": "command",
+              "configuration": {
+                "configuration_sha256": null,
+                "max_output_tokens": null,
+                "reasoning_effort": null,
+                "seed": null,
+                "temperature": null
+              },
+              "configured_model": null,
+              "name": "python3",
+              "purpose": "development",
+              "version": "Python 3.15.1"
+            }
+          },
+          "record_type": "tool_execution_receipt",
+          "schema_version": 1,
+          "source": "observatory.tool_receipt"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "execution/1431331749/41339566322/1/a66dc7fd-4dba-4e3f-ae4f-84deec47b0fd/completion",
+        "kind": "source_record",
+        "data": {
+          "payload": {
+            "artifacts": [],
+            "declared": {
+              "controller": "unknown",
+              "controller_provenance": [],
+              "logical_call_id": "authoring-script-preflight",
+              "parent_invocation_id": null,
+              "protocol_id": "observatory-linked-pilot-v1",
+              "session_id": null,
+              "source": "caller",
+              "task_id": "engarg-authoring-effort-pilot"
+            },
+            "invocation_id": "a66dc7fd-4dba-4e3f-ae4f-84deec47b0fd",
+            "missing_fields": [
+              "declared.controller",
+              "declared.parent_invocation_id",
+              "declared.session_id",
+              "platform.job_id",
+              "result.cached_input_tokens",
+              "result.charge_amount",
+              "result.charge_currency",
+              "result.input_tokens",
+              "result.observed_model",
+              "result.observed_session_id",
+              "result.output_tokens",
+              "result.usage_source",
+              "tool.configuration.configuration_sha256",
+              "tool.configuration.max_output_tokens",
+              "tool.configuration.reasoning_effort",
+              "tool.configuration.seed",
+              "tool.configuration.temperature",
+              "tool.configured_model"
+            ],
+            "phase": "completion",
+            "platform": {
+              "actor": "emmett08",
+              "event_name": "pull_request",
+              "job_context_source": "caller",
+              "job_id": null,
+              "job_key": "checks",
+              "job_name": "checks (ubuntu-latest)",
+              "matrix": {
+                "os": "ubuntu-latest"
+              },
+              "repository": "emmett08/engarg",
+              "repository_id": "1431331749",
+              "run_attempt": 1,
+              "run_id": "41339566322",
+              "source": "runner_environment",
+              "triggering_actor": "emmett08",
+              "workflow_ref": "emmett08/engarg/.github/workflows/ci.yml@refs/pull/50/merge",
+              "workflow_sha": "0d09594fd516f66c9886cca958c64f0c09847b46"
+            },
+            "result": {
+              "cached_input_tokens": null,
+              "charge_amount": null,
+              "charge_currency": null,
+              "checks": [
+                {
+                  "name": "authoring-script-preflight",
+                  "status": "passed"
+                }
+              ],
+              "exit_code": 0,
+              "input_tokens": null,
+              "observed_model": null,
+              "observed_session_id": null,
+              "output_tokens": null,
+              "runtime_ms": 14583,
+              "status": "success",
+              "usage_source": "unknown"
+            },
+            "schema": "observatory.tool-receipt/1",
+            "timestamp": "2026-11-01T19:02:09.167Z",
+            "tool": {
+              "adapter": "command",
+              "configuration": {
+                "configuration_sha256": null,
+                "max_output_tokens": null,
+                "reasoning_effort": null,
+                "seed": null,
+                "temperature": null
+              },
+              "configured_model": null,
+              "name": "python3",
+              "purpose": "development",
+              "version": "Python 3.14.4"
+            }
+          },
+          "record_type": "tool_execution_receipt",
+          "schema_version": 1,
+          "source": "observatory.tool_receipt"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "execution/1431331749/41339566322/1/a66dc7fd-4dba-4e3f-ae4f-84deec47b0fd/start",
+        "kind": "source_record",
+        "data": {
+          "payload": {
+            "artifacts": [],
+            "declared": {
+              "controller": "unknown",
+              "controller_provenance": [],
+              "logical_call_id": "authoring-script-preflight",
+              "parent_invocation_id": null,
+              "protocol_id": "observatory-linked-pilot-v1",
+              "session_id": null,
+              "source": "caller",
+              "task_id": "engarg-authoring-effort-pilot"
+            },
+            "invocation_id": "a66dc7fd-4dba-4e3f-ae4f-84deec47b0fd",
+            "missing_fields": [
+              "platform.job_id",
+              "declared.controller",
+              "declared.parent_invocation_id",
+              "declared.session_id",
+              "tool.configured_model",
+              "tool.configuration.configuration_sha256",
+              "tool.configuration.max_output_tokens",
+              "tool.configuration.reasoning_effort",
+              "tool.configuration.seed",
+              "tool.configuration.temperature"
+            ],
+            "phase": "start",
+            "platform": {
+              "actor": "emmett08",
+              "event_name": "pull_request",
+              "job_context_source": "caller",
+              "job_id": null,
+              "job_key": "checks",
+              "job_name": "checks (ubuntu-latest)",
+              "matrix": {
+                "os": "ubuntu-latest"
+              },
+              "repository": "emmett08/engarg",
+              "repository_id": "1431331749",
+              "run_attempt": 1,
+              "run_id": "41339566322",
+              "source": "runner_environment",
+              "triggering_actor": "emmett08",
+              "workflow_ref": "emmett08/engarg/.github/workflows/ci.yml@refs/pull/50/merge",
+              "workflow_sha": "0d09594fd516f66c9886cca958c64f0c09847b46"
+            },
+            "result": null,
+            "schema": "observatory.tool-receipt/1",
+            "timestamp": "2026-11-01T19:01:54.581Z",
+            "tool": {
+              "adapter": "command",
+              "configuration": {
+                "configuration_sha256": null,
+                "max_output_tokens": null,
+                "reasoning_effort": null,
+                "seed": null,
+                "temperature": null
+              },
+              "configured_model": null,
+              "name": "python3",
+              "purpose": "development",
+              "version": "Python 3.14.4"
+            }
+          },
+          "record_type": "tool_execution_receipt",
+          "schema_version": 1,
+          "source": "observatory.tool_receipt"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1427362428/github.execution_artifact/run:41339538299/13096169900/d7e0d1c466e1dedaa83d0461486fe7727e7747f56ae6486807bfefbabecd5ada",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "d7e0d1c466e1dedaa83d0461486fe7727e7747f56ae6486807bfefbabecd5ada",
+          "payload": {
+            "archive_download_url": "https://api.github.com/repos/emmett08/eal-mcp/actions/artifacts/13096169900/zip",
+            "created_at": "2026-11-01T19:01:36Z",
+            "digest": "sha256:c1654b03f01d5893c1938e1d01ce8de4da167cb4d54322c336b3cc553fa5a17f",
+            "expired": false,
+            "expires_at": "2026-12-01T19:01:35Z",
+            "id": 13096169900,
+            "name": "observatory-executions-bd136817f560cc175d755a6fa9ecaff91454095c298260fd5c2a7d3d2aec7d1d-fefe7f5c-b815-4fa5-84e4-4dc5cf951d49",
+            "node_id": "MDg6QXJ0aWZhY3QxMzA5NjE2OTkwMA==",
+            "size_in_bytes": 1325,
+            "updated_at": "2026-11-01T19:01:36Z",
+            "url": "https://api.github.com/repos/emmett08/eal-mcp/actions/artifacts/13096169900",
+            "workflow_run": {
+              "head_branch": "feat/observatory-effort-pilot",
+              "head_repository_id": 1427362428,
+              "head_sha": "07dae82bc179651ad4b884d26bafd9680cc26045",
+              "id": 41339538299,
+              "repository_id": 1427362428
+            }
+          },
+          "repository": "github:repository:1427362428",
+          "schema_version": 1,
+          "source": "github.execution_artifact",
+          "source_id": "run:41339538299/13096169900"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:38.954375217Z",
+      "source": "github-executions:emmett08/eal-mcp",
+      "raw_sha256": "bf450ab4accedd556c2092f5b1588a5168a70603428f99309fb869aa7c79e350"
+    },
+    {
+      "record": {
+        "id": "github:repository:1427362428/github.execution_artifact_delivery/run:41339538299/artifact:13096169900/e2664585099af2616a35207abf04d3bcb24e96bc7de25cd45cab920a7eb90da0",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "e2664585099af2616a35207abf04d3bcb24e96bc7de25cd45cab920a7eb90da0",
+          "payload": {
+            "artifact_id": 13096169900,
+            "identity_comparison": "Known receipt repository/run/actor fields checked when API metadata was available; unknown fields remain unresolved. Acquisition context does not fill missing receipt provenance.",
+            "record_ids": [
+              "execution-bundle/bd136817f560cc175d755a6fa9ecaff91454095c298260fd5c2a7d3d2aec7d1d",
+              "execution/1427362428/41339538299/1/4e79932b-56e5-4514-a312-cf14e557cdcc/completion",
+              "execution/1427362428/41339538299/1/4e79932b-56e5-4514-a312-cf14e557cdcc/start"
+            ],
+            "repository": "emmett08/eal-mcp",
+            "repository_id": 1427362428,
+            "run_id": 41339538299,
+            "schema": "observatory.execution-artifact-delivery/1",
+            "source": "github_api"
+          },
+          "repository": "github:repository:1427362428",
+          "schema_version": 1,
+          "source": "github.execution_artifact_delivery",
+          "source_id": "run:41339538299/artifact:13096169900"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:38.954375217Z",
+      "source": "github-executions:emmett08/eal-mcp",
+      "raw_sha256": "bf450ab4accedd556c2092f5b1588a5168a70603428f99309fb869aa7c79e350"
+    },
+    {
+      "record": {
+        "id": "github:repository:1427362428/github.execution_job_reconciliation/run:41339538299/attempt:1/job:124946448923/148ef4aa97ef53996c02f753705fccf11c5ce1b706b186e2ddfec97dccd3aa79",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "148ef4aa97ef53996c02f753705fccf11c5ce1b706b186e2ddfec97dccd3aa79",
+          "payload": {
+            "conclusion": "success",
+            "job_id": 124946448923,
+            "job_name": "Observatory context experiment (ubuntu-latest)",
+            "limitations": "No receipts can mean uninstrumented work or a missing upload. Observed receipts do not establish complete tool coverage, human effort, acceptance or retained quality.",
+            "linked_invocations": 1,
+            "receipt_observation": "receipts_observed",
+            "run_attempt": 1,
+            "run_id": 41339538299,
+            "schema": "observatory.execution-job-reconciliation/1",
+            "source": "github_api_comparison",
+            "status": "completed"
+          },
+          "repository": "github:repository:1427362428",
+          "schema_version": 1,
+          "source": "github.execution_job_reconciliation",
+          "source_id": "run:41339538299/attempt:1/job:124946448923"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:38.954375217Z",
+      "source": "github-executions:emmett08/eal-mcp",
+      "raw_sha256": "bf450ab4accedd556c2092f5b1588a5168a70603428f99309fb869aa7c79e350"
+    },
+    {
+      "record": {
+        "id": "github:repository:1427362428/github.execution_reconciliation/run:41339538299/invocation:execution/1427362428/41339538299/1/4e79932b-56e5-4514-a312-cf14e557cdcc/504bc491537a50426080236046ba4c975aaf2916c909cda526b0a17ec43002fc",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "504bc491537a50426080236046ba4c975aaf2916c909cda526b0a17ec43002fc",
+          "payload": {
+            "invocation_id": "4e79932b-56e5-4514-a312-cf14e557cdcc",
+            "job_conclusion": "success",
+            "job_id": 124946448923,
+            "job_link": "unambiguous",
+            "job_status": "completed",
+            "lifecycle": "start_and_completion_observed",
+            "limitations": "Schema and hash validation do not authenticate caller declarations. Missing phases do not establish tool outcome.",
+            "receipt_ids": [
+              "execution/1427362428/41339538299/1/4e79932b-56e5-4514-a312-cf14e557cdcc/completion",
+              "execution/1427362428/41339538299/1/4e79932b-56e5-4514-a312-cf14e557cdcc/start"
+            ],
+            "run_attempt": 1,
+            "run_id": 41339538299,
+            "schema": "observatory.execution-reconciliation/1",
+            "source": "github_api_comparison"
+          },
+          "repository": "github:repository:1427362428",
+          "schema_version": 1,
+          "source": "github.execution_reconciliation",
+          "source_id": "run:41339538299/invocation:execution/1427362428/41339538299/1/4e79932b-56e5-4514-a312-cf14e557cdcc"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:38.954375217Z",
+      "source": "github-executions:emmett08/eal-mcp",
+      "raw_sha256": "bf450ab4accedd556c2092f5b1588a5168a70603428f99309fb869aa7c79e350"
+    },
+    {
+      "record": {
+        "id": "github:repository:1427362428/github.repository/repository/5aff409539a4c0154b22537da0e51f5ce60c3cd2ad14094d2432d66704477aa2",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "5aff409539a4c0154b22537da0e51f5ce60c3cd2ad14094d2432d66704477aa2",
+          "payload": {
+            "allow_forking": true,
+            "archive_url": "https://api.github.com/repos/emmett08/eal-mcp/{archive_format}{/ref}",
+            "archived": false,
+            "assignees_url": "https://api.github.com/repos/emmett08/eal-mcp/assignees{/user}",
+            "blobs_url": "https://api.github.com/repos/emmett08/eal-mcp/git/blobs{/sha}",
+            "branches_url": "https://api.github.com/repos/emmett08/eal-mcp/branches{/branch}",
+            "clone_url": "https://github.com/emmett08/eal-mcp.git",
+            "collaborators_url": "https://api.github.com/repos/emmett08/eal-mcp/collaborators{/collaborator}",
+            "comments_url": "https://api.github.com/repos/emmett08/eal-mcp/comments{/number}",
+            "commits_url": "https://api.github.com/repos/emmett08/eal-mcp/commits{/sha}",
+            "compare_url": "https://api.github.com/repos/emmett08/eal-mcp/compare/{base}...{head}",
+            "contents_url": "https://api.github.com/repos/emmett08/eal-mcp/contents/{+path}",
+            "contributors_url": "https://api.github.com/repos/emmett08/eal-mcp/contributors",
+            "created_at": "2026-10-20T17:40:01Z",
+            "default_branch": "main",
+            "deployments_url": "https://api.github.com/repos/emmett08/eal-mcp/deployments",
+            "description": "Rust implementation of EAL/3 for assessing engineering arguments against collected evidence, with CLI and MCP interfaces and optional ASPIC+ reasoning.",
+            "disabled": false,
+            "downloads_url": "https://api.github.com/repos/emmett08/eal-mcp/downloads",
+            "events_url": "https://api.github.com/repos/emmett08/eal-mcp/events",
+            "fork": false,
+            "forks": 0,
+            "forks_count": 0,
+            "forks_url": "https://api.github.com/repos/emmett08/eal-mcp/forks",
+            "full_name": "emmett08/eal-mcp",
+            "git_commits_url": "https://api.github.com/repos/emmett08/eal-mcp/git/commits{/sha}",
+            "git_refs_url": "https://api.github.com/repos/emmett08/eal-mcp/git/refs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/emmett08/eal-mcp/git/tags{/sha}",
+            "git_url": "git://github.com/emmett08/eal-mcp.git",
+            "has_discussions": false,
+            "has_downloads": false,
+            "has_issues": true,
+            "has_pages": false,
+            "has_projects": true,
+            "has_pull_requests": true,
+            "has_wiki": true,
+            "homepage": "",
+            "hooks_url": "https://api.github.com/repos/emmett08/eal-mcp/hooks",
+            "html_url": "https://github.com/emmett08/eal-mcp",
+            "id": 1427362428,
+            "is_template": false,
+            "issue_comment_url": "https://api.github.com/repos/emmett08/eal-mcp/issues/comments{/number}",
+            "issue_events_url": "https://api.github.com/repos/emmett08/eal-mcp/issues/events{/number}",
+            "issues_url": "https://api.github.com/repos/emmett08/eal-mcp/issues{/number}",
+            "keys_url": "https://api.github.com/repos/emmett08/eal-mcp/keys{/key_id}",
+            "labels_url": "https://api.github.com/repos/emmett08/eal-mcp/labels{/name}",
+            "language": "Rust",
+            "languages_url": "https://api.github.com/repos/emmett08/eal-mcp/languages",
+            "license": {
+              "key": "gpl-3.0",
+              "name": "GNU General Public License v3.0",
+              "node_id": "MDc6TGljZW5zZTk=",
+              "spdx_id": "GPL-3.0",
+              "url": "https://api.github.com/licenses/gpl-3.0"
+            },
+            "merges_url": "https://api.github.com/repos/emmett08/eal-mcp/merges",
+            "milestones_url": "https://api.github.com/repos/emmett08/eal-mcp/milestones{/number}",
+            "mirror_url": null,
+            "name": "eal-mcp",
+            "network_count": 0,
+            "node_id": "R_kgDOVRPSfA",
+            "notifications_url": "https://api.github.com/repos/emmett08/eal-mcp/notifications{?since,all,participating}",
+            "open_issues": 2,
+            "open_issues_count": 2,
+            "owner": {
+              "avatar_url": "https://avatars.githubusercontent.com/u/85883829?v=4",
+              "events_url": "https://api.github.com/users/emmett08/events{/privacy}",
+              "followers_url": "https://api.github.com/users/emmett08/followers",
+              "following_url": "https://api.github.com/users/emmett08/following{/other_user}",
+              "gists_url": "https://api.github.com/users/emmett08/gists{/gist_id}",
+              "gravatar_id": "",
+              "html_url": "https://github.com/emmett08",
+              "id": 85883829,
+              "login": "emmett08",
+              "node_id": "MDQ6VXNlcjg1ODgzODI5",
+              "organizations_url": "https://api.github.com/users/emmett08/orgs",
+              "received_events_url": "https://api.github.com/users/emmett08/received_events",
+              "repos_url": "https://api.github.com/users/emmett08/repos",
+              "site_admin": false,
+              "starred_url": "https://api.github.com/users/emmett08/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/emmett08/subscriptions",
+              "type": "User",
+              "url": "https://api.github.com/users/emmett08",
+              "user_view_type": "public"
+            },
+            "permissions": {
+              "admin": false,
+              "maintain": false,
+              "pull": false,
+              "push": false,
+              "triage": false
+            },
+            "private": false,
+            "pull_request_creation_policy": "all",
+            "pulls_url": "https://api.github.com/repos/emmett08/eal-mcp/pulls{/number}",
+            "pushed_at": "2026-11-01T19:00:54Z",
+            "releases_url": "https://api.github.com/repos/emmett08/eal-mcp/releases{/id}",
+            "size": 3324,
+            "ssh_url": "git@github.com:emmett08/eal-mcp.git",
+            "stargazers_count": 0,
+            "stargazers_url": "https://api.github.com/repos/emmett08/eal-mcp/stargazers",
+            "statuses_url": "https://api.github.com/repos/emmett08/eal-mcp/statuses/{sha}",
+            "subscribers_count": 0,
+            "subscribers_url": "https://api.github.com/repos/emmett08/eal-mcp/subscribers",
+            "subscription_url": "https://api.github.com/repos/emmett08/eal-mcp/subscription",
+            "svn_url": "https://github.com/emmett08/eal-mcp",
+            "tags_url": "https://api.github.com/repos/emmett08/eal-mcp/tags",
+            "teams_url": "https://api.github.com/repos/emmett08/eal-mcp/teams",
+            "temp_clone_token": "",
+            "topics": [],
+            "trees_url": "https://api.github.com/repos/emmett08/eal-mcp/git/trees{/sha}",
+            "updated_at": "2026-10-30T15:35:57Z",
+            "url": "https://api.github.com/repos/emmett08/eal-mcp",
+            "visibility": "public",
+            "watchers": 0,
+            "watchers_count": 0,
+            "web_commit_signoff_required": false
+          },
+          "repository": "github:repository:1427362428",
+          "schema_version": 1,
+          "source": "github.repository",
+          "source_id": "repository"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:38.954375217Z",
+      "source": "github-executions:emmett08/eal-mcp",
+      "raw_sha256": "bf450ab4accedd556c2092f5b1588a5168a70603428f99309fb869aa7c79e350"
+    },
+    {
+      "record": {
+        "id": "github:repository:1427362428/github.workflow_attempt/run:41339538299/attempt:1//a2c74c1358bde7777d6817cd3d43a633159ff2b10039095511a21a8f791fa9a0",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "a2c74c1358bde7777d6817cd3d43a633159ff2b10039095511a21a8f791fa9a0",
+          "payload": {
+            "actor": {
+              "avatar_url": "https://avatars.githubusercontent.com/u/85883829?v=4",
+              "events_url": "https://api.github.com/users/emmett08/events{/privacy}",
+              "followers_url": "https://api.github.com/users/emmett08/followers",
+              "following_url": "https://api.github.com/users/emmett08/following{/other_user}",
+              "gists_url": "https://api.github.com/users/emmett08/gists{/gist_id}",
+              "gravatar_id": "",
+              "html_url": "https://github.com/emmett08",
+              "id": 85883829,
+              "login": "emmett08",
+              "node_id": "MDQ6VXNlcjg1ODgzODI5",
+              "organizations_url": "https://api.github.com/users/emmett08/orgs",
+              "received_events_url": "https://api.github.com/users/emmett08/received_events",
+              "repos_url": "https://api.github.com/users/emmett08/repos",
+              "site_admin": false,
+              "starred_url": "https://api.github.com/users/emmett08/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/emmett08/subscriptions",
+              "type": "User",
+              "url": "https://api.github.com/users/emmett08",
+              "user_view_type": "public"
+            },
+            "artifacts_url": "https://api.github.com/repos/emmett08/eal-mcp/actions/runs/41339538299/artifacts",
+            "cancel_url": "https://api.github.com/repos/emmett08/eal-mcp/actions/runs/41339538299/cancel",
+            "check_suite_id": 112037980429,
+            "check_suite_node_id": "CS_kwDOVRPSfM8AAAAaFfvpDQ",
+            "check_suite_url": "https://api.github.com/repos/emmett08/eal-mcp/check-suites/112037980429",
+            "conclusion": "success",
+            "created_at": "2026-11-01T19:00:57Z",
+            "display_title": "Instrument context experiment with linked Observatory evidence",
+            "event": "pull_request",
+            "head_branch": "feat/observatory-effort-pilot",
+            "head_commit": {
+              "author": {
+                "email": "emmett.miller7@outlook.com",
+                "name": "Emmett Miller"
+              },
+              "committer": {
+                "email": "emmett.miller7@outlook.com",
+                "name": "Emmett Miller"
+              },
+              "id": "07dae82bc179651ad4b884d26bafd9680cc26045",
+              "message": "Bound sample task attribution to the registered pilot PR",
+              "timestamp": "2026-11-01T19:00:53Z",
+              "tree_id": "5383de3db3ac878d7e38d22d1e3a8de8329bd393"
+            },
+            "head_repository": {
+              "archive_url": "https://api.github.com/repos/emmett08/eal-mcp/{archive_format}{/ref}",
+              "assignees_url": "https://api.github.com/repos/emmett08/eal-mcp/assignees{/user}",
+              "blobs_url": "https://api.github.com/repos/emmett08/eal-mcp/git/blobs{/sha}",
+              "branches_url": "https://api.github.com/repos/emmett08/eal-mcp/branches{/branch}",
+              "collaborators_url": "https://api.github.com/repos/emmett08/eal-mcp/collaborators{/collaborator}",
+              "comments_url": "https://api.github.com/repos/emmett08/eal-mcp/comments{/number}",
+              "commits_url": "https://api.github.com/repos/emmett08/eal-mcp/commits{/sha}",
+              "compare_url": "https://api.github.com/repos/emmett08/eal-mcp/compare/{base}...{head}",
+              "contents_url": "https://api.github.com/repos/emmett08/eal-mcp/contents/{+path}",
+              "contributors_url": "https://api.github.com/repos/emmett08/eal-mcp/contributors",
+              "deployments_url": "https://api.github.com/repos/emmett08/eal-mcp/deployments",
+              "description": "Rust implementation of EAL/3 for assessing engineering arguments against collected evidence, with CLI and MCP interfaces and optional ASPIC+ reasoning.",
+              "downloads_url": "https://api.github.com/repos/emmett08/eal-mcp/downloads",
+              "events_url": "https://api.github.com/repos/emmett08/eal-mcp/events",
+              "fork": false,
+              "forks_url": "https://api.github.com/repos/emmett08/eal-mcp/forks",
+              "full_name": "emmett08/eal-mcp",
+              "git_commits_url": "https://api.github.com/repos/emmett08/eal-mcp/git/commits{/sha}",
+              "git_refs_url": "https://api.github.com/repos/emmett08/eal-mcp/git/refs{/sha}",
+              "git_tags_url": "https://api.github.com/repos/emmett08/eal-mcp/git/tags{/sha}",
+              "hooks_url": "https://api.github.com/repos/emmett08/eal-mcp/hooks",
+              "html_url": "https://github.com/emmett08/eal-mcp",
+              "id": 1427362428,
+              "issue_comment_url": "https://api.github.com/repos/emmett08/eal-mcp/issues/comments{/number}",
+              "issue_events_url": "https://api.github.com/repos/emmett08/eal-mcp/issues/events{/number}",
+              "issues_url": "https://api.github.com/repos/emmett08/eal-mcp/issues{/number}",
+              "keys_url": "https://api.github.com/repos/emmett08/eal-mcp/keys{/key_id}",
+              "labels_url": "https://api.github.com/repos/emmett08/eal-mcp/labels{/name}",
+              "languages_url": "https://api.github.com/repos/emmett08/eal-mcp/languages",
+              "merges_url": "https://api.github.com/repos/emmett08/eal-mcp/merges",
+              "milestones_url": "https://api.github.com/repos/emmett08/eal-mcp/milestones{/number}",
+              "name": "eal-mcp",
+              "node_id": "R_kgDOVRPSfA",
+              "notifications_url": "https://api.github.com/repos/emmett08/eal-mcp/notifications{?since,all,participating}",
+              "owner": {
+                "avatar_url": "https://avatars.githubusercontent.com/u/85883829?v=4",
+                "events_url": "https://api.github.com/users/emmett08/events{/privacy}",
+                "followers_url": "https://api.github.com/users/emmett08/followers",
+                "following_url": "https://api.github.com/users/emmett08/following{/other_user}",
+                "gists_url": "https://api.github.com/users/emmett08/gists{/gist_id}",
+                "gravatar_id": "",
+                "html_url": "https://github.com/emmett08",
+                "id": 85883829,
+                "login": "emmett08",
+                "node_id": "MDQ6VXNlcjg1ODgzODI5",
+                "organizations_url": "https://api.github.com/users/emmett08/orgs",
+                "received_events_url": "https://api.github.com/users/emmett08/received_events",
+                "repos_url": "https://api.github.com/users/emmett08/repos",
+                "site_admin": false,
+                "starred_url": "https://api.github.com/users/emmett08/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/emmett08/subscriptions",
+                "type": "User",
+                "url": "https://api.github.com/users/emmett08",
+                "user_view_type": "public"
+              },
+              "private": false,
+              "pulls_url": "https://api.github.com/repos/emmett08/eal-mcp/pulls{/number}",
+              "releases_url": "https://api.github.com/repos/emmett08/eal-mcp/releases{/id}",
+              "stargazers_url": "https://api.github.com/repos/emmett08/eal-mcp/stargazers",
+              "statuses_url": "https://api.github.com/repos/emmett08/eal-mcp/statuses/{sha}",
+              "subscribers_url": "https://api.github.com/repos/emmett08/eal-mcp/subscribers",
+              "subscription_url": "https://api.github.com/repos/emmett08/eal-mcp/subscription",
+              "tags_url": "https://api.github.com/repos/emmett08/eal-mcp/tags",
+              "teams_url": "https://api.github.com/repos/emmett08/eal-mcp/teams",
+              "trees_url": "https://api.github.com/repos/emmett08/eal-mcp/git/trees{/sha}",
+              "url": "https://api.github.com/repos/emmett08/eal-mcp"
+            },
+            "head_sha": "07dae82bc179651ad4b884d26bafd9680cc26045",
+            "html_url": "https://github.com/emmett08/eal-mcp/actions/runs/41339538299",
+            "id": 41339538299,
+            "jobs_url": "https://api.github.com/repos/emmett08/eal-mcp/actions/runs/41339538299/attempts/1/jobs",
+            "logs_url": "https://api.github.com/repos/emmett08/eal-mcp/actions/runs/41339538299/attempts/1/logs",
+            "name": "Observatory context experiment pilot",
+            "node_id": "WFR_kwLOVRPSfM8AAAAJoAdLew",
+            "path": ".github/workflows/observatory-pilot.yml",
+            "previous_attempt_url": null,
+            "pull_requests": [
+              {
+                "base": {
+                  "ref": "main",
+                  "repo": {
+                    "id": 1427362428,
+                    "name": "eal-mcp",
+                    "url": "https://api.github.com/repos/emmett08/eal-mcp"
+                  },
+                  "sha": "fe4a5cc4ef518b62ed0180646da1b7bccfd54249"
+                },
+                "head": {
+                  "ref": "feat/observatory-effort-pilot",
+                  "repo": {
+                    "id": 1427362428,
+                    "name": "eal-mcp",
+                    "url": "https://api.github.com/repos/emmett08/eal-mcp"
+                  },
+                  "sha": "07dae82bc179651ad4b884d26bafd9680cc26045"
+                },
+                "id": 5110545010,
+                "number": 37,
+                "url": "https://api.github.com/repos/emmett08/eal-mcp/pulls/37"
+              }
+            ],
+            "referenced_workflows": [],
+            "repository": {
+              "archive_url": "https://api.github.com/repos/emmett08/eal-mcp/{archive_format}{/ref}",
+              "assignees_url": "https://api.github.com/repos/emmett08/eal-mcp/assignees{/user}",
+              "blobs_url": "https://api.github.com/repos/emmett08/eal-mcp/git/blobs{/sha}",
+              "branches_url": "https://api.github.com/repos/emmett08/eal-mcp/branches{/branch}",
+              "collaborators_url": "https://api.github.com/repos/emmett08/eal-mcp/collaborators{/collaborator}",
+              "comments_url": "https://api.github.com/repos/emmett08/eal-mcp/comments{/number}",
+              "commits_url": "https://api.github.com/repos/emmett08/eal-mcp/commits{/sha}",
+              "compare_url": "https://api.github.com/repos/emmett08/eal-mcp/compare/{base}...{head}",
+              "contents_url": "https://api.github.com/repos/emmett08/eal-mcp/contents/{+path}",
+              "contributors_url": "https://api.github.com/repos/emmett08/eal-mcp/contributors",
+              "deployments_url": "https://api.github.com/repos/emmett08/eal-mcp/deployments",
+              "description": "Rust implementation of EAL/3 for assessing engineering arguments against collected evidence, with CLI and MCP interfaces and optional ASPIC+ reasoning.",
+              "downloads_url": "https://api.github.com/repos/emmett08/eal-mcp/downloads",
+              "events_url": "https://api.github.com/repos/emmett08/eal-mcp/events",
+              "fork": false,
+              "forks_url": "https://api.github.com/repos/emmett08/eal-mcp/forks",
+              "full_name": "emmett08/eal-mcp",
+              "git_commits_url": "https://api.github.com/repos/emmett08/eal-mcp/git/commits{/sha}",
+              "git_refs_url": "https://api.github.com/repos/emmett08/eal-mcp/git/refs{/sha}",
+              "git_tags_url": "https://api.github.com/repos/emmett08/eal-mcp/git/tags{/sha}",
+              "hooks_url": "https://api.github.com/repos/emmett08/eal-mcp/hooks",
+              "html_url": "https://github.com/emmett08/eal-mcp",
+              "id": 1427362428,
+              "issue_comment_url": "https://api.github.com/repos/emmett08/eal-mcp/issues/comments{/number}",
+              "issue_events_url": "https://api.github.com/repos/emmett08/eal-mcp/issues/events{/number}",
+              "issues_url": "https://api.github.com/repos/emmett08/eal-mcp/issues{/number}",
+              "keys_url": "https://api.github.com/repos/emmett08/eal-mcp/keys{/key_id}",
+              "labels_url": "https://api.github.com/repos/emmett08/eal-mcp/labels{/name}",
+              "languages_url": "https://api.github.com/repos/emmett08/eal-mcp/languages",
+              "merges_url": "https://api.github.com/repos/emmett08/eal-mcp/merges",
+              "milestones_url": "https://api.github.com/repos/emmett08/eal-mcp/milestones{/number}",
+              "name": "eal-mcp",
+              "node_id": "R_kgDOVRPSfA",
+              "notifications_url": "https://api.github.com/repos/emmett08/eal-mcp/notifications{?since,all,participating}",
+              "owner": {
+                "avatar_url": "https://avatars.githubusercontent.com/u/85883829?v=4",
+                "events_url": "https://api.github.com/users/emmett08/events{/privacy}",
+                "followers_url": "https://api.github.com/users/emmett08/followers",
+                "following_url": "https://api.github.com/users/emmett08/following{/other_user}",
+                "gists_url": "https://api.github.com/users/emmett08/gists{/gist_id}",
+                "gravatar_id": "",
+                "html_url": "https://github.com/emmett08",
+                "id": 85883829,
+                "login": "emmett08",
+                "node_id": "MDQ6VXNlcjg1ODgzODI5",
+                "organizations_url": "https://api.github.com/users/emmett08/orgs",
+                "received_events_url": "https://api.github.com/users/emmett08/received_events",
+                "repos_url": "https://api.github.com/users/emmett08/repos",
+                "site_admin": false,
+                "starred_url": "https://api.github.com/users/emmett08/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/emmett08/subscriptions",
+                "type": "User",
+                "url": "https://api.github.com/users/emmett08",
+                "user_view_type": "public"
+              },
+              "private": false,
+              "pulls_url": "https://api.github.com/repos/emmett08/eal-mcp/pulls{/number}",
+              "releases_url": "https://api.github.com/repos/emmett08/eal-mcp/releases{/id}",
+              "stargazers_url": "https://api.github.com/repos/emmett08/eal-mcp/stargazers",
+              "statuses_url": "https://api.github.com/repos/emmett08/eal-mcp/statuses/{sha}",
+              "subscribers_url": "https://api.github.com/repos/emmett08/eal-mcp/subscribers",
+              "subscription_url": "https://api.github.com/repos/emmett08/eal-mcp/subscription",
+              "tags_url": "https://api.github.com/repos/emmett08/eal-mcp/tags",
+              "teams_url": "https://api.github.com/repos/emmett08/eal-mcp/teams",
+              "trees_url": "https://api.github.com/repos/emmett08/eal-mcp/git/trees{/sha}",
+              "url": "https://api.github.com/repos/emmett08/eal-mcp"
+            },
+            "rerun_url": "https://api.github.com/repos/emmett08/eal-mcp/actions/runs/41339538299/rerun",
+            "run_attempt": 1,
+            "run_number": 3,
+            "run_started_at": "2026-11-01T19:00:57Z",
+            "status": "completed",
+            "triggering_actor": {
+              "avatar_url": "https://avatars.githubusercontent.com/u/85883829?v=4",
+              "events_url": "https://api.github.com/users/emmett08/events{/privacy}",
+              "followers_url": "https://api.github.com/users/emmett08/followers",
+              "following_url": "https://api.github.com/users/emmett08/following{/other_user}",
+              "gists_url": "https://api.github.com/users/emmett08/gists{/gist_id}",
+              "gravatar_id": "",
+              "html_url": "https://github.com/emmett08",
+              "id": 85883829,
+              "login": "emmett08",
+              "node_id": "MDQ6VXNlcjg1ODgzODI5",
+              "organizations_url": "https://api.github.com/users/emmett08/orgs",
+              "received_events_url": "https://api.github.com/users/emmett08/received_events",
+              "repos_url": "https://api.github.com/users/emmett08/repos",
+              "site_admin": false,
+              "starred_url": "https://api.github.com/users/emmett08/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/emmett08/subscriptions",
+              "type": "User",
+              "url": "https://api.github.com/users/emmett08",
+              "user_view_type": "public"
+            },
+            "updated_at": "2026-11-01T19:01:38Z",
+            "url": "https://api.github.com/repos/emmett08/eal-mcp/actions/runs/41339538299",
+            "workflow_id": 403801833,
+            "workflow_url": "https://api.github.com/repos/emmett08/eal-mcp/actions/workflows/403801833"
+          },
+          "repository": "github:repository:1427362428",
+          "schema_version": 1,
+          "source": "github.workflow_attempt",
+          "source_id": "run:41339538299/attempt:1/"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:38.954375217Z",
+      "source": "github-executions:emmett08/eal-mcp",
+      "raw_sha256": "bf450ab4accedd556c2092f5b1588a5168a70603428f99309fb869aa7c79e350"
+    },
+    {
+      "record": {
+        "id": "github:repository:1427362428/github.workflow_job/run:41339538299/attempt:1/124946448923/04bec5734fd0dad35a1883cfd25636ad4eebb18fc94eb3774d4ebd023b7ff466",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "04bec5734fd0dad35a1883cfd25636ad4eebb18fc94eb3774d4ebd023b7ff466",
+          "payload": {
+            "check_run_url": "https://api.github.com/repos/emmett08/eal-mcp/check-runs/124946448923",
+            "completed_at": "2026-11-01T19:01:38Z",
+            "conclusion": "success",
+            "created_at": "2026-11-01T19:01:05Z",
+            "head_branch": "feat/observatory-effort-pilot",
+            "head_sha": "07dae82bc179651ad4b884d26bafd9680cc26045",
+            "html_url": "https://github.com/emmett08/eal-mcp/actions/runs/41339538299/job/124946448923",
+            "id": 124946448923,
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "name": "Observatory context experiment (ubuntu-latest)",
+            "node_id": "CR_kwDOVRPSfM8AAAAdF2OCGw",
+            "run_attempt": 1,
+            "run_id": 41339538299,
+            "run_url": "https://api.github.com/repos/emmett08/eal-mcp/actions/runs/41339538299",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions",
+            "runner_id": 1000023260,
+            "runner_name": "GitHub Actions 1000023260",
+            "started_at": "2026-11-01T19:01:07Z",
+            "status": "completed",
+            "steps": [
+              {
+                "completed_at": "2026-11-01T19:01:09Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "started_at": "2026-11-01T19:01:08Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:10Z",
+                "conclusion": "success",
+                "name": "Check out the proposed change",
+                "number": 2,
+                "started_at": "2026-11-01T19:01:09Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:10Z",
+                "conclusion": "success",
+                "name": "Configure Observatory recording",
+                "number": 3,
+                "started_at": "2026-11-01T19:01:10Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:18Z",
+                "conclusion": "success",
+                "name": "Install Rust 1.90.0",
+                "number": 4,
+                "started_at": "2026-11-01T19:01:10Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:35Z",
+                "conclusion": "success",
+                "name": "Test context experiment with an execution receipt",
+                "number": 5,
+                "started_at": "2026-11-01T19:01:18Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:36Z",
+                "conclusion": "success",
+                "name": "Publish Observatory receipt bundle",
+                "number": 6,
+                "started_at": "2026-11-01T19:01:35Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:36Z",
+                "conclusion": "success",
+                "name": "Post Check out the proposed change",
+                "number": 12,
+                "started_at": "2026-11-01T19:01:36Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:37Z",
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 13,
+                "started_at": "2026-11-01T19:01:36Z",
+                "status": "completed"
+              }
+            ],
+            "url": "https://api.github.com/repos/emmett08/eal-mcp/actions/jobs/124946448923",
+            "workflow_name": "Observatory context experiment pilot"
+          },
+          "repository": "github:repository:1427362428",
+          "schema_version": 1,
+          "source": "github.workflow_job",
+          "source_id": "run:41339538299/attempt:1/124946448923"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:38.954375217Z",
+      "source": "github-executions:emmett08/eal-mcp",
+      "raw_sha256": "bf450ab4accedd556c2092f5b1588a5168a70603428f99309fb869aa7c79e350"
+    },
+    {
+      "record": {
+        "id": "github:repository:1427362428/github.workflow_run/41339538299/7e78e1ffd25d6329e029a2b39f676bf6b619eb134ea23a3849232ca8b92ef014",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "7e78e1ffd25d6329e029a2b39f676bf6b619eb134ea23a3849232ca8b92ef014",
+          "payload": {
+            "actor": {
+              "avatar_url": "https://avatars.githubusercontent.com/u/85883829?v=4",
+              "events_url": "https://api.github.com/users/emmett08/events{/privacy}",
+              "followers_url": "https://api.github.com/users/emmett08/followers",
+              "following_url": "https://api.github.com/users/emmett08/following{/other_user}",
+              "gists_url": "https://api.github.com/users/emmett08/gists{/gist_id}",
+              "gravatar_id": "",
+              "html_url": "https://github.com/emmett08",
+              "id": 85883829,
+              "login": "emmett08",
+              "node_id": "MDQ6VXNlcjg1ODgzODI5",
+              "organizations_url": "https://api.github.com/users/emmett08/orgs",
+              "received_events_url": "https://api.github.com/users/emmett08/received_events",
+              "repos_url": "https://api.github.com/users/emmett08/repos",
+              "site_admin": false,
+              "starred_url": "https://api.github.com/users/emmett08/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/emmett08/subscriptions",
+              "type": "User",
+              "url": "https://api.github.com/users/emmett08",
+              "user_view_type": "public"
+            },
+            "artifacts_url": "https://api.github.com/repos/emmett08/eal-mcp/actions/runs/41339538299/artifacts",
+            "cancel_url": "https://api.github.com/repos/emmett08/eal-mcp/actions/runs/41339538299/cancel",
+            "check_suite_id": 112037980429,
+            "check_suite_node_id": "CS_kwDOVRPSfM8AAAAaFfvpDQ",
+            "check_suite_url": "https://api.github.com/repos/emmett08/eal-mcp/check-suites/112037980429",
+            "conclusion": "success",
+            "created_at": "2026-11-01T19:00:57Z",
+            "display_title": "Instrument context experiment with linked Observatory evidence",
+            "event": "pull_request",
+            "head_branch": "feat/observatory-effort-pilot",
+            "head_commit": {
+              "author": {
+                "email": "emmett.miller7@outlook.com",
+                "name": "Emmett Miller"
+              },
+              "committer": {
+                "email": "emmett.miller7@outlook.com",
+                "name": "Emmett Miller"
+              },
+              "id": "07dae82bc179651ad4b884d26bafd9680cc26045",
+              "message": "Bound sample task attribution to the registered pilot PR",
+              "timestamp": "2026-11-01T19:00:53Z",
+              "tree_id": "5383de3db3ac878d7e38d22d1e3a8de8329bd393"
+            },
+            "head_repository": {
+              "archive_url": "https://api.github.com/repos/emmett08/eal-mcp/{archive_format}{/ref}",
+              "assignees_url": "https://api.github.com/repos/emmett08/eal-mcp/assignees{/user}",
+              "blobs_url": "https://api.github.com/repos/emmett08/eal-mcp/git/blobs{/sha}",
+              "branches_url": "https://api.github.com/repos/emmett08/eal-mcp/branches{/branch}",
+              "collaborators_url": "https://api.github.com/repos/emmett08/eal-mcp/collaborators{/collaborator}",
+              "comments_url": "https://api.github.com/repos/emmett08/eal-mcp/comments{/number}",
+              "commits_url": "https://api.github.com/repos/emmett08/eal-mcp/commits{/sha}",
+              "compare_url": "https://api.github.com/repos/emmett08/eal-mcp/compare/{base}...{head}",
+              "contents_url": "https://api.github.com/repos/emmett08/eal-mcp/contents/{+path}",
+              "contributors_url": "https://api.github.com/repos/emmett08/eal-mcp/contributors",
+              "deployments_url": "https://api.github.com/repos/emmett08/eal-mcp/deployments",
+              "description": "Rust implementation of EAL/3 for assessing engineering arguments against collected evidence, with CLI and MCP interfaces and optional ASPIC+ reasoning.",
+              "downloads_url": "https://api.github.com/repos/emmett08/eal-mcp/downloads",
+              "events_url": "https://api.github.com/repos/emmett08/eal-mcp/events",
+              "fork": false,
+              "forks_url": "https://api.github.com/repos/emmett08/eal-mcp/forks",
+              "full_name": "emmett08/eal-mcp",
+              "git_commits_url": "https://api.github.com/repos/emmett08/eal-mcp/git/commits{/sha}",
+              "git_refs_url": "https://api.github.com/repos/emmett08/eal-mcp/git/refs{/sha}",
+              "git_tags_url": "https://api.github.com/repos/emmett08/eal-mcp/git/tags{/sha}",
+              "hooks_url": "https://api.github.com/repos/emmett08/eal-mcp/hooks",
+              "html_url": "https://github.com/emmett08/eal-mcp",
+              "id": 1427362428,
+              "issue_comment_url": "https://api.github.com/repos/emmett08/eal-mcp/issues/comments{/number}",
+              "issue_events_url": "https://api.github.com/repos/emmett08/eal-mcp/issues/events{/number}",
+              "issues_url": "https://api.github.com/repos/emmett08/eal-mcp/issues{/number}",
+              "keys_url": "https://api.github.com/repos/emmett08/eal-mcp/keys{/key_id}",
+              "labels_url": "https://api.github.com/repos/emmett08/eal-mcp/labels{/name}",
+              "languages_url": "https://api.github.com/repos/emmett08/eal-mcp/languages",
+              "merges_url": "https://api.github.com/repos/emmett08/eal-mcp/merges",
+              "milestones_url": "https://api.github.com/repos/emmett08/eal-mcp/milestones{/number}",
+              "name": "eal-mcp",
+              "node_id": "R_kgDOVRPSfA",
+              "notifications_url": "https://api.github.com/repos/emmett08/eal-mcp/notifications{?since,all,participating}",
+              "owner": {
+                "avatar_url": "https://avatars.githubusercontent.com/u/85883829?v=4",
+                "events_url": "https://api.github.com/users/emmett08/events{/privacy}",
+                "followers_url": "https://api.github.com/users/emmett08/followers",
+                "following_url": "https://api.github.com/users/emmett08/following{/other_user}",
+                "gists_url": "https://api.github.com/users/emmett08/gists{/gist_id}",
+                "gravatar_id": "",
+                "html_url": "https://github.com/emmett08",
+                "id": 85883829,
+                "login": "emmett08",
+                "node_id": "MDQ6VXNlcjg1ODgzODI5",
+                "organizations_url": "https://api.github.com/users/emmett08/orgs",
+                "received_events_url": "https://api.github.com/users/emmett08/received_events",
+                "repos_url": "https://api.github.com/users/emmett08/repos",
+                "site_admin": false,
+                "starred_url": "https://api.github.com/users/emmett08/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/emmett08/subscriptions",
+                "type": "User",
+                "url": "https://api.github.com/users/emmett08",
+                "user_view_type": "public"
+              },
+              "private": false,
+              "pulls_url": "https://api.github.com/repos/emmett08/eal-mcp/pulls{/number}",
+              "releases_url": "https://api.github.com/repos/emmett08/eal-mcp/releases{/id}",
+              "stargazers_url": "https://api.github.com/repos/emmett08/eal-mcp/stargazers",
+              "statuses_url": "https://api.github.com/repos/emmett08/eal-mcp/statuses/{sha}",
+              "subscribers_url": "https://api.github.com/repos/emmett08/eal-mcp/subscribers",
+              "subscription_url": "https://api.github.com/repos/emmett08/eal-mcp/subscription",
+              "tags_url": "https://api.github.com/repos/emmett08/eal-mcp/tags",
+              "teams_url": "https://api.github.com/repos/emmett08/eal-mcp/teams",
+              "trees_url": "https://api.github.com/repos/emmett08/eal-mcp/git/trees{/sha}",
+              "url": "https://api.github.com/repos/emmett08/eal-mcp"
+            },
+            "head_sha": "07dae82bc179651ad4b884d26bafd9680cc26045",
+            "html_url": "https://github.com/emmett08/eal-mcp/actions/runs/41339538299",
+            "id": 41339538299,
+            "jobs_url": "https://api.github.com/repos/emmett08/eal-mcp/actions/runs/41339538299/jobs",
+            "logs_url": "https://api.github.com/repos/emmett08/eal-mcp/actions/runs/41339538299/logs",
+            "name": "Observatory context experiment pilot",
+            "node_id": "WFR_kwLOVRPSfM8AAAAJoAdLew",
+            "path": ".github/workflows/observatory-pilot.yml",
+            "previous_attempt_url": null,
+            "pull_requests": [
+              {
+                "base": {
+                  "ref": "main",
+                  "repo": {
+                    "id": 1427362428,
+                    "name": "eal-mcp",
+                    "url": "https://api.github.com/repos/emmett08/eal-mcp"
+                  },
+                  "sha": "fe4a5cc4ef518b62ed0180646da1b7bccfd54249"
+                },
+                "head": {
+                  "ref": "feat/observatory-effort-pilot",
+                  "repo": {
+                    "id": 1427362428,
+                    "name": "eal-mcp",
+                    "url": "https://api.github.com/repos/emmett08/eal-mcp"
+                  },
+                  "sha": "07dae82bc179651ad4b884d26bafd9680cc26045"
+                },
+                "id": 5110545010,
+                "number": 37,
+                "url": "https://api.github.com/repos/emmett08/eal-mcp/pulls/37"
+              }
+            ],
+            "referenced_workflows": [],
+            "repository": {
+              "archive_url": "https://api.github.com/repos/emmett08/eal-mcp/{archive_format}{/ref}",
+              "assignees_url": "https://api.github.com/repos/emmett08/eal-mcp/assignees{/user}",
+              "blobs_url": "https://api.github.com/repos/emmett08/eal-mcp/git/blobs{/sha}",
+              "branches_url": "https://api.github.com/repos/emmett08/eal-mcp/branches{/branch}",
+              "collaborators_url": "https://api.github.com/repos/emmett08/eal-mcp/collaborators{/collaborator}",
+              "comments_url": "https://api.github.com/repos/emmett08/eal-mcp/comments{/number}",
+              "commits_url": "https://api.github.com/repos/emmett08/eal-mcp/commits{/sha}",
+              "compare_url": "https://api.github.com/repos/emmett08/eal-mcp/compare/{base}...{head}",
+              "contents_url": "https://api.github.com/repos/emmett08/eal-mcp/contents/{+path}",
+              "contributors_url": "https://api.github.com/repos/emmett08/eal-mcp/contributors",
+              "deployments_url": "https://api.github.com/repos/emmett08/eal-mcp/deployments",
+              "description": "Rust implementation of EAL/3 for assessing engineering arguments against collected evidence, with CLI and MCP interfaces and optional ASPIC+ reasoning.",
+              "downloads_url": "https://api.github.com/repos/emmett08/eal-mcp/downloads",
+              "events_url": "https://api.github.com/repos/emmett08/eal-mcp/events",
+              "fork": false,
+              "forks_url": "https://api.github.com/repos/emmett08/eal-mcp/forks",
+              "full_name": "emmett08/eal-mcp",
+              "git_commits_url": "https://api.github.com/repos/emmett08/eal-mcp/git/commits{/sha}",
+              "git_refs_url": "https://api.github.com/repos/emmett08/eal-mcp/git/refs{/sha}",
+              "git_tags_url": "https://api.github.com/repos/emmett08/eal-mcp/git/tags{/sha}",
+              "hooks_url": "https://api.github.com/repos/emmett08/eal-mcp/hooks",
+              "html_url": "https://github.com/emmett08/eal-mcp",
+              "id": 1427362428,
+              "issue_comment_url": "https://api.github.com/repos/emmett08/eal-mcp/issues/comments{/number}",
+              "issue_events_url": "https://api.github.com/repos/emmett08/eal-mcp/issues/events{/number}",
+              "issues_url": "https://api.github.com/repos/emmett08/eal-mcp/issues{/number}",
+              "keys_url": "https://api.github.com/repos/emmett08/eal-mcp/keys{/key_id}",
+              "labels_url": "https://api.github.com/repos/emmett08/eal-mcp/labels{/name}",
+              "languages_url": "https://api.github.com/repos/emmett08/eal-mcp/languages",
+              "merges_url": "https://api.github.com/repos/emmett08/eal-mcp/merges",
+              "milestones_url": "https://api.github.com/repos/emmett08/eal-mcp/milestones{/number}",
+              "name": "eal-mcp",
+              "node_id": "R_kgDOVRPSfA",
+              "notifications_url": "https://api.github.com/repos/emmett08/eal-mcp/notifications{?since,all,participating}",
+              "owner": {
+                "avatar_url": "https://avatars.githubusercontent.com/u/85883829?v=4",
+                "events_url": "https://api.github.com/users/emmett08/events{/privacy}",
+                "followers_url": "https://api.github.com/users/emmett08/followers",
+                "following_url": "https://api.github.com/users/emmett08/following{/other_user}",
+                "gists_url": "https://api.github.com/users/emmett08/gists{/gist_id}",
+                "gravatar_id": "",
+                "html_url": "https://github.com/emmett08",
+                "id": 85883829,
+                "login": "emmett08",
+                "node_id": "MDQ6VXNlcjg1ODgzODI5",
+                "organizations_url": "https://api.github.com/users/emmett08/orgs",
+                "received_events_url": "https://api.github.com/users/emmett08/received_events",
+                "repos_url": "https://api.github.com/users/emmett08/repos",
+                "site_admin": false,
+                "starred_url": "https://api.github.com/users/emmett08/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/emmett08/subscriptions",
+                "type": "User",
+                "url": "https://api.github.com/users/emmett08",
+                "user_view_type": "public"
+              },
+              "private": false,
+              "pulls_url": "https://api.github.com/repos/emmett08/eal-mcp/pulls{/number}",
+              "releases_url": "https://api.github.com/repos/emmett08/eal-mcp/releases{/id}",
+              "stargazers_url": "https://api.github.com/repos/emmett08/eal-mcp/stargazers",
+              "statuses_url": "https://api.github.com/repos/emmett08/eal-mcp/statuses/{sha}",
+              "subscribers_url": "https://api.github.com/repos/emmett08/eal-mcp/subscribers",
+              "subscription_url": "https://api.github.com/repos/emmett08/eal-mcp/subscription",
+              "tags_url": "https://api.github.com/repos/emmett08/eal-mcp/tags",
+              "teams_url": "https://api.github.com/repos/emmett08/eal-mcp/teams",
+              "trees_url": "https://api.github.com/repos/emmett08/eal-mcp/git/trees{/sha}",
+              "url": "https://api.github.com/repos/emmett08/eal-mcp"
+            },
+            "rerun_url": "https://api.github.com/repos/emmett08/eal-mcp/actions/runs/41339538299/rerun",
+            "run_attempt": 1,
+            "run_number": 3,
+            "run_started_at": "2026-11-01T19:00:57Z",
+            "status": "completed",
+            "triggering_actor": {
+              "avatar_url": "https://avatars.githubusercontent.com/u/85883829?v=4",
+              "events_url": "https://api.github.com/users/emmett08/events{/privacy}",
+              "followers_url": "https://api.github.com/users/emmett08/followers",
+              "following_url": "https://api.github.com/users/emmett08/following{/other_user}",
+              "gists_url": "https://api.github.com/users/emmett08/gists{/gist_id}",
+              "gravatar_id": "",
+              "html_url": "https://github.com/emmett08",
+              "id": 85883829,
+              "login": "emmett08",
+              "node_id": "MDQ6VXNlcjg1ODgzODI5",
+              "organizations_url": "https://api.github.com/users/emmett08/orgs",
+              "received_events_url": "https://api.github.com/users/emmett08/received_events",
+              "repos_url": "https://api.github.com/users/emmett08/repos",
+              "site_admin": false,
+              "starred_url": "https://api.github.com/users/emmett08/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/emmett08/subscriptions",
+              "type": "User",
+              "url": "https://api.github.com/users/emmett08",
+              "user_view_type": "public"
+            },
+            "updated_at": "2026-11-01T19:01:38Z",
+            "url": "https://api.github.com/repos/emmett08/eal-mcp/actions/runs/41339538299",
+            "workflow_id": 403801833,
+            "workflow_url": "https://api.github.com/repos/emmett08/eal-mcp/actions/workflows/403801833"
+          },
+          "repository": "github:repository:1427362428",
+          "schema_version": 1,
+          "source": "github.workflow_run",
+          "source_id": "41339538299"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:38.954375217Z",
+      "source": "github-executions:emmett08/eal-mcp",
+      "raw_sha256": "bf450ab4accedd556c2092f5b1588a5168a70603428f99309fb869aa7c79e350"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.execution_artifact/run:41339566322/13096269445/bafe3a0ada24f9001378f3117a672f89dad829537c259e778ebdd9f29902032d",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "bafe3a0ada24f9001378f3117a672f89dad829537c259e778ebdd9f29902032d",
+          "payload": {
+            "archive_download_url": "https://api.github.com/repos/emmett08/engarg/actions/artifacts/13096269445/zip",
+            "created_at": "2026-11-01T19:02:10Z",
+            "digest": "sha256:1099d09a25b622aec1681240d2b18c67a9f0db0df98a28fde2319b7327731459",
+            "expired": false,
+            "expires_at": "2026-12-01T19:02:09Z",
+            "id": 13096269445,
+            "name": "observatory-executions-79e5ce9bcb38ba0b1e7d33a93445e27dc132e06f3def7949bc7a7c2583eb5d2d-b215ef4b-d37a-4117-84f0-719f481926fc",
+            "node_id": "MDg6QXJ0aWZhY3QxMzA5NjI2OTQ0NQ==",
+            "size_in_bytes": 1323,
+            "updated_at": "2026-11-01T19:02:10Z",
+            "url": "https://api.github.com/repos/emmett08/engarg/actions/artifacts/13096269445",
+            "workflow_run": {
+              "head_branch": "feat/observatory-effort-pilot",
+              "head_repository_id": 1431331749,
+              "head_sha": "c9330e1cc3155393e84752ad5f189960277a9026",
+              "id": 41339566322,
+              "repository_id": 1431331749
+            }
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.execution_artifact",
+          "source_id": "run:41339566322/13096269445"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.execution_artifact/run:41339566322/13096961719/4543395e8f988fc67948386afcbc23a3022f78f3842d2276ed416a226bbe9c9a",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "4543395e8f988fc67948386afcbc23a3022f78f3842d2276ed416a226bbe9c9a",
+          "payload": {
+            "archive_download_url": "https://api.github.com/repos/emmett08/engarg/actions/artifacts/13096961719/zip",
+            "created_at": "2026-11-01T19:02:28Z",
+            "digest": "sha256:8f3387fe2da2f5100aece6c5512a23ffe87cc0ae73dc29c9648d61c357db4bea",
+            "expired": false,
+            "expires_at": "2026-12-01T19:02:26Z",
+            "id": 13096961719,
+            "name": "observatory-executions-db73e17fdcd8de6f9a3b11ea12c63a297a477d03dfc37a34157dd7fd263d0eaf-009e7cb6-f8be-44ff-b593-18160967424b",
+            "node_id": "MDg6QXJ0aWZhY3QxMzA5Njk2MTcxOQ==",
+            "size_in_bytes": 1321,
+            "updated_at": "2026-11-01T19:02:28Z",
+            "url": "https://api.github.com/repos/emmett08/engarg/actions/artifacts/13096961719",
+            "workflow_run": {
+              "head_branch": "feat/observatory-effort-pilot",
+              "head_repository_id": 1431331749,
+              "head_sha": "c9330e1cc3155393e84752ad5f189960277a9026",
+              "id": 41339566322,
+              "repository_id": 1431331749
+            }
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.execution_artifact",
+          "source_id": "run:41339566322/13096961719"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.execution_artifact_delivery/run:41339566322/artifact:13096269445/91531c6fcef2c2752fa9666944ea24178b61541593c285ce0c01668b0d06c949",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "91531c6fcef2c2752fa9666944ea24178b61541593c285ce0c01668b0d06c949",
+          "payload": {
+            "artifact_id": 13096269445,
+            "identity_comparison": "Known receipt repository/run/actor fields checked when API metadata was available; unknown fields remain unresolved. Acquisition context does not fill missing receipt provenance.",
+            "record_ids": [
+              "execution-bundle/79e5ce9bcb38ba0b1e7d33a93445e27dc132e06f3def7949bc7a7c2583eb5d2d",
+              "execution/1431331749/41339566322/1/a66dc7fd-4dba-4e3f-ae4f-84deec47b0fd/completion",
+              "execution/1431331749/41339566322/1/a66dc7fd-4dba-4e3f-ae4f-84deec47b0fd/start"
+            ],
+            "repository": "emmett08/engarg",
+            "repository_id": 1431331749,
+            "run_id": 41339566322,
+            "schema": "observatory.execution-artifact-delivery/1",
+            "source": "github_api"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.execution_artifact_delivery",
+          "source_id": "run:41339566322/artifact:13096269445"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.execution_artifact_delivery/run:41339566322/artifact:13096961719/6241d43a9c0a77f57b731f57576ebe73936f6ec0eef53ad4c8d110e757920126",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "6241d43a9c0a77f57b731f57576ebe73936f6ec0eef53ad4c8d110e757920126",
+          "payload": {
+            "artifact_id": 13096961719,
+            "identity_comparison": "Known receipt repository/run/actor fields checked when API metadata was available; unknown fields remain unresolved. Acquisition context does not fill missing receipt provenance.",
+            "record_ids": [
+              "execution-bundle/db73e17fdcd8de6f9a3b11ea12c63a297a477d03dfc37a34157dd7fd263d0eaf",
+              "execution/1431331749/41339566322/1/42cae992-5081-48fe-a275-2415056fe1bb/completion",
+              "execution/1431331749/41339566322/1/42cae992-5081-48fe-a275-2415056fe1bb/start"
+            ],
+            "repository": "emmett08/engarg",
+            "repository_id": 1431331749,
+            "run_id": 41339566322,
+            "schema": "observatory.execution-artifact-delivery/1",
+            "source": "github_api"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.execution_artifact_delivery",
+          "source_id": "run:41339566322/artifact:13096961719"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.execution_job_reconciliation/run:41339566322/attempt:1/job:124946577551/d12d40d7edf3798f5d6a61d805a3e5742fe0c7950fcf3ff8e23a750b7c058b5d",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "d12d40d7edf3798f5d6a61d805a3e5742fe0c7950fcf3ff8e23a750b7c058b5d",
+          "payload": {
+            "conclusion": null,
+            "job_id": 124946577551,
+            "job_name": "Prepared evidence APIs (node)",
+            "limitations": "No receipts can mean uninstrumented work or a missing upload. Observed receipts do not establish complete tool coverage, human effort, acceptance or retained quality.",
+            "linked_invocations": 0,
+            "receipt_observation": "no_receipts_observed",
+            "run_attempt": 1,
+            "run_id": 41339566322,
+            "schema": "observatory.execution-job-reconciliation/1",
+            "source": "github_api_comparison",
+            "status": "in_progress"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.execution_job_reconciliation",
+          "source_id": "run:41339566322/attempt:1/job:124946577551"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.execution_job_reconciliation/run:41339566322/attempt:1/job:124946577689/b6d1ebbaaee3b8c1541e39c05c94bc60c801b408e538d8ab5ac2ee60fd7460e2",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "b6d1ebbaaee3b8c1541e39c05c94bc60c801b408e538d8ab5ac2ee60fd7460e2",
+          "payload": {
+            "conclusion": null,
+            "job_id": 124946577689,
+            "job_name": "checks (macos-latest)",
+            "limitations": "No receipts can mean uninstrumented work or a missing upload. Observed receipts do not establish complete tool coverage, human effort, acceptance or retained quality.",
+            "linked_invocations": 1,
+            "receipt_observation": "receipts_observed",
+            "run_attempt": 1,
+            "run_id": 41339566322,
+            "schema": "observatory.execution-job-reconciliation/1",
+            "source": "github_api_comparison",
+            "status": "in_progress"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.execution_job_reconciliation",
+          "source_id": "run:41339566322/attempt:1/job:124946577689"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.execution_job_reconciliation/run:41339566322/attempt:1/job:124946577756/f18a34e901f258b79a81ead2d1d250da348c2f706f42da6974a6b9a49a4bf0bb",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "f18a34e901f258b79a81ead2d1d250da348c2f706f42da6974a6b9a49a4bf0bb",
+          "payload": {
+            "conclusion": null,
+            "job_id": 124946577756,
+            "job_name": "checks (ubuntu-latest)",
+            "limitations": "No receipts can mean uninstrumented work or a missing upload. Observed receipts do not establish complete tool coverage, human effort, acceptance or retained quality.",
+            "linked_invocations": 1,
+            "receipt_observation": "receipts_observed",
+            "run_attempt": 1,
+            "run_id": 41339566322,
+            "schema": "observatory.execution-job-reconciliation/1",
+            "source": "github_api_comparison",
+            "status": "in_progress"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.execution_job_reconciliation",
+          "source_id": "run:41339566322/attempt:1/job:124946577756"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.execution_job_reconciliation/run:41339566322/attempt:1/job:124946577767/44676111477e2eefe6db9023d473c69a0caf78b8108ad0762322312ede471872",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "44676111477e2eefe6db9023d473c69a0caf78b8108ad0762322312ede471872",
+          "payload": {
+            "conclusion": null,
+            "job_id": 124946577767,
+            "job_name": "EAL producer and consumer contracts",
+            "limitations": "No receipts can mean uninstrumented work or a missing upload. Observed receipts do not establish complete tool coverage, human effort, acceptance or retained quality.",
+            "linked_invocations": 0,
+            "receipt_observation": "no_receipts_observed",
+            "run_attempt": 1,
+            "run_id": 41339566322,
+            "schema": "observatory.execution-job-reconciliation/1",
+            "source": "github_api_comparison",
+            "status": "in_progress"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.execution_job_reconciliation",
+          "source_id": "run:41339566322/attempt:1/job:124946577767"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.execution_job_reconciliation/run:41339566322/attempt:1/job:124946577859/a5c01f9d1f563dd29be28720b15b25e6726457e2c5fa12019a5a5f0f76e547b1",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "a5c01f9d1f563dd29be28720b15b25e6726457e2c5fa12019a5a5f0f76e547b1",
+          "payload": {
+            "conclusion": null,
+            "job_id": 124946577859,
+            "job_name": "Prepared evidence APIs (rust)",
+            "limitations": "No receipts can mean uninstrumented work or a missing upload. Observed receipts do not establish complete tool coverage, human effort, acceptance or retained quality.",
+            "linked_invocations": 0,
+            "receipt_observation": "no_receipts_observed",
+            "run_attempt": 1,
+            "run_id": 41339566322,
+            "schema": "observatory.execution-job-reconciliation/1",
+            "source": "github_api_comparison",
+            "status": "in_progress"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.execution_job_reconciliation",
+          "source_id": "run:41339566322/attempt:1/job:124946577859"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.execution_job_reconciliation/run:41339566322/attempt:1/job:124946577866/9b1b3d6fa68899c59829e4c8e06461f7ce2df8f26590bc9e374005c2f2efdc5b",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "9b1b3d6fa68899c59829e4c8e06461f7ce2df8f26590bc9e374005c2f2efdc5b",
+          "payload": {
+            "conclusion": null,
+            "job_id": 124946577866,
+            "job_name": "Prepared evidence APIs (go)",
+            "limitations": "No receipts can mean uninstrumented work or a missing upload. Observed receipts do not establish complete tool coverage, human effort, acceptance or retained quality.",
+            "linked_invocations": 0,
+            "receipt_observation": "no_receipts_observed",
+            "run_attempt": 1,
+            "run_id": 41339566322,
+            "schema": "observatory.execution-job-reconciliation/1",
+            "source": "github_api_comparison",
+            "status": "in_progress"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.execution_job_reconciliation",
+          "source_id": "run:41339566322/attempt:1/job:124946577866"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.execution_job_reconciliation/run:41339566322/attempt:1/job:124946577869/74f73525d03020f65c8f969abc4b0ddb59b90b7ec8163e3f17e454ddb991bb24",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "74f73525d03020f65c8f969abc4b0ddb59b90b7ec8163e3f17e454ddb991bb24",
+          "payload": {
+            "conclusion": null,
+            "job_id": 124946577869,
+            "job_name": "Prepared evidence APIs (python)",
+            "limitations": "No receipts can mean uninstrumented work or a missing upload. Observed receipts do not establish complete tool coverage, human effort, acceptance or retained quality.",
+            "linked_invocations": 0,
+            "receipt_observation": "no_receipts_observed",
+            "run_attempt": 1,
+            "run_id": 41339566322,
+            "schema": "observatory.execution-job-reconciliation/1",
+            "source": "github_api_comparison",
+            "status": "in_progress"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.execution_job_reconciliation",
+          "source_id": "run:41339566322/attempt:1/job:124946577869"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.execution_reconciliation/run:41339566322/invocation:execution/1431331749/41339566322/1/42cae992-5081-48fe-a275-2415056fe1bb/f9ee756f9f850c323b2254e37b5eeeedfa4bd7401f0fa938af680e13f57b94e6",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "f9ee756f9f850c323b2254e37b5eeeedfa4bd7401f0fa938af680e13f57b94e6",
+          "payload": {
+            "invocation_id": "42cae992-5081-48fe-a275-2415056fe1bb",
+            "job_conclusion": null,
+            "job_id": 124946577689,
+            "job_link": "unambiguous",
+            "job_status": "in_progress",
+            "lifecycle": "start_and_completion_observed",
+            "limitations": "Schema and hash validation do not authenticate caller declarations. Missing phases do not establish tool outcome.",
+            "receipt_ids": [
+              "execution/1431331749/41339566322/1/42cae992-5081-48fe-a275-2415056fe1bb/completion",
+              "execution/1431331749/41339566322/1/42cae992-5081-48fe-a275-2415056fe1bb/start"
+            ],
+            "run_attempt": 1,
+            "run_id": 41339566322,
+            "schema": "observatory.execution-reconciliation/1",
+            "source": "github_api_comparison"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.execution_reconciliation",
+          "source_id": "run:41339566322/invocation:execution/1431331749/41339566322/1/42cae992-5081-48fe-a275-2415056fe1bb"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.execution_reconciliation/run:41339566322/invocation:execution/1431331749/41339566322/1/a66dc7fd-4dba-4e3f-ae4f-84deec47b0fd/73d6254bc346c23e46031f1610bc03c3e74d9f7a305ea5353fe7d3c51278d7e5",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "73d6254bc346c23e46031f1610bc03c3e74d9f7a305ea5353fe7d3c51278d7e5",
+          "payload": {
+            "invocation_id": "a66dc7fd-4dba-4e3f-ae4f-84deec47b0fd",
+            "job_conclusion": null,
+            "job_id": 124946577756,
+            "job_link": "unambiguous",
+            "job_status": "in_progress",
+            "lifecycle": "start_and_completion_observed",
+            "limitations": "Schema and hash validation do not authenticate caller declarations. Missing phases do not establish tool outcome.",
+            "receipt_ids": [
+              "execution/1431331749/41339566322/1/a66dc7fd-4dba-4e3f-ae4f-84deec47b0fd/completion",
+              "execution/1431331749/41339566322/1/a66dc7fd-4dba-4e3f-ae4f-84deec47b0fd/start"
+            ],
+            "run_attempt": 1,
+            "run_id": 41339566322,
+            "schema": "observatory.execution-reconciliation/1",
+            "source": "github_api_comparison"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.execution_reconciliation",
+          "source_id": "run:41339566322/invocation:execution/1431331749/41339566322/1/a66dc7fd-4dba-4e3f-ae4f-84deec47b0fd"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.repository/repository/a49656fb3c726a3992ad52433b2de9c58519c9c633fa3b6b4bd66de8f133b5ef",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "a49656fb3c726a3992ad52433b2de9c58519c9c633fa3b6b4bd66de8f133b5ef",
+          "payload": {
+            "allow_forking": true,
+            "archive_url": "https://api.github.com/repos/emmett08/engarg/{archive_format}{/ref}",
+            "archived": false,
+            "assignees_url": "https://api.github.com/repos/emmett08/engarg/assignees{/user}",
+            "blobs_url": "https://api.github.com/repos/emmett08/engarg/git/blobs{/sha}",
+            "branches_url": "https://api.github.com/repos/emmett08/engarg/branches{/branch}",
+            "clone_url": "https://github.com/emmett08/engarg.git",
+            "collaborators_url": "https://api.github.com/repos/emmett08/engarg/collaborators{/collaborator}",
+            "comments_url": "https://api.github.com/repos/emmett08/engarg/comments{/number}",
+            "commits_url": "https://api.github.com/repos/emmett08/engarg/commits{/sha}",
+            "compare_url": "https://api.github.com/repos/emmett08/engarg/compare/{base}...{head}",
+            "contents_url": "https://api.github.com/repos/emmett08/engarg/contents/{+path}",
+            "contributors_url": "https://api.github.com/repos/emmett08/engarg/contributors",
+            "created_at": "2026-10-23T17:10:11Z",
+            "default_branch": "main",
+            "deployments_url": "https://api.github.com/repos/emmett08/engarg/deployments",
+            "description": "Rust CLI that uses LLMs to construct and critique extended Toulmin engineering arguments and export EAL/4 source with evidence tool configuration.",
+            "disabled": false,
+            "downloads_url": "https://api.github.com/repos/emmett08/engarg/downloads",
+            "events_url": "https://api.github.com/repos/emmett08/engarg/events",
+            "fork": false,
+            "forks": 0,
+            "forks_count": 0,
+            "forks_url": "https://api.github.com/repos/emmett08/engarg/forks",
+            "full_name": "emmett08/engarg",
+            "git_commits_url": "https://api.github.com/repos/emmett08/engarg/git/commits{/sha}",
+            "git_refs_url": "https://api.github.com/repos/emmett08/engarg/git/refs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/emmett08/engarg/git/tags{/sha}",
+            "git_url": "git://github.com/emmett08/engarg.git",
+            "has_discussions": false,
+            "has_downloads": false,
+            "has_issues": true,
+            "has_pages": false,
+            "has_projects": true,
+            "has_pull_requests": true,
+            "has_wiki": true,
+            "homepage": "",
+            "hooks_url": "https://api.github.com/repos/emmett08/engarg/hooks",
+            "html_url": "https://github.com/emmett08/engarg",
+            "id": 1431331749,
+            "is_template": false,
+            "issue_comment_url": "https://api.github.com/repos/emmett08/engarg/issues/comments{/number}",
+            "issue_events_url": "https://api.github.com/repos/emmett08/engarg/issues/events{/number}",
+            "issues_url": "https://api.github.com/repos/emmett08/engarg/issues{/number}",
+            "keys_url": "https://api.github.com/repos/emmett08/engarg/keys{/key_id}",
+            "labels_url": "https://api.github.com/repos/emmett08/engarg/labels{/name}",
+            "language": "Rust",
+            "languages_url": "https://api.github.com/repos/emmett08/engarg/languages",
+            "license": {
+              "key": "gpl-3.0",
+              "name": "GNU General Public License v3.0",
+              "node_id": "MDc6TGljZW5zZTk=",
+              "spdx_id": "GPL-3.0",
+              "url": "https://api.github.com/licenses/gpl-3.0"
+            },
+            "merges_url": "https://api.github.com/repos/emmett08/engarg/merges",
+            "milestones_url": "https://api.github.com/repos/emmett08/engarg/milestones{/number}",
+            "mirror_url": null,
+            "name": "engarg",
+            "network_count": 0,
+            "node_id": "R_kgDOVVBjpQ",
+            "notifications_url": "https://api.github.com/repos/emmett08/engarg/notifications{?since,all,participating}",
+            "open_issues": 2,
+            "open_issues_count": 2,
+            "owner": {
+              "avatar_url": "https://avatars.githubusercontent.com/u/85883829?v=4",
+              "events_url": "https://api.github.com/users/emmett08/events{/privacy}",
+              "followers_url": "https://api.github.com/users/emmett08/followers",
+              "following_url": "https://api.github.com/users/emmett08/following{/other_user}",
+              "gists_url": "https://api.github.com/users/emmett08/gists{/gist_id}",
+              "gravatar_id": "",
+              "html_url": "https://github.com/emmett08",
+              "id": 85883829,
+              "login": "emmett08",
+              "node_id": "MDQ6VXNlcjg1ODgzODI5",
+              "organizations_url": "https://api.github.com/users/emmett08/orgs",
+              "received_events_url": "https://api.github.com/users/emmett08/received_events",
+              "repos_url": "https://api.github.com/users/emmett08/repos",
+              "site_admin": false,
+              "starred_url": "https://api.github.com/users/emmett08/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/emmett08/subscriptions",
+              "type": "User",
+              "url": "https://api.github.com/users/emmett08",
+              "user_view_type": "public"
+            },
+            "permissions": {
+              "admin": false,
+              "maintain": false,
+              "pull": false,
+              "push": false,
+              "triage": false
+            },
+            "private": false,
+            "pull_request_creation_policy": "all",
+            "pulls_url": "https://api.github.com/repos/emmett08/engarg/pulls{/number}",
+            "pushed_at": "2026-11-01T19:01:09Z",
+            "releases_url": "https://api.github.com/repos/emmett08/engarg/releases{/id}",
+            "size": 4619,
+            "ssh_url": "git@github.com:emmett08/engarg.git",
+            "stargazers_count": 0,
+            "stargazers_url": "https://api.github.com/repos/emmett08/engarg/stargazers",
+            "statuses_url": "https://api.github.com/repos/emmett08/engarg/statuses/{sha}",
+            "subscribers_count": 0,
+            "subscribers_url": "https://api.github.com/repos/emmett08/engarg/subscribers",
+            "subscription_url": "https://api.github.com/repos/emmett08/engarg/subscription",
+            "svn_url": "https://github.com/emmett08/engarg",
+            "tags_url": "https://api.github.com/repos/emmett08/engarg/tags",
+            "teams_url": "https://api.github.com/repos/emmett08/engarg/teams",
+            "temp_clone_token": "",
+            "topics": [],
+            "trees_url": "https://api.github.com/repos/emmett08/engarg/git/trees{/sha}",
+            "updated_at": "2026-11-01T09:51:33Z",
+            "url": "https://api.github.com/repos/emmett08/engarg",
+            "visibility": "public",
+            "watchers": 0,
+            "watchers_count": 0,
+            "web_commit_signoff_required": false
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.repository",
+          "source_id": "repository"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.workflow_attempt/run:41339566322/attempt:1//621858e9361fcb583ebdce4e17c136e759e29a416fa6ef30f0bbdc09eac2f0ee",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "621858e9361fcb583ebdce4e17c136e759e29a416fa6ef30f0bbdc09eac2f0ee",
+          "payload": {
+            "actor": {
+              "avatar_url": "https://avatars.githubusercontent.com/u/85883829?v=4",
+              "events_url": "https://api.github.com/users/emmett08/events{/privacy}",
+              "followers_url": "https://api.github.com/users/emmett08/followers",
+              "following_url": "https://api.github.com/users/emmett08/following{/other_user}",
+              "gists_url": "https://api.github.com/users/emmett08/gists{/gist_id}",
+              "gravatar_id": "",
+              "html_url": "https://github.com/emmett08",
+              "id": 85883829,
+              "login": "emmett08",
+              "node_id": "MDQ6VXNlcjg1ODgzODI5",
+              "organizations_url": "https://api.github.com/users/emmett08/orgs",
+              "received_events_url": "https://api.github.com/users/emmett08/received_events",
+              "repos_url": "https://api.github.com/users/emmett08/repos",
+              "site_admin": false,
+              "starred_url": "https://api.github.com/users/emmett08/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/emmett08/subscriptions",
+              "type": "User",
+              "url": "https://api.github.com/users/emmett08",
+              "user_view_type": "public"
+            },
+            "artifacts_url": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322/artifacts",
+            "cancel_url": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322/cancel",
+            "check_suite_id": 112038051009,
+            "check_suite_node_id": "CS_kwDOVVBjpc8AAAAaFfz8wQ",
+            "check_suite_url": "https://api.github.com/repos/emmett08/engarg/check-suites/112038051009",
+            "conclusion": null,
+            "created_at": "2026-11-01T19:01:15Z",
+            "display_title": "Link authoring-check receipts to the Observatory effort pilot",
+            "event": "pull_request",
+            "head_branch": "feat/observatory-effort-pilot",
+            "head_commit": {
+              "author": {
+                "email": "emmett.miller7@outlook.com",
+                "name": "Emmett Miller"
+              },
+              "committer": {
+                "email": "emmett.miller7@outlook.com",
+                "name": "Emmett Miller"
+              },
+              "id": "c9330e1cc3155393e84752ad5f189960277a9026",
+              "message": "Limit sample task attribution to the pilot pull request",
+              "timestamp": "2026-11-01T19:01:08Z",
+              "tree_id": "ea72bd549771f9ee6d7fdf72435be66ad4720487"
+            },
+            "head_repository": {
+              "archive_url": "https://api.github.com/repos/emmett08/engarg/{archive_format}{/ref}",
+              "assignees_url": "https://api.github.com/repos/emmett08/engarg/assignees{/user}",
+              "blobs_url": "https://api.github.com/repos/emmett08/engarg/git/blobs{/sha}",
+              "branches_url": "https://api.github.com/repos/emmett08/engarg/branches{/branch}",
+              "collaborators_url": "https://api.github.com/repos/emmett08/engarg/collaborators{/collaborator}",
+              "comments_url": "https://api.github.com/repos/emmett08/engarg/comments{/number}",
+              "commits_url": "https://api.github.com/repos/emmett08/engarg/commits{/sha}",
+              "compare_url": "https://api.github.com/repos/emmett08/engarg/compare/{base}...{head}",
+              "contents_url": "https://api.github.com/repos/emmett08/engarg/contents/{+path}",
+              "contributors_url": "https://api.github.com/repos/emmett08/engarg/contributors",
+              "deployments_url": "https://api.github.com/repos/emmett08/engarg/deployments",
+              "description": "Rust CLI that uses LLMs to construct and critique extended Toulmin engineering arguments and export EAL/4 source with evidence tool configuration.",
+              "downloads_url": "https://api.github.com/repos/emmett08/engarg/downloads",
+              "events_url": "https://api.github.com/repos/emmett08/engarg/events",
+              "fork": false,
+              "forks_url": "https://api.github.com/repos/emmett08/engarg/forks",
+              "full_name": "emmett08/engarg",
+              "git_commits_url": "https://api.github.com/repos/emmett08/engarg/git/commits{/sha}",
+              "git_refs_url": "https://api.github.com/repos/emmett08/engarg/git/refs{/sha}",
+              "git_tags_url": "https://api.github.com/repos/emmett08/engarg/git/tags{/sha}",
+              "hooks_url": "https://api.github.com/repos/emmett08/engarg/hooks",
+              "html_url": "https://github.com/emmett08/engarg",
+              "id": 1431331749,
+              "issue_comment_url": "https://api.github.com/repos/emmett08/engarg/issues/comments{/number}",
+              "issue_events_url": "https://api.github.com/repos/emmett08/engarg/issues/events{/number}",
+              "issues_url": "https://api.github.com/repos/emmett08/engarg/issues{/number}",
+              "keys_url": "https://api.github.com/repos/emmett08/engarg/keys{/key_id}",
+              "labels_url": "https://api.github.com/repos/emmett08/engarg/labels{/name}",
+              "languages_url": "https://api.github.com/repos/emmett08/engarg/languages",
+              "merges_url": "https://api.github.com/repos/emmett08/engarg/merges",
+              "milestones_url": "https://api.github.com/repos/emmett08/engarg/milestones{/number}",
+              "name": "engarg",
+              "node_id": "R_kgDOVVBjpQ",
+              "notifications_url": "https://api.github.com/repos/emmett08/engarg/notifications{?since,all,participating}",
+              "owner": {
+                "avatar_url": "https://avatars.githubusercontent.com/u/85883829?v=4",
+                "events_url": "https://api.github.com/users/emmett08/events{/privacy}",
+                "followers_url": "https://api.github.com/users/emmett08/followers",
+                "following_url": "https://api.github.com/users/emmett08/following{/other_user}",
+                "gists_url": "https://api.github.com/users/emmett08/gists{/gist_id}",
+                "gravatar_id": "",
+                "html_url": "https://github.com/emmett08",
+                "id": 85883829,
+                "login": "emmett08",
+                "node_id": "MDQ6VXNlcjg1ODgzODI5",
+                "organizations_url": "https://api.github.com/users/emmett08/orgs",
+                "received_events_url": "https://api.github.com/users/emmett08/received_events",
+                "repos_url": "https://api.github.com/users/emmett08/repos",
+                "site_admin": false,
+                "starred_url": "https://api.github.com/users/emmett08/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/emmett08/subscriptions",
+                "type": "User",
+                "url": "https://api.github.com/users/emmett08",
+                "user_view_type": "public"
+              },
+              "private": false,
+              "pulls_url": "https://api.github.com/repos/emmett08/engarg/pulls{/number}",
+              "releases_url": "https://api.github.com/repos/emmett08/engarg/releases{/id}",
+              "stargazers_url": "https://api.github.com/repos/emmett08/engarg/stargazers",
+              "statuses_url": "https://api.github.com/repos/emmett08/engarg/statuses/{sha}",
+              "subscribers_url": "https://api.github.com/repos/emmett08/engarg/subscribers",
+              "subscription_url": "https://api.github.com/repos/emmett08/engarg/subscription",
+              "tags_url": "https://api.github.com/repos/emmett08/engarg/tags",
+              "teams_url": "https://api.github.com/repos/emmett08/engarg/teams",
+              "trees_url": "https://api.github.com/repos/emmett08/engarg/git/trees{/sha}",
+              "url": "https://api.github.com/repos/emmett08/engarg"
+            },
+            "head_sha": "c9330e1cc3155393e84752ad5f189960277a9026",
+            "html_url": "https://github.com/emmett08/engarg/actions/runs/41339566322",
+            "id": 41339566322,
+            "jobs_url": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322/attempts/1/jobs",
+            "logs_url": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322/attempts/1/logs",
+            "name": "Rust checks",
+            "node_id": "WFR_kwLOVVBjpc8AAAAJoAe48g",
+            "path": ".github/workflows/ci.yml",
+            "previous_attempt_url": null,
+            "pull_requests": [
+              {
+                "base": {
+                  "ref": "main",
+                  "repo": {
+                    "id": 1431331749,
+                    "name": "engarg",
+                    "url": "https://api.github.com/repos/emmett08/engarg"
+                  },
+                  "sha": "dd848f3aefc6421e41bc0420ae5c40aae3553893"
+                },
+                "head": {
+                  "ref": "feat/observatory-effort-pilot",
+                  "repo": {
+                    "id": 1431331749,
+                    "name": "engarg",
+                    "url": "https://api.github.com/repos/emmett08/engarg"
+                  },
+                  "sha": "c9330e1cc3155393e84752ad5f189960277a9026"
+                },
+                "id": 5110543617,
+                "number": 50,
+                "url": "https://api.github.com/repos/emmett08/engarg/pulls/50"
+              }
+            ],
+            "referenced_workflows": [],
+            "repository": {
+              "archive_url": "https://api.github.com/repos/emmett08/engarg/{archive_format}{/ref}",
+              "assignees_url": "https://api.github.com/repos/emmett08/engarg/assignees{/user}",
+              "blobs_url": "https://api.github.com/repos/emmett08/engarg/git/blobs{/sha}",
+              "branches_url": "https://api.github.com/repos/emmett08/engarg/branches{/branch}",
+              "collaborators_url": "https://api.github.com/repos/emmett08/engarg/collaborators{/collaborator}",
+              "comments_url": "https://api.github.com/repos/emmett08/engarg/comments{/number}",
+              "commits_url": "https://api.github.com/repos/emmett08/engarg/commits{/sha}",
+              "compare_url": "https://api.github.com/repos/emmett08/engarg/compare/{base}...{head}",
+              "contents_url": "https://api.github.com/repos/emmett08/engarg/contents/{+path}",
+              "contributors_url": "https://api.github.com/repos/emmett08/engarg/contributors",
+              "deployments_url": "https://api.github.com/repos/emmett08/engarg/deployments",
+              "description": "Rust CLI that uses LLMs to construct and critique extended Toulmin engineering arguments and export EAL/4 source with evidence tool configuration.",
+              "downloads_url": "https://api.github.com/repos/emmett08/engarg/downloads",
+              "events_url": "https://api.github.com/repos/emmett08/engarg/events",
+              "fork": false,
+              "forks_url": "https://api.github.com/repos/emmett08/engarg/forks",
+              "full_name": "emmett08/engarg",
+              "git_commits_url": "https://api.github.com/repos/emmett08/engarg/git/commits{/sha}",
+              "git_refs_url": "https://api.github.com/repos/emmett08/engarg/git/refs{/sha}",
+              "git_tags_url": "https://api.github.com/repos/emmett08/engarg/git/tags{/sha}",
+              "hooks_url": "https://api.github.com/repos/emmett08/engarg/hooks",
+              "html_url": "https://github.com/emmett08/engarg",
+              "id": 1431331749,
+              "issue_comment_url": "https://api.github.com/repos/emmett08/engarg/issues/comments{/number}",
+              "issue_events_url": "https://api.github.com/repos/emmett08/engarg/issues/events{/number}",
+              "issues_url": "https://api.github.com/repos/emmett08/engarg/issues{/number}",
+              "keys_url": "https://api.github.com/repos/emmett08/engarg/keys{/key_id}",
+              "labels_url": "https://api.github.com/repos/emmett08/engarg/labels{/name}",
+              "languages_url": "https://api.github.com/repos/emmett08/engarg/languages",
+              "merges_url": "https://api.github.com/repos/emmett08/engarg/merges",
+              "milestones_url": "https://api.github.com/repos/emmett08/engarg/milestones{/number}",
+              "name": "engarg",
+              "node_id": "R_kgDOVVBjpQ",
+              "notifications_url": "https://api.github.com/repos/emmett08/engarg/notifications{?since,all,participating}",
+              "owner": {
+                "avatar_url": "https://avatars.githubusercontent.com/u/85883829?v=4",
+                "events_url": "https://api.github.com/users/emmett08/events{/privacy}",
+                "followers_url": "https://api.github.com/users/emmett08/followers",
+                "following_url": "https://api.github.com/users/emmett08/following{/other_user}",
+                "gists_url": "https://api.github.com/users/emmett08/gists{/gist_id}",
+                "gravatar_id": "",
+                "html_url": "https://github.com/emmett08",
+                "id": 85883829,
+                "login": "emmett08",
+                "node_id": "MDQ6VXNlcjg1ODgzODI5",
+                "organizations_url": "https://api.github.com/users/emmett08/orgs",
+                "received_events_url": "https://api.github.com/users/emmett08/received_events",
+                "repos_url": "https://api.github.com/users/emmett08/repos",
+                "site_admin": false,
+                "starred_url": "https://api.github.com/users/emmett08/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/emmett08/subscriptions",
+                "type": "User",
+                "url": "https://api.github.com/users/emmett08",
+                "user_view_type": "public"
+              },
+              "private": false,
+              "pulls_url": "https://api.github.com/repos/emmett08/engarg/pulls{/number}",
+              "releases_url": "https://api.github.com/repos/emmett08/engarg/releases{/id}",
+              "stargazers_url": "https://api.github.com/repos/emmett08/engarg/stargazers",
+              "statuses_url": "https://api.github.com/repos/emmett08/engarg/statuses/{sha}",
+              "subscribers_url": "https://api.github.com/repos/emmett08/engarg/subscribers",
+              "subscription_url": "https://api.github.com/repos/emmett08/engarg/subscription",
+              "tags_url": "https://api.github.com/repos/emmett08/engarg/tags",
+              "teams_url": "https://api.github.com/repos/emmett08/engarg/teams",
+              "trees_url": "https://api.github.com/repos/emmett08/engarg/git/trees{/sha}",
+              "url": "https://api.github.com/repos/emmett08/engarg"
+            },
+            "rerun_url": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322/rerun",
+            "run_attempt": 1,
+            "run_number": 220,
+            "run_started_at": "2026-11-01T19:01:15Z",
+            "status": "in_progress",
+            "triggering_actor": {
+              "avatar_url": "https://avatars.githubusercontent.com/u/85883829?v=4",
+              "events_url": "https://api.github.com/users/emmett08/events{/privacy}",
+              "followers_url": "https://api.github.com/users/emmett08/followers",
+              "following_url": "https://api.github.com/users/emmett08/following{/other_user}",
+              "gists_url": "https://api.github.com/users/emmett08/gists{/gist_id}",
+              "gravatar_id": "",
+              "html_url": "https://github.com/emmett08",
+              "id": 85883829,
+              "login": "emmett08",
+              "node_id": "MDQ6VXNlcjg1ODgzODI5",
+              "organizations_url": "https://api.github.com/users/emmett08/orgs",
+              "received_events_url": "https://api.github.com/users/emmett08/received_events",
+              "repos_url": "https://api.github.com/users/emmett08/repos",
+              "site_admin": false,
+              "starred_url": "https://api.github.com/users/emmett08/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/emmett08/subscriptions",
+              "type": "User",
+              "url": "https://api.github.com/users/emmett08",
+              "user_view_type": "public"
+            },
+            "updated_at": "2026-11-01T19:01:37Z",
+            "url": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322",
+            "workflow_id": 394352129,
+            "workflow_url": "https://api.github.com/repos/emmett08/engarg/actions/workflows/394352129"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.workflow_attempt",
+          "source_id": "run:41339566322/attempt:1/"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.workflow_job/run:41339566322/attempt:1/124946577551/b72ee3e5dcbc2c21a150aa06def9ea2700b739d4cf9bd8682926cf6fd3d78a85",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "b72ee3e5dcbc2c21a150aa06def9ea2700b739d4cf9bd8682926cf6fd3d78a85",
+          "payload": {
+            "check_run_url": "https://api.github.com/repos/emmett08/engarg/check-runs/124946577551",
+            "completed_at": null,
+            "conclusion": null,
+            "created_at": "2026-11-01T19:01:34Z",
+            "head_branch": "feat/observatory-effort-pilot",
+            "head_sha": "c9330e1cc3155393e84752ad5f189960277a9026",
+            "html_url": "https://github.com/emmett08/engarg/actions/runs/41339566322/job/124946577551",
+            "id": 124946577551,
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "name": "Prepared evidence APIs (node)",
+            "node_id": "CR_kwDOVVBjpc8AAAAdF2V4jw",
+            "run_attempt": 1,
+            "run_id": 41339566322,
+            "run_url": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions",
+            "runner_id": 1000023262,
+            "runner_name": "GitHub Actions 1000023262",
+            "started_at": "2026-11-01T19:01:36Z",
+            "status": "in_progress",
+            "steps": [
+              {
+                "completed_at": "2026-11-01T19:01:37Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "started_at": "2026-11-01T19:01:36Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:38Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "number": 2,
+                "started_at": "2026-11-01T19:01:37Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:46Z",
+                "conclusion": "success",
+                "name": "Install pinned toolchain",
+                "number": 3,
+                "started_at": "2026-11-01T19:01:38Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:46Z",
+                "conclusion": "success",
+                "name": "Run ./.github/actions/cargo-cache",
+                "number": 4,
+                "started_at": "2026-11-01T19:01:46Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:02:07Z",
+                "conclusion": "success",
+                "name": "Prepare the selected dependency image",
+                "number": 5,
+                "started_at": "2026-11-01T19:01:46Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:02:10Z",
+                "conclusion": "success",
+                "name": "Run ./.github/actions/eal-runtime",
+                "number": 6,
+                "started_at": "2026-11-01T19:02:07Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Verify offline APIs and the generated-tool protocol",
+                "number": 7,
+                "started_at": "2026-11-01T19:02:10Z",
+                "status": "in_progress"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Post Run ./.github/actions/cargo-cache",
+                "number": 13,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "number": 14,
+                "started_at": null,
+                "status": "pending"
+              }
+            ],
+            "url": "https://api.github.com/repos/emmett08/engarg/actions/jobs/124946577551",
+            "workflow_name": "Rust checks"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.workflow_job",
+          "source_id": "run:41339566322/attempt:1/124946577551"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.workflow_job/run:41339566322/attempt:1/124946577689/b926babc8bc33cb45446c0c1c49c4bda40abc491ffd3d447d901b128ec726265",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "b926babc8bc33cb45446c0c1c49c4bda40abc491ffd3d447d901b128ec726265",
+          "payload": {
+            "check_run_url": "https://api.github.com/repos/emmett08/engarg/check-runs/124946577689",
+            "completed_at": null,
+            "conclusion": null,
+            "created_at": "2026-11-01T19:01:34Z",
+            "head_branch": "feat/observatory-effort-pilot",
+            "head_sha": "c9330e1cc3155393e84752ad5f189960277a9026",
+            "html_url": "https://github.com/emmett08/engarg/actions/runs/41339566322/job/124946577689",
+            "id": 124946577689,
+            "labels": [
+              "macos-latest"
+            ],
+            "name": "checks (macos-latest)",
+            "node_id": "CR_kwDOVVBjpc8AAAAdF2V5GQ",
+            "run_attempt": 1,
+            "run_id": 41339566322,
+            "run_url": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions",
+            "runner_id": 1000023263,
+            "runner_name": "GitHub Actions 1000023263",
+            "started_at": "2026-11-01T19:01:36Z",
+            "status": "in_progress",
+            "steps": [
+              {
+                "completed_at": "2026-11-01T19:01:38Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "started_at": "2026-11-01T19:01:36Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:40Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "number": 2,
+                "started_at": "2026-11-01T19:01:38Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:40Z",
+                "conclusion": "success",
+                "name": "Configure Observatory execution evidence",
+                "number": 3,
+                "started_at": "2026-11-01T19:01:40Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:55Z",
+                "conclusion": "success",
+                "name": "Install pinned toolchain",
+                "number": 4,
+                "started_at": "2026-11-01T19:01:40Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:57Z",
+                "conclusion": "success",
+                "name": "Run ./.github/actions/cargo-cache",
+                "number": 5,
+                "started_at": "2026-11-01T19:01:55Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:02:26Z",
+                "conclusion": "success",
+                "name": "Check authoring script preflight",
+                "number": 6,
+                "started_at": "2026-11-01T19:01:57Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:02:27Z",
+                "conclusion": "success",
+                "name": "Publish authoring check receipts",
+                "number": 7,
+                "started_at": "2026-11-01T19:02:26Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:02:28Z",
+                "conclusion": "success",
+                "name": "Run cargo fmt --all -- --check",
+                "number": 8,
+                "started_at": "2026-11-01T19:02:27Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:03:35Z",
+                "conclusion": "success",
+                "name": "Run cargo clippy --locked --all-targets -- -D warnings",
+                "number": 9,
+                "started_at": "2026-11-01T19:02:28Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Run cargo test --locked --all-targets",
+                "number": 10,
+                "started_at": "2026-11-01T19:03:35Z",
+                "status": "in_progress"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Run ./.github/actions/eal-process-contracts",
+                "number": 11,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Check recorded argument HTML",
+                "number": 12,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Run cargo build --locked --release",
+                "number": 13,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Run ./.github/actions/eal-runtime",
+                "number": 14,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Verify the installed pinned runtime and cached startup",
+                "number": 15,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Execute installed EAL packages and reasoning modes",
+                "number": 16,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Investigate generated arguments with frozen native checks",
+                "number": 17,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Post Run ./.github/actions/cargo-cache",
+                "number": 33,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "number": 34,
+                "started_at": null,
+                "status": "pending"
+              }
+            ],
+            "url": "https://api.github.com/repos/emmett08/engarg/actions/jobs/124946577689",
+            "workflow_name": "Rust checks"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.workflow_job",
+          "source_id": "run:41339566322/attempt:1/124946577689"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.workflow_job/run:41339566322/attempt:1/124946577756/c043b61d23229fba7d5041a6ec51f00aff5136418910c11043eab441b946a77e",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "c043b61d23229fba7d5041a6ec51f00aff5136418910c11043eab441b946a77e",
+          "payload": {
+            "check_run_url": "https://api.github.com/repos/emmett08/engarg/check-runs/124946577756",
+            "completed_at": null,
+            "conclusion": null,
+            "created_at": "2026-11-01T19:01:34Z",
+            "head_branch": "feat/observatory-effort-pilot",
+            "head_sha": "c9330e1cc3155393e84752ad5f189960277a9026",
+            "html_url": "https://github.com/emmett08/engarg/actions/runs/41339566322/job/124946577756",
+            "id": 124946577756,
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "name": "checks (ubuntu-latest)",
+            "node_id": "CR_kwDOVVBjpc8AAAAdF2V5XA",
+            "run_attempt": 1,
+            "run_id": 41339566322,
+            "run_url": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions",
+            "runner_id": 1000023267,
+            "runner_name": "GitHub Actions 1000023267",
+            "started_at": "2026-11-01T19:01:36Z",
+            "status": "in_progress",
+            "steps": [
+              {
+                "completed_at": "2026-11-01T19:01:38Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "started_at": "2026-11-01T19:01:37Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:40Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "number": 2,
+                "started_at": "2026-11-01T19:01:38Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:40Z",
+                "conclusion": "success",
+                "name": "Configure Observatory execution evidence",
+                "number": 3,
+                "started_at": "2026-11-01T19:01:40Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:53Z",
+                "conclusion": "success",
+                "name": "Install pinned toolchain",
+                "number": 4,
+                "started_at": "2026-11-01T19:01:40Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:54Z",
+                "conclusion": "success",
+                "name": "Run ./.github/actions/cargo-cache",
+                "number": 5,
+                "started_at": "2026-11-01T19:01:53Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:02:09Z",
+                "conclusion": "success",
+                "name": "Check authoring script preflight",
+                "number": 6,
+                "started_at": "2026-11-01T19:01:54Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:02:10Z",
+                "conclusion": "success",
+                "name": "Publish authoring check receipts",
+                "number": 7,
+                "started_at": "2026-11-01T19:02:09Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:02:11Z",
+                "conclusion": "success",
+                "name": "Run cargo fmt --all -- --check",
+                "number": 8,
+                "started_at": "2026-11-01T19:02:10Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:02:56Z",
+                "conclusion": "success",
+                "name": "Run cargo clippy --locked --all-targets -- -D warnings",
+                "number": 9,
+                "started_at": "2026-11-01T19:02:11Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Run cargo test --locked --all-targets",
+                "number": 10,
+                "started_at": "2026-11-01T19:02:56Z",
+                "status": "in_progress"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Run ./.github/actions/eal-process-contracts",
+                "number": 11,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Check recorded argument HTML",
+                "number": 12,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Run cargo build --locked --release",
+                "number": 13,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Run ./.github/actions/eal-runtime",
+                "number": 14,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Verify the installed pinned runtime and cached startup",
+                "number": 15,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Execute installed EAL packages and reasoning modes",
+                "number": 16,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Investigate generated arguments with frozen native checks",
+                "number": 17,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Post Run ./.github/actions/cargo-cache",
+                "number": 33,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "number": 34,
+                "started_at": null,
+                "status": "pending"
+              }
+            ],
+            "url": "https://api.github.com/repos/emmett08/engarg/actions/jobs/124946577756",
+            "workflow_name": "Rust checks"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.workflow_job",
+          "source_id": "run:41339566322/attempt:1/124946577756"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.workflow_job/run:41339566322/attempt:1/124946577767/4861918e8a3c296f18553bfd1ba7ea1c00d52c9bb9d3aed5ae47e33550d9b722",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "4861918e8a3c296f18553bfd1ba7ea1c00d52c9bb9d3aed5ae47e33550d9b722",
+          "payload": {
+            "check_run_url": "https://api.github.com/repos/emmett08/engarg/check-runs/124946577767",
+            "completed_at": null,
+            "conclusion": null,
+            "created_at": "2026-11-01T19:01:34Z",
+            "head_branch": "feat/observatory-effort-pilot",
+            "head_sha": "c9330e1cc3155393e84752ad5f189960277a9026",
+            "html_url": "https://github.com/emmett08/engarg/actions/runs/41339566322/job/124946577767",
+            "id": 124946577767,
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "name": "EAL producer and consumer contracts",
+            "node_id": "CR_kwDOVVBjpc8AAAAdF2V5Zw",
+            "run_attempt": 1,
+            "run_id": 41339566322,
+            "run_url": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions",
+            "runner_id": 1000023264,
+            "runner_name": "GitHub Actions 1000023264",
+            "started_at": "2026-11-01T19:01:36Z",
+            "status": "in_progress",
+            "steps": [
+              {
+                "completed_at": "2026-11-01T19:01:37Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "started_at": "2026-11-01T19:01:36Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:38Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "number": 2,
+                "started_at": "2026-11-01T19:01:37Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:55Z",
+                "conclusion": "success",
+                "name": "Install both declared toolchains",
+                "number": 3,
+                "started_at": "2026-11-01T19:01:38Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:56Z",
+                "conclusion": "success",
+                "name": "Run ./.github/actions/cargo-cache",
+                "number": 4,
+                "started_at": "2026-11-01T19:01:55Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:02:42Z",
+                "conclusion": "success",
+                "name": "Run ./.github/actions/eal-producer",
+                "number": 5,
+                "started_at": "2026-11-01T19:01:56Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:02:42Z",
+                "conclusion": "success",
+                "name": "Check published collector descriptors",
+                "number": 6,
+                "started_at": "2026-11-01T19:02:42Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Exercise portable EAL packages and independent collector domains",
+                "number": 7,
+                "started_at": "2026-11-01T19:02:42Z",
+                "status": "in_progress"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Post Run ./.github/actions/eal-producer",
+                "number": 12,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Post Run ./.github/actions/cargo-cache",
+                "number": 13,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "number": 14,
+                "started_at": null,
+                "status": "pending"
+              }
+            ],
+            "url": "https://api.github.com/repos/emmett08/engarg/actions/jobs/124946577767",
+            "workflow_name": "Rust checks"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.workflow_job",
+          "source_id": "run:41339566322/attempt:1/124946577767"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.workflow_job/run:41339566322/attempt:1/124946577859/5ae9540346cb8e6435ad9d648d80905a4ed2e7d7474ce7b90cd689e904d209f6",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "5ae9540346cb8e6435ad9d648d80905a4ed2e7d7474ce7b90cd689e904d209f6",
+          "payload": {
+            "check_run_url": "https://api.github.com/repos/emmett08/engarg/check-runs/124946577859",
+            "completed_at": null,
+            "conclusion": null,
+            "created_at": "2026-11-01T19:01:34Z",
+            "head_branch": "feat/observatory-effort-pilot",
+            "head_sha": "c9330e1cc3155393e84752ad5f189960277a9026",
+            "html_url": "https://github.com/emmett08/engarg/actions/runs/41339566322/job/124946577859",
+            "id": 124946577859,
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "name": "Prepared evidence APIs (rust)",
+            "node_id": "CR_kwDOVVBjpc8AAAAdF2V5ww",
+            "run_attempt": 1,
+            "run_id": 41339566322,
+            "run_url": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions",
+            "runner_id": 1000023268,
+            "runner_name": "GitHub Actions 1000023268",
+            "started_at": "2026-11-01T19:01:36Z",
+            "status": "in_progress",
+            "steps": [
+              {
+                "completed_at": "2026-11-01T19:01:37Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "started_at": "2026-11-01T19:01:36Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:38Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "number": 2,
+                "started_at": "2026-11-01T19:01:37Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:44Z",
+                "conclusion": "success",
+                "name": "Install pinned toolchain",
+                "number": 3,
+                "started_at": "2026-11-01T19:01:38Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:45Z",
+                "conclusion": "success",
+                "name": "Run ./.github/actions/cargo-cache",
+                "number": 4,
+                "started_at": "2026-11-01T19:01:44Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:04:00Z",
+                "conclusion": "success",
+                "name": "Prepare the selected dependency image",
+                "number": 5,
+                "started_at": "2026-11-01T19:01:45Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:04:03Z",
+                "conclusion": "success",
+                "name": "Run ./.github/actions/eal-runtime",
+                "number": 6,
+                "started_at": "2026-11-01T19:04:00Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Verify offline APIs and the generated-tool protocol",
+                "number": 7,
+                "started_at": "2026-11-01T19:04:03Z",
+                "status": "in_progress"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Post Run ./.github/actions/cargo-cache",
+                "number": 13,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "number": 14,
+                "started_at": null,
+                "status": "pending"
+              }
+            ],
+            "url": "https://api.github.com/repos/emmett08/engarg/actions/jobs/124946577859",
+            "workflow_name": "Rust checks"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.workflow_job",
+          "source_id": "run:41339566322/attempt:1/124946577859"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.workflow_job/run:41339566322/attempt:1/124946577866/e30d07d0709adbd887417e4b8389a5e0bc3bb47afd746b2add0a05966d7bd0c6",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "e30d07d0709adbd887417e4b8389a5e0bc3bb47afd746b2add0a05966d7bd0c6",
+          "payload": {
+            "check_run_url": "https://api.github.com/repos/emmett08/engarg/check-runs/124946577866",
+            "completed_at": null,
+            "conclusion": null,
+            "created_at": "2026-11-01T19:01:34Z",
+            "head_branch": "feat/observatory-effort-pilot",
+            "head_sha": "c9330e1cc3155393e84752ad5f189960277a9026",
+            "html_url": "https://github.com/emmett08/engarg/actions/runs/41339566322/job/124946577866",
+            "id": 124946577866,
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "name": "Prepared evidence APIs (go)",
+            "node_id": "CR_kwDOVVBjpc8AAAAdF2V5yg",
+            "run_attempt": 1,
+            "run_id": 41339566322,
+            "run_url": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions",
+            "runner_id": 1000023265,
+            "runner_name": "GitHub Actions 1000023265",
+            "started_at": "2026-11-01T19:01:36Z",
+            "status": "in_progress",
+            "steps": [
+              {
+                "completed_at": "2026-11-01T19:01:37Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "started_at": "2026-11-01T19:01:37Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:39Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "number": 2,
+                "started_at": "2026-11-01T19:01:37Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:48Z",
+                "conclusion": "success",
+                "name": "Install pinned toolchain",
+                "number": 3,
+                "started_at": "2026-11-01T19:01:39Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:49Z",
+                "conclusion": "success",
+                "name": "Run ./.github/actions/cargo-cache",
+                "number": 4,
+                "started_at": "2026-11-01T19:01:48Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:02:31Z",
+                "conclusion": "success",
+                "name": "Prepare the selected dependency image",
+                "number": 5,
+                "started_at": "2026-11-01T19:01:49Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:02:35Z",
+                "conclusion": "success",
+                "name": "Run ./.github/actions/eal-runtime",
+                "number": 6,
+                "started_at": "2026-11-01T19:02:31Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Verify offline APIs and the generated-tool protocol",
+                "number": 7,
+                "started_at": "2026-11-01T19:02:35Z",
+                "status": "in_progress"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Post Run ./.github/actions/cargo-cache",
+                "number": 13,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "number": 14,
+                "started_at": null,
+                "status": "pending"
+              }
+            ],
+            "url": "https://api.github.com/repos/emmett08/engarg/actions/jobs/124946577866",
+            "workflow_name": "Rust checks"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.workflow_job",
+          "source_id": "run:41339566322/attempt:1/124946577866"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.workflow_job/run:41339566322/attempt:1/124946577869/c5a45097c0fddeb8b86cc26e5a6d3db67447c399e51a6be27e929dc1700d710d",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "c5a45097c0fddeb8b86cc26e5a6d3db67447c399e51a6be27e929dc1700d710d",
+          "payload": {
+            "check_run_url": "https://api.github.com/repos/emmett08/engarg/check-runs/124946577869",
+            "completed_at": null,
+            "conclusion": null,
+            "created_at": "2026-11-01T19:01:34Z",
+            "head_branch": "feat/observatory-effort-pilot",
+            "head_sha": "c9330e1cc3155393e84752ad5f189960277a9026",
+            "html_url": "https://github.com/emmett08/engarg/actions/runs/41339566322/job/124946577869",
+            "id": 124946577869,
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "name": "Prepared evidence APIs (python)",
+            "node_id": "CR_kwDOVVBjpc8AAAAdF2V5zQ",
+            "run_attempt": 1,
+            "run_id": 41339566322,
+            "run_url": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions",
+            "runner_id": 1000023266,
+            "runner_name": "GitHub Actions 1000023266",
+            "started_at": "2026-11-01T19:01:36Z",
+            "status": "in_progress",
+            "steps": [
+              {
+                "completed_at": "2026-11-01T19:01:37Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "started_at": "2026-11-01T19:01:36Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:38Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "number": 2,
+                "started_at": "2026-11-01T19:01:37Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:46Z",
+                "conclusion": "success",
+                "name": "Install pinned toolchain",
+                "number": 3,
+                "started_at": "2026-11-01T19:01:38Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:01:47Z",
+                "conclusion": "success",
+                "name": "Run ./.github/actions/cargo-cache",
+                "number": 4,
+                "started_at": "2026-11-01T19:01:46Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:03:30Z",
+                "conclusion": "success",
+                "name": "Prepare the selected dependency image",
+                "number": 5,
+                "started_at": "2026-11-01T19:01:47Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-11-01T19:03:32Z",
+                "conclusion": "success",
+                "name": "Run ./.github/actions/eal-runtime",
+                "number": 6,
+                "started_at": "2026-11-01T19:03:30Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Verify offline APIs and the generated-tool protocol",
+                "number": 7,
+                "started_at": "2026-11-01T19:03:32Z",
+                "status": "in_progress"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Post Run ./.github/actions/cargo-cache",
+                "number": 13,
+                "started_at": null,
+                "status": "pending"
+              },
+              {
+                "completed_at": null,
+                "conclusion": null,
+                "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "number": 14,
+                "started_at": null,
+                "status": "pending"
+              }
+            ],
+            "url": "https://api.github.com/repos/emmett08/engarg/actions/jobs/124946577869",
+            "workflow_name": "Rust checks"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.workflow_job",
+          "source_id": "run:41339566322/attempt:1/124946577869"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    },
+    {
+      "record": {
+        "id": "github:repository:1431331749/github.workflow_run/41339566322/00c753fb964862e9aef27499aad5e7d23024855f3b61febff70d5b07c95736f7",
+        "kind": "source_record",
+        "data": {
+          "content_sha256": "00c753fb964862e9aef27499aad5e7d23024855f3b61febff70d5b07c95736f7",
+          "payload": {
+            "actor": {
+              "avatar_url": "https://avatars.githubusercontent.com/u/85883829?v=4",
+              "events_url": "https://api.github.com/users/emmett08/events{/privacy}",
+              "followers_url": "https://api.github.com/users/emmett08/followers",
+              "following_url": "https://api.github.com/users/emmett08/following{/other_user}",
+              "gists_url": "https://api.github.com/users/emmett08/gists{/gist_id}",
+              "gravatar_id": "",
+              "html_url": "https://github.com/emmett08",
+              "id": 85883829,
+              "login": "emmett08",
+              "node_id": "MDQ6VXNlcjg1ODgzODI5",
+              "organizations_url": "https://api.github.com/users/emmett08/orgs",
+              "received_events_url": "https://api.github.com/users/emmett08/received_events",
+              "repos_url": "https://api.github.com/users/emmett08/repos",
+              "site_admin": false,
+              "starred_url": "https://api.github.com/users/emmett08/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/emmett08/subscriptions",
+              "type": "User",
+              "url": "https://api.github.com/users/emmett08",
+              "user_view_type": "public"
+            },
+            "artifacts_url": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322/artifacts",
+            "cancel_url": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322/cancel",
+            "check_suite_id": 112038051009,
+            "check_suite_node_id": "CS_kwDOVVBjpc8AAAAaFfz8wQ",
+            "check_suite_url": "https://api.github.com/repos/emmett08/engarg/check-suites/112038051009",
+            "conclusion": null,
+            "created_at": "2026-11-01T19:01:15Z",
+            "display_title": "Link authoring-check receipts to the Observatory effort pilot",
+            "event": "pull_request",
+            "head_branch": "feat/observatory-effort-pilot",
+            "head_commit": {
+              "author": {
+                "email": "emmett.miller7@outlook.com",
+                "name": "Emmett Miller"
+              },
+              "committer": {
+                "email": "emmett.miller7@outlook.com",
+                "name": "Emmett Miller"
+              },
+              "id": "c9330e1cc3155393e84752ad5f189960277a9026",
+              "message": "Limit sample task attribution to the pilot pull request",
+              "timestamp": "2026-11-01T19:01:08Z",
+              "tree_id": "ea72bd549771f9ee6d7fdf72435be66ad4720487"
+            },
+            "head_repository": {
+              "archive_url": "https://api.github.com/repos/emmett08/engarg/{archive_format}{/ref}",
+              "assignees_url": "https://api.github.com/repos/emmett08/engarg/assignees{/user}",
+              "blobs_url": "https://api.github.com/repos/emmett08/engarg/git/blobs{/sha}",
+              "branches_url": "https://api.github.com/repos/emmett08/engarg/branches{/branch}",
+              "collaborators_url": "https://api.github.com/repos/emmett08/engarg/collaborators{/collaborator}",
+              "comments_url": "https://api.github.com/repos/emmett08/engarg/comments{/number}",
+              "commits_url": "https://api.github.com/repos/emmett08/engarg/commits{/sha}",
+              "compare_url": "https://api.github.com/repos/emmett08/engarg/compare/{base}...{head}",
+              "contents_url": "https://api.github.com/repos/emmett08/engarg/contents/{+path}",
+              "contributors_url": "https://api.github.com/repos/emmett08/engarg/contributors",
+              "deployments_url": "https://api.github.com/repos/emmett08/engarg/deployments",
+              "description": "Rust CLI that uses LLMs to construct and critique extended Toulmin engineering arguments and export EAL/4 source with evidence tool configuration.",
+              "downloads_url": "https://api.github.com/repos/emmett08/engarg/downloads",
+              "events_url": "https://api.github.com/repos/emmett08/engarg/events",
+              "fork": false,
+              "forks_url": "https://api.github.com/repos/emmett08/engarg/forks",
+              "full_name": "emmett08/engarg",
+              "git_commits_url": "https://api.github.com/repos/emmett08/engarg/git/commits{/sha}",
+              "git_refs_url": "https://api.github.com/repos/emmett08/engarg/git/refs{/sha}",
+              "git_tags_url": "https://api.github.com/repos/emmett08/engarg/git/tags{/sha}",
+              "hooks_url": "https://api.github.com/repos/emmett08/engarg/hooks",
+              "html_url": "https://github.com/emmett08/engarg",
+              "id": 1431331749,
+              "issue_comment_url": "https://api.github.com/repos/emmett08/engarg/issues/comments{/number}",
+              "issue_events_url": "https://api.github.com/repos/emmett08/engarg/issues/events{/number}",
+              "issues_url": "https://api.github.com/repos/emmett08/engarg/issues{/number}",
+              "keys_url": "https://api.github.com/repos/emmett08/engarg/keys{/key_id}",
+              "labels_url": "https://api.github.com/repos/emmett08/engarg/labels{/name}",
+              "languages_url": "https://api.github.com/repos/emmett08/engarg/languages",
+              "merges_url": "https://api.github.com/repos/emmett08/engarg/merges",
+              "milestones_url": "https://api.github.com/repos/emmett08/engarg/milestones{/number}",
+              "name": "engarg",
+              "node_id": "R_kgDOVVBjpQ",
+              "notifications_url": "https://api.github.com/repos/emmett08/engarg/notifications{?since,all,participating}",
+              "owner": {
+                "avatar_url": "https://avatars.githubusercontent.com/u/85883829?v=4",
+                "events_url": "https://api.github.com/users/emmett08/events{/privacy}",
+                "followers_url": "https://api.github.com/users/emmett08/followers",
+                "following_url": "https://api.github.com/users/emmett08/following{/other_user}",
+                "gists_url": "https://api.github.com/users/emmett08/gists{/gist_id}",
+                "gravatar_id": "",
+                "html_url": "https://github.com/emmett08",
+                "id": 85883829,
+                "login": "emmett08",
+                "node_id": "MDQ6VXNlcjg1ODgzODI5",
+                "organizations_url": "https://api.github.com/users/emmett08/orgs",
+                "received_events_url": "https://api.github.com/users/emmett08/received_events",
+                "repos_url": "https://api.github.com/users/emmett08/repos",
+                "site_admin": false,
+                "starred_url": "https://api.github.com/users/emmett08/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/emmett08/subscriptions",
+                "type": "User",
+                "url": "https://api.github.com/users/emmett08",
+                "user_view_type": "public"
+              },
+              "private": false,
+              "pulls_url": "https://api.github.com/repos/emmett08/engarg/pulls{/number}",
+              "releases_url": "https://api.github.com/repos/emmett08/engarg/releases{/id}",
+              "stargazers_url": "https://api.github.com/repos/emmett08/engarg/stargazers",
+              "statuses_url": "https://api.github.com/repos/emmett08/engarg/statuses/{sha}",
+              "subscribers_url": "https://api.github.com/repos/emmett08/engarg/subscribers",
+              "subscription_url": "https://api.github.com/repos/emmett08/engarg/subscription",
+              "tags_url": "https://api.github.com/repos/emmett08/engarg/tags",
+              "teams_url": "https://api.github.com/repos/emmett08/engarg/teams",
+              "trees_url": "https://api.github.com/repos/emmett08/engarg/git/trees{/sha}",
+              "url": "https://api.github.com/repos/emmett08/engarg"
+            },
+            "head_sha": "c9330e1cc3155393e84752ad5f189960277a9026",
+            "html_url": "https://github.com/emmett08/engarg/actions/runs/41339566322",
+            "id": 41339566322,
+            "jobs_url": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322/jobs",
+            "logs_url": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322/logs",
+            "name": "Rust checks",
+            "node_id": "WFR_kwLOVVBjpc8AAAAJoAe48g",
+            "path": ".github/workflows/ci.yml",
+            "previous_attempt_url": null,
+            "pull_requests": [
+              {
+                "base": {
+                  "ref": "main",
+                  "repo": {
+                    "id": 1431331749,
+                    "name": "engarg",
+                    "url": "https://api.github.com/repos/emmett08/engarg"
+                  },
+                  "sha": "dd848f3aefc6421e41bc0420ae5c40aae3553893"
+                },
+                "head": {
+                  "ref": "feat/observatory-effort-pilot",
+                  "repo": {
+                    "id": 1431331749,
+                    "name": "engarg",
+                    "url": "https://api.github.com/repos/emmett08/engarg"
+                  },
+                  "sha": "c9330e1cc3155393e84752ad5f189960277a9026"
+                },
+                "id": 5110543617,
+                "number": 50,
+                "url": "https://api.github.com/repos/emmett08/engarg/pulls/50"
+              }
+            ],
+            "referenced_workflows": [],
+            "repository": {
+              "archive_url": "https://api.github.com/repos/emmett08/engarg/{archive_format}{/ref}",
+              "assignees_url": "https://api.github.com/repos/emmett08/engarg/assignees{/user}",
+              "blobs_url": "https://api.github.com/repos/emmett08/engarg/git/blobs{/sha}",
+              "branches_url": "https://api.github.com/repos/emmett08/engarg/branches{/branch}",
+              "collaborators_url": "https://api.github.com/repos/emmett08/engarg/collaborators{/collaborator}",
+              "comments_url": "https://api.github.com/repos/emmett08/engarg/comments{/number}",
+              "commits_url": "https://api.github.com/repos/emmett08/engarg/commits{/sha}",
+              "compare_url": "https://api.github.com/repos/emmett08/engarg/compare/{base}...{head}",
+              "contents_url": "https://api.github.com/repos/emmett08/engarg/contents/{+path}",
+              "contributors_url": "https://api.github.com/repos/emmett08/engarg/contributors",
+              "deployments_url": "https://api.github.com/repos/emmett08/engarg/deployments",
+              "description": "Rust CLI that uses LLMs to construct and critique extended Toulmin engineering arguments and export EAL/4 source with evidence tool configuration.",
+              "downloads_url": "https://api.github.com/repos/emmett08/engarg/downloads",
+              "events_url": "https://api.github.com/repos/emmett08/engarg/events",
+              "fork": false,
+              "forks_url": "https://api.github.com/repos/emmett08/engarg/forks",
+              "full_name": "emmett08/engarg",
+              "git_commits_url": "https://api.github.com/repos/emmett08/engarg/git/commits{/sha}",
+              "git_refs_url": "https://api.github.com/repos/emmett08/engarg/git/refs{/sha}",
+              "git_tags_url": "https://api.github.com/repos/emmett08/engarg/git/tags{/sha}",
+              "hooks_url": "https://api.github.com/repos/emmett08/engarg/hooks",
+              "html_url": "https://github.com/emmett08/engarg",
+              "id": 1431331749,
+              "issue_comment_url": "https://api.github.com/repos/emmett08/engarg/issues/comments{/number}",
+              "issue_events_url": "https://api.github.com/repos/emmett08/engarg/issues/events{/number}",
+              "issues_url": "https://api.github.com/repos/emmett08/engarg/issues{/number}",
+              "keys_url": "https://api.github.com/repos/emmett08/engarg/keys{/key_id}",
+              "labels_url": "https://api.github.com/repos/emmett08/engarg/labels{/name}",
+              "languages_url": "https://api.github.com/repos/emmett08/engarg/languages",
+              "merges_url": "https://api.github.com/repos/emmett08/engarg/merges",
+              "milestones_url": "https://api.github.com/repos/emmett08/engarg/milestones{/number}",
+              "name": "engarg",
+              "node_id": "R_kgDOVVBjpQ",
+              "notifications_url": "https://api.github.com/repos/emmett08/engarg/notifications{?since,all,participating}",
+              "owner": {
+                "avatar_url": "https://avatars.githubusercontent.com/u/85883829?v=4",
+                "events_url": "https://api.github.com/users/emmett08/events{/privacy}",
+                "followers_url": "https://api.github.com/users/emmett08/followers",
+                "following_url": "https://api.github.com/users/emmett08/following{/other_user}",
+                "gists_url": "https://api.github.com/users/emmett08/gists{/gist_id}",
+                "gravatar_id": "",
+                "html_url": "https://github.com/emmett08",
+                "id": 85883829,
+                "login": "emmett08",
+                "node_id": "MDQ6VXNlcjg1ODgzODI5",
+                "organizations_url": "https://api.github.com/users/emmett08/orgs",
+                "received_events_url": "https://api.github.com/users/emmett08/received_events",
+                "repos_url": "https://api.github.com/users/emmett08/repos",
+                "site_admin": false,
+                "starred_url": "https://api.github.com/users/emmett08/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/emmett08/subscriptions",
+                "type": "User",
+                "url": "https://api.github.com/users/emmett08",
+                "user_view_type": "public"
+              },
+              "private": false,
+              "pulls_url": "https://api.github.com/repos/emmett08/engarg/pulls{/number}",
+              "releases_url": "https://api.github.com/repos/emmett08/engarg/releases{/id}",
+              "stargazers_url": "https://api.github.com/repos/emmett08/engarg/stargazers",
+              "statuses_url": "https://api.github.com/repos/emmett08/engarg/statuses/{sha}",
+              "subscribers_url": "https://api.github.com/repos/emmett08/engarg/subscribers",
+              "subscription_url": "https://api.github.com/repos/emmett08/engarg/subscription",
+              "tags_url": "https://api.github.com/repos/emmett08/engarg/tags",
+              "teams_url": "https://api.github.com/repos/emmett08/engarg/teams",
+              "trees_url": "https://api.github.com/repos/emmett08/engarg/git/trees{/sha}",
+              "url": "https://api.github.com/repos/emmett08/engarg"
+            },
+            "rerun_url": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322/rerun",
+            "run_attempt": 1,
+            "run_number": 220,
+            "run_started_at": "2026-11-01T19:01:15Z",
+            "status": "in_progress",
+            "triggering_actor": {
+              "avatar_url": "https://avatars.githubusercontent.com/u/85883829?v=4",
+              "events_url": "https://api.github.com/users/emmett08/events{/privacy}",
+              "followers_url": "https://api.github.com/users/emmett08/followers",
+              "following_url": "https://api.github.com/users/emmett08/following{/other_user}",
+              "gists_url": "https://api.github.com/users/emmett08/gists{/gist_id}",
+              "gravatar_id": "",
+              "html_url": "https://github.com/emmett08",
+              "id": 85883829,
+              "login": "emmett08",
+              "node_id": "MDQ6VXNlcjg1ODgzODI5",
+              "organizations_url": "https://api.github.com/users/emmett08/orgs",
+              "received_events_url": "https://api.github.com/users/emmett08/received_events",
+              "repos_url": "https://api.github.com/users/emmett08/repos",
+              "site_admin": false,
+              "starred_url": "https://api.github.com/users/emmett08/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/emmett08/subscriptions",
+              "type": "User",
+              "url": "https://api.github.com/users/emmett08",
+              "user_view_type": "public"
+            },
+            "updated_at": "2026-11-01T19:01:37Z",
+            "url": "https://api.github.com/repos/emmett08/engarg/actions/runs/41339566322",
+            "workflow_id": 394352129,
+            "workflow_url": "https://api.github.com/repos/emmett08/engarg/actions/workflows/394352129"
+          },
+          "repository": "github:repository:1431331749",
+          "schema_version": 1,
+          "source": "github.workflow_run",
+          "source_id": "41339566322"
+        }
+      },
+      "observed_at": "2026-11-01T19:05:40.572284027Z",
+      "source": "github-executions:emmett08/engarg",
+      "raw_sha256": "8eb5b749edbe760f8b6fc9e3349d356c5152d012a59f9bb7b1b59decbb2d9e99"
+    }
+  ],
+  "sha256": "a0f055a03ee744b3c2314819c8d7846cff6424fb784a35c772eadfdc9a6b14bb"
+}

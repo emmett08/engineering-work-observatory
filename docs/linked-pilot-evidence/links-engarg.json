@@ -1,0 +1,62 @@
+{
+  "collected_at": "2026-11-01T19:03:44.428567Z",
+  "input_config_sha256": "81a1707fc7de8861adfe828e540c767c902148385d51de161ffce91cde444f99",
+  "limitations": [
+    "Only the explicitly requested PRs and API closing-issue relationships were queried; this is not complete work coverage.",
+    "Issue registration, project aliases and original configuration bindings remain caller declarations.",
+    "A retained relationship is evidence at collection time; it does not identify attention, duration or human control.",
+    "Existing bindings are not silently deleted; stale queried PR associations require a reviewed configuration.",
+    "Page records retain only queried identity fields. Response hashes refer to canonical decoded API JSON, not raw transport bytes."
+  ],
+  "observations": [
+    {
+      "closing_issues": [
+        {
+          "number": 49,
+          "repository": "emmett08/engarg",
+          "url": "https://github.com/emmett08/engarg/issues/49"
+        }
+      ],
+      "head_branch": "feat/observatory-effort-pilot",
+      "head_repository": "emmett08/engarg",
+      "matched_task_ids": [
+        "engarg-authoring-effort-pilot"
+      ],
+      "number": 50,
+      "pages": [
+        {
+          "record": {
+            "closing_issues": [
+              {
+                "number": 49,
+                "repository": "emmett08/engarg",
+                "url": "https://github.com/emmett08/engarg/issues/49"
+              }
+            ],
+            "end_cursor": "MQ",
+            "has_next_page": false,
+            "pull_request": {
+              "head_branch": "feat/observatory-effort-pilot",
+              "head_repository": "emmett08/engarg",
+              "number": 50,
+              "repository": "emmett08/engarg",
+              "url": "https://github.com/emmett08/engarg/pull/50"
+            },
+            "request_cursor": null,
+            "total_count": 1
+          },
+          "sha256": "6d8cf73398a1ccd1e5f3da2dc68add234677bc641fb3f6d7c67597592d8c06c5"
+        }
+      ],
+      "repository": "emmett08/engarg",
+      "response_sha256": [
+        "2831225deddd8929ec1b5d1a19eee4b78503aa2f1d7f903560937b5b6e0d75bb"
+      ],
+      "url": "https://github.com/emmett08/engarg/pull/50"
+    }
+  ],
+  "output_config_sha256": "cde45d70bdf60a66ed4276f8ed07d58af4f382602d6898755d6228d3a140fd8c",
+  "requested_repository": "emmett08/engarg",
+  "schema": "observatory.github-task-links/1",
+  "source": "github_graphql_closing_issues"
+}
