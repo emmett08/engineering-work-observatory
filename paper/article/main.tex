@@ -158,12 +158,6 @@ Probability sampling permits design-unbiased estimation when the frame covers th
 
 The next empirical test is whether records tied to each task can account for person-hours from every included role and independently assessed retained output through the required follow-up. Disagreement over recorded allocations, missing records and collection burden will help determine how much measurement is practicable before an intervention trial is designed. That trial must also choose whether to assess a fixed workload or an organisation-wide adoption that can change incoming requirements. The results specify which labour totals are consistent with the observations, when sampling gives an unbiased estimate and when fixed predictions reduce its variance.
 
-\section*{Reproducibility}
-
-The repository at \url{https://github.com/emmett08/engineering-work-observatory/tree/main/paper} contains the LaTeX source, exact rational interval checker and finite sampling checks. The analytical proofs establish the general results. The executable checks test the calculations on constructed data; workplace measurements require empirical validation. For feasible inputs within its resource limits, the application solves the joint shared-capacity programme in exact rational arithmetic and returns work allocations achieving the minimum and maximum target totals. Its existing cohort reports use separately calculated floating-point bounds without guaranteeing that the rounded interval contains the interval obtained with exact arithmetic. For version-2 inputs, the estimator checks that each person's declared intervals cover their observation window without gaps or overlaps. Design-variance estimates are available for simple random sampling when the sample size permits. Establishing coverage of actual work, allocation accuracy and compliance with a sampling design requires evidence from collection.
-
-The unchanged historical package retains Lean proofs of the finite observation-law counterexample and inverse-probability-weighting algebra. The attainable interval bounds, joint cell reduction, difference-estimator variance and sampling-validation arguments developed here have the analytical proofs and computational checks described above. They lie outside the historical proof receipt's coverage.
-
 \appendix
 \input{scalar-bounds}
 

@@ -387,3 +387,22 @@ no undefined references/citations or overfull/underfull boxes. The existing
 BibTeX missing-pages warning remains. `make -C paper check` and
 `git diff --check` pass. Application code and numerical reference results remain
 unchanged.
+
+### Final pass and removal of Reproducibility
+
+Starting at `4f174560ebe8a2506ee5780d5b0a2bfc2a84859a`, remove the requested
+Reproducibility heading and both paragraphs. The primary editor and two new
+reviewing agents reread all six compiled sources. The only further repair makes
+the definition of point identification require at least one admissible allocation,
+so that an inconsistent record cannot qualify vacuously. The conclusion-to-appendix
+transition and all surviving references remain coherent.
+
+All 20 displayed mathematical blocks, 226 inline expressions, 58 environment
+commands, 33 labels, citations and bibliography bytes are unchanged. The section's
+repository URL is removed; the remaining 73 reference-related commands are
+preserved exactly and all 13 cited sources resolve. The rebuilt PDF has 13 pages,
+all rendered and visually inspected, with no undefined references/citations or
+overfull/underfull boxes. The existing BibTeX missing-pages warning remains.
+`make -C paper check` and `git diff --check` pass. The
+[final review record](review/literal-prose-2026-11-01.md#final-pass-and-reproducibility-removal)
+records the precise scope, permitted changes and PDF hash.

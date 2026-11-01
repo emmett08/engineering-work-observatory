@@ -169,3 +169,37 @@ bounded editorial verification, not a claim that no possible defect remains.
 
 Second-pass PDF SHA-256:
 `15921bf4b606554c1a3692e4cbc57812b9532c1168e1cdb0b522bbadc4e0a36f`.
+
+## Final pass and Reproducibility removal
+
+Baseline: `4f174560ebe8a2506ee5780d5b0a2bfc2a84859a`. At the user's request,
+the Reproducibility heading and both paragraphs are removed. The conclusion
+now leads directly to the scalar appendix. No surviving passage refers to the
+removed section, and no proof premise depends on it.
+
+The primary editor and two new reviewing agents read all six remaining compiled
+sources. The wording reviewer found no further material issue. The mathematical
+reviewer identified one definitional edge case: an inconsistent record must not
+count as point-identifying labour merely because there are no admissible
+allocations to compare. The definition now requires at least one allocation
+satisfying the record and constraints, and the same labour total for every such
+allocation. This matches the later proposition's treatment of an empty feasible
+set. No other wording change was needed.
+
+Verification against the baseline permits exactly the section deletion and that
+definition change. All 20 displayed mathematical blocks, 226 inline mathematical
+expressions, 58 environment commands, 33 labels, citations and bibliography bytes
+remain unchanged. The deleted section contained one repository URL command, so
+there are now 73 retained reference-related commands rather than 74. Those 73
+commands retain their exact bytes and order; all 13 cited sources resolve.
+
+`make -C paper article` builds 13 pages. Reproducibility is absent from the
+source and extracted PDF text. Every final page was rendered and visually
+inspected; all text stays within the page boundaries. The final LaTeX log has no
+undefined references/citations or overfull/underfull boxes. The existing BibTeX
+missing-pages warning remains. `make -C paper check` and `git diff --check` pass.
+These checks are bounded to the current manuscript and retained reference
+calculations; they do not constitute empirical validation.
+
+Final-pass PDF SHA-256:
+`660ac7ec4833eac2dc22b7625b5831449e3c0669a46a1ad59d7e336ce634696c`.
