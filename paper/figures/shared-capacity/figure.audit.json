@@ -5,7 +5,7 @@
   "source_sha256": "5cf5a1f69b9792635184d92644be580ab8d33ede0f0b941f7226c27ba17f0888",
   "pdf": "figures/shared-capacity/figure.pdf",
   "pdf_sha256": "78e0d716dde404e578180954a2667e08219619d36083c1ffc58650aec23b0583",
-  "spec_sha256": "78df70692f07d47d4357b7840667b12c293bfa5198906443b0205f2f3d08536b",
+  "spec_sha256": "5eb1644e65a95cf0112e8ba0dc7e46a65ef2dd6beac6a2f4648b1e3de8264e7d",
   "engine": "pdflatex",
   "python": "3.12.14",
   "python_packages": {
@@ -39,7 +39,7 @@
     },
     {
       "path": "figures/shared-capacity/caption.tex",
-      "sha256": "f5bb12df4d2aa8cd6b8441f03cf3f4716f8509fe74794a288c2c11e90de966fd"
+      "sha256": "68032abec0126495f3d15c0af83b027a6bca7ed8618fac0ad0278b68506c03d1"
     },
     {
       "path": "figures/shared-capacity/coordinates.tex",
@@ -94,5 +94,14 @@
     "amsmath",
     "tikz"
   ],
-  "semantic_review_required": true
+  "semantic_review_required": true,
+  "caption_wording_update": {
+    "date": "2026-11-02",
+    "baseline_caption_sha256": "f5bb12df4d2aa8cd6b8441f03cf3f4716f8509fe74794a288c2c11e90de966fd",
+    "caption_sha256": "68032abec0126495f3d15c0af83b027a6bca7ed8618fac0ad0278b68506c03d1",
+    "reviewer": "/root/reapplication_review",
+    "scope": "Prose and punctuation only. Caption mathematics, figure source and final standalone PDF are unchanged. Existing geometry measurements describe the unchanged image.",
+    "baseline_spec_sha256": "78df70692f07d47d4357b7840667b12c293bfa5198906443b0205f2f3d08536b",
+    "specification_change": "Only the caption input hash is changed."
+  }
 }

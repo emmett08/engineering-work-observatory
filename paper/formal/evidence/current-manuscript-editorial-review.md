@@ -2,67 +2,37 @@
 
 Outcome: **SEMANTIC_FIDELITY_PRESERVED / MATHEMATICAL_STATEMENTS_UNCHANGED / PASS**.
 
-Independent reviewer agent: `/root/current_fidelity_review`. The reviewer authored none of the eight reviewed sources. I read their complete current text and complete changes against repository baseline `e0ded20cfe7f699863d2e134c904b9eb673b74b7`, including the connections between accounting, identification, sampling, validation, the proposed causal experiment and forecasting. No material semantic defect was found. This is an editorial and source-concordance review of those eight current sources, not an empirical validation.
+Independent reviewer `/root/reapplication_review` read the complete labour manuscript, all seven compiled text sources, Figure 1's caption and bibliography using the current `write-for-experienced-engineers` skill. The comparison baseline is PR #16 at `f592447043636288b94964363a2feed56f7d5603`. Six text sources and the caption are revised. The timing subsection is retained after review. The reviewer checked the final abstract and caption separately after the last two editorial repairs and found no defect in those changes. This record summarises that read-only local assessment and exact source comparisons.
 
-## Exact reviewed sources
-
-SHA-256 hashes identify the actual baseline and candidate bytes.
+## Reviewed source bytes
 
 | Source | Baseline SHA-256 | Candidate SHA-256 |
 |---|---|---|
-| `paper/article/design-based-estimation.tex` | `cfad2ac27f70adc63b23c408ab89f09dc30c8cf6cc741d1d0626e3da2759af39` | `fb10092d7a72db49c8e592b132b421d2c15a06f532e73c9afc94fe3de00548e7` |
-| `paper/article/event-history.tex` | `8c69d9aa82483e4d962cc1542459f8c43bf65e73da4d60655fef8d3319619b65` | `981e778bbc2131075484826af3b49ca3a6228e0aab24a49b9acc3faa389030ce` |
-| `paper/article/main.tex` | `1df5662bbc1b6a2036c60141789bf7c95e6baa810079b9f04060fb1edb97622d` | `8224afe88b5e1ae5afcba834924739125f23f91301c8af8e0676a372210a50ba` |
-| `paper/article/partial-identification.tex` | `f0f955912e9da22dd14187610ca290f99a837c184b3b25813ecd4f9cf233a927` | `fe3351e85225f2fee0ae704ed2ae96c09531b10287bf5e8c5dc45be7d8fd9d4a` |
-| `paper/article/sampling-validation.tex` | `7fe4aea96194c5ecd85b1c063a87076fd09b7bab769c8bfe109539d613e56f2e` | `0d82c3098f4072241a029e57797a63b427b9e9a38ff1cb650eb4e2cb2cba36dd` |
-| `paper/article/scalar-bounds.tex` | `4916565404f62e61d42605078f36659a0339de719eb1b85902c43d31d6d9c229` | `84afcfeaefd619ffd7036f564fdc5ea198b6e2b05766798c399344bfabec31c6` |
-| `paper/forecasting/main.tex` | `5607d3ce065c4d810386f3b183f546e8f39efa38d0fc24785fdb66b761ce1609` | `224bad3a7d61e6cdf6194ef51e1f7ed520def8c1cf28a283551b850229102121` |
-| `paper/study/ai-labour-causal/causal-study.tex` | `f6f8550e212356addeb1433875d008f0b78474270b42258dfc403d6be695ee1b` | `acc7e4387a36852cf7fef799b8e42d0c867cbc01bddbf3bd572e91291da64f1b` |
+| paper/article/main.tex | 044822230baf2141106bad7d32eccd9f0b65942f07c5079d3ff68d1f024ae9a3 | 2b77d81cf9f0c03a9e77dff119f97d1b72d02e60ec51c12b7261244930dea6c5 |
+| paper/article/event-history.tex | 74339eabaf00054826bd282368d7bc049a3d0991e5768feffa8ab46ecc51d05d | 74339eabaf00054826bd282368d7bc049a3d0991e5768feffa8ab46ecc51d05d |
+| paper/article/partial-identification.tex | d428b8bd0bd52954500a1130766e2070d5f86d5ab05a4e4fbfd0c85792b25f45 | 2f80edf947e643d906f3de38b5f1c3671c6c21b646c8f95eb5d7557ca45e55ff |
+| paper/article/design-based-estimation.tex | 9277efb1f2bf85979bee3328c6422d021a559b273f817f0bc64ed3cdbe8d93e8 | 19a9ecb0494914c19877d64c28beaae187bcf152f889007201f46eb61886c50d |
+| paper/article/sampling-validation.tex | fb54cff649fb392dc45ba88130c8a067c0f739c7fbaa778d52d12d5b32f16104 | 1a044b2685d2b837bf761752f83088fcbb25f88fda2773cbf4104aa612c22aba |
+| paper/article/scalar-bounds.tex | 107a796e296b199f24fc4ff0c31383384375c3cfa6d564ee23c4656629002b32 | 36d912b9d2e35e312efa816945d1ad33ae229808f853a5518d0b405a2f2f662d |
+| paper/study/ai-labour-causal/causal-study.tex | e356ba2c2ca8f452a9dc6ddf5c35738406cc5adca2e6c6ae334af74cc3ffecf9 | 7178fa9da1326868ad6ccb3846990fb416738f3ce13b70ac6f46686eec730135 |
+| paper/figures/shared-capacity/caption.tex | f5bb12df4d2aa8cd6b8441f03cf3f4716f8509fe74794a288c2c11e90de966fd | 68032abec0126495f3d15c0af83b027a6bca7ed8618fac0ad0278b68506c03d1 |
 
-## Literal checks
+## Argument and explanation
 
-Ordered extraction confirms byte-for-byte equality against the baseline for every category below. Counts are occurrences in each source; categories overlap where equations or commands occur inside complete propositions or proofs. Inline spans include their dollar delimiters; bracket displays include `\[` and `\]`; equation/align counts include starred environments and their complete contents. No `\(...\)` spans occur.
+The abstract explains why acceptance time and follow-up output accompany labour. Output scores are products of the reference score and assessed fulfilment fraction. A score of zero for a missed deadline is explicitly a scoring result. The inclusion rules retain the human work counted, while duplicate prompting/integration explanation is removed. The concurrency example, separation of computing resources, acceptance-relative output assessment and common labour recording period are preserved.
 
-| Source | Inline math | Bracket displays | Equation/align | Complete propositions | Complete proofs |
-|---|---:|---:|---:|---:|---:|
-| `paper/article/design-based-estimation.tex` | 56 | 2 | 5 | 1 | 1 |
-| `paper/article/event-history.tex` | 3 | 0 | 0 | 0 | 0 |
-| `paper/article/main.tex` | 43 | 0 | 5 | 1 | 1 |
-| `paper/article/partial-identification.tex` | 99 | 1 | 6 | 2 | 2 |
-| `paper/article/sampling-validation.tex` | 15 | 1 | 1 | 0 | 0 |
-| `paper/article/scalar-bounds.tex` | 36 | 0 | 1 | 1 | 1 |
-| `paper/forecasting/main.tex` | 20 | 0 | 5 | 0 | 0 |
-| `paper/study/ai-labour-causal/causal-study.tex` | 2 | 0 | 0 | 0 | 0 |
-| **Total** | **274** | **4** | **23** | **5** | **5** |
+The joint-bounds explanation distinguishes bounds valid for a sum from extrema attainable together. Attainment and a universal inequality perform distinct proof roles; matching their values establishes optimality. Sampling coverage still requires simultaneous coverage of observation totals. A population residual total is fixed, while its sampled correction varies. A census removes sampling variance but still needs measurement checks. Complete recording is presented as one route to task-level reference measurements, consistent with the preceding sampling identities. The graph appendix closes by relating its single-stream model to the joint model and then to empirical validation.
 
-| Source | Citation commands | Labels | Reference/eqref commands | Inclusion/bibliography commands |
-|---|---:|---:|---:|---:|
-| `paper/article/design-based-estimation.tex` | 3 | 9 | 4 | 0 |
-| `paper/article/event-history.tex` | 0 | 1 | 1 | 0 |
-| `paper/article/main.tex` | 9 | 12 | 9 | 8 |
-| `paper/article/partial-identification.tex` | 6 | 11 | 10 | 2 |
-| `paper/article/sampling-validation.tex` | 0 | 0 | 0 | 0 |
-| `paper/article/scalar-bounds.tex` | 1 | 3 | 2 | 0 |
-| `paper/forecasting/main.tex` | 7 | 9 | 8 | 5 |
-| `paper/study/ai-labour-causal/causal-study.tex` | 5 | 1 | 0 | 0 |
-| **Total** | **31** | **46** | **34** | **15** |
+Accurate measurement is connected explicitly to the further requirements for causal attribution. The group-allocation unit determines the uncertainty calculation. The proposed experiment still uses original groups, equal team weights, provisional criteria, adverse hypothetical planning results and a prior measurement pilot. No workplace result or additional empirical guarantee is introduced.
 
-Citation checks retain command spelling, keys and optional locators. Inclusion/bibliography checks cover `\input`, `\include`, `\bibliography` and `\bibliographystyle`. These literal checks supplement review of the surrounding prose; mathematical meaning is not assumed to reside only in extracted spans.
+All 24 citation keys resolve. Citation-command order, citation attachment and local claim scope are preserved; every reference target resolves, with no duplicate labels. The bibliography is byte-identical. External literature is not freshly reverified in full. The independent assessment supplies no measured reader-comprehension result.
 
-## Semantic and citation review
+## Mathematics and figure preservation
 
-The new explanatory connections follow the existing constraints and calculations. The capacity examples still distinguish separately valid bounds from jointly attainable endpoints. Cell reduction retains the complete calendar partition, observations outside target windows, nonempty-feasible-set condition and both directions of reconstruction. One-activity schedules still require arbitrary starts, stops and changes of task or work type. The certificate explanation retains nonnegative multipliers and sign reversal of lower observation bounds; its new fixed-partition and fixed-target qualification correctly limits the right-hand-side perturbation argument. Simultaneous coverage, empty-set failure, positive labour denominators and joint output–labour feasibility remain explicit.
+All 281 mathematical spans, five complete propositions and five complete proofs retain their baseline bytes in source order. Ordered citation, reference, label and inclusion commands are identical. The two user-supplied sentences about matching bounds and rational arithmetic remain verbatim. The caption's three mathematical spans are unchanged. The mathematical figure source, coordinates, calculation inputs and standalone PDFs are unchanged.
 
-Task identity, attribution rules, separate AI access/use records, person-time capacity, abandonment versus censoring, reference-score calibration and the three observation clocks retain their meanings. The difference estimator still requires fixed predictions, known positive inclusion probabilities, complete target coverage and accurate sampled allocations. The revised account of residuals, zero observations and nonresponse preserves these conditions. The reverse-ranking example explains its existing variance calculation. The validation examples still distinguish prediction error against true labour from disagreement with a noisy estimate; the signed, squared-error, absolute-error and coverage claims keep their separate qualifications.
+The caption replaces prose colons and semicolons with direct grammatical explanations. It retains the separate square, jointly feasible diagonal, marked point and constructed, nonunique, unobserved schedule. The caption hash is renewed in the existing specification and audit, with the dependent audit/review hashes refreshed. The audit explicitly limits this update to caption wording, preserving the historical geometry measurements of the unchanged image. Existing semantic review and an added caption finding distinguish the two review scopes.
 
-The proposed causal experiment retains paired allocation, the equal-team target, interference concerns, both benefit criteria, provisional margins and bias allowances, the inadequate hypothetical sample-size scenarios and the need for a measurement pilot. It remains specified and unrun. The forecasting revision preserves its merge-count population, complete-period and cutoff rules, distinction between reconstruction and prospective retention, absence of independently certified chronology, empirical-distribution assumptions and absence of guaranteed future coverage. Its negative comparison still leaves the default's full-history accuracy and performance in the user repositories unestablished. Queue counts, workflow outcomes and implementation checks do not become evidence of product correctness, causal effects, predictive accuracy or bottlenecks.
+## Proof and evidence boundary
 
-All 31 citation commands retain their baseline keys and locators, and their surrounding statements preserve the same attribution and qualification scope. No explanatory addition requires a new empirical result: the additions unpack the existing accounting rules, constraints or calculations. This review checks citation scope in the supplied sources; it does not freshly verify the cited literature. The article date changes from 1 to 2 November 2026. No new empirical or causal result is asserted, and no human comprehension or readability outcome was measured.
-
-## Frozen target and retained formal boundary
-
-The frozen `paper/formal/targets/partial-identification.tex` has SHA-256 `5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb`. The candidate matches it exactly for all 99 inline mathematical spans, one bracket display, six equation/align environments, two complete propositions, 11 labels, 10 reference commands and two inclusion commands. Both complete proofs match the current baseline exactly. Against the frozen target, the only proof-text difference is the pre-existing replacement of “zero; leave” by “zero. Leave” in the serial schedule construction; its allocation and idle-time instructions are unchanged. The frozen target has three citation commands, while baseline and candidate both have six. The added purification and Lean/mathlib attributions, schedule-panel explanation, formal-coverage paragraph and earlier editorial rewording already exist in the baseline; this revision does not introduce them.
-
-The formal-coverage paragraph is unchanged. Its retained scope is interval/cell integral identities, integrated capacity, binary schedule reconstruction preserving observations and weighted targets, supplied primal–dual certificates and conditional transfer of simultaneous observation coverage to target coverage. It continues to exclude extrema existence, dual-multiplier existence, the numerical block-count bound and Rust source refinement. The analytical arguments retain those distinctions. The immutable target, Lean development and historical proof evidence were not modified. This review performs no new Lean execution, kernel replay, implementation test run, measurement study or empirical validation.
-
-This outcome binds only the candidate bytes above. Later source edits require review of the changed content and renewal of the applicable hash bindings. Existing checks JSON, manuscript bindings and formal receipt were not refreshed by this reviewer.
+The frozen formal target, Lean definitions, checker scripts and recorded proof executions retain their baseline bytes. Current manuscript concordance remains separately hash-bound to that evidence. No theorem or formal-coverage boundary changes. Static receipt validation, an isolated changed-byte guard, exact calculations, figure checks and rendered-PDF inspection are recorded in `current-manuscript-editorial-checks.json`. No fresh local Lean replay, Rust refinement proof, workplace validation or measured human comprehension is claimed. Later source edits require renewed review and binding.

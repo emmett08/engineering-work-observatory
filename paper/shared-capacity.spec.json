@@ -38,7 +38,7 @@
       "path": "figures/shared-capacity/caption.tex",
       "status": "derived",
       "source_reference": "Proposed caption states the constructed inputs, quantities, deterministic feasible sets and scope.",
-      "sha256": "f5bb12df4d2aa8cd6b8441f03cf3f4716f8509fe74794a288c2c11e90de966fd"
+      "sha256": "68032abec0126495f3d15c0af83b027a6bca7ed8618fac0ad0278b68506c03d1"
     },
     {
       "id": "alternative-text",

@@ -1,8 +1,8 @@
 {
+  "schema": "current-manuscript-guard-test/1",
   "status": "PASS",
-  "isolation": "Copied standalone formal package and canonical article to task scratch; actual repository article untouched.",
   "unchanged_article_exit_status": 0,
   "changed_article_exit_status": 1,
   "rejection": "Current manuscript changed; renew its independent concordance binding.",
-  "checker_sha256": "c0ba27cfee9502c3fd5352b9c1b3154dca6047eb773bb3e7acaab25add0fc00f"
+  "isolation": "Copied formal package and canonical article; candidate manuscript untouched."
 }

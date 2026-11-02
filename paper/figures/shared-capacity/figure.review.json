@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "figure_id": "shared-capacity",
-  "spec_sha256": "78df70692f07d47d4357b7840667b12c293bfa5198906443b0205f2f3d08536b",
-  "audit_sha256": "bab8c8fa98fb6195b72083dcf9380dd6efa068be94980de23e64422fc8ff63e0",
+  "spec_sha256": "5eb1644e65a95cf0112e8ba0dc7e46a65ef2dd6beac6a2f4648b1e3de8264e7d",
+  "audit_sha256": "1b4a422c7843142da461b3ae8fd3935d2392aa2cd856fd4ac38b5a7605409d57",
   "artifacts": [
     {
       "role": "final_pdf",
@@ -89,6 +89,13 @@
         "description": "No cross-panel arrow joins P to the timeline.",
         "disposition": "accepted",
         "reason": "The marked point, \u201cOne schedule for P\u201d title and caption supplied an adequate explicit connection in the independent reader review."
+      },
+      {
+        "id": "caption-plain-prose",
+        "severity": "minor",
+        "description": "The caption retained two prose colons and two semicolons.",
+        "disposition": "resolved",
+        "reason": "Independent source reviewer /root/reapplication_review checked the rewritten caption against the baseline and manuscript. It preserves the separate bounds, joint diagonal, constructed schedule and evidential limitations. The figure geometry and standalone PDF are unchanged."
       }
     ],
     "audit_warning_dispositions": [

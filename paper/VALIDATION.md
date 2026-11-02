@@ -1,5 +1,121 @@
 # Paper validation history
 
+## 2 November 2026 whole-paper reapplication
+
+Baseline: PR #16 at `f592447043636288b94964363a2feed56f7d5603`. The complete
+`write-for-experienced-engineers` skill is reapplied across seven compiled text
+sources and Figure 1's caption. Six sources are revised; the coherent timing
+subsection is retained. The changes explain the output-score multiplication,
+zero credit for missed deadlines, the transition from measurement to causal
+attribution, and the distinction between a valid bound and attained optimality.
+The sampling discussion distinguishes a fixed population total from a sampled
+correction, explains measurement error after a census and presents complete
+recording as one route to validation. Figure 1's caption is rewritten without
+prose colons or semicolons while retaining its mathematical and evidential scope.
+
+Independent review checks the complete manuscript, caption and bibliography.
+All 281 mathematical spans, five complete propositions, five complete proofs
+and ordered citation/reference/label/input commands in the seven text sources
+are byte-identical to baseline. Caption mathematics and figure geometry are
+unchanged. Its source-hash entries in the existing figure specification, audit
+and review are renewed. The figure checker and exact calculations pass.
+Current manuscript-to-proof records are renewed in place, with static receipt
+validation and changed-byte rejection checks. The 19-page PDF is rebuilt and
+visually inspected. One underfull vertical box and the existing
+`cui2026` missing-pages warning remain. No fresh local Lean replay, Rust
+refinement proof, workplace validation or measured reader comprehension is claimed.
+
+## 2 November 2026 concurrent-workflow clarification
+
+Baseline: PR #16 at `af928f3bbcbcaf5ace64e9bd00a29a87149eeb0e`. The labour
+account explicitly distinguishes human involvement from concurrent AI execution.
+A constructed example records ten prompting minutes and twenty reviewing
+minutes in separate periods as half a person-hour, alongside one execution hour
+for each of two workflows. The reconstruction preserves interval labour totals
+and weighted labour targets under the model's constraints. Additional workflow
+restrictions narrow its feasible set and require separate attainability analysis.
+The pilot now includes concurrent workflows when checking attribution of shared
+oversight and attended waiting. The user's two replacement sentences about
+matching bounds and rational arithmetic are included verbatim.
+
+Independent read-only review of both complete changed sources found no defect.
+All 281 mathematical spans, five propositions and five complete proofs retain
+their baseline bytes. The only additional reference points to the task-accounting
+section. The existing concordance records are renewed in place. Static receipt
+and changed-byte rejection checks pass. The PDF is rebuilt and rendered for
+visual inspection. No fresh Lean replay or empirical validation is claimed.
+
+## 2 November 2026 definitions and mathematical exposition
+
+Baseline: PR #16 at `fe14cb6b2105681036a263debf01b7e2454c8149`. The updated
+`write-for-experienced-engineers` skill is reapplied across all seven compiled
+text sources. AI is defined independently in the abstract and main text.
+Standard Coding Hours and Horvitz--Thompson are written in full in prose, with
+HT introduced explicitly as an equation label. Framework and organisation
+references retain their citations while explaining their contribution or name.
+The output score is explained through deadline eligibility, reference units,
+requirement fulfilment and a constructed ten-unit example. Observation times
+replace ambiguous clock endpoints, and reporting qualifiers identify the
+operation or condition they require.
+
+The cutoff proof now defines the piecewise constant allocation function and
+calculates its two integrals. It treats interior cutoffs and both boundary
+cutoffs separately, avoiding division by zero. The bound-certificate explanation
+states feasibility, attainment and the universal upper or lower inequality
+before introducing dual multipliers. Independent technical and whole-manuscript
+reviews found no defects in these constructions or their conditions.
+
+All five complete propositions remain byte-identical to the PR baseline.
+Mathematical spans outside the expanded cutoff proof are byte-identical in
+source order, as are the other four complete proofs. The candidate contains
+281 mathematical spans compared with 276 before the expansion. A new local
+reference identifies the difference-estimator equation; citation commands and
+labels retain their original order. The bibliography, figure inputs, frozen
+formal target and Lean sources are unchanged. Existing manuscript-concordance
+records and their hash binding are renewed in place.
+
+Exact measurement and sharp-identification calculations, static proof-receipt
+validation and an isolated changed-byte rejection check pass. The rebuilt
+19-page PDF is rendered and visually inspected, including detailed checks of
+the scoring definition and expanded proof. It has no unresolved references or
+citations and no overfull boxes. One underfull vertical box occurs in the
+bibliography, alongside the existing missing-pages warning for `cui2026`.
+These are source, calculation and editorial checks. No fresh Lean replay,
+Rust refinement proof, workplace validation or measured human comprehension
+is claimed.
+
+## 2 November 2026 paragraph-progression revision
+
+Baseline: `e0ac5f741f4e029fed52b6366c952fb36acf0a99`. The revised
+`write-for-experienced-engineers` skill is applied to all seven text sources
+compiled into the labour article. Six sources are edited; the coherent
+single-stream appendix is retained. The abstract defines the outcomes before
+narrowing to labour and places the shared-capacity consequence beside the
+construction it explains. Further changes connect the observation clocks,
+variance comparison, prediction validation and next empirical step. Prose colons
+are rewritten through the relationships they introduce. Wording for telemetry
+identifies the software development tools supplying the events. Vague assertions
+of importance are replaced with their stated consequences.
+
+An independent source review checks all seven sources, figure inputs and
+bibliography. It confirms technical fidelity and the preserved scope of the
+mathematical, formal and empirical claims. The positive team reference-score
+denominator already required by the companion protocol is made explicit in the
+article. All 276 mathematical spans, all five complete propositions and the
+ordered citation, reference, label and input commands remain byte-identical.
+One proof's endpoint instruction is recast as a sentence explaining why its
+zero-length piece is omitted. Its mathematical expressions and argument are
+unchanged. The other four complete proofs are byte-identical.
+
+The labour PDF rebuilds to 18 pages. Every page is rendered and inspected. The
+final TeX log has no undefined references or citations and no overfull or
+underfull boxes. The existing BibTeX warning about missing pages in the
+online-first `cui2026` entry remains. Exact measurement examples and the
+sharp-identification checker pass. Static proof-receipt validation and an
+isolated changed-byte rejection check pass after renewal of the existing
+current-manuscript records. No fresh Lean execution, implementation refinement,
+workplace validation or measured human comprehension is claimed.
+
 ## 2 November 2026 experienced-engineer revision
 
 Baseline: `e0ded20cfe7f699863d2e134c904b9eb673b74b7`, after PR #14. The updated
