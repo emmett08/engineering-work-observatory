@@ -1,5 +1,44 @@
 # Paper validation history
 
+## 2 November 2026 definitions and mathematical exposition
+
+Baseline: PR #16 at `fe14cb6b2105681036a263debf01b7e2454c8149`. The updated
+`write-for-experienced-engineers` skill is reapplied across all seven compiled
+text sources. AI is defined independently in the abstract and main text.
+Standard Coding Hours and Horvitz--Thompson are written in full in prose, with
+HT introduced explicitly as an equation label. Framework and organisation
+references retain their citations while explaining their contribution or name.
+The output score is explained through deadline eligibility, reference units,
+requirement fulfilment and a constructed ten-unit example. Observation times
+replace ambiguous clock endpoints, and reporting qualifiers identify the
+operation or condition they require.
+
+The cutoff proof now defines the piecewise constant allocation function and
+calculates its two integrals. It treats interior cutoffs and both boundary
+cutoffs separately, avoiding division by zero. The bound-certificate explanation
+states feasibility, attainment and the universal upper or lower inequality
+before introducing dual multipliers. Independent technical and whole-manuscript
+reviews found no defects in these constructions or their conditions.
+
+All five complete propositions remain byte-identical to the PR baseline.
+Mathematical spans outside the expanded cutoff proof are byte-identical in
+source order, as are the other four complete proofs. The candidate contains
+281 mathematical spans compared with 276 before the expansion. A new local
+reference identifies the difference-estimator equation; citation commands and
+labels retain their original order. The bibliography, figure inputs, frozen
+formal target and Lean sources are unchanged. Existing manuscript-concordance
+records and their hash binding are renewed in place.
+
+Exact measurement and sharp-identification calculations, static proof-receipt
+validation and an isolated changed-byte rejection check pass. The rebuilt
+19-page PDF is rendered and visually inspected, including detailed checks of
+the scoring definition and expanded proof. It has no unresolved references or
+citations and no overfull boxes. One underfull vertical box occurs in the
+bibliography, alongside the existing missing-pages warning for `cui2026`.
+These are source, calculation and editorial checks. No fresh Lean replay,
+Rust refinement proof, workplace validation or measured human comprehension
+is claimed.
+
 ## 2 November 2026 paragraph-progression revision
 
 Baseline: `e0ac5f741f4e029fed52b6366c952fb36acf0a99`. The revised

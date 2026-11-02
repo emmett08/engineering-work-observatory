@@ -21,7 +21,19 @@ Nonnegativity and capacity on the two pieces imply
 \[
  0\leq x\leq c-\ell,\qquad 0\leq v-x\leq u-c.
 \]
-Together, these inequalities give \eqref{eq:sharp-cutoff}. Conversely, for any $x$ in this interval, set $a=x/(c-\ell)$ before $c$ and $a=(v-x)/(u-c)$ after $c$. Each value lies in $[0,1]$ and gives the required integral. When $c$ is an endpoint, the corresponding numerator is zero, so omit the zero-length piece. Finally, integrating $0\leq a\leq1$ gives the necessary condition $0\leq v\leq u-\ell$.
+Together, these inequalities give \eqref{eq:sharp-cutoff}. Conversely, fix any $x$ in this interval. For $\ell<c<u$, define the allocation function by
+\[
+ a(t)=\begin{cases}
+ x/(c-\ell),&\ell\leq t<c,\\
+ (v-x)/(u-c),&c\leq t\leq u.
+ \end{cases}
+\]
+Both allocation rates lie in $[0,1]$ by the preceding inequalities, so the function satisfies the capacity constraint. Its integrals over the two subintervals are
+\begin{align*}
+ \int_\ell^c a(t)\,dt&=\frac{x}{c-\ell}(c-\ell)=x,\\
+ \int_c^u a(t)\,dt&=\frac{v-x}{u-c}(u-c)=v-x.
+\end{align*}
+Adding them gives total labour $v$. When $c=\ell$, the interval for $x$ forces $x=0$. When $c=u$, it forces $x=v$. In either case, use the constant allocation $a(t)=v/(u-\ell)$ on the complete interval, so the zero-length subinterval contributes zero without division by its length. Finally, integrating $0\leq a\leq1$ gives the necessary condition $0\leq v\leq u-\ell$.
 \end{proof}
 
 For one person, $3/2$ person-hours in a two-hour interval imply between $1/2$ and $1$ person-hours in its first hour. At most one person-hour can fall in the second hour, so at least half a person-hour must fall in the first. The first hour's own capacity supplies the upper bound. Capacity therefore narrows the range permitted by nonnegativity alone, $[0,3/2]$, while leaving the first-hour total and timing partly open.
@@ -95,7 +107,7 @@ Preserving the integrals while replacing fractional allocations by one activity 
 
 \subsection{Checking the bounds and allowing observation error}
 
-To check an endpoint, pair an attaining allocation with an inequality ruling out more extreme totals. Collect the cell totals and target weights into vectors $x$ and $w$, and write the capacity and observation inequalities as $Ax\leq b$, with $x\geq0$ kept separate. A lower observation bound is included by reversing its sign. Nonnegative multipliers $\lambda$ and $\mu$ satisfying
+To verify a proposed maximum, give a feasible allocation that achieves it and derive an inequality from the observation and capacity constraints showing that every feasible target total is at most that value. To verify a proposed minimum, give a feasible allocation that achieves it and derive an inequality showing that every feasible target total is at least that value. The allocation establishes attainability, while the inequality establishes optimality. Collect the cell totals and target weights into vectors $x$ and $w$, and write the capacity and observation inequalities as $Ax\leq b$, with $x\geq0$ kept separate. A lower observation bound is included by reversing its sign. Nonnegative multipliers $\lambda$ and $\mu$ satisfying
 \begin{equation}
 \label{eq:bound-certificates}
  A^\mathsf{T}\lambda\geq w,\qquad
@@ -106,7 +118,7 @@ To check an endpoint, pair an attaining allocation with an inequality ruling out
 \end{equation}
 give bounds by taking weighted sums of the original inequalities, yielding $w^\mathsf{T}x\leq\lambda^\mathsf{T}Ax\leq\lambda^\mathsf{T}b$, and likewise for $-w$.
 
-For a nonempty $\mathcal P$, linear-programming strong duality ensures that suitable multipliers give exactly $H_{\min}$ and $H_{\max}$ \cite[Sections~5.2--5.3]{boydvandenberghe2004}. An allocation attaining an endpoint shows that the total is possible. Multipliers giving the same bound rule out a more extreme total, so the two together certify the endpoint. Rational certificates can be checked by exact arithmetic without repeating the optimisation. A numerical solver's success flag alone does not supply this check.
+For a nonempty $\mathcal P$, linear-programming strong duality ensures that suitable multipliers give exactly $H_{\min}$ and $H_{\max}$ \cite[Sections~5.2--5.3]{boydvandenberghe2004}. When the bound calculated from the multipliers equals the target total achieved by a feasible allocation, the two certify that minimum or maximum. Rational certificates can be checked by exact arithmetic without repeating the optimisation. A numerical solver's success flag alone does not supply this check.
 
 With the partition and target fixed, widening observation limits changes only the right-hand sides of the inequalities. Increasing an upper observation bound or decreasing a lower one increases the corresponding entry of $b$. If these changes give $b+\varepsilon$, with $\varepsilon\geq0$ and zero entries for unchanged constraints, the original multipliers still bound every newly permitted target total by
 \begin{equation}
@@ -119,10 +131,10 @@ Sampled observation limits require a coverage argument. Suppose random lower and
 
 The simultaneous-coverage condition requires an argument for the actual sampling and measurement process. Coverage of $1-\alpha$ for each observation separately does not establish the same probability of covering them all. By the union bound, marginal error probabilities whose sum is at most $\alpha$ suffice. The resulting interval has a sampling-coverage guarantee, rather than the exact-data interpretation of \eqref{eq:sharp-labour-range}.
 
-A separate development in Lean~4, using mathlib \cite{demouraullrich2021,mathlib2020}, checks that interval integrals equal sums of cell totals and that integrating each person's allocation limit gives the cell-capacity constraint. It constructs schedules in which each person does at most one activity at a time, preserving the observation totals and weighted targets. It also checks the bounds from supplied allocations and dual multipliers, and the implication from simultaneous coverage of observation totals to coverage of the target total. The existence of minimising and maximising allocations and dual multipliers, and the stated bound on the number of blocks, remain outside this formal supplement. The Rust solver is tested separately. The supplement does not prove that the Rust solver's source code implements the Lean definitions.
+A separate development in Lean~4, using mathlib \cite{demouraullrich2021,mathlib2020}, checks that interval integrals equal sums of cell totals and that integrating each person's allocation limit gives the cell-capacity constraint. It constructs schedules in which each person does at most one activity at a time, preserving the observation totals and weighted targets. It also checks the bounds from supplied allocations and dual multipliers, and the implication from simultaneous coverage of observation totals to coverage of the target total. The existence of minimising and maximising allocations and dual multipliers, and the bound on the number of blocks in the reconstruction above, remain outside this formal supplement. The Rust solver is tested separately. The supplement does not prove that the Rust solver's source code implements the Lean definitions.
 
 \subsection{From labour bounds to productivity}
 
-Use the labour range corresponding to the denominator in \eqref{eq:cohort-productivity}, and let $Q=\sum_{i\in\mathcal C}Q_i(\tau,\Delta)$ be retained output known exactly. With $Q\geq0$ and $H_{\min}>0$, dividing this output by the largest and smallest possible labour totals gives the identified productivity interval $[Q/H_{\max},Q/H_{\min}]$.
+Use the labour range corresponding to the denominator in \eqref{eq:cohort-productivity}, and let $Q=\sum_{i\in\mathcal C}Q_i(\tau,\Delta)$ be the total output score at follow-up, known exactly. With $Q\geq0$ and $H_{\min}>0$, dividing this output by the largest and smallest possible labour totals gives the identified productivity interval $[Q/H_{\max},Q/H_{\min}]$.
 
-When quality is also uncertain, separate output and labour bounds leave open which pairs can occur together. Justified quality bounds $0\leq Q_-\leq Q\leq Q_+$ give an interval $[Q_-/H_{\max},Q_+/H_{\min}]$ containing every feasible output-to-labour ratio. It is the exact range only when every ratio in it can be produced by an output total and labour total that are jointly permitted. It is sufficient for every pair in $[Q_-,Q_+]\times[H_{\min},H_{\max}]$ to be permitted. A lower labour bound of zero cannot be used as a divisor. The acceptance times and the recorded fractions of requirements still met in \eqref{eq:retention} remain fixed throughout the allocation optimisation.
+When the output score is also uncertain, separate output and labour bounds leave open which pairs can occur together. Justified output-score bounds $0\leq Q_-\leq Q\leq Q_+$ give an interval $[Q_-/H_{\max},Q_+/H_{\min}]$ containing every feasible output-to-labour ratio. It is the exact range only when every ratio in it can be produced by an output total and labour total that are jointly permitted. It is sufficient for every pair in $[Q_-,Q_+]\times[H_{\min},H_{\max}]$ to be permitted. A lower labour bound of zero cannot be used as a divisor. The acceptance times and the recorded fractions of requirements still met in \eqref{eq:retention} remain fixed throughout the allocation optimisation.

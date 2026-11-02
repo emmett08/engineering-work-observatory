@@ -24,13 +24,16 @@ reference output. A short validation section states the measurements and
 assumptions needed before an empirical comparison of AI tools and working practices.
 
 The 2 November revisions apply `write-for-experienced-engineers` to the current
-papers. The latest pass reviews the labour article's seven compiled text sources,
-establishes the outcome distinction before narrowing to labour, and places the
-shared-capacity consequence beside the finite construction it explains. It also
-uses natural wording for telemetry from software development tools, rewrites
-prose colons through their underlying relationships, and replaces vague
-assertions of importance with the consequences intended. Necessary explanation
-takes priority over compression. The labour PDF is rebuilt. The
+papers. The latest pass revises all seven compiled text sources in the labour
+article. It defines recurring abbreviations, spells out infrequent names,
+explains retained output through its scoring rule and units, and states the
+acceptance deadline and observation periods directly. The cutoff proof now
+defines the allocation function, calculates both integrals and handles
+zero-length intervals explicitly. The bound-checking explanation distinguishes
+an attaining allocation from a bound valid for every feasible allocation.
+Earlier repairs to paragraph progression, prose punctuation and vague assertions
+of importance are retained. Necessary explanation takes priority over compression.
+The labour PDF is rebuilt. The
 [validation record](VALIDATION.md) documents source preservation, independent
 review and the renewed manuscript-to-proof binding.
 

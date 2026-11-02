@@ -1,26 +1,26 @@
 {
   "schema": "current-manuscript-concordance/1",
   "repository_relative_path": "paper/article/partial-identification.tex",
-  "sha256": "6b5a8cc288887c023e3fa09499d5237c2a05c288349c165a0ddc44664cf91360",
+  "sha256": "12b1b49de907fa56535465b45da063bd4b5a2922862d15f00e380926143ab067",
   "frozen_target": {
     "path": "targets/partial-identification.tex",
     "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
     "origin_commit": "38c4ce40b789d4c5420c98ff1d568b39c3b1e798"
   },
   "independent_review": {
-    "reviewer": "/root/manuscript_review",
+    "reviewer": "/root/whole_paper_review",
     "outcome": "MATHEMATICAL_STATEMENTS_UNCHANGED",
     "report": {
       "path": "evidence/current-manuscript-editorial-review.md",
-      "sha256": "edcc5587b871bb2565576c79d6db1b88ed56ae662ecb7cf09a34847c516e8fc9"
+      "sha256": "3ea11fb1c242c79bd8a32448977bc3bea9f6ad2d380c59e122c7170de43cc862"
     },
     "differences": [
-      "Outcome distinctions, shared-capacity consequences and measurement clocks are connected to their local explanatory purpose.",
-      "Prose colons and vague importance assertions are rewritten while all mathematical spans and proposition statements retain their baseline bytes.",
-      "One proof endpoint instruction is recast without changing its conditions or construction.",
-      "The existing positive team reference-score denominator is made explicit; fixed-prediction and expected-squared-error qualifications are preserved."
+      "All seven compiled text sources are reapplied through the updated writing skill, with abbreviation, measurement and mathematical-object checks.",
+      "The cutoff proof explicitly calculates the two integrals and handles both boundary cutoffs without division by zero.",
+      "The bound certificate explanation distinguishes an attaining feasible allocation from a bound valid for every feasible allocation.",
+      "All propositions and mathematical spans outside the cutoff proof are byte-identical. The other four proofs, bibliography and figure inputs are unchanged."
     ],
-    "statement_preservation": "Independent review of all seven compiled text sources preserves definitions, hypotheses, conclusions, mathematical arguments and citation scope against e0ac5f741f4e029fed52b6366c952fb36acf0a99. The immutable target, Lean sources and historical proof execution evidence are unchanged."
+    "statement_preservation": "Independent whole-manuscript and analytical proof review preserve definitions, hypotheses, theorem statements, conclusions and citation scope against fe14cb6b2105681036a263debf01b7e2454c8149. The frozen formal target, Lean sources and historical proof evidence are unchanged."
   },
   "invalidation": "A current-article byte change requires renewed current concordance/hash binding. A proof-source change requires renewed proof/source review and checking. This record does not identify current bytes with frozen target bytes."
 }

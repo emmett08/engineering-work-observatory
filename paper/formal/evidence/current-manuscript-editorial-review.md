@@ -2,32 +2,32 @@
 
 Outcome: **SEMANTIC_FIDELITY_PRESERVED / MATHEMATICAL_STATEMENTS_UNCHANGED / PASS**.
 
-This record combines exact source comparisons with the read-only review returned by independent reviewer `/root/manuscript_review`. The reviewer authored none of the manuscript sources. The baseline is repository revision `e0ac5f741f4e029fed52b6366c952fb36acf0a99`. The review covers the complete labour article and its six included text sources, figure caption, TikZ inputs and bibliography. It finds no remaining defect in the candidate bytes identified below. The forecasting companion is outside this pass.
+This record summarises the read-only assessment returned by independent reviewer `/root/whole_paper_review` and the separate analytical review by `/root/proof_review`. The baseline is PR #16 at `fe14cb6b2105681036a263debf01b7e2454c8149`. The whole-paper reviewer read all seven compiled text sources, the figure caption and bibliography using the updated `write-for-experienced-engineers` skill. No actual defect was found. This pass concerns the labour article.
 
 ## Reviewed source bytes
 
 | Source | Baseline SHA-256 | Candidate SHA-256 |
 |---|---|---|
-| paper/article/main.tex | 8224afe88b5e1ae5afcba834924739125f23f91301c8af8e0676a372210a50ba | 3ac71fea65409532afdd8edac01495bad2a2a9c876e14a1e6aee45b4b640cab1 |
-| paper/article/event-history.tex | 981e778bbc2131075484826af3b49ca3a6228e0aab24a49b9acc3faa389030ce | 3b4eaef3689a702356bc83ded203535d6c0b6ec20909ac471968cff0b9072e41 |
-| paper/article/partial-identification.tex | fe3351e85225f2fee0ae704ed2ae96c09531b10287bf5e8c5dc45be7d8fd9d4a | 6b5a8cc288887c023e3fa09499d5237c2a05c288349c165a0ddc44664cf91360 |
-| paper/article/design-based-estimation.tex | fb10092d7a72db49c8e592b132b421d2c15a06f532e73c9afc94fe3de00548e7 | 353ed54a82168bafd2a7022302659131295a5fba2aea4d5628a111e81e3c707c |
-| paper/article/sampling-validation.tex | 0d82c3098f4072241a029e57797a63b427b9e9a38ff1cb650eb4e2cb2cba36dd | 1be5cc6f714538a118a1c4b5f031adc520fca72ebeacf91829b88950beb187ee |
-| paper/article/scalar-bounds.tex | 84afcfeaefd619ffd7036f564fdc5ea198b6e2b05766798c399344bfabec31c6 | 84afcfeaefd619ffd7036f564fdc5ea198b6e2b05766798c399344bfabec31c6 |
-| paper/study/ai-labour-causal/causal-study.tex | acc7e4387a36852cf7fef799b8e42d0c867cbc01bddbf3bd572e91291da64f1b | 99f544d05a8125444ba16534f159b254b4aa2c8243b4c0fa01dba80968da8f23 |
+| paper/article/main.tex | 3ac71fea65409532afdd8edac01495bad2a2a9c876e14a1e6aee45b4b640cab1 | 6dcfa616a6ce1baa508d953d31a0c50bc9ff89e5d112ee9872cbda5eca2fea1d |
+| paper/article/event-history.tex | 3b4eaef3689a702356bc83ded203535d6c0b6ec20909ac471968cff0b9072e41 | 74339eabaf00054826bd282368d7bc049a3d0991e5768feffa8ab46ecc51d05d |
+| paper/article/partial-identification.tex | 6b5a8cc288887c023e3fa09499d5237c2a05c288349c165a0ddc44664cf91360 | 12b1b49de907fa56535465b45da063bd4b5a2922862d15f00e380926143ab067 |
+| paper/article/design-based-estimation.tex | 353ed54a82168bafd2a7022302659131295a5fba2aea4d5628a111e81e3c707c | 9277efb1f2bf85979bee3328c6422d021a559b273f817f0bc64ed3cdbe8d93e8 |
+| paper/article/sampling-validation.tex | 1be5cc6f714538a118a1c4b5f031adc520fca72ebeacf91829b88950beb187ee | fb54cff649fb392dc45ba88130c8a067c0f739c7fbaa778d52d12d5b32f16104 |
+| paper/article/scalar-bounds.tex | 84afcfeaefd619ffd7036f564fdc5ea198b6e2b05766798c399344bfabec31c6 | 107a796e296b199f24fc4ff0c31383384375c3cfa6d564ee23c4656629002b32 |
+| paper/study/ai-labour-causal/causal-study.tex | 99f544d05a8125444ba16534f159b254b4aa2c8243b4c0fa01dba80968da8f23 | e356ba2c2ca8f452a9dc6ddf5c35738406cc5adca2e6c6ae334af74cc3ffecf9 |
 
-## Source and argument preservation
+## Technical and editorial assessment
 
-All 276 mathematical spans and all five complete propositions are byte-identical in source order. The ordered citation, reference, label, input and bibliography commands are also identical. Four complete proofs are byte-identical. In the remaining proof, the endpoint instruction now explains that a zero numerator permits omission of the zero-length piece. Its mathematical expressions and construction are unchanged. Extracted-span comparisons supplement review of the surrounding argument.
+All five complete propositions retain their baseline bytes. Mathematical spans outside the expanded cutoff proof remain byte-identical in source order. The other four complete proofs are unchanged. The cutoff proof now explicitly defines its piecewise constant function, calculates both integrals and treats the two zero-length cutoff cases separately. The rates remain between zero and one; the integrals are the requested partial total and its complement. Its necessity and attainability arguments retain their original domain and hypotheses.
 
-The abstract establishes the distinct outcomes before narrowing to labour, and explains shared capacity beside the finite construction. Feasibility, attainment and unrestricted interruption retain their conditions. The clock definitions still distinguish the acceptance deadline, acceptance-relative retained-output check and common labour endpoint. The fixed-prediction estimator retains its sampling and measurement premises. The variance comparison is tied to its common positive design factor. The prediction-validation prose correctly states that the cross term has expectation zero and that expected squared errors share the cancelling sampling variance.
+The certificate explanation pairs a feasible attaining allocation with an upper or lower inequality valid for every feasible allocation. Its directions, nonnegative multipliers and nonempty-feasible-set qualification are correct. The productivity paragraph now calls the bounded quantity an output score rather than quality in general. Its ratio and joint-feasibility conditions are unchanged.
 
-The team-normalisation paragraph now states the positive reference-score total already required in the companion protocol README. Equal team weighting and the direction of the paired comparison are explicit. The experiment remains specified and unrun, with its provisional criteria, adverse hypothetical planning results and measurement-pilot requirement intact. Attribution and citation attachment are preserved. This review does not freshly retrieve the cited literature or measure reader comprehension.
+The output account states acceptance eligibility, initial reference score, fulfilment fraction, follow-up time and reference units locally. Its ten-unit example is explicitly constructed. Common labour observation periods and acceptance-relative follow-up remain distinct. The empirical assessment procedure remains an input needing validation. The proposed study stays specified and unrun, with its provisional criteria and hypothetical adverse planning results preserved.
 
-## Frozen target and proof boundary
+AI is defined independently in the abstract and main text. Standard Coding Hours and Horvitz--Thompson are written in full in prose. HT is explicitly introduced before its equation-label use. The one-off framework and organisation references retain their cited contribution and source identity. Citation-command sequences and labels are unchanged; all 24 citation keys resolve. One added local reference names the difference-estimator equation. The bibliography and figure inputs are byte-identical to baseline. Citation attachment and local scope were reviewed; external literature was not freshly reverified in full.
 
-The immutable target, Lean definitions, checker scripts and recorded proof executions retain their baseline bytes. The current manuscript remains separately bound to its reviewed source; its byte identity is not equated with that of the frozen target. Earlier contextual differences and the additional proof-punctuation revision are covered by this concordance.
+## Formal boundary and validation scope
 
-The formal-coverage paragraph retains interval/cell integral identities, integrated capacity, binary schedule reconstruction, supplied certificate checks and conditional sampling coverage. Extrema existence, dual-multiplier existence, the block-count bound, Rust source refinement and empirical premises retain their stated exclusions. No fresh Lean execution, kernel replay or empirical validation is claimed.
+The frozen formal target, Lean definitions, checker scripts and historical proof executions retain their baseline bytes. The independently reviewed current manuscript is separately hash-bound to that evidence. The clearer proof exposition does not change the theorem stated, and no new Lean coverage or Rust refinement is asserted. Existing exclusions for extrema existence, dual-multiplier existence, the block-count bound and empirical premises remain visible.
 
-The independent reviewer inspected sources and argument only. The editor separately rebuilt and rendered the PDF and ran the finite calculation and static binding checks recorded in `current-manuscript-editorial-checks.json`. This review applies only to the source hashes above. Later edits require renewed review and binding.
+The editor separately ran exact finite calculations, rebuilt and rendered the PDF, and validated the static receipt and changed-byte guard. Those results are recorded in `current-manuscript-editorial-checks.json`. The reviewers performed local source, argument and analytical checks. No measured reader comprehension, workplace result or fresh proof-kernel replay is claimed. This assessment binds only the source hashes above.
