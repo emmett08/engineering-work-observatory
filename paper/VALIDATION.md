@@ -1,5 +1,37 @@
 # Paper validation history
 
+## 2 November 2026 paragraph-progression revision
+
+Baseline: `e0ac5f741f4e029fed52b6366c952fb36acf0a99`. The revised
+`write-for-experienced-engineers` skill is applied to all seven text sources
+compiled into the labour article. Six sources are edited; the coherent
+single-stream appendix is retained. The abstract defines the outcomes before
+narrowing to labour and places the shared-capacity consequence beside the
+construction it explains. Further changes connect the observation clocks,
+variance comparison, prediction validation and next empirical step. Prose colons
+are rewritten through the relationships they introduce. Wording for telemetry
+identifies the software development tools supplying the events. Vague assertions
+of importance are replaced with their stated consequences.
+
+An independent source review checks all seven sources, figure inputs and
+bibliography. It confirms technical fidelity and the preserved scope of the
+mathematical, formal and empirical claims. The positive team reference-score
+denominator already required by the companion protocol is made explicit in the
+article. All 276 mathematical spans, all five complete propositions and the
+ordered citation, reference, label and input commands remain byte-identical.
+One proof's endpoint instruction is recast as a sentence explaining why its
+zero-length piece is omitted. Its mathematical expressions and argument are
+unchanged. The other four complete proofs are byte-identical.
+
+The labour PDF rebuilds to 18 pages. Every page is rendered and inspected. The
+final TeX log has no undefined references or citations and no overfull or
+underfull boxes. The existing BibTeX warning about missing pages in the
+online-first `cui2026` entry remains. Exact measurement examples and the
+sharp-identification checker pass. Static proof-receipt validation and an
+isolated changed-byte rejection check pass after renewal of the existing
+current-manuscript records. No fresh Lean execution, implementation refinement,
+workplace validation or measured human comprehension is claimed.
+
 ## 2 November 2026 experienced-engineer revision
 
 Baseline: `e0ded20cfe7f699863d2e134c904b9eb673b74b7`, after PR #14. The updated

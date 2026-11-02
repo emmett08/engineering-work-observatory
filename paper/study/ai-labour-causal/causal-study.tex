@@ -5,7 +5,7 @@ A fixed-workload experiment would compare teams given a recorded AI toolset and 
 
 The team boundaries also need to reflect how work is shared. Shared reviewers, developers, computing capacity or code can transmit effects between teams \cite{hudgens2008}. If these links require groups containing several teams, revise the estimator weights and planning before randomisation to preserve the equal-team target.
 
-Normalise both outcomes by the initial workload: for each team, divide total labour through task age $\tau+\Delta$ by its initial reference-score total, and divide retained output by that same fixed total. Failed and abandoned tasks remain in the labour total and contribute no retained output when they miss the acceptance deadline. The two primary causal quantities are the equal-team mean differences in these outcomes, estimated by averaging the AI-minus-comparator differences within team pairs.
+Require each team's initial reference scores to have a positive total. Use that total to normalise both outcomes, dividing total labour through task age $\tau+\Delta$ and retained output by the same fixed denominator. Failed and abandoned tasks remain in the labour total and contribute no retained output when they miss the acceptance deadline. The two primary causal quantities are the mean differences between groups, with each team weighted equally. Estimate them by subtracting the comparator team's outcome from the AI team's outcome within each pair and averaging the differences.
 
 A benefit claim requires both a worthwhile labour reduction and a retained-output loss smaller than a stated maximum. Failure to detect a quality reduction alone leaves that maximum-loss requirement unresolved \cite{piaggio2012}.
 

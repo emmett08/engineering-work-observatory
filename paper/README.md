@@ -23,11 +23,14 @@ estimation. It distinguishes labour, elapsed time to acceptance and retained
 reference output. A short validation section states the measurements and
 assumptions needed before an empirical comparison of AI tools and working practices.
 
-The 2 November revision applies the updated `write-for-experienced-engineers`
-skill to both current papers. It separates the human-labour, elapsed-time and
-computing-resource accounts, explains the capacity and sampling mechanisms, and
-connects collection and evaluation rules to the questions they answer. Necessary
-explanation takes priority over compression. Both PDFs are rebuilt. The
+The 2 November revisions apply `write-for-experienced-engineers` to the current
+papers. The latest pass reviews the labour article's seven compiled text sources,
+establishes the outcome distinction before narrowing to labour, and places the
+shared-capacity consequence beside the finite construction it explains. It also
+uses natural wording for telemetry from software development tools, rewrites
+prose colons through their underlying relationships, and replaces vague
+assertions of importance with the consequences intended. Necessary explanation
+takes priority over compression. The labour PDF is rebuilt. The
 [validation record](VALIDATION.md) documents source preservation, independent
 review and the renewed manuscript-to-proof binding.
 

@@ -1,27 +1,26 @@
 {
   "schema": "current-manuscript-concordance/1",
   "repository_relative_path": "paper/article/partial-identification.tex",
-  "sha256": "fe3351e85225f2fee0ae704ed2ae96c09531b10287bf5e8c5dc45be7d8fd9d4a",
+  "sha256": "6b5a8cc288887c023e3fa09499d5237c2a05c288349c165a0ddc44664cf91360",
   "frozen_target": {
     "path": "targets/partial-identification.tex",
     "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
     "origin_commit": "38c4ce40b789d4c5420c98ff1d568b39c3b1e798"
   },
   "independent_review": {
-    "reviewer": "/root/current_fidelity_review",
+    "reviewer": "/root/manuscript_review",
     "outcome": "MATHEMATICAL_STATEMENTS_UNCHANGED",
     "report": {
       "path": "evidence/current-manuscript-editorial-review.md",
-      "sha256": "2c28f3c4bb44d9ce438aa2cb86aef22a5884b1a0e45d86a8d87e7452ee1525a9"
+      "sha256": "edcc5587b871bb2565576c79d6db1b88ed56ae662ecb7cf09a34847c516e8fc9"
     },
     "differences": [
-      "The capacity example now explains both endpoint restrictions before generalising to interior intervals.",
-      "The finite-cell explanation states why observation intervals and target windows are unions of complete cells.",
-      "Endpoint attainment and exclusion of more extreme totals are explained separately; relaxation explicitly retains a fixed partition and target.",
-      "Independent review covers all eight current manuscript sources, their explanatory inferences, qualifications and citation scope.",
-      "All mathematical expressions, propositions and complete proofs remain byte-identical to the current baseline. Existing frozen-target contextual and proof-punctuation differences remain unchanged."
+      "Outcome distinctions, shared-capacity consequences and measurement clocks are connected to their local explanatory purpose.",
+      "Prose colons and vague importance assertions are rewritten while all mathematical spans and proposition statements retain their baseline bytes.",
+      "One proof endpoint instruction is recast without changing its conditions or construction.",
+      "The existing positive team reference-score denominator is made explicit; fixed-prediction and expected-squared-error qualifications are preserved."
     ],
-    "statement_preservation": "Definitions, hypotheses, formal statements, complete proofs, mathematical spans, citations, labels and references preserve their meaning. Protected spans are byte-identical in order against e0ded20cfe7f699863d2e134c904b9eb673b74b7. The immutable target, Lean sources and historical proof execution evidence are unchanged."
+    "statement_preservation": "Independent review of all seven compiled text sources preserves definitions, hypotheses, conclusions, mathematical arguments and citation scope against e0ac5f741f4e029fed52b6366c952fb36acf0a99. The immutable target, Lean sources and historical proof execution evidence are unchanged."
   },
   "invalidation": "A current-article byte change requires renewed current concordance/hash binding. A proof-source change requires renewed proof/source review and checking. This record does not identify current bytes with frozen target bytes."
 }
