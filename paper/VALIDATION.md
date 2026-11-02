@@ -1,5 +1,25 @@
 # Paper validation history
 
+## 2 November 2026 concurrent-workflow clarification
+
+Baseline: PR #16 at `af928f3bbcbcaf5ace64e9bd00a29a87149eeb0e`. The labour
+account explicitly distinguishes human involvement from concurrent AI execution.
+A constructed example records ten prompting minutes and twenty reviewing
+minutes in separate periods as half a person-hour, alongside one execution hour
+for each of two workflows. The reconstruction preserves interval labour totals
+and weighted labour targets under the model's constraints. Additional workflow
+restrictions narrow its feasible set and require separate attainability analysis.
+The pilot now includes concurrent workflows when checking attribution of shared
+oversight and attended waiting. The user's two replacement sentences about
+matching bounds and rational arithmetic are included verbatim.
+
+Independent read-only review of both complete changed sources found no defect.
+All 281 mathematical spans, five propositions and five complete proofs retain
+their baseline bytes. The only additional reference points to the task-accounting
+section. The existing concordance records are renewed in place. Static receipt
+and changed-byte rejection checks pass. The PDF is rebuilt and rendered for
+visual inspection. No fresh Lean replay or empirical validation is claimed.
+
 ## 2 November 2026 definitions and mathematical exposition
 
 Baseline: PR #16 at `fe14cb6b2105681036a263debf01b7e2454c8149`. The updated

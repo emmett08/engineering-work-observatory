@@ -32,7 +32,11 @@ defines the allocation function, calculates both integrals and handles
 zero-length intervals explicitly. The bound-checking explanation distinguishes
 an attaining allocation from a bound valid for every feasible allocation.
 Earlier repairs to paragraph progression, prose punctuation and vague assertions
-of importance are retained. Necessary explanation takes priority over compression.
+of importance are retained. Concurrent AI workflow execution is explicitly
+distinguished from the human time attributed to those workflows. The schedule
+reconstruction preserves modelled labour totals, while additional workflow
+dependencies require a separate attainability analysis. Necessary explanation
+takes priority over compression.
 The labour PDF is rebuilt. The
 [validation record](VALIDATION.md) documents source preservation, independent
 review and the renewed manuscript-to-proof binding.

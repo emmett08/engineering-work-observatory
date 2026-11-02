@@ -1071,7 +1071,7 @@
   },
   "current_manuscript": {
     "path": "evidence/current-manuscript.json",
-    "sha256": "6467c0bfe436d9c7d9ae83c8bbddc38cd90fab145842ece19be44b4652583d0c",
+    "sha256": "628568f8ecf47a5ebf7b5dc6da1244eab42471a754dc6a2508af2f5f033823a0",
     "scope": "Separate independently reviewed current-article binding; immutable target remains the formal source origin."
   },
   "external_implementation_relationship": "TESTED_ONLY; no Lean-to-Rust or Lean-to-Python refinement is claimed.",
