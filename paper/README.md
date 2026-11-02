@@ -24,8 +24,11 @@ reference output. A short validation section states the measurements and
 assumptions needed before an empirical comparison of AI tools and working practices.
 
 The 2 November revisions apply `write-for-experienced-engineers` to the current
-papers. The latest pass revises all seven compiled text sources in the labour
-article. It defines recurring abbreviations, spells out infrequent names,
+papers. The latest pass reviews all seven compiled text sources and Figure 1's
+caption, revising six sources and the caption. It connects effort to delivery,
+distinguishes an output score of zero from the work actually delivered, and
+separates sampling uncertainty from measurement error. It defines recurring
+abbreviations, spells out infrequent names,
 explains retained output through its scoring rule and units, and states the
 acceptance deadline and observation periods directly. The cutoff proof now
 defines the allocation function, calculates both integrals and handles

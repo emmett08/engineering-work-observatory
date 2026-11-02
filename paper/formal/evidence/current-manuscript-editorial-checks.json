@@ -2,8 +2,8 @@
   "schema": "current-manuscript-editorial-checks/1",
   "status": "PASS",
   "date": "2026-11-02",
-  "baseline_commit": "af928f3bbcbcaf5ace64e9bd00a29a87149eeb0e",
-  "candidate_sha256": "d428b8bd0bd52954500a1130766e2070d5f86d5ab05a4e4fbfd0c85792b25f45",
+  "baseline_commit": "f592447043636288b94964363a2feed56f7d5603",
+  "candidate_sha256": "2f80edf947e643d906f3de38b5f1c3671c6c21b646c8f95eb5d7557ca45e55ff",
   "static_validation": {
     "command": "make -C paper/formal check-receipt",
     "exit_status": 0,
@@ -20,103 +20,184 @@
   "source_protection": [
     {
       "path": "paper/article/main.tex",
-      "baseline_sha256": "6dcfa616a6ce1baa508d953d31a0c50bc9ff89e5d112ee9872cbda5eca2fea1d",
-      "sha256": "044822230baf2141106bad7d32eccd9f0b65942f07c5079d3ff68d1f024ae9a3",
+      "baseline_sha256": "044822230baf2141106bad7d32eccd9f0b65942f07c5079d3ff68d1f024ae9a3",
+      "sha256": "2b77d81cf9f0c03a9e77dff119f97d1b72d02e60ec51c12b7261244930dea6c5",
       "changed": true,
-      "mathematical_spans": 48,
-      "math_identical_in_order": true,
-      "propositions": 1,
-      "propositions_identical": true,
-      "proofs": 1,
-      "proofs_identical": true,
-      "commands_before": 38,
-      "commands_after": 38
+      "math": {
+        "count": 48,
+        "ordered_byte_equality": true
+      },
+      "propositions": {
+        "count": 1,
+        "ordered_byte_equality": true
+      },
+      "proofs": {
+        "count": 1,
+        "ordered_byte_equality": true
+      },
+      "commands": {
+        "count": 38,
+        "ordered_byte_equality": true
+      },
+      "prose_colons": 0,
+      "evaluative_matter_occurrences": 0
     },
     {
       "path": "paper/article/event-history.tex",
       "baseline_sha256": "74339eabaf00054826bd282368d7bc049a3d0991e5768feffa8ab46ecc51d05d",
       "sha256": "74339eabaf00054826bd282368d7bc049a3d0991e5768feffa8ab46ecc51d05d",
       "changed": false,
-      "mathematical_spans": 3,
-      "math_identical_in_order": true,
-      "propositions": 0,
-      "propositions_identical": true,
-      "proofs": 0,
-      "proofs_identical": true,
-      "commands_before": 2,
-      "commands_after": 2
+      "math": {
+        "count": 3,
+        "ordered_byte_equality": true
+      },
+      "propositions": {
+        "count": 0,
+        "ordered_byte_equality": true
+      },
+      "proofs": {
+        "count": 0,
+        "ordered_byte_equality": true
+      },
+      "commands": {
+        "count": 2,
+        "ordered_byte_equality": true
+      },
+      "prose_colons": 0,
+      "evaluative_matter_occurrences": 0
     },
     {
       "path": "paper/article/partial-identification.tex",
-      "baseline_sha256": "12b1b49de907fa56535465b45da063bd4b5a2922862d15f00e380926143ab067",
-      "sha256": "d428b8bd0bd52954500a1130766e2070d5f86d5ab05a4e4fbfd0c85792b25f45",
+      "baseline_sha256": "d428b8bd0bd52954500a1130766e2070d5f86d5ab05a4e4fbfd0c85792b25f45",
+      "sha256": "2f80edf947e643d906f3de38b5f1c3671c6c21b646c8f95eb5d7557ca45e55ff",
       "changed": true,
-      "mathematical_spans": 111,
-      "math_identical_in_order": true,
-      "propositions": 2,
-      "propositions_identical": true,
-      "proofs": 2,
-      "proofs_identical": true,
-      "commands_before": 29,
-      "commands_after": 30
+      "math": {
+        "count": 111,
+        "ordered_byte_equality": true
+      },
+      "propositions": {
+        "count": 2,
+        "ordered_byte_equality": true
+      },
+      "proofs": {
+        "count": 2,
+        "ordered_byte_equality": true
+      },
+      "commands": {
+        "count": 30,
+        "ordered_byte_equality": true
+      },
+      "prose_colons": 0,
+      "evaluative_matter_occurrences": 0
     },
     {
       "path": "paper/article/design-based-estimation.tex",
       "baseline_sha256": "9277efb1f2bf85979bee3328c6422d021a559b273f817f0bc64ed3cdbe8d93e8",
-      "sha256": "9277efb1f2bf85979bee3328c6422d021a559b273f817f0bc64ed3cdbe8d93e8",
-      "changed": false,
-      "mathematical_spans": 63,
-      "math_identical_in_order": true,
-      "propositions": 1,
-      "propositions_identical": true,
-      "proofs": 1,
-      "proofs_identical": true,
-      "commands_before": 17,
-      "commands_after": 17
+      "sha256": "19a9ecb0494914c19877d64c28beaae187bcf152f889007201f46eb61886c50d",
+      "changed": true,
+      "math": {
+        "count": 63,
+        "ordered_byte_equality": true
+      },
+      "propositions": {
+        "count": 1,
+        "ordered_byte_equality": true
+      },
+      "proofs": {
+        "count": 1,
+        "ordered_byte_equality": true
+      },
+      "commands": {
+        "count": 17,
+        "ordered_byte_equality": true
+      },
+      "prose_colons": 0,
+      "evaluative_matter_occurrences": 0
     },
     {
       "path": "paper/article/sampling-validation.tex",
       "baseline_sha256": "fb54cff649fb392dc45ba88130c8a067c0f739c7fbaa778d52d12d5b32f16104",
-      "sha256": "fb54cff649fb392dc45ba88130c8a067c0f739c7fbaa778d52d12d5b32f16104",
-      "changed": false,
-      "mathematical_spans": 17,
-      "math_identical_in_order": true,
-      "propositions": 0,
-      "propositions_identical": true,
-      "proofs": 0,
-      "proofs_identical": true,
-      "commands_before": 0,
-      "commands_after": 0
+      "sha256": "1a044b2685d2b837bf761752f83088fcbb25f88fda2773cbf4104aa612c22aba",
+      "changed": true,
+      "math": {
+        "count": 17,
+        "ordered_byte_equality": true
+      },
+      "propositions": {
+        "count": 0,
+        "ordered_byte_equality": true
+      },
+      "proofs": {
+        "count": 0,
+        "ordered_byte_equality": true
+      },
+      "commands": {
+        "count": 0,
+        "ordered_byte_equality": true
+      },
+      "prose_colons": 0,
+      "evaluative_matter_occurrences": 0
     },
     {
       "path": "paper/article/scalar-bounds.tex",
       "baseline_sha256": "107a796e296b199f24fc4ff0c31383384375c3cfa6d564ee23c4656629002b32",
-      "sha256": "107a796e296b199f24fc4ff0c31383384375c3cfa6d564ee23c4656629002b32",
-      "changed": false,
-      "mathematical_spans": 37,
-      "math_identical_in_order": true,
-      "propositions": 1,
-      "propositions_identical": true,
-      "proofs": 1,
-      "proofs_identical": true,
-      "commands_before": 6,
-      "commands_after": 6
+      "sha256": "36d912b9d2e35e312efa816945d1ad33ae229808f853a5518d0b405a2f2f662d",
+      "changed": true,
+      "math": {
+        "count": 37,
+        "ordered_byte_equality": true
+      },
+      "propositions": {
+        "count": 1,
+        "ordered_byte_equality": true
+      },
+      "proofs": {
+        "count": 1,
+        "ordered_byte_equality": true
+      },
+      "commands": {
+        "count": 6,
+        "ordered_byte_equality": true
+      },
+      "prose_colons": 0,
+      "evaluative_matter_occurrences": 0
     },
     {
       "path": "paper/study/ai-labour-causal/causal-study.tex",
       "baseline_sha256": "e356ba2c2ca8f452a9dc6ddf5c35738406cc5adca2e6c6ae334af74cc3ffecf9",
-      "sha256": "e356ba2c2ca8f452a9dc6ddf5c35738406cc5adca2e6c6ae334af74cc3ffecf9",
-      "changed": false,
-      "mathematical_spans": 2,
-      "math_identical_in_order": true,
-      "propositions": 0,
-      "propositions_identical": true,
-      "proofs": 0,
-      "proofs_identical": true,
-      "commands_before": 6,
-      "commands_after": 6
+      "sha256": "7178fa9da1326868ad6ccb3846990fb416738f3ce13b70ac6f46686eec730135",
+      "changed": true,
+      "math": {
+        "count": 2,
+        "ordered_byte_equality": true
+      },
+      "propositions": {
+        "count": 0,
+        "ordered_byte_equality": true
+      },
+      "proofs": {
+        "count": 0,
+        "ordered_byte_equality": true
+      },
+      "commands": {
+        "count": 6,
+        "ordered_byte_equality": true
+      },
+      "prose_colons": 0,
+      "evaluative_matter_occurrences": 0
     }
   ],
+  "caption": {
+    "path": "paper/figures/shared-capacity/caption.tex",
+    "baseline_sha256": "f5bb12df4d2aa8cd6b8441f03cf3f4716f8509fe74794a288c2c11e90de966fd",
+    "sha256": "68032abec0126495f3d15c0af83b027a6bca7ed8618fac0ad0278b68506c03d1",
+    "mathematical_spans": 3,
+    "math_identical_in_order": true,
+    "ordered_protected_commands_identical": true,
+    "prose_colons": 0,
+    "semicolons": 0,
+    "geometry_and_data": "UNCHANGED"
+  },
   "calculation_checks": [
     {
       "command": "python3 paper/check_measurement_examples.py",
@@ -129,6 +210,11 @@
       "stdout": "{\"arithmetic\": \"fractions.Fraction; no floating-point optimisation\", \"bounded_observation_enumeration\": {\"infeasible_cases\": 150, \"target_cases\": 1500}, \"capacity_and_window_boundaries\": \"PASS\", \"exact_observation_enumeration\": {\"enumerated_histories\": 141, \"target_cases\": 5445}, \"explicit_inconsistency_cases\": 7, \"scope\": \"Manufactured finite checks and witness validation; general proofs are in the paper.\", \"single_interval_cases\": 284, \"status\": \"PASS\"}\n"
     }
   ],
+  "figure_validation": {
+    "command": "python3 paper/figures/shared-capacity/verify.py --review",
+    "exit_status": 0,
+    "stdout": "{\"calculation\": {\"exceeds_first_hour_capacity\": 528, \"exceeds_second_hour_capacity\": 528, \"explicit_feasible_witnesses\": 3, \"explicit_rejections\": 4, \"grid_pairs\": 1089, \"jointly_feasible\": 33, \"mode\": \"check\", \"status\": \"PASS\"}, \"declared_files\": 13, \"figure_id\": \"shared-capacity\", \"review\": \"accept\", \"scope\": \"project-local bounded checks\", \"status\": \"PASS\"}\n"
+  },
   "rendering": {
     "pages": 19,
     "status": "PASS",
@@ -137,9 +223,9 @@
     "overfull_boxes": 0,
     "underfull_vertical_boxes": 1,
     "warnings": [
-      "One underfull bibliography vertical box",
+      "One underfull vertical box",
       "BibTeX missing pages in cui2026"
     ]
   },
-  "boundary": "Independent review of both changed sources, exact mathematical source preservation, finite calculations and static receipt checks. No fresh Lean replay, implementation refinement or empirical measurement validation."
+  "boundary": "Independent review of all seven compiled text sources and the caption; exact mathematical source preservation, finite calculations, figure hash and bounded checks, and static receipt checks. No fresh local Lean replay, implementation refinement or empirical measurement validation."
 }

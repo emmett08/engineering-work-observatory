@@ -1,26 +1,26 @@
 {
   "schema": "current-manuscript-concordance/1",
   "repository_relative_path": "paper/article/partial-identification.tex",
-  "sha256": "d428b8bd0bd52954500a1130766e2070d5f86d5ab05a4e4fbfd0c85792b25f45",
+  "sha256": "2f80edf947e643d906f3de38b5f1c3671c6c21b646c8f95eb5d7557ca45e55ff",
   "frozen_target": {
     "path": "targets/partial-identification.tex",
     "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
     "origin_commit": "38c4ce40b789d4c5420c98ff1d568b39c3b1e798"
   },
   "independent_review": {
-    "reviewer": "/root/concurrency_scope",
+    "reviewer": "/root/reapplication_review",
     "outcome": "MATHEMATICAL_STATEMENTS_UNCHANGED",
     "report": {
       "path": "evidence/current-manuscript-editorial-review.md",
-      "sha256": "a0ad3c66c02259f0e606895a7b1342263fcb25e03433a428f974049128ae8d5c"
+      "sha256": "583bc17e768a733b5d7f4689b9205fc72d2b20511cee89bf33e39d8edaa58abe"
     },
     "differences": [
-      "Human attention accounting is distinguished from concurrent workflow execution, with a constructed half-person-hour example.",
-      "The reconstructed history preserves the modelled labour totals; additional workflow restrictions require separate attainability analysis.",
-      "The two user-supplied sentences replace certify/certificates wording verbatim.",
-      "All mathematical spans, complete propositions and complete proofs retain their baseline bytes; one accounting reference is added."
+      "A complete skill reapplication reviews seven text sources and the figure caption, retaining the timing subsection unchanged.",
+      "Explanations distinguish score assignment, labour accounting, measurement, sampling uncertainty and causal attribution.",
+      "Valid bounds, joint attainment and match-based optimality are explained separately.",
+      "All mathematical spans, full propositions/proofs and ordered protected commands retain baseline bytes; caption mathematics and figure data are unchanged."
     ],
-    "statement_preservation": "Independent review of the two complete changed sources and exact comparisons across seven compiled text sources preserve the mathematical statements, constructions and citation scope against af928f3bbcbcaf5ace64e9bd00a29a87149eeb0e. The frozen target, Lean sources and historical evidence are unchanged."
+    "statement_preservation": "Independent whole-paper source and editorial review preserves the supported mathematical claims, qualifications and citation scope against f592447043636288b94964363a2feed56f7d5603. The frozen target, Lean sources and historical evidence are unchanged."
   },
   "invalidation": "A current-article byte change requires renewed current concordance/hash binding. A proof-source change requires renewed proof/source review and checking. This record does not identify current bytes with frozen target bytes."
 }

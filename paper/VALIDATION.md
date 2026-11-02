@@ -1,5 +1,30 @@
 # Paper validation history
 
+## 2 November 2026 whole-paper reapplication
+
+Baseline: PR #16 at `f592447043636288b94964363a2feed56f7d5603`. The complete
+`write-for-experienced-engineers` skill is reapplied across seven compiled text
+sources and Figure 1's caption. Six sources are revised; the coherent timing
+subsection is retained. The changes explain the output-score multiplication,
+zero credit for missed deadlines, the transition from measurement to causal
+attribution, and the distinction between a valid bound and attained optimality.
+The sampling discussion distinguishes a fixed population total from a sampled
+correction, explains measurement error after a census and presents complete
+recording as one route to validation. Figure 1's caption is rewritten without
+prose colons or semicolons while retaining its mathematical and evidential scope.
+
+Independent review checks the complete manuscript, caption and bibliography.
+All 281 mathematical spans, five complete propositions, five complete proofs
+and ordered citation/reference/label/input commands in the seven text sources
+are byte-identical to baseline. Caption mathematics and figure geometry are
+unchanged. Its source-hash entries in the existing figure specification, audit
+and review are renewed. The figure checker and exact calculations pass.
+Current manuscript-to-proof records are renewed in place, with static receipt
+validation and changed-byte rejection checks. The 19-page PDF is rebuilt and
+visually inspected. One underfull vertical box and the existing
+`cui2026` missing-pages warning remain. No fresh local Lean replay, Rust
+refinement proof, workplace validation or measured reader comprehension is claimed.
+
 ## 2 November 2026 concurrent-workflow clarification
 
 Baseline: PR #16 at `af928f3bbcbcaf5ace64e9bd00a29a87149eeb0e`. The labour
