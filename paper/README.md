@@ -23,13 +23,13 @@ estimation. It distinguishes labour, elapsed time to acceptance and retained
 reference output. A short validation section states the measurements and
 assumptions needed before an empirical comparison of AI tools and working practices.
 
-The current editorial revision develops each paragraph around a question and its
-consequence. Task identity leads into component counting and acceptance timing,
-then AI access and human-time allocation. The technical sections introduce the
-purpose of each calculation before its notation. The forecasting companion uses
-the same progression from its target through collection, prediction and scoring.
-Both PDFs are rebuilt. The [validation record](VALIDATION.md) documents source
-preservation, independent review and the renewed manuscript-to-proof binding.
+The 2 November revision applies the updated `write-for-experienced-engineers`
+skill to both current papers. It separates the human-labour, elapsed-time and
+computing-resource accounts, explains the capacity and sampling mechanisms, and
+connects collection and evaluation rules to the questions they answer. Necessary
+explanation takes priority over compression. Both PDFs are rebuilt. The
+[validation record](VALIDATION.md) documents source preservation, independent
+review and the renewed manuscript-to-proof binding.
 
 The [1 November editorial and statistical review](review/editorial-statistics-2026-11-01/README.md)
 applies the six requested skills in dependency order, corrects interpretation of

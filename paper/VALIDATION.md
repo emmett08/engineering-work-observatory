@@ -1,39 +1,42 @@
 # Paper validation history
 
-## 1 November 2026 paragraph organisation and continuity
+## 2 November 2026 experienced-engineer revision
 
-Baseline: `07c80fde31a520da012fc54d2dffb50ced420e8a`. The revision covers the seven
-sources compiled into the current labour manuscript and the forecasting
-companion's main source. Paragraphs develop their governing question before
-moving to a new decision. The task-counting example now explains how acceptance
-timing changes output recognised by a deadline. Equation lead-ins connect the
-accounting question to the quantity being defined. A subsequent economy pass
-removes repeated framing while retaining those explanations.
+Baseline: `e0ded20cfe7f699863d2e134c904b9eb673b74b7`, after PR #14. The updated
+`write-for-experienced-engineers` skill was applied across the seven sources
+compiled into the labour manuscript and the forecasting companion's main source.
+Already coherent passages are retained. The revision separates labour, elapsed
+time and computing-resource accounting, explains how capacity tightens interval
+bounds, and connects the cell partition and residual-variance calculation to
+their purpose. The forecasting paper distinguishes source coverage, calendar
+eligibility, prospective records and the questions answered by its evaluation
+measures. Explanation takes priority over shortening.
 
 Ordered source comparisons preserve all 301 mathematical spans, five complete
 propositions, five complete proofs and 122 citation/reference/label/input
 commands across the eight edited sources. Bibliographies, numerical results,
-figure sources, historical packages and Lean definitions are unchanged. An
-independent review of the main source and partial-identification section restored
-the explicit incompleteness of quality observations and the reconstruction's
-unrestricted-interruption assumption. The existing concordance report and
-current-manuscript binding are renewed in place. Static receipt validation and
-an isolated changed-byte rejection check pass. This revision adds no Lean
-execution or empirical validation.
+figure sources, historical packages and Lean definitions are unchanged. A
+separate reviewer assessed all eight sources against the baseline, including
+new explanatory inferences and citation scope. The existing concordance report
+and current-manuscript binding are renewed in place. Static receipt validation
+and an isolated changed-byte rejection check pass. No fresh Lean execution,
+empirical validation or human-reader comprehension measurement is claimed.
 
-`make -C paper article forecasting` passes. The PDFs remain 17 and eight pages,
-respectively. All pages were rendered and inspected, including readable views
-of the task-accounting passage. The final logs have no undefined references,
-undefined citations or overfull/underfull boxes. The existing BibTeX warning
-about missing pages in the online-first `cui2026` entry remains.
+`make -C paper article forecasting` passes. The PDFs have 18 and nine pages,
+respectively, compared with 17 and eight at baseline. The extra explanation and
+paragraph development account for the growth. All pages were rendered and
+inspected, with detailed inspection of the changed accounting and technical
+passages. The final logs have no undefined references, undefined citations or
+overfull/underfull boxes. The existing BibTeX warning about missing pages in the
+online-first `cui2026` entry remains.
 
 The preserved-package hash check, measurement examples, sharp-identification
 checker, MAS model calculations, causal-protocol validator, shared-capacity
 calculation check and forecasting reference self-test pass. Static proof-receipt
 checks and `git diff --check` pass. Application and performance code are unchanged.
-Rust tests and fresh Lean replay were not run in this environment, which has
-neither toolchain on PATH. Readability remains an editorial judgement pending
-representative-reader evidence.
+Rust tests and fresh Lean replay were not run locally because those toolchains
+are absent from PATH. The replaced current editorial record remains available
+in Git history.
 
 ## 1 November 2026 editorial and statistical revision
 
