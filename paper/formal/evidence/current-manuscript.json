@@ -1,26 +1,27 @@
 {
   "schema": "current-manuscript-concordance/1",
   "repository_relative_path": "paper/article/partial-identification.tex",
-  "sha256": "f0f955912e9da22dd14187610ca290f99a837c184b3b25813ecd4f9cf233a927",
+  "sha256": "fe3351e85225f2fee0ae704ed2ae96c09531b10287bf5e8c5dc45be7d8fd9d4a",
   "frozen_target": {
     "path": "targets/partial-identification.tex",
     "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
     "origin_commit": "38c4ce40b789d4c5420c98ff1d568b39c3b1e798"
   },
   "independent_review": {
-    "reviewer": "/root/supporting_sections_edit",
+    "reviewer": "/root/current_fidelity_review",
     "outcome": "MATHEMATICAL_STATEMENTS_UNCHANGED",
     "report": {
       "path": "evidence/current-manuscript-editorial-review.md",
-      "sha256": "7f239daa9b091b3dd18a338852617506aef3eb707f23efc158e45de97dd6401e"
+      "sha256": "2c28f3c4bb44d9ce438aa2cb86aef22a5884b1a0e45d86a8d87e7452ee1525a9"
     },
     "differences": [
-      "Paragraphs now develop single-interval capacity, joint feasibility, finite-cell reduction, endpoint certification and sampling coverage in order.",
-      "Equation lead-ins state the question being answered; theorem statements, proofs and mathematical expressions are unchanged from the previous current article.",
-      "Independent review retained explicit unrestricted-interruption and measurement limitations; a subsequent economy pass removed repeated framing.",
-      "Pre-existing contextual attributions and proof-scope exclusions remain relative to the immutable target."
+      "The capacity example now explains both endpoint restrictions before generalising to interior intervals.",
+      "The finite-cell explanation states why observation intervals and target windows are unions of complete cells.",
+      "Endpoint attainment and exclusion of more extreme totals are explained separately; relaxation explicitly retains a fixed partition and target.",
+      "Independent review covers all eight current manuscript sources, their explanatory inferences, qualifications and citation scope.",
+      "All mathematical expressions, propositions and complete proofs remain byte-identical to the current baseline. Existing frozen-target contextual and proof-punctuation differences remain unchanged."
     ],
-    "statement_preservation": "All mathematical expressions, complete propositions and complete proofs, citations, labels and references are byte-identical and in order relative to the previous current article. The immutable target, Lean sources and historical proof execution evidence are unchanged."
+    "statement_preservation": "Definitions, hypotheses, formal statements, complete proofs, mathematical spans, citations, labels and references preserve their meaning. Protected spans are byte-identical in order against e0ded20cfe7f699863d2e134c904b9eb673b74b7. The immutable target, Lean sources and historical proof execution evidence are unchanged."
   },
   "invalidation": "A current-article byte change requires renewed current concordance/hash binding. A proof-source change requires renewed proof/source review and checking. This record does not identify current bytes with frozen target bytes."
 }

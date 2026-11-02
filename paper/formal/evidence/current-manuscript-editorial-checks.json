@@ -1,9 +1,9 @@
 {
   "schema": "current-manuscript-editorial-checks/1",
   "status": "PASS",
-  "date": "2026-11-01",
-  "baseline_commit": "07c80fde31a520da012fc54d2dffb50ced420e8a",
-  "candidate_sha256": "f0f955912e9da22dd14187610ca290f99a837c184b3b25813ecd4f9cf233a927",
+  "date": "2026-11-02",
+  "baseline_commit": "e0ded20cfe7f699863d2e134c904b9eb673b74b7",
+  "candidate_sha256": "fe3351e85225f2fee0ae704ed2ae96c09531b10287bf5e8c5dc45be7d8fd9d4a",
   "checker_sha256": "c0ba27cfee9502c3fd5352b9c1b3154dca6047eb773bb3e7acaab25add0fc00f",
   "static_validation": {
     "command": "make -C paper/formal check-receipt",
@@ -162,5 +162,5 @@
       }
     }
   },
-  "boundary": "Source concordance, static receipt validation and freshness-guard check. No new Lean execution, kernel replay or empirical validation."
+  "boundary": "Independent eight-source editorial review, source concordance, static receipt validation and freshness-guard check. No new Lean execution, kernel replay, empirical validation or measured human comprehension."
 }

@@ -1,11 +1,11 @@
 \subsection{Predictions calculated before sampling}
 \label{sec:model-assisted}
 
-Predictions for every person-interval supply an initial labour total. A probability sample estimates the difference between that total and true labour. In each sampled interval, observed labour minus predicted labour is the residual. Dividing each residual by its inclusion probability and summing gives a correction that, under the conditions below, averages over repeated samples to the true total minus the prediction total. Denis and Haddou give this fixed-prediction estimator and its variance under the sampling design explicitly \cite[Section~2.3, equations~(2)--(4)]{denishaddou2026}. Prediction-powered inference also identifies its estimator of a mean as a difference estimator and considers finite-population extensions \cite[Section~1.4 and Appendix~B of the accompanying preprint]{angelopoulos2023}.
+Summing predictions for every person-interval gives a predicted labour total. Observations from a probability sample then estimate the difference between true labour and that prediction total. In each sampled interval, observed labour minus predicted labour is the residual. Dividing each residual by its inclusion probability and summing gives a correction that, under the conditions below, averages over repeated samples to the true total minus the prediction total. Denis and Haddou give this fixed-prediction estimator and its variance under the sampling design explicitly \cite[Section~2.3, equations~(2)--(4)]{denishaddou2026}. Prediction-powered inference also identifies its estimator of a mean as a difference estimator and considers finite-population extensions \cite[Section~1.4 and Appendix~B of the accompanying preprint]{angelopoulos2023}.
 
 Partition each person's target observation period into non-overlapping intervals. Let $U=\{1,\ldots,M\}$, $M\geq1$, be the complete, fixed frame of these person-intervals. For interval $m$, let $d_m>0$ be its length in hours and $a_m\in[0,1]$ its average allocation to the target work. Its labour is $y_m=d_ma_m$ person-hours, and the population total is $H=\sum_Uy_m$.
 
-For every frame unit, retain a prediction $f_m$ in person-hours. A raw SCH value requires a stated conversion to labour units before it can serve as $f_m$. Each unit's prediction must also remain the same whichever sample is drawn. Training on an independent earlier population can satisfy this condition by holding all predictions fixed before sampling allocations to correct the predicted total.
+For every frame unit, retain a prediction $f_m$ in person-hours. A raw SCH value requires a stated conversion to labour units before it can serve as $f_m$, so that observed and predicted values describe the same quantity. The proof also treats predictions as fixed: each unit's value must remain the same whichever sample is drawn. Training on an independent earlier population can satisfy this condition by holding all predictions fixed before sampling allocations to correct the predicted total.
 
 \begin{proposition}[Fixed-prediction difference estimator]
 \label{prop:difference-estimator}
@@ -32,7 +32,7 @@ The correction therefore preserves design-unbiasedness even when the fixed predi
  \widehat H_{\mathrm{HT}}=\sum_{m\in s}\frac{d_ma_m}{\pi_m}.
  \label{eq:ht}
 \end{equation}
-The records must distinguish observed zeros from missing observations. For every frame interval, record whether it was selected with an observed allocation, including zero, selected with no recorded allocation value (nonresponse), or unselected. The proof concerns true allocation values, so unbiasedness in the presence of measurement error requires additional assumptions on that error.
+The records must distinguish observed zeros from missing observations. For every frame interval, record whether it was selected or unselected. A selected interval then needs either its observed allocation, including zero, or a nonresponse record when no allocation value was recorded. These states distinguish a measured absence of target work from a gap in measurement. The proof concerns true allocation values, so unbiasedness in the presence of measurement error requires additional assumptions on that error.
 
 \subsection{Precision depends on residuals and the sampling design}
 \label{sec:difference-variance}
@@ -44,7 +44,7 @@ The residuals and sampling design jointly determine precision. Let $\pi_{mk}=\E_
  \frac{\pi_{mk}-\pi_m\pi_k}{\pi_m\pi_k}\,r_mr_k.
  \label{eq:difference-general-variance}
 \end{equation}
-Expanding the variance of $\sum_U I_mr_m/\pi_m$ gives this expression: how often pairs of units are selected together determines their inclusion covariances. Calculating the variance from \eqref{eq:difference-general-variance} would also require residuals for unsampled units, which are generally unknown. Estimating it therefore requires the actual sampling design and satisfaction of the chosen variance estimator's conditions on joint inclusion probabilities.
+Expanding the variance of $\sum_U I_mr_m/\pi_m$ gives this expression. Its covariance terms depend on how often pairs of units are selected together. Calculating the variance from \eqref{eq:difference-general-variance} would also require residuals for unsampled units, which are generally unknown. Estimating it therefore requires the actual sampling design and satisfaction of the chosen variance estimator's conditions on joint inclusion probabilities.
 
 For simple random sampling without replacement from $M\geq2$ units, let the fixed sample size satisfy $1\leq n\leq M$. Every size-$n$ subset has the same probability and $\pi_m=n/M$. Write
 \[
@@ -71,7 +71,7 @@ For $2\leq n\leq M$, an unbiased estimator of the design variance is
 \end{equation}
 Indeed, $s_r^2=[n(n-1)]^{-1}\sum_{m<k,\,m,k\in s}(r_m-r_k)^2$. Each pair has inclusion probability $n(n-1)/[M(M-1)]$, so $\E_s[s_r^2]=S_r^2$. A one-unit sample from a larger population cannot supply this variance estimate. Measuring every unit gives zero sampling variance, including in a single-unit population. Measurement error remains a separate question.
 
-For $n<M$, the difference estimator has lower sampling variance than HT exactly when $S_r^2<S_y^2$: the residuals must have lower population variance than the person-interval labour totals. For example, consider $M=4$, $n=2$, and $y=(0,2,4,6)$. The true total is $12$, and HT variance is $80/3$. Using $f=(1,3,3,5)$ for every sample yields variance $16/3$, while using $f=(6,4,2,0)$ yields $320/3$. The second predictor gives four times the HT variance, although the difference estimator remains design-unbiased with either predictor.
+For $n<M$, the difference estimator has lower sampling variance than HT exactly when $S_r^2<S_y^2$: the residuals must have lower population variance than the person-interval labour totals. For example, consider $M=4$, $n=2$, and $y=(0,2,4,6)$. The true total is $12$, and HT variance is $80/3$. Using $f=(1,3,3,5)$ for every sample yields variance $16/3$, while using $f=(6,4,2,0)$ yields $320/3$. The second predictor ranks intervals in reverse order of their true labour, amplifying residual variation and giving four times the HT variance. The difference estimator remains design-unbiased with either predictor.
 
 Enumerating all six samples reproduces these variances and confirms that each estimator averages to the true total. It also verifies that \eqref{eq:difference-srs-variance-estimator} averages to each corresponding variance. These finite checks establish the calculations for the two predictors. A workplace study must determine whether its code-derived predictions give a residual total with lower sampling variance than the labour estimate without predictions.
 
