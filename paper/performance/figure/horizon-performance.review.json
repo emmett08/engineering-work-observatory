@@ -1,18 +1,18 @@
 {
   "schema_version": "1.0",
   "figure_id": "horizon-performance",
-  "spec_sha256": "4a1fd869e489eadd6baf12fd6bbd459ffea7133002e84246c07bdb6efec68ce8",
-  "audit_sha256": "95cbeb76ee5f35b6498d9c19287a916cea0c47b9daf2ca7b589eac1706ebad18",
+  "spec_sha256": "2efeee597f49930ad6f57718fe276b59737a232868a3dcbaadac9e8d8e9fdb55",
+  "audit_sha256": "e8c42daf90a6cb2d0d8388d74f42ad187804145743053f33a22cf580f7ed2961",
   "artifacts": [
     {
       "role": "final_pdf",
       "path": "figures/horizon-performance.pdf",
-      "sha256": "de26f596057b7d02c282fd2e1766784e4dba0c475f21d77c2ec0d3a65e7d68b0"
+      "sha256": "344026f144bc7e163c0703791a71d06a2c40d995cd3de933b5065e9860c1363f"
     },
     {
       "role": "prototype",
       "path": "figures/horizon-performance.pdf",
-      "sha256": "de26f596057b7d02c282fd2e1766784e4dba0c475f21d77c2ec0d3a65e7d68b0"
+      "sha256": "344026f144bc7e163c0703791a71d06a2c40d995cd3de933b5065e9860c1363f"
     },
     {
       "role": "prototype",
@@ -21,7 +21,7 @@
     }
   ],
   "reviewer": {
-    "id": "/root/reconstruct_figures/figure_reader",
+    "id": "/root/figure_wording_review",
     "kind": "agent",
     "independence_declared": true,
     "scope": "agent_screening"
@@ -101,16 +101,16 @@
       {
         "id": "integration-scope",
         "severity": "informational",
-        "description": "This independent review covers the standalone figure plus caption.",
+        "description": "Current independent agent screening covers the rebuilt standalone figure and revised caption.",
         "disposition": "accepted",
-        "reason": "Full manuscript-page inspection belongs to the parent integration review and is not claimed by this record."
+        "reason": "The current reviewer checked layout, wording, caption/generator agreement and descriptive aggregation against the saved CSV. Historical prototype comparison and measurement provenance remain outside this review; no human comprehension result is claimed."
       },
       {
         "id": "caption-two-stage-wording",
         "severity": "informational",
-        "description": "Current caption explains the plotted quantity and the conditions of the example in plain words.",
+        "description": "Labels and caption distinguish generated numeric input pairs from measured execution times.",
         "disposition": "resolved",
-        "reason": "The authoring review checked the revised caption against the source data and the unchanged plotted quantities. Historical independent image/candidate reviews retain their original scope. This wording revision adds no workplace or reader-comprehension evidence. The ten-query comparison contains 15 matched pairs: indexing was slower in 4 and faster in 11."
+        "reason": "Independent agent /root/figure_wording_review inspected current colour and greyscale renders, verified the caption template reproduces the caption, and checked all plotted medians/ranges against the 60 saved CSV pairs. Labels distinguish generated numeric inputs from measured execution times. No clipping, overlap or semantic defect was found. Numeric data and coordinates retain their baseline bytes."
       }
     ],
     "audit_warning_dispositions": [
@@ -126,7 +126,6 @@
     "Human interpretation benefit remains unmeasured by agent screening.",
     "Acceptance is bounded to the figure and caption using the reported project-local checks, not the unavailable bundled skill validation.",
     "The generated workload and one recorded execution environment do not establish production performance, human effort savings or AI-policy effects.",
-    "Full manuscript-page inspection is recorded separately by the parent integration reviewer.",
-    "The current caption revision has author review only. Historical independent reviews and candidate comparisons concern the unchanged image and earlier wording; no new human comprehension result is claimed."
+    "Current independent agent screening covers the revised standalone render and caption. Prototype comparison, benchmark reproduction, measurement provenance and human comprehension testing remain outside that screening."
   ]
 }

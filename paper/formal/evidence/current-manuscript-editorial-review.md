@@ -2,38 +2,46 @@
 
 Outcome: **SEMANTIC_FIDELITY_PRESERVED / MATHEMATICAL_STATEMENTS_UNCHANGED / PASS**.
 
-Independent reviewer `/root/independent_fidelity` compared the nine labour text sources below against exact upstream source bytes at `804f07357511794493b5a9bd95675f60e0604f0e`. The review covers the source meaning, mathematical conditions and local explanatory progression. It does not claim measured reader comprehension, a fresh literature audit or a new Lean proof replay.
+Independent reviewer `/root/independent_fidelity` compared the nine labour text sources below against the published PR #18 checkpoint `b0f2ffc447a1e8ce13248f0c8bd623980131f84e`. The review covers the source meaning, mathematical conditions, explanation order and every remaining use of record-family, observation and outcome wording in the stated paper/performance/figure scope. It does not claim measured reader comprehension, a fresh literature audit or a new Lean proof replay.
 
 ## Reviewed source bytes
 
 | Source | Baseline SHA-256 | Candidate SHA-256 |
 |---|---|---|
-| paper/article/binning-bounds.tex | a5300744c937d63f72a95faf9fb35f837e9470ace4baa9b9b9f40350bd73cf3b | 714d75696b4a12439cf9ce39ee4084d3b9fb919196aa2b72a6d385d115a348dd |
-| paper/article/design-based-estimation.tex | 2a0761e79b8919de45853ba062d1bcae17a42f196e4f5c517c55c861175fb829 | 240cb42f0fff2dea71cda3068d74e00b9e218e151c810fe181aa33e12f706c49 |
-| paper/article/event-history.tex | 201067a662c2e4deb00331ff1ac1ceb1abde1e4b6f32cc45dad090f94b8ae3f8 | d80bb0ca30ef79c6ee73decbdbbc78c304f5a07a9825077721b2e6175fb6b73f |
-| paper/article/main.tex | 3f1bfedb4d61992348a690163be00ae28596d2f2251ccf8bd01320c5d37b2b1e | da39a3ca09111519beeae08db7ad361f8b8a4a547713043c61a157b6c5b3f8b3 |
-| paper/article/partial-identification.tex | 199218ed24332a441cc8dafe504d4e5771fff77215ebf8dfd1dc7b2199712baa | c76e5998db92e2f9f888a616cc02883ba87a8c3bb2ceabd832722187f6cc1d29 |
-| paper/article/performance.tex | 6fedcd88b16f7c65ca2e83086456b49b02e66439d9b4aeb5714c36796ba0d5bd | 4d682ea8e04d91f5d601683d7f1f5146f961c37a9d2daa421b345c90e3520abc |
-| paper/article/sampling-validation.tex | ad97752bd22a3cd6f2399c08ad47deb7cc04e2940d9d6121d3e340d10cadfcb5 | f0ab516fbe74751a941b28104966f60654cff8af95b6d5ac12c9d3cae9b5ea52 |
-| paper/article/scalar-bounds.tex | b597faa4fb9f58ba9232979fb80af7820473f9646be94fb0810de50a387a8354 | 7dca65ce92f708fe3ddb53a9fcc852db6d4a05fc6e5d2318accdb3e712373303 |
-| paper/study/ai-labour-causal/causal-study.tex | 695703efe574bb480d8623d9949af8f74b17ac65e4ee1923beb637bbee7f089d | 566771f696b27817534ce1ba8e6daa46805d29f71ff6a7dd7bdc428621b33a7d |
+| paper/article/binning-bounds.tex | 714d75696b4a12439cf9ce39ee4084d3b9fb919196aa2b72a6d385d115a348dd | 714d75696b4a12439cf9ce39ee4084d3b9fb919196aa2b72a6d385d115a348dd |
+| paper/article/design-based-estimation.tex | 240cb42f0fff2dea71cda3068d74e00b9e218e151c810fe181aa33e12f706c49 | 3993b40a586eeeb11129204711f5173b01c57de724da8183a1260ff0b4c3bbd3 |
+| paper/article/event-history.tex | d80bb0ca30ef79c6ee73decbdbbc78c304f5a07a9825077721b2e6175fb6b73f | 8055b16642d328c79fd517adae746dd5e9d8893c1d3545e07bd0563cc66405b3 |
+| paper/article/main.tex | da39a3ca09111519beeae08db7ad361f8b8a4a547713043c61a157b6c5b3f8b3 | 8b5269db48dd8dca5329e1d56abb751259690fcbef635bbc6f63222ef4f43d93 |
+| paper/article/partial-identification.tex | c76e5998db92e2f9f888a616cc02883ba87a8c3bb2ceabd832722187f6cc1d29 | b4cfe7045327fd49ff7a083195fe4d614a6df216670f45bd7d76e70f0e79b27b |
+| paper/article/performance.tex | 4d682ea8e04d91f5d601683d7f1f5146f961c37a9d2daa421b345c90e3520abc | e87f5a22d99e443f2c529d3a527989d105355f7bded9537bc4402a95fbc44b3a |
+| paper/article/sampling-validation.tex | f0ab516fbe74751a941b28104966f60654cff8af95b6d5ac12c9d3cae9b5ea52 | 556fe98975bd157ca202b633b46854ad00aa473f8751d0f3991d5051328c3142 |
+| paper/article/scalar-bounds.tex | 7dca65ce92f708fe3ddb53a9fcc852db6d4a05fc6e5d2318accdb3e712373303 | 69a06460f73d7327b831a01d586e8543c097293725f9af9452ac457d6a76feb8 |
+| paper/study/ai-labour-causal/causal-study.tex | 566771f696b27817534ce1ba8e6daa46805d29f71ff6a7dd7bdc428621b33a7d | fa074efbd80dd038873ab64c842039e54b5f44d5a4276256bffcbad792dd7b0b |
 
 ## Meaning and progression
 
-The output score still equals the task reference score multiplied by the fraction of its accepted requirement satisfied at the assessment delay after first acceptance. A missed acceptance deadline still gives zero. Labour remains a separate sum of person-hours through the common task-age limit. The revision makes those objects and their different times explicit.
+The revision identifies the engineering objects before explaining how the calculations use them. A task is a requested change with acceptance criteria. The GitHub issue example distinguishes that task from its commits and pull requests, its requirement version at the tracking start, later scope changes and study eligibility. Work diaries provide person/time measurements; acceptance confirmations give event times; later assessment notes support the fraction of the accepted requirement still satisfied. The reference score and output score remain distinct.
 
-Probability sampling selects listed time intervals for individual people. Predictions remain unchanged across possible samples, and the correction uses accurately measured labour and known positive selection probabilities. The distinction between possible labour totals and variation across repeated samples is preserved. The hypophora now asks for the distinction that its first answer develops. The measurement example remains with measurement, and causal study requirements introduce the study comparison.
+The issue, diary, release-log, scoring-entry and assessment-note formats are explicitly examples rather than claims about collected workplace data or mandatory new systems. The equal-weight acceptance-criteria example illustrates one possible rule for assessing partial fulfilment. The mathematical definition still permits a study-specific rule.
 
-The independent review identified and the authors repaired three scope issues: requirement assessments apply only to tasks accepted by the deadline, incomplete observation includes labour and acceptance histories as well as later assessments, and the scalar appendix retains shared time across both tasks and work types. No material semantic regression remains in this bounded source review.
+Independent review prompted five repairs. The pilot mean treatment-effect estimate is distinguished from variation used in sample-size planning. Actual tool use is described using diaries or logs separately from the assignment-based comparison. Request statuses preserve whether a request enters the included task set. Acceptance and deployment retain distinct timestamps. First acceptance times apply to accepted tasks, while other task statuses remain explicit. No material semantic regression remains in this bounded review.
 
-The causal experiment remains proposed and unrun. Its deadlines, effect thresholds, measurement-bias allowances and adverse hypothetical planning results retain their original values. The more precise ten-query performance statement is checked directly against the raw paired measurements: indexing is slower in 4 of 15 pairs and faster in 11.
+The output score still equals the reference score multiplied by the fraction of the accepted requirement satisfied at the assessment delay after first acceptance. A missed acceptance deadline still gives zero. Labour remains the sum of person-hours through the common task-age limit. Shared human capacity is enforced across tasks and work types. Probability sampling still needs a covering frame, known positive selection probabilities, accurate allocation measurements and predictions unchanged across possible samples. Workplace measurement checks explain application of the results rather than adding a sampling-frame hypothesis to every theorem.
+
+The causal experiment remains proposed and unrun. Its assignment-based comparison, equal team weights, deadlines, effect thresholds, bias allowances and adverse hypothetical planning results retain their mathematical meaning. None of the new engineering examples asserts an empirical result. The required hypophora remains, with each answer developing its question before the next topic.
+
+## Per-occurrence wording scope
+
+Whole-word record/records/recorded/recording occurrences fall from 46 to 2 in the 13-file compiled source closure and from 74 to 10 in the extended paper/performance/figure source scope. The two compiled uses explicitly concern actual tool use and selection status for a person-interval, each followed by an illustrative format. Eight performance uses refer to defined age/weight input pairs or preserve formal algorithm/proof wording. Counts describe coverage and do not establish readability.
+
+The retained term interval observation is defined through its time interval, included people/tasks/work types and supplied total or bounds. HMM observations denote commit events conditioned on hidden activity states. Literature outcomes are the named study measures, and team outcomes are immediately defined as the two normalised labour/output quantities. Benchmark observations denote measured execution durations, while generated numeric inputs and hypothetical schedules remain identified as such. The review accepts these terms where their referents and role are explicit.
 
 ## Mathematical and reference checks
 
-Every existing mathematical expression remains in source order. The only added inline expressions name intervals m and k in the joint selection probability and restate the existing labour limit tau+Delta in the performance explanation. Every displayed equation, proof and algorithm block is byte-identical to the baseline. The binning proposition changes only the prose label “retained output” to “the output score”. Its hypotheses, formulas and conclusion are unchanged. All other proposition blocks are byte-identical.
+Every existing mathematical expression remains in source order. Performance prose adds only tau for the acceptance deadline and v_j for the labour contribution weight. Every proposition, proof, displayed-equation and algorithm block is byte-identical to the published checkpoint. The frozen target, Lean sources and checker scripts are unchanged.
 
 The actual compiled manuscript closure has 13 source files, 40 labels and 35 reference commands, with no missing or duplicate labels. All 26 citation keys across the nine text sources resolve in the article bibliography. The unused binning source retains its pre-existing reference to app:coverage outside the compiled closure; the clean cross-reference claim applies to the compiled manuscript.
 
 ## Proof and evidence boundary
 
-The frozen target, Lean source files and checker scripts retain their upstream bytes. The current manuscript binding is renewed separately from the frozen proof target. The formal receipt preserves its historical proof-source snapshot, proof executions, axiom declarations and exclusions. Only its current-manuscript hash is refreshed. The accompanying current checks record the static receipt checks and isolated changed-byte guard actually run during this review. PDF build and visual inspection are managed separately by the primary agent and are not asserted here.
+The current manuscript binding is renewed separately from the frozen proof target. The formal receipt preserves its historical source snapshot, proof executions, axiom declarations and exclusions. Only its current-manuscript hash is refreshed. The accompanying checks contain the static validators and isolated changed-byte guard actually run during this review. The primary agent manages PDF builds and visual inspection; those are not asserted as this reviewer's own observations.

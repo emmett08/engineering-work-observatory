@@ -1,7 +1,7 @@
 {
   "schema": "current-manuscript-concordance/1",
   "repository_relative_path": "paper/article/partial-identification.tex",
-  "sha256": "c76e5998db92e2f9f888a616cc02883ba87a8c3bb2ceabd832722187f6cc1d29",
+  "sha256": "b4cfe7045327fd49ff7a083195fe4d614a6df216670f45bd7d76e70f0e79b27b",
   "frozen_target": {
     "path": "targets/partial-identification.tex",
     "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
@@ -12,14 +12,14 @@
     "outcome": "MATHEMATICAL_STATEMENTS_UNCHANGED",
     "report": {
       "path": "evidence/current-manuscript-editorial-review.md",
-      "sha256": "52190b81ff328f16513c3efdde33808a33bc43545caeca76258e4a124b6280bf"
+      "sha256": "dfdad06de4f92be8b4ea01c6c91d017ce73540cddbd89a42a339cb5b8b123f0e"
     },
     "differences": [
-      "Ambiguous output and sampling labels are expanded into their quantities, timing and calculation rules.",
-      "Hypophora answers directly and preserves the distinction between measurement and causal attribution.",
-      "All existing mathematical expressions remain in order; proof and displayed-equation blocks are unchanged. The three explanatory inline additions and the binning proposition terminology change are documented in the independent report."
+      "The requested change, task identifier, timestamps, human-time measurements and later requirement assessment are explained as distinct engineering objects.",
+      "Illustrative issue, diary, scoring and assessment examples replace undefined recording obligations while preserving inclusion, timing and scoring rules.",
+      "Every existing mathematical expression is preserved in order, and every formal proposition/proof/equation/algorithm block is byte-identical. Two performance-prose symbols restate already defined quantities."
     ],
-    "statement_preservation": "Independent source review against 804f07357511794493b5a9bd95675f60e0604f0e preserves the mathematical claims, qualifications and citation scope. The frozen target, Lean sources, checker scripts and historical proof evidence are unchanged."
+    "statement_preservation": "Independent source review against b0f2ffc447a1e8ce13248f0c8bd623980131f84e preserves mathematical claims, qualifications and citation scope. The frozen target, Lean sources, checker scripts and historical proof evidence are unchanged."
   },
   "invalidation": "A current-article byte change requires renewed current concordance/hash binding. A proof-source change requires renewed proof/source review and checking. This record does not identify current bytes with frozen target bytes."
 }

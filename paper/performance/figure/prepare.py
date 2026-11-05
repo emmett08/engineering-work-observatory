@@ -102,16 +102,17 @@ def main() -> None:
     )
     (args.output / "horizon-labels.tex").write_text(label_text)
     caption = (
-        "Observed elapsed times for repeated cohort-horizon queries on generated arrays "
-        "of 100,000 accepted-output records and 400,000 labour increments. "
+        "Measured execution times for calculating output and labour totals at repeated acceptance deadlines. "
+        "The inputs contain 100,000 generated output age--score pairs and 400,000 generated labour age--weight pairs. "
         "Markers are medians. Whiskers show the minimum and maximum across 15 paired "
         "runs (three seeds, five fresh-process repetitions per seed). They are not confidence intervals. "
         "Indexed totals include construction, queries and disposal. All one-query "
         f"pairs favoured scanning and all {first_win:,}-query pairs favoured indexing. "
-        "Ten-query pairs varied in direction. "
-        "Only four query counts were timed, so the connecting lines do not locate break-even. "
-        "This result is confined to the generated workload and execution environment "
-        "and does not estimate human labour or an effect of an AI intervention.\n"
+        f"At ten queries, scanning was faster in {sum(r['scan_ns'] < r['index_total_ns'] for r in grouped[10])} pairs "
+        f"and indexing was faster in {sum(r['index_total_ns'] < r['scan_ns'] for r in grouped[10])}. "
+        "Only four query counts were timed, so the connecting lines leave the exact query count at which indexing becomes faster unresolved. "
+        "The plotted durations describe computation on generated integers. "
+        "Estimating human labour or an effect of an AI intervention requires separate measurements.\n"
     )
     figure_dir = args.output.parents[1] / "figures"
     figure_dir.mkdir(parents=True, exist_ok=True)
