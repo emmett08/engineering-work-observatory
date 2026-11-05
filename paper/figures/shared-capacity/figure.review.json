@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "figure_id": "shared-capacity",
-  "spec_sha256": "197c9e9ea781032e72d10a99980e1adcb2a234e695baf9f07bd978b70830c10d",
-  "audit_sha256": "e62d81d1380d4ab39667724375718af62d50fe793538f45428a59b54ff5914ca",
+  "spec_sha256": "2fb17a48a6b0591e0641f45334655d77e7f08bf06c582a95d078045f763cfbe3",
+  "audit_sha256": "f9391706be8be7496d8d13e1cd4a8e58866d6a9c5c73e51eb872321db891aed8",
   "artifacts": [
     {
       "role": "final_pdf",
@@ -59,7 +59,7 @@
     "unintended_inferences": [
       "The shaded square can initially suggest joint feasibility, but its exclusion labels and the caption identify it as the separate-bound set.",
       "The single P witness does not prove the whole diagonal is attainable, identify the true history, or establish zero switching costs in real work.",
-      "The original subject \u201cschedule permits interruption\u201d was slightly imprecise; the revised caption makes switching a permission in the constructed example."
+      "The original subject “schedule permits interruption” was slightly imprecise; the revised caption makes switching a permission in the constructed example."
     ]
   },
   "comparison": {
@@ -79,7 +79,7 @@
       {
         "id": "separate-bounds",
         "severity": "minor",
-        "description": "\u201cSeparate bounds added\u201d requires the caption to distinguish marginal bounds from joint feasibility.",
+        "description": "“Separate bounds added” requires the caption to distinguish marginal bounds from joint feasibility.",
         "disposition": "accepted",
         "reason": "The caption states the separate-versus-joint calculation; the independent initial reconstruction recovered it correctly."
       },
@@ -88,7 +88,7 @@
         "severity": "informational",
         "description": "No cross-panel arrow joins P to the timeline.",
         "disposition": "accepted",
-        "reason": "The marked point, \u201cOne schedule for P\u201d title and caption supplied an adequate explicit connection in the independent reader review."
+        "reason": "The marked point, “One schedule for P” title and caption supplied an adequate explicit connection in the independent reader review."
       },
       {
         "id": "caption-plain-prose",
@@ -100,9 +100,9 @@
       {
         "id": "caption-two-stage-wording",
         "severity": "informational",
-        "description": "The current caption has received the requested plain-word pass followed by engineering-explanation revision.",
+        "description": "Current caption explains the plotted quantity and the conditions of the example in plain words.",
         "disposition": "resolved",
-        "reason": "The authoring assistant checked the revised caption against its exact baseline and the rendered article. It preserves every mathematical quantity and the distinction between separately permitted totals, joint capacity and one possible schedule. The listed independent reviewer assessed the historical figure, not this new wording. The image, geometry and underlying numerical inputs remain byte-identical."
+        "reason": "The authoring review checked the revised caption against the source data and the unchanged plotted quantities. Historical independent image/candidate reviews retain their original scope. This wording revision adds no workplace or reader-comprehension evidence."
       }
     ],
     "audit_warning_dispositions": [
@@ -118,7 +118,7 @@
     "Human interpretation benefit remains unmeasured by agent screening.",
     "The semantic reader did not independently execute the mathematical calculation or certify the general reconstruction proof. Exact calculation checks are a separate evidence item.",
     "The skill schemas were available, but its bundled renderer/validator scripts were unavailable; project-local checks retain their declared bounded coverage.",
-    "The aggregate is exact because this constructed case saturates two hours of one person\u2019s capacity. That conclusion does not apply to every shared-capacity system.",
-    "The 5 November caption revision has author review only. The historical independent reviewer and candidate comparison apply to the unchanged figure image and the earlier caption. No new independent or human comprehension result is claimed."
+    "The aggregate is exact because this constructed case saturates two hours of one person’s capacity. That conclusion does not apply to every shared-capacity system.",
+    "The current caption revision has author review only. Historical independent reviews and candidate comparisons concern the unchanged image and earlier wording; no new human comprehension result is claimed."
   ]
 }

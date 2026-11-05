@@ -8,14 +8,22 @@ frozen cohort report. Executable examples are
 [`model-assisted-labour.json`](../examples/model-assisted-labour.json) and
 [`model-assisted-labour-v2.json`](../examples/model-assisted-labour-v2.json).
 
-For a declared finite frame, let `f_m` be a frozen prediction in person-hours,
-`y_m` an observed labour contribution, and `pi_m` the inclusion probability. The
-difference estimate is `sum_all(f_m) + sum_observed((y_m-f_m)/pi_m)`; the comparator
-is the HT estimate `sum_observed(y_m/pi_m)`. Both target the same frame total.
-The difference estimate is design-unbiased when the frame is complete, the
-probabilities describe the actual design, sampled labels are accurate, and
-predictions are fixed before evaluation sampling. Frame units must partition each
-person's target observation period so that the total counts each contribution
+The sampling frame lists every time interval for every person included in the
+labour total. Randomly select intervals from this list using a design that gives
+each interval a known positive selection probability. Let `f_m` be its predicted
+person-hours, `y_m` its observed person-hours if selected, and `pi_m` its selection
+probability. Predictions are calculated before sampling and remain unchanged
+whichever intervals are selected. The difference estimate is
+`sum_all(f_m) + sum_observed((y_m-f_m)/pi_m)`. Its comparator is the
+Horvitz–Thompson (HT) estimate `sum_observed(y_m/pi_m)`. Both estimate the total
+labour across the same frame.
+
+The difference estimate averages to the true total across repeated samples
+when the frame is complete, selection probabilities describe the actual design,
+sampled labour measurements are accurate and predictions are fixed before
+sampling. This property is called design-unbiasedness.
+
+Frame units must partition each person's target observation period so that the total counts each contribution
 once. Version 1 accepts that geometry as a caller declaration. Version 2 checks
 the supplied partition against declared person windows. Neither version can
 establish that those windows and people cover all actual target work.
@@ -92,33 +100,36 @@ prediction provenance.
 
 ## Output and uncertainty
 
-The result retains the frame identity, prediction provenance, design, frame and
-observed sample sizes, and the prediction, HT and difference totals. It also
-records limitations and the variance status:
+The result records the frame identity, prediction source, sampling design,
+frame size and observed sample size. It reports the predicted total and the HT
+and difference estimates of total labour. It also records limitations and the
+variance status:
 
 | `variance.status` | Interpretation |
 |---|---|
-| `estimated_srs` | SRS design variance estimated from the observed sample, with the finite-population correction |
-| `known_zero_census` | The declared SRS design observes the entire frame; sampling variance is zero |
+| `estimated_srs` | Variance under simple random sampling, estimated from the observed sample with the finite-population correction |
+| `known_zero_census` | The declared simple-random-sampling design observes the entire frame, so sampling variance is zero |
 | `unavailable` | The declared design or sample size does not support this variance calculation |
 
-For noncensus SRS with `n>=2`, the estimated total variance is
+For simple random sampling (SRS) without replacement with `n>=2` and fewer
+observations than the full frame, the estimated variance of the total is
 `M^2 * (1-n/M) * s_e^2/n`, where `s_e^2` is the sample variance of residuals
 `y_m-f_m`. The HT comparator replaces residuals with observed labour. Values
 have units of squared person-hours; standard errors have units of person-hours.
-A small observed residual variance does not establish accurate labels, complete
+A small observed residual variance does not establish accurate labour measurements, complete
 coverage, or useful predictions outside that sample.
 
 The implementation uses checked floating-point arithmetic and compensated sums.
-SRS calculations centre predictions around a frozen anchor before applying the
-canonical `M/n` expansion, so a large common prediction offset cancels before
+SRS calculations subtract one fixed reference prediction before multiplying
+the sample totals by `M/n`, so a large common prediction offset cancels before
 weighting; a census returns the observed total directly. General designs retain
 their supplied inclusion weights. These numerical choices preserve the
 mathematical formula while reducing cancellation; they do not supply an exact
 arithmetic guarantee at arbitrary scales or recover distinctions already lost
 when input numbers were rounded.
 
-The result is an estimate, not an exact complete-population interval mass. Signed
+The result estimates total person-hours across the sampling frame. It cannot
+serve as an exact observed interval total in the labour-bound calculation. Signed
 residuals and negative realised totals are preserved: clipping changes the
 estimator and generally introduces bias. Variance can exceed HT variance when
 predictions are unhelpful. Known inclusion probabilities do not correct erroneous

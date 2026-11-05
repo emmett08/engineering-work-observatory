@@ -1,38 +1,39 @@
-# Current manuscript editorial concordance review — 2 November 2026
+# Current manuscript editorial concordance review — 5 November 2026
 
 Outcome: **SEMANTIC_FIDELITY_PRESERVED / MATHEMATICAL_STATEMENTS_UNCHANGED / PASS**.
 
-Independent reviewer `/root/reapplication_review` read the complete labour manuscript, all seven compiled text sources, Figure 1's caption and bibliography using the current `write-for-experienced-engineers` skill. The comparison baseline is PR #16 at `f592447043636288b94964363a2feed56f7d5603`. Six text sources and the caption are revised. The timing subsection is retained after review. The reviewer checked the final abstract and caption separately after the last two editorial repairs and found no defect in those changes. This record summarises that read-only local assessment and exact source comparisons.
+Independent reviewer `/root/independent_fidelity` compared the nine labour text sources below against exact upstream source bytes at `804f07357511794493b5a9bd95675f60e0604f0e`. The review covers the source meaning, mathematical conditions and local explanatory progression. It does not claim measured reader comprehension, a fresh literature audit or a new Lean proof replay.
 
 ## Reviewed source bytes
 
 | Source | Baseline SHA-256 | Candidate SHA-256 |
 |---|---|---|
-| paper/article/main.tex | 044822230baf2141106bad7d32eccd9f0b65942f07c5079d3ff68d1f024ae9a3 | 2b77d81cf9f0c03a9e77dff119f97d1b72d02e60ec51c12b7261244930dea6c5 |
-| paper/article/event-history.tex | 74339eabaf00054826bd282368d7bc049a3d0991e5768feffa8ab46ecc51d05d | 74339eabaf00054826bd282368d7bc049a3d0991e5768feffa8ab46ecc51d05d |
-| paper/article/partial-identification.tex | d428b8bd0bd52954500a1130766e2070d5f86d5ab05a4e4fbfd0c85792b25f45 | 2f80edf947e643d906f3de38b5f1c3671c6c21b646c8f95eb5d7557ca45e55ff |
-| paper/article/design-based-estimation.tex | 9277efb1f2bf85979bee3328c6422d021a559b273f817f0bc64ed3cdbe8d93e8 | 19a9ecb0494914c19877d64c28beaae187bcf152f889007201f46eb61886c50d |
-| paper/article/sampling-validation.tex | fb54cff649fb392dc45ba88130c8a067c0f739c7fbaa778d52d12d5b32f16104 | 1a044b2685d2b837bf761752f83088fcbb25f88fda2773cbf4104aa612c22aba |
-| paper/article/scalar-bounds.tex | 107a796e296b199f24fc4ff0c31383384375c3cfa6d564ee23c4656629002b32 | 36d912b9d2e35e312efa816945d1ad33ae229808f853a5518d0b405a2f2f662d |
-| paper/study/ai-labour-causal/causal-study.tex | e356ba2c2ca8f452a9dc6ddf5c35738406cc5adca2e6c6ae334af74cc3ffecf9 | 7178fa9da1326868ad6ccb3846990fb416738f3ce13b70ac6f46686eec730135 |
-| paper/figures/shared-capacity/caption.tex | f5bb12df4d2aa8cd6b8441f03cf3f4716f8509fe74794a288c2c11e90de966fd | 68032abec0126495f3d15c0af83b027a6bca7ed8618fac0ad0278b68506c03d1 |
+| paper/article/binning-bounds.tex | a5300744c937d63f72a95faf9fb35f837e9470ace4baa9b9b9f40350bd73cf3b | 714d75696b4a12439cf9ce39ee4084d3b9fb919196aa2b72a6d385d115a348dd |
+| paper/article/design-based-estimation.tex | 2a0761e79b8919de45853ba062d1bcae17a42f196e4f5c517c55c861175fb829 | 240cb42f0fff2dea71cda3068d74e00b9e218e151c810fe181aa33e12f706c49 |
+| paper/article/event-history.tex | 201067a662c2e4deb00331ff1ac1ceb1abde1e4b6f32cc45dad090f94b8ae3f8 | d80bb0ca30ef79c6ee73decbdbbc78c304f5a07a9825077721b2e6175fb6b73f |
+| paper/article/main.tex | 3f1bfedb4d61992348a690163be00ae28596d2f2251ccf8bd01320c5d37b2b1e | da39a3ca09111519beeae08db7ad361f8b8a4a547713043c61a157b6c5b3f8b3 |
+| paper/article/partial-identification.tex | 199218ed24332a441cc8dafe504d4e5771fff77215ebf8dfd1dc7b2199712baa | c76e5998db92e2f9f888a616cc02883ba87a8c3bb2ceabd832722187f6cc1d29 |
+| paper/article/performance.tex | 6fedcd88b16f7c65ca2e83086456b49b02e66439d9b4aeb5714c36796ba0d5bd | 4d682ea8e04d91f5d601683d7f1f5146f961c37a9d2daa421b345c90e3520abc |
+| paper/article/sampling-validation.tex | ad97752bd22a3cd6f2399c08ad47deb7cc04e2940d9d6121d3e340d10cadfcb5 | f0ab516fbe74751a941b28104966f60654cff8af95b6d5ac12c9d3cae9b5ea52 |
+| paper/article/scalar-bounds.tex | b597faa4fb9f58ba9232979fb80af7820473f9646be94fb0810de50a387a8354 | 7dca65ce92f708fe3ddb53a9fcc852db6d4a05fc6e5d2318accdb3e712373303 |
+| paper/study/ai-labour-causal/causal-study.tex | 695703efe574bb480d8623d9949af8f74b17ac65e4ee1923beb637bbee7f089d | 566771f696b27817534ce1ba8e6daa46805d29f71ff6a7dd7bdc428621b33a7d |
 
-## Argument and explanation
+## Meaning and progression
 
-The abstract explains why acceptance time and follow-up output accompany labour. Output scores are products of the reference score and assessed fulfilment fraction. A score of zero for a missed deadline is explicitly a scoring result. The inclusion rules retain the human work counted, while duplicate prompting/integration explanation is removed. The concurrency example, separation of computing resources, acceptance-relative output assessment and common labour recording period are preserved.
+The output score still equals the task reference score multiplied by the fraction of its accepted requirement satisfied at the assessment delay after first acceptance. A missed acceptance deadline still gives zero. Labour remains a separate sum of person-hours through the common task-age limit. The revision makes those objects and their different times explicit.
 
-The joint-bounds explanation distinguishes bounds valid for a sum from extrema attainable together. Attainment and a universal inequality perform distinct proof roles; matching their values establishes optimality. Sampling coverage still requires simultaneous coverage of observation totals. A population residual total is fixed, while its sampled correction varies. A census removes sampling variance but still needs measurement checks. Complete recording is presented as one route to task-level reference measurements, consistent with the preceding sampling identities. The graph appendix closes by relating its single-stream model to the joint model and then to empirical validation.
+Probability sampling selects listed time intervals for individual people. Predictions remain unchanged across possible samples, and the correction uses accurately measured labour and known positive selection probabilities. The distinction between possible labour totals and variation across repeated samples is preserved. The hypophora now asks for the distinction that its first answer develops. The measurement example remains with measurement, and causal study requirements introduce the study comparison.
 
-Accurate measurement is connected explicitly to the further requirements for causal attribution. The group-allocation unit determines the uncertainty calculation. The proposed experiment still uses original groups, equal team weights, provisional criteria, adverse hypothetical planning results and a prior measurement pilot. No workplace result or additional empirical guarantee is introduced.
+The independent review identified and the authors repaired three scope issues: requirement assessments apply only to tasks accepted by the deadline, incomplete observation includes labour and acceptance histories as well as later assessments, and the scalar appendix retains shared time across both tasks and work types. No material semantic regression remains in this bounded source review.
 
-All 24 citation keys resolve. Citation-command order, citation attachment and local claim scope are preserved; every reference target resolves, with no duplicate labels. The bibliography is byte-identical. External literature is not freshly reverified in full. The independent assessment supplies no measured reader-comprehension result.
+The causal experiment remains proposed and unrun. Its deadlines, effect thresholds, measurement-bias allowances and adverse hypothetical planning results retain their original values. The more precise ten-query performance statement is checked directly against the raw paired measurements: indexing is slower in 4 of 15 pairs and faster in 11.
 
-## Mathematics and figure preservation
+## Mathematical and reference checks
 
-All 281 mathematical spans, five complete propositions and five complete proofs retain their baseline bytes in source order. Ordered citation, reference, label and inclusion commands are identical. The two user-supplied sentences about matching bounds and rational arithmetic remain verbatim. The caption's three mathematical spans are unchanged. The mathematical figure source, coordinates, calculation inputs and standalone PDFs are unchanged.
+Every existing mathematical expression remains in source order. The only added inline expressions name intervals m and k in the joint selection probability and restate the existing labour limit tau+Delta in the performance explanation. Every displayed equation, proof and algorithm block is byte-identical to the baseline. The binning proposition changes only the prose label “retained output” to “the output score”. Its hypotheses, formulas and conclusion are unchanged. All other proposition blocks are byte-identical.
 
-The caption replaces prose colons and semicolons with direct grammatical explanations. It retains the separate square, jointly feasible diagonal, marked point and constructed, nonunique, unobserved schedule. The caption hash is renewed in the existing specification and audit, with the dependent audit/review hashes refreshed. The audit explicitly limits this update to caption wording, preserving the historical geometry measurements of the unchanged image. Existing semantic review and an added caption finding distinguish the two review scopes.
+The actual compiled manuscript closure has 13 source files, 40 labels and 35 reference commands, with no missing or duplicate labels. All 26 citation keys across the nine text sources resolve in the article bibliography. The unused binning source retains its pre-existing reference to app:coverage outside the compiled closure; the clean cross-reference claim applies to the compiled manuscript.
 
 ## Proof and evidence boundary
 
-The frozen formal target, Lean definitions, checker scripts and recorded proof executions retain their baseline bytes. Current manuscript concordance remains separately hash-bound to that evidence. No theorem or formal-coverage boundary changes. Static receipt validation, an isolated changed-byte guard, exact calculations, figure checks and rendered-PDF inspection are recorded in `current-manuscript-editorial-checks.json`. No fresh local Lean replay, Rust refinement proof, workplace validation or measured human comprehension is claimed. Later source edits require renewed review and binding.
+The frozen target, Lean source files and checker scripts retain their upstream bytes. The current manuscript binding is renewed separately from the frozen proof target. The formal receipt preserves its historical proof-source snapshot, proof executions, axiom declarations and exclusions. Only its current-manuscript hash is refreshed. The accompanying current checks record the static receipt checks and isolated changed-byte guard actually run during this review. PDF build and visual inspection are managed separately by the primary agent and are not asserted here.

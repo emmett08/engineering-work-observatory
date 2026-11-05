@@ -37,7 +37,7 @@
       "path": "figures/horizon-performance.caption.tex",
       "status": "derived",
       "source_reference": "The proposed caption supplies the workload, run denominator, range meaning and scope restrictions.",
-      "sha256": "98193df78d3a57f64d16f409ef8a73ad26f342d0ad7cb908811b4e629a0fe5f4"
+      "sha256": "dd37e0dc2c01a080951afa2f335a0d4b6d8b132f6cc33e5c531ee6f5339be637"
     }
   ],
   "quantities": [

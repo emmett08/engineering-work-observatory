@@ -1,4 +1,4 @@
-\section{A shortest-path solution for one allocation stream}
+\section{A shortest-path solution for one allocation function}
 \label{app:scalar}
 
 For one person's work of one type on one task, let $0\leq a\leq1$ be the allocation function. The observations of Section~\ref{sec:sharp-identification} bound labour within each observed interval. Subtracting cumulative totals gives the labour between two times. We can represent a bound on that difference by an edge in a graph. Using the sorted time boundaries and cell lengths defined there, set $z_k=\int_{b_0}^{b_k}a(t)\,dt$ for the cumulative labour up to boundary $b_k$. Represent an inequality $z_q-z_p\leq w$ by a directed edge $p\to q$ of weight $w$.
@@ -23,4 +23,4 @@ Summing inequalities along paths yields $z_q-z_p\leq D(p,q)$ and $z_q-z_p\geq-D(
 
 The reference checker implements these bounds with exact rational arithmetic and an all-pairs shortest-path calculation. Given indexed, sorted time boundaries, graph construction and this calculation use $O((K+1)^3+M)$ arithmetic operations and $O((K+1)^2+M)$ storage.\footnote{Big-$O$ notation describes an upper bound on growth, ignoring fixed multiplicative constants. There are $K+1$ time-boundary vertices and $M$ observations. The leading terms here are cubic in the vertex count for arithmetic operations and quadratic for storage.} The cost of each arithmetic operation depends on how many bits are needed to represent the input fractions. The checker compares the bounds and the allocations attaining them against an independent enumeration of finite allocations, including overlapping interval observations and inconsistent inputs.
 
-When several task streams share a person's time, use the joint formulation in Proposition~\ref{prop:cell-reduction}. The scalar graph represents only one allocation. Its numerical examples check that single-stream calculation. Using the bounds with workplace records also requires empirical checks of how the observations were collected.
+When allocations to several tasks or types of work share a person's time, use the joint formulation in Proposition~\ref{prop:cell-reduction}. The graph above represents one person's allocation to one type of work on one task. Its numerical examples check that calculation. Applying these bounds to workplace observations also requires empirical checks of how labour was measured.

@@ -9,7 +9,7 @@
   every node/.style={inner sep=1pt,outer sep=0pt}]
   \path[use as bounding box] (0,-8) rectangle (152.4,65);
   \node[anchor=west] at (0,50) {Acceptance};
-  \node[anchor=west,align=left] at (0,33) {Output\\follow-up};
+  \node[anchor=west,align=left] at (0,33) {Time to\\assessment};
   \node[anchor=west,align=left] at (0,17) {Labour\\counted};
   \foreach \day in {0,3,14,17,28} {
     \draw[black!30,densely dotted,line width=0.45pt]
@@ -23,7 +23,7 @@
   \draw[<->,line width=0.7pt] (52.2,33) -- (99.8,33);
   \node at (76,38) {$\Delta=14$ days};
   \fill (99.8,33) circle (1mm);
-  \node[anchor=west,align=left] at (104,33) {Assess output\\$T_i+\Delta=17$};
+  \node[anchor=west,align=left] at (104,33) {Assess requirement\\$T_i+\Delta=17$};
   \draw[line width=1pt] (42,17) -- (137.2,17);
   \foreach \xx in {42,137.2} {
     \draw[line width=0.7pt] (\xx,15) -- (\xx,19);
@@ -36,7 +36,7 @@
   }
   \node at (89.6,-5) {Task age (days)};
 \end{tikzpicture}
-\caption{\textbf{The output check follows acceptance, while labour is counted to a common task age.}
-In this example, the task is accepted on day three and both $\tau$ and $\Delta$ are fourteen days. Its output is assessed on day seventeen, fourteen days after acceptance. Its labour total includes work through day twenty-eight, the common task age $\tau+\Delta$, including any task work after the output check. The solid line marks the period over which labour is summed. Human work may occupy only part of that period. Adding $s_i$ converts task age to calendar time.}
+\caption{\textbf{Requirement fulfilment is assessed after acceptance, while labour is counted to a common task age.}
+In this example, the task is accepted on day three and both $\tau$ and $\Delta$ are fourteen days. The fraction of its accepted requirement still satisfied is assessed on day seventeen, fourteen days after acceptance. Its labour total includes work through day twenty-eight, the common task age $\tau+\Delta$, including labour attributable to the task after its requirement assessment. The solid line marks the period over which labour is summed. Human work may occupy only part of that period. Adding $s_i$ converts task age to calendar time.}
 \label{fig:task-clocks}
 \end{figure}

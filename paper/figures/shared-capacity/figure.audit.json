@@ -5,7 +5,7 @@
   "source_sha256": "5cf5a1f69b9792635184d92644be580ab8d33ede0f0b941f7226c27ba17f0888",
   "pdf": "figures/shared-capacity/figure.pdf",
   "pdf_sha256": "78e0d716dde404e578180954a2667e08219619d36083c1ffc58650aec23b0583",
-  "spec_sha256": "197c9e9ea781032e72d10a99980e1adcb2a234e695baf9f07bd978b70830c10d",
+  "spec_sha256": "2fb17a48a6b0591e0641f45334655d77e7f08bf06c582a95d078045f763cfbe3",
   "engine": "pdflatex",
   "python": "3.12.14",
   "python_packages": {
@@ -27,7 +27,7 @@
   "inputs": [
     {
       "path": "figures/shared-capacity/alt-text.txt",
-      "sha256": "dd6ca79d69910133f448b84b7843b1d0a57c9afcf27c70306f7982a05bf4427d"
+      "sha256": "2a4e0e94a41d8ca4fb8f9cbf84fd22f905d155bbdac74102bacca1f3f4b109a0"
     },
     {
       "path": "figures/shared-capacity/calculate.py",
@@ -39,7 +39,7 @@
     },
     {
       "path": "figures/shared-capacity/caption.tex",
-      "sha256": "c5f40a53acde60d3a026646b989e402c740feaf1a623d4fbbbc672aea882e1e3"
+      "sha256": "f3b7072c0f31aabe6a777394be7971c35f9aabdbc45fdc41ceb3d3490bb7132c"
     },
     {
       "path": "figures/shared-capacity/coordinates.tex",
@@ -106,10 +106,9 @@
   },
   "latest_caption_wording_update": {
     "date": "2026-11-05",
-    "baseline_commit": "0f820e6b0dac8f7f69f165ecf9a7a78becf37417",
-    "baseline_caption_sha256": "68032abec0126495f3d15c0af83b027a6bca7ed8618fac0ad0278b68506c03d1",
-    "caption_sha256": "c5f40a53acde60d3a026646b989e402c740feaf1a623d4fbbbc672aea882e1e3",
+    "baseline_commit": "804f07357511794493b5a9bd95675f60e0604f0e",
+    "baseline_spec_sha256": "197c9e9ea781032e72d10a99980e1adcb2a234e695baf9f07bd978b70830c10d",
     "reviewer": "authoring assistant",
-    "scope": "Plain-word pass followed by paragraph/connection revision. Caption mathematics, TikZ source, coordinates, inputs and standalone PDFs are unchanged. The compiled article page was visually inspected. Geometry measurements and independent candidate comparison below remain historical; no new independent reader test is claimed."
+    "scope": "Clarified caption wording and, for shared capacity, alternative text. Diagram source, plotted values and standalone PDF are byte-identical to the baseline. Existing geometry measurements remain attached to that unchanged PDF. The article rendering was rebuilt and inspected separately; no fresh human comprehension result is claimed."
   }
 }

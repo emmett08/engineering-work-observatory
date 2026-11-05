@@ -31,7 +31,7 @@ quantities are person-hours. The input does not convert task-relative ages.
 | `streams` | Unique stream `id` and unique `(person_id, task_id, role)` combination; people may appear in several streams |
 | `observations` | Unique `id`, `start`, `end`, `stream_ids`, `lower_person_hours`, `upper_person_hours` |
 | `target` | Additive terms with `stream_id`, `start`, `end` and signed `weight` |
-| `known_output` | Optional exact nonnegative reference output for a conditional productivity range |
+| `known_output` | Optional exact nonnegative output score for a conditional productivity range |
 
 The existing JSON field `role` identifies the type of work, such as implementation
 or review. Its name is retained for input compatibility.
@@ -71,13 +71,14 @@ cell totals and observations. The command returns cell totals, rather than a
 chronological schedule. It rechecks both returned vectors against every
 constraint and target value using exact arithmetic before reporting them.
 
-The paper also explains how primal and dual vectors can certify endpoint
-optimality and how simultaneous sampling bounds can give target-labour coverage.
-The command currently exports no dual certificate and constructs no sampling
+The paper also explains how an attaining allocation and bound multipliers can
+prove that a minimum or maximum is optimal. Simultaneous uncertainty bounds on
+observed interval totals can also give a coverage guarantee for target labour.
+The command currently exports no bound multipliers and calculates no sampling
 confidence intervals. Its exact simplex calculation and primal feasibility
 checks remain separate from those additional features. The research examples
 in `paper/review/mas-model-2026-11-01/calculations/` check supplied certificates
-and constructed schedules; they are not a general certificate-producing solver.
+and schedules generated for those examples; they are not a general certificate-producing solver.
 
 An `inconsistent` result has no extrema: the supplied observations and capacity
 constraints admit no allocation. Invalid input and resource exhaustion are errors,

@@ -5,7 +5,7 @@
   "source_sha256": "54cdabde4146d1e35ecdf2db7062cdcdf05fb730c9c20101855119a1056023f2",
   "pdf": "figures/horizon-performance.pdf",
   "pdf_sha256": "de26f596057b7d02c282fd2e1766784e4dba0c475f21d77c2ec0d3a65e7d68b0",
-  "spec_sha256": "a2fb4c121749ebd07e99608614558e1c2ae5dede8cb3da4c649002d3bb606d8d",
+  "spec_sha256": "4a1fd869e489eadd6baf12fd6bbd459ffea7133002e84246c07bdb6efec68ce8",
   "engine": "pdflatex",
   "python": "3.12.14",
   "width_mm": 152.39999999999998,
@@ -20,7 +20,7 @@
   "inputs": [
     {
       "path": "figures/horizon-performance.caption.tex",
-      "sha256": "98193df78d3a57f64d16f409ef8a73ad26f342d0ad7cb908811b4e629a0fe5f4"
+      "sha256": "dd37e0dc2c01a080951afa2f335a0d4b6d8b132f6cc33e5c531ee6f5339be637"
     },
     {
       "path": "performance/figure/horizon-data.csv",
@@ -28,11 +28,11 @@
     },
     {
       "path": "performance/figure/horizon-labels.tex",
-      "sha256": "eeedff3305f2f0bd78d0b8b95458a8e6a9689d9a01c5a72583a948b558c218a2"
+      "sha256": "9397285a442bb7ddc41367fcfb673b927703686c0b18506ff36a6f64ba6e3cb9"
     },
     {
       "path": "performance/figure/prepare.py",
-      "sha256": "228f5141f824b8a26babe6a71db9a5ea72205f49dca93d9486a9392a0223cfdc"
+      "sha256": "5076c9b322cdf8cf39b8fb09ba1dc2b44e54fb218eeacec5c43df075ff61037c"
     },
     {
       "path": "performance/figure/render.py",
@@ -52,5 +52,12 @@
   "typesetting_warnings": [
     "Package shellesc Warning: Shell escape disabled on input line 73."
   ],
-  "semantic_review_required": true
+  "semantic_review_required": true,
+  "latest_caption_wording_update": {
+    "date": "2026-11-05",
+    "baseline_commit": "804f07357511794493b5a9bd95675f60e0604f0e",
+    "baseline_spec_sha256": "a2fb4c121749ebd07e99608614558e1c2ae5dede8cb3da4c649002d3bb606d8d",
+    "reviewer": "authoring assistant",
+    "scope": "Clarified caption wording and, for shared capacity, alternative text. Diagram source, plotted values and standalone PDF are byte-identical to the baseline. Existing geometry measurements remain attached to that unchanged PDF. The article rendering was rebuilt and inspected separately; no fresh human comprehension result is claimed."
+  }
 }

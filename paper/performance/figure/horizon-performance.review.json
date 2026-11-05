@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "figure_id": "horizon-performance",
-  "spec_sha256": "a2fb4c121749ebd07e99608614558e1c2ae5dede8cb3da4c649002d3bb606d8d",
-  "audit_sha256": "2da0d47e3b6539300b8a7c6695290b10708abacf65d3754f00fe0677049f1ed2",
+  "spec_sha256": "4a1fd869e489eadd6baf12fd6bbd459ffea7133002e84246c07bdb6efec68ce8",
+  "audit_sha256": "95cbeb76ee5f35b6498d9c19287a916cea0c47b9daf2ca7b589eac1706ebad18",
   "artifacts": [
     {
       "role": "final_pdf",
@@ -104,6 +104,13 @@
         "description": "This independent review covers the standalone figure plus caption.",
         "disposition": "accepted",
         "reason": "Full manuscript-page inspection belongs to the parent integration review and is not claimed by this record."
+      },
+      {
+        "id": "caption-two-stage-wording",
+        "severity": "informational",
+        "description": "Current caption explains the plotted quantity and the conditions of the example in plain words.",
+        "disposition": "resolved",
+        "reason": "The authoring review checked the revised caption against the source data and the unchanged plotted quantities. Historical independent image/candidate reviews retain their original scope. This wording revision adds no workplace or reader-comprehension evidence. The ten-query comparison contains 15 matched pairs: indexing was slower in 4 and faster in 11."
       }
     ],
     "audit_warning_dispositions": [
@@ -119,6 +126,7 @@
     "Human interpretation benefit remains unmeasured by agent screening.",
     "Acceptance is bounded to the figure and caption using the reported project-local checks, not the unavailable bundled skill validation.",
     "The generated workload and one recorded execution environment do not establish production performance, human effort savings or AI-policy effects.",
-    "Full manuscript-page inspection is recorded separately by the parent integration reviewer."
+    "Full manuscript-page inspection is recorded separately by the parent integration reviewer.",
+    "The current caption revision has author review only. Historical independent reviews and candidate comparisons concern the unchanged image and earlier wording; no new human comprehension result is claimed."
   ]
 }

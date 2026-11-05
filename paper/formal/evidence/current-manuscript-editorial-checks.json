@@ -1,231 +1,249 @@
 {
   "schema": "current-manuscript-editorial-checks/1",
   "status": "PASS",
-  "date": "2026-11-02",
-  "baseline_commit": "f592447043636288b94964363a2feed56f7d5603",
-  "candidate_sha256": "2f80edf947e643d906f3de38b5f1c3671c6c21b646c8f95eb5d7557ca45e55ff",
-  "static_validation": {
-    "command": "make -C paper/formal check-receipt",
-    "exit_status": 0,
-    "stdout": "make: Entering directory '/workspace/scratch/b00719bd0083/engineering-work-observatory/paper/formal'\npython3 scripts/check_scope.py\n{\n  \"status\": \"PASS\",\n  \"inventory_items\": 10,\n  \"checked_component_groups\": 5,\n  \"checker_scripts_sha256\": \"MATCHED\",\n  \"recorded_toolchain_identity_sha256\": \"MATCHED\",\n  \"current_manuscript_sha256\": \"MATCHED\",\n  \"other_dispositions\": {\n    \"strong-dual-existence\": \"DEFERRED_DEPENDENCY\",\n    \"empirical-adequacy\": \"EMPIRICAL_CONTEXTUAL\",\n    \"rust-refinement\": \"NOT_REQUIRED\",\n    \"finite-block-count\": \"DEFERRED_DEPENDENCY\",\n    \"lp-extrema-existence\": \"DEFERRED_DEPENDENCY\"\n  },\n  \"scope\": \"Inventory and exclusion consistency only; not a proof of excluded or empirical claims.\"\n}\npython3 scripts/validate_formal_receipt.py formal-verification-receipt.json --base .\n{\n  \"status\": \"PASS\",\n  \"errors\": []\n}\nmake: Leaving directory '/workspace/scratch/b00719bd0083/engineering-work-observatory/paper/formal'\n"
+  "date": "2026-11-05",
+  "baseline_commit": "804f07357511794493b5a9bd95675f60e0604f0e",
+  "reviewer": "/root/independent_fidelity",
+  "scope": "Independent source and mathematical-fidelity review of nine labour text sources. Static formal receipt validation only; no fresh Lean replay or reader-comprehension test.",
+  "candidate_sha256": "c76e5998db92e2f9f888a616cc02883ba87a8c3bb2ceabd832722187f6cc1d29",
+  "source_protection": [
+    {
+      "path": "paper/article/binning-bounds.tex",
+      "baseline_sha256": "a5300744c937d63f72a95faf9fb35f837e9470ace4baa9b9b9f40350bd73cf3b",
+      "sha256": "714d75696b4a12439cf9ce39ee4084d3b9fb919196aa2b72a6d385d115a348dd",
+      "existing_math_preserved_in_order": true,
+      "baseline_math_spans": 19,
+      "added_explanatory_math": [],
+      "formal_block_counts": {
+        "equation": 2,
+        "proof": 1,
+        "proposition": 1
+      },
+      "displayed_equations_byte_identical": true,
+      "proofs_byte_identical": true,
+      "algorithms_byte_identical": true,
+      "propositions": "Only retained output renamed to the output score; mathematical statement unchanged"
+    },
+    {
+      "path": "paper/article/design-based-estimation.tex",
+      "baseline_sha256": "2a0761e79b8919de45853ba062d1bcae17a42f196e4f5c517c55c861175fb829",
+      "sha256": "240cb42f0fff2dea71cda3068d74e00b9e218e151c810fe181aa33e12f706c49",
+      "existing_math_preserved_in_order": true,
+      "baseline_math_spans": 74,
+      "added_explanatory_math": [
+        "$m$",
+        "$k$"
+      ],
+      "formal_block_counts": {
+        "equation": 5,
+        "proof": 1,
+        "proposition": 1
+      },
+      "displayed_equations_byte_identical": true,
+      "proofs_byte_identical": true,
+      "algorithms_byte_identical": true,
+      "propositions": "Byte-identical"
+    },
+    {
+      "path": "paper/article/event-history.tex",
+      "baseline_sha256": "201067a662c2e4deb00331ff1ac1ceb1abde1e4b6f32cc45dad090f94b8ae3f8",
+      "sha256": "d80bb0ca30ef79c6ee73decbdbbc78c304f5a07a9825077721b2e6175fb6b73f",
+      "existing_math_preserved_in_order": true,
+      "baseline_math_spans": 4,
+      "added_explanatory_math": [],
+      "formal_block_counts": {},
+      "displayed_equations_byte_identical": true,
+      "proofs_byte_identical": true,
+      "algorithms_byte_identical": true,
+      "propositions": "Byte-identical"
+    },
+    {
+      "path": "paper/article/main.tex",
+      "baseline_sha256": "3f1bfedb4d61992348a690163be00ae28596d2f2251ccf8bd01320c5d37b2b1e",
+      "sha256": "da39a3ca09111519beeae08db7ad361f8b8a4a547713043c61a157b6c5b3f8b3",
+      "existing_math_preserved_in_order": true,
+      "baseline_math_spans": 64,
+      "added_explanatory_math": [],
+      "formal_block_counts": {
+        "equation": 5,
+        "proof": 1,
+        "proposition": 1
+      },
+      "displayed_equations_byte_identical": true,
+      "proofs_byte_identical": true,
+      "algorithms_byte_identical": true,
+      "propositions": "Byte-identical"
+    },
+    {
+      "path": "paper/article/partial-identification.tex",
+      "baseline_sha256": "199218ed24332a441cc8dafe504d4e5771fff77215ebf8dfd1dc7b2199712baa",
+      "sha256": "c76e5998db92e2f9f888a616cc02883ba87a8c3bb2ceabd832722187f6cc1d29",
+      "existing_math_preserved_in_order": true,
+      "baseline_math_spans": 136,
+      "added_explanatory_math": [],
+      "formal_block_counts": {
+        "equation": 5,
+        "align": 1,
+        "align*": 1,
+        "proof": 2,
+        "proposition": 2
+      },
+      "displayed_equations_byte_identical": true,
+      "proofs_byte_identical": true,
+      "algorithms_byte_identical": true,
+      "propositions": "Byte-identical"
+    },
+    {
+      "path": "paper/article/performance.tex",
+      "baseline_sha256": "6fedcd88b16f7c65ca2e83086456b49b02e66439d9b4aeb5714c36796ba0d5bd",
+      "sha256": "4d682ea8e04d91f5d601683d7f1f5146f961c37a9d2daa421b345c90e3520abc",
+      "existing_math_preserved_in_order": true,
+      "baseline_math_spans": 77,
+      "added_explanatory_math": [
+        "$\\tau+\\Delta$"
+      ],
+      "formal_block_counts": {
+        "equation": 1,
+        "proof": 1,
+        "proposition": 1,
+        "algorithm": 2,
+        "algorithmic": 2
+      },
+      "displayed_equations_byte_identical": true,
+      "proofs_byte_identical": true,
+      "algorithms_byte_identical": true,
+      "propositions": "Byte-identical"
+    },
+    {
+      "path": "paper/article/sampling-validation.tex",
+      "baseline_sha256": "ad97752bd22a3cd6f2399c08ad47deb7cc04e2940d9d6121d3e340d10cadfcb5",
+      "sha256": "f0ab516fbe74751a941b28104966f60654cff8af95b6d5ac12c9d3cae9b5ea52",
+      "existing_math_preserved_in_order": true,
+      "baseline_math_spans": 16,
+      "added_explanatory_math": [],
+      "formal_block_counts": {
+        "align*": 1
+      },
+      "displayed_equations_byte_identical": true,
+      "proofs_byte_identical": true,
+      "algorithms_byte_identical": true,
+      "propositions": "Byte-identical"
+    },
+    {
+      "path": "paper/article/scalar-bounds.tex",
+      "baseline_sha256": "b597faa4fb9f58ba9232979fb80af7820473f9646be94fb0810de50a387a8354",
+      "sha256": "7dca65ce92f708fe3ddb53a9fcc852db6d4a05fc6e5d2318accdb3e712373303",
+      "existing_math_preserved_in_order": true,
+      "baseline_math_spans": 40,
+      "added_explanatory_math": [],
+      "formal_block_counts": {
+        "equation": 1,
+        "proof": 1,
+        "proposition": 1
+      },
+      "displayed_equations_byte_identical": true,
+      "proofs_byte_identical": true,
+      "algorithms_byte_identical": true,
+      "propositions": "Byte-identical"
+    },
+    {
+      "path": "paper/study/ai-labour-causal/causal-study.tex",
+      "baseline_sha256": "695703efe574bb480d8623d9949af8f74b17ac65e4ee1923beb637bbee7f089d",
+      "sha256": "566771f696b27817534ce1ba8e6daa46805d29f71ff6a7dd7bdc428621b33a7d",
+      "existing_math_preserved_in_order": true,
+      "baseline_math_spans": 8,
+      "added_explanatory_math": [],
+      "formal_block_counts": {},
+      "displayed_equations_byte_identical": true,
+      "proofs_byte_identical": true,
+      "algorithms_byte_identical": true,
+      "propositions": "Byte-identical"
+    }
+  ],
+  "references": {
+    "compiled_sources": 13,
+    "labels": 40,
+    "reference_occurrences": 35,
+    "missing_references": [],
+    "duplicate_labels": [],
+    "citation_keys_across_nine_text_sources": 26,
+    "missing_citations": []
   },
+  "frozen_files": [
+    {
+      "path": "paper/formal/AxiomAudit.lean",
+      "sha256": "ed29a1fea20d9e0dd0d72f4846dbe3e56a38f053cf7278e62de0816d9f66ae53",
+      "unchanged": true
+    },
+    {
+      "path": "paper/formal/LabourBounds.lean",
+      "sha256": "e86c46d2f8490d0d3bf3c28479b7938770a030658cf0bceee588036bde507a21",
+      "unchanged": true
+    },
+    {
+      "path": "paper/formal/LabourBounds/CellIntegrals.lean",
+      "sha256": "5dc0ebd29f48fdbb024c2f4854b92ed9e6392572d1910c877a07752a4db63da4",
+      "unchanged": true
+    },
+    {
+      "path": "paper/formal/LabourBounds/Certificates.lean",
+      "sha256": "ce562fa2137a4170bb014e3cde5353679d38d151e3a812fb19955478ba73df75",
+      "unchanged": true
+    },
+    {
+      "path": "paper/formal/targets/partial-identification.tex",
+      "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
+      "unchanged": true
+    },
+    {
+      "path": "paper/formal/scripts/check_scope.py",
+      "sha256": "c0ba27cfee9502c3fd5352b9c1b3154dca6047eb773bb3e7acaab25add0fc00f",
+      "unchanged": true
+    },
+    {
+      "path": "paper/formal/scripts/verify.sh",
+      "sha256": "e1fe31998af4f175b6f88186aa78f98ef9300e2e89a789eafcd1c1b47154d845",
+      "unchanged": true
+    },
+    {
+      "path": "paper/formal/scripts/validate_formal_receipt.py",
+      "sha256": "020734599de54041f3af983f3fcf4cc14e8818707ba7d3df99cc16d94bb43e1f",
+      "unchanged": true
+    }
+  ],
+  "semantic_review": {
+    "status": "PASS",
+    "issues_repaired": [
+      "Requirement assessments apply only to tasks accepted by the deadline; complete labour observation applies to every task.",
+      "Missing observations include labour and acceptance histories as well as later requirement assessments.",
+      "The scalar appendix retains shared time across both tasks and work types."
+    ],
+    "mathematical_statement_change": "The binning proposition replaces the prose label retained output with output score. Its mathematical assertion is unchanged.",
+    "explanatory_math_insertions": [
+      "m and k identify the intervals in the joint selection probability.",
+      "tau+Delta restates the existing labour counting limit in the performance explanation."
+    ],
+    "new_empirical_detail": "The ten-query benchmark has 15 paired observations: indexing is slower in 4 and faster in 11, checked directly against unchanged raw.csv."
+  },
+  "static_validation": [
+    {
+      "command": "python3 paper/formal/scripts/check_scope.py",
+      "exit_status": 0,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"inventory_items\": 10,\n  \"checked_component_groups\": 5,\n  \"checker_scripts_sha256\": \"MATCHED\",\n  \"recorded_toolchain_identity_sha256\": \"MATCHED\",\n  \"current_manuscript_sha256\": \"MATCHED\",\n  \"other_dispositions\": {\n    \"strong-dual-existence\": \"DEFERRED_DEPENDENCY\",\n    \"empirical-adequacy\": \"EMPIRICAL_CONTEXTUAL\",\n    \"rust-refinement\": \"NOT_REQUIRED\",\n    \"finite-block-count\": \"DEFERRED_DEPENDENCY\",\n    \"lp-extrema-existence\": \"DEFERRED_DEPENDENCY\"\n  },\n  \"scope\": \"Inventory and exclusion consistency only; not a proof of excluded or empirical claims.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 paper/formal/scripts/validate_formal_receipt.py paper/formal/formal-verification-receipt.json --base paper/formal",
+      "exit_status": 0,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"errors\": []\n}\n",
+      "stderr": ""
+    }
+  ],
   "isolated_mutation": {
-    "schema": "current-manuscript-guard-test/1",
     "status": "PASS",
     "unchanged_article_exit_status": 0,
     "changed_article_exit_status": 1,
     "rejection": "Current manuscript changed; renew its independent concordance binding.",
-    "isolation": "Copied formal package and canonical article; candidate manuscript untouched."
-  },
-  "source_protection": [
-    {
-      "path": "paper/article/main.tex",
-      "baseline_sha256": "044822230baf2141106bad7d32eccd9f0b65942f07c5079d3ff68d1f024ae9a3",
-      "sha256": "2b77d81cf9f0c03a9e77dff119f97d1b72d02e60ec51c12b7261244930dea6c5",
-      "changed": true,
-      "math": {
-        "count": 48,
-        "ordered_byte_equality": true
-      },
-      "propositions": {
-        "count": 1,
-        "ordered_byte_equality": true
-      },
-      "proofs": {
-        "count": 1,
-        "ordered_byte_equality": true
-      },
-      "commands": {
-        "count": 38,
-        "ordered_byte_equality": true
-      },
-      "prose_colons": 0,
-      "evaluative_matter_occurrences": 0
-    },
-    {
-      "path": "paper/article/event-history.tex",
-      "baseline_sha256": "74339eabaf00054826bd282368d7bc049a3d0991e5768feffa8ab46ecc51d05d",
-      "sha256": "74339eabaf00054826bd282368d7bc049a3d0991e5768feffa8ab46ecc51d05d",
-      "changed": false,
-      "math": {
-        "count": 3,
-        "ordered_byte_equality": true
-      },
-      "propositions": {
-        "count": 0,
-        "ordered_byte_equality": true
-      },
-      "proofs": {
-        "count": 0,
-        "ordered_byte_equality": true
-      },
-      "commands": {
-        "count": 2,
-        "ordered_byte_equality": true
-      },
-      "prose_colons": 0,
-      "evaluative_matter_occurrences": 0
-    },
-    {
-      "path": "paper/article/partial-identification.tex",
-      "baseline_sha256": "d428b8bd0bd52954500a1130766e2070d5f86d5ab05a4e4fbfd0c85792b25f45",
-      "sha256": "2f80edf947e643d906f3de38b5f1c3671c6c21b646c8f95eb5d7557ca45e55ff",
-      "changed": true,
-      "math": {
-        "count": 111,
-        "ordered_byte_equality": true
-      },
-      "propositions": {
-        "count": 2,
-        "ordered_byte_equality": true
-      },
-      "proofs": {
-        "count": 2,
-        "ordered_byte_equality": true
-      },
-      "commands": {
-        "count": 30,
-        "ordered_byte_equality": true
-      },
-      "prose_colons": 0,
-      "evaluative_matter_occurrences": 0
-    },
-    {
-      "path": "paper/article/design-based-estimation.tex",
-      "baseline_sha256": "9277efb1f2bf85979bee3328c6422d021a559b273f817f0bc64ed3cdbe8d93e8",
-      "sha256": "19a9ecb0494914c19877d64c28beaae187bcf152f889007201f46eb61886c50d",
-      "changed": true,
-      "math": {
-        "count": 63,
-        "ordered_byte_equality": true
-      },
-      "propositions": {
-        "count": 1,
-        "ordered_byte_equality": true
-      },
-      "proofs": {
-        "count": 1,
-        "ordered_byte_equality": true
-      },
-      "commands": {
-        "count": 17,
-        "ordered_byte_equality": true
-      },
-      "prose_colons": 0,
-      "evaluative_matter_occurrences": 0
-    },
-    {
-      "path": "paper/article/sampling-validation.tex",
-      "baseline_sha256": "fb54cff649fb392dc45ba88130c8a067c0f739c7fbaa778d52d12d5b32f16104",
-      "sha256": "1a044b2685d2b837bf761752f83088fcbb25f88fda2773cbf4104aa612c22aba",
-      "changed": true,
-      "math": {
-        "count": 17,
-        "ordered_byte_equality": true
-      },
-      "propositions": {
-        "count": 0,
-        "ordered_byte_equality": true
-      },
-      "proofs": {
-        "count": 0,
-        "ordered_byte_equality": true
-      },
-      "commands": {
-        "count": 0,
-        "ordered_byte_equality": true
-      },
-      "prose_colons": 0,
-      "evaluative_matter_occurrences": 0
-    },
-    {
-      "path": "paper/article/scalar-bounds.tex",
-      "baseline_sha256": "107a796e296b199f24fc4ff0c31383384375c3cfa6d564ee23c4656629002b32",
-      "sha256": "36d912b9d2e35e312efa816945d1ad33ae229808f853a5518d0b405a2f2f662d",
-      "changed": true,
-      "math": {
-        "count": 37,
-        "ordered_byte_equality": true
-      },
-      "propositions": {
-        "count": 1,
-        "ordered_byte_equality": true
-      },
-      "proofs": {
-        "count": 1,
-        "ordered_byte_equality": true
-      },
-      "commands": {
-        "count": 6,
-        "ordered_byte_equality": true
-      },
-      "prose_colons": 0,
-      "evaluative_matter_occurrences": 0
-    },
-    {
-      "path": "paper/study/ai-labour-causal/causal-study.tex",
-      "baseline_sha256": "e356ba2c2ca8f452a9dc6ddf5c35738406cc5adca2e6c6ae334af74cc3ffecf9",
-      "sha256": "7178fa9da1326868ad6ccb3846990fb416738f3ce13b70ac6f46686eec730135",
-      "changed": true,
-      "math": {
-        "count": 2,
-        "ordered_byte_equality": true
-      },
-      "propositions": {
-        "count": 0,
-        "ordered_byte_equality": true
-      },
-      "proofs": {
-        "count": 0,
-        "ordered_byte_equality": true
-      },
-      "commands": {
-        "count": 6,
-        "ordered_byte_equality": true
-      },
-      "prose_colons": 0,
-      "evaluative_matter_occurrences": 0
-    }
-  ],
-  "caption": {
-    "path": "paper/figures/shared-capacity/caption.tex",
-    "baseline_sha256": "f5bb12df4d2aa8cd6b8441f03cf3f4716f8509fe74794a288c2c11e90de966fd",
-    "sha256": "68032abec0126495f3d15c0af83b027a6bca7ed8618fac0ad0278b68506c03d1",
-    "mathematical_spans": 3,
-    "math_identical_in_order": true,
-    "ordered_protected_commands_identical": true,
-    "prose_colons": 0,
-    "semicolons": 0,
-    "geometry_and_data": "UNCHANGED"
-  },
-  "calculation_checks": [
-    {
-      "command": "python3 paper/check_measurement_examples.py",
-      "exit_status": 0,
-      "stdout": "{\"sampling_example\": \"PASS\", \"exact_bin_cases\": 2304, \"scope\": \"Finite manufactured checks; analytical proofs are in the paper.\"}\n"
-    },
-    {
-      "command": "python3 paper/check_sharp_identification.py",
-      "exit_status": 0,
-      "stdout": "{\"arithmetic\": \"fractions.Fraction; no floating-point optimisation\", \"bounded_observation_enumeration\": {\"infeasible_cases\": 150, \"target_cases\": 1500}, \"capacity_and_window_boundaries\": \"PASS\", \"exact_observation_enumeration\": {\"enumerated_histories\": 141, \"target_cases\": 5445}, \"explicit_inconsistency_cases\": 7, \"scope\": \"Manufactured finite checks and witness validation; general proofs are in the paper.\", \"single_interval_cases\": 284, \"status\": \"PASS\"}\n"
-    }
-  ],
-  "figure_validation": {
-    "command": "python3 paper/figures/shared-capacity/verify.py --review",
-    "exit_status": 0,
-    "stdout": "{\"calculation\": {\"exceeds_first_hour_capacity\": 528, \"exceeds_second_hour_capacity\": 528, \"explicit_feasible_witnesses\": 3, \"explicit_rejections\": 4, \"grid_pairs\": 1089, \"jointly_feasible\": 33, \"mode\": \"check\", \"status\": \"PASS\"}, \"declared_files\": 13, \"figure_id\": \"shared-capacity\", \"review\": \"accept\", \"scope\": \"project-local bounded checks\", \"status\": \"PASS\"}\n"
-  },
-  "rendering": {
-    "pages": 19,
-    "status": "PASS",
-    "inspection": "All 19 current pages visually inspected from rendered contact sheets.",
-    "undefined_references_or_citations": 0,
-    "overfull_boxes": 0,
-    "underfull_vertical_boxes": 1,
-    "warnings": [
-      "One underfull vertical box",
-      "BibTeX missing pages in cui2026"
-    ]
-  },
-  "boundary": "Independent review of all seven compiled text sources and the caption; exact mathematical source preservation, finite calculations, figure hash and bounded checks, and static receipt checks. No fresh local Lean replay, implementation refinement or empirical measurement validation."
+    "isolation": "Copied formal package and canonical article in a temporary directory; candidate source unchanged."
+  }
 }

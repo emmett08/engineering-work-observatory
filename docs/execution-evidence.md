@@ -57,8 +57,8 @@ template reference. They do not install instrumentation in another repository.
 
 Supply the exact expanded GitHub job display name to distinguish matrix siblings.
 A numeric job ID can be supplied if independently available. Ambiguous mappings
-remain unresolved rather than being guessed. A job's recording directory is
-exported as `OBSERVATORY_EVIDENCE_DIR`; `directory` can be passed explicitly when
+remain unresolved rather than being guessed. The directory containing a job's
+execution receipts is exported as `OBSERVATORY_EVIDENCE_DIR`; `directory` can be passed explicitly when
 needed. Parallel jobs publish separate bundles and never share a SQLite store.
 
 The [ordinary-tool example](../examples/execution-evidence/ordinary.yml) wraps
@@ -196,10 +196,11 @@ configured versus reported model and missing versus reported usage. Local Codex
 event fixtures establish adapter behaviour, not live assistant integration.
 
 Execution evidence can link to existing protocol/task/session observations.
-Human attention, requirement acceptance and retained quality still require their
-own records and evidence. These receipts remain `source_record` evidence and do
-not automatically create effort, acceptance, retained-output or duplicate
-EngArg `ai_usage` records.
+Human labour, requirement acceptance and the fraction of a requirement still
+satisfied at reassessment each require their own observations. Execution
+receipts remain `source_record` evidence. They do not automatically create
+labour observations, acceptance events, output scores or duplicate EngArg
+`ai_usage` records.
 
 GitHub references: [actor and triggering-actor contexts](https://docs.github.com/en/actions/reference/workflows-and-actions/contexts#github-context),
 [action versus workflow reuse](https://docs.github.com/en/actions/concepts/workflows-and-actions/reusing-workflow-configurations),
