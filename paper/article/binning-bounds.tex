@@ -12,7 +12,7 @@ Under these premises, set $c=\tau+\Delta$ and $H(c)=\sum_i H_i(c)$. Then
  \;\leq H(c)\leq\;
  H_+(c):=\sum_jv_j\ind\{\ell_j<c\}.
 \end{equation}
-The gap is $H_+(c)-H_-(c)=\sum_{j:\,\ell_j<c<u_j}v_j$. If $H_-(c)>0$ and the output score $Q=\sum_iQ_i(\tau,\Delta)$ is known, then
+The gap is $H_+(c)-H_-(c)=\sum_{j:\,\ell_j<c<u_j}v_j$. If $H_-(c)>0$ and the total score $Q=\sum_iQ_i(\tau,\Delta)$ is known, then
 \begin{equation}
 \label{eq:binning-ratio}
  \frac{Q}{H_+(c)}\leq P_H(\tau,\Delta)\leq\frac{Q}{H_-(c)}.
@@ -22,7 +22,7 @@ The gap is $H_+(c)-H_-(c)=\sum_{j:\,\ell_j<c<u_j}v_j$. If $H_-(c)>0$ and the out
 A bin ending by $c$ contributes its full mass. A bin starting at or after $c$ contributes zero. Absolute continuity excludes endpoint atoms. Every crossing bin contributes between zero and its mass. Summing gives \eqref{eq:binning-envelope} and the gap. Nonnegative $Q$ and positive bounding denominators give \eqref{eq:binning-ratio} by division.
 \end{proof}
 
-When $H_-=0$, these bounds leave positivity of the labour denominator unresolved, so a finite upper productivity bound requires additional information. If the output score instead has justified bounds $Q_-\leq Q\leq Q_+$, positive $H_-$ gives $Q_-/H_+\leq P_H\leq Q_+/H_-$. These calculations require exact bin totals. A Horvitz--Thompson estimate varies across samples, so bounds based on its values require an analysis of sampling error and missing responses. Confidence intervals for an intervention's causal effect additionally require a study that compares interventions.
+When $H_-=0$, these bounds leave positivity of the labour denominator unresolved, so a finite upper productivity bound requires additional information. If the total score instead has justified bounds $Q_-\leq Q\leq Q_+$, positive $H_-$ gives $Q_-/H_+\leq P_H\leq Q_+/H_-$. These calculations require exact bin totals. A Horvitz--Thompson estimate varies across samples, so bounds based on its values require an analysis of sampling error and missing responses. Confidence intervals for an intervention's causal effect additionally require a study that compares interventions.
 
 \begin{example}[An interior cutoff]
 \label{ex:binning-cutoff}

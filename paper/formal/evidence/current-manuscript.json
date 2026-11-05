@@ -1,7 +1,7 @@
 {
   "schema": "current-manuscript-concordance/1",
   "repository_relative_path": "paper/article/partial-identification.tex",
-  "sha256": "b4cfe7045327fd49ff7a083195fe4d614a6df216670f45bd7d76e70f0e79b27b",
+  "sha256": "f5812c85b785e3841d90e02f1ae02a7ca899478b78a225f79f6f79e3b17db52a",
   "frozen_target": {
     "path": "targets/partial-identification.tex",
     "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
@@ -12,14 +12,14 @@
     "outcome": "MATHEMATICAL_STATEMENTS_UNCHANGED",
     "report": {
       "path": "evidence/current-manuscript-editorial-review.md",
-      "sha256": "0ec84b3b48f3bb05ed1565ab9b5787bd8d73aa1f14118202b5ee3a082bca384f"
+      "sha256": "441c6cec2fae10df4fdf5a87f663d34c7b4a64e79ab4763f53cb2bf8d659849f"
     },
     "differences": [
-      "The requested change, task identifier, timestamps, human-time measurements and later requirement assessment are explained as distinct engineering objects.",
-      "Illustrative issue, diary, scoring and assessment examples replace undefined recording obligations while preserving inclusion, timing and scoring rules.",
-      "Every existing mathematical expression is preserved in order, and every formal proposition/proof/equation/algorithm block is byte-identical. Two performance-prose symbols restate already defined quantities."
+      "The reference score, fulfilment fraction, deadline-gated weighted score, team score ratio and computed return values have distinct contextual descriptions.",
+      "Commit/commits tokens retain exact text and order; whole-word output/outputs occurrences are zero in the audited paper and figure prose.",
+      "Every existing mathematical expression is preserved in order. One explanatory deadline inequality and four equivalent formal-block prose labels are documented in the independent report."
     ],
-    "statement_preservation": "Independent source review against a5487d11463cfe24f2e0a2b03b4ffd0728871b6f preserves mathematical claims, qualifications and citation scope. The frozen target, Lean sources, checker scripts and historical proof evidence are unchanged."
+    "statement_preservation": "Independent review against public revision 5215d6a9b19e7ee20a9f06b3562a6bd5e231b6bc, with all nine original source blob hashes verified through GitHub, preserves mathematical claims, qualifications and citation scope. The frozen target, Lean sources, checker scripts and historical proof evidence are unchanged."
   },
   "invalidation": "A current-article byte change requires renewed current concordance/hash binding. A proof-source change requires renewed proof/source review and checking. This record does not identify current bytes with frozen target bytes."
 }

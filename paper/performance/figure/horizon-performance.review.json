@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "figure_id": "horizon-performance",
-  "spec_sha256": "2efeee597f49930ad6f57718fe276b59737a232868a3dcbaadac9e8d8e9fdb55",
-  "audit_sha256": "e8c42daf90a6cb2d0d8388d74f42ad187804145743053f33a22cf580f7ed2961",
+  "spec_sha256": "4e1f1bfd2abef4ccd872ac1ceca2d81fe0eb52bae5eabc7b39aecd71f775dde8",
+  "audit_sha256": "5f6d5486caa820592e51c8eb15f33f59552e93b96f7131c6d551107424dd54e4",
   "artifacts": [
     {
       "role": "final_pdf",
@@ -108,9 +108,9 @@
       {
         "id": "caption-two-stage-wording",
         "severity": "informational",
-        "description": "Labels and caption distinguish generated numeric input pairs from measured execution times.",
+        "description": "The caption distinguishes weighted-score/labour calculations, generated numeric pairs and measured execution times.",
         "disposition": "resolved",
-        "reason": "Independent agent /root/figure_wording_review inspected current colour and greyscale renders, verified the caption template reproduces the caption, and checked all plotted medians/ranges against the 60 saved CSV pairs. Labels distinguish generated numeric inputs from measured execution times. No clipping, overlap or semantic defect was found. Numeric data and coordinates retain their baseline bytes."
+        "reason": "Independent agent /root/figure_wording_review checked the current caption, confirmed its generator reproduces it, verified the 60 saved timing pairs and four/eleven split at ten queries, and inspected a fresh render that is pixel-identical to the prior reviewed image. Data, coordinates and the retained standalone PDF are unchanged."
       }
     ],
     "audit_warning_dispositions": [

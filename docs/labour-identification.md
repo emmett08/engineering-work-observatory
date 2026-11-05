@@ -31,7 +31,7 @@ quantities are person-hours. The input does not convert task-relative ages.
 | `streams` | Unique stream `id` and unique `(person_id, task_id, role)` combination; people may appear in several streams |
 | `observations` | Unique `id`, `start`, `end`, `stream_ids`, `lower_person_hours`, `upper_person_hours` |
 | `target` | Additive terms with `stream_id`, `start`, `end` and signed `weight` |
-| `known_output` | Optional exact nonnegative output score for a conditional productivity range |
+| `known_output` | Optional exact nonnegative sum of weighted scores for a conditional productivity range |
 
 The existing JSON field `role` identifies the type of work, such as implementation
 or review. Its name is retained for input compatibility.
@@ -46,7 +46,7 @@ observations of those tasks constrain the same person's capacity.
 Target terms define a linear quantity. Ordinary cohort labour uses weight one
 on each included stream's window from the start of tracking to its stated end. For productivity,
 `known_output` requires this ordinary nonduplicated labour target. The result
-reports output divided by the opposite labour endpoint only when the minimum
+reports the sum of weighted scores divided by the opposite labour endpoint only when the minimum
 labour is positive. General signed weighted targets do not establish a
 productivity denominator.
 

@@ -3,15 +3,16 @@
 The study design is specified, and its planning simulations have been run. The
 trial awaits preregistration and workplace data collection. Neither proposed team count
 meets the provisional target for demonstrating both a worthwhile labour saving
-and an acceptable output loss across the required planning scenarios. The next
-step is a separate pilot to test measurement and feasibility, then repeat the
-planning analysis using ranges supported by the pilot.
+and an acceptable loss in weighted score per reference unit across the required
+planning scenarios. The next step is a separate pilot to test measurement and
+feasibility, then repeat the planning analysis using ranges supported by the pilot.
 
 ## Study question and target effects
 
 For fixed software requirements, does providing a specified AI workflow reduce
-total person-hours while keeping any loss of requirement fulfilment within an
-agreed limit? Fulfilment is assessed a specified time after first acceptance.
+total person-hours while keeping any loss in weighted score per reference unit
+within an agreed limit? This measure accounts for acceptance by the deadline and
+requirement fulfilment assessed a specified time after first acceptance.
 The target is the effect of providing that complete workflow, including any
 changes to review and repair.
 Effects of the amount of AI use, individual model components and organisation-wide
@@ -33,14 +34,17 @@ reference scores. Group condition `z=1` denotes AI access, and `z=0` denotes the
 Define:
 
 - `L_g(z)=sum_(i in C_g) H_i(tau+Delta;z)/B_g`, in person-hours per reference unit.
-- `F_g(z)=sum_(i in C_g) Q_i(tau,Delta;z)/B_g`, the output score per initial
+- `F_g(z)=sum_(i in C_g) Q_i(tau,Delta;z)/B_g`, the weighted score per initial
   reference unit.
 
-For a task accepted by the deadline `tau`, its output score is its reference score
+For a task accepted by the deadline `tau`, its weighted score is its reference score
 multiplied by the fraction of its accepted requirement still satisfied at the
-assessment conducted `Delta` hours after first acceptance. A task that misses the deadline has an
-output score of zero. Both team outcomes use the same fixed initial reference
-total as their denominator.
+assessment conducted `Delta` hours after first acceptance. A task that misses the
+deadline has a weighted score of zero. The team's weighted score per reference unit
+is the reference-score-weighted average of these assessed fractions, with a zero
+contribution for every task that misses the deadline. Working behaviour can therefore
+receive a zero weighted score when acceptance is late or the reference score is zero.
+Both team outcomes use the same fixed initial reference total as their denominator.
 
 For this planning comparison, each initial task has one reference unit
 (`S_i^0=1`). The main study's workloads therefore have 20 fixed units per team.
@@ -53,10 +57,11 @@ The two primary causal quantities are the equal-team mean differences
 `Delta_F=mean_g[F_g(1)-F_g(0)]` for the participating teams and their initial work.
 Their denominators are fixed before group selection. Each team's abandoned,
 failed and unfinished tasks remain in its initial task set and labour accounting.
-They contribute an output score of zero if not accepted by `tau`. The primary analysis
+They contribute a weighted score of zero if not accepted by `tau`. The primary analysis
 includes every initial task and keeps the initial reference total as its
-denominator. Each team receives equal weight in the target effects. Report the
-ratio of pooled output scores to pooled labour as a separate secondary quantity.
+denominator. Each team receives equal weight in the target effects, independently
+of its reference-score total. Report the sum of weighted scores across teams
+divided by their total labour as a separate secondary quantity.
 
 For each pair, subtract the no-AI team's outcome from the AI team's outcome and
 average the pair differences. Averaged over the possible coin-toss assignments,
@@ -74,7 +79,7 @@ reviewers assess how much of the accepted requirement is still satisfied 14 days
 after first acceptance. Labour is counted through day 28 for every task, including
 prompting, coordination, reviews, unsuccessful attempts and repairs. Thus an early
 acceptance has an earlier assessment, while the labour cutoff remains day 28.
-Acceptance after the deadline contributes an output score of zero. Loss of
+Acceptance after the deadline contributes a weighted score of zero. Loss of
 observation leaves the outcome unresolved. Repair triggered by an assessment is
 included when it occurs within the labour window.
 
@@ -101,10 +106,10 @@ included work and determine whether a defensible bound can be placed on the
 difference in measurement bias between groups.
 
 Two reviewers, unaware of comparison groups as far as the material permits,
-check acceptance criteria and assess requirement fulfilment. Check all pilot outputs
-twice and a preselected principal-study subset twice. Include known correct,
-incorrect and ambiguous examples to test the reviewers' ability to detect the
-specified defects. Log any unblinding and feedback that triggers repair. Record
+check acceptance criteria and assess requirement fulfilment. Check delivered
+behaviour twice for all pilot tasks and for a preselected principal-study subset.
+Include known correct, incorrect and ambiguous examples to test the reviewers'
+ability to detect the specified defects. Log any unblinding and feedback that triggers repair. Record
 severe security or reliability failures separately. Their consequences require
 assessment alongside the fraction of an accepted requirement still satisfied.
 
@@ -128,10 +133,10 @@ before the study is preregistered:
   `Delta_L < -1`. With an assumed no-AI group mean of 10 hours per reference unit,
   that boundary corresponds to a 10% reduction. The saving in person-hours per
   reference unit is the decision rule.
-- An acceptable loss in output score per reference unit is less than **5 percentage points**:
+- An acceptable loss in weighted score per reference unit is less than **5 percentage points**:
   `Delta_F > -0.05`. This sets the maximum permitted loss.
 - The simulated useful effect is **-2 hours per reference unit with no reduction
-  in output score per reference unit**, which lies beyond both decision boundaries.
+  in weighted score per reference unit**, which lies beyond both decision boundaries.
   Scenarios at either decision boundary assess the frequency of false benefit claims.
 
 This sensitivity analysis evaluates nominated effect sizes. The decision boundary
@@ -139,14 +144,14 @@ is fixed independently of any minimum detectable effect, which has not been esti
 
 Use one-sided 97.5% Student-t bounds from independent pair differences. Expand
 the labour interval by a provisional 0.2 hours per reference unit and the
-interval for output score per reference unit by 0.01 to allow for a bounded
+interval for weighted score per reference unit by 0.01 to allow for a bounded
 difference in measurement bias between groups. These allowances are sensitivity
 assumptions requiring empirical validation. Declare
 benefit only when the expanded labour upper bound is below -1 **and** the
-expanded output lower bound is above -0.05. Meeting both criteria supports a claim
-about labour and output scores. A decision to adopt the workflow also requires
-assessment of severe defects and other consequences. Severe defects can rule out
-adoption even when the two numerical criteria pass. They are reported separately,
+expanded lower bound for weighted score per reference unit is above -0.05. Meeting
+both criteria supports a claim about labour and weighted scores. A decision to
+adopt the workflow also requires assessment of severe defects and other consequences.
+Severe defects can rule out adoption even when the two numerical criteria pass. They are reported separately,
 and their incidence is outside the simulation.
 
 A false joint claim necessarily rejects at least one true component null
@@ -231,7 +236,7 @@ the target workload or quality margin to manufacture adequacy.
 `planning.py` compares **48 teams (24 pairs)** with **96 teams (48 pairs)**,
 20 initial tasks per team. For each team count and scenario, it simulates 20,000
 experiments with fair coin assignments within pairs, correlated team baselines
-and positive labour. Hypothetical output scores per reference unit lie between
+and positive labour. Hypothetical weighted scores per reference unit lie between
 zero and one. The simulation adds measurement noise and bias allowances, then
 applies the rule requiring both benefit criteria and complete team outcomes.
 These distributions are planning assumptions. Treatment effects and variances

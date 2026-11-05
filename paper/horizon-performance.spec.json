@@ -37,7 +37,7 @@
       "path": "figures/horizon-performance.caption.tex",
       "status": "derived",
       "source_reference": "The proposed caption supplies the workload, run denominator, range meaning and scope restrictions.",
-      "sha256": "d7bea2fbb83b37740656334cbfc1696ae5349073038526d8c470ddba7a5a7a3e"
+      "sha256": "99db36889cdfde4fa56da754edd391990e0c28251a7e060ab130af7f3555420b"
     }
   ],
   "quantities": [
@@ -184,7 +184,7 @@
     "colour_intent": "colour_and_greyscale",
     "prohibit_block_circle_diagrams": true,
     "expected_labels": [
-      "Measured run times on generated age–weight pairs",
+      "Measured run times on generated age\u2013weight pairs",
       "Scan each query",
       "Total elapsed time"
     ]

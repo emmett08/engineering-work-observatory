@@ -5,7 +5,7 @@
   "source_sha256": "bdc09da490000fa01563b07fd873b37b5c6f34937566ae81179a7ca0f22e0ec3",
   "pdf": "figures/horizon-performance.pdf",
   "pdf_sha256": "344026f144bc7e163c0703791a71d06a2c40d995cd3de933b5065e9860c1363f",
-  "spec_sha256": "2efeee597f49930ad6f57718fe276b59737a232868a3dcbaadac9e8d8e9fdb55",
+  "spec_sha256": "4e1f1bfd2abef4ccd872ac1ceca2d81fe0eb52bae5eabc7b39aecd71f775dde8",
   "engine": "pdflatex",
   "python": "3.12.14",
   "width_mm": 152.39999999999998,
@@ -20,7 +20,7 @@
   "inputs": [
     {
       "path": "figures/horizon-performance.caption.tex",
-      "sha256": "d7bea2fbb83b37740656334cbfc1696ae5349073038526d8c470ddba7a5a7a3e"
+      "sha256": "99db36889cdfde4fa56da754edd391990e0c28251a7e060ab130af7f3555420b"
     },
     {
       "path": "performance/figure/horizon-data.csv",
@@ -32,7 +32,7 @@
     },
     {
       "path": "performance/figure/prepare.py",
-      "sha256": "2e68f232629c8db143c70e2fbfa54ec09e110891a3fad8c39807889d5cdb9520"
+      "sha256": "8e200e90049b34ee85ba6a4f559b77a6834c56d3938ca33bfca509036c5764cc"
     },
     {
       "path": "performance/figure/render.py",
@@ -52,5 +52,9 @@
   "typesetting_warnings": [
     "Package shellesc Warning: Shell escape disabled on input line 73."
   ],
-  "semantic_review_required": true
+  "semantic_review_required": true,
+  "wording_revision": {
+    "date": "2026-11-05",
+    "scope": "Caption and caption-generator wording changed. Figure source and standalone PDF retain baseline bytes; a fresh render had identical pixels. Current source/data/dependency hashes are bound separately."
+  }
 }

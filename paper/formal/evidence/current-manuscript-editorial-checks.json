@@ -2,15 +2,20 @@
   "schema": "current-manuscript-editorial-checks/1",
   "status": "PASS",
   "date": "2026-11-05",
-  "baseline_commit": "a5487d11463cfe24f2e0a2b03b4ffd0728871b6f",
+  "baseline_commit": "5215d6a9b19e7ee20a9f06b3562a6bd5e231b6bc",
+  "baseline_provenance": {
+    "repository": "emmett08/engineering-work-observatory",
+    "public_git_tree_source_blobs_verified": 9,
+    "local_comparison": "Exact public source blobs matched before comparison; the local checkpoint SHA is not represented as a public revision."
+  },
   "reviewer": "/root/independent_fidelity",
-  "scope": "Independent source and semantic-fidelity review of nine labour text sources, with contextual review of remaining record/observation/outcome wording in the compiled manuscript and performance/figure source scope. Static formal receipt validation only; no fresh Lean replay or reader-comprehension test.",
-  "candidate_sha256": "b4cfe7045327fd49ff7a083195fe4d614a6df216670f45bd7d76e70f0e79b27b",
+  "scope": "Independent semantic and mathematical-fidelity review of nine labour text sources, plus lexical preservation and terminology review of the compiled manuscript and performance/figure source scope. Static formal validation only; no fresh Lean replay or reader-comprehension test.",
+  "candidate_sha256": "f5812c85b785e3841d90e02f1ae02a7ca899478b78a225f79f6f79e3b17db52a",
   "source_protection": [
     {
       "path": "paper/article/binning-bounds.tex",
       "baseline_sha256": "714d75696b4a12439cf9ce39ee4084d3b9fb919196aa2b72a6d385d115a348dd",
-      "sha256": "714d75696b4a12439cf9ce39ee4084d3b9fb919196aa2b72a6d385d115a348dd",
+      "sha256": "ed1a875bb5468d5693d4f9272dc3e7942b7f418ed2976c04e26df16815db2b60",
       "existing_math_preserved_in_order": true,
       "baseline_math_spans": 19,
       "added_explanatory_math": [],
@@ -19,12 +24,16 @@
         "proof": 1,
         "proposition": 1
       },
-      "formal_blocks_byte_identical": true
+      "formal_block_prose_changes": [
+        "proposition"
+      ],
+      "commit_tokens_identical_in_order": true,
+      "commit_token_count": 0
     },
     {
       "path": "paper/article/design-based-estimation.tex",
-      "baseline_sha256": "240cb42f0fff2dea71cda3068d74e00b9e218e151c810fe181aa33e12f706c49",
-      "sha256": "3993b40a586eeeb11129204711f5173b01c57de724da8183a1260ff0b4c3bbd3",
+      "baseline_sha256": "3993b40a586eeeb11129204711f5173b01c57de724da8183a1260ff0b4c3bbd3",
+      "sha256": "7832b0b3a60dc00ccadc43f41666ac48a2f692ff190934c85a4ddd7333da70a1",
       "existing_math_preserved_in_order": true,
       "baseline_math_spans": 76,
       "added_explanatory_math": [],
@@ -33,22 +42,26 @@
         "proof": 1,
         "proposition": 1
       },
-      "formal_blocks_byte_identical": true
+      "formal_block_prose_changes": [],
+      "commit_tokens_identical_in_order": true,
+      "commit_token_count": 0
     },
     {
       "path": "paper/article/event-history.tex",
-      "baseline_sha256": "d80bb0ca30ef79c6ee73decbdbbc78c304f5a07a9825077721b2e6175fb6b73f",
-      "sha256": "8055b16642d328c79fd517adae746dd5e9d8893c1d3545e07bd0563cc66405b3",
+      "baseline_sha256": "8055b16642d328c79fd517adae746dd5e9d8893c1d3545e07bd0563cc66405b3",
+      "sha256": "df53036b1ccdcf31b4a7bc58b02892a2df8cc588868a7f104213884c8baecda0",
       "existing_math_preserved_in_order": true,
       "baseline_math_spans": 4,
       "added_explanatory_math": [],
       "formal_block_counts": {},
-      "formal_blocks_byte_identical": true
+      "formal_block_prose_changes": [],
+      "commit_tokens_identical_in_order": true,
+      "commit_token_count": 1
     },
     {
       "path": "paper/article/main.tex",
-      "baseline_sha256": "da39a3ca09111519beeae08db7ad361f8b8a4a547713043c61a157b6c5b3f8b3",
-      "sha256": "8b5269db48dd8dca5329e1d56abb751259690fcbef635bbc6f63222ef4f43d93",
+      "baseline_sha256": "8b5269db48dd8dca5329e1d56abb751259690fcbef635bbc6f63222ef4f43d93",
+      "sha256": "ad48aa72b50730dae0d597c36a4718b35d732464f3536e7ad0761d1c3d19f8c3",
       "existing_math_preserved_in_order": true,
       "baseline_math_spans": 64,
       "added_explanatory_math": [],
@@ -57,12 +70,14 @@
         "proof": 1,
         "proposition": 1
       },
-      "formal_blocks_byte_identical": true
+      "formal_block_prose_changes": [],
+      "commit_tokens_identical_in_order": true,
+      "commit_token_count": 35
     },
     {
       "path": "paper/article/partial-identification.tex",
-      "baseline_sha256": "c76e5998db92e2f9f888a616cc02883ba87a8c3bb2ceabd832722187f6cc1d29",
-      "sha256": "b4cfe7045327fd49ff7a083195fe4d614a6df216670f45bd7d76e70f0e79b27b",
+      "baseline_sha256": "b4cfe7045327fd49ff7a083195fe4d614a6df216670f45bd7d76e70f0e79b27b",
+      "sha256": "f5812c85b785e3841d90e02f1ae02a7ca899478b78a225f79f6f79e3b17db52a",
       "existing_math_preserved_in_order": true,
       "baseline_math_spans": 136,
       "added_explanatory_math": [],
@@ -73,17 +88,18 @@
         "proof": 2,
         "proposition": 2
       },
-      "formal_blocks_byte_identical": true
+      "formal_block_prose_changes": [],
+      "commit_tokens_identical_in_order": true,
+      "commit_token_count": 0
     },
     {
       "path": "paper/article/performance.tex",
-      "baseline_sha256": "4d682ea8e04d91f5d601683d7f1f5146f961c37a9d2daa421b345c90e3520abc",
-      "sha256": "e87f5a22d99e443f2c529d3a527989d105355f7bded9537bc4402a95fbc44b3a",
+      "baseline_sha256": "e87f5a22d99e443f2c529d3a527989d105355f7bded9537bc4402a95fbc44b3a",
+      "sha256": "62510d4d57e92a5c7fe850967151b0805fcee43d344128d2d809c545fb3b504b",
       "existing_math_preserved_in_order": true,
-      "baseline_math_spans": 78,
+      "baseline_math_spans": 80,
       "added_explanatory_math": [
-        "$\\tau$",
-        "$v_j$"
+        "$a_i\\leq\\tau$"
       ],
       "formal_block_counts": {
         "equation": 1,
@@ -92,23 +108,31 @@
         "algorithm": 2,
         "algorithmic": 2
       },
-      "formal_blocks_byte_identical": true
+      "formal_block_prose_changes": [
+        "proof",
+        "algorithm",
+        "algorithmic"
+      ],
+      "commit_tokens_identical_in_order": true,
+      "commit_token_count": 0
     },
     {
       "path": "paper/article/sampling-validation.tex",
-      "baseline_sha256": "f0ab516fbe74751a941b28104966f60654cff8af95b6d5ac12c9d3cae9b5ea52",
-      "sha256": "556fe98975bd157ca202b633b46854ad00aa473f8751d0f3991d5051328c3142",
+      "baseline_sha256": "556fe98975bd157ca202b633b46854ad00aa473f8751d0f3991d5051328c3142",
+      "sha256": "f1ac0790c00a7a8764509c5a8de73eb57581a410e8b919a2c8eff3caf0666252",
       "existing_math_preserved_in_order": true,
       "baseline_math_spans": 16,
       "added_explanatory_math": [],
       "formal_block_counts": {
         "align*": 1
       },
-      "formal_blocks_byte_identical": true
+      "formal_block_prose_changes": [],
+      "commit_tokens_identical_in_order": true,
+      "commit_token_count": 0
     },
     {
       "path": "paper/article/scalar-bounds.tex",
-      "baseline_sha256": "7dca65ce92f708fe3ddb53a9fcc852db6d4a05fc6e5d2318accdb3e712373303",
+      "baseline_sha256": "69a06460f73d7327b831a01d586e8543c097293725f9af9452ac457d6a76feb8",
       "sha256": "69a06460f73d7327b831a01d586e8543c097293725f9af9452ac457d6a76feb8",
       "existing_math_preserved_in_order": true,
       "baseline_math_spans": 40,
@@ -118,17 +142,21 @@
         "proof": 1,
         "proposition": 1
       },
-      "formal_blocks_byte_identical": true
+      "formal_block_prose_changes": [],
+      "commit_tokens_identical_in_order": true,
+      "commit_token_count": 0
     },
     {
       "path": "paper/study/ai-labour-causal/causal-study.tex",
-      "baseline_sha256": "566771f696b27817534ce1ba8e6daa46805d29f71ff6a7dd7bdc428621b33a7d",
-      "sha256": "fa074efbd80dd038873ab64c842039e54b5f44d5a4276256bffcbad792dd7b0b",
+      "baseline_sha256": "fa074efbd80dd038873ab64c842039e54b5f44d5a4276256bffcbad792dd7b0b",
+      "sha256": "99af867774d90106a023ef96d497b6c9e1999c02837dbc66a6a5eed171fd668b",
       "existing_math_preserved_in_order": true,
       "baseline_math_spans": 8,
       "added_explanatory_math": [],
       "formal_block_counts": {},
-      "formal_blocks_byte_identical": true
+      "formal_block_prose_changes": [],
+      "commit_tokens_identical_in_order": true,
+      "commit_token_count": 0
     }
   ],
   "references": {
@@ -141,102 +169,86 @@
     "missing_citations": []
   },
   "wording_coverage": {
-    "record_family_pattern": "case-insensitive whole words record, records, recorded, recording",
-    "scopes": [
+    "audited_source_files": 18,
+    "patterns": {
+      "output": "case-insensitive whole words output and outputs",
+      "commit": "case-insensitive matching of commit and commits, comparing the actual case-preserving token sequence per source"
+    },
+    "candidate_output_tokens": 0,
+    "commit_tokens_identical_in_order": true,
+    "per_source": [
       {
-        "scope": "compiled_manuscript",
-        "source_files": 13,
-        "baseline_occurrences": 46,
-        "candidate_occurrences": 2,
-        "files": [
-          {
-            "path": "paper/article/design-based-estimation.tex",
-            "baseline": 5,
-            "candidate": 1
-          },
-          {
-            "path": "paper/article/event-history.tex",
-            "baseline": 3,
-            "candidate": 0
-          },
-          {
-            "path": "paper/article/main.tex",
-            "baseline": 31,
-            "candidate": 1
-          },
-          {
-            "path": "paper/article/partial-identification.tex",
-            "baseline": 4,
-            "candidate": 0
-          },
-          {
-            "path": "paper/study/ai-labour-causal/causal-study.tex",
-            "baseline": 3,
-            "candidate": 0
-          }
-        ]
+        "path": "paper/article/binning-bounds.tex",
+        "baseline_output_tokens": 2,
+        "candidate_output_tokens": 0,
+        "commit_tokens_identical_in_order": true,
+        "commit_token_count": 0
       },
       {
-        "scope": "paper_performance_and_figure_sources",
-        "source_files": 18,
-        "baseline_occurrences": 74,
-        "candidate_occurrences": 10,
-        "files": [
-          {
-            "path": "paper/article/design-based-estimation.tex",
-            "baseline": 5,
-            "candidate": 1
-          },
-          {
-            "path": "paper/article/event-history.tex",
-            "baseline": 3,
-            "candidate": 0
-          },
-          {
-            "path": "paper/article/main.tex",
-            "baseline": 31,
-            "candidate": 1
-          },
-          {
-            "path": "paper/article/partial-identification.tex",
-            "baseline": 4,
-            "candidate": 0
-          },
-          {
-            "path": "paper/article/performance.tex",
-            "baseline": 26,
-            "candidate": 8
-          },
-          {
-            "path": "paper/figures/horizon-performance.caption.tex",
-            "baseline": 1,
-            "candidate": 0
-          },
-          {
-            "path": "paper/figures/horizon-performance.tikz.tex",
-            "baseline": 1,
-            "candidate": 0
-          },
-          {
-            "path": "paper/study/ai-labour-causal/causal-study.tex",
-            "baseline": 3,
-            "candidate": 0
-          }
-        ]
+        "path": "paper/article/design-based-estimation.tex",
+        "baseline_output_tokens": 1,
+        "candidate_output_tokens": 0,
+        "commit_tokens_identical_in_order": true,
+        "commit_token_count": 0
+      },
+      {
+        "path": "paper/article/event-history.tex",
+        "baseline_output_tokens": 2,
+        "candidate_output_tokens": 0,
+        "commit_tokens_identical_in_order": true,
+        "commit_token_count": 1
+      },
+      {
+        "path": "paper/article/main.tex",
+        "baseline_output_tokens": 26,
+        "candidate_output_tokens": 0,
+        "commit_tokens_identical_in_order": true,
+        "commit_token_count": 35
+      },
+      {
+        "path": "paper/article/partial-identification.tex",
+        "baseline_output_tokens": 11,
+        "candidate_output_tokens": 0,
+        "commit_tokens_identical_in_order": true,
+        "commit_token_count": 0
+      },
+      {
+        "path": "paper/article/performance.tex",
+        "baseline_output_tokens": 18,
+        "candidate_output_tokens": 0,
+        "commit_tokens_identical_in_order": true,
+        "commit_token_count": 0
+      },
+      {
+        "path": "paper/article/sampling-validation.tex",
+        "baseline_output_tokens": 2,
+        "candidate_output_tokens": 0,
+        "commit_tokens_identical_in_order": true,
+        "commit_token_count": 0
+      },
+      {
+        "path": "paper/figures/horizon-performance.caption.tex",
+        "baseline_output_tokens": 2,
+        "candidate_output_tokens": 0,
+        "commit_tokens_identical_in_order": true,
+        "commit_token_count": 0
+      },
+      {
+        "path": "paper/figures/task-clocks.tex",
+        "baseline_output_tokens": 3,
+        "candidate_output_tokens": 0,
+        "commit_tokens_identical_in_order": true,
+        "commit_token_count": 0
+      },
+      {
+        "path": "paper/study/ai-labour-causal/causal-study.tex",
+        "baseline_output_tokens": 11,
+        "candidate_output_tokens": 0,
+        "commit_tokens_identical_in_order": true,
+        "commit_token_count": 0
       }
     ],
-    "remaining_record_uses": {
-      "compiled_manuscript": "Record actual tool use, with a task-diary example; record selection status for a defined person-interval, with a proposed table-row example.",
-      "performance_source": "Eight uses refer to the explicitly defined age/weight input pair or preserve formal algorithm/proof wording using that definition."
-    },
-    "other_contextual_decisions": [
-      "Interval observation is explicitly defined as an interval plus the people/tasks/work types and an exact labour total or bounds; its retained technical uses refer to those inputs.",
-      "HMM observations denote commit events conditioned on hidden activity states; source-evidence measurements are named separately.",
-      "Outcomes in the literature comparison refer to the named completion-time or completed-pull-request measures.",
-      "Team outcomes are immediately defined as labour per reference unit and output score per reference unit.",
-      "Observed benchmark ranges denote measured execution-time ranges, while generated input pairs and hypothetical activity schedules retain their stated evidential status."
-    ],
-    "interpretation": "The counts describe lexical coverage. Acceptance depends on the accompanying semantic review, not a target frequency."
+    "scope_limits": "Protected bibliography, schema/code identifiers and historical evidence are outside this prose-word count. Counts are a scope check, not evidence of reader comprehension."
   },
   "frozen_files": [
     {
@@ -282,16 +294,17 @@
   ],
   "semantic_review": {
     "status": "PASS",
-    "issues_repaired": [
-      "The pilot mean treatment-effect estimate is distinguished from the variability required for sample-size planning.",
-      "Tool usage is described from diaries or logs separately from the assignment-based comparison.",
-      "The task list preserves whether postponed, rejected or abandoned requests enter the included task set.",
-      "Acceptance and deployment retain distinct timestamps.",
-      "Acceptance times apply to accepted tasks; the statuses of other tasks remain explicit."
+    "metric_definition": "Q is S times the assessed fulfilment fraction for tasks accepted by the deadline, and zero otherwise. S remains the reference score and R the fulfilment fraction.",
+    "zero_score_cases": "A zero weighted score can arise from a zero reference score, a missed deadline or zero assessed fulfilment; the prose does not equate it with a universal failure or absence of delivered functionality.",
+    "team_ratio": "The sum of weighted scores divided by the positive total reference score is the reference-score-weighted mean of fulfilment fractions with deadline misses contributing zero. Equal weighting of teams is a separate comparison rule.",
+    "threshold_units": "The five-percentage-point margin and 0.01 allowance apply to the dimensionless team score ratio. Labour thresholds remain in person-hours per reference unit.",
+    "performance_weights": "Each stored w_i is the reference score times the later fulfilment fraction. The query applies acceptance-age inclusion a_i<=tau, so the stored weight is not prematurely gated by a particular query deadline.",
+    "regressions_repaired": [
+      "The abstract specifies the assessment time after first acceptance.",
+      "The noninferiority explanation names a decrease in the score ratio, distinct from labour reduction.",
+      "The serial-schedule limitation concerns preserving task order, acceptance times and requirement fulfilment, distinct from the fixed score inputs used in labour optimisation."
     ],
-    "mathematics": "All formal proposition, proof, displayed-equation and algorithm blocks are byte-identical to the published checkpoint. Performance prose adds only explanatory tau and v_j.",
-    "examples": "GitHub issue descriptions/edits, diaries, acceptance confirmations, release logs, scoring entries, assessment notes and equal-weight acceptance criteria are explicitly illustrative possibilities. No new empirical observation is asserted.",
-    "scope": "Workplace measurement checks are requirements for applying the calculations, not extra hypotheses of every mathematical result. Deadlines, scoring, shared human capacity, sampling conditions, causal thresholds and unrun-study status are preserved."
+    "formal_changes": "Only the binning proposition Q label, algorithm input description, query caption and one proof quantity label change. Algorithm operations, hypotheses, conclusions and existing mathematical expressions are unchanged."
   },
   "static_validation": [
     {

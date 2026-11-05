@@ -20,7 +20,7 @@ Read the [article](ai-assisted-software-engineering.pdf), built from
 on attainable labour bounds from interval observations and shared per-person
 capacity, an exact finite-cell reduction, and fixed-prediction design-based
 estimation. It distinguishes labour in person-hours, elapsed time to first
-acceptance and an output score. For a task accepted by the deadline, that score
+acceptance and a weighted score. For a task accepted by the deadline, that score
 is its initial reference score multiplied by the fraction of its accepted
 requirement still satisfied at an assessment a chosen duration after first
 acceptance. Tasks that miss the
@@ -122,9 +122,9 @@ measurement pilot and a fixed-workload, matched-pair team experiment. The paper
 includes a concise account; the companion records estimands, clocks, measurement,
 analysis, missingness and a conditional principal-study selection rule. Its
 24 design--scenario cells each use 20,000 simulated experiments. Neither examined
-principal allocation meets the provisional joint labour-and-retained-output
-criterion across the required assumptions. These are planning calculations,
-not workplace observations or evidence of an AI benefit. The protocol remains
+principal allocation meets the provisional joint criterion for labour saving and
+weighted score per reference unit across the required assumptions. These are
+planning calculations, not workplace observations or evidence of an AI benefit. The protocol remains
 specified and unrun.
 
 The [citation audit](review/citation-audit-2026-11-01/README.md) supplies missing

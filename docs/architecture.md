@@ -1,6 +1,6 @@
 # Architecture
 
-The observatory is a local Rust command-line application for forecasting pull-request merge counts and, separately, measuring human labour, time to acceptance and output scores for individual tasks. Each task is identified by its recorded requirement. Its output score weights the initial reference score by the fraction of the accepted requirement still satisfied at an assessment a chosen duration after first acceptance, subject to the protocol's deadline and scope rules. Commits, pull requests, assistant calls and verification runs supply evidence about the task.
+The observatory is a local Rust command-line application for forecasting pull-request merge counts and, separately, measuring human labour, time to acceptance and weighted scores for individual tasks. Each task is identified by its recorded requirement. For a task accepted by the deadline, its weighted score is the initial reference score multiplied by the fraction of the accepted requirement still satisfied at an assessment a chosen duration after first acceptance. A missed deadline gives a score of zero. The protocol's scope rule can also set the reported score to zero. Commits, pull requests, assistant calls and verification runs supply evidence about the task.
 
 ## Implementation boundaries
 
@@ -46,11 +46,11 @@ The synthetic study example uses an acceptance deadline of `tau = 30 days` and r
 * Requirement fulfilment is reassessed at acceptance plus `delta`.
 * Cohort labour is counted until enrolment plus `tau + delta`, including unsuccessful work and attributable repair.
 
-A task accepted on day 2 is reassessed on day 32 and contributes labour through day 60. A task accepted on day 40 receives an output score of zero for the day-30 deadline and still contributes labour through day 60. An absent reassessment leaves requirement fulfilment unknown. A task whose deadline has not arrived is pending. Permanent abandonment is an observed outcome. Loss of observation leaves the later outcome unknown and is treated as censoring.
+A task accepted on day 2 is reassessed on day 32 and contributes labour through day 60. A task accepted on day 40 receives a weighted score of zero for the day-30 deadline and still contributes labour through day 60. An absent reassessment leaves requirement fulfilment unknown. A task whose deadline has not arrived is pending. Permanent abandonment is an observed outcome. Loss of observation leaves the later outcome unknown and is treated as censoring.
 
 Human allocations include specification, prompting, implementation, review, testing, integration and repair. One person's simultaneous allocations cannot exceed one. Two people pairing for one hour contribute two person-hours. Agent execution time and charges remain separate. Sampled effort requires the sampling frame, inclusion probability, response status and uncertainty; missing responses and work outside the frame do not become zero labour.
 
-The productivity ratio divides the cohort's total output score by its total person-hours. Both totals are reported so a change in the ratio can be traced to either quantity. Missing labour observations, unknown tool usage and absent reassessments appear in coverage and exclusions. The ratio is unavailable when total labour is zero. Independent assessment is required to establish how much of an accepted requirement is still satisfied.
+The productivity ratio divides the sum of the cohort's weighted scores by its total person-hours. Both totals are reported so a change in the ratio can be traced to either quantity. Missing labour observations, unknown tool usage and absent reassessments appear in coverage and exclusions. The ratio is unavailable when total labour is zero. Independent assessment is required to establish how much of an accepted requirement is still satisfied.
 
 Complete direct observations can additionally support deterministic labour bounds
 when the requested labour period ends within an observed interval. Individual

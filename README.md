@@ -23,8 +23,8 @@ They also preserve the original measurement draft, its Lean evidence, and the
 separate article on labour identification and design-based estimation.
 
 The separate study-accounting path measures human labour in person-hours,
-elapsed time to first acceptance and an output score. For a task accepted by
-the deadline, the output score is its initial reference score multiplied by the
+elapsed time to first acceptance and a weighted score. For a task accepted by
+the deadline, the weighted score is its initial reference score multiplied by the
 fraction of its accepted requirement still satisfied at an assessment a chosen
 duration after first acceptance.
 Tasks that miss the deadline receive a score of zero. Repository activity alone
@@ -143,8 +143,8 @@ cargo run --locked -- analyse reports/demo-snapshot.json --output reports/demo
 cargo run --locked -- verify
 ```
 
-Open `reports/demo/index.html`. The synthetic example gives an output score of
-0.75 task equivalents and total labour of 5 person-hours. Their ratio is 0.15
+Open `reports/demo/index.html`. The synthetic tasks' weighted scores sum to
+0.75 task equivalents, with total labour of 5 person-hours. Their ratio is 0.15
 task equivalents per person-hour. The labour estimate includes an abandoned
 task's sampled work. Sampling variance is unavailable, as the report
 states. Reimporting adds no duplicate facts. Snapshot and report paths must be new.
@@ -240,9 +240,10 @@ never become development-session identities.
 ## Record a real study
 
 These measurements belong to the optional study-accounting path. The default
-scope rule assigns zero protocol credit when scope changes before the fixed
-labour horizon closes; the measurement protocol explains the original-scope
-reporting option and explains how the scope rule changes the paper's output score.
+scope rule sets the reported weighted score to zero when scope changes before
+the fixed end of labour observation. The measurement protocol also defines an
+option that reports the paper's weighted score for the original requirement
+despite later scope changes.
 
 Each JSONL row follows `{"id":"stable-id","kind":"task","data":{...}}`.
 `{"schema":"observatory.bundle/1","records":[...]}` JSON is also accepted.
@@ -272,7 +273,7 @@ cannot be correction targets. See the [correction contract](docs/data-contract.m
 
 For a 30-day acceptance deadline and reassessment 30 days after acceptance, a
 task accepted on day 2 is reassessed on day 32. Labour is still counted through
-day 60 from enrolment. A task accepted on day 40 receives an output score of
+day 60 from enrolment. A task accepted on day 40 receives a weighted score of
 zero for the day-30 deadline and still contributes labour through day 60.
 Productivity is `sum(Q)/sum(H)`, including unsuccessful work, with positive total
 labour required. Probability-sampled labour uses Horvitz–Thompson point estimates;
@@ -283,14 +284,14 @@ With complete direct coverage, reports also give conditional labour bounds for
 boundary-crossing averages. Each interval uses its person's attention capacity;
 the reported task and cohort sums are conservative because shared allocations
 can couple intervals. These deterministic ranges are separate from sampling
-uncertainty. A known output score and a positive lower labour bound also permit
-a conditional cohort productivity range. An unavailable exact total remains
+uncertainty. A known sum of weighted scores and a positive lower labour bound
+also permit a conditional cohort productivity range. An unavailable exact total remains
 unavailable; exported bounds disclose floating-point approximation without
 outward rounding.
 
 This descriptive study path audits every counted accepted requirement. Quality
 subsampling, assignment-weighted causal inference and prediction of labour or
-output scores are outside its contract. The automatic forecasting module has
+weighted scores are outside its contract. The automatic forecasting module has
 its own observed outcome, the number of merged pull requests. See the
 [measurement protocol](docs/measurement-protocol.md).
 

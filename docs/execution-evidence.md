@@ -199,7 +199,7 @@ Execution evidence can link to existing protocol/task/session observations.
 Human labour, requirement acceptance and the fraction of a requirement still
 satisfied at reassessment each require their own observations. Execution
 receipts remain `source_record` evidence. They do not automatically create
-labour observations, acceptance events, output scores or duplicate EngArg
+labour observations, acceptance events, weighted scores or duplicate EngArg
 `ai_usage` records.
 
 GitHub references: [actor and triggering-actor contexts](https://docs.github.com/en/actions/reference/workflows-and-actions/contexts#github-context),

@@ -102,8 +102,9 @@ def main() -> None:
     )
     (args.output / "horizon-labels.tex").write_text(label_text)
     caption = (
-        "Measured execution times for calculating output and labour totals at repeated acceptance deadlines. "
-        "The inputs contain 100,000 generated output age--score pairs and 400,000 generated labour age--weight pairs. "
+        "Measured execution times for calculating totals of weighted scores and labour at repeated acceptance deadlines. "
+        "One generated array contains 100,000 acceptance ages paired with scores. "
+        "The other contains 400,000 labour interval end ages paired with labour weights. "
         "Markers are medians. Whiskers show the minimum and maximum across 15 paired "
         "runs (three seeds, five fresh-process repetitions per seed). They are not confidence intervals. "
         "Indexed totals include construction, queries and disposal. All one-query "
