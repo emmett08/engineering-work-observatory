@@ -4,24 +4,59 @@ on:
     branches: [codex/paper-hypophora-visuals-20261105]
     paths:
       - '.github/workflows/paper-wording-revision.yml'
+      - '.github/paper-wording-apply.py'
+      - '.github/wording-payload/**'
 permissions:
-  contents: read
+  contents: write
+concurrency:
+  group: paper-wording-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
-  snapshot:
+  revise:
+    if: github.repository == 'emmett08/engineering-work-observatory'
     runs-on: ubuntu-26.04
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          ref: 0f820e6b0dac8f7f69f165ecf9a7a78becf37417
-      - name: Export exact manuscript sources and repository instructions
+          ref: ${{ github.sha }}
+      - name: Apply reviewed wording with exact source and result checks
+        run: python3 .github/paper-wording-apply.py
+      - name: Check the numerical examples and study protocol
         run: |
-          mkdir -p export
-          git archive --format=tar.gz --output=export/source.tar.gz HEAD paper .github
-          find . -name AGENTS.md -not -path './.git/*' -print -exec cat {} \; > export/repository-instructions.txt
+          set -o pipefail
+          python3 paper/check_explanatory_figures.py 2>&1 | tee export/figure-tests.log
+          python3 paper/check_measurement_examples.py | tee export/measurement-tests.log
+          python3 paper/check_sharp_identification.py | tee export/identification-tests.log
+          python3 paper/study/ai-labour-causal/validate_protocol.py | tee export/protocol-tests.log
+      - name: Install the existing paper build dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends latexmk texlive-latex-extra texlive-fonts-recommended lmodern python3-jsonschema python3-pymupdf python3-pil
+      - name: Verify the caption binding and build the canonical paper
+        run: |
+          set -o pipefail
+          python3 paper/figures/shared-capacity/verify.py --review | tee export/shared-capacity-check.log
+          make -C paper article 2>&1 | tee export/paper-build.log
+          if grep -E 'Overfull|There were undefined references|Citation .* undefined|Reference .* undefined' paper/build/main.log; then
+            exit 1
+          fi
+          cp paper/build/main.log export/main.log
+          cp paper/ai-assisted-software-engineering.pdf export/
+          sha256sum paper/ai-assisted-software-engineering.pdf | tee export/pdf-sha256.txt
+      - name: Commit the checked manuscript and PDF to the existing PR branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          while IFS= read -r path; do git add -- "$path"; done < export/changed-paths.txt
+          git add paper/ai-assisted-software-engineering.pdf
+          git diff --cached --check
+          git commit -m 'Apply plain wording then engineering exposition across the paper'
+          git push origin HEAD:codex/paper-hypophora-visuals-20261105
           git rev-parse HEAD > export/source-revision.txt
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
         with:
-          name: paper-wording-baseline
+          name: paper-two-pass-revision
           path: export/
-          retention-days: 3
+          retention-days: 7
