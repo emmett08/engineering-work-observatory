@@ -12,14 +12,14 @@
     "outcome": "MATHEMATICAL_STATEMENTS_UNCHANGED",
     "report": {
       "path": "evidence/current-manuscript-editorial-review.md",
-      "sha256": "dfdad06de4f92be8b4ea01c6c91d017ce73540cddbd89a42a339cb5b8b123f0e"
+      "sha256": "0ec84b3b48f3bb05ed1565ab9b5787bd8d73aa1f14118202b5ee3a082bca384f"
     },
     "differences": [
       "The requested change, task identifier, timestamps, human-time measurements and later requirement assessment are explained as distinct engineering objects.",
       "Illustrative issue, diary, scoring and assessment examples replace undefined recording obligations while preserving inclusion, timing and scoring rules.",
       "Every existing mathematical expression is preserved in order, and every formal proposition/proof/equation/algorithm block is byte-identical. Two performance-prose symbols restate already defined quantities."
     ],
-    "statement_preservation": "Independent source review against b0f2ffc447a1e8ce13248f0c8bd623980131f84e preserves mathematical claims, qualifications and citation scope. The frozen target, Lean sources, checker scripts and historical proof evidence are unchanged."
+    "statement_preservation": "Independent source review against a5487d11463cfe24f2e0a2b03b4ffd0728871b6f preserves mathematical claims, qualifications and citation scope. The frozen target, Lean sources, checker scripts and historical proof evidence are unchanged."
   },
   "invalidation": "A current-article byte change requires renewed current concordance/hash binding. A proof-source change requires renewed proof/source review and checking. This record does not identify current bytes with frozen target bytes."
 }

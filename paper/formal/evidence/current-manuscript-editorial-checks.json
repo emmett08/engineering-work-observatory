@@ -2,7 +2,7 @@
   "schema": "current-manuscript-editorial-checks/1",
   "status": "PASS",
   "date": "2026-11-05",
-  "baseline_commit": "b0f2ffc447a1e8ce13248f0c8bd623980131f84e",
+  "baseline_commit": "a5487d11463cfe24f2e0a2b03b4ffd0728871b6f",
   "reviewer": "/root/independent_fidelity",
   "scope": "Independent source and semantic-fidelity review of nine labour text sources, with contextual review of remaining record/observation/outcome wording in the compiled manuscript and performance/figure source scope. Static formal receipt validation only; no fresh Lean replay or reader-comprehension test.",
   "candidate_sha256": "b4cfe7045327fd49ff7a083195fe4d614a6df216670f45bd7d76e70f0e79b27b",

@@ -2,7 +2,7 @@
 
 Outcome: **SEMANTIC_FIDELITY_PRESERVED / MATHEMATICAL_STATEMENTS_UNCHANGED / PASS**.
 
-Independent reviewer `/root/independent_fidelity` compared the nine labour text sources below against the published PR #18 checkpoint `b0f2ffc447a1e8ce13248f0c8bd623980131f84e`. The review covers the source meaning, mathematical conditions, explanation order and every remaining use of record-family, observation and outcome wording in the stated paper/performance/figure scope. It does not claim measured reader comprehension, a fresh literature audit or a new Lean proof replay.
+Independent reviewer `/root/independent_fidelity` compared the nine labour text sources below against the published PR #18 checkpoint `a5487d11463cfe24f2e0a2b03b4ffd0728871b6f`. The review covers the source meaning, mathematical conditions, explanation order and every remaining use of record-family, observation and outcome wording in the stated paper/performance/figure scope. It does not claim measured reader comprehension, a fresh literature audit or a new Lean proof replay.
 
 ## Reviewed source bytes
 
