@@ -1,11 +1,13 @@
 \subsection{Predictions calculated before sampling}
 \label{sec:model-assisted}
 
-Summing predictions for every person-interval gives a predicted labour total. Observations from a probability sample then estimate the difference between true labour and that prediction total. In each sampled interval, observed labour minus predicted labour is the residual. Dividing each residual by its inclusion probability and summing gives a correction that, under the conditions below, averages over repeated samples to the true total minus the prediction total. Denis and Haddou give this fixed-prediction estimator and its variance under the sampling design explicitly \cite[Section~2.3, equations~(2)--(4)]{denishaddou2026}. Prediction-powered inference also identifies its estimator of a mean as a difference estimator and considers finite-population extensions \cite[Section~1.4 and Appendix~B of the accompanying preprint]{angelopoulos2023}.
+How can an inaccurate prediction support unbiased labour estimation? Sampled observations estimate its total error. Adding that correction to the predicted total removes the error on average over possible samples, under the conditions below.
 
-Partition each person's target observation period into non-overlapping intervals. Let $U=\{1,\ldots,M\}$, $M\geq1$, be the complete, fixed frame of these person-intervals. For interval $m$, let $d_m>0$ be its length in hours and $a_m\in[0,1]$ its average allocation to the target work. Its labour is $y_m=d_ma_m$ person-hours, and the population total is $H=\sum_Uy_m$.
+Sum the predictions for all person-intervals to obtain a predicted labour total. In each sampled interval, subtract predicted labour from observed labour to obtain the residual. Divide each sampled residual by its selection probability, then add the weighted residuals to estimate the total prediction error. Denis and Haddou give this fixed-prediction estimator and its sampling variance \cite[Section~2.3, equations~(2)--(4)]{denishaddou2026}. Prediction-powered inference likewise identifies its estimator of a mean as a difference estimator and considers finite-population extensions \cite[Section~1.4 and Appendix~B of the accompanying preprint]{angelopoulos2023}.
 
-For every frame unit, retain a prediction $f_m$ in person-hours. Convert a Standard Coding Hours value to predicted labour in person-hours before using it as $f_m$, so that the prediction and observed labour measure the same quantity. The conversion rule must identify the calculation used and its basis. The proof also requires each unit's prediction to remain the same whichever sample is drawn. A rule trained on an independent earlier population can satisfy this condition when all predictions are calculated and held fixed before selecting the correction sample.
+Partition each person's target observation period into non-overlapping intervals. Let $U=\{1,\ldots,M\}$, $M\geq1$, be the complete list, or sampling frame, of these person-intervals, held fixed across samples. For interval $m$, let $d_m>0$ be its length in hours and $a_m\in[0,1]$ its average allocation to the target work. Its labour is $y_m=d_ma_m$ person-hours, and the population total is $H=\sum_Uy_m$.\footnote{The sampling design specifies the probabilities of selecting the possible samples from this fixed frame. The inclusion probability $\pi_m$ is the probability that interval $m$ is selected. The indicator $\ind\{m\in s\}$ is one when it is selected and zero otherwise. A hat, as in $\widehat H$, marks an estimate. The subscript $s$ on $\E_s$ or $\Var_s$ means that the average or variance is taken over possible samples, with labour values and predictions held fixed.}
+
+Retain a prediction $f_m$ in person-hours for every interval in the frame. Convert Standard Coding Hours to predicted person-hours before using them here, and state the conversion calculation and its evidential basis. Observed and predicted labour must measure the same quantity. Each prediction must also remain unchanged whichever correction sample is selected. Training on an independent earlier population can meet this condition when all predictions are calculated and held fixed before selecting that sample.
 
 \begin{proposition}[Fixed-prediction difference estimator]
 \label{prop:difference-estimator}
@@ -27,32 +29,32 @@ Write $I_m=\ind\{m\in s\}$. Linearity and $\E_s[I_m]=\pi_m$ give
 \]
 \end{proof}
 
-The correction therefore preserves design-unbiasedness even when the fixed prediction total differs from $H$. Taking $f_m=0$ gives the Horvitz--Thompson estimator, labelled HT in the equations \cite{horvitz1952},
+In the proof, $I_m$ marks whether interval $m$ was selected. The sampled contribution is divided by $\pi_m$, so its average over possible samples is the interval's full residual. The correction therefore preserves design-unbiasedness even when the fixed prediction total differs from $H$. Taking $f_m=0$ gives the Horvitz--Thompson estimator, labelled HT in the equations \cite{horvitz1952},
 \begin{equation}
  \widehat H_{\mathrm{HT}}=\sum_{m\in s}\frac{d_ma_m}{\pi_m}.
  \label{eq:ht}
 \end{equation}
-The records must distinguish observed zeros from missing observations. For every frame interval, record whether it was selected or unselected. A selected interval then needs either its observed allocation, including zero, or a nonresponse record when no allocation value was recorded. These states distinguish a measured absence of target work from a gap in measurement. The proof concerns true allocation values, so unbiasedness in the presence of measurement error requires additional assumptions on that error.
+For every interval, record whether it was selected. For a selected interval, retain either the measured allocation, including zero, or a nonresponse record. A measured zero means that no target work was observed during the interval. Nonresponse means that the selected interval has no allocation measurement. The proof uses true allocations, so retaining unbiasedness with measurement error requires additional assumptions about that error.
 
 \subsection{Precision depends on residuals and the sampling design}
 \label{sec:difference-variance}
 
-The residuals and sampling design jointly determine precision. Let $\pi_{mk}=\E_s[I_mI_k]$ be the probability that both frame units are selected, including $\pi_{mm}=\pi_m$. The exact variance over repeated samples is
+Why can an unbiased estimate still be imprecise? Unbiasedness fixes its average over possible samples, while precision depends on how far individual estimates lie from that average. This spread depends on both the residuals and the sampling design.\footnote{Variance is the expected squared distance from the mean. Here it has units of squared person-hours, and its square root has units of person-hours. Covariance describes how two random quantities vary together. For selection indicators, $\pi_{mk}-\pi_m\pi_k$ is their covariance, where $\pi_{mk}$ is the probability of selecting both intervals.} Let $\pi_{mk}=\E_s[I_mI_k]$ be the probability that both frame units are selected, including $\pi_{mm}=\pi_m$. The exact variance over repeated samples is
 \begin{equation}
  \Var_s(\widehat H_{\mathrm{diff}})
  =\sum_{m,k\in U}
  \frac{\pi_{mk}-\pi_m\pi_k}{\pi_m\pi_k}\,r_mr_k.
  \label{eq:difference-general-variance}
 \end{equation}
-Expanding the variance of $\sum_U I_mr_m/\pi_m$ gives this expression. Its covariance terms depend on how often pairs of units are selected together. Calculating the variance from \eqref{eq:difference-general-variance} would also require residuals for unsampled units, which are generally unknown. Estimating it therefore requires the actual sampling design and satisfaction of the chosen variance estimator's conditions on joint inclusion probabilities.
+Expanding the variance of $\sum_U I_mr_m/\pi_m$ gives this expression. The pair terms account for the dependence between selections. Equation~\eqref{eq:difference-general-variance} uses residuals for the whole frame, including unsampled intervals whose residuals are generally unknown. Estimating the variance therefore requires the actual sampling design and the joint selection probabilities required by the chosen variance estimator.
 
-For simple random sampling without replacement from $M\geq2$ units, let the fixed sample size satisfy $1\leq n\leq M$. Every size-$n$ subset has the same probability and $\pi_m=n/M$. Write
+For simple random sampling without replacement from $M\geq2$ units, let the fixed sample size satisfy $1\leq n\leq M$. Every size-$n$ subset has the same probability and $\pi_m=n/M$. Let $\bar r_U$ and $\bar y_U$ be the means of the residuals and labour values over the complete frame. Their finite-population variances are
 \[
  S_r^2=\frac{1}{M-1}\sum_U(r_m-\bar r_U)^2,
  \qquad
  S_y^2=\frac{1}{M-1}\sum_U(y_m-\bar y_U)^2.
 \]
-The inclusion covariances in \eqref{eq:difference-general-variance} give
+Substituting the selection probabilities for this sampling design into \eqref{eq:difference-general-variance} gives
 \begin{equation}
  \Var_s(\widehat H_{\mathrm{diff}})
  =\frac{M^2}{n}\left(1-\frac nM\right)S_r^2,
@@ -61,7 +63,7 @@ The inclusion covariances in \eqref{eq:difference-general-variance} give
  =\frac{M^2}{n}\left(1-\frac nM\right)S_y^2.
  \label{eq:difference-srs-variance}
 \end{equation}
-For $2\leq n\leq M$, an unbiased estimator of the design variance is
+The factor $1-n/M$ accounts for sampling without replacement and becomes zero when every unit is measured. To estimate the variance from the sample, let $\bar r_s$ be its mean residual and $s_r^2$ its residual variance. For $2\leq n\leq M$, an unbiased estimator of the design variance is
 \begin{equation}
  \widehat V_{\mathrm{diff}}
  =\frac{M^2}{n}\left(1-\frac nM\right)s_r^2,
@@ -69,23 +71,29 @@ For $2\leq n\leq M$, an unbiased estimator of the design variance is
  s_r^2=\frac{1}{n-1}\sum_{m\in s}(r_m-\bar r_s)^2.
  \label{eq:difference-srs-variance-estimator}
 \end{equation}
-Indeed, $s_r^2=[n(n-1)]^{-1}\sum_{m<k,\,m,k\in s}(r_m-r_k)^2$. Each pair has inclusion probability $n(n-1)/[M(M-1)]$, so $\E_s[s_r^2]=S_r^2$. A one-unit sample from a larger population cannot supply this variance estimate. Measuring every unit gives zero sampling variance, including in a single-unit population. Errors in the recorded allocations can still affect the labour estimate, so a census also needs measurement checks.
+The identity $s_r^2=[n(n-1)]^{-1}\sum_{m<k,\,m,k\in s}(r_m-r_k)^2$ expresses sample variance through pairwise differences. Each pair has inclusion probability $n(n-1)/[M(M-1)]$, so $\E_s[s_r^2]=S_r^2$. A one-unit sample from a larger population cannot supply this variance estimate. Measuring every unit gives zero sampling variance, including in a single-unit population. Errors in the recorded allocations can still affect the labour estimate, so measuring every unit also requires checks of measurement accuracy.
 
-For $n<M$, both variances contain the same positive sampling factor, so the difference estimator improves precision over the Horvitz--Thompson estimator exactly when $S_r^2<S_y^2$. The residuals must vary less across person-intervals than the labour values themselves. For example, consider $M=4$, $n=2$, and $y=(0,2,4,6)$. The true total is $12$, and the Horvitz--Thompson variance is $80/3$. Using $f=(1,3,3,5)$ for every sample yields variance $16/3$, while using $f=(6,4,2,0)$ yields $320/3$. The second predictor ranks intervals in reverse order of their true labour, amplifying residual variation and giving four times the Horvitz--Thompson variance. The difference estimator remains design-unbiased with either predictor.
+For $n<M$, both variances have the same positive sampling factor. Predictions therefore improve precision exactly when $S_r^2<S_y^2$, meaning that the residuals vary less across intervals than the labour values themselves. An unbiased correction alone gives no assurance of this reduction.
 
-Enumerating all six samples reproduces these variances and confirms that each estimator averages to the true total. It also verifies that \eqref{eq:difference-srs-variance-estimator} averages to each corresponding variance. These finite checks establish the calculations for the two predictors. A workplace study must determine whether its predictions derived from code changes give a residual correction with lower sampling variance than the labour estimate without predictions.
+For example, take $M=4$, $n=2$, and $y=(0,2,4,6)$. True total labour is $12$, and the Horvitz--Thompson variance is $80/3$. Holding $f=(1,3,3,5)$ fixed across samples reduces the variance to $16/3$. Holding $f=(6,4,2,0)$ fixed instead raises it to $320/3$. This second prediction ranks the intervals in reverse order of their labour, increasing residual variation and giving four times the variance of estimation without predictions. Both corrected estimators remain unbiased.
+
+Figure~\ref{fig:sampling-spread} shows the estimate from each of the six equally likely samples. All three sets of estimates average to the same true total, while their spreads differ.
+
+\input{../figures/sampling-spread}
+
+Calculating all six samples reproduces these variances and confirms that each estimator averages to the true total. It also confirms that the variance estimate in \eqref{eq:difference-srs-variance-estimator} averages to the corresponding true variance. These checks establish the calculations for the two specified predictors. A workplace study must separately test whether its code-change predictions leave a total residual that can be estimated more precisely than labour itself.
 
 \subsection{Failure cases and implementation checks}
 \label{sec:difference-contract}
 
-Fitting predictions to the correction sample can change the estimator's expectation. For $M=2$, $n=1$ and $y=(0,2)$, suppose a fitted rule memorises the selected outcome and predicts zero for the other unit. Its observed residual is always zero, so the correction leaves the fitted total unchanged. The resulting difference estimate is $0$ or $2$, each with probability $1/2$, giving expectation $1$ rather than $H=2$. A method trained on the sampled units therefore needs a separate unbiasedness argument under the actual finite-population sampling design.
+Why must predictions stay fixed across possible correction samples? The proof takes the sampling average while holding each prediction fixed. Training the predictor on the correction sample can change the estimate's average over possible samples. For $M=2$, $n=1$ and $y=(0,2)$, suppose a fitted rule memorises the selected outcome and predicts zero for the other unit. Its observed residual is always zero, so the correction leaves the fitted total unchanged. The resulting difference estimate is $0$ or $2$, each with probability $1/2$, giving expectation $1$ rather than $H=2$. A predictor trained on the sampled units therefore needs its own unbiasedness argument for the actual sampling design.
 
-Clipping can also change the estimator's expectation. The estimate can be negative even though true labour is nonnegative. With $y=(0,0)$, $f=(10,0)$ and one uniformly selected unit, \eqref{eq:difference-estimator} is $-10$ or $10$ with equal probability. Clipping at zero changes its expectation from $0$ to $5$. Reporting the signed estimate preserves the estimator in \eqref{eq:difference-estimator} while leaving an implausible result available for investigation.
+Replacing negative estimates with zero can also change the estimate's average over possible samples. The estimate can be negative even though true labour is nonnegative. With $y=(0,0)$, $f=(10,0)$ and one uniformly selected unit, \eqref{eq:difference-estimator} is $-10$ or $10$ with equal probability. Replacing the negative estimate with zero changes the expectation from $0$ to $5$. Reporting the calculated value, including its sign, preserves the estimator in \eqref{eq:difference-estimator} and exposes an implausible result for investigation.
 
-Reporting a productivity ratio also needs a bias analysis, since dividing retained output by an unbiased labour estimate need not yield an unbiased productivity estimate.
+A productivity ratio needs its own bias analysis. Dividing retained output by an unbiased labour estimate can still give a biased ratio because division is nonlinear.
 
-The accompanying implementation reports estimates with their calculated sign, preserves observed zeros, and records nonresponse separately from unselected units. It rejects inputs with missing required information, selected intervals without allocation measurements, and inconsistent values. For a supplied general sampling design it reports point estimates. For simple random sampling it also reports variance and standard error under the conditions above.
+The implementation keeps the estimate's calculated sign and preserves observed zeros. It records missing responses separately from intervals that were not selected. Inputs are rejected when required information is missing, when selected intervals lack allocation measurements or when supplied values are inconsistent. For a general sampling design, it reports a total-labour estimate. For simple random sampling, it also reports variance and standard error when the conditions above hold.\footnote{The estimated standard error is the square root of the estimated sampling variance. It expresses the sampling spread in person-hours. A confidence interval also needs a justification for how often the procedure covers the true total. A standard error alone supplies no particular coverage probability.}
 
-These input checks establish whether supplied records satisfy the implementation's rules. Evidence from collection must establish that the frame covers the work, allocations are measured accurately and units were sampled by the method used to calculate their inclusion probabilities.
+These input checks establish whether supplied records satisfy the implementation's rules. Collection evidence must additionally show that the frame covers the intended work, that allocations are measured accurately and that the actual selection method matches the method used to calculate inclusion probabilities.
 
-Exhaustive finite tests check the examples above, input validation, complete censuses and single-unit populations. A confidence interval requires a separate argument that its claimed coverage holds under the sampling design.
+Exhaustive finite tests cover the examples and input validation, including complete censuses and single-unit populations. Claiming confidence-interval coverage still requires a separate justification under the sampling design.
