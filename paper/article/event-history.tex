@@ -1,6 +1,12 @@
 \subsection{The acceptance deadline and observation periods}
 \label{sec:event-history}
 
+Why do output assessment and labour recording end at different task ages? Output is checked a fixed duration after acceptance, while labour is counted through a common task age. These choices determine which delivered requirements and which person-hours enter the productivity ratio.
+
 Use the acceptance deadline $\tau$ to decide which tasks qualify for the output calculation. For a task accepted in time, assess requirement fulfilment at task age $T_i+\Delta$, using first acceptance as the start of follow-up. Count labour through task age $\tau+\Delta$ for every task, including unfinished and abandoned tasks. A complete task history must therefore include the acceptance record, the follow-up assessment and all attributable repair work within the labour observation period.
+
+Figure~\ref{fig:task-clocks} shows the two endpoints for an illustrative accepted task. Adding $s_i$ to each task age gives its calendar time, allowing the task's labour to be combined with other tasks sharing the same people.
+
+\input{../figures/task-clocks}
 
 Complete follow-up can still leave several labour allocations consistent with the records. A record \emph{point-identifies} realised labour when at least one time allocation is consistent with the recorded observations and model constraints, and every such allocation gives the same total. Here the question concerns the labour in a recorded history. Proposition~\ref{prop:nonidentification} instead asks whether the probability distribution of observed events uniquely determines a population parameter. The next section derives the smallest and largest labour totals consistent with interval observations.

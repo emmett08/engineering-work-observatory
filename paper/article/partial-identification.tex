@@ -5,7 +5,9 @@ An interval total can leave open when people worked within it. We seek the labou
 
 \subsection{Using the person's capacity}
 
-One person can contribute at most one person-hour in an elapsed hour. Knowing who supplied an interval total therefore limits how much of that labour could have occurred before or after a specified time. A total across several people must be compared with their combined available time.
+How much of a known interval total must lie before a chosen time? Whatever cannot fit after that time must have occurred before it. One person can contribute at most one person-hour in an elapsed hour, so each part of the interval has a known capacity. A total across several people must be compared with their combined available time.
+
+In the proposition, $\ell$ and $u$ are the interval's start and end, $c$ is the time dividing it, and $v$ is the observed total labour. The unknown $x$ is the labour before $c$.
 
 \begin{proposition}[Attainable contribution from one interval]
 \label{prop:sharp-cutoff}
@@ -40,7 +42,7 @@ For one person, $3/2$ person-hours in a two-hour interval imply between $1/2$ an
 
 If $v=u-\ell$, the total uses all the person's available time, so the labour before any time within it equals the elapsed time from its start. The same accounting extends to an interior subinterval $[b,c]\subseteq[\ell,u]$. Applying the construction to that subinterval and the time outside it gives every possible labour total in the subinterval, $[\max\{0,v-((u-\ell)-(c-b))\},\min\{v,c-b\}]$.
 
-Combining contributions requires distinguishing bounds on their sum from totals that can occur together. Adding separately calculated lower and upper bounds gives bounds on the combined total when each contribution is counted once. Attaining the summed lower bound requires all component minima together, and attaining the summed upper bound requires all component maxima together. Disjoint intervals of one person, or intervals belonging to distinct people, can be combined when no other constraints link them. Overlapping observations or several tasks competing for the same person's time require a joint calculation.
+What can be lost when separate task bounds are added? The sum can include totals whose component allocations cannot occur together. Adding separately calculated lower and upper bounds gives bounds on the combined total when each contribution is counted once. Attaining the summed lower bound requires all component minima together, and attaining the summed upper bound requires all component maxima together. Disjoint intervals of one person, or intervals belonging to distinct people, can be combined when no other constraints link them. Overlapping observations or several tasks competing for the same person's time require a joint calculation.
 
 For example, suppose one person spends one person-hour on each of two tasks during $[0,2]$. Each task separately allows $[0,1]$ person-hours before time 1. Together, the tasks use all the person's available time on $[0,2]$, so exactly one person-hour must fall before time 1. Adding the separately calculated bounds would instead give $[0,2]$. Figure~\ref{fig:shared-capacity} shows how the shared capacity restricts the jointly feasible first-hour totals within the separately permitted ranges. Panel (c) gives one schedule for the marked midpoint, illustrating the reconstruction with one activity at a time proved below.
 
@@ -66,9 +68,11 @@ Each observation constrains the labour of specified streams during one interval.
 \end{equation}
 Exact interval totals use $v_\nu^-=v_\nu^+$. Justified limits on rounding or measurement error may instead give different lower and upper bounds. A Horvitz--Thompson estimate varies with the selected sample. Its sampling uncertainty must be accounted for before the estimate can justify either inequality.
 
+How can a calculation consider all the possible activity histories? It is enough to keep the labour totals between successive observation and target boundaries.
+
 Form the sorted distinct endpoints $b_0<\cdots<b_K$ from the domain boundaries, every observation endpoint and every target boundary, and call the intervals between successive endpoints cells. Every observation interval and target window is then a union of complete cells, allowing its labour to be written as a sum of cell totals. For the denominator in \eqref{eq:cohort-productivity}, target boundaries include the start of tracking $s_i$ and the end of the labour observation window $c_i=s_i+\tau+\Delta$ for every task in $\mathcal C$.
 
-The partition uses calendar time so that simultaneous work by the same person shares one capacity constraint. Translate time since tracking began into calendar time before partitioning. Cells outside a target window must remain whenever an observation spans them, because some of the observed labour may have occurred outside the window. Put $d_k=b_k-b_{k-1}>0$ and let $x_{ijrk}$ denote the labour allocated to stream $(i,j,r)$ in cell $k$. The following result shows that these cell totals preserve exactly the possible target values.
+The partition uses calendar time so that simultaneous work by the same person shares one capacity constraint. Translate time since tracking began into calendar time before partitioning. Cells outside a target window must remain whenever an observation spans them, because some of the observed labour may have occurred outside the window. Put $d_k=b_k-b_{k-1}>0$ and let $x_{ijrk}$ denote the labour allocated to stream $(i,j,r)$ in cell $k$. Each $x_{ijrk}$ is a duration in person-hours, whereas $a_{ijr}(t)$ is an allocation fraction. The following result shows that the cell totals preserve exactly the possible target values. Its weights select or scale the contributions to the target, with weights of one including a contribution and weights of zero excluding it.
 
 \begin{proposition}[Exact cell reduction and attainable labour range]
 \label{prop:cell-reduction}
@@ -109,9 +113,11 @@ Preserving the integrals while replacing fractional allocations by one activity 
 
 \subsection{Checking the bounds and allowing observation error}
 
+How can a calculated endpoint be checked? Combine an allocation attaining it with a bound that applies to every feasible allocation.
+
 To verify a proposed maximum, give a feasible allocation that achieves it and derive an inequality from the observation and capacity constraints showing that every feasible target total is at most that value. To verify a proposed minimum, give a feasible allocation that achieves it and derive an inequality showing that every feasible target total is at least that value. The allocation establishes attainability, while the inequality bounds every feasible total. Equality between the bound and the attained total establishes optimality.
 
-Collect the cell totals and target weights into vectors $x$ and $w$, and write the capacity and observation inequalities as $Ax\leq b$, with $x\geq0$ kept separate. A lower observation bound is included by reversing its sign. Nonnegative multipliers $\lambda$ and $\mu$ satisfying
+Collect the cell totals and target weights into vectors $x$ and $w$, and write the capacity and observation inequalities as $Ax\leq b$, with $x\geq0$ kept separate. Each row of $A$ contains the coefficients of one constraint, and the matching entry of $b$ is its limit. The superscript $\mathsf T$ denotes transpose, so $w^\mathsf T x$ is the weighted sum of cell totals. A lower observation bound is included by reversing its sign. Nonnegative multipliers $\lambda$ and $\mu$ satisfying
 \begin{equation}
 \label{eq:bound-certificates}
  A^\mathsf{T}\lambda\geq w,\qquad
@@ -122,7 +128,7 @@ Collect the cell totals and target weights into vectors $x$ and $w$, and write t
 \end{equation}
 give bounds by taking weighted sums of the original inequalities, yielding $w^\mathsf{T}x\leq\lambda^\mathsf{T}Ax\leq\lambda^\mathsf{T}b$, and likewise for $-w$.
 
-For a nonempty $\mathcal P$, linear-programming strong duality ensures that suitable multipliers give exactly $H_{\min}$ and $H_{\max}$ \cite[Sections~5.2--5.3]{boydvandenberghe2004}. When the bound calculated from the multipliers equals the total achieved by a feasible allocation, together they prove that the total is the minimum or maximum. If the problem data, cell totals and multipliers are rational, these checks can use exact arithmetic without repeating the optimisation. A numerical solver's success flag alone does not supply this check.
+For a nonempty $\mathcal P$, linear-programming strong duality ensures that suitable multipliers give exactly $H_{\min}$ and $H_{\max}$ \cite[Sections~5.2--5.3]{boydvandenberghe2004}. When the bound calculated from the multipliers equals the total achieved by a feasible allocation, together they prove that the total is the minimum or maximum. If the problem data, cell totals and multipliers are rational, these checks can use exact arithmetic without repeating the optimisation. The allocation and multipliers supply the quantities needed to check a numerical solver's proposed endpoint.
 
 With the partition and target fixed, widening observation limits changes only the right-hand sides of the inequalities. Increasing an upper observation bound or decreasing a lower one increases the corresponding entry of $b$. If these changes give $b+\varepsilon$, with $\varepsilon\geq0$ and zero entries for unchanged constraints, the original multipliers still bound every newly permitted target total by
 \begin{equation}
@@ -139,6 +145,6 @@ A separate development in Lean~4, using mathlib \cite{demouraullrich2021,mathlib
 
 \subsection{From labour bounds to productivity}
 
-Use the labour range corresponding to the denominator in \eqref{eq:cohort-productivity}, and let $Q=\sum_{i\in\mathcal C}Q_i(\tau,\Delta)$ be the total output score at follow-up, known exactly. With $Q\geq0$ and $H_{\min}>0$, dividing this output by the largest and smallest possible labour totals gives the identified productivity interval $[Q/H_{\max},Q/H_{\min}]$.
+Use the labour range corresponding to the denominator in \eqref{eq:cohort-productivity}, and let $Q=\sum_{i\in\mathcal C}Q_i(\tau,\Delta)$ be the total output score at follow-up, known exactly. With $Q\geq0$ and $H_{\min}>0$, dividing this output by the largest and smallest possible labour totals gives the identified productivity interval $[Q/H_{\max},Q/H_{\min}]$. The endpoints reverse because, for fixed nonnegative output, a larger positive labour total gives the same or a smaller output-to-labour ratio.
 
 When the output score is also uncertain, separate output and labour bounds leave open which pairs can occur together. Justified output-score bounds $0\leq Q_-\leq Q\leq Q_+$ give an interval $[Q_-/H_{\max},Q_+/H_{\min}]$ containing every feasible output-to-labour ratio. It is the exact range only when every ratio in it can be produced by an output total and labour total that are jointly permitted. It is sufficient for every pair in $[Q_-,Q_+]\times[H_{\min},H_{\max}]$ to be permitted. A lower labour bound of zero cannot be used as a divisor. The labour optimisation itself holds the acceptance times and the recorded fractions of requirements still met in \eqref{eq:retention} fixed.
