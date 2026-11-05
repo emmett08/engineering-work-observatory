@@ -71,7 +71,8 @@ older value. Simultaneous conflicting versions are quarantined.
 
 Only acquired revisions can be preserved: edits between API polls are unknown.
 An incomplete scan prevents live model evaluation and prediction. The report
-still shows retained declarations with their currentness marked unconfirmed.
+still shows saved declarations and marks that their latest revisions could not
+be confirmed.
 
 ## Add real observations
 
@@ -119,7 +120,8 @@ commit counts, source account identities or assumed assistant time savings.
   same snapshot reuses its immutable evaluation. A new candidate needs a fresh
   panel; repeated scoring of the same holdout is not independent validation.
 - A failed candidate preserves the previous valid model. Corrected, removed or
-  ineligible training/approval labels retire an affected active model. A source
+  ineligible training or approval observations retire any active model that
+depended on those observations. A source
   metadata-only change, such as closure with unchanged labels, does not invalidate
   it. Every model, prediction panel, evaluation and retirement remains auditable.
 

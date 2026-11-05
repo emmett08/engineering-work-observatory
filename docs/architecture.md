@@ -1,6 +1,6 @@
 # Architecture
 
-The observatory is a local Rust CLI for automatic PR-throughput forecasting and for separate task-level measurement of human effort, acceptance time and retained output. A requirement is the accounting unit. Commits, pull requests, assistant calls and verification runs provide evidence about that requirement; they do not replace it.
+The observatory is a local Rust command-line application for forecasting pull-request merge counts and, separately, measuring human labour, time to acceptance and weighted scores for individual tasks. Each task is identified by its recorded requirement. For a task accepted by the deadline, its weighted score is the initial reference score multiplied by the fraction of the accepted requirement still satisfied at an assessment a chosen duration after first acceptance. A missed deadline gives a score of zero. The protocol's scope rule can also set the reported score to zero. Commits, pull requests, assistant calls and verification runs supply evidence about the task.
 
 ## Implementation boundaries
 
@@ -40,32 +40,35 @@ A task can span several PRs and both repositories. Link these records explicitly
 
 Each record's event time describes the work or assessment. Its observation time describes when it became available to the observatory. An `as_of` cut restricts available evidence by observation time; calculations also apply the relevant event-time boundary. A historical report must not acquire later knowledge merely because it describes an earlier event.
 
-The synthetic study example uses acceptance deadline `tau = 30 days` and retention follow-up `delta = 30 days`. The paper leaves these protocol parameters to the study design. For each enrolled task:
+The synthetic study example uses an acceptance deadline of `tau = 30 days` and reassesses each accepted requirement `delta = 30 days` after first acceptance. The paper leaves these protocol parameters to the study design. For each enrolled task:
 
 * Acceptance is measured from enrolment. Deployment is separate.
-* Retention is assessed at acceptance plus `delta`.
+* Requirement fulfilment is reassessed at acceptance plus `delta`.
 * Cohort labour is counted until enrolment plus `tau + delta`, including unsuccessful work and attributable repair.
 
-A task accepted on day 2 is assessed for retention on day 32, but its cohort labour remains open through day 60. A task accepted on day 40 receives zero output for the 30-day acceptance deadline while still contributing labour through day 60. An absent retention assessment is unknown; a task whose deadline has not arrived is pending. Abandonment is an observed nonacceptance outcome, whereas loss of observation is censoring.
+A task accepted on day 2 is reassessed on day 32 and contributes labour through day 60. A task accepted on day 40 receives a weighted score of zero for the day-30 deadline and still contributes labour through day 60. An absent reassessment leaves requirement fulfilment unknown. A task whose deadline has not arrived is pending. Permanent abandonment is an observed outcome. Loss of observation leaves the later outcome unknown and is treated as censoring.
 
 Human allocations include specification, prompting, implementation, review, testing, integration and repair. One person's simultaneous allocations cannot exceed one. Two people pairing for one hour contribute two person-hours. Agent execution time and charges remain separate. Sampled effort requires the sampling frame, inclusion probability, response status and uncertainty; missing responses and work outside the frame do not become zero labour.
 
-Retained productivity is a ratio of cohort totals, with numerator and denominator reported separately. Missing effort, unknown usage and unavailable follow-up remain visible in coverage and exclusions. A zero aggregate labour denominator leaves the ratio unavailable. CI success and surviving code do not establish complete retained functionality.
+The productivity ratio divides the sum of the cohort's weighted scores by its total person-hours. Both totals are reported so a change in the ratio can be traced to either quantity. Missing labour observations, unknown tool usage and absent reassessments appear in coverage and exclusions. The ratio is unavailable when total labour is zero. Independent assessment is required to establish how much of an accepted requirement is still satisfied.
 
 Complete direct observations can additionally support deterministic labour bounds
-when a query clips an interval average. Individual interval bounds use the
-person's attention capacity; task/cohort sums are conservative outer bounds
-because shared allocations can couple intervals. They do not turn an unavailable
-exact total into a point observation or a sampled estimate into an exact mass.
+when the requested labour period ends within an observed interval. Individual
+interval bounds use the limit of one person-hour per person per elapsed hour.
+Task and cohort bounds sum these interval ranges. Tasks sharing a person's time
+can prevent the individual minima or maxima from occurring together, so the
+summed range can be wider than the jointly possible range. They do not turn an unavailable
+exact total into an observation or a sampled estimate into an exact total.
 
 `inference` is a separate finite-frame statistical component. Its typed input
 declares frozen predictions, the complete person-interval frame and the sampling
 design. `estimate-labour` wires JSON input to that component without opening the
 evidence store. Signed prediction-error correction and design-specific variance
 remain separate from the nonnegative cohort accounting and its immutable input
-records. General-design point estimation and SRS variance have distinct validation
-contracts; the latter uses the finite-population correction and explicit
-unavailable/census states. See [the estimator contract](design-based-estimation.md).
+records. Point estimation for a general sampling design and variance estimation
+for simple random sampling have different validation requirements. The
+simple-random-sampling calculation uses the finite-population correction and
+explicit states for an unavailable variance or a complete census. See [the estimator contract](design-based-estimation.md).
 
 ## Joint interval identification
 
@@ -114,12 +117,13 @@ AI labels, human assessments or subjective task sizes.
 
 `forecast::archive` binds each issued distribution and history to its original
 verified snapshot and declared method. The CLI archives it without overwriting,
-then later runs score unchanged originals against mature source cuts. Replay
+then later runs score unchanged originals against snapshots whose observations
+cover the complete forecast period. Replay
 outputs have a different schema and cannot pass as original issuance receipts.
 Corrupt or unsupported archived inputs remain explicit errors in the score report;
 they do not prevent new collection. Times are retained declarations, not trusted
 independent proof of pre-outcome existence. JSON floating-point round trips are
-correctly rounded so an unchanged saved PMF can be verified exactly.
+correctly rounded so an unchanged saved probability mass function can be verified exactly.
 
 The default expanding reference was retained after the recent-window challenger
 failed its frozen public-reference promotion screen. The bounded public comparison

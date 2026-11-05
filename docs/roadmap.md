@@ -1,6 +1,7 @@
 # Data-science improvements
 
-These are proposed additions, with the implemented SRS subset noted below. They arise from the
+These are proposed additions, with the implemented simple-random-sampling (SRS)
+subset noted below. They arise from the
 current code and the measurement contract. The user-nominated Rust data-science
 book is retained in [the bibliography](../references.bib); its exact edition and
 contents have not been verified, so none of these proposals is attributed to it.
@@ -39,13 +40,15 @@ collection or accounting core.
 
 Task-level issues already appear in [analysis results](../src/analysis.rs), but
 operators must inspect individual reports to find missing frames, nonresponse and
-overdue retention audits. Add a read-only command such as `check-data` or
+overdue assessments of whether accepted requirements are still satisfied. Add a
+read-only command such as `check-data` or
 `audit-due`, producing JSON and an operator-readable list from a frozen snapshot.
 
 **Acceptance:** list missing/partial effort coverage, nonresponse, unresolved
 links and pending/overdue assessments. Calculate audit due dates from acceptance
 plus follow-up, and labour maturity from enrolment plus both horizons. An early
-retention audit must not close labour accounting. Corrected observations must
+requirement reassessment must leave labour accounting open until its own
+deadline. Corrected observations must
 clear only the issues they actually resolve. The command must not create complete
 coverage attestations automatically.
 

@@ -19,8 +19,12 @@ Read the [article](ai-assisted-software-engineering.pdf), built from
 [`article/references.bib`](article/references.bib). The publication version centres
 on attainable labour bounds from interval observations and shared per-person
 capacity, an exact finite-cell reduction, and fixed-prediction design-based
-estimation. It distinguishes labour, elapsed time to acceptance and retained
-reference output. A short validation section states the measurements and
+estimation. It distinguishes labour in person-hours, elapsed time to first
+acceptance and a weighted score. For a task accepted by the deadline, that score
+is its initial reference score multiplied by the fraction of its accepted
+requirement still satisfied at an assessment a chosen duration after first
+acceptance. Tasks that miss the
+deadline receive a score of zero. A short validation section states the measurements and
 assumptions needed before an empirical comparison of AI tools and working practices.
 
 The 2 November revisions apply `write-for-experienced-engineers` to the current
@@ -59,9 +63,13 @@ technical appendix. The coarse bin envelope is superseded in the article by the
 capacity-aware bound and joint formulation.
 
 The application reports conditional direct-observation labour and productivity
-bounds and provides a separate `estimate-labour` command for a declared
-probability sample with frozen predictions. Its simple-random-sampling variance
-calculation is separate from the cohort report's HT point estimates. The
+bounds and provides a separate `estimate-labour` command. This command corrects
+a predicted total using labour observed in randomly selected time intervals for
+individual people. Each observed prediction error is divided by that
+interval's known selection probability. Predictions are
+calculated before sampling and remain unchanged whichever sample is selected.
+Its simple-random-sampling variance calculation is separate from the cohort
+report's Horvitz–Thompson point estimates. The
 standalone `bound-labour` command now solves the joint linear programme with
 exact rational inputs and returns attaining allocations. Existing cohort reports
 retain marginal floating-point bounds without an outward-rounding guarantee.
@@ -89,7 +97,7 @@ Figure 1 shows how shared person-time constraints turn separately uncertain task
 contributions into an exactly known combined first-hour total. Its
 [include-ready TikZ source](figures/shared-capacity/tikz.tex),
 [vector PDF](figures/shared-capacity/figure.pdf) and
-[design and build record](figures/shared-capacity/README.md) retain the constructed
+[design and build record](figures/shared-capacity/README.md) retain the hypothetical
 inputs, exact calculation, alternative composition and review.
 
 The subsequent [terminology and MAS Math Lab review](review/mas-model-2026-11-01/README.md)
@@ -114,9 +122,9 @@ measurement pilot and a fixed-workload, matched-pair team experiment. The paper
 includes a concise account; the companion records estimands, clocks, measurement,
 analysis, missingness and a conditional principal-study selection rule. Its
 24 design--scenario cells each use 20,000 simulated experiments. Neither examined
-principal allocation meets the provisional joint labour-and-retained-output
-criterion across the required assumptions. These are planning calculations,
-not workplace observations or evidence of an AI benefit. The protocol remains
+principal allocation meets the provisional joint criterion for labour saving and
+weighted score per reference unit across the required assumptions. These are
+planning calculations, not workplace observations or evidence of an AI benefit. The protocol remains
 specified and unrun.
 
 The [citation audit](review/citation-audit-2026-11-01/README.md) supplies missing

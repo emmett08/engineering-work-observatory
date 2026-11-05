@@ -2,7 +2,7 @@
 
 This new, bounded optimisation example compares a direct scan with an immutable
 sorted prefix index. It implements discrete accounting queries related to the
-paper's retained-output ratio. It is not an implementation of the paper's proposed
+paper's output score per person-hour. It is not an implementation of the paper's proposed
 empirical study, the preserved original supplement, or a measure of AI effects.
 
 ## Contract and units
@@ -11,10 +11,12 @@ empirical study, the preserved original supplement, or a measure of AI effects.
 task's enrolment and a nonnegative fixed-point weight. In this experiment ages are
 integer hours, accepted-output weights are millionths of a reference unit, and
 labour weights are millionths of a person-hour. Each accepted requirement has one
-retained-output mark assessed at the same fixed follow-up `delta`. Each attributed
-labour increment occurs once, including labour from unaccepted tasks. Eligibility,
-retention assessment, attribution and absence of double counting are input
-conditions; these arrays cannot establish them.
+output score assessed `delta` after first acceptance. This score is the task's
+initial reference score multiplied by the fraction of its accepted requirement
+still satisfied at that assessment. Each attributed labour contribution occurs
+once, including labour from tasks never accepted. Callers must establish task
+eligibility, assess requirement fulfilment and assign labour without double
+counting before supplying these arrays.
 
 For each acceptance horizon `tau`, both implementations return the exact pair
 
@@ -35,9 +37,9 @@ These finite weighted records are a **discrete accounting approximation** to the
 continuous integral in the article. A labour interval straddling a queried cutoff
 needs a declared splitting rule or finer time discretisation; assigning its full
 weight to one event does not integrate a partial interval. The code does not infer
-missing labour, retained quality or causal effects. It also does not adjust a
-retention mark when `delta` changes: callers must supply marks for the declared
-follow-up and rebuild any affected snapshot.
+missing labour, later requirement fulfilment or causal effects. Changing
+`delta` requires callers to supply output scores assessed at the new time since
+acceptance and rebuild the corresponding snapshot.
 
 ## Implementations and equivalence
 
@@ -62,7 +64,7 @@ update it. Rebuild when any indexed data change.
 The seven unit tests cover empty data/queries, unsorted and duplicate horizons,
 inclusive boundaries, zero weights, absent acceptances, zero labour, explicit
 horizon overflow, totals exceeding `u64`, snapshot ownership, and generated exact
-comparisons with the scan oracle. A `u128` total cannot overflow for a physically
+comparisons with the direct-scan result. A `u128` total cannot overflow for a physically
 addressable vector of `u64` weights on the measured 64-bit platform, but accumulation
 still checks it explicitly. Timing thresholds are not correctness tests.
 

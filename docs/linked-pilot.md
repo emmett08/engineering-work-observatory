@@ -185,8 +185,8 @@ The participant checks the selected intervals, allocating minutes to task/role
 and non-work, then saves the downloaded JSON under the batch's `responses/`.
 Uncertain recall stays nonresponse. There is no continuous timer or full-day
 timesheet, but code cannot supply the missing observations. Predictions remain
-hidden in the review form. The first probability sample is retained across
-retries; repeated preparation does not choose a more convenient sample.
+hidden in the review form. The original randomly selected intervals are reused
+across retries, so repeating preparation preserves the same sample.
 
 For routine workstation preparation, use the operating system scheduler under
 the account running ActivityWatch. This example assumes a UTC cron clock and
@@ -223,6 +223,6 @@ window. Consistency of collection does not by itself establish accuracy.
 
 Calibrate with short windows, prompt checks and independent review of a subset
 of observations before using these estimates for decisions. Requirement
-acceptance and retained quality still require their own observations. Neither
-an execution receipt nor an effort estimate establishes productivity or an
+acceptance and later requirement fulfilment still require their own
+observations. Neither an execution receipt nor an effort estimate establishes productivity or an
 individual engineer's performance.

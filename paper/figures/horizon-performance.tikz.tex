@@ -14,7 +14,7 @@
     at (17mm,80mm) {\HorizonFinding};
   \node[anchor=base west,inner sep=0pt,text=horizonGrey,
         font=\sffamily\fontsize{8}{10}\selectfont]
-    at (17mm,74.5mm) {Observed machine timings on generated records};
+    at (17mm,74.5mm) {Measured run times on generated age--weight pairs};
   \begin{axis}[
       at={(17mm,16mm)},anchor=south west,
       width=100mm,height=51mm,scale only axis,
@@ -23,7 +23,7 @@
       xtick={1,10,100,1000},xticklabels={1,10,100,{1,000}},
       ytick/.expanded=\HorizonYticks,
       yticklabels/.expanded=\HorizonYticks,
-      xlabel={Queries over the same cohort (log scale)},
+      xlabel={Queries on the same arrays (log scale)},
       ylabel={Total elapsed time (ms, log scale)},
       tick label style={font=\sffamily\fontsize{8}{10}\selectfont,text=horizonInk},
       label style={font=\sffamily\fontsize{8}{10}\selectfont,text=horizonInk},
@@ -55,5 +55,5 @@
   \end{axis}
   \node[anchor=base west,inner sep=0pt,text=horizonGrey,
         font=\sffamily\fontsize{8}{10}\selectfont]
-    at (17mm,1.2mm) {Medians and observed ranges; build and disposal included.};
+    at (17mm,1.2mm) {Medians and run ranges. Index build and disposal included.};
 \end{tikzpicture}%

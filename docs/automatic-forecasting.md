@@ -6,7 +6,7 @@ classification, acceptance rubric or manual coverage attestation. Configure the
 repository portfolio and credential once, then run the command through an
 existing scheduler.
 
-The endpoint is the number of PRs merged in the selected repositories during a
+The forecast outcome is the number of PRs merged in the selected repositories during a
 specified UTC period. A PR counts once, identified by numeric repository ID and
 PR number. PRs opened during the target count, as do previously closed PRs that
 reopen and merge. A zero open backlog therefore does not imply zero future
@@ -48,8 +48,8 @@ Each run performs these operations:
 
 Standard output contains `forecast`, `current_pressure` and
 `previous_forecast_scores`. A bundle retains its original snapshot, derived
-history, model/version, method, training bins, distribution and declared issue
-time. Existing forecast and score files are not overwritten. Preserve the state
+history, model/version, method, training periods, distribution and declared
+forecast creation time. Existing forecast and score files are not overwritten. Preserve the state
 directory and bundles for reproducibility.
 
 The command's receipt records its locally declared creation time. Content hashes
@@ -133,8 +133,8 @@ The projection distinguishes three clocks:
 
 - `snapshot_cut` is the acquired-knowledge and forecast-issuance cut.
 - `observed_cut`, exposed as forecast `data_cutoff`, is the earliest start of the
-  latest selected repository scans. Only bins ending by this conservative common
-  boundary can be complete training observations.
+  latest selected repository scans. Only periods ending by this conservative common
+  boundary can supply complete training counts.
 - Each repository retains its collection start and completion times. The combined
   inventory is assembled over that interval, not observed simultaneously.
 

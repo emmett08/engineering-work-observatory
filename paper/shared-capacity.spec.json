@@ -23,7 +23,7 @@
       "id": "case",
       "path": "figures/shared-capacity/inputs.json",
       "status": "illustrative",
-      "source_reference": "Constructed two-task example in article/partial-identification.tex Sections 4.1\u20134.2, at manuscript baseline 38c4ce40b789d4c5420c98ff1d568b39c3b1e798. The midpoint is selected for one illustrative full-attention schedule.",
+      "source_reference": "Constructed two-task example in article/partial-identification.tex Sections 4.1–4.2, at manuscript baseline 38c4ce40b789d4c5420c98ff1d568b39c3b1e798. The midpoint is selected for one illustrative full-attention schedule.",
       "sha256": "32de0c0d07a278623a0358ec08cccb1ddae992812009c2f79714d3ffae799dff"
     },
     {
@@ -38,14 +38,14 @@
       "path": "figures/shared-capacity/caption.tex",
       "status": "derived",
       "source_reference": "Caption explains the illustrative inputs, plotted quantities, feasible allocations and limits of the example.",
-      "sha256": "c5f40a53acde60d3a026646b989e402c740feaf1a623d4fbbbc672aea882e1e3"
+      "sha256": "f3b7072c0f31aabe6a777394be7971c35f9aabdbc45fdc41ceb3d3490bb7132c"
     },
     {
       "id": "alternative-text",
       "path": "figures/shared-capacity/alt-text.txt",
       "status": "derived",
       "source_reference": "Accessible description of the two plotted projections and their limitations.",
-      "sha256": "dd6ca79d69910133f448b84b7843b1d0a57c9afcf27c70306f7982a05bf4427d"
+      "sha256": "2a4e0e94a41d8ca4fb8f9cbf84fd22f905d155bbdac74102bacca1f3f4b109a0"
     }
   ],
   "quantities": [
@@ -302,7 +302,7 @@
       ],
       "scale_or_mapping": {
         "type": "linear",
-        "definition": "Time axis 0\u20132 hours, 27 mm per hour. Each task interval spans half an hour. Interval bars are data marks, not diagram nodes.",
+        "definition": "Time axis 0–2 hours, 27 mm per hour. Each task interval spans half an hour. Interval bars are data marks, not diagram nodes.",
         "domain": [
           0,
           2

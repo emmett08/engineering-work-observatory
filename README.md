@@ -22,11 +22,15 @@ and [three ranked alternatives](paper/review/ranked-automatic-model-alternatives
 They also preserve the original measurement draft, its Lean evidence, and the
 separate article on labour identification and design-based estimation.
 
-The separate study-accounting path measures human effort, elapsed acceptance
-time and retained requirement output from explicit observations. Repository
-activity alone does not establish those quantities, an AI causal effect or a
-staffing requirement. The [measurement protocol](docs/measurement-protocol.md)
-defines that path; it is not a prerequisite for automatic forecasting.
+The separate study-accounting path measures human labour in person-hours,
+elapsed time to first acceptance and a weighted score. For a task accepted by
+the deadline, the weighted score is its initial reference score multiplied by the
+fraction of its accepted requirement still satisfied at an assessment a chosen
+duration after first acceptance.
+Tasks that miss the deadline receive a score of zero. Repository activity alone
+leaves these quantities unresolved. The
+[measurement protocol](docs/measurement-protocol.md) defines the required
+observations. Automatic forecasting runs independently of this study path.
 
 The [engineer's presentation](docs/presentations/observatory-model/README.md)
 explains execution evidence, human-work measurement and the separate forecast
@@ -100,10 +104,15 @@ cargo run --locked -- bound-labour examples/joint-labour-bounds.json
 cargo run --locked -- estimate-labour examples/model-assisted-labour-v2.json
 ```
 
-`bound-labour` returns exact attainable extrema and allocations satisfying the
-interval observations and shared person capacity. `estimate-labour` uses frozen
-predictions with probability-sampled allocations. Its v2 input also validates
-the declared person-interval partition. Both commands run offline without
+`bound-labour` returns the exact minimum and maximum labour totals compatible
+with the interval observations and each person's available time, together with
+allocations achieving both limits. `estimate-labour` corrects a predicted total
+using labour observed in randomly selected time intervals for individual people.
+For each selected interval, the correction is observed labour minus predicted
+labour, divided by that interval's known selection probability.
+Predictions are calculated before sampling and remain unchanged whichever
+sample is selected. Its v2 input also checks that the intervals partition each
+person's declared observation period. Both commands run offline without
 creating an evidence store. Their [identification](docs/labour-identification.md)
 and [sampling](docs/design-based-estimation.md) contracts state the different
 guarantees and measurement assumptions.
@@ -134,9 +143,10 @@ cargo run --locked -- analyse reports/demo-snapshot.json --output reports/demo
 cargo run --locked -- verify
 ```
 
-Open `reports/demo/index.html`. The example is synthetic: 0.75 retained task
-equivalents / 5 person-hours = 0.15 task equivalents per person-hour. It includes
-an abandoned task's sampled effort. Sampling variance is unavailable, as the report
+Open `reports/demo/index.html`. The synthetic tasks' weighted scores sum to
+0.75 task equivalents, with total labour of 5 person-hours. Their ratio is 0.15
+task equivalents per person-hour. The labour estimate includes an abandoned
+task's sampled work. Sampling variance is unavailable, as the report
 states. Reimporting adds no duplicate facts. Snapshot and report paths must be new.
 
 ## Collect repository evidence
@@ -230,9 +240,10 @@ never become development-session identities.
 ## Record a real study
 
 These measurements belong to the optional study-accounting path. The default
-scope rule assigns zero protocol credit when scope changes before the fixed
-labour horizon closes; the measurement protocol explains the original-scope
-reporting option and its distinction from the paper's retention endpoint.
+scope rule sets the reported weighted score to zero when scope changes before
+the fixed end of labour observation. The measurement protocol also defines an
+option that reports the paper's weighted score for the original requirement
+despite later scope changes.
 
 Each JSONL row follows `{"id":"stable-id","kind":"task","data":{...}}`.
 `{"schema":"observatory.bundle/1","records":[...]}` JSON is also accepted.
@@ -253,15 +264,17 @@ cannot be correction targets. See the [correction contract](docs/data-contract.m
    exceed one; pair work counts both people.
 3. Record acceptance separately from merge/deployment, and abandonment separately
    from loss of observation.
-4. Assess every counted accepted requirement after follow-up, against the frozen
-   rubric. Missing assessment is explicit; passing CI does not imply retention=1.
+4. Reassess every counted accepted requirement after the chosen time since first
+   acceptance, using the same assessment criteria. Record how much of the
+   requirement is still satisfied. An absent assessment remains unknown.
 5. Use `coverage` records to attest the actual lifecycle/effort observation frames.
    A few intervals do not establish a complete census. Sampled frames need known
    inclusion probabilities and recorded nonresponse.
 
-For a 30-day deadline and 30-day follow-up, acceptance on day 2 means retention
-assessment on day 32, but labour collection still ends on day 60 from enrolment.
-Acceptance on day 40 yields zero deadline output while retaining labour.
+For a 30-day acceptance deadline and reassessment 30 days after acceptance, a
+task accepted on day 2 is reassessed on day 32. Labour is still counted through
+day 60 from enrolment. A task accepted on day 40 receives a weighted score of
+zero for the day-30 deadline and still contributes labour through day 60.
 Productivity is `sum(Q)/sum(H)`, including unsuccessful work, with positive total
 labour required. Probability-sampled labour uses Horvitz–Thompson point estimates;
 the software does not invent confidence intervals without the sampling design.
@@ -271,29 +284,30 @@ With complete direct coverage, reports also give conditional labour bounds for
 boundary-crossing averages. Each interval uses its person's attention capacity;
 the reported task and cohort sums are conservative because shared allocations
 can couple intervals. These deterministic ranges are separate from sampling
-uncertainty. Known retained output and a positive lower labour bound also permit
-a conditional cohort productivity range. An unavailable exact total remains
+uncertainty. A known sum of weighted scores and a positive lower labour bound
+also permit a conditional cohort productivity range. An unavailable exact total remains
 unavailable; exported bounds disclose floating-point approximation without
 outward rounding.
 
 This descriptive study path audits every counted accepted requirement. Quality
 subsampling, assignment-weighted causal inference and prediction of labour or
-retained output are outside its contract. The automatic forecasting module has
-its own observable PR-count endpoint. See the
+weighted scores are outside its contract. The automatic forecasting module has
+its own observed outcome, the number of merged pull requests. See the
 [measurement protocol](docs/measurement-protocol.md).
 
 ## Estimate labour with frozen predictions
 
-The standalone estimator combines predictions for a complete person-interval frame
-with probability-sampled labour observations. It leaves the evidence store and
-cohort reports unchanged:
+The standalone estimator starts with predictions for every time interval in a
+complete list of people and observation periods. It corrects their total using
+labour measured in randomly selected intervals with known selection probabilities.
+The evidence store and cohort reports remain unchanged:
 
 ```sh
 cargo run --locked -- estimate-labour examples/model-assisted-labour.json
 ```
 
-The manufactured example has a prediction total of 4 person-hours, an HT estimate
-of 6, and a difference estimate of 5.5. The difference estimator adds the
+The synthetic example has a predicted total of 4 person-hours, a Horvitz–Thompson
+(HT) estimate of 6, and a difference estimate of 5.5. The difference estimator adds the
 sampling-weighted observed prediction errors to the full-frame prediction total.
 Predictions must be fixed before evaluation sampling; the JSON requires their
 provenance, a complete-frame attestation, inclusion probabilities, and explicit
@@ -320,8 +334,9 @@ cargo run --locked -- analyse reports/cut-20261029.json \
 cargo run --locked -- simulate examples/retry-scenario.json
 ```
 
-Historical cuts use observation time: collecting an old event today does not make
-it available in yesterday's cut. Snapshots fix membership, source hashes,
+Historical cuts use observation time. An event collected after a cut remains
+outside that cut even when the event itself occurred earlier. Snapshots fix
+membership, source hashes,
 protocols and build identities. Reports identify both snapshot producer and
 current analyser revisions. Snapshot inputs for `analyse`, `forecast-snapshot`
 and `score-forecast` use buffered JSON reading without the 128 MiB per-import

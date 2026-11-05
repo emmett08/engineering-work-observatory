@@ -1,8 +1,9 @@
 # Shared capacity and first-hour labour
 
-This figure uses the constructed two-task example in Section 4.1: one person
-spends one person-hour on each task during two hours. Separate first-hour bounds
-are `[0,1]`; capacity in both hours forces their combined total to one person-hour.
+In the hypothetical example from Section 4.1, one person spends one person-hour
+on each of two tasks during two hours. The separate first-hour bounds are
+`[0,1]`. Accounting for the person's available time in both hours restricts the
+combined first-hour total to one person-hour.
 
 ## Source and design
 
@@ -15,14 +16,14 @@ are `[0,1]`; capacity in both hours forces their combined total to one person-ho
 - `../../shared-capacity.spec.json`: quantities, sets, encodings, input status,
   physical target and dependencies.
 - `figure.audit.json` and `figure.review.json`: current source, inputs, caption
-  and PDF hashes, bounded mechanical checks and separate agent review.
+  and PDF hashes, specified automated checks and separate agent review.
 
 The side-by-side layout leads from the constraint geometry to the combined total.
 The added panel (c) marks `P=(0.5,0.5)` on the same diagonal and supplies one
-attaining schedule: A for the first half-hour, B for the next, then A and B for
+schedule that achieves those totals: A for the first half-hour, B for the next, then A and B for
 another half-hour each. Every task receives one person-hour over the two hours,
-including half a person-hour in the first hour. The timeline assumes arbitrary
-interruption. It does not identify an observed or unique history.
+including half a person-hour in the first hour. The timeline assumes the person can switch tasks at any instant. It describes
+a hypothetical allocation, and other schedules yield the same totals.
 
 `prototypes/compact-timeline.tikz.tex` and its PDF retain the compact composition;
 `prototypes/bottom-timeline.tikz.tex` and its PDF retain a 112 mm-high alternative
@@ -33,13 +34,14 @@ of height without revealing another quantity. Both use the same point, intervals
 and type sizes. The earlier `stacked` prototype remains a historical comparison
 of the two-panel figure, rather than an alternative for the current three panels.
 
-The square contains pairs permitted by separate bounds; the diagonal contains
-jointly feasible pairs. The capped interval and diamond show the sum projections
-`[0,2]` and `{1}`. These are deterministic sets, with no probability or
-empirical-frequency meaning. A point alone gives interval totals. Panel (c)
-adds a particular complete schedule whose integrals equal the marked totals.
-Task identities remain directly labelled A and B in greyscale; the bars encode
-elapsed time, not probability or the number of people.
+The square contains pairs permitted by separate bounds. The diagonal contains
+pairs that also satisfy the person's capacity limit in both hours. Adding the
+two task totals produces the combined first-hour ranges `[0,2]` and `{1}`, shown
+by the capped interval and diamond. These sets describe possible labour totals
+under the constraints. They assign no probabilities or observed frequencies to
+those totals. Each point gives totals for the two tasks. Panel (c) adds a
+schedule that achieves the marked totals.
+Tasks remain directly labelled A and B in greyscale. The bars show elapsed time.
 
 ## Build and check
 
@@ -63,18 +65,16 @@ rational reconstruction checks 1,089 grid pairs: 33 feasible, 528 violating
 first-hour capacity and 528 violating second-hour capacity, plus three explicit
 feasible schedules and four rejected pairs. The continuum result follows from
 the two capacity inequalities; finite checks do not replace that argument.
-The midpoint timeline is derived from its exact cell masses. Separate overlap
-integration checks both whole-task totals, both first-hour totals and their
-combined first-hour total. The four blocks are positive, disjoint and consecutive,
+The midpoint timeline follows from the exact labour totals in its time cells.
+Integrating the allocation over the relevant intervals checks both whole-task
+totals, both first-hour totals and their combined first-hour total. The four blocks are positive, disjoint and consecutive,
 covering the observation interval at full attention. Their endpoints and task
 identity are retained in `calculation.json`, with generated TeX interval lists.
 
 `render.py` records PDF dimensions, text/stroke floors, vector content, expected
 labels, actual local TeX inputs and hashes. `verify.py` checks schemas, typed
-references and artifact/review freshness. The skill schemas were available but
-its bundled scripts were unavailable. These are explicitly project-local bounded
-checks adapted from the existing figure workflow, without claiming the unavailable
-tools' full coverage.
+references and artifact/review freshness. The original external validation scripts were unavailable. These project-local
+checks use the available schemas and report only their implemented coverage.
 
 The standalone class warns that shell escape is disabled. Ordinary TikZ rendering
 needs no external commands; the warning is accepted without enabling shell escape.

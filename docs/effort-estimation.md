@@ -38,8 +38,8 @@ for the whole batch. Links are task associations, not observed effort.
 
 Each batch declares a participant roster and one contiguous observation window
 per person. Fixed intervals partition those windows, including intervals with
-quiet, missing or ambiguous activity. Overlapping devices do not multiply a
-person's time. Task attribution conflicts stay unattributed rather than being
+no detected input, unavailable sources or ambiguous task attribution. Overlapping
+devices do not multiply a person's time. Task attribution conflicts stay unattributed rather than being
 split arbitrarily or assigned to the most recent commit.
 
 The declared frame is distinct from telemetry coverage. `frame_complete: true`
@@ -48,9 +48,10 @@ that every activity source was available. Do not infer roster completeness from
 the people who happened to produce GitHub events. Work outside those windows
 is outside the estimate.
 
-The baseline `activity-proxy-v1` uses recognised context overlapping non-AFK
-activity. This is a reproducible prediction rule, not an observed allocation of
-attention. Automation categories are excluded. Build activity can contribute to
+The baseline `activity-proxy-v1` uses recognised task context during periods
+that ActivityWatch classifies as being present at the keyboard. This reproducible
+prediction rule still requires observations of actual time allocation for
+calibration. Automation categories are excluded. Build activity can contribute to
 the proxy only under the configured attended-waiting convention; that convention
 does not establish that someone actually attended a build. Reading or thinking
 with no input can still be work; a missing source is not an observed zero. The
@@ -67,9 +68,9 @@ python3 instrumentation/effort.py --help
 
 Install [ActivityWatch](https://docs.activitywatch.net/en/latest/introduction.html)
 on participating machines. It stores activity locally and exposes a local API.
-Select its AFK bucket and compatible editor or browser context buckets in the
-configuration. The collector does not install watchers or infer which people
-have consented to participate.
+Select its away-from-keyboard (AFK) event bucket and compatible editor or
+browser context buckets in the configuration. The collector does not install
+watchers or infer which people have consented to participate.
 
 The default active-window watcher supplies application/window titles, which this
 collector does not retain or interpret as tasks. Default window and AFK watchers
@@ -247,7 +248,9 @@ python3 instrumentation/effort.py proxy \
   --output private/proxy.json --markdown private/proxy.md
 ```
 
-The statistical calculation is:
+The estimator corrects the predicted total using differences between observed
+and predicted person-hours in the selected intervals. Each difference is divided
+by that interval's selection probability:
 
 ```text
 estimated total = prediction total + sampling-weighted observed prediction errors
@@ -266,7 +269,8 @@ retaining an unchanged unbiasedness claim.
 These files remain separate from direct `effort` study records and the frozen
 cohort report. A prediction does not become an observed person-hour allocation.
 Passing tests and completing a PR do not supply requirement acceptance or
-retained quality. Those observations are still needed for productivity claims.
+evidence that the accepted requirement is still satisfied at reassessment.
+Those observations are still needed for productivity claims.
 
 ## Automation and validation
 
@@ -313,7 +317,7 @@ python3 examples/effort/replay.py \
 ```
 
 The fixture has two fictional participants, two issues, overlapping devices,
-quiet periods, an automation category, unattributed context and a missing
+periods without detected input, an automation category, unattributed context and a missing
 bucket. A separate manufactured truth file supplies selected responses only
 after predictions and sampling have been saved. The replay checks proxy and
 sample-adjusted reporting, missingness and capacity handling. Its files and

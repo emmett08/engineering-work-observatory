@@ -1,26 +1,25 @@
 {
   "schema": "current-manuscript-concordance/1",
   "repository_relative_path": "paper/article/partial-identification.tex",
-  "sha256": "2f80edf947e643d906f3de38b5f1c3671c6c21b646c8f95eb5d7557ca45e55ff",
+  "sha256": "f5812c85b785e3841d90e02f1ae02a7ca899478b78a225f79f6f79e3b17db52a",
   "frozen_target": {
     "path": "targets/partial-identification.tex",
     "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
     "origin_commit": "38c4ce40b789d4c5420c98ff1d568b39c3b1e798"
   },
   "independent_review": {
-    "reviewer": "/root/reapplication_review",
+    "reviewer": "/root/independent_fidelity",
     "outcome": "MATHEMATICAL_STATEMENTS_UNCHANGED",
     "report": {
       "path": "evidence/current-manuscript-editorial-review.md",
-      "sha256": "583bc17e768a733b5d7f4689b9205fc72d2b20511cee89bf33e39d8edaa58abe"
+      "sha256": "441c6cec2fae10df4fdf5a87f663d34c7b4a64e79ab4763f53cb2bf8d659849f"
     },
     "differences": [
-      "A complete skill reapplication reviews seven text sources and the figure caption, retaining the timing subsection unchanged.",
-      "Explanations distinguish score assignment, labour accounting, measurement, sampling uncertainty and causal attribution.",
-      "Valid bounds, joint attainment and match-based optimality are explained separately.",
-      "All mathematical spans, full propositions/proofs and ordered protected commands retain baseline bytes; caption mathematics and figure data are unchanged."
+      "The reference score, fulfilment fraction, deadline-gated weighted score, team score ratio and computed return values have distinct contextual descriptions.",
+      "Commit/commits tokens retain exact text and order; whole-word output/outputs occurrences are zero in the audited paper and figure prose.",
+      "Every existing mathematical expression is preserved in order. One explanatory deadline inequality and four equivalent formal-block prose labels are documented in the independent report."
     ],
-    "statement_preservation": "Independent whole-paper source and editorial review preserves the supported mathematical claims, qualifications and citation scope against f592447043636288b94964363a2feed56f7d5603. The frozen target, Lean sources and historical evidence are unchanged."
+    "statement_preservation": "Independent review against public revision 5215d6a9b19e7ee20a9f06b3562a6bd5e231b6bc, with all nine original source blob hashes verified through GitHub, preserves mathematical claims, qualifications and citation scope. The frozen target, Lean sources, checker scripts and historical proof evidence are unchanged."
   },
   "invalidation": "A current-article byte change requires renewed current concordance/hash binding. A proof-source change requires renewed proof/source review and checking. This record does not identify current bytes with frozen target bytes."
 }

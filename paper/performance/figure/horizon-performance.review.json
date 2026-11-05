@@ -1,18 +1,18 @@
 {
   "schema_version": "1.0",
   "figure_id": "horizon-performance",
-  "spec_sha256": "a2fb4c121749ebd07e99608614558e1c2ae5dede8cb3da4c649002d3bb606d8d",
-  "audit_sha256": "2da0d47e3b6539300b8a7c6695290b10708abacf65d3754f00fe0677049f1ed2",
+  "spec_sha256": "4e1f1bfd2abef4ccd872ac1ceca2d81fe0eb52bae5eabc7b39aecd71f775dde8",
+  "audit_sha256": "5f6d5486caa820592e51c8eb15f33f59552e93b96f7131c6d551107424dd54e4",
   "artifacts": [
     {
       "role": "final_pdf",
       "path": "figures/horizon-performance.pdf",
-      "sha256": "de26f596057b7d02c282fd2e1766784e4dba0c475f21d77c2ec0d3a65e7d68b0"
+      "sha256": "344026f144bc7e163c0703791a71d06a2c40d995cd3de933b5065e9860c1363f"
     },
     {
       "role": "prototype",
       "path": "figures/horizon-performance.pdf",
-      "sha256": "de26f596057b7d02c282fd2e1766784e4dba0c475f21d77c2ec0d3a65e7d68b0"
+      "sha256": "344026f144bc7e163c0703791a71d06a2c40d995cd3de933b5065e9860c1363f"
     },
     {
       "role": "prototype",
@@ -21,7 +21,7 @@
     }
   ],
   "reviewer": {
-    "id": "/root/reconstruct_figures/figure_reader",
+    "id": "/root/figure_wording_review",
     "kind": "agent",
     "independence_declared": true,
     "scope": "agent_screening"
@@ -101,9 +101,16 @@
       {
         "id": "integration-scope",
         "severity": "informational",
-        "description": "This independent review covers the standalone figure plus caption.",
+        "description": "Current independent agent screening covers the rebuilt standalone figure and revised caption.",
         "disposition": "accepted",
-        "reason": "Full manuscript-page inspection belongs to the parent integration review and is not claimed by this record."
+        "reason": "The current reviewer checked layout, wording, caption/generator agreement and descriptive aggregation against the saved CSV. Historical prototype comparison and measurement provenance remain outside this review; no human comprehension result is claimed."
+      },
+      {
+        "id": "caption-two-stage-wording",
+        "severity": "informational",
+        "description": "The caption distinguishes weighted-score/labour calculations, generated numeric pairs and measured execution times.",
+        "disposition": "resolved",
+        "reason": "Independent agent /root/figure_wording_review checked the current caption, confirmed its generator reproduces it, verified the 60 saved timing pairs and four/eleven split at ten queries, and inspected a fresh render that is pixel-identical to the prior reviewed image. Data, coordinates and the retained standalone PDF are unchanged."
       }
     ],
     "audit_warning_dispositions": [
@@ -119,6 +126,6 @@
     "Human interpretation benefit remains unmeasured by agent screening.",
     "Acceptance is bounded to the figure and caption using the reported project-local checks, not the unavailable bundled skill validation.",
     "The generated workload and one recorded execution environment do not establish production performance, human effort savings or AI-policy effects.",
-    "Full manuscript-page inspection is recorded separately by the parent integration reviewer."
+    "Current independent agent screening covers the revised standalone render and caption. Prototype comparison, benchmark reproduction, measurement provenance and human comprehension testing remain outside that screening."
   ]
 }
