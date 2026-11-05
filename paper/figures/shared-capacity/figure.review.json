@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "figure_id": "shared-capacity",
-  "spec_sha256": "5eb1644e65a95cf0112e8ba0dc7e46a65ef2dd6beac6a2f4648b1e3de8264e7d",
-  "audit_sha256": "1b4a422c7843142da461b3ae8fd3935d2392aa2cd856fd4ac38b5a7605409d57",
+  "spec_sha256": "197c9e9ea781032e72d10a99980e1adcb2a234e695baf9f07bd978b70830c10d",
+  "audit_sha256": "e62d81d1380d4ab39667724375718af62d50fe793538f45428a59b54ff5914ca",
   "artifacts": [
     {
       "role": "final_pdf",
@@ -96,6 +96,13 @@
         "description": "The caption retained two prose colons and two semicolons.",
         "disposition": "resolved",
         "reason": "Independent source reviewer /root/reapplication_review checked the rewritten caption against the baseline and manuscript. It preserves the separate bounds, joint diagonal, constructed schedule and evidential limitations. The figure geometry and standalone PDF are unchanged."
+      },
+      {
+        "id": "caption-two-stage-wording",
+        "severity": "informational",
+        "description": "The current caption has received the requested plain-word pass followed by engineering-explanation revision.",
+        "disposition": "resolved",
+        "reason": "The authoring assistant checked the revised caption against its exact baseline and the rendered article. It preserves every mathematical quantity and the distinction between separately permitted totals, joint capacity and one possible schedule. The listed independent reviewer assessed the historical figure, not this new wording. The image, geometry and underlying numerical inputs remain byte-identical."
       }
     ],
     "audit_warning_dispositions": [
@@ -111,6 +118,7 @@
     "Human interpretation benefit remains unmeasured by agent screening.",
     "The semantic reader did not independently execute the mathematical calculation or certify the general reconstruction proof. Exact calculation checks are a separate evidence item.",
     "The skill schemas were available, but its bundled renderer/validator scripts were unavailable; project-local checks retain their declared bounded coverage.",
-    "The aggregate is exact because this constructed case saturates two hours of one person\u2019s capacity. That conclusion does not apply to every shared-capacity system."
+    "The aggregate is exact because this constructed case saturates two hours of one person\u2019s capacity. That conclusion does not apply to every shared-capacity system.",
+    "The 5 November caption revision has author review only. The historical independent reviewer and candidate comparison apply to the unchanged figure image and the earlier caption. No new independent or human comprehension result is claimed."
   ]
 }

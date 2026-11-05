@@ -1,12 +1,12 @@
 \subsection{The acceptance deadline and observation periods}
 \label{sec:event-history}
 
-Why do output assessment and labour recording end at different task ages? Output is checked a fixed duration after acceptance, while labour is counted through a common task age. These choices determine which delivered requirements and which person-hours enter the productivity ratio.
+Why do the output check and the labour total use different end times? Output is assessed a fixed time after each task's first acceptance. Labour is counted to the same age for every task, so the total includes work on tasks still unfinished or already abandoned. The labour cutoff therefore stays independent of acceptance time.
 
-Use the acceptance deadline $\tau$ to decide which tasks qualify for the output calculation. For a task accepted in time, assess requirement fulfilment at task age $T_i+\Delta$, using first acceptance as the start of follow-up. Count labour through task age $\tau+\Delta$ for every task, including unfinished and abandoned tasks. A complete task history must therefore include the acceptance record, the follow-up assessment and all attributable repair work within the labour observation period.
+The deadline $\tau$ determines which tasks qualify for output. For a task accepted by that deadline, assess requirement fulfilment at age $T_i+\Delta$. For every task, count labour through age $\tau+\Delta$, including work on unfinished and abandoned tasks. A complete history therefore needs the acceptance record, the follow-up assessment where applicable and all attributable repair within the labour observation period.
 
-Figure~\ref{fig:task-clocks} shows the two endpoints for an illustrative accepted task. Adding $s_i$ to each task age gives its calendar time, allowing the task's labour to be combined with other tasks sharing the same people.
+Figure~\ref{fig:task-clocks} shows the output assessment time and the period included in the labour total for an example task. Adding $s_i$ converts task age to calendar time. This conversion lets us combine the task's labour with work on other tasks that use the same people's time.
 
 \input{../figures/task-clocks}
 
-Complete follow-up can still leave several labour allocations consistent with the records. A record \emph{point-identifies} realised labour when at least one time allocation is consistent with the recorded observations and model constraints, and every such allocation gives the same total. Here the question concerns the labour in a recorded history. Proposition~\ref{prop:nonidentification} instead asks whether the probability distribution of observed events uniquely determines a population parameter. The next section derives the smallest and largest labour totals consistent with interval observations.
+Complete follow-up can still allow several allocations of human time. A record \emph{point-identifies} realised labour when at least one allocation fits the observations and model constraints, and every such allocation gives the same total. This asks how much labour occurred in the recorded history. Proposition~\ref{prop:nonidentification} asks a different question, whether the distribution of observed events uniquely determines a population parameter. The next section derives the smallest and largest totals allowed by interval observations.

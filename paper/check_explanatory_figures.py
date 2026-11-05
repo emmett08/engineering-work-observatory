@@ -2,7 +2,7 @@
 """Check the quantities actually plotted in the paper's explanatory figures.
 
 Run from any directory with Python 3. No third-party packages are required.
-These checks concern the constructed examples, not workplace measurement.
+These checks concern the illustrative examples and their time order.
 """
 from fractions import Fraction
 from itertools import combinations
@@ -40,21 +40,68 @@ class ExplanatoryFigureChecks(unittest.TestCase):
                              variance)
         self.assertLess(observed[2][0], 0)
 
-    def test_human_time_uses_non_overlapping_blocks(self):
+    def test_human_work_and_execution_follow_the_same_timeline(self):
         source = (ROOT / "figures/human-and-workflow-time.tex").read_text()
-        blocks = re.findall(
-            r"\\fill\[black!\d+\] \((\d+),34\) rectangle \((\d+),42\);",
-            source,
+        times = {
+            name: Fraction(value)
+            for name, value in re.findall(r"\\def\\HT(\w+)\{([\d.]+)\}", source)
+        }
+        self.assertEqual(len(times), 12)
+        self.assertEqual((times["WindowStart"], times["WindowEnd"]), (0, 60))
+        human = ("PromptA", "PromptB", "ReviewB")
+        runs = ("RunA", "RunB")
+        for name in human + runs:
+            self.assertLess(times[name + "Start"], times[name + "End"])
+            self.assertLessEqual(times["WindowStart"], times[name + "Start"])
+            self.assertLessEqual(times[name + "End"], times["WindowEnd"])
+        for before, after in zip(human, human[1:]):
+            self.assertLessEqual(times[before + "End"], times[after + "Start"])
+
+        # A run starts when the corresponding prompt is submitted.
+        for run, prompt in (("RunA", "PromptA"), ("RunB", "PromptB")):
+            self.assertEqual(times[run + "Start"], times[prompt + "End"])
+        # B's completed result is available before its review begins.
+        self.assertGreaterEqual(times["ReviewBStart"], times["RunBEnd"])
+
+        # Check the endpoints used by the plotted rectangles, not only comments.
+        for name, bottom, top in (
+            ("PromptA", 34, 42), ("PromptB", 34, 42), ("ReviewB", 34, 42),
+            ("RunA", 22, 28), ("RunB", 11, 17),
+        ):
+            self.assertIn(
+                "({40+1.75*\\HT" + name + "Start}," + str(bottom) + ")", source
+            )
+            self.assertIn(
+                "rectangle ({40+1.75*\\HT" + name + "End}," + str(top) + ")",
+                source,
+            )
+        labour_minutes = sum(times[n + "End"] - times[n + "Start"] for n in human)
+        run_minutes = sum(times[n + "End"] - times[n + "Start"] for n in runs)
+        overlap_minutes = (
+            min(times["RunAEnd"], times["RunBEnd"])
+            - max(times["RunAStart"], times["RunBStart"])
         )
-        self.assertEqual(len(blocks), 2)
-        scale = Fraction(8, 5)  # millimetres per elapsed minute in the figure
-        intervals = [(Fraction(left) - 43, Fraction(right) - 43)
-                     for left, right in blocks]
-        self.assertEqual([(r - l) / scale for l, r in intervals], [10, 20])
-        self.assertLessEqual(intervals[0][1], intervals[1][0])
-        self.assertEqual(sum((r - l) / scale for l, r in intervals) / 60,
-                         Fraction(1, 2))
-        self.assertEqual(Fraction(139 - 43) / scale, 60)
+        self.assertEqual(labour_minutes, 40)
+        self.assertEqual(run_minutes, 70)
+        self.assertEqual(overlap_minutes, 20)
+        self.assertEqual(labour_minutes / 60, Fraction(2, 3))
+        self.assertEqual(run_minutes / 60, Fraction(7, 6))
+        caption = source.split(r"\caption{", 1)[1]
+        self.assertIn("$2/3$", caption)
+        self.assertIn("$7/6$", caption)
+        prose = (ROOT / "article/main.tex").read_text()
+        self.assertIn("Human labour totals forty minutes", prose)
+        self.assertIn("seventy minutes", prose)
+
+    def test_single_panel_figures_have_no_overall_heading(self):
+        for name in ("human-and-workflow-time", "task-clocks", "sampling-spread"):
+            source = (ROOT / f"figures/{name}.tex").read_text()
+            picture = source.split(r"\begin{tikzpicture}", 1)[1].split(
+                r"\end{tikzpicture}", 1
+            )[0]
+            self.assertNotIn(r"\bfseries", picture)
+            self.assertNotIn("Same average, different sampling uncertainty", picture)
+            self.assertNotIn("Concurrent execution, separate human time", picture)
 
     def test_clock_endpoints(self):
         source = (ROOT / "figures/task-clocks.tex").read_text()

@@ -1,16 +1,16 @@
-% Constructed accepted task: T_i=3 days, tau=14 days, Delta=14 days.
-% Hence output assessment is at day 17, and labour recording ends at day 28.
+% Illustrative accepted task: T_i=3 days, tau=14 days, Delta=14 days.
+% Hence output assessment is at day 17, and the labour total includes work through day 28.
 % Text alternative: acceptance by day fourteen qualifies the task for output;
 % its day-three acceptance starts fourteen-day follow-up. Labour is counted
 % from day zero through day twenty-eight, including work after the output check.
-\begin{figure}[tbp]
+\begin{figure}[htp]
 \centering
 \begin{tikzpicture}[x=1mm,y=1mm,font=\fontsize{9}{11}\selectfont,
   every node/.style={inner sep=1pt,outer sep=0pt}]
   \path[use as bounding box] (0,-8) rectangle (152.4,65);
   \node[anchor=west] at (0,50) {Acceptance};
   \node[anchor=west,align=left] at (0,33) {Output\\follow-up};
-  \node[anchor=west,align=left] at (0,17) {Labour\\recording};
+  \node[anchor=west,align=left] at (0,17) {Labour\\counted};
   \foreach \day in {0,3,14,17,28} {
     \draw[black!30,densely dotted,line width=0.45pt]
       ({42+3.4*\day},7) -- ({42+3.4*\day},53);
@@ -36,7 +36,7 @@
   }
   \node at (89.6,-5) {Task age (days)};
 \end{tikzpicture}
-\caption{\textbf{Output follow-up and labour recording use different starting points.}
-For this illustrative task, first acceptance is at day three and both $\tau$ and $\Delta$ are fourteen days. Output is assessed fourteen days after acceptance, at day seventeen. Labour is counted through day twenty-eight, the common task age $\tau+\Delta$, including attributable work after the output assessment. Lines show observation periods rather than continuous human activity. Adding $s_i$ converts each task age to calendar time.}
+\caption{\textbf{The output check follows acceptance, while labour is counted to a common task age.}
+In this example, the task is accepted on day three and both $\tau$ and $\Delta$ are fourteen days. Its output is assessed on day seventeen, fourteen days after acceptance. Its labour total includes work through day twenty-eight, the common task age $\tau+\Delta$, including any task work after the output check. The solid line marks the period over which labour is summed. Human work may occupy only part of that period. Adding $s_i$ converts task age to calendar time.}
 \label{fig:task-clocks}
 \end{figure}

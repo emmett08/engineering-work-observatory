@@ -4,13 +4,11 @@
 % Text alternative: the three estimators have common mean twelve but different
 % spreads. Without predictions their estimates are 4,8,12,12,16,20. With the
 % first prediction they are 8,12,12,12,12,16; with the second -4,4,12,12,20,28.
-\begin{figure}[tbp]
+\begin{figure}[htp]
 \centering
 \begin{tikzpicture}[x=1mm,y=1mm,font=\fontsize{9}{11}\selectfont,
   every node/.style={inner sep=1pt,outer sep=0pt}]
-  \path[use as bounding box] (0,-9) rectangle (152.4,66);
-  \node[anchor=west,font=\fontsize{9.5}{11.5}\selectfont\bfseries] at (0,63)
-    {Same average, different sampling uncertainty};
+  \path[use as bounding box] (0,-9) rectangle (152.4,58);
   \draw[dashed,line width=0.6pt] (90.8,7) -- (90.8,56);
   \node[anchor=west] at (93,56) {True total $H=12$};
   \node[anchor=west,align=left] at (0,47) {Without predictions\\$f=(0,0,0,0)$};
@@ -33,7 +31,7 @@
   }
   \node at (90.8,-6) {Estimated total labour (person-hours)};
 \end{tikzpicture}
-\caption{\textbf{Unbiased estimates can have very different spreads.}
-In the constructed example $y=(0,2,4,6)$, each dot represents one of the six equally likely samples of two person-intervals. Duplicate estimates are stacked vertically. All three estimators average to the true total of twelve person-hours. The first prediction reduces the spread compared with estimation without predictions. The second increases it and can produce a negative estimate. These are exact enumerations for the stated example, with no workplace observations.}
+\caption{\textbf{The estimates have the same average but different sampling spreads.}
+For the hypothetical labour values $y=(0,2,4,6)$, each dot shows the estimated total from one of the six equally likely samples of two person-intervals. Dots at the same value are stacked so every sample is visible. Each row averages to the true total of twelve person-hours. Predictions $f=(1,3,3,5)$ reduce the spread relative to estimation without predictions. Predictions $f=(6,4,2,0)$ increase it and can produce a negative estimate. The figure shows all possible sampling outcomes for these values.}
 \label{fig:sampling-spread}
 \end{figure}
