@@ -1,0 +1,27 @@
+name: Paper wording revision
+on:
+  push:
+    branches: [codex/paper-hypophora-visuals-20261105]
+    paths:
+      - '.github/workflows/paper-wording-revision.yml'
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-26.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: 0f820e6b0dac8f7f69f165ecf9a7a78becf37417
+      - name: Export exact manuscript sources and repository instructions
+        run: |
+          mkdir -p export
+          git archive --format=tar.gz --output=export/source.tar.gz HEAD paper .github
+          find . -name AGENTS.md -not -path './.git/*' -print -exec cat {} \; > export/repository-instructions.txt
+          git rev-parse HEAD > export/source-revision.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: paper-wording-baseline
+          path: export/
+          retention-days: 3
