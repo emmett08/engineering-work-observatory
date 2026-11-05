@@ -27,6 +27,7 @@ formal:
 check:
 	$(MAKE) -C effort-speed-ai check
 	$(PYTHON) figures/shared-capacity/verify.py --review
+	$(PYTHON) check_explanatory_figures.py
 	$(PYTHON) check_measurement_examples.py
 	$(PYTHON) check_sharp_identification.py
 	$(PYTHON) review/mas-model-2026-11-01/calculations/check_model.py --check
