@@ -16,11 +16,10 @@ The [engarg and eal-mcp worked use case](docs/use-cases/engarg-eal-daily-2026-10
 applies the model to fresh public evidence, retains an original daily forecast,
 and reports insufficient weekly history and adverse retrospective checks.
 
-The [papers and reproducibility files](paper/README.md) include the new
-[automatic forecasting companion](paper/forecasting/automatic-throughput-forecasting.pdf)
-and [three ranked alternatives](paper/review/ranked-automatic-model-alternatives.md).
-They also preserve the original measurement draft, its Lean evidence, and the
-separate article on labour identification and design-based estimation.
+The research paper asks how much human work goes into AI-assisted software when
+several tasks compete for the same person's time. It derives attainable bounds,
+estimates person-hours from a probability sample and specifies how teams can test
+labour forecasts on later tasks. [Read the paper and its reproducibility guide](paper/README.md).
 
 The separate study-accounting path measures human effort, elapsed acceptance
 time and retained requirement output from explicit observations. Repository

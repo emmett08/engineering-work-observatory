@@ -93,7 +93,7 @@ two retrospective, potentially dependent origins. These checks expose poor
 recent agreement and do not establish historical source availability or
 prospective predictive skill.
 
-The [original 29 October forecast](../../../paper/forecasting/examples/README.md)
+The [original 29 October forecast](../../../examples/forecasting/README.md)
 was also scored against the new snapshot. It remains **pending**, with no
 outcome or loss: its 30 October target ends at 31 October 00:00 UTC, beyond the
 new common data cutoff. [prior-forecast-scores.json](prior-forecast-scores.json)

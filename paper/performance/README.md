@@ -1,9 +1,8 @@
 # Repeated cohort-horizon queries
 
-This new, bounded optimisation example compares a direct scan with an immutable
+This optimisation example compares a direct scan with an immutable
 sorted prefix index. It implements discrete accounting queries related to the
-paper's retained-output ratio. It is not an implementation of the paper's proposed
-empirical study, the preserved original supplement, or a measure of AI effects.
+paper's retained-output ratio. It measures query runtime on generated records.
 
 ## Contract and units
 
@@ -103,9 +102,7 @@ write into retained results. This validates the row protocol and output handling
 it does not independently verify a collection manifest's raw-data hash.
 
 The retained 29 October experiment was collected with `run_benchmarks.py` and
-summarised with `summarise.py`. Those hash-bound source files, all seven recorded
-source hashes, the published 60 pairs, and the figure's input bindings are
-preserved. The old collector's fixed executable path does not support arbitrary
+summarised with `summarise.py`. The experiment retains all seven source hashes and 60 paired measurements. The old collector's fixed executable path does not support arbitrary
 Cargo target configuration; no such mismatch was found in the retained evidence.
 Future collection uses the successor instead of moving or replacing `results/`.
 `python3 summarise.py` remains the frozen summariser for the retained observations.
@@ -133,8 +130,6 @@ and `weight mod 1000001`; subsequent outputs produce query horizons `mod 1441`.
 The fixed follow-up is 720 hours. Thus all datasets contain many tied ages, while
 larger query batches preserve the same horizon prefix for a given seed. The PRNG
 and modulo operations define synthetic inputs, not a representative task model.
-The three seeds specify this new experiment separately from the simulations
-in the preserved original supplement.
 
 Five fresh-process paired comparisons per seed and query count give 15 pairs for
 each `q`, 60 pairs in total. Each process warms the scan first and then the index once each, then measures
@@ -148,9 +143,7 @@ ranges describe these observations; they are not confidence intervals or p99s.
 `results/summary.csv` gives medians, observed ranges, ratio of medians and paired
 reduction extrema. `results/environment.json` records the toolchain, host, resource
 limits, source SHA-256 hashes, command, policy and exclusions. No observations are
-silently discarded. The measured result and its limits are discussed in the paper's
-performance section; no production-system or AI-effect improvement follows from
-this synthetic in-memory kernel alone.
+silently discarded. The table below gives the results for this synthetic in-memory workload.
 
 
 ## Recorded result

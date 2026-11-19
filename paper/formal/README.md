@@ -1,8 +1,6 @@
 # Lean supplement for attainable labour bounds
 
-This new supplement is separate from the preserved historical proofs under
-`paper/effort-speed-ai/formal`. It checks 54 new declarations with Lean 4.33.1
-and mathlib v4.33.1. The source target is the immutable
+The supplement checks 54 declarations with Lean 4.33.1 and mathlib v4.33.1. The source target is the immutable
 `targets/partial-identification.tex` from commit
 `38c4ce40b789d4c5420c98ff1d568b39c3b1e798`; current article citations and the
 timeline panel do not change those mathematical statements.
@@ -63,7 +61,7 @@ Install the pinned toolchain into task-local storage when necessary, using the
 repository's unchanged bootstrap:
 
 ```sh
-bash ../effort-speed-ai/formal/scripts/bootstrap_lean.sh /absolute/toolchain/path
+bash scripts/bootstrap_lean.sh /absolute/toolchain/path
 export PATH="/absolute/toolchain/path/bin:$PATH"
 ```
 

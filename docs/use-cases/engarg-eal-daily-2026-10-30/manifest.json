@@ -8,7 +8,7 @@
   "target_start": "2026-10-31T00:00:00Z",
   "target_end": "2026-11-01T00:00:00Z",
   "uncompressed_bundle_sha256": "9c014308a3f85982bc23da23f9b529ada72708768f0abeba2f871a0159d196e1",
-  "prior_bundle_path": "paper/forecasting/examples/issued-20261029.json.gz",
+  "prior_bundle_path": "examples/forecasting/issued-20261029.json.gz",
   "prior_uncompressed_bundle_sha256": "fedbb928535abbc676aa3a7cd97befa149261b7c7c9269ad6d9fe7f62a6c5ed9",
   "files": {
     "daily-counts.csv": "62e4585b999669a83f176f974df6795ddbef8aa70417c5ecd34da38d30881c69",
