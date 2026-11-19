@@ -38,14 +38,14 @@
       "path": "figures/shared-capacity/caption.tex",
       "status": "derived",
       "source_reference": "Caption explains the illustrative inputs, plotted quantities, feasible allocations and limits of the example.",
-      "sha256": "56562c67c4b6c38c2819bd0fe028e28499dbd968492afb978a3dc135df174e8b"
+      "sha256": "3246bd3ff3fad09a9abdfc5965c4a30f01eb8803bb94942289626b144c5b4bb6"
     },
     {
       "id": "alternative-text",
       "path": "figures/shared-capacity/alt-text.txt",
       "status": "derived",
       "source_reference": "Description of the first-hour task axes, capacity limits, feasible pairs and the schedule shown for the midpoint.",
-      "sha256": "3b509422ab72dcabe92adfeab444d883e4a46e0aadc3ab35c98d045d9813804d"
+      "sha256": "8ac90eab32160423a812e6f6cd9d0bb037917d8adfa4105098b246ad317bceb3"
     }
   ],
   "quantities": [

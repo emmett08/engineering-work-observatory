@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "figure_id": "shared-capacity",
-  "spec_sha256": "df3cc286d40361f1141fd4031aaa69c89f97db52b663e549a0169ec71c2b562d",
-  "audit_sha256": "62e955a1087fdd3b2c62784dd090332495893105d4f3429d579484c853fd796b",
+  "spec_sha256": "0f2a54e9b400895f70d1b9f75475054fdaf64ba5b15bb2aa4846d2637c2af72f",
+  "audit_sha256": "bf7bf90c5c9e76eebc978669c7a5c4c6ba67eb53e20f453495ed164addb55daa",
   "artifacts": [
     {
       "role": "final_pdf",
@@ -66,7 +66,7 @@
       "Both axis totals at the marked point are one half of a person-hour. Their sum matches the single diamond in panel (b).",
       "The alternating half-hour task labels agree with the midpoint and the two whole-window totals.",
       "Colour and greyscale show the same task labels, diagonal, interval caps and position of the diamond.",
-      "An independent reader compared the alternative text with the rendered figure and caption. Panel (c) gives A and B half an hour each before the one-hour divider, so its first two blocks supply the coordinates of P in panel (a)."
+      "An independent reader compared the revised caption and alternative text with the rendered figure. The diagonal runs from (0,1) to (1,0). Its points sum to one person-hour, the value shown by the diamond. The bar covers the sums from the square, from zero to two person-hours. Before the one-hour divider each task occupies half an hour, as at P."
     ],
     "findings": [
       {

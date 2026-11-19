@@ -1,11 +1,11 @@
 \subsection{Estimating total labour with predictions fixed before the draw}
 \label{sec:model-assisted}
 
-Code changes can help predict implementation time, but a design discussion may leave no trace in the repository. The difference estimator corrects the predicted total using measured hours from a probability sample of intervals \cite[Section~2.3]{denishaddou2026}. Prediction-powered inference likewise estimates a mean by correcting predictions with measured residuals \cite[Section~1.4 and Appendix~B of the accompanying preprint]{angelopoulos2023}.
+Code changes may predict implementation hours yet give little indication of time spent discussing a design. The difference estimator corrects the predicted total using the measured prediction errors in a probability sample of intervals \cite[Section~2.3]{denishaddou2026}. Prediction-powered inference uses this correction to estimate a mean \cite[Section~1.4 and Appendix~B of the accompanying preprint]{angelopoulos2023}.
 
-Partition each person's observation period into non-overlapping intervals. List every eligible interval for every contributor. Let $U=\{1,\ldots,M\}$ index the $M\geq1$ entries, each identifying one person and one interval. In interval $m$, a person who devotes a fraction $a_m\in[0,1]$ of its $d_m>0$ hours to the work contributes $y_m=d_ma_m$ person-hours. The total of interest is $H=\sum_U y_m$.\footnote{The sampling design gives the probability of each possible sample. Summing over the samples containing interval $m$ gives its inclusion probability $\pi_m$. A hat denotes an estimate. The subscript $s$ on $\E_s$ and $\Var_s$ denotes expectation or variance over repeated draws from $U$ with the interval list, labour values and predictions held fixed.}
+Divide each contributor's observation period into non-overlapping intervals. Let $U=\{1,\ldots,M\}$ index all $M\geq1$ eligible person-intervals. An interval $m$ lasts $d_m>0$ hours. If the contributor spends a fraction $a_m\in[0,1]$ of it on the work, the interval contributes $y_m=d_ma_m$ person-hours to the total $H=\sum_U y_m$.\footnote{The inclusion probability $\pi_m$ is the sum of the design probabilities of all samples containing $m$. A hat denotes an estimate. The operators $\E_s$ and $\Var_s$ give the expectation and variance over repeated draws from $U$, holding labour values and predictions fixed.}
 
-Before drawing the sample, fix a prediction $f_m$ in person-hours for each interval. For example, a model fitted to an independent set of earlier observations can supply all $M$ predictions. A model expressed in Standard Coding Hours requires a conversion supported by measurements of person-hours for the work in question.
+Fix each interval's predicted person-hours $f_m$ before the draw, for example by fitting a model to independent earlier observations. Predictions in Standard Coding Hours require conversion to person-hours using measurements for the work in question.
 
 \begin{proposition}[Fixed-prediction difference estimator]
 \label{prop:difference-estimator}
@@ -19,7 +19,7 @@ For fixed labour values and predictions, accurate measurement of every sampled a
 \end{proposition}
 
 \begin{proof}
-Let $I_m=\ind\{m\in s\}$ equal one if the sample contains $m$ and zero otherwise. Its expectation is $\pi_m$, so
+The inclusion indicator $I_m=\ind\{m\in s\}$ has expectation $\pi_m$. Hence
 \[
  \E_s[\widehat H_{\mathrm{diff}}]
  =\sum_Uf_m+\sum_U\frac{\E_s[I_m]}{\pi_m}(y_m-f_m)
@@ -27,31 +27,31 @@ Let $I_m=\ind\{m\in s\}$ equal one if the sample contains $m$ and zero otherwise
 \]
 \end{proof}
 
-In expectation each residual contributes once, whatever dependence the design induces between selections. Setting every $f_m=0$ gives the Horvitz--Thompson estimator \cite{horvitz1952},
+The proof allows dependence between selections. Setting $f_m=0$ for all $m$ gives the Horvitz--Thompson estimator \cite{horvitz1952},
 \begin{equation}
  \widehat H_{\mathrm{HT}}=\sum_{m\in s}\frac{d_ma_m}{\pi_m}.
  \label{eq:ht}
 \end{equation}
-A contributor can report how much of a completed interval they spent on the target work. A shorter question asks about one instant within that interval. Let $A_m(t)$ denote the contributor's allocation to the work at elapsed time $t$. After the interval ends, draw $U_m$ uniformly on $[0,d_m]$, independently of how the contributor divided their time during the interval. If the contributor reports $A_m(U_m)$ accurately, then
+A contributor can estimate the fraction of an interval spent on the work. A second method asks what they were doing at a single instant. Let $A_m(t)$ denote the fraction of their attention the work occupied at elapsed time $t$. Once the interval ends, draw $U_m$ uniformly from $[0,d_m]$ independently of the activity during the interval. If the contributor identifies $A_m(U_m)$ accurately, then
 \[
   \E\!\left[d_m A_m(U_m)\mid A_m\right]
   =\int_0^{d_m} A_m(t)\,dt=y_m.
 \]
-The choice of instant adds sampling variance. Retrospective collection also requires evidence that the contributor can identify the activity at the selected time.
+Sampling the instant adds variance. Retrospective measurement requires evidence that contributors can identify their activity at the selected time.
 
-An interruption to ask about current activity can itself change how long that activity lasts. Suppose an engineer starts the hour on one task and switches to another when a survey alert arrives at a uniformly chosen instant. A truthful reply always names the first task as the activity immediately before the alert. The estimate attributes a full hour to that task, although the engineer spends half an hour on it on average. Choosing the instant retrospectively removes this source of bias.
+A survey alert during the interval can interrupt the work being measured. Suppose an engineer starts the hour on one task and switches tasks when an alert arrives at a uniformly chosen instant. Asked about the instant before the alert, the engineer always names the first task. This counts a full hour of work on the first task, whose mean duration is half an hour. Drawing the instant after the hour ends removes this source of bias.
 
 \paragraph{Follow-up after non-response.}
-An accurate reply of zero contributes zero hours. A missing reply leaves those hours unknown. If engineers supply no time reports during an incident, applying the original inverse-probability weights to their other replies cannot recover the incident hours.
+An accurate zero-hour entry identifies an interval in which the contributor spent no time on the work. An omitted entry leaves that duration unknown. If engineers supply no entries during an incident, applying the original inverse-probability weights to their other replies omits the incident hours.
 
-A second probability sample drawn from the intervals with missing replies can recover their contribution to the total \cite{nonresponsefollowup}. Let $A$ contain the intervals in the initial sample $s$ for which contributors supplied allocations. From $s\setminus A$, draw a follow-up sample $B$ with known conditional inclusion probability $\eta_m=\Prb(m\in B\mid s,A)>0$ for each interval lacking an initial reply. If each selected follow-up produces an accurate account of the original interval, and the initial replies are accurate, the two-stage estimator is
+To estimate the missing contribution, draw a second probability sample \cite{nonresponsefollowup}. Let $A$ contain the intervals in the original sample $s$ for which contributors supplied allocations. Within $s\setminus A$, select a follow-up sample $B$ so that each interval has known probability $\eta_m=\Prb(m\in B\mid s,A)>0$ of selection. If the initial replies and every selected follow-up give accurate allocations for the original intervals, the estimator is
 \begin{equation}
  \widehat H_{\rm follow}
  =\sum_U f_m+\sum_{m\in A}\frac{r_m}{\pi_m}
              +\sum_{m\in B}\frac{r_m}{\pi_m\eta_m}.
  \label{eq:followup}
 \end{equation}
-Conditional on $s$ and $A$, the last sum averages to the weighted residual total for all intervals in $s\setminus A$. Averaging over the initial draw then gives $H$, even when workload influences the initial response. Both draws contribute to the sampling variance. If a contributor selected for follow-up still cannot supply an allocation, that interval may contain anywhere from zero hours to its full duration. Substituting the respective limits for every unresolved interval bounds the estimate for this particular sample. An interval for the population total must also allow for variation across samples.
+Conditional on $s$ and $A$, the last sum averages to the weighted residual total for $s\setminus A$. Averaging over the original draw gives $H$ even if workload influences the initial response. The sampling variance includes both draws. For each allocation still missing at follow-up, substituting zero or the interval's full duration bounds the estimate on that draw. A confidence interval for $H$ must also allow for sampling variation.
 
 \subsection{Precision depends on residuals and the sampling design}
 \label{sec:difference-variance}
@@ -63,16 +63,16 @@ With exact measurements, only the weighted residual sum varies across draws. Wri
  \frac{\pi_{mk}-\pi_m\pi_k}{\pi_m\pi_k}\,r_mr_k.
  \label{eq:difference-general-variance}
 \end{equation}
-This expansion of $\Var_s(\sum_U I_mr_m/\pi_m)$ sums residual products over all ordered pairs of eligible intervals, including the diagonal. If every $\pi_{mk}$ is known and positive, the sampled pairs give an unbiased variance estimate,
+The sum includes ordered pairs, with diagonal terms for $m=k$. When all $\pi_{mk}$ are known and positive, weighting each observed pair by $1/\pi_{mk}$ gives an unbiased variance estimate,
 \begin{equation}
  \widehat V_s
  =\sum_{m,k\in s}\frac{\pi_{mk}-\pi_m\pi_k}{\pi_{mk}}
              \frac{r_m}{\pi_m}\frac{r_k}{\pi_k}.
  \label{eq:design-variance-estimate}
 \end{equation}
-Each pair appears with probability $\pi_{mk}$, which cancels its inverse weight in expectation. Sampling just one interval per shift gives $\pi_{mk}=0$ for distinct intervals in the same shift. Their residual products enter \eqref{eq:difference-general-variance}, although the design reveals at most one residual in each such pair. Unbiased estimation of those products is generally impossible \cite{aronow2013}. Drawing at least two intervals uniformly without replacement in each shift of two or more intervals makes every within-shift pair observable. Teams sampling one interval per shift need a variance bound valid when two intervals from the same shift can never appear together.
+With just one interval sampled per shift, distinct intervals in a shift have $\pi_{mk}=0$. Their residual product enters \eqref{eq:difference-general-variance}, yet no draw observes both factors. The product generally has no unbiased estimator under this design \cite{aronow2013}. Sampling at least two intervals uniformly without replacement in every shift containing two or more gives each within-shift pair positive probability. With one interval per shift, uncertainty calculations require a variance bound that allows for unobserved pairs.
 
-Under simple random sampling without replacement, each subset of $n$ among the $M\geq2$ eligible intervals has the same selection probability, with $1\leq n\leq M$ and $\pi_m=n/M$. Let $\bar r_U$ and $\bar y_U$ be the mean residual and mean labour, respectively, across all $M$ intervals. Their finite-population variances are
+Under simple random sampling without replacement, each subset of $n$ intervals is equally likely. For $M\geq2$ and $1\leq n\leq M$, this gives $\pi_m=n/M$. Write $\bar r_U$ for the mean residual over $U$ and $\bar y_U$ for mean labour. The corresponding population variances are
 \[
  S_r^2=\frac{1}{M-1}\sum_U(r_m-\bar r_U)^2,
  \qquad
@@ -95,25 +95,25 @@ With at least two sampled intervals, the sample residual variance $s_r^2$ estima
  s_r^2=\frac{1}{n-1}\sum_{m\in s}(r_m-\bar r_s)^2.
  \label{eq:difference-srs-variance-estimator}
 \end{equation}
-The pairwise form of the sample variance is $[n(n-1)]^{-1}\sum_{m<k,\,m,k\in s}(r_m-r_k)^2$. Each pair occurs with probability $n(n-1)/[M(M-1)]$, giving $\E_s[s_r^2]=S_r^2$. Sampling a single interval from two or more supplies no pair for this calculation. A census has zero sampling variance because it includes every interval, even when only one exists. Measurement error can still affect the hours reported.
+To verify unbiasedness, write $s_r^2=[n(n-1)]^{-1}\sum_{m<k,\,m,k\in s}(r_m-r_k)^2$. Each pair occurs with probability $n(n-1)/[M(M-1)]$, so $\E_s[s_r^2]=S_r^2$. A single observation from $M>1$ supplies no pair. A census, even of a single interval, has zero sampling variance. Errors in measuring labour can still affect a census.
 
-For $n<M$, the same positive factor multiplies both variances. Predictions improve precision exactly when the interval residuals have lower population variance than the interval labour values, $S_r^2<S_y^2$.
+For $n<M$, the common variance factor is positive. The predictions therefore improve precision exactly when $S_r^2<S_y^2$.
 
 Suppose a team samples $n=2$ of $M=4$ intervals containing $y=(0,2,4,6)$ person-hours. For the total of $12$ hours, the Horvitz--Thompson estimator has variance $80/3$ squared person-hours. The predictions $f=(1,3,3,5)$ reduce the variance to $16/3$. Predictions that rank the intervals in reverse order, $f=(6,4,2,0)$, raise the variance to $320/3$, four times the Horvitz--Thompson variance. Under either predictor the estimates still average to $12$ across all six samples (Figure~\ref{fig:sampling-spread}).
 
 \input{../figures/sampling-spread}
 
-In this example the six variance estimates also average to the design variance. A workplace pilot can run the same comparison with its own predictor and weigh any gain in precision against the time spent collecting the predictor's inputs.
+The six variance estimates also average to the design variance. A team testing its own predictor can weigh any reduction in sampling variance against the time required to collect the inputs.
 
 \subsection{Limits of the sampling calculation}
 \label{sec:difference-contract}
 
-Fitting a predictor on the correction sample can introduce bias. Take $M=2$, $n=1$ and $y=(0,2)$. A model that reproduces the selected value and predicts zero for the unobserved interval has a sampled residual of zero. Its estimated total is therefore either $0$ or $2$ with equal probability. These values average to $1$, although $H=2$. Reusing the correction sample for fitting requires a separate justification for unbiasedness.
+Fitting the predictor on the correction sample can introduce bias. Take $M=2$, $n=1$ and $y=(0,2)$. A predictor that copies the selected value and predicts zero elsewhere has a sampled residual of zero. Its estimated total takes the values $0$ and $2$ with equal probability, giving a mean of $1$ for a true total of $2$. Unbiasedness would require a separate argument for the fitting procedure.
 
 Residual correction can yield a negative estimate. With $y=(0,0)$, $f=(10,0)$ and one uniformly selected interval, \eqref{eq:difference-estimator} returns $-10$ or $10$ with equal probability. The signed estimates average to the true value of zero. Replacing the negative value with zero raises their mean to $5$.
 
 \paragraph{A ratio with an estimated denominator.}
-Let $Q$ and $H>0$ be the cohort totals in \eqref{eq:cohort-productivity}. Estimating $H$ without bias does not guarantee an unbiased ratio. Suppose two intervals contain one and three person-hours and the cohort produced $Q=6$ reference units. Selecting one interval uniformly yields $\widehat H_{\rm HT}=2$ or $6$ with equal probability. The corresponding rates of $3$ and $1$ units per hour average to $2$, although the cohort produced $6/4=1.5$ units per hour. When the labour estimate is zero or negative, report the two component totals without a point ratio.
+Let $Q$ and $H>0$ be the cohort totals in \eqref{eq:cohort-productivity}. Dividing by an unbiased estimate of labour can bias the productivity ratio. Suppose two intervals take one and three person-hours, with output $Q=6$ reference units. Sampling one interval uniformly gives $\widehat H_{\rm HT}=2$ or $6$ with equal probability. The resulting rates of $3$ and $1$ units per hour average to $2$. The actual rate is $6/4=1.5$. If the estimated hours are zero or negative, give the component totals and omit the point ratio.
 
 For any candidate rate $p\geq0$, let $C_p$ be a confidence interval for $Q-pH$ with coverage at least $1-\alpha$ under the sampling design for both totals. At the true rate the contrast is zero, so the set $\{p\geq0:0\in C_p\}$ covers $Q/H$ with probability at least $1-\alpha$ \cite{vonluxburg2009}. The contrast variance depends on the covariance between estimated labour and output,
 \[
@@ -121,9 +121,9 @@ For any candidate rate $p\geq0$, let $C_p$ be a confidence interval for $Q-pH$ w
  =\widehat V(\widehat Q)+p^2\widehat V(\widehat H)
        -2p\,\widehat{\operatorname{Cov}}(\widehat Q,\widehat H).
 \]
-One sampled shift may contribute hours to several tasks. In a team-randomised experiment, those tasks also share the team's treatment. To justify the interval's coverage, account for dependence among tasks that share a sampled shift or belong to the same team. If the confidence set for the rate is unbounded above, report that set with both totals. For a prespecified minimum rate $p_0$, a positive lower confidence bound for $Q-p_0H$ supports a rate above $p_0$ whenever $H>0$. The contrast has units of reference output.
+Coverage calculations must allow for tasks that share a sampled shift or receive the same treatment through team randomisation. If the rate has an unbounded confidence set, give the full set alongside the two totals. For a prespecified minimum rate $p_0$ and $H>0$, a positive lower confidence bound for $Q-p_0H$ supports a rate above $p_0$. The contrast is measured in units of reference output.
 
 \paragraph{Implementation scope.}
-The labour-estimation command accepts measured zeros, retains signed estimates and checks the response status of each interval. It rejects inconsistent inputs or a missing allocation for a selected interval. Equation~\eqref{eq:followup} would extend the command to handle missing replies through a second probability sample. With complete replies, the command computes the weighted total. For simple random sampling it also reports the variance and standard error when the sample size permits.\footnote{Taking the square root of the estimated variance gives the estimated standard error in person-hours. A confidence interval requires a separate justification for its coverage.} For a general design it reports zero sampling variance in a census ($\pi_m=1$ for every interval). For other general designs, the command reports no variance estimate, even if one draw happens to include all eligible intervals.
+The labour-estimation command computes a weighted total from complete allocations, including measured zeros, and retains negative estimates. It rejects inconsistent inputs and any selected interval with a missing allocation. Implementing \eqref{eq:followup} would permit random follow-up. Under simple random sampling, the command returns a variance estimate and its square root, the standard error in person-hours, for samples of two or more intervals.\footnote{A confidence interval requires a separate justification for its coverage.} A census of one has variance zero. For a general design, it returns zero sampling variance when $\pi_m=1$ for every interval. Otherwise it leaves the variance unspecified, even if one draw includes every interval.
 
-Finite tests enumerate the possible samples in the worked examples and exercise input validation through the single-interval case. Applying the estimator in a team requires evidence about who contributed, which intervals the design could select and how accurately contributors described them. The inclusion probabilities used for weighting must match the sampling procedure in the field.
+The software tests enumerate every draw in the numerical examples and check input validation down to one interval. Field use also requires evidence that the eligible intervals cover the contributors' work and that the weights match the probabilities used in the draw. An independent comparison can assess how accurately contributors quantify their time.

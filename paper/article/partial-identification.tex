@@ -1,13 +1,13 @@
 \section{What interval observations determine about labour}
 \label{sec:sharp-identification}
 
-A two-day labour total can leave many possible totals for the first day. The \emph{identified range} comprises all totals that satisfy the observations and each person's time limit in \eqref{eq:labour} \cite[Section~1]{torgovitsky2019}. When the range has a single value, the observations and limits determine the hours exactly.
+A two-day total can leave the first day's hours uncertain. The \emph{identified range} contains precisely the totals allowed by the observations and each person's time limit in \eqref{eq:labour} \cite[Section~1]{torgovitsky2019}. When the range contains just one value, the hours are known exactly.
 
 \subsection{One person's available time}
 
-Within an hour one person can supply at most one person-hour. Suppose a two-day total exceeds the hours available on the second day. The excess gives a lower bound on first-day labour.
+If a two-day total exceeds the hours one person could work on the second day, that person must have worked at least the excess on the first.
 
-For an interval from $\ell$ to $u$, write $v$ for the person's total labour and $x$ for the hours worked by time $c$. The remaining $v-x$ person-hours must fit between $c$ and $u$.\footnote{The function $a:[\ell,u]\to[0,1]$ gives the fraction of time the person devotes to the work at each instant. Here $c$ denotes a time boundary. In Proposition~\ref{prop:nonidentification} it denotes a probability.}
+Let $v$ be the person's labour between $\ell$ and $u$. If $x$ hours fall before the cutoff $c$, the remaining $v-x$ must fit between $c$ and $u$.\footnote{The allocation $a(t)$ gives the fraction of the person's time devoted to the work at instant $t$. In Proposition~\ref{prop:nonidentification}, $c$ denotes a probability.}
 
 \begin{proposition}[Hours worked before a cutoff given the interval total]
 \label{prop:sharp-cutoff}
@@ -19,32 +19,32 @@ Let $\ell<u$, $c\in[\ell,u]$ and $v\in[0,u-\ell]$. As $a$ ranges over measurable
 If $v<0$ or $v>u-\ell$, no such allocation exists.
 \end{proposition}
 \begin{proof}
-Each part of the interval must accommodate its own labour total, giving
+Capacity on either side of $c$ requires
 \[
  0\leq x\leq c-\ell,\qquad 0\leq v-x\leq u-c.
 \]
-Rearranging gives the limits in \eqref{eq:sharp-cutoff}. Conversely, fix any $x$ in that interval. For $\ell<c<u$, divide the labour between the two parts as follows.
+These inequalities give \eqref{eq:sharp-cutoff}. For any $x$ in that range and $\ell<c<u$, use the allocation
 \[
  a(t)=\begin{cases}
  x/(c-\ell),&\ell\leq t<c,\\
  (v-x)/(u-c),&c\leq t\leq u.
  \end{cases}
 \]
-The inequalities place both fractions in $[0,1]$. The resulting hours are
+Both fractions lie in $[0,1]$. Integrating gives
 \begin{align*}
  \int_\ell^c a(t)\,dt&=\frac{x}{c-\ell}(c-\ell)=x,\\
  \int_c^u a(t)\,dt&=\frac{v-x}{u-c}(u-c)=v-x.
 \end{align*}
-These contributions sum to $v$. At the boundaries the inequalities give $x=0$ for $c=\ell$ and $x=v$ for $c=u$. The constant allocation $a(t)=v/(u-\ell)$ gives these endpoint values. Since $0\leq a\leq1$, its integral must lie between zero and $u-\ell$.
+The two integrals sum to $v$. For $c=\ell$ and $c=u$, the constant allocation $a(t)=v/(u-\ell)$ gives $x=0$ and $x=v$, respectively. Integrating $0\leq a\leq1$ over the whole interval excludes totals outside $[0,u-\ell]$.
 \end{proof}
 
-A person who worked $3/2$ hours in a two-hour window must have worked at least $1/2$ hour in the first hour, because only one hour fits in the second. The first-hour limit supplies the upper bound of one. Together these restrictions narrow $[0,3/2]$, the range under nonnegativity alone, to $[1/2,1]$.
+Someone who worked $3/2$ hours in a two-hour window could fit at most one hour into the second hour. First-hour labour therefore ranges from $1/2$ to one hour, compared with $[0,3/2]$ under nonnegativity alone.
 
-When $v=u-\ell$, the person works throughout, up to sets of duration zero. Labour before $c$ then equals the time since $\ell$. More generally, for any subinterval $[b,c]\subseteq[\ell,u]$, apply the same argument to the subinterval and its complement. The hours worked in $[b,c]$ therefore range over $[\max\{0,v-((u-\ell)-(c-b))\},\min\{v,c-b\}]$.
+If $v=u-\ell$, the person works throughout except on a set of duration zero, giving $x=c-\ell$. For any subinterval $[b,c]\subseteq[\ell,u]$, the same argument divides $v$ between that subinterval and its complement. The hours within $[b,c]$ range over $[\max\{0,v-((u-\ell)-(c-b))\},\min\{v,c-b\}]$.
 
-When two tasks draw on the same person's time, adding their individual maxima gives an upper bound on total labour, provided each hour enters the sum once. The maximum total equals the sum of the individual maxima exactly when one feasible schedule gives both. Likewise, the minimum total equals the sum of the individual minima exactly when one feasible schedule gives both. Separate schedules for different people or for nonoverlapping intervals can be combined if every other constraint permits it.
+For two tasks sharing one person's time, count each hour once. Adding the task maxima bounds total labour from above, and adding the minima bounds it from below. Either sum is exact if and only if one feasible schedule gives both component values. Schedules for different people or disjoint periods can be combined if the other constraints permit.
 
-In Figure~\ref{fig:shared-capacity}, one person worked one hour on each of two tasks during $[0,2]$. Either task could occupy anywhere from zero to one hour before time 1. Adding those ranges gives $[0,2]$. The two task totals fill both hours. Exactly one hour of labour must therefore fall in the first hour. Panel (c) shows one feasible division of that hour, halfway between its two extreme allocations.
+In Figure~\ref{fig:shared-capacity}, one person worked an hour on each of two tasks during $[0,2]$. Either task alone could occupy zero to one hour before time 1. Adding their separate ranges gives $[0,2]$, yet the two tasks exhaust the available time. Exactly one hour of labour must fall before time 1. Panel (c) splits it equally between the tasks.
 
 \begin{figure}[htp]
 \centering
@@ -57,22 +57,22 @@ In Figure~\ref{fig:shared-capacity}, one person worked one hour on each of two t
 
 Call the work of person $j$ on task $i$ in activity $r$ a \emph{stream}. Write $\mathcal I$, $\mathcal J$ and $\mathcal R$ for the finite sets of tasks, contributors and activities. The cohort comprises the tasks in $\mathcal C\subseteq\mathcal I$. Choose a bounded calendar interval $[b_0,b_K]$, with $b_0<b_K$, containing every observation interval and target window. An admissible history specifies a measurable allocation $a_{ijr}\geq0$ for each stream, with $\sum_{i,r}a_{ijr}(t)\leq1$ almost everywhere for each person $j$.
 
-To count person-hours for the cohort, identify everyone who contributed and specify which of their activities count towards each task. Tasks outside $\mathcal C$ can also constrain how much time a person had available. Include their streams when observations on those tasks restrict the hours left for the cohort. Give those outside hours zero weight in the target.
+Identify everyone who contributed to the cohort and specify which activities count towards each task. Include work outside $\mathcal C$ when observations of it limit the hours available to the cohort, giving those outside hours zero target weight.
 
-Observation $\nu$, for $\nu=1,\ldots,M$, concerns an interval $[\ell_\nu,u_\nu]$ in this domain. Let $G_\nu\subseteq\mathcal I\times\mathcal J\times\mathcal R$ contain the streams it covers. The observation places finite bounds $v_\nu^-\leq v_\nu^+$ on their combined person-hours over that interval, so
+For observation $\nu=1,\ldots,M$, let $G_\nu\subseteq\mathcal I\times\mathcal J\times\mathcal R$ contain the streams covered during $[\ell_\nu,u_\nu]$. Their combined person-hours satisfy the finite observation limits $v_\nu^-\leq v_\nu^+$,
 \begin{equation}
 \label{eq:interval-information}
  v_\nu^-\leq
  \sum_{(i,j,r)\in G_\nu}\int_{\ell_\nu}^{u_\nu}a_{ijr}(t)\,dt
  \leq v_\nu^+.
 \end{equation}
-For an exact total, $v_\nu^-=v_\nu^+$. Limits due to rounding or measurement error must allow for the size of that error. A Horvitz--Thompson estimate also varies across samples, so bounds derived from it must allow for sampling error.
+An exact total has $v_\nu^-=v_\nu^+$. For rounded or imperfect measurements, set limits wide enough to cover the error. Bounds based on a Horvitz--Thompson estimate must also allow for variation across samples.
 
-A common calendar lets us account for each contributor's time across overlapping observations, even when cohort tasks have different intake dates.
+Use one calendar for all contributors, including when tasks have different intake dates.
 
-Sort the distinct boundaries of the domain, observations and targets as $b_0<\cdots<b_K$. Each pair of successive boundaries defines a \emph{cell}. Every observation interval and target window now spans whole cells. For the productivity denominator in \eqref{eq:cohort-productivity}, include each task's intake $s_i$ and labour cutoff $c_i=s_i+\tau+\Delta$ for $i\in\mathcal C$.
+Sort the distinct domain, observation and target boundaries as $b_0<\cdots<b_K$. The intervals between successive boundaries are \emph{cells}. Each observation and target window spans whole cells. For the denominator in \eqref{eq:cohort-productivity}, include each cohort task's intake $s_i$ and labour cutoff $c_i=s_i+\tau+\Delta$.
 
-An observation may extend beyond the target window. Retain those additional cells because some of the observed work could fall there. Cell $k$ has duration $d_k=b_k-b_{k-1}>0$ hours. Integrating $a_{ijr}(t)$ over this cell gives the stream's contribution $x_{ijrk}$ in person-hours. A target weight specifies how much of that contribution to count.
+Retain cells beyond the target window when an observation extends into them. Cell $k$ lasts $d_k=b_k-b_{k-1}>0$ hours. Integrating $a_{ijr}(t)$ over it gives the stream's person-hours $x_{ijrk}$.
 
 \begin{proposition}[Exact labour range from cell totals]
 \label{prop:cell-reduction}
@@ -87,33 +87,33 @@ Under the preceding model, define the finite-dimensional feasible set $\mathcal 
  \sum_{k:\,[b_{k-1},b_k]\subseteq[\ell_\nu,u_\nu]}x_{ijrk}
  \leq v_\nu^+ &&\text{for every }\nu.
 \end{align}
-Fix real weights $w_{ijrk}$ and define the target for a continuous-time allocation history by multiplying each cell integral by $w_{ijrk}$ and summing. The set of target values across all histories that satisfy the capacity and observation constraints is $h(\mathcal P)$, where $h(x)=\sum_{i,j,r,k}w_{ijrk}x_{ijrk}$. In particular, the denominator in \eqref{eq:cohort-productivity} uses $w_{ijrk}=1$ exactly when $i\in\mathcal C$ and $[b_{k-1},b_k]\subseteq[s_i,c_i]$, and zero otherwise. If $\mathcal P$ is nonempty, its target range is the closed interval
+A history with cell integrals $x_{ijrk}$ has target $h(x)=\sum_{i,j,r,k}w_{ijrk}x_{ijrk}$ for fixed real weights $w_{ijrk}$. The target values over all histories satisfying the observation and capacity constraints form the set $h(\mathcal P)$. The denominator in \eqref{eq:cohort-productivity} uses $w_{ijrk}=1$ exactly when $i\in\mathcal C$ and $[b_{k-1},b_k]\subseteq[s_i,c_i]$, and zero otherwise. If $\mathcal P$ is nonempty, its target range is the closed interval
 \begin{equation}
 \label{eq:sharp-labour-range}
  [H_{\min},H_{\max}]
  =\left[\min_{x\in\mathcal P}h(x),\;\max_{x\in\mathcal P}h(x)\right].
 \end{equation}
-For every value in this interval, including its endpoints, there exists a history with that target value in which all allocations $a_{ijr}(t)$ belong to $\{0,1\}$ and each person performs at most one activity on one task at a time. If $\mathcal P$ is empty, the observations and capacity assumptions are inconsistent.
+Every value in this interval, including each endpoint, is the target of a history in which $a_{ijr}(t)\in\{0,1\}$ and each person performs at most one activity on one task at any instant. If $\mathcal P$ is empty, no history satisfies the observations and capacity limits.
 \end{proposition}
 \begin{proof}
-Integrating each allocation fraction over a cell gives nonnegative hours. Integrating the person's time limit over the same cell gives the capacity inequality in \eqref{eq:cell-capacity}. For each observation, summing the hours across its cells and streams gives \eqref{eq:cell-information}. The target weights are constant within cells, so the same cell totals give the weighted target.
+Integrating nonnegative allocations and each person's time limit over a cell gives \eqref{eq:cell-capacity}. Summing the hours over an observation's cells and streams gives \eqref{eq:cell-information}. The weights are constant within cells, so replacing the integrals by cell totals preserves the target.
 
-Conversely, fix $x\in\mathcal P$ and list each person's task and activity combinations in any order within each cell. Give each stream a consecutive block of length $x_{ijrk}$, omitting zero lengths. The capacity inequality leaves enough time for every block, with any remaining time idle. Use half-open blocks to prevent overlap and extend the last block's allocation to the final domain endpoint. A person devotes the whole of each working block to its stream. This schedule is measurable, changes activity finitely many times and reproduces every cell total. It therefore satisfies all observation bounds and gives the target $h(x)$.
+Conversely, take any $x\in\mathcal P$. Within each cell, arrange each person's streams in any order and give each a consecutive block of length $x_{ijrk}$, skipping zero lengths. The capacity inequality leaves room for all blocks and any remaining time is idle. Use half-open blocks and include the final domain endpoint in the last block. During each working block the person devotes all their time to its stream. This schedule is measurable, switches finitely often and reproduces every cell total, hence all observations and the target $h(x)$.
 
-The linear constraints define a closed convex set with each coordinate in $[0,d_k]$. If the set is nonempty, compactness and continuity of $h$ guarantee a minimiser and a maximiser in $\mathcal P$.\footnote{A closed, bounded subset of a finite-dimensional real vector space is compact. The image of a nonempty compact set under a continuous real function contains its least and greatest values. If $x$ and $y$ belong to a convex set, so does $\eta x+(1-\eta)y$ for every $0\leq\eta\leq1$.} The segment between a minimiser and a maximiser lies in $\mathcal P$. Linearity of $h$ gives every intermediate target value on that segment. For each point on that segment, the blocks just described give the same cell totals with allocations in $\{0,1\}$.
+The finite-dimensional set $\mathcal P$ is closed and convex, with each coordinate in $[0,d_k]$. If nonempty, it is compact, so the continuous function $h$ has a minimiser and a maximiser in $\mathcal P$. The segment between them stays in $\mathcal P$ by convexity. Linearity gives every intermediate value on that segment. The block schedule for each of its points uses only allocations in $\{0,1\}$.
 \end{proof}
 
 The two endpoint problems share $|\mathcal I||\mathcal J||\mathcal R|K$ nonnegative variables, $|\mathcal J|K$ person--cell capacity constraints and $2M$ observation inequalities. To include a known absence, split the cells at its start and end, then set the person's labour to zero throughout the absence.
 
-Each person needs at most $|\mathcal I||\mathcal R|+1$ constant blocks per cell, including idle time. The model permits people to switch activities at any instant. A minimum session length or a task dependency could exclude schedules that the model permits. Restrictions on interruption, smoothness conditions and switching costs likewise require additional constraints or analysis.
+Each person needs at most $|\mathcal I||\mathcal R|+1$ constant blocks per cell, including idle time. Switching can occur at any instant. Minimum session lengths, dependencies and limits on interruption may exclude schedules. Smoothness requirements or switching costs need additional constraints or analysis.
 
-The schedule exhibits one way to fit the observed hours into the calendar. Establishing the actual order of work, acceptance times or delivered output requires further evidence. An automated workflow can continue after the person moves on. Any schedule that also satisfies workplace restrictions has a total within \eqref{eq:sharp-labour-range}. If every schedule at one endpoint violates a restriction, that endpoint drops out of the range.
+A feasible schedule places the observed hours in the calendar. Where several sequences fit the observations, distinguishing the actual order requires further evidence. Acceptance times and delivered output require observations of those outcomes. Extra workplace restrictions can only narrow \eqref{eq:sharp-labour-range}. An endpoint disappears if every schedule giving that total violates a restriction.
 
-This replacement of fractional allocations by a single activity at each instant is a finite-partition instance of the Dvoretzky--Wald--Wolfowitz purification theorem \cite[Theorem~4]{dvoretzky1951ranges}.\footnote{For finitely many activities and a finite collection of atomless measures, purification preserves specified integrals while selecting one activity at each instant. Elapsed time on a cell is atomless because any measurable set of positive duration can be split into smaller sets of positive duration. Idle time accounts for any unused fraction.} For a general treatment see \cite[Section~2]{khanrathsun2006}.
+On a finite partition, the schedule illustrates the Dvoretzky--Wald--Wolfowitz purification theorem \cite[Theorem~4]{dvoretzky1951ranges}.\footnote{For a finite set of activities and a finite collection of atomless measures, purification preserves the specified integrals while selecting one activity at each instant. Time on a cell is atomless because any measurable set of positive duration can be divided into measurable subsets of smaller positive duration. Idle time accounts for unused capacity.} For the general result see \cite[Section~2]{khanrathsun2006}.
 
 \subsection{Verifying endpoints and allowing for observation error}
 
-To verify a proposed maximum, exhibit a feasible schedule with that total and derive an upper bound of the same value from the observation and capacity constraints. For a proposed minimum, the schedule's total must equal a lower bound valid for every feasible schedule.
+A feasible schedule certifies a proposed maximum when its total equals an upper bound valid for all feasible schedules. For a minimum, its total must equal a valid lower bound.
 
 Write $x$ for the cell totals and $w$ for their weights. Express the constraints as $Ax\leq b$ with $x\geq0$, reversing the sign of each lower observation inequality.\footnote{Each row of $A$ gives the coefficients of one constraint, and the corresponding entry of $b$ gives its upper limit. Vector inequalities hold coordinate by coordinate. The superscript $\mathsf T$ denotes transpose, so $w^\mathsf{T}x$ is the target in person-hours when the weights are dimensionless.} Nonnegative multipliers $\lambda$ and $\mu$ give the following bounds.
 \begin{equation}
@@ -126,25 +126,25 @@ Write $x$ for the cell totals and $w$ for their weights. Express the constraints
 \end{equation}
 Multiplying the dual and primal inequalities by $x\geq0$ and $\lambda\geq0$, respectively, gives $w^\mathsf{T}x\leq\lambda^\mathsf{T}Ax\leq\lambda^\mathsf{T}b$. Applying the same reasoning to $-w$ gives the lower bound.
 
-For nonempty $\mathcal P$, strong duality guarantees multipliers that give $H_{\min}$ and $H_{\max}$ exactly \cite[Sections~5.2--5.3]{boydvandenberghe2004}. With rational inputs, a reader can check a candidate allocation and its multipliers using exact fraction arithmetic. If both are feasible and the allocation total equals the bound given by the multipliers, that total is the corresponding minimum or maximum.
+For nonempty $\mathcal P$, strong duality guarantees multipliers whose bounds equal $H_{\min}$ and $H_{\max}$ \cite[Sections~5.2--5.3]{boydvandenberghe2004}. With rational inputs, a reader can use exact arithmetic to check the feasibility of candidate cell totals and multipliers and verify that the weighted sum of those cell totals equals the corresponding dual bound.
 
-Consider a wider tolerance for observation error at the same partition and target. Raising an upper limit or lowering a lower limit increases its entry in $b$. Write $b+\varepsilon$ for the revised vector, with $\varepsilon\geq0$ and zero entries for unchanged constraints. The original multipliers then enclose every feasible target value in
+Keep the partition and target fixed. Widening the observation limits replaces $b$ by $b+\varepsilon$, where $\varepsilon\geq0$ and unchanged constraints have zero increments. The original multipliers enclose all feasible target values in
 \begin{equation}
 \label{eq:relaxed-certificates}
  [-\mu^\mathsf{T}(b+\varepsilon),\;\lambda^\mathsf{T}(b+\varepsilon)].
 \end{equation}
-The multipliers still satisfy the dual inequalities because only the right-hand sides of the observation constraints have changed \cite[Section~5.6]{boydvandenberghe2004}. If the revised limits admit a schedule, the minimum and maximum under those limits give the endpoints of the new range. The measurement procedure must justify the tolerance.
+The original multipliers remain feasible because the dual inequalities omit $b$ \cite[Section~5.6]{boydvandenberghe2004}. Optimising again gives the exact endpoints if the revised feasible set is nonempty. The measurement procedure must justify the wider limits.
 
-Suppose sample-based limits cover all true observation totals simultaneously with probability at least $1-\alpha$, where $0<\alpha<1$. If the true history satisfies the allocation constraints, its cell totals are feasible whenever that coverage event occurs. The calculated interval then contains the true target. Its coverage probability is therefore at least $1-\alpha$, counting an empty feasible set as a failure.
+Suppose sample-based limits cover all true observation totals simultaneously with probability at least $1-\alpha$, for $0<\alpha<1$. Whenever they do and the true history satisfies the capacity constraints, its cell totals belong to $\mathcal P$ and its target lies in the calculated interval. Thus, under those constraints, target coverage is at least $1-\alpha$, counting an empty feasible set as a failure.
 
-Individual limits can fail on different samples. One way to obtain simultaneous coverage is to choose individual failure probabilities that sum to at most $\alpha$. The union bound gives a probability of at most $\alpha$ for any failure, allowing arbitrary dependence between observations.\footnote{If $E_\nu$ denotes failure of bound $\nu$, then $\Prb(\bigcup_{\nu=1}^M E_\nu)\leq\sum_{\nu=1}^M\Prb(E_\nu)$.} Both the sampling design and the measurement procedure must justify those probabilities.
+Choose individual bounds whose failure probabilities sum to at most $\alpha$. The union bound then gives simultaneous coverage of at least $1-\alpha$ under arbitrary dependence.\footnote{If $E_\nu$ denotes failure of bound $\nu$, then $\Prb(\bigcup_{\nu=1}^M E_\nu)\leq\sum_{\nu=1}^M\Prb(E_\nu)$.} The sampling design and measurement procedure must justify these probabilities.
 
-The Lean~4 proofs use mathlib \cite{demouraullrich2021,mathlib2020} to check that interval integrals reduce to cell totals under each person's time limit. They also verify that every feasible array of cell totals has a schedule that preserves the observations and weighted targets and allows each person at most one activity at any instant. Concurrent AI execution has its own clock in Section~\ref{sec:accounting}.
+The Lean~4 proofs use mathlib \cite{demouraullrich2021,mathlib2020} to connect interval integrals to cell totals under each person's capacity constraint. For every feasible array they verify a schedule that gives those totals and their weighted targets with at most one activity per person at any instant. Section~\ref{sec:accounting} counts concurrent AI execution separately.
 
-The formal proofs also check the bounds given feasible allocations and dual multipliers, and the implication from simultaneous observation coverage to target coverage. The existence of optimisers and matching multipliers, together with the upper bound on the number of blocks, follows from the mathematical arguments above. Separate tests exercise the Rust solver. A proof that the solver implements the Lean definitions remains open.
+For supplied feasible allocations and multipliers, Lean checks the bounds. It also verifies that simultaneous observation coverage implies target coverage. The arguments above establish the existence of optimisers and matching multipliers. They also bound the number of blocks. The Rust solver has separate tests. A proof that it implements the Lean definitions remains open.
 
 \subsection{From labour bounds to productivity}
 
-Let $Q=\sum_{i\in\mathcal C}Q_i(\tau,\Delta)$ be a known nonnegative follow-up score. With $H_{\min}>0$ in \eqref{eq:cohort-productivity}, every feasible history has a positive denominator. As labour ranges from $H_{\min}$ to $H_{\max}$, the continuous, nonincreasing function $Q/H$ has range $[Q/H_{\max},Q/H_{\min}]$.
+Let $Q=\sum_{i\in\mathcal C}Q_i(\tau,\Delta)$ be a known nonnegative follow-up score. If $H_{\min}>0$ in \eqref{eq:cohort-productivity}, continuity and monotonicity of $Q/H$ on $[H_{\min},H_{\max}]$ give the rate range $[Q/H_{\max},Q/H_{\min}]$.
 
-If the output score also varies within bounds $0\leq Q_-\leq Q\leq Q_+$, with $H_{\min}>0$ as before, every feasible rate lies in $[Q_-/H_{\max},Q_+/H_{\min}]$. Exactness requires a feasible output--labour pair for every rate in the interval. For instance, it suffices that every pair in $[Q_-,Q_+]\times[H_{\min},H_{\max}]$ is feasible.\footnote{Feasibility specifies which pairs can occur. When a probability distribution on pairs is available, a copula relates it to the two marginal distributions, as in Sklar's theorem \cite[Theorem~2]{haugh2016copulas}. Statistical independence is a property of that distribution.} In optimising over labour we hold fixed each task's acceptance time and the fraction of its requirement still met in \eqref{eq:retention}.
+For variable output $0\leq Q_-\leq Q\leq Q_+$ and $H_{\min}>0$, every feasible rate lies in $[Q_-/H_{\max},Q_+/H_{\min}]$. This interval is exact if and only if every rate in it comes from at least one feasible output--labour pair. It suffices, for example, that all pairs in $[Q_-,Q_+]\times[H_{\min},H_{\max}]$ are feasible.\footnote{Feasibility specifies which pairs can occur. Given a distribution on pairs, a copula relates it to the marginal distributions under Sklar's theorem \cite[Theorem~2]{haugh2016copulas}. Independence is a property of that distribution.} The optimisation over labour holds each task's acceptance time and retained requirement fraction fixed in \eqref{eq:retention}.

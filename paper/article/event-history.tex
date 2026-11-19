@@ -1,8 +1,6 @@
 \subsection{The acceptance deadline and observation periods}
 \label{sec:event-history}
 
-The date of first acceptance determines when to assess retained behaviour. For a task accepted on time, the assessment falls at task age $T_i+\Delta$. Labour accrues through the common age $\tau+\Delta$, including hours spent on any requirement still unaccepted at age $\tau$.
-
-Figure~\ref{fig:task-clocks} follows a task accepted on day three of a fourteen-day acceptance window. Fourteen days after acceptance, on day seventeen, the reviewer checks which requirements the software still satisfies. Repair on day twenty counts towards labour because that period extends through day twenty-eight. To compare demands on a contributor across tasks that started on different dates, add each task's intake time $s_i$ to the relevant task age.
+Each task contributes labour through age $\tau+\Delta$, including repairs after an early follow-up assessment. In Figure~\ref{fig:task-clocks}, acceptance on day three puts the assessment on day seventeen. Repair on day twenty still falls within the twenty-eight-day labour window. To place hours across several tasks on one calendar, add each task's intake time $s_i$ to its age.
 
 \input{../figures/task-clocks}
