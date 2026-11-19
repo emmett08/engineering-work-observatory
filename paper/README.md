@@ -1,6 +1,6 @@
-# How Much Human Work Is Behind AI-Assisted Software?
+# Bounding and estimating human labour in AI-assisted software engineering
 
-*Labour Bounds and Estimation from Work Telemetry* asks what a team can infer about human effort from incomplete records. An engineer who spent three hours on a task during a four-hour window must have spent between one and two of those hours in the first two hours. The paper generalises this calculation to several people and tasks, then shows how a probability sample of work intervals can estimate total labour. It follows the same requirements through acceptance and follow-up so that the numerator and denominator of a productivity estimate refer to a defined cohort.
+This paper derives the range of person-hours consistent with overlapping observations and the time each contributor has available. It tests the bounds and two sampling estimators on work histories with known hours. A proposed field study would measure labour on fixed requirements and assess how much of each requirement the software still satisfies at follow-up.
 
 [Read the paper](ai-assisted-software-engineering.pdf) · [LaTeX source](article/main.tex) · [References](article/references.bib) · [Critical review](review/ai-assisted-software-engineering.md)
 

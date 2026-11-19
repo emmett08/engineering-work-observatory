@@ -16,8 +16,8 @@ The [engarg and eal-mcp worked use case](docs/use-cases/engarg-eal-daily-2026-10
 applies the model to fresh public evidence, retains an original daily forecast,
 and reports insufficient weekly history and adverse retrospective checks.
 
-The research paper asks how much human work goes into AI-assisted software when
-several tasks compete for the same person's time. It derives attainable bounds,
+The research paper bounds human labour when several tasks compete for the same
+engineer's time. It tests the bounds on constructed histories,
 estimates person-hours from a probability sample and specifies how teams can test
 labour forecasts on later tasks. [Read the paper and its reproducibility guide](paper/README.md).
 
@@ -91,8 +91,7 @@ comparison, missing-data behaviour and the initial evidence.
 
 ## Bound and estimate human labour
 
-The current labour model is described in [*How Much Human Work Is Behind
-AI-Assisted Software?*](paper/ai-assisted-software-engineering.pdf).
+The paper derives these bounds in [*Bounding and estimating human labour in AI-assisted software engineering*](paper/ai-assisted-software-engineering.pdf).
 
 ```sh
 cargo run --locked -- bound-labour examples/joint-labour-bounds.json

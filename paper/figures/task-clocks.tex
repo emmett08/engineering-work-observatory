@@ -9,8 +9,8 @@
   every node/.style={inner sep=1pt,outer sep=0pt}]
   \path[use as bounding box] (0,-8) rectangle (152.4,65);
   \node[anchor=west] at (0,50) {Acceptance};
-  \node[anchor=west,align=left] at (0,33) {Output\\follow-up};
-  \node[anchor=west,align=left] at (0,17) {Labour\\counted};
+  \node[anchor=west,align=left] at (0,33) {Requirement\\follow-up};
+  \node[anchor=west,align=left] at (0,17) {Labour\\window};
   \foreach \day in {0,3,14,17,28} {
     \draw[black!30,densely dotted,line width=0.45pt]
       ({42+3.4*\day},7) -- ({42+3.4*\day},53);
@@ -23,12 +23,12 @@
   \draw[<->,line width=0.7pt] (52.2,33) -- (99.8,33);
   \node at (76,38) {$\Delta=14$ days};
   \fill (99.8,33) circle (1mm);
-  \node[anchor=west,align=left] at (104,33) {Assess output\\$T_i+\Delta=17$};
+  \node[anchor=west,align=left] at (104,33) {Assess requirement\\$T_i+\Delta=17$};
   \draw[line width=1pt] (42,17) -- (137.2,17);
   \foreach \xx in {42,137.2} {
     \draw[line width=0.7pt] (\xx,15) -- (\xx,19);
   }
-  \node at (89.6,22) {Count attributable labour through $\tau+\Delta=28$};
+  \node at (89.6,22) {Include labour through $\tau+\Delta=28$};
   \draw[line width=0.5pt] (42,5) -- (137.2,5);
   \foreach \day in {0,7,14,21,28} {
     \draw[line width=0.5pt] ({42+3.4*\day},5) -- ({42+3.4*\day},3.5);
@@ -36,7 +36,7 @@
   }
   \node at (89.6,-5) {Task age (days)};
 \end{tikzpicture}
-\caption{\textbf{An early acceptance brings the output check forward.}
-With $\tau=14$ and $\Delta=14$ days, acceptance on day three puts the output check on day seventeen. The solid line covers the labour observation period through day twenty-eight. Work on the task at any time during that period contributes person-hours, including repairs after the output check. Adding $s_i$ to an age on the horizontal axis gives the corresponding calendar time.}
+\caption{\textbf{Timing of the follow-up assessment and the labour total.}
+The team accepts the requirement on day three, within the fourteen-day deadline ($\tau$). The reviewer checks which criteria still hold fourteen days after acceptance ($\Delta$), on day seventeen. Labour includes subsequent repairs through day twenty-eight ($\tau+\Delta$). Task age starts at intake. Adding the intake time $s_i$ to any age on the axis gives its calendar time.}
 \label{fig:task-clocks}
 \end{figure}
