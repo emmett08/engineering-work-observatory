@@ -1,0 +1,32 @@
+\subsection{Which bounds describe a team's work?}
+
+Suppose two engineers each spent one person-hour reviewing the same change
+during a two-hour interval. One left after the first hour, so their review
+occupied that whole hour. The other engineer could have reviewed at any time
+during the two hours. Their combined first-hour labour therefore ranges
+from one to two person-hours. If they confirm that they reviewed together
+throughout, the first engineer's departure fixes the timing for both. They
+contributed exactly two person-hours in the first hour.
+
+The labour bound may also tell a team whether it can report a rate. Suppose
+its output score $Q$ is known and Equation~\eqref{eq:sharp-labour-range}
+allows any labour total in $[0,H_{\max}]$ with $H_{\max}>0$. For $Q>0$, every rate in
+$[Q/H_{\max},\infty)$ is possible among histories with positive labour,
+since labour can approach zero. For $Q=0$, the rate is zero in every such history. A history with zero labour has an undefined rate. If
+$H_{\max}=0$, report $Q$ alongside zero person-hours. The accompanying
+\texttt{bound-labour} command omits the productivity interval whenever
+$H_{\min}=0$.
+
+Even with positive labour in every feasible history, the output may
+depend on how much labour occurred. Suppose the evidence permits exactly
+the pairs $(H,Q)=(h,2h)$ for $1\leq h\leq2$, with $H$ in person-hours
+and $Q$ in reference units. At the lowest output and highest labour the ratio would be one unit
+per person-hour. Pairing the highest output with the lowest labour would imply four.
+In every feasible pair the output is twice the labour,
+so the only possible rate is two units per person-hour. More generally,
+for a candidate rate $r$ and
+positive $H$, the inequality $Q/H\leq r$ is equivalent to $Q-rH\leq0$.
+An upper bound of zero on $Q-rH$ over the feasible pairs therefore
+establishes $r$ as an upper bound on productivity. If linear constraints
+describe the pairs, optimising $Q/H$ over them is a linear-fractional
+programme \cite[Section~4.3.2]{boydvandenberghe2004}.

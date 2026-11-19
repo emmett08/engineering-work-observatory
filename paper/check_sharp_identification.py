@@ -266,6 +266,53 @@ def check_capacity_and_window_boundaries():
                     zip(masses, durations)), F(0)) == sum(masses)
 
 
+def check_joint_attendance():
+    """Enumerate two engineers' allocations across four half-hour slots."""
+    schedules = [slots for slots in product((0, 1), repeat=4) if sum(slots) == 2]
+    individual_hours = set()
+    joint_hours = set()
+    for first, second in product(schedules, repeat=2):
+        if any(second[2:]):  # The second engineer was unavailable after hour one.
+            continue
+        hours = F(sum(first[:2]) + sum(second[:2]), 2)
+        individual_hours.add(hours)
+        if first == second:
+            joint_hours.add(hours)
+    assert individual_hours == {1, F(3, 2), 2}
+    assert joint_hours == {2}
+
+
+def check_productivity_examples():
+    """Check feasible labour witnesses and compare joint and marginal rates."""
+    # One person-hour across two hours admits any first-hour total in [0, 1].
+    whole = IntervalObservation.exact(0, 2, 1)
+    bounds = sharp_stream_bounds(0, 2, (whole,), 0, 1)
+    assert (bounds.lower, bounds.upper) == (0, 1)
+    check_witness(bounds, (whole,), 0, 1)
+
+    # Supply specific totals approaching zero and verify that a schedule attains
+    # each one. The proof in the paper covers the continuous positive range.
+    for divisor in (1, 2, 16, 1024):
+        hours = F(1, divisor)
+        records = (whole, IntervalObservation.exact(0, 1, hours))
+        result = sharp_stream_bounds(0, 2, records, 0, 1)
+        assert result.lower == result.upper == hours
+        check_witness(result, records, 0, 1)
+        assert F(2) / result.lower == 2 * divisor
+        assert F(0) / result.lower == 0
+    no_labour = IntervalObservation.exact(0, 1, 0)
+    result = sharp_stream_bounds(0, 1, (no_labour,), 0, 1)
+    assert result.lower == result.upper == 0  # No positive denominator is feasible.
+
+    # The pair (h, 2h) fixes the rate at two. Combining separate marginals
+    # permits pairings of a labour total and an output that cannot coexist.
+    pairs = [(hours, 2 * hours) for hours in (F(1), F(3, 2), F(2))]
+    joint_rates = {output / hours for hours, output in pairs}
+    separate_rates = {output / hours for hours, _ in pairs for _, output in pairs}
+    assert joint_rates == {2}
+    assert (min(separate_rates), max(separate_rates)) == (1, 4)
+
+
 def check_inconsistent_inputs():
     inconsistent = (
         (IntervalObservation.exact(0, 1, 2),),
@@ -297,6 +344,8 @@ def main():
     exact = check_exact_observations_by_enumeration()
     bounded = check_bounded_observations_by_enumeration()
     check_capacity_and_window_boundaries()
+    check_joint_attendance()
+    check_productivity_examples()
     inconsistent = check_inconsistent_inputs()
     print(json.dumps({
         "status": "PASS", "single_interval_cases": single,
@@ -304,6 +353,7 @@ def main():
         "bounded_observation_enumeration": bounded,
         "explicit_inconsistency_cases": inconsistent,
         "capacity_and_window_boundaries": "PASS",
+        "joint_attendance_and_productivity_examples": "PASS",
         "arithmetic": "fractions.Fraction; no floating-point optimisation",
         "scope": "Manufactured finite checks and witness validation; general proofs are in the paper."
     }, sort_keys=True))

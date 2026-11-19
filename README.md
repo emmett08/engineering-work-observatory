@@ -16,11 +16,10 @@ The [engarg and eal-mcp worked use case](docs/use-cases/engarg-eal-daily-2026-10
 applies the model to fresh public evidence, retains an original daily forecast,
 and reports insufficient weekly history and adverse retrospective checks.
 
-The [papers and reproducibility files](paper/README.md) include the new
-[automatic forecasting companion](paper/forecasting/automatic-throughput-forecasting.pdf)
-and [three ranked alternatives](paper/review/ranked-automatic-model-alternatives.md).
-They also preserve the original measurement draft, its Lean evidence, and the
-separate article on labour identification and design-based estimation.
+The research paper asks how much human work goes into AI-assisted software when
+several tasks compete for the same person's time. It derives attainable bounds,
+estimates person-hours from a probability sample and specifies how teams can test
+labour forecasts on later tasks. [Read the paper and its reproducibility guide](paper/README.md).
 
 The separate study-accounting path measures human effort, elapsed acceptance
 time and retained requirement output from explicit observations. Repository
@@ -300,11 +299,13 @@ provenance, a complete-frame attestation, inclusion probabilities, and explicit
 observed/unselected/nonresponse statuses. Nonresponse is rejected rather than
 treated as zero. Keep the input file with its output for reproduction.
 
-`general` designs return point estimates with unavailable variance. Declared simple
-random sampling without replacement validates the sample size and equal inclusion
-probabilities, then estimates HT and residual-based variances when at least two
-units were observed. A census has known zero sampling variance; a noncensus sample
-of one does not identify variance. The command reports standard errors without
+Both supported designs report zero sampling variance when every unit is selected
+with certainty. Other `general` designs return point estimates with variance
+marked unavailable, even if all units happen to appear in the sample. For simple
+random sampling without replacement, the command validates the sample size and
+equal inclusion probabilities. It estimates HT and residual-based variances from
+at least two sampled units. One observation from a larger frame cannot supply
+this variance estimate. The command reports standard errors without
 inventing a confidence interval or causal contrast. An unfavourable predictor can
 increase variance, and a signed difference estimate can be negative. No clipping
 or automatic substitution into a productivity ratio is performed. See the

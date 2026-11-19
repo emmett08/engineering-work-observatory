@@ -242,7 +242,13 @@ failed its promotion screen. It remains experimental. The operational reference
 is retained as the simpler baseline, without claiming validated accuracy on the
 user's repositories or automatic transfer from the reference repository.
 
-The [companion paper and retained results](../paper/forecasting/README.md) document
-that exercise. The separate labour-identification study remains available through
-the [measurement protocol](measurement-protocol.md); its independent labour and
-quality observations are not replaced by automatic PR counts.
+The [independent checker](../tests/fixtures/forecasting/check_reference_results.py)
+reconstructs all 130 scores from the retained [merge events](../tests/fixtures/forecasting/reference-events.json).
+Run it from the repository root with:
+
+```sh
+python3 tests/fixtures/forecasting/check_reference_results.py --self-test
+```
+
+For human labour and product quality, the [measurement protocol](measurement-protocol.md)
+describes the additional observations those outcomes require.

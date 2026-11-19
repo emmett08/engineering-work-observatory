@@ -124,5 +124,4 @@ correctly rounded so an unchanged saved PMF can be verified exactly.
 The default expanding reference was retained after the recent-window challenger
 failed its frozen public-reference promotion screen. The bounded public comparison
 and the operational all-supported-history frame are distinct. Neither establishes
-accuracy for a user's portfolio. See [the operational contract](automatic-forecasting.md)
-and [the companion paper](../paper/forecasting/README.md).
+accuracy for a user's portfolio. The [forecasting command guide](automatic-forecasting.md) describes which data enter each forecast and how to score it.

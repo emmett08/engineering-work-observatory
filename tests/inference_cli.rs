@@ -95,3 +95,21 @@ fn estimator_command_rejects_an_unknown_design_field() {
     assert!(output.stdout.is_empty());
     assert!(!state.exists());
 }
+
+#[test]
+fn estimator_command_rejects_duplicate_fields_in_a_sampled_unit() {
+    let root = tempfile::tempdir().unwrap();
+    let state = root.path().join("unused-state");
+    let input = root.path().join("ambiguous.json");
+    let frame = include_str!("../examples/model-assisted-labour.json").replacen(
+        "\"predicted_person_hours\":",
+        "\"predicted_person_hours\": 99, \"predicted_person_hours\":",
+        1,
+    );
+    fs::write(&input, frame).unwrap();
+    let output = run(&state, &input);
+    assert!(!output.status.success());
+    assert!(String::from_utf8_lossy(&output.stderr).contains("duplicate field"));
+    assert!(output.stdout.is_empty());
+    assert!(!state.exists());
+}

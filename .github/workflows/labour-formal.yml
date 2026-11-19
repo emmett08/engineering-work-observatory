@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1 (Node.js 24)
       - name: Install pinned Lean toolchain
-        run: bash paper/effort-speed-ai/formal/scripts/bootstrap_lean.sh "$RUNNER_TEMP/labour-lean"
+        run: bash paper/formal/scripts/bootstrap_lean.sh "$RUNNER_TEMP/labour-lean"
       - name: Obtain pinned mathlib build cache when available
         working-directory: paper/formal
         run: |

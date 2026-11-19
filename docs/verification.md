@@ -86,9 +86,7 @@ worktree before the repaired regression was accepted. Output ranges disclose
 ordinary floating-point approximation without outward rounding. They are neither
 sampling confidence intervals nor results from a general joint LP solver.
 
-Current commands, suite counts, source/receipt checks, manuscript inspection and
-review scope are recorded in [the paper validation notes](../paper/VALIDATION.md)
-and the revision's [decision record](../paper/review/sharp-identification-2026-10-29.md).
+The [validation notes](../paper/VALIDATION.md) describe the checks for the labour model.
 
 
 ## Automatic forecasting revision
@@ -101,13 +99,11 @@ exported originals, replay, pending scores, unsupported history, partial-source
 failure and pre-fetch overwrite protection. The JSON parser's `float_roundtrip`
 feature preserves exact verification of saved fitted probabilities.
 
-The [forecast validation record](../paper/forecasting/VALIDATION.md) distinguishes
-software checks, independent exact/decimal score checks, the failed public-reference
-promotion and the still-unvalidated user forecast. The [mesh decision record](../paper/review/mesh-forecasting-2026-10-29/README.md)
-and [three ranked alternatives](../paper/review/ranked-automatic-model-alternatives.md)
-retain model choices and unsupported future-bottleneck claims. The original 17-page manuscript, proof package and historical performance
-observations remain unchanged. The [subsequent writing revision](../paper/review/precise-writing-2026-10-29.md)
-updates both current papers and their captions.
+The [independent forecast checker](../tests/fixtures/forecasting/check_reference_results.py)
+reconstructs 26 weekly targets from 742 retained pull-request records and verifies
+130 method–target scores. Run it with `--self-test` to check that it rejects five
+altered result files. The [issued forecast example](../examples/forecasting/README.md)
+shows how to reproduce a pending score with the CLI.
 
 ## Alignment with the revised labour model, 30 October 2026
 

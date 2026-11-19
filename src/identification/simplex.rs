@@ -19,6 +19,25 @@ const MAX_TABLEAU_ENTRIES: usize = 250_000;
 const MAX_PIVOTS: usize = 50_000;
 const MAX_COEFFICIENT_BITS: u64 = 4_096;
 
+/// Count the slack and artificial columns before allocating the dense tableau.
+pub(super) fn tableau_width(decisions: usize, rows: usize, artificials: usize) -> Result<usize> {
+    let width = decisions
+        .checked_add(rows)
+        .and_then(|columns| columns.checked_add(artificials))
+        .and_then(|columns| columns.checked_add(1))
+        .ok_or_else(|| anyhow::anyhow!("LP dimension overflow"))?;
+    // Include the objective workspace and the right-hand-side column.
+    let entries = rows
+        .checked_add(1)
+        .and_then(|height| height.checked_mul(width))
+        .ok_or_else(|| anyhow::anyhow!("LP tableau size overflow"))?;
+    ensure!(
+        entries <= MAX_TABLEAU_ENTRIES,
+        "LP tableau exceeds {MAX_TABLEAU_ENTRIES} entries"
+    );
+    Ok(width)
+}
+
 /// Maximise `c*x` subject to `A*x <= b` and `x >= 0`.
 ///
 /// Returns an attaining vector, `None` for an infeasible programme, or an error
@@ -44,26 +63,10 @@ pub(super) fn maximise(
         return Ok(b.iter().all(|value| !value.is_negative()).then(Vec::new));
     }
     let original = c.len();
-    let ordinary = original
-        .checked_add(b.len())
-        .ok_or_else(|| anyhow::anyhow!("LP dimension overflow"))?;
     let artificial_count = b.iter().filter(|value| value.is_negative()).count();
-    let variables = ordinary
-        .checked_add(artificial_count)
-        .ok_or_else(|| anyhow::anyhow!("LP dimension overflow"))?;
-    let width = variables
-        .checked_add(1)
-        .ok_or_else(|| anyhow::anyhow!("LP dimension overflow"))?;
-    // Include the objective workspace even when there are no constraint rows.
-    let entries = b
-        .len()
-        .checked_add(1)
-        .and_then(|rows| rows.checked_mul(width))
-        .ok_or_else(|| anyhow::anyhow!("LP tableau size overflow"))?;
-    ensure!(
-        entries <= MAX_TABLEAU_ENTRIES,
-        "LP tableau exceeds {MAX_TABLEAU_ENTRIES} entries"
-    );
+    let width = tableau_width(original, b.len(), artificial_count)?;
+    let ordinary = original + b.len();
+    let variables = width - 1;
     let mut rows = Vec::with_capacity(a.len());
     let mut basis = Vec::with_capacity(a.len());
     let mut next_artificial = ordinary;

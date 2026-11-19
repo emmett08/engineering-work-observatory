@@ -33,9 +33,9 @@ pub struct LabourEstimate {
 /// Version 1 declares a disjoint person-interval frame without supplying geometry.
 /// Design-unbiasedness requires truthful complete-frame and frozen-prediction
 /// attestations, accurate observed labels, and the declared inclusion probabilities.
-/// Selected nonresponse is an error, never an observed zero. General designs supply
-/// point estimates only; declaring SRS without replacement also enables its variance
-/// estimate when there are at least two observations (or zero variance for a census).
+/// Selected nonresponse is an error, never an observed zero. A design that
+/// includes every unit with certainty has zero sampling variance. Noncensus
+/// SRS without replacement permits a variance estimate with at least two observations.
 pub fn estimate_labour(input: &LabourEstimateInput) -> Result<LabourEstimate> {
     input.validate()?;
     let mut predicted = CheckedSum::default();
@@ -56,12 +56,7 @@ pub fn estimate_labour(input: &LabourEstimateInput) -> Result<LabourEstimate> {
             srs_totals(input, sample_size)?
         }
     };
-    let variance = variance::calculate(
-        &input.design,
-        input.units.len(),
-        &observed,
-        &sampled_predictions,
-    )?;
+    let variance = variance::calculate(input, &observed, &sampled_predictions)?;
     Ok(LabourEstimate {
         schema: "observatory.labour-estimate/1".into(),
         frame_id: input.frame_id.clone(),
@@ -85,15 +80,18 @@ fn general_totals(input: &LabourEstimateInput) -> Result<(f64, f64)> {
     let mut ht = CheckedSum::default();
     let mut difference = CheckedSum::default();
     for unit in &input.units {
-        difference.add(unit.predicted_person_hours)?;
-    }
-    for unit in &input.units {
         if let LabourObservation::Observed { person_hours } = unit.observation {
-            ht.add(person_hours / unit.inclusion_probability)?;
-            // Keep small labels from disappearing when subtracting a large prediction.
-            difference.add(person_hours / unit.inclusion_probability)?;
+            let expanded = person_hours / unit.inclusion_probability;
+            ht.add(expanded)?;
+            difference.add(expanded)?;
+            // For a certainty unit, f + (y-f)/1 is exactly y. Cancelling the
+            // auxiliary terms here also avoids an unnecessary intermediate overflow.
+            if unit.inclusion_probability == 1.0 {
+                continue;
+            }
             difference.add(-unit.predicted_person_hours / unit.inclusion_probability)?;
         }
+        difference.add(unit.predicted_person_hours)?;
     }
     Ok((ht.total()?, difference.total()?))
 }

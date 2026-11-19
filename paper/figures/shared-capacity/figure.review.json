@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
   "figure_id": "shared-capacity",
-  "spec_sha256": "197c9e9ea781032e72d10a99980e1adcb2a234e695baf9f07bd978b70830c10d",
-  "audit_sha256": "e62d81d1380d4ab39667724375718af62d50fe793538f45428a59b54ff5914ca",
+  "spec_sha256": "54432908adaf24f58738b2d37263903c48761274f73786a79612853829d0842a",
+  "audit_sha256": "0c2b28b61701abce6a8ba77ccb4ff2ff35cf41646af300bd1f5aef0f52f82f8c",
   "artifacts": [
     {
       "role": "final_pdf",
       "path": "figures/shared-capacity/figure.pdf",
-      "sha256": "78e0d716dde404e578180954a2667e08219619d36083c1ffc58650aec23b0583"
+      "sha256": "e55ba10384076e032f227dfea478f71299387f8bae8d98dd3824bf611aa478e0"
     },
     {
       "role": "prototype",
@@ -21,7 +21,7 @@
     }
   ],
   "reviewer": {
-    "id": "/root/timeline_panel/timeline_reader",
+    "id": "OpenAI Codex (independent review agent)",
     "kind": "agent",
     "independence_declared": true,
     "scope": "agent_screening"
@@ -31,94 +31,63 @@
       "id": "compact-timeline",
       "prototype": "figures/shared-capacity/prototypes/compact-timeline.pdf",
       "observations": {
-        "reading": "The image-and-caption-only reconstruction recovered separate square, joint diagonal and fixed combined total, and P-to-one-schedule linkage. The single row, labels and title made one-activity-at-a-time construction clear.",
-        "annotation_burden": "Direct A/B labels and P in the title/caption make another connector unnecessary. The compact rows remain readable; no collision or clipping was found.",
-        "reproduction": "152.4 by 80 mm, with unchanged 52 mm-square geometry and 54 mm time axis. Colour and greyscale preserve task identity, half-hour ticks and first-hour divider."
+        "reading": "The compact panel links the marked pair to four alternating half-hour periods. The revised image labels the diagonal as feasible pairs and the fixed sum as the consequence of one person\u2019s capacity.",
+        "annotation_burden": "The direct A and B labels distinguish the blocks in colour and greyscale. The point, diagonal label and capacity annotations remain separate.",
+        "reproduction": "The historical compact prototype retains the geometry of the revised image. The audit measures its new 152.4 by 80 mm standalone PDF; the prototype retains its earlier wording."
       }
     },
     {
       "id": "bottom-timeline",
       "prototype": "figures/shared-capacity/prototypes/bottom-timeline.pdf",
       "observations": {
-        "reading": "The same quantities, midpoint, four intervals and witness scope are recoverable. A longer timeline does not add another relation.",
-        "annotation_burden": "The simple schedule occupies almost the full width while panel (b) has substantial empty vertical space. The relation still depends on the explicit P title and caption.",
-        "reproduction": "152.4 by 112 mm, with a 104 mm time axis. Legible in colour and greyscale, but the extra 32 mm height adds no necessary semantic detail."
+        "reading": "The bottom timeline prototype displays the same four periods across a longer horizontal axis. The axes and task labels give the same quantities.",
+        "annotation_burden": "The extra horizontal space enlarges the timeline. The shorter panel in the selected design already shows every half-hour boundary and task label.",
+        "reproduction": "The alternative has a separate full-width timeline beneath the feasible-set panels, increasing the total figure height to 112 mm."
       }
     }
   ],
   "selected_candidate": "compact-timeline",
   "initial_reconstruction": {
-    "claim": "First- and second-hour capacity restrict x+y to one. Adding separate bounds allows [0,2]. The marked P=(0.5,0.5) is realised by four alternating full-attention half-hour A/B intervals.",
+    "claim": "One person has two hours to complete one person-hour on each task. Their first-hour task totals must add to one. Four alternating half-hour blocks realise the midpoint.",
     "quantities": [
-      "x and y: first-hour labour on A and B in person-hours.",
-      "x+y: combined first-hour labour; panel-(b) rows are categorical, not a vertical quantity.",
-      "Panel-(c) position/length: elapsed time and task duration in hours; A/B text names the activity."
+      "Panel (a) measures first-hour person-hours on each task. The shaded square includes the pairs allowed by the separate bounds and the diagonal gives their feasible subset.",
+      "Panel (b) places the summed marginal interval from zero to two and the joint total of one on the same person-hour scale.",
+      "Panel (c) shows elapsed hours and assigns each half-hour to A or B."
     ],
-    "evidence_status": "The caption identifies a constructed example and an unobserved, nonunique schedule. No probability or estimated confidence is shown.",
-    "scope": "One person, two tasks totalling one person-hour each in two hours. The shown schedule witnesses only P; its arbitrary task switching is permitted by the model.",
+    "evidence_status": "The example stipulates the totals. The schedule depicts one possible allocation that satisfies them.",
+    "scope": "The exact sum follows from the stipulated work exhausting one person\u2019s available time in both hours.",
     "unintended_inferences": [
-      "The shaded square can initially suggest joint feasibility, but its exclusion labels and the caption identify it as the separate-bound set.",
-      "The single P witness does not prove the whole diagonal is attainable, identify the true history, or establish zero switching costs in real work.",
-      "The original subject \u201cschedule permits interruption\u201d was slightly imprecise; the revised caption makes switching a permission in the constructed example."
+      "A reader could interpret the shaded square as jointly feasible. The diagonal label, capacity annotations and caption distinguish the two sets.",
+      "The four-block schedule illustrates the midpoint. Other schedules can realise the same point."
     ]
   },
   "comparison": {
     "matches": [
-      "The independent reconstruction agrees with every specified quantity, interval, constraint and witness relation.",
-      "The compact rendering retains the original figure height and adequate direct labels.",
-      "Neither greyscale marks nor interval shapes introduce probability, causality or a unique-history claim."
+      "Both axis totals at the marked point are one half of a person-hour. Their sum matches the single diamond in panel (b).",
+      "The alternating half-hour task labels agree with the midpoint and the two whole-window totals.",
+      "Colour and greyscale show the same task labels, diagonal, interval caps and position of the diamond.",
+      "The alternative text names both first-hour task axes and the person-hour scale, explains why points on either side of the diagonal exceed the available time, and describes the four blocks that realise the midpoint."
     ],
     "findings": [
       {
-        "id": "caption-subject",
-        "severity": "minor",
-        "description": "The initial caption made the schedule the subject of permitting interruption.",
-        "disposition": "resolved",
-        "reason": "The final caption explicitly states that the example allows the person to switch tasks at arbitrary times. The reader confirmed that this resolves the caution."
-      },
-      {
-        "id": "separate-bounds",
-        "severity": "minor",
-        "description": "\u201cSeparate bounds added\u201d requires the caption to distinguish marginal bounds from joint feasibility.",
-        "disposition": "accepted",
-        "reason": "The caption states the separate-versus-joint calculation; the independent initial reconstruction recovered it correctly."
-      },
-      {
-        "id": "point-linkage",
+        "id": "revised-labels",
         "severity": "informational",
-        "description": "No cross-panel arrow joins P to the timeline.",
+        "description": "The revised text labels the diagonal and names the capacity assumption responsible for the fixed sum.",
         "disposition": "accepted",
-        "reason": "The marked point, \u201cOne schedule for P\u201d title and caption supplied an adequate explicit connection in the independent reader review."
-      },
-      {
-        "id": "caption-plain-prose",
-        "severity": "minor",
-        "description": "The caption retained two prose colons and two semicolons.",
-        "disposition": "resolved",
-        "reason": "Independent source reviewer /root/reapplication_review checked the rewritten caption against the baseline and manuscript. It preserves the separate bounds, joint diagonal, constructed schedule and evidential limitations. The figure geometry and standalone PDF are unchanged."
-      },
-      {
-        "id": "caption-two-stage-wording",
-        "severity": "informational",
-        "description": "The current caption has received the requested plain-word pass followed by engineering-explanation revision.",
-        "disposition": "resolved",
-        "reason": "The authoring assistant checked the revised caption against its exact baseline and the rendered article. It preserves every mathematical quantity and the distinction between separately permitted totals, joint capacity and one possible schedule. The listed independent reviewer assessed the historical figure, not this new wording. The image, geometry and underlying numerical inputs remain byte-identical."
+        "reason": "The rebuilt labels fit at the intended size in the rendered figure. The caption explains why both hours must be full and identifies panel (c) as one possible schedule."
       }
     ],
     "audit_warning_dispositions": [
       {
         "index": 0,
         "disposition": "accepted",
-        "reason": "The standalone class reports shell escape disabled. This ordinary TikZ picture uses no external commands and compiles without enabling shell escape."
+        "reason": "The standalone class reports that shell escape is disabled. This figure uses ordinary TikZ and was rendered with shell escape disabled."
       }
     ]
   },
   "decision": "accept",
   "limitations": [
     "Human interpretation benefit remains unmeasured by agent screening.",
-    "The semantic reader did not independently execute the mathematical calculation or certify the general reconstruction proof. Exact calculation checks are a separate evidence item.",
-    "The skill schemas were available, but its bundled renderer/validator scripts were unavailable; project-local checks retain their declared bounded coverage.",
-    "The aggregate is exact because this constructed case saturates two hours of one person\u2019s capacity. That conclusion does not apply to every shared-capacity system.",
-    "The 5 November caption revision has author review only. The historical independent reviewer and candidate comparison apply to the unchanged figure image and the earlier caption. No new independent or human comprehension result is claimed."
+    "The review compared the revised colour and greyscale rendering against the caption, the two existing layouts and the numerical construction. The proof of the full attainable set is in the article."
   ]
 }

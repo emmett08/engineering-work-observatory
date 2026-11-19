@@ -218,6 +218,38 @@ fn check_witnesses(input: &Value, report: &Value) {
 }
 
 #[test]
+fn tableau_limit_uses_the_actual_number_of_columns() {
+    // Each person has a separate one-hour target. All capacity rows start
+    // with a feasible slack variable, so no artificial column is required.
+    let make_input = |people: usize| {
+        let mut streams = Vec::new();
+        let mut targets = Vec::new();
+        for person in 0..people {
+            let id = format!("stream-{person}");
+            streams.push(stream(&id, &format!("person-{person}")));
+            let start = person.to_string();
+            let end = (person + 1).to_string();
+            targets.push(target(&id, &start, &end, "1"));
+        }
+        let mut input = problem(streams, vec![], targets);
+        input["domain"]["end"] = json!(people.to_string());
+        input
+    };
+
+    // 18 people x 18 cells need 325 * 649 = 210,925 tableau entries.
+    let input = make_input(18);
+    let report = solve(&input);
+    assert_eq!(report["minimum"]["value"], "0");
+    assert_eq!(report["maximum"]["value"], "18");
+    check_witnesses(&input, &report);
+
+    // 19 x 19 need 362 * 723 = 261,726 entries, exceeding the same cap.
+    let larger: LabourBoundInput = serde_json::from_value(make_input(19)).unwrap();
+    let error = bound_labour(&larger).unwrap_err();
+    assert!(error.to_string().contains("tableau"));
+}
+
+#[test]
 fn shared_capacity_collapses_the_sum_of_marginal_ranges() {
     let mut input = problem(
         vec![stream("a", "p"), stream("b", "p")],

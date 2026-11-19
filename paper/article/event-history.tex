@@ -1,12 +1,8 @@
 \subsection{The acceptance deadline and observation periods}
 \label{sec:event-history}
 
-Why do the output check and the labour total use different end times? Output is assessed a fixed time after each task's first acceptance. Labour is counted to the same age for every task, so the total includes work on tasks still unfinished or already abandoned. The labour cutoff therefore stays independent of acceptance time.
+Measure output and labour on their respective dates. For a task accepted by its deadline, the reviewer checks its requirement at age $T_i+\Delta$. Count attributable labour through age $\tau+\Delta$ for every task, including those that miss the deadline.
 
-The deadline $\tau$ determines which tasks qualify for output. For a task accepted by that deadline, assess requirement fulfilment at age $T_i+\Delta$. For every task, count labour through age $\tau+\Delta$, including work on unfinished and abandoned tasks. A complete history therefore needs the acceptance record, the follow-up assessment where applicable and all attributable repair within the labour observation period.
-
-Figure~\ref{fig:task-clocks} shows the output assessment time and the period included in the labour total for an example task. Adding $s_i$ converts task age to calendar time. This conversion lets us combine the task's labour with work on other tasks that use the same people's time.
+Figure~\ref{fig:task-clocks} shows a task accepted on day three of a fourteen-day acceptance window. After another fourteen days the reviewer checks how much of the requirement still holds. The check falls on day seventeen. Repair on day twenty still counts as labour because the common labour period ends on day twenty-eight. Adding $s_i$ to each task age gives the calendar time needed to compare demands on the same person's time.
 
 \input{../figures/task-clocks}
-
-Complete follow-up can still allow several allocations of human time. A record \emph{point-identifies} realised labour when at least one allocation fits the observations and model constraints, and every such allocation gives the same total. This asks how much labour occurred in the recorded history. Proposition~\ref{prop:nonidentification} asks a different question, whether the distribution of observed events uniquely determines a population parameter. The next section derives the smallest and largest totals allowed by interval observations.
