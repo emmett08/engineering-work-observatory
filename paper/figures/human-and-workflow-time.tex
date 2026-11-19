@@ -1,14 +1,13 @@
-% Illustrative one-hour interval, with every prompt and review included.
-% Each run starts when its prompt is submitted. Review follows B's completion.
+% Each run starts when the engineer submits its instructions. Review follows B's completion.
 % Numeric times below drive the plotted marks and the chronology tests.
 \begin{figure}[htp]
 \centering
 \def\HTWindowStart{0}
 \def\HTWindowEnd{60}
-\def\HTPromptAStart{0}
-\def\HTPromptAEnd{10}
-\def\HTPromptBStart{10}
-\def\HTPromptBEnd{20}
+\def\HTInstructAStart{0}
+\def\HTInstructAEnd{10}
+\def\HTInstructBStart{10}
+\def\HTInstructBEnd{20}
 \def\HTRunAStart{10}
 \def\HTRunAEnd{60}
 \def\HTRunBStart{20}
@@ -23,16 +22,16 @@
   \node[anchor=west] at (0,14) {Workflow B};
   \draw[line width=0.5pt] ({40+1.75*\HTWindowStart},34)
     rectangle ({40+1.75*\HTWindowEnd},42);
-  \fill[black!18] ({40+1.75*\HTPromptAStart},34)
-    rectangle ({40+1.75*\HTPromptAEnd},42);
-  \fill[black!30] ({40+1.75*\HTPromptBStart},34)
-    rectangle ({40+1.75*\HTPromptBEnd},42);
+  \fill[black!18] ({40+1.75*\HTInstructAStart},34)
+    rectangle ({40+1.75*\HTInstructAEnd},42);
+  \fill[black!30] ({40+1.75*\HTInstructBStart},34)
+    rectangle ({40+1.75*\HTInstructBEnd},42);
   \fill[black!18] ({40+1.75*\HTReviewBStart},34)
     rectangle ({40+1.75*\HTReviewBEnd},42);
   \node[align=center,font=\fontsize{8.5}{10}\selectfont]
-    at ({40+1.75*(\HTPromptAStart+\HTPromptAEnd)/2},38) {Prepare\\prompt A};
+    at ({40+1.75*(\HTInstructAStart+\HTInstructAEnd)/2},38) {Instruct A};
   \node[align=center,font=\fontsize{8.5}{10}\selectfont]
-    at ({40+1.75*(\HTPromptBStart+\HTPromptBEnd)/2},38) {Prepare\\prompt B};
+    at ({40+1.75*(\HTInstructBStart+\HTInstructBEnd)/2},38) {Instruct B};
   \node at ({40+1.75*(\HTReviewBStart+\HTReviewBEnd)/2},38) {Review B};
   \draw[fill=black!8,line width=0.5pt] ({40+1.75*\HTRunAStart},22)
     rectangle ({40+1.75*\HTRunAEnd},28);
@@ -52,6 +51,6 @@
   \node at (92.5,-5) {Elapsed time (minutes)};
 \end{tikzpicture}
 \caption{\textbf{Human and automated time during one hour.}
-The engineer spends twenty minutes preparing the two prompts and twenty minutes reviewing B's result. The unshaded interval in the top row contributes zero labour on these tasks. Total human labour is $2/3$ of a person-hour. Workflow A runs for fifty minutes and B for twenty. Each run contributes its full duration, including the twenty minutes when both run together, giving $7/6$ workflow-hours.}
+The engineer spends ten minutes writing instructions for workflow A, ten for B and twenty reviewing B's result. During the unshaded interval the workflows run without human attention. Human labour totals $2/3$ of a person-hour. Workflow A runs for fifty minutes and B for twenty. Counting the twenty minutes of overlap once for each workflow gives $7/6$ workflow-hours.}
 \label{fig:human-and-workflow-time}
 \end{figure}

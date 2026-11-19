@@ -1,7 +1,7 @@
 {
   "schema": "current-manuscript-concordance/1",
   "repository_relative_path": "paper/article/partial-identification.tex",
-  "sha256": "b21a50c8e10a4b5d0822af0b8193fdf919411a8571d5fd3b26f63eee35a42064",
+  "sha256": "348abe10110a0441b83866682cdcec0df49e00c8b4b721df8c789ba4860cdb87",
   "frozen_target": {
     "path": "targets/partial-identification.tex",
     "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
@@ -11,12 +11,12 @@
     "reviewer": "OpenAI Codex (independent review agent)",
     "outcome": "MATHEMATICAL_STATEMENTS_UNCHANGED",
     "report": {
-      "path": "evidence/publication-capacity-concordance.md",
-      "sha256": "0821864218191336500ba3d9800219a5f8f825866bb20c29585db144e8e23cd3"
+      "path": "evidence/terminology-capacity-concordance.md",
+      "sha256": "35e76691abfb15889874192c98a1150299d43e0c499bb8256228ce347daf2a23"
     },
     "differences": [
-      "Both propositions match the frozen proof target. Nine displays, eleven labels, twelve cross-references and seven citations match the previously bound article in order.",
-      "The independent review checks the revised arguments for feasible schedules, optimality, observation uncertainty and attainable productivity rates against their original assumptions."
+      "Both propositions retain the mathematical content of the frozen proof target. Nine displays, eleven labels, twelve cross-references and seven citations match the preceding article in order.",
+      "The independent review confirms the conditions for a single schedule to give individual extrema, the existence of a schedule for every feasible target value, and the equality needed to verify an endpoint."
     ],
     "statement_preservation": "Source concordance for paper/article/partial-identification.tex, comparing the revised bytes with the previously bound article and the immutable target. The historical proof scope applies only to the previously checked component results."
   },

@@ -2,10 +2,10 @@
   "audit_kind": "project-local bounded mechanical checks",
   "limitation": "The skill's bundled figure_spec.py/render_tikz.py/figure_review.py were unavailable. This script does not claim their full validation coverage.",
   "source": "figures/shared-capacity/tikz.tex",
-  "source_sha256": "b2098619fb789aaf56813018141519234c7a0a95541a66eebff9dd4b5c122fbd",
+  "source_sha256": "efb5c30564d53edd66aea4dad2c73610c79d41098266e6ede0d63c4c56d5a92d",
   "pdf": "figures/shared-capacity/figure.pdf",
   "pdf_sha256": "e55ba10384076e032f227dfea478f71299387f8bae8d98dd3824bf611aa478e0",
-  "spec_sha256": "c198ac494263a37e9e83faf82f48ec37398a83f550ce11c7c8a26f4e788349e9",
+  "spec_sha256": "df3cc286d40361f1141fd4031aaa69c89f97db52b663e549a0169ec71c2b562d",
   "engine": "pdflatex",
   "python": "3.12.14",
   "python_packages": {
@@ -27,7 +27,7 @@
   "inputs": [
     {
       "path": "figures/shared-capacity/alt-text.txt",
-      "sha256": "7995b90c36a0ec528af14ec24f945b2e8ad0d879e9dc4913ad52c3ac83987872"
+      "sha256": "3b509422ab72dcabe92adfeab444d883e4a46e0aadc3ab35c98d045d9813804d"
     },
     {
       "path": "figures/shared-capacity/calculate.py",
