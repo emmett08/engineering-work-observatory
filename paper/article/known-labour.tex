@@ -1,0 +1,28 @@
+\section{Testing the methods on known work histories}
+\label{sec:known-labour}
+
+Consider a two-hour shift. An engineer spends two half-hour periods implementing a feature and up to two repairing a defect. A reviewer spends one half-hour period on the feature. Either person may work in any order. Combining each possible order of the engineer's activities with each possible review time gives 96 histories. We know the labour in each history by counting occupied half hours. The calculation receives only the observations described below. We give each history equal weight.
+
+First consider the two people's combined labour in the first hour. The observations give the engineer's total on each task over the shift, the reviewer's total over the shift and the reviewer's time in the first hour. We solve the same optimisation problem twice. Both versions limit each activity to the time available. The second also limits the sum of the engineer's two activities to one hour per elapsed hour. We ask whether first-hour labour exceeded one person-hour. An interval entirely above the threshold, or with its upper endpoint at or below the threshold, settles that question.
+
+\begin{table}[htbp]
+\centering\small
+\caption{First-hour labour in 96 constructed histories. Width is the mean difference between upper and lower limits, in person-hours. A correct or wrong decision settles whether labour exceeded one person-hour. The remaining ranges include totals at or below the threshold and totals above it.}
+\label{tab:known-hours}
+\begin{tabular}{@{}p{0.45\linewidth}rrrr@{}}
+\hline
+Evidence and constraints & Width & Correct & Wrong & Unresolved \\
+\hline
+Separate limit for each activity          & 1.5 & 12 & 0 & 84 \\
+Shared limit for both engineer activities & 0.5 & 60 & 0 & 36 \\
+First-hour total also known for engineer, either limit & 0 & 96 & 0 & 0 \\
+Reviewer absent from the frame, shared limit  & 0.5 & 70 & 26 & 0 \\
+Reviewer known, first-hour review reported as zero, shared limit & 0.5 & 70 & 26 & 0 \\
+Reviewer known, first-hour review between 0 and 0.5, shared limit & 1 & 0 & 0 & 96 \\
+\hline
+\end{tabular}
+\end{table}
+
+Sharing the engineer's capacity settled 48 additional decisions with the original observations (Table~\ref{tab:known-hours}). Giving the solver the engineer's first-hour total settled every decision even with separate capacity limits. Removing the reviewer from the frame excluded actual first-hour labour in 26 histories. Supplying a zero in place of the reviewer's first-hour work had the same consequence. Allowing up to half an hour restored coverage of the true total in all 96 cases, at the cost of leaving every threshold decision unresolved.
+
+The sampling comparison uses the \emph{whole shift}. Each person's two one-hour intervals make four sampling units. We give each pair of units an equal chance of selection and run both estimators on all six draws for each history. Before sampling, the predictor credits each engineer interval with 0.75 person-hours and each reviewer interval with 0.25. With accurate replies, both estimators recover the shift total on average within every history. The mean of their within-history variances is \(49/72\) squared person-hours for inverse-probability weighting alone and \(25/72\) after correction using the predictions. Reporting all review as zero understates labour by half an hour on average under either method. If a reviewer leaves the prompt about their occupied interval unanswered, the complete-response method cannot produce an estimate in 288 of the 576 draws. These counts follow from the constructed activities and the chosen sampling design. A field study must establish which observations it can actually collect.

@@ -12,6 +12,8 @@ From the repository root, run `make -C paper article`. This runs pdfLaTeX and Bi
 
 | Material | What the check establishes |
 | --- | --- |
+| [Known work histories](study/labour-measurement/README.md) | Runs the Rust bounds and sampling commands on 96 two-person histories. Counts correct, wrong and unresolved decisions when hours or a contributor are missing. |
+| [Forecasts at intake](study/labour-forecast-check/README.md) | Compares two forecasts on later synthetic tasks, including a new task class and a change in the hours required for repairs. |
 | [Exact examples](check_measurement_examples.py) and [identification checks](check_sharp_identification.py) | Reproduce finite examples of sampling error and bounds on person-hours. |
 | [Shared-capacity figure](figures/shared-capacity/README.md) and [explanatory figures](check_explanatory_figures.py) | Check the illustrative timelines and sampling distributions against the quantities plotted. |
 | [Lean supplement](formal/README.md) | Gives the proof statements, dependencies and recorded checks for the interval-to-cell reduction, attainable allocations and supplied bounds. |
@@ -19,3 +21,5 @@ From the repository root, run `make -C paper article`. This runs pdfLaTeX and Bi
 | [Horizon-query benchmark](performance/README.md) | Tests two implementations of cohort queries on generated data and retains the measurements used to compare their runtime. |
 
 Run `make -C paper check` for the example, figure, study, receipt and software checks. For a fresh proof build and kernel replay with the pinned Lean toolchain, run `make -C paper formal`. The [validation guide](VALIDATION.md) gives the individual commands and their scope.
+
+With the [planning dependencies](study/ai-labour-causal/requirements.txt) installed, `make -C paper check-planning` repeats the trial simulation, varies individual assumptions and checks how measurement errors in constructed team histories affect the decision.

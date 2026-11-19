@@ -32,7 +32,14 @@ Each interval contributes its full residual in expectation, even when several in
  \widehat H_{\mathrm{HT}}=\sum_{m\in s}\frac{d_ma_m}{\pi_m}.
  \label{eq:ht}
 \end{equation}
-An engineer can report the fraction of a sampled interval spent on the target work. A shorter prompt can ask about the activity at one instant drawn uniformly within that interval. Provided the prompt leaves the preceding work undisturbed and the engineer describes the selected instant accurately, the expected allocation at that instant equals $a_m$ conditional on the interval's activity history. The response multiplied by $d_m$ therefore estimates interval labour without bias. Its variance includes the random choice of instant. A delayed reply must still describe the selected instant.
+An engineer can report the fraction of a completed interval spent on the target work. Another design selects a single instant after the interval closes. Let $A_m(t)$ be the fraction devoted to the task at elapsed time $t$ within the interval. Draw $U_m$ uniformly on $[0,d_m]$, independently of the activity history, and obtain an accurate account of $A_m(U_m)$. Averaging over possible instants gives
+\[
+  \E\!\left[d_m A_m(U_m)\mid A_m\right]
+  =\int_0^{d_m} A_m(t)\,dt=y_m.
+\]
+This design adds a source of sampling variance and requires evidence about work at the selected instant.
+
+A live prompt can change the hours it seeks to measure. Suppose an engineer spends a one-hour interval on a task until a uniformly timed prompt arrives, then switches tasks. Every truthful reply about the instant just before the prompt identifies the original task. The estimate is always one hour. The engineer actually spends half an hour on the task on average. Choosing the instant after the interval closes prevents that interruption. The pilot must still check how accurately contributors recall the selected instant.
 
 \paragraph{Unanswered prompts.}
 Keep the response status for each sampled interval. If an engineer replies that they spent no time on the target work, enter zero hours for that interval. An unanswered prompt leaves the allocation unknown. If engineers skip every prompt during incident response, weighting their other replies by the original selection probabilities will miss those incident hours.
