@@ -1,24 +1,24 @@
 {
   "schema": "current-manuscript-concordance/1",
   "repository_relative_path": "paper/article/partial-identification.tex",
-  "sha256": "199218ed24332a441cc8dafe504d4e5771fff77215ebf8dfd1dc7b2199712baa",
+  "sha256": "87ef4d0968800e56c1cf0561c4371ea2a6c82ae803856fb7c133f6a4cb1adf58",
   "frozen_target": {
     "path": "targets/partial-identification.tex",
     "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
     "origin_commit": "38c4ce40b789d4c5420c98ff1d568b39c3b1e798"
   },
   "independent_review": {
-    "reviewer": "/root/capacity",
+    "reviewer": "OpenAI Codex (independent review agent)",
     "outcome": "MATHEMATICAL_STATEMENTS_UNCHANGED",
     "report": {
-      "path": "evidence/capacity-source-concordance.md",
-      "sha256": "344887e342e3d347ed2f23d691ee7999333c8b03d79b6dc15163f78d21418d55"
+      "path": "evidence/revised-capacity-concordance.md",
+      "sha256": "1944f7036127f06ca073fbb31f8659afa8d461a080a1be0ce21ebfc54ceced2e"
     },
     "differences": [
-      "The two proposition and two proof environments, nine displayed mathematics blocks and eleven labels equal those of the previously bound article, byte for byte and in order.",
-      "The review examines added inline notation and footnotes, identification assumptions, dual signs, simultaneous coverage and feasible productivity ratios at 804f07357511794493b5a9bd95675f60e0604f0e."
+      "Both proposition statements, nine displayed mathematics blocks, eleven labels, twelve cross-references and seven citations match the previous section in order.",
+      "The independent review follows the revised proof explanations, allocation assumptions, conditional coverage and feasible productivity ratios."
     ],
-    "statement_preservation": "Independent review of paper/article/partial-identification.tex against the previously bound b754d67289c4edd6524e315bd05b5e9f0809b540 article and the frozen proof target. The accompanying interpretation section and the revisions to other papers lie outside this binding."
+    "statement_preservation": "Source concordance for paper/article/partial-identification.tex, comparing the revised bytes with the previously bound article and the immutable target. The historical proof scope applies only to the previously checked component results."
   },
   "invalidation": "A current-article byte change requires renewed current concordance/hash binding. A proof-source change requires renewed proof/source review and checking. This record does not identify current bytes with frozen target bytes."
 }

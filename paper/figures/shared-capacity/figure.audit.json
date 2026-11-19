@@ -2,15 +2,15 @@
   "audit_kind": "project-local bounded mechanical checks",
   "limitation": "The skill's bundled figure_spec.py/render_tikz.py/figure_review.py were unavailable. This script does not claim their full validation coverage.",
   "source": "figures/shared-capacity/tikz.tex",
-  "source_sha256": "5cf5a1f69b9792635184d92644be580ab8d33ede0f0b941f7226c27ba17f0888",
+  "source_sha256": "b2098619fb789aaf56813018141519234c7a0a95541a66eebff9dd4b5c122fbd",
   "pdf": "figures/shared-capacity/figure.pdf",
-  "pdf_sha256": "78e0d716dde404e578180954a2667e08219619d36083c1ffc58650aec23b0583",
-  "spec_sha256": "197c9e9ea781032e72d10a99980e1adcb2a234e695baf9f07bd978b70830c10d",
+  "pdf_sha256": "e55ba10384076e032f227dfea478f71299387f8bae8d98dd3824bf611aa478e0",
+  "spec_sha256": "54432908adaf24f58738b2d37263903c48761274f73786a79612853829d0842a",
   "engine": "pdflatex",
   "python": "3.12.14",
   "python_packages": {
     "PyMuPDF": "1.26.6",
-    "Pillow": "12.3.0",
+    "Pillow": "13.0.0",
     "jsonschema": "4.26.0"
   },
   "width_mm": 152.399289449056,
@@ -27,7 +27,7 @@
   "inputs": [
     {
       "path": "figures/shared-capacity/alt-text.txt",
-      "sha256": "dd6ca79d69910133f448b84b7843b1d0a57c9afcf27c70306f7982a05bf4427d"
+      "sha256": "7995b90c36a0ec528af14ec24f945b2e8ad0d879e9dc4913ad52c3ac83987872"
     },
     {
       "path": "figures/shared-capacity/calculate.py",
@@ -39,7 +39,7 @@
     },
     {
       "path": "figures/shared-capacity/caption.tex",
-      "sha256": "c5f40a53acde60d3a026646b989e402c740feaf1a623d4fbbbc672aea882e1e3"
+      "sha256": "3ed04cefe1b4e8caca823e5bcd2c945d628ce9116ea07904f5eacf4fabc88b1b"
     },
     {
       "path": "figures/shared-capacity/coordinates.tex",
@@ -94,22 +94,5 @@
     "amsmath",
     "tikz"
   ],
-  "semantic_review_required": true,
-  "caption_wording_update": {
-    "date": "2026-11-02",
-    "baseline_caption_sha256": "f5bb12df4d2aa8cd6b8441f03cf3f4716f8509fe74794a288c2c11e90de966fd",
-    "caption_sha256": "68032abec0126495f3d15c0af83b027a6bca7ed8618fac0ad0278b68506c03d1",
-    "reviewer": "/root/reapplication_review",
-    "scope": "Prose and punctuation only. Caption mathematics, figure source and final standalone PDF are unchanged. Existing geometry measurements describe the unchanged image.",
-    "baseline_spec_sha256": "78df70692f07d47d4357b7840667b12c293bfa5198906443b0205f2f3d08536b",
-    "specification_change": "Only the caption input hash is changed."
-  },
-  "latest_caption_wording_update": {
-    "date": "2026-11-05",
-    "baseline_commit": "0f820e6b0dac8f7f69f165ecf9a7a78becf37417",
-    "baseline_caption_sha256": "68032abec0126495f3d15c0af83b027a6bca7ed8618fac0ad0278b68506c03d1",
-    "caption_sha256": "c5f40a53acde60d3a026646b989e402c740feaf1a623d4fbbbc672aea882e1e3",
-    "reviewer": "authoring assistant",
-    "scope": "Plain-word pass followed by paragraph/connection revision. Caption mathematics, TikZ source, coordinates, inputs and standalone PDFs are unchanged. The compiled article page was visually inspected. Geometry measurements and independent candidate comparison below remain historical; no new independent reader test is claimed."
-  }
+  "semantic_review_required": true
 }

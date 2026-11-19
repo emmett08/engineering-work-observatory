@@ -38,14 +38,14 @@
       "path": "figures/shared-capacity/caption.tex",
       "status": "derived",
       "source_reference": "Caption explains the illustrative inputs, plotted quantities, feasible allocations and limits of the example.",
-      "sha256": "c5f40a53acde60d3a026646b989e402c740feaf1a623d4fbbbc672aea882e1e3"
+      "sha256": "3ed04cefe1b4e8caca823e5bcd2c945d628ce9116ea07904f5eacf4fabc88b1b"
     },
     {
       "id": "alternative-text",
       "path": "figures/shared-capacity/alt-text.txt",
       "status": "derived",
-      "source_reference": "Accessible description of the two plotted projections and their limitations.",
-      "sha256": "dd6ca79d69910133f448b84b7843b1d0a57c9afcf27c70306f7982a05bf4427d"
+      "source_reference": "Description of the first-hour task axes, capacity limits, feasible pairs and the schedule shown for the midpoint.",
+      "sha256": "7995b90c36a0ec528af14ec24f945b2e8ad0d879e9dc4913ad52c3ac83987872"
     }
   ],
   "quantities": [
@@ -361,8 +361,8 @@
       "First-hour task totals",
       "Combined first-hour labour",
       "Separate bounds added",
-      "Joint constraints",
-      "Jointly feasible",
+      "One person’s capacity",
+      "Feasible pairs",
       "One schedule for",
       "Time (hours)"
     ]
