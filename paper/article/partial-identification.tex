@@ -1,13 +1,13 @@
 \section{What interval observations determine about labour}
 \label{sec:sharp-identification}
 
-A two-day total can leave the first day's hours uncertain. The \emph{identified range} contains precisely the totals allowed by the observations and each person's time limit in \eqref{eq:labour} \cite[Section~1]{torgovitsky2019}. When the range contains just one value, the hours are known exactly.
+Even with a two-day labour total, the hours worked on the first day may remain uncertain. For any specified period, the \emph{identified range} contains precisely the labour totals allowed by the observations and each contributor's capacity constraint in \eqref{eq:labour} \cite[Section~1]{torgovitsky2019}. When the range contains just one value, the hours are known exactly.
 
 \subsection{One person's available time}
 
 If a two-day total exceeds the hours one person could work on the second day, that person must have worked at least the excess on the first.
 
-Let $v$ be the person's labour between $\ell$ and $u$. If $x$ hours fall before the cutoff $c$, the remaining $v-x$ must fit between $c$ and $u$.\footnote{The allocation $a(t)$ gives the fraction of the person's time devoted to the work at instant $t$. In Proposition~\ref{prop:nonidentification}, $c$ denotes a probability.}
+Let $v$ be the person's labour between $\ell$ and $u$. If $x$ hours fall before the cutoff $c$, the remaining $v-x$ must fit between $c$ and $u$.\footnote{The allocation $a(t)$ denotes the fraction of the person's time devoted to the work at instant $t$. In Proposition~\ref{prop:nonidentification}, $c$ denotes a probability.}
 
 \begin{proposition}[Hours worked before a cutoff given the interval total]
 \label{prop:sharp-cutoff}
@@ -66,11 +66,11 @@ For observation $\nu=1,\ldots,M$, let $G_\nu\subseteq\mathcal I\times\mathcal J\
  \sum_{(i,j,r)\in G_\nu}\int_{\ell_\nu}^{u_\nu}a_{ijr}(t)\,dt
  \leq v_\nu^+.
 \end{equation}
-An exact total has $v_\nu^-=v_\nu^+$. For rounded or imperfect measurements, set limits wide enough to cover the error. Bounds based on a Horvitz--Thompson estimate must also allow for variation across samples.
+When the total is known exactly, $v_\nu^-=v_\nu^+$. For a rounded measurement, include every underlying total that rounds to the observed value. Widen these limits if the measurement process permits further error. Bounds based on a Horvitz--Thompson estimate must also allow for variation across samples.
 
 Use one calendar for all contributors, including when tasks have different intake dates.
 
-Sort the distinct domain, observation and target boundaries as $b_0<\cdots<b_K$. The intervals between successive boundaries are \emph{cells}. Each observation and target window spans whole cells. For the denominator in \eqref{eq:cohort-productivity}, include each cohort task's intake $s_i$ and labour cutoff $c_i=s_i+\tau+\Delta$.
+Sort the distinct domain, observation and target boundaries as $b_0<\cdots<b_K$. The intervals between successive boundaries are \emph{cells}. Every observation interval and every target window spans whole cells. For the denominator in \eqref{eq:cohort-productivity}, include each cohort task's intake $s_i$ and labour cutoff $c_i=s_i+\tau+\Delta$.
 
 Retain cells beyond the target window when an observation extends into them. Cell $k$ lasts $d_k=b_k-b_{k-1}>0$ hours. Integrating $a_{ijr}(t)$ over it gives the stream's person-hours $x_{ijrk}$.
 
@@ -100,14 +100,14 @@ Integrating nonnegative allocations and each person's time limit over a cell giv
 
 Conversely, take any $x\in\mathcal P$. Within each cell, arrange each person's streams in any order and give each a consecutive block of length $x_{ijrk}$, skipping zero lengths. The capacity inequality leaves room for all blocks and any remaining time is idle. Use half-open blocks and include the final domain endpoint in the last block. During each working block the person devotes all their time to its stream. This schedule is measurable, switches finitely often and reproduces every cell total, hence all observations and the target $h(x)$.
 
-The finite-dimensional set $\mathcal P$ is closed and convex, with each coordinate in $[0,d_k]$. If nonempty, it is compact, so the continuous function $h$ has a minimiser and a maximiser in $\mathcal P$. The segment between them stays in $\mathcal P$ by convexity. Linearity gives every intermediate value on that segment. The block schedule for each of its points uses only allocations in $\{0,1\}$.
+The finite-dimensional set $\mathcal P$ is closed and convex, with each coordinate in $[0,d_k]$. If nonempty, it is compact, so the continuous function $h$ has a minimiser and a maximiser in $\mathcal P$. The segment between them stays in $\mathcal P$ by convexity. Along that segment, $h$ takes every value between its extrema by linearity. The block schedule for each of its points uses only allocations in $\{0,1\}$.
 \end{proof}
 
 The two endpoint problems share $|\mathcal I||\mathcal J||\mathcal R|K$ nonnegative variables, $|\mathcal J|K$ person--cell capacity constraints and $2M$ observation inequalities. To include a known absence, split the cells at its start and end, then set the person's labour to zero throughout the absence.
 
 Each person needs at most $|\mathcal I||\mathcal R|+1$ constant blocks per cell, including idle time. Switching can occur at any instant. Minimum session lengths, dependencies and limits on interruption may exclude schedules. Smoothness requirements or switching costs need additional constraints or analysis.
 
-A feasible schedule places the observed hours in the calendar. Where several sequences fit the observations, distinguishing the actual order requires further evidence. Acceptance times and delivered output require observations of those outcomes. Extra workplace restrictions can only narrow \eqref{eq:sharp-labour-range}. An endpoint disappears if every schedule giving that total violates a restriction.
+A feasible schedule places work on the calendar and satisfies the labour limits for each observation. Where several sequences fit the observations, distinguishing the actual order requires further evidence. Acceptance times and delivered output require observations of those outcomes. Extra workplace restrictions can only narrow \eqref{eq:sharp-labour-range}. An endpoint disappears if every schedule giving that total violates a restriction.
 
 On a finite partition, the schedule illustrates the Dvoretzky--Wald--Wolfowitz purification theorem \cite[Theorem~4]{dvoretzky1951ranges}.\footnote{For a finite set of activities and a finite collection of atomless measures, purification preserves the specified integrals while selecting one activity at each instant. Time on a cell is atomless because any measurable set of positive duration can be divided into measurable subsets of smaller positive duration. Idle time accounts for unused capacity.} For the general result see \cite[Section~2]{khanrathsun2006}.
 
@@ -135,11 +135,11 @@ Keep the partition and target fixed. Widening the observation limits replaces $b
 \end{equation}
 The original multipliers remain feasible because the dual inequalities omit $b$ \cite[Section~5.6]{boydvandenberghe2004}. Optimising again gives the exact endpoints if the revised feasible set is nonempty. The measurement procedure must justify the wider limits.
 
-Suppose sample-based limits cover all true observation totals simultaneously with probability at least $1-\alpha$, for $0<\alpha<1$. Whenever they do and the true history satisfies the capacity constraints, its cell totals belong to $\mathcal P$ and its target lies in the calculated interval. Thus, under those constraints, target coverage is at least $1-\alpha$, counting an empty feasible set as a failure.
+Suppose sample-based limits simultaneously cover the actual person-hours for every observation's interval and streams with probability at least $1-\alpha$, for $0<\alpha<1$. Whenever they do and the true history satisfies the capacity constraints, its cell totals belong to $\mathcal P$ and its target lies in the calculated interval. Thus, under those constraints, target coverage is at least $1-\alpha$, counting an empty feasible set as a failure.
 
 Choose individual bounds whose failure probabilities sum to at most $\alpha$. The union bound then gives simultaneous coverage of at least $1-\alpha$ under arbitrary dependence.\footnote{If $E_\nu$ denotes failure of bound $\nu$, then $\Prb(\bigcup_{\nu=1}^M E_\nu)\leq\sum_{\nu=1}^M\Prb(E_\nu)$.} The sampling design and measurement procedure must justify these probabilities.
 
-The Lean~4 proofs use mathlib \cite{demouraullrich2021,mathlib2020} to connect interval integrals to cell totals under each person's capacity constraint. For every feasible array they verify a schedule that gives those totals and their weighted targets with at most one activity per person at any instant. Section~\ref{sec:accounting} counts concurrent AI execution separately.
+The Lean~4 proofs use mathlib \cite{demouraullrich2021,mathlib2020} to connect interval integrals to cell totals under each person's capacity constraint. For every feasible array of cell totals, the proofs establish the existence of a schedule that reproduces those totals and preserves their weighted targets with at most one activity per person at any instant. Section~\ref{sec:accounting} counts concurrent AI execution separately.
 
 For supplied feasible allocations and multipliers, Lean checks the bounds. It also verifies that simultaneous observation coverage implies target coverage. The arguments above establish the existence of optimisers and matching multipliers. They also bound the number of blocks. The Rust solver has separate tests. A proof that it implements the Lean definitions remains open.
 

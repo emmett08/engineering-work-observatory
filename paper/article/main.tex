@@ -23,9 +23,9 @@
 \hypersetup{pdftitle={Bounding and estimating human labour in AI-assisted software engineering},pdfsubject={Labour bounds from interval observations and estimation from probability samples},pdfkeywords={software engineering, labour bounds, activity sampling, model-assisted estimation}}
 \begin{document}
 \begin{abstract}
-The same sequence of commits can accompany different amounts of human work. For overlapping observations of labour, a finite linear programme gives the least and greatest person-hours in a chosen window consistent with the observations and each contributor's available time. If the observations admit a schedule and work can stop and resume freely, every intermediate total occurs in some schedule.
+The same sequence of commits can accompany different amounts of human work. A finite linear programme minimises and maximises person-hours in a chosen window subject to observations of labour over overlapping periods and each contributor's available time. If the observations admit a schedule and work can stop and resume freely, every intermediate total occurs in some schedule.
 
-In 96 schedules for an engineer and a reviewer, imposing the engineer's time limit across tasks reduced the mean width of the first-hour labour range from 1.5 to 0.5 person-hours. Omitting the reviewer excluded the true total in 26 schedules. If all contributors' eligible intervals have known positive selection probabilities and the team obtains accurate hours for every interval drawn, inverse-probability weighting estimates total labour without bias. In a separate example with six pairs of hypothetical teams, omitted review time and inflated scores for retained functionality led to a false declaration of benefit from AI access. Judging that benefit in practice requires independent measurements of hours and functionality in both groups.
+In 96 schedules for an engineer and a reviewer, limiting the sum of the engineer's hours across tasks to the time available reduced the mean width of the first-hour labour range from 1.5 to 0.5 person-hours. Omitting the reviewer excluded the known two-person total in 26 schedules. If all contributors' eligible intervals have known positive selection probabilities and the team measures task labour accurately in every interval drawn, inverse-probability weighting estimates total labour without bias. In a separate example with six pairs of hypothetical teams, omitted review time and inflated scores for retained functionality led to a false declaration of benefit from AI access. Judging that benefit in practice requires independent measurements of hours and functionality in both groups.
 \end{abstract}
 \maketitle
 
@@ -34,15 +34,15 @@ In 96 schedules for an engineer and a reviewer, imposing the engineer's time lim
 
 An engineer spends three hours on a requirement during a four-hour shift. Only two hours fit in the second half, so at least one hour of the work fell in the first. The engineer could also have worked the entire first half. Distinguishing those schedules requires evidence about when the work took place.
 
-Commit times alone leave even the three-hour total uncertain. A release discussion may generate no commit. An artificial intelligence (AI) workflow can commit while the engineer works on another task. We define \emph{labour} as the person-hours devoted to the requirements included at intake. A team could reduce those hours by dropping requirements before acceptance. We therefore pair labour with the time to first acceptance and, for requirements accepted by a fixed deadline, the fraction of the requested behaviour still present at follow-up.
+Commit times alone leave even the three-hour total uncertain. A release discussion may generate no commit. An artificial intelligence (AI) workflow can commit while the engineer works on another task. We define \emph{labour} as the person-hours devoted to the requirements included at intake. A team could reduce those hours by dropping requirements before acceptance. We therefore pair labour with elapsed time to first acceptance and, for requirements accepted by a fixed deadline, the fraction of the requested behaviour still present at follow-up.
 
-Wright and Ziegler's Standard Coder method infers coding activity from commit times, then uses code changes to predict the resulting labels \cite{wright2019}. Agreement with those labels measures how well the predictor reproduces the activity model. Interpreting the predictions as person-hours requires independent measurements of the time contributors spent. Applying the hours per commit observed in unaided work to an AI-assisted team can bias its labour estimate if the two rates differ. Forsgren et al.\ distinguish developer activity from efficiency \cite{forsgren2021}. Mozannar et al.\ examine time spent interacting with AI tools \cite{mozannar2024}, and Model Evaluation and Threat Research describe the difficulty of selecting participants and timing work during concurrent agent sessions \cite{metr2026}.
+Wright and Ziegler's Standard Coder method infers coding activity from commit times, then uses code changes to predict the resulting labels \cite{wright2019}. Agreement with those labels measures how well the predictor reproduces the activity model. Interpreting the predictions as person-hours requires independent measurements of the time contributors spent. Applying the hours per commit observed in unaided work to an AI-assisted team can bias its labour estimate if person-hours per commit differ between groups. Forsgren et al.\ distinguish developer activity from efficiency \cite{forsgren2021}. Mozannar et al.\ examine time spent interacting with AI tools \cite{mozannar2024}, and Model Evaluation and Threat Research describe the difficulty of selecting participants and timing work during concurrent agent sessions \cite{metr2026}.
 
 Peng et al.\ measured completion time among participants who finished a programming exercise \cite{peng2023}. The average time among finishers could fall even as the proportion of participants who finish falls. Becker et al.\ compared log completion times for experienced maintainers in familiar repositories, adjusting for their forecasts of task duration \cite{becker2025}. Cui et al.\ counted completed pull requests per week in organisational experiments \cite{cui2026}. Their June 2025 manuscript uses random allocation of access as an instrument for adoption \cite[Section 4.1 and Table 3]{cui2025manuscript}. Splitting a requirement across more pull requests can raise the weekly count without delivering any additional behaviour.
 
-Time diaries supply evidence about work between commits. Perry et al.\ compared developers' diaries with direct observation \cite{perry1994}. An entry may give two hours of review during a shift without specifying which two hours. Preemptive scheduling divides time at job release dates and deadlines to determine how much processing fits between them \cite{bertsimas2009flows}. We divide time at the boundaries of the observed periods to bound the hours in a chosen window, even when observations overlap or combine several tasks or people.
+Time diaries supply evidence about work between commits. Perry et al.\ compared developers' diaries with direct observation \cite{perry1994}. An entry may specify two hours of review during a shift without saying when the review took place. Preemptive scheduling divides time at job release dates and deadlines to determine how much processing fits between them \cite{bertsimas2009flows}. We divide time at the boundaries of the observed periods to bound the hours in a chosen window, even when observations overlap or combine several tasks or people.
 
-When only a probability sample of intervals has measured hours, the generalised difference estimator \cite{cassel1976} uses the sampled prediction errors to correct the predicted labour total. It improves precision if the estimated correction has smaller sampling variance than the direct estimate of labour. We evaluate both the bounds and the estimator on schedules with known hours (Section~\ref{sec:known-labour}). The same requirement for independent measurements applies when judging a forecast or the apparent labour saving in a trial of AI access (Section~\ref{sec:study}).
+When only a probability sample of intervals has measured hours, the generalised difference estimator \cite{cassel1976} corrects the predicted labour total using the sampled errors of predictions fixed before the draw. It improves precision if the estimated correction has smaller sampling variance than the direct estimate of labour. We evaluate both the bounds and the estimator on schedules with known hours (Section~\ref{sec:known-labour}). Independent measurements of task labour also provide a reference for evaluating forecasts and checking apparent savings in a trial of AI access (Section~\ref{sec:study}).
 
 \section{What commit times identify about activity}
 \label{sec:observation}
@@ -51,7 +51,7 @@ Let $Z_t$ indicate whether the engineer worked in minute $t$, and $C_t$ whether 
 
 \begin{proposition}[Failure of unrestricted identification]
 \label{prop:nonidentification}
-Suppose the activity indicators $Z_t$ are independent Bernoulli variables with parameter $\pi\in(0,1)$. Let $B_t$ be Bernoulli variables with parameter $c\in(0,1)$, independent across minutes and independent of the entire activity sequence $(Z_t)$. Define $C_t=Z_tB_t$. The probability of any finite sequence of commit observations depends on $(\pi,c)$ only through $\pi c$. The choices $(\pi,c)=(1/2,1/5)$ and $(1/4,2/5)$ give the same distribution of commits and different expected amounts of active time.
+Suppose the activity indicators $Z_t$ are independent Bernoulli variables with parameter $\pi\in(0,1)$. Let $B_t$ be Bernoulli variables with parameter $c\in(0,1)$, independent across minutes and independent of the entire activity sequence $(Z_t)$. Define $C_t=Z_tB_t$. The probability of any finite sequence of commit observations depends on $(\pi,c)$ only through $\pi c$. The choices $(\pi,c)=(1/2,1/5)$ and $(1/4,2/5)$ imply the same distriandion of commits and different expected numbers of active minutes.
 \end{proposition}
 
 \begin{proof}
@@ -61,32 +61,32 @@ The $C_t$ are independent Bernoulli variables with parameter $\theta=\pi c$. For
  \Prb(C_1=e_1,\ldots,C_n=e_n)
  =\theta^{\sum_t e_t}(1-\theta)^{n-\sum_t e_t}.
 \end{equation}
-Both parameter pairs give $\theta=1/10$. The expected number of active minutes is
+For both parameter pairs, $\theta=1/10$. The expected number of active minutes is
 \begin{equation}
 \label{eq:activity-total}
  \E\!\left[\sum_{t=1}^{n}Z_t\right]=n\pi,
 \end{equation}
-which gives $n/2$ for the first pair and $n/4$ for the second.
+which equals $n/2$ for the first pair and $n/4$ for the second.
 \end{proof}
 
-In an hour both models average six commits. Expected activity is 30 minutes in the first and 15 in the second. Equation~\eqref{eq:event-law} gives the same probability for every finite sequence of commits under both models, however long observation continues.
+In an hour both models average six commits. Expected activity is 30 minutes in the first and 15 in the second. For each specified finite sequence of commit indicators, the probability in \eqref{eq:event-law} is identical under the two models, however long observation continues.
 
 The example is a hidden Markov model in which the chance of activity in the next minute is $\pi$ regardless of current activity. Requiring positive dependence between adjacent activity indicators would exclude both independent processes. When a finite hidden Markov model is generically identifiable, its observation law determines the parameters up to a permutation of the hidden labels outside an exceptional parameter set \cite[Section~6.1]{allman2009}.\footnote{In a hidden Markov model, the current hidden value determines the distribution of the next one. Conditional on the hidden sequence, the observations are independent and each depends only on the corresponding hidden value.} Code-change features could distinguish the two parameter pairs if their distributions differed between the models.
 
-Even if commit times identify the model parameters, an unattended agent can produce the same observed event as an engineer. To interpret $Z_t=1$ as human work, we need evidence of whose time a task took and over what period.
+Even if commit times identify the model parameters, an unattended agent can produce the same observed event as an engineer. To interpret $Z_t=1$ as human work, we need evidence linking a contributor to the task during that minute.
 
 \section{Defining task labour and retained output}
 \label{sec:accounting}
 
 \subsection{Whose time counts towards a task}
 
-At intake time $s_i$, task $i$ meets the inclusion rules and has a description of the requested behaviour and acceptance criteria. Labour and time to first acceptance run from $s_i$. To include earlier work eliciting requests and drafting criteria, follow requests from arrival, including those that never reach intake. Keep an identifier and successive descriptions for each requirement so reviewers can trace scope changes, splits and mergers across commits and pull requests.
+At intake time $s_i$, task $i$ meets the inclusion rules and has a description of the requested behaviour and acceptance criteria. Measure person-hours and elapsed time to first acceptance from $s_i$. To include the earlier work of clarifying incoming requests and drafting criteria, follow requests from arrival, including those that never reach intake. Keep an identifier and successive descriptions for each requirement so reviewers can trace scope changes, splits and mergers across commits and pull requests.
 
-Choose the scoring unit before observing outcomes. If a requirement splits and only one component receives timely acceptance, component scoring counts that component once. A rule requiring timely acceptance of the whole requirement gives zero, even when the two component weights sum to the original weight.
+Choose the scoring unit before observing outcomes. If a requirement splits and only one component receives timely acceptance, component scoring counts that component once. Under a rule requiring timely acceptance of the whole requirement, the retained score is zero, even when the two component weights sum to the original weight.
 
 For each task class and group, document the AI tools and model versions available, the actions they can take unattended and the actions subject to review or a release check. Distinguish access from use. If engineers seek help on harder tasks, comparing work they did with and without a tool mixes the effect of tool use with task difficulty.
 
-Two AI workflows may need the same engineer. At calendar time $t$, let $a_{ijr}(t)$ denote the fraction of person $j$'s time spent on activity $r$ for task $i$, such as implementation or review. Each person's fractions sum to at most one across tasks and activities. For finite sets of tasks, people and activities and measurable allocations,\footnote{We integrate with respect to elapsed time. A constant fraction $a$ over $e-s$ hours contributes $a(e-s)$ person-hours. Measurability gives a duration to each set of times when an allocation exceeds a given level. Changing an allocation on a set of duration zero, such as finitely many switching instants, leaves the Lebesgue integral unchanged.} labour through task age $u\geq0$ is
+Two AI workflows may need the same engineer. At calendar time $t$, let $a_{ijr}(t)$ denote the fraction of person $j$'s time spent on activity $r$ for task $i$, where $r$ may denote implementation or review. Each person's fractions sum to at most one across tasks and activities. For finite sets of tasks, people and activities and measurable allocations,\footnote{We integrate with respect to elapsed time. A constant fraction $a$ over $e-s$ hours contributes $a(e-s)$ person-hours. Measurability ensures that the times when an allocation exceeds a given level form a set with a defined duration. Changing an allocation on a set of duration zero, such as finitely many switching instants, leaves the Lebesgue integral unchanged.} labour through task age $u\geq0$ is
 \begin{equation}
 \label{eq:labour}
  a_{ijr}(t)\geq0,\qquad \sum_{i,r}a_{ijr}(t)\leq1,\qquad
@@ -98,9 +98,9 @@ In Figure~\ref{fig:human-and-workflow-time}, the engineer spends ten minutes wri
 
 \input{../figures/human-and-workflow-time}
 
-Post-intake labour includes clarification, implementation, testing and repair. Specify when waiting for a workflow demands attention and how to divide shared review or platform work among tasks. Where a contributor knows the hours spent but cannot identify the task, retain the hours and flag their attribution as unresolved. For workflow-hours, sum the duration of each run within the observation window. A cost comparison also needs the price of labour and the computing resources consumed, measured in billable units such as CPU-hours or tokens.
+Post-intake labour includes clarification, implementation, testing and repair. Specify when waiting for a workflow demands attention and how to divide shared review or platform work among tasks. Where a contributor knows the hours spent but cannot identify the task, retain the hours and flag their attribution as unresolved. For workflow-hours, sum the duration of each run within the observation window. To compare costs, apply labour rates to person-hours and price computing resources in their own units, such as CPU-hours or tokens.
 
-Let $T_i$ be elapsed time from $s_i$ to first acceptance, including work, queueing and unattended execution up to that event. Later deployment does not extend $T_i$. A task permanently discontinued before acceptance has $T_i=\infty$. If observation ends while acceptance remains possible, time since intake gives only a lower bound on $T_i$.
+Let $T_i$ be elapsed time from $s_i$ to first acceptance, including work, queueing and unattended execution up to that event. Later deployment does not extend $T_i$. A task permanently discontinued before acceptance has $T_i=\infty$. If the task is still awaiting acceptance when observation ends, elapsed time to that last observation is a lower bound on $T_i$.
 
 \subsection{Scoring requirements at intake and follow-up}
 
@@ -108,7 +108,7 @@ Let $S_i^0\geq0$ denote the reference score of requirement $i$ at intake. One un
 
 Scoring final code can give a different weight to the same requirement if AI access changes its implementation. Splitting or squashing a change may alter a nonlinear score even when the software behaves identically. Score the original description once, or use additive component weights. Count each delivered requirement once across retries and reverts.
 
-To interpret Standard Coding Hours as a forecast of labour, compare the prediction with independently measured person-hours for the same task and period. Section~\ref{sec:labour-prediction-validation} uses hours on earlier tasks as a benchmark.
+To interpret Standard Coding Hours as a forecast of labour, compare the prediction with independently measured person-hours for the same task and period. The benchmark in Section~\ref{sec:labour-prediction-validation} predicts labour from mean person-hours on comparable earlier tasks, using only measurements available at intake.
 
 Set a deadline at task age $\tau>0$. A task accepted by then is due for a follow-up assessment $\Delta\geq0$ time units after first acceptance. Let $R_i(\Delta)\in[0,1]$ be the fraction of its original requirement still satisfied at calendar time $s_i+T_i+\Delta$, judged using criteria specified before follow-up. Its retained reference score is
 \begin{equation}
@@ -119,13 +119,13 @@ Reviewers need rules for partial fulfilment and intentional scope changes. A lin
 
 \input{event-history}
 
-For a finite cohort with positive total labour, productivity is the retained score per person-hour across all its tasks,
+For a finite cohort with positive total labour, productivity is the sum of its retained scores divided by the sum of the person-hours spent on its tasks,
 \begin{equation}
 \label{eq:cohort-productivity}
  P_H(\tau,\Delta)
  =\frac{\sum_i Q_i(\tau,\Delta)}{\sum_i H_i(\tau+\Delta)}.
 \end{equation}
-A task still unaccepted at the deadline contributes labour and zero output. A fully automated task can contribute output with zero person-hours. When total cohort labour is zero, give the two totals separately since the ratio is undefined. When either total is estimated, account for uncertainty in the ratio (Section~\ref{sec:difference-contract}).
+Hours spent on a task still unaccepted at the deadline count towards cohort labour. Its retained score is zero. A fully automated task can contribute output with zero person-hours. When total cohort labour is zero, present total person-hours and retained score separately since the ratio is undefined. When either total is estimated, account for uncertainty in the ratio (Section~\ref{sec:difference-contract}).
 
 An observation may extend beyond either boundary of a task's labour window. Labour inside the window is \emph{point-identified} if at least one allocation fits the observations and all such allocations give the same total. The next calculation bounds hours for a particular work history, even when the observations permit several totals.
 
@@ -135,9 +135,9 @@ An observation may extend beyond either boundary of a task's labour window. Labo
 \section{Estimating labour from sampled allocations}
 \label{sec:estimation}
 
-The bounds in Section~\ref{sec:sharp-identification} use constraints on the hours actually worked. A sample of shifts can overestimate or underestimate those hours. Entering the estimate as an exact observation could therefore exclude the true total from the bounds.
+The bounds in Section~\ref{sec:sharp-identification} use constraints on the hours actually worked. The total estimated from sampled intervals varies with the draw. Entering that estimate as an equality in the linear programme can exclude the actual person-hours from the calculated range.
 
-To estimate labour from a sample, list each contributor's eligible intervals, including time spent on design or helping colleagues away from the keyboard. Compare the list with duty schedules to find shifts that would otherwise have no chance of selection. A dated task note or a diary entry may supply the hours once an interval is drawn.
+List the intervals when each contributor could have worked on the requirements, including time away from the keyboard for design or support. Duty schedules can reveal a shift missing from the list. Once an interval is drawn, a dated task note or a diary entry may establish how many minutes the contributor spent on the requirements.
 
 \input{design-based-estimation}
 
@@ -146,11 +146,11 @@ To estimate labour from a sample, list each contributor's eligible intervals, in
 \section{Workplace validation}
 \label{sec:study}
 
-A reviewer's time can count towards a cohort even when the reviewer cannot name the ticket. Suppose the reviewer knows how long a release discussion took. If every requirement it could concern belongs to the cohort and its labour window covers the discussion, the full duration counts once. If only some qualify, the bounds must also allow the discussion to have concerned a requirement outside the target.
+The hours a reviewer spent on a release discussion may count towards cohort labour even if its ticket number is unknown. Suppose the reviewer knows the duration. If every requirement it could concern belongs to the cohort and its labour window covers the discussion, the full duration counts once. If only some qualify, the bounds must also allow the discussion to have concerned a requirement outside the target.
 
-After a randomly selected interval ends, ask the contributor how many minutes went to the eligible requirements. Accept zero, a division of time among tasks or a duration with the task unknown. Count every selected interval in the response rate for its contributor's role and trial group. Estimating a response rate for an activity such as incident work also requires evidence of who was doing it during intervals with no reply. Where minutes remain unknown, use the interval length and any other observations to bound the missing labour. Carry those bounds and the sampling uncertainty through to the decision.
+After a randomly selected interval ends, ask the contributor how many minutes went to the eligible requirements. Accept zero, a division of time among tasks or a duration with the task unknown. For each role and trial group, divide the number of intervals with replies by the number selected. Estimating a response rate for an activity such as incident work also requires evidence of who was doing it during intervals with no reply. Where minutes remain unknown, use the interval length and any other observations to bound the missing labour. Carry those bounds and the sampling uncertainty through to the decision.
 
-Select shifts for an independent audit regardless of who replied. A review timed separately, with attendance confirmed, provides a reference for that meeting. Elsewhere on the shift, the contributor and the auditor could both overlook the same conversation. Bound any shared omission by the eligible time remaining. The discrepancies on audited shifts and the minutes spent answering give the team a basis for choosing how often to ask.
+Select shifts for an independent audit regardless of who replied. An independently timed review provides a reference for each contributor whose attendance is confirmed for the whole meeting. Elsewhere on the shift, the contributor and the auditor could both overlook the same conversation. Bound any shared omission by the eligible time remaining. Comparing the discrepancies on audited shifts with the minutes contributors spend answering helps the team choose a sampling frequency.
 
 On those shifts, the team can also measure how much one person's time limit narrows the labour bounds. Use the same people, observations and target window twice. First allow each activity the full interval duration, then limit the sum of each person's activities to that duration. The decrease in width, in person-hours, isolates the contribution of shared capacity. Keep observations that span tasks in both calculations. If two colleagues spent an hour in total on different tasks, either task could account for the whole hour, yet their combined labour is known.
 
@@ -161,15 +161,15 @@ On those shifts, the team can also measure how much one person's time limit narr
 
 \subsection{Comparing teams with different access to AI}
 
-Access to AI could change which requests a team receives or accepts. A comparison on a fixed workload therefore needs a rule for eligibility, including work in progress, before randomisation. To measure the effect on incoming demand, follow work in progress and every new request over the same calendar period in both groups, including requests teams decline, defer or discontinue. In either case, specify how much weight each team or request contributes to the comparison. If hours or quality scores come from samples, include that sampling variation in the uncertainty for the treatment effect.
+Access to AI could change which requests a team receives or accepts. A comparison on a fixed workload therefore needs a rule for eligibility, including work in progress, before randomisation. To measure the effect on incoming demand, follow work in progress and every new request over the same calendar period in both groups, including requests teams decline, defer or discontinue. In either case, specify how much weight each team or request contributes to the comparison. If the team samples contributors' time or selects requirements for quality assessment, include the variation from those draws in the uncertainty for the treatment effect.
 
-Use the same acceptance criteria and follow-up procedure in both groups. Note whether reviewers know which group produced the software. Feedback reaching a team before follow-up may lead to a repair, changing both the quality score and the labour within the observation window. When estimating the cohort score from audited tasks, weight each by its inverse selection probability and identify repairs made in response to the audit. Describe severe failures individually because good scores on other requirements can conceal their consequences.
+Use the same acceptance criteria and follow-up procedure in both groups. Note whether reviewers know which group produced the software. Feedback reaching a team before follow-up may lead to a repair, changing both the quality score and the labour within the observation window. To estimate the cohort's total score, divide each audited task's score by its probability of selection and sum the results. Identify repairs made in response to the audit. Describe severe failures individually because good scores on other requirements can conceal their consequences.
 
-An error in a single criterion can change the measured productivity even when the hours are exact. Suppose a requirement that took one person-hour has four equally weighted criteria worth one unit each. If three hold at follow-up, the rate is three units per person-hour whether the team used one pull request or three. Marking the failed criterion as satisfied would raise the measured rate to four.
+A scoring error can change the measured output per person-hour even when labour is known exactly. Suppose a requirement that took one person-hour has four equally weighted criteria worth one unit each. If three hold at follow-up, the rate is three units per person-hour whether the team used one pull request or three. Marking the failed criterion as satisfied would raise the measured rate to four.
 
-To test whether the split influences the score, ask two reviewers to assess both versions independently. One sees the single pull request first and the other sees it second. Hold behaviour and acceptance dates fixed. A second comparison, in which one component first passes acceptance after the cutoff, tests how reviewers apply the counting rule. Identify the criteria on which they disagree and the proportion of tasks assessed at follow-up.
+To test whether the number of pull requests influences the score, ask two reviewers to assess one implementation presented in both forms. One reviewer sees the single pull request first and the other sees the three pull requests first. Hold the acceptance dates fixed and have the reviewers score independently. A second comparison, in which one component first passes acceptance after the cutoff, tests how reviewers apply the counting rule. Identify the criteria on which they disagree and the proportion of tasks assessed at follow-up.
 
-Follow each task through age $\tau+\Delta$. Permanently discontinuing a task before acceptance gives it zero retained score. Losing contact with the team leaves the score unknown unless other evidence resolves it. Use a defensible range for the missing value or make the assumption about it explicit. Interpret the hours saved alongside the proportion of requirements accepted on time and the fraction of the initial score retained at follow-up.
+Follow each task through age $\tau+\Delta$. A requirement permanently discontinued before acceptance contributes zero to the retained score. Losing contact with the team leaves the score unknown unless other evidence resolves it. Use a defensible range for the missing value or make the assumption about it explicit. Interpret the difference in person-hours between groups alongside the proportion of requirements accepted on time and the fraction of the initial score retained at follow-up.
 
 \input{../study/ai-labour-causal/causal-study}
 
@@ -178,7 +178,7 @@ Follow each task through age $\tau+\Delta$. Permanently discontinuing a task bef
 
 One further observation resolves the opening example. If the engineer's two-hour review occupied the second half of the four-hour period, exactly one of the three hours worked fell in the first half. A narrower range can also arise from overlooking a contributor, as the omitted reviewer in Section~\ref{sec:known-labour} illustrates. An auditor interpreting a narrow range therefore needs to know whose hours the observations cover.
 
-For a decision about AI access, bound the hours each group may have missed per initial reference unit, including review and incident work. Check a sample of follow-up scores by independently testing the relevant acceptance criteria. If plausible corrections for missing hours or disputed scores move either outcome across its adoption threshold, additional teams can narrow the confidence interval around a difference that measurement error could still explain.
+For a decision about AI access, bound the omitted person-hours per initial reference unit in each group, including time spent on review and incident work. Check a sample of follow-up scores by independently testing the relevant acceptance criteria. If plausible corrections for missing hours or disputed scores move either outcome across its adoption threshold, additional teams can narrow the confidence interval around a difference that measurement error could still explain.
 
 \section*{Data and code availability}
 The \href{https://github.com/emmett08/engineering-work-observatory/tree/07df68c8990b9cdb7c7cd2af133918bf60f1e916/paper}{reproducibility guide at revision \texttt{07df68c}} links the Rust implementation, the proof supplement and the inputs for the numerical examples. Its commands enumerate the 96 work schedules, replay the intake forecasts and reproduce the paired-trial simulations. All three use synthetic inputs. The workplace pilot is prospective.

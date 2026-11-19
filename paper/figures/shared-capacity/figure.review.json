@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "figure_id": "shared-capacity",
-  "spec_sha256": "0f2a54e9b400895f70d1b9f75475054fdaf64ba5b15bb2aa4846d2637c2af72f",
-  "audit_sha256": "bf7bf90c5c9e76eebc978669c7a5c4c6ba67eb53e20f453495ed164addb55daa",
+  "spec_sha256": "ac213147e7cc93de1066e0550996efc84ff58756b393e783e4dfdb1a19045b35",
+  "audit_sha256": "2f570c4927d31a8d4dc009d815228a321fa4eaa6febd909a5ab24b11a3702c40",
   "artifacts": [
     {
       "role": "final_pdf",
@@ -82,6 +82,13 @@
         "description": "Finishing the requirements was not an input to the two-hour example.",
         "disposition": "resolved",
         "reason": "The caption now says that the task totals use the entire shift. The independent reader recovered the feasible diagonal, fixed first-hour total and nonunique midpoint schedule from the revised caption and original image, then compared that reading with the specification."
+      },
+      {
+        "id": "diagonal-caption",
+        "severity": "informational",
+        "description": "The caption identifies the feasible set as the descending diagonal of the plotted square.",
+        "disposition": "accepted",
+        "reason": "An independent reviewer checked the caption against the coordinates and both one-hour capacity limits. The feasible segment, the bar endpoints at zero and two, the diamond at one and the midpoint schedule agree with the caption."
       }
     ],
     "audit_warning_dispositions": [

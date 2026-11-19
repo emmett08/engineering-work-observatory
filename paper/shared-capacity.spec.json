@@ -38,7 +38,7 @@
       "path": "figures/shared-capacity/caption.tex",
       "status": "derived",
       "source_reference": "Caption explains the illustrative inputs, plotted quantities, feasible allocations and limits of the example.",
-      "sha256": "3246bd3ff3fad09a9abdfc5965c4a30f01eb8803bb94942289626b144c5b4bb6"
+      "sha256": "8961363f1c512171b382b48301fffd8434b5e5ab6219016304d9cd8f89a60c5b"
     },
     {
       "id": "alternative-text",

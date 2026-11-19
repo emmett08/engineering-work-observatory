@@ -1,11 +1,11 @@
 \section{A shortest-path solution for one allocation stream}
 \label{app:scalar}
 
-For one person performing one activity on a single task, let $0\leq a\leq1$ be the allocation function. At each boundary in Section~\ref{sec:sharp-identification}, cumulative labour is $z_k=\int_{b_0}^{b_k}a(t)\,dt$. Represent each upper bound $z_q-z_p\leq w$ by a directed edge $p\to q$ of weight $w$ \cite[Slides~6--11]{indyk2011}.
+For one person performing one activity on a single task, let $0\leq a\leq1$ be the allocation function. At each calendar boundary in Section~\ref{sec:sharp-identification}, cumulative labour is $z_k=\int_{b_0}^{b_k}a(t)\,dt$. Represent each upper bound $z_q-z_p\leq w$ by a directed edge $p\to q$ of weight $w$ \cite[Slides~6--11]{indyk2011}.
 
 Cell $k$ permits between zero and $d_k$ person-hours. Its forward edge $k-1\to k$ has weight $d_k$ and its reverse edge has weight zero. An observation bounding labour between $b_p$ and $b_q$ by $[v^-,v^+]$ adds edges $p\to q$ of weight $v^+$ and $q\to p$ of weight $-v^-$. For an exact total $v$, these weights are $v$ and $-v$.
 
-Summing edge inequalities along a path cancels the intermediate totals. Each path from $p$ to $q$ thus bounds $z_q-z_p$ from above by its weight. Paths in the reverse direction bound $z_p-z_q$.
+Summing edge inequalities along a path cancels the cumulative labour terms at its intermediate vertices. Each path from $p$ to $q$ thus bounds $z_q-z_p$ from above by its weight. Paths in the reverse direction bound $z_p-z_q$.
 
 \begin{proposition}[Exact range of interval labour from graph distances]
 \label{prop:graph-bounds}
@@ -23,4 +23,4 @@ The shortest paths in the two directions give $-D(q,p)\leq z_q-z_p\leq D(p,q)$. 
 
 The reference implementation uses exact rational arithmetic. For $K+1$ sorted, indexed boundaries and $M$ observations, building the graph and computing all pairwise distances takes $O((K+1)^3+M)$ arithmetic operations and $O((K+1)^2+M)$ storage. The bit cost per operation depends on operand size. In finite examples with overlapping intervals, an independent enumeration checks the endpoints, their schedules and detection of inconsistent observations.
 
-Separate graphs for tasks sharing one person's time can count the same hour twice. Proposition~\ref{prop:cell-reduction} imposes a single time limit across that person's activities. Both methods require the people and activities covered by each observation to be known.
+Separate graphs for tasks sharing one person's time can count the same hour twice. Proposition~\ref{prop:cell-reduction} imposes a single time limit across that person's activities. For both methods, specify the contributors and activities covered by each observation.

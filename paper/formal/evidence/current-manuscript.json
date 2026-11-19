@@ -1,7 +1,7 @@
 {
   "schema": "current-manuscript-concordance/1",
   "repository_relative_path": "paper/article/partial-identification.tex",
-  "sha256": "2a0a805ead9bdf6a24c5a9233d342034e76408819b0b199013c52b0155d0a294",
+  "sha256": "44e25dac263096215d61ebc7d57473b70dcd6b556d951c9421b680639e4da6cb",
   "frozen_target": {
     "path": "targets/partial-identification.tex",
     "sha256": "5d8884d6c0e4e4157d3bfae61d3c13d7c3fb3306f57c13013116d5bcf18ff1fb",
@@ -11,12 +11,12 @@
     "reviewer": "OpenAI Codex (independent review agent)",
     "outcome": "MATHEMATICAL_STATEMENTS_UNCHANGED",
     "report": {
-      "path": "evidence/revised-proofs-concordance.md",
-      "sha256": "59d46ce576914e36ad1aa98e8687f21cc1ff969ec95d24897d78c28190357044"
+      "path": "evidence/observation-limits-concordance.md",
+      "sha256": "e9a4473dd3072b6b7f32e374614c9713367e142bc46412c6dd1f28ece3f5d706"
     },
     "differences": [
-      "Both propositions retain the mathematical content of the frozen proof target. The first matches the preceding article verbatim. The second has revised prose. Nine displays, eleven labels, twelve cross-references and seven citations match the preceding article in order.",
-      "The independent review verifies the two-sided cutoff proof, feasible schedules for every cell vector, matching primal and dual values, conditional coverage and the positivity requirements for productivity bounds. It also checks the interpretation examples and scalar shortest-path proof."
+      "Both proposition environments, nine displays, eleven labels, twelve cross-references and seven citations match the preceding article. The frozen proof target retains its original mathematical meaning.",
+      "The independent review checks how observation limits cover underlying person-hours, how feasible schedules satisfy those limits, and how objective values bound productivity. It also checks cumulative labour in the scalar graph."
     ],
     "statement_preservation": "Source concordance for paper/article/partial-identification.tex, comparing the revised bytes with the previously bound article and the immutable target. The historical proof scope applies only to the previously checked component results."
   },

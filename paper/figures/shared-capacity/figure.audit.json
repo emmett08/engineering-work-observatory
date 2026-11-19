@@ -5,7 +5,7 @@
   "source_sha256": "efb5c30564d53edd66aea4dad2c73610c79d41098266e6ede0d63c4c56d5a92d",
   "pdf": "figures/shared-capacity/figure.pdf",
   "pdf_sha256": "e55ba10384076e032f227dfea478f71299387f8bae8d98dd3824bf611aa478e0",
-  "spec_sha256": "0f2a54e9b400895f70d1b9f75475054fdaf64ba5b15bb2aa4846d2637c2af72f",
+  "spec_sha256": "ac213147e7cc93de1066e0550996efc84ff58756b393e783e4dfdb1a19045b35",
   "engine": "pdflatex",
   "python": "3.12.14",
   "python_packages": {
@@ -39,7 +39,7 @@
     },
     {
       "path": "figures/shared-capacity/caption.tex",
-      "sha256": "3246bd3ff3fad09a9abdfc5965c4a30f01eb8803bb94942289626b144c5b4bb6"
+      "sha256": "8961363f1c512171b382b48301fffd8434b5e5ab6219016304d9cd8f89a60c5b"
     },
     {
       "path": "figures/shared-capacity/coordinates.tex",
