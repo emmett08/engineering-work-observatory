@@ -1,6 +1,6 @@
 //! Frozen scope, first acceptance, missing follow-up and retained output.
 use crate::model::*;
-use anyhow::Result;
+use anyhow::{Context, Result};
 use chrono::{DateTime, Utc};
 
 pub(super) struct OutcomeAccounting {
@@ -45,6 +45,9 @@ pub(super) fn account(
         .iter()
         .find(|(_, e)| e.event == LifecycleEvent::Accepted);
     let accepted_at = accepted_event.map(|(_, e)| e.occurred_at);
+    let acceptance_scope_mismatch = accepted_event
+        .and_then(|(_, e)| e.scope_version.as_deref())
+        .is_some_and(|version| version != task.scope_version);
     let baseline_scope_unresolved = baseline_scope_required
         && !accepted_event
             .is_some_and(|(_, e)| e.scope_version.as_deref() == Some(task.scope_version.as_str()));
@@ -66,6 +69,8 @@ pub(super) fn account(
         ("scope_changed_excluded_from_output", None, None)
     } else if baseline_scope_unresolved {
         ("scope_changed_baseline_unresolved", None, None)
+    } else if acceptance_scope_mismatch {
+        ("acceptance_scope_mismatch", None, None)
     } else if let Some(at) = accepted_at {
         if at <= deadline {
             (
@@ -106,6 +111,12 @@ pub(super) fn account(
     if baseline_scope_unresolved {
         issues.push("baseline_only scope rule requires acceptance explicitly tied to the original scope_version".into());
     }
+    if acceptance_scope_mismatch {
+        issues.push(
+            "recorded acceptance refers to a different scope version than the enrolled requirement"
+                .into(),
+        );
+    }
     if accepted_by_deadline.is_none() {
         issues.push(format!("acceptance outcome unavailable: {status}"));
     }
@@ -115,26 +126,45 @@ pub(super) fn account(
     let mut retained_fraction = None;
     let mut assessment_ids = Vec::new();
     if accepted_by_deadline == Some(true) && task.count_output {
-        let due = retention_due.expect("accepted task has due date");
+        let due = retention_due.context("accepted task lacks its follow-up date")?;
         let last = crate::model::days_after(due, protocol.assessment_tolerance_days)?;
-        let assessments: Vec<_> = d
-            .assessments
+        // Assessment tolerance can extend past the labour horizon. A subsequent
+        // change cannot trigger the output exclusion, but can make an untagged
+        // assessment ambiguous about which requirement the reviewer assessed.
+        let later_change = d
+            .scope_changes
             .iter()
-            .filter(|(_, a)| {
-                a.task_id == *id
-                    && a.phase == AssessmentPhase::FollowUp
-                    && a.is_primary
-                    && a.status == ObservationStatus::Observed
-                    && a.assessed_at >= due
-                    && a.assessed_at <= last
-                    && a.assessed_at <= as_of
-                    && (!baseline_scope_required
-                        || a.scope_version.as_deref() == Some(task.scope_version.as_str()))
-            })
-            .collect();
+            .filter(|(_, c)| c.task_id == id && c.occurred_at > labour_end)
+            .min_by_key(|(_, c)| c.occurred_at);
+        let mut assessments = Vec::new();
+        for (assessment_id, a) in d.assessments.iter().filter(|(_, a)| {
+            a.task_id == id
+                && a.phase == AssessmentPhase::FollowUp
+                && a.is_primary
+                && a.status == ObservationStatus::Observed
+                && a.assessed_at >= due
+                && a.assessed_at <= last
+                && a.assessed_at <= as_of
+        }) {
+            assessment_ids.push(assessment_id.clone());
+            let change_at_review = later_change.filter(|(_, c)| c.occurred_at <= a.assessed_at);
+            let original_scope = match a.scope_version.as_deref() {
+                Some(version) => version == task.scope_version,
+                None => !baseline_scope_required && change_at_review.is_none(),
+            };
+            if original_scope {
+                assessments.push(a);
+            } else {
+                if let Some((change_id, _)) = change_at_review {
+                    assessment_ids.push(change_id.clone());
+                }
+                issues.push(format!(
+                    "follow-up assessment {assessment_id} does not identify the enrolled scope version"
+                ));
+            }
+        }
         if assessments.len() == 1 {
-            retained_fraction = assessments[0].1.retained_fraction;
-            assessment_ids.push(assessments[0].0.clone());
+            retained_fraction = assessments[0].retained_fraction;
         } else if assessments.len() > 1 {
             issues.push(
                 "multiple primary follow-up assessments: designate an adjudicated primary".into(),
@@ -143,7 +173,7 @@ pub(super) fn account(
             issues.push("retention follow-up not yet due".into());
         } else {
             issues.push(
-                "no observed primary retention assessment within the frozen date window".into(),
+                "no observed primary retention assessment for the enrolled scope within the frozen date window".into(),
             );
         }
     }

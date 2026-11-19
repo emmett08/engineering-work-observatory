@@ -39,9 +39,12 @@ requires nonnegative finite `person_hours`, including explicit zeros. Status
 the estimator to reject the incomplete input. Unknown fields are rejected.
 
 The design object is either `{"kind":"general"}` or
-`{"kind":"simple_random_without_replacement","sample_size":n}`. General designs
-need genuine first-order inclusion probabilities and permit dependent inclusion;
-they provide no design-variance calculation. For simple random sampling, `n`
+`{"kind":"simple_random_without_replacement","sample_size":n}`. A general design
+supplies the inclusion probability for each unit and permits dependent selection.
+When every probability equals one, every possible sample contains every unit
+and sampling variance is zero. Otherwise the general design reports variance as
+unavailable, even if this particular sample happens to contain all units.
+For simple random sampling, `n`
 must agree with the number of observed units, and every inclusion probability
 must equal `n/M` for frame size `M`, with a relative tolerance of eight `f64`
 machine epsilons for representation differences. A realised sample alone cannot
@@ -99,7 +102,7 @@ records limitations and the variance status:
 | `variance.status` | Interpretation |
 |---|---|
 | `estimated_srs` | SRS design variance estimated from the observed sample, with the finite-population correction |
-| `known_zero_census` | The declared SRS design observes the entire frame; sampling variance is zero |
+| `known_zero_census` | The design includes every unit with certainty (SRS with `n=M`, or a general design with every inclusion probability equal to one) |
 | `unavailable` | The declared design or sample size does not support this variance calculation |
 
 For noncensus SRS with `n>=2`, the estimated total variance is

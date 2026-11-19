@@ -25,6 +25,16 @@ pub struct ImportRecord {
     pub data: Value,
 }
 
+impl From<ImportRecord> for crate::model::Evidence {
+    fn from(record: ImportRecord) -> Self {
+        Self {
+            id: record.id,
+            kind: record.kind,
+            data: record.data,
+        }
+    }
+}
+
 fn digest(bytes: impl AsRef<[u8]>) -> String {
     crate::store::digest(bytes.as_ref())
 }

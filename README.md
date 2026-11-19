@@ -299,11 +299,13 @@ provenance, a complete-frame attestation, inclusion probabilities, and explicit
 observed/unselected/nonresponse statuses. Nonresponse is rejected rather than
 treated as zero. Keep the input file with its output for reproduction.
 
-`general` designs return point estimates with unavailable variance. Declared simple
-random sampling without replacement validates the sample size and equal inclusion
-probabilities, then estimates HT and residual-based variances when at least two
-units were observed. A census has known zero sampling variance; a noncensus sample
-of one does not identify variance. The command reports standard errors without
+Both supported designs report zero sampling variance when every unit is selected
+with certainty. Other `general` designs return point estimates with variance
+marked unavailable, even if all units happen to appear in the sample. For simple
+random sampling without replacement, the command validates the sample size and
+equal inclusion probabilities. It estimates HT and residual-based variances from
+at least two sampled units. One observation from a larger frame cannot supply
+this variance estimate. The command reports standard errors without
 inventing a confidence interval or causal contrast. An unfavourable predictor can
 increase variance, and a signed difference estimate can be negative. No clipping
 or automatic substitution into a productivity ratio is performed. See the

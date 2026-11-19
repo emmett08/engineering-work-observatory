@@ -2,7 +2,7 @@
 use super::{Exact, LabourBoundInput, TimeInterval};
 use anyhow::{Result, ensure};
 use num_rational::BigRational;
-use num_traits::{One, Zero};
+use num_traits::{One, Signed, Zero};
 use std::collections::{BTreeMap, BTreeSet};
 
 pub(super) type Rational = BigRational;
@@ -18,7 +18,6 @@ const MAX_OBSERVATIONS: usize = 128;
 const MAX_TARGET_WINDOWS: usize = 128;
 const MAX_CELLS: usize = 128;
 const MAX_VARIABLES: usize = 512;
-const MAX_TABLEAU_ENTRIES: usize = 250_000;
 
 fn nonempty(value: &str, name: &str) -> Result<()> {
     ensure!(!value.trim().is_empty(), "{name} must be nonempty");
@@ -159,13 +158,17 @@ impl CellProblem {
             "too many cell variables (limit {MAX_VARIABLES})"
         );
         let rows = people.len() * cells.len() + 2 * input.observations.len();
-        // Reserve for the worst case of one artificial variable per row. The
-        // solver applies its own exact cap to the actual augmented tableau.
-        let entries = (rows + 1).checked_mul(n + 2 * rows + 1);
-        ensure!(
-            entries.is_some_and(|count| count <= MAX_TABLEAU_ENTRIES),
-            "joint problem exceeds exact tableau resource limit"
-        );
+        // Capacity rows have positive right-hand sides. Each observation adds
+        // bounds with right-hand sides -lower and upper. At most one is negative.
+        let artificial_columns = input
+            .observations
+            .iter()
+            .filter(|observation| {
+                observation.lower_person_hours.0.is_positive()
+                    || observation.upper_person_hours.0.is_negative()
+            })
+            .count();
+        super::simplex::tableau_width(n, rows, artificial_columns)?;
         let mut a = Vec::with_capacity(rows);
         let mut b = Vec::with_capacity(rows);
         for person in people {

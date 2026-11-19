@@ -257,6 +257,61 @@ fn census_variance_is_zero_including_a_single_unit() {
 }
 
 #[test]
+fn general_census_requires_every_inclusion_probability_to_be_one() {
+    let mut frame = srs(&[2.0, 4.0], &[3.0, 0.0], &[0, 1]);
+    frame.design = SamplingDesign::General {};
+    let census = estimate_labour(&frame).unwrap();
+    assert_eq!(census.ht_total_person_hours, 6.0);
+    assert_eq!(census.difference_total_person_hours, 6.0);
+    assert_eq!(census.variance.status, VarianceStatus::KnownZeroCensus);
+    assert_eq!(
+        census.variance.difference_standard_error_person_hours,
+        Some(0.0)
+    );
+    assert_eq!(census.variance.ht_standard_error_person_hours, Some(0.0));
+
+    // Certain auxiliary contributions cancel before they can overflow the sum.
+    let mut large_prediction = frame.clone();
+    large_prediction.units[0].predicted_person_hours = f64::MAX;
+    large_prediction.units[0].observation = LabourObservation::Observed {
+        person_hours: f64::MAX / 2.0,
+    };
+    let large = estimate_labour(&large_prediction).unwrap();
+    assert_eq!(
+        large.difference_total_person_hours,
+        large.ht_total_person_hours
+    );
+
+    // Both labels are present, but other samples are possible under this design.
+    frame.units[1].inclusion_probability = 0.5;
+    assert_eq!(
+        estimate_labour(&frame).unwrap().variance.status,
+        VarianceStatus::Unavailable
+    );
+}
+
+#[test]
+fn residual_variance_preserves_a_small_observation_beside_a_large_matched_prediction() {
+    let tiny = f64::EPSILON / 8.0;
+    let frame = srs(&[1.0, tiny, 0.0], &[1.0, 0.0, 0.0], &[0, 1]);
+    // The observed residuals are (0, tiny). With M=3 and n=2 the
+    // estimated total variance is (3/2) * (tiny^2/2).
+    let expected = 0.75 * tiny.powi(2);
+    let forward = estimate_labour(&frame).unwrap();
+    let mut reordered = frame;
+    reordered.units.reverse();
+    let reverse = estimate_labour(&reordered).unwrap();
+    assert_eq!(
+        forward.variance.difference_variance_person_hours_squared,
+        Some(expected)
+    );
+    assert_eq!(
+        reverse.variance.difference_variance_person_hours_squared,
+        Some(expected)
+    );
+}
+
+#[test]
 fn zero_observation_unselected_and_nonresponse_are_distinct() {
     let mut frame = srs(&[0.0, 4.0], &[1.0, 1.0], &[0]);
     frame.design = SamplingDesign::General {};

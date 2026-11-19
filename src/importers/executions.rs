@@ -553,7 +553,7 @@ pub fn executions_import(bytes: &[u8]) -> Result<Vec<ImportRecord>> {
         );
         let mut file = archive.by_index(0)?;
         ensure!(
-            file.name() == "bundle.json" && !file.is_dir() && !file.is_symlink(),
+            file.name()? == "bundle.json" && !file.is_dir() && !file.is_symlink(),
             "unexpected or unsafe execution artifact ZIP member"
         );
         ensure!(
