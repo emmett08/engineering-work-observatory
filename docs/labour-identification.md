@@ -1,7 +1,7 @@
 # Exact labour identification
 
 `observatory bound-labour FILE` implements the finite-cell reduction in
-*How Much Human Work Is Behind AI-Assisted Software?* It computes the smallest
+*Bounding and estimating human labour in AI-assisted software engineering* It computes the smallest
 and largest target values consistent with declared interval observations and
 each person's shared capacity across tasks and types of work. It runs offline without
 opening the evidence store.

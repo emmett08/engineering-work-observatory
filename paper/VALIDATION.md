@@ -8,6 +8,10 @@ Run the following from the repository root. All counts and probabilities in the 
 
 | Command | What it checks |
 | --- | --- |
+| `python3 paper/study/labour-measurement/check.py --check` | Enumerates 96 known histories, varies one constraint or observation at a time and exercises both public Rust measurement commands. The first-hour bounds and whole-shift sampling estimates have separate targets. |
+| `python3 paper/study/labour-forecast-check/check.py` | Replays the two intake forecasts using only labour measurements available on each intake day and scores them on the same later tasks. |
+| `cargo test --locked --test model_analysis retained_score_tracks_assessed_behaviour_across_pull_request_splits` | Passes a four-criterion requirement through the cohort analysis with one or three linked pull requests, then checks how a mistaken assessment changes retained score per person-hour. |
+| `make -C paper check-planning` | Repeats the published scenario results and one-factor comparisons, then passes constructed team histories through the cohort analysis and the trial decision rule. See the [study requirements and environment](study/ai-labour-causal/README.md). |
 | `python3 paper/check_measurement_examples.py` | Exact finite calculations for sampled-labour estimates and binned labour totals. |
 | `python3 paper/check_sharp_identification.py` | Exact rational bounds, feasibility and allocations in the cutoff examples. |
 | `python3 paper/review/mas-model-2026-11-01/calculations/check_model.py --check` | Recomputes the constructed cases used to check reconstruction, endpoint certificates and simultaneous coverage. |

@@ -1,19 +1,17 @@
 # A causal comparison of AI-assisted software work
 
-This is a specified design and planning analysis, not an executed or preregistered
-trial. The principal study is not yet adequate for a benefit claim: neither
-candidate meets the provisional joint-success target across the specified
-planning scenarios. No workplace observations were supplied. The next step is a
-separate measurement and feasibility pilot, followed by supported planning.
+This proposed trial has reached the planning stage. Both candidate designs
+miss the provisional target for detecting the stipulated benefit. A workplace
+measurement pilot would supply evidence for choosing a main design.
 
 ## Question and estimands
 
-For a fixed set of software requirements, does providing one recorded AI toolset
-and its working practices reduce all included human labour while preserving
-required output at follow-up? The target is the effect of providing that complete
-workflow, including any changes to review and repair. It is not the effect of an
-extra minute of AI use, a particular model component, or organisation-wide adoption
-that changes incoming work.
+For the participating teams and their fixed requirements, does offering the
+specified AI workflow save more than one post-intake person-hour per initial
+reference unit while the loss in retained score stays below five percentage
+points? The effect of the offer includes changes in review and repair within
+the observation window. Uptake describes how often each team uses the workflow.
+An effect on which requests reach intake would require following incoming work.
 
 Before choosing comparison groups, each team records its initial task set, the
 requirements and acceptance criteria, reference scores, contributors and study
@@ -76,11 +74,18 @@ miss work or misclassify attention; a consistent ledger is not proof of accuracy
 
 Use independently checked calibration cases with known scripted durations,
 deliberately overlapping records, off-keyboard work and missing contributors.
-For a preselected subset of person-days, compare contemporaneous allocation
-records with a second evidence collection procedure and retain disagreement and
-its residual uncertainty. Neither reviewer agreement nor a stopwatch on coding
-alone establishes complete true labour. The pilot must determine whether a
-defensible bound on differential measurement bias can be obtained.
+Randomly select audit shifts in both groups, including on-call and shared review
+work. Collect evidence independently of the diary, for example by observing a
+consenting engineer during randomly chosen periods and checking incident or
+review attendance against a separate participant's account. A meeting's elapsed
+time alone gives no allocation to a requirement. Document what each source
+could establish about the original interval, how observation might have changed
+the work, and bounds on attributable hours both sources could have missed.
+Compare the resulting measurement-error ranges by group and report how sampling
+audit shifts affects their uncertainty. If the plausible difference in group
+errors exceeds an allowance, repeat planning over the wider range. If the source
+coverage cannot justify any useful error limit, report which activities remain
+unmeasured and leave the benefit claim unresolved.
 
 Two reviewers, unaware of comparison groups as far as the material permits,
 check acceptance criteria and retained functionality. Check all pilot outputs
@@ -109,8 +114,8 @@ before the study is preregistered:
   `Delta_L < -1`. With a planning comparator mean of 10 hours per reference unit,
   that boundary corresponds to a 10% reduction; the natural-unit boundary is the
   actual decision rule.
-- Retained output may fall by no more than **5 percentage points**:
-  `Delta_F > -0.05`. This is a maximum acceptable loss, not a prediction.
+- A loss of **5 percentage points or more** in retained score must be ruled
+  out (`Delta_F > -0.05`). A precisely measured four-point loss can pass.
 - The simulated useful effect is **-2 hours per reference unit with no quality
   loss**, which lies beyond both decision boundaries. Boundary scenarios are
   used to assess false success, not to demand high power at the null boundary.
@@ -136,7 +141,7 @@ effects and intervals even when the conjunction fails. Distinguish evidence of
 harm, exclusion of a worthwhile labour saving and unresolved intervals. Excluding
 a worthwhile saving does not establish a practically small effect: that would
 require a declared equivalence region and an interval wholly within it.
-Non-significance does not establish quality preservation.
+The lower confidence limit for the retained fraction must exceed the prespecified loss margin.
 
 The conservative planning procedure permits no affirmative benefit claim if a
 team-level endpoint remains missing. Keep the team and publish physical or
@@ -145,11 +150,14 @@ using available pairs. A future procedure allowing a benefit decision with
 missing endpoints would need its own prespecified bounds and operating-characteristic
 analysis; it is not silently included in the current power results.
 
-In the current simulation an incomplete endpoint produces the full parameter-
-domain confidence set and no component rejection. Reported unconditional coverage
-includes those uninformative sets; the finite halfwidth and bias summaries are
-explicitly restricted to simulated complete records. Missing generated values
-are not used to report a finite interval that the actual procedure could not form.
+An incomplete experiment returns the full parameter range for each effect and
+cannot declare a benefit. The reported unconditional coverage counts every such
+range as covering. In the 96-team loss scenario, 4,212 of 20,000 experiments
+returned these uninformative ranges. Of the 15,788 experiments that supplied
+finite intervals, 15,676 covered the labour effect (99.29%) and 15,777 covered
+the retained-fraction effect (99.93%). These counts follow by subtracting the
+4,212 incomplete experiments from each unconditional coverage count.
+The finite-width and bias summaries also use complete experiments.
 
 ## Pilot and conditional principal-study rule
 
@@ -195,13 +203,29 @@ the target workload or quality margin to manufacture adequacy.
 
 ## Numerical comparison actually executed
 
-`planning.py` compares **48 teams (24 pairs)** with **96 teams (48 pairs)**,
-20 initial tasks per team. It simulates 20,000 experiments per design/scenario
-cell, using actual within-pair coins, correlated team baselines, positive labour,
-bounded true retained fractions, measurement noise, bias allowances, and the
-prespecified conjunction/missing-endpoint rule. The latent distributions are
-planning assumptions, not estimated workplace distributions. No treatment effect
-or variance from another developer study is imported as if it applied here.
+`planning.py` compares **48 teams (24 pairs)** with **96 teams (48 pairs)**.
+It generates team-level baselines, adds fixed differences in the two outcomes
+and uses a fair coin in each pair to determine which team receives AI access.
+The generated pair contrasts receive measurement noise and, where specified, a
+fixed difference in reporting bias. Each cell contains 20,000 simulated
+experiments. Twenty initial tasks per team determines the budget and reported
+task count only. This simulation therefore provides no estimate of the gain in
+precision from observing additional tasks per team. A larger trial would need
+evidence about between-task as well as between-team variability to estimate
+that gain.
+
+A separate [controlled measurement experiment](measurement_bridge.py)
+passes differences in measured labour and retained fraction between paired teams
+through the same decision rule. The constructed work histories supply the true
+differences, so the experiment can trace the effect of incomplete measurements
+on the decision. It imports effort, acceptance and assessment observations into
+the Rust store for twelve teams and passes the cohort reports to the trial
+analysis. With accurate reports the mean differences reach the two decision
+thresholds exactly. Omitting review time and overlooking failed checks in the
+AI group moves both measured means beyond their thresholds and produces a
+false declaration. One missing follow-up assessment then prevents a declaration.
+These three checks hold the 24 requirements fixed. The following simulations
+draw new team outcomes in every replication.
 
 | Scenario | 48 teams: joint success | 96 teams: joint success |
 | --- | ---: | ---: |
@@ -210,15 +234,33 @@ or variance from another developer study is imported as if it applied here.
 | Useful effect, 0.5% probability a pair lacks an endpoint | 39.77% | 60.66% |
 | Bias exceeds the assumed allowance at both null boundaries | 47.81% false success | 76.21% false success |
 
-The final row demonstrates a failure of a measurement assumption, not a valid
-power improvement. Increasing sample size can make that biased decision more
-confident. With bias at the declared allowance, observed false joint success is
+In the final row, the AI group's labour is understated by one hour per unit
+relative to the comparison group and its retained fraction is overstated by
+six percentage points. A larger sample narrows intervals around those biased
+differences. With bias at the declared allowance, observed false joint success is
 0.01%/0.02%. With maximal favourable bias on the true-null component alone, labour-boundary rejection is 2.475%/2.560% and quality-boundary rejection is 2.580%/2.385%. The largest observed component rejection across the included valid-bias cases is 2.760%, rather than exactly the nominal 2.5%; the declared upper Monte Carlo tolerance is 3.5%. The partial-null cases and each endpoint's interval coverage are
 retained in `planning-results.json`. Wilson intervals remain nondegenerate even
 when no simulated successes occur. Monte Carlo error is much smaller than the
 principal shortfall. The reported coverage concerns the t intervals expanded by the sensitivity allowances, not unexpanded t coverage or exact design-based coverage. Neither candidate qualifies, so no principal design is
-selected. Recruitment, tool-version drift, rare severe failures, heterogeneous
-treatment effects and generalisation are not established by these calculations.
+selected. The simulation does not measure recruitment or address tool-version
+drift, rare severe failures or effects that vary across teams.
+
+The adverse scenario changes several assumptions together. After the original
+design assessment, we reran the central scenario, replacing one parameter at
+a time by its adverse value. Each comparison uses the same latent draws,
+treatment coins and noise draws as the central scenario for that team count.
+The two-hour saving, unchanged retention and decision thresholds stay fixed.
+At 96 teams, reducing latent within-pair correlation from 0.7 to 0.2 produced
+6,930 benefit declarations in 20,000 experiments. Increasing only the standard
+deviation of the lognormal labour term on the log scale from 0.35 to 0.65
+produced 5,677. Increasing only the labour measurement-noise standard deviation
+from 0.2 to 0.6 hours per unit produced 14,183. The central count was 15,450.
+These contrasts isolate each parameter *with the others at their central
+settings*. Their differences need not add up to the total adverse effect.
+The [supplemental table](planning-sensitivity.csv) also reports the two
+retention-parameter comparisons, both component pass counts, and the Wilson
+interval for each success probability. The original design assessment and its
+decision thresholds use only the original scenarios.
 
 Under the simulation's independent pair-loss model, the requirement for every
 endpoint to be available also imposes an analytic ceiling. With pair-loss
@@ -229,6 +271,13 @@ reach the 90% target under that missingness scenario. Collection must achieve
 lower endpoint loss, or a revised missing-data decision procedure must be
 specified and its operating characteristics evaluated before selecting a
 principal allocation.
+
+The independence assumption matters for that ceiling. For example, if one
+common outage erased all pairs with probability 0.005 and data were otherwise
+complete, each pair would still have marginal loss probability 0.005. All pairs
+would then be complete with probability 0.995 at either sample size. The pilot
+should identify shared causes of loss and examine missingness by workload and
+group before adopting a loss model.
 
 The compared observation budgets are provisional **1,056** and **2,112**
 collection/review person-hours (`22` per team: 12 collection hours plus 0.5 hours
@@ -248,9 +297,18 @@ therefore performs explicitly bounded local structural/reference/numeric checks;
 it is not presented as the bundled skill validator or as scientific validation.
 
 ```sh
-python3 paper/study/ai-labour-causal/planning.py --check
+python3 paper/study/ai-labour-causal/planning_sensitivity.py --check
+python3 paper/study/ai-labour-causal/measurement_bridge.py
 python3 paper/study/ai-labour-causal/validate_protocol.py
 ```
+
+The first command recomputes the original 24 cells and the supplemental
+one-parameter comparisons. It checks every original numeric result, source
+hash and scenario parameter, with Python 3.12 and the NumPy and SciPy versions
+pinned in `requirements.txt`. A different Python patch release is permitted
+when those results reproduce exactly. To verify the original environment
+metadata as well, run `planning.py --check` with Python 3.12.14. Both checks
+leave the retained results and their original provenance untouched.
 
 `protocol.json` is **specified**. Its planning assessment is **evaluated under
 provisional assumptions**, while the empirical pilot and principal trial remain

@@ -2,10 +2,10 @@
   "audit_kind": "project-local bounded mechanical checks",
   "limitation": "The skill's bundled figure_spec.py/render_tikz.py/figure_review.py were unavailable. This script does not claim their full validation coverage.",
   "source": "figures/shared-capacity/tikz.tex",
-  "source_sha256": "b2098619fb789aaf56813018141519234c7a0a95541a66eebff9dd4b5c122fbd",
+  "source_sha256": "efb5c30564d53edd66aea4dad2c73610c79d41098266e6ede0d63c4c56d5a92d",
   "pdf": "figures/shared-capacity/figure.pdf",
   "pdf_sha256": "e55ba10384076e032f227dfea478f71299387f8bae8d98dd3824bf611aa478e0",
-  "spec_sha256": "54432908adaf24f58738b2d37263903c48761274f73786a79612853829d0842a",
+  "spec_sha256": "ac213147e7cc93de1066e0550996efc84ff58756b393e783e4dfdb1a19045b35",
   "engine": "pdflatex",
   "python": "3.12.14",
   "python_packages": {
@@ -27,7 +27,7 @@
   "inputs": [
     {
       "path": "figures/shared-capacity/alt-text.txt",
-      "sha256": "7995b90c36a0ec528af14ec24f945b2e8ad0d879e9dc4913ad52c3ac83987872"
+      "sha256": "8ac90eab32160423a812e6f6cd9d0bb037917d8adfa4105098b246ad317bceb3"
     },
     {
       "path": "figures/shared-capacity/calculate.py",
@@ -39,7 +39,7 @@
     },
     {
       "path": "figures/shared-capacity/caption.tex",
-      "sha256": "3ed04cefe1b4e8caca823e5bcd2c945d628ce9116ea07904f5eacf4fabc88b1b"
+      "sha256": "8961363f1c512171b382b48301fffd8434b5e5ab6219016304d9cd8f89a60c5b"
     },
     {
       "path": "figures/shared-capacity/coordinates.tex",

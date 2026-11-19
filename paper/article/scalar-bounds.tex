@@ -1,26 +1,26 @@
 \section{A shortest-path solution for one allocation stream}
 \label{app:scalar}
 
-For one person's work of one type on one task, let $0\leq a\leq1$ be the allocation function. At each time boundary from Section~\ref{sec:sharp-identification}, write $z_k=\int_{b_0}^{b_k}a(t)\,dt$ for cumulative person-hours. Labour between boundaries $b_p$ and $b_q$ is $z_q-z_p$. A directed edge $p\to q$ of weight $w$ represents the upper bound $z_q-z_p\leq w$.
+For one person performing one activity on a single task, let $0\leq a\leq1$ be the allocation function. At each calendar boundary in Section~\ref{sec:sharp-identification}, cumulative labour is $z_k=\int_{b_0}^{b_k}a(t)\,dt$. Represent each upper bound $z_q-z_p\leq w$ by a directed edge $p\to q$ of weight $w$ \cite[Slides~6--11]{indyk2011}.
 
-Starting from any boundary, the next cell can add at most $d_k$ person-hours. Draw an edge $k-1\to k$ of that weight. A reverse edge $k\to k-1$ of weight zero enforces nonnegative labour. In the same way, represent the observation limits on $[b_p,b_q]$ with a forward edge of weight $v^+$ and a reverse edge of weight $-v^-$. If the observed total equals $v$, these weights are $v$ and $-v$. This is the difference-constraints representation \cite[Slides~6--11]{indyk2011}.
+Cell $k$ permits between zero and $d_k$ person-hours. Its forward edge $k-1\to k$ has weight $d_k$ and its reverse edge has weight zero. An observation bounding labour between $b_p$ and $b_q$ by $[v^-,v^+]$ adds edges $p\to q$ of weight $v^+$ and $q\to p$ of weight $-v^-$. For an exact total $v$, these weights are $v$ and $-v$.
 
-Adding the inequalities along a path cancels the cumulative totals at its intermediate vertices. Its weight therefore bounds the difference between the two endpoint totals. The minimum path weight is the tightest upper bound. Reversing the direction bounds the negative of the difference. Negating that bound recovers the lower limit.
+Summing edge inequalities along a path cancels the cumulative labour terms at its intermediate vertices. Each path from $p$ to $q$ thus bounds $z_q-z_p$ from above by its weight. Paths in the reverse direction bound $z_p-z_q$.
 
-\begin{proposition}[Attainable cumulative bounds from graph distances]
+\begin{proposition}[Exact range of interval labour from graph distances]
 \label{prop:graph-bounds}
-The observations for this single allocation function admit an allocation if and only if this graph has no directed cycle of negative total weight. When such an allocation exists, let $D(p,q)$ be the shortest-path weight from $p$ to $q$. For any endpoint pair $p\leq q$, the identified range of $\int_{b_p}^{b_q}a(t)\,dt$ is
+An allocation satisfying all the observations exists if and only if the graph has no directed cycle of negative total weight. In that case, let $D(p,q)$ denote the shortest-path weight from $p$ to $q$. For any endpoint pair $p\leq q$, the identified range of $\int_{b_p}^{b_q}a(t)\,dt$ is
 \begin{equation}
 \label{eq:graph-range}
  [-D(q,p),\;D(p,q)].
 \end{equation}
 \end{proposition}
 \begin{proof}
-The differences on the left sum to zero around a cycle. A negative cycle weight would bound zero by a negative number, so the system would be inconsistent. Conversely, the adjacent edges connect every pair of vertices in both directions. Without a negative cycle, all shortest-path weights are finite and $D(r,r)=0$. Choose a starting vertex $r$. The values $z_k=D(r,k)$ satisfy every edge inequality because $D(r,v)\leq D(r,u)+w$ for an edge $u\to v$ of weight $w$. Subtract $z_0$ throughout to set initial cumulative labour to zero. Adjacent differences then lie in $[0,d_k]$. A constant allocation within each cell realises its difference as person-hours, so the resulting history satisfies the observations.
+Around a cycle the cumulative differences sum to zero, so any feasible set of totals requires nonnegative cycle weights. Conversely, suppose there is no negative cycle. Edges between adjacent vertices give paths in both directions, so all shortest-path weights are finite and $D(r,r)=0$ for each starting vertex $r$. For an edge $u\to v$ of weight $w$, the path inequality $D(r,v)\leq D(r,u)+w$ shows that $z_k=D(r,k)-D(r,0)$ satisfies the edge constraint and $z_0=0$. The adjacent edges imply $0\leq z_k-z_{k-1}\leq d_k$. Working at the fraction $(z_k-z_{k-1})/d_k$ throughout cell $k$ gives exactly its prescribed hours.
 
-The path inequalities imply $z_q-z_p\leq D(p,q)$ and $z_q-z_p\geq-D(q,p)$. Starting at $p$ attains the upper bound since $D(p,p)=0$. Starting at $q$ attains the lower bound because $D(q,q)=0$. Convex combinations of these allocations realise every intermediate labour total.
+The shortest paths in the two directions give $-D(q,p)\leq z_q-z_p\leq D(p,q)$. Taking $r=p$ and $r=q$ gives schedules at the upper and lower endpoints, respectively. Their convex combinations satisfy all constraints and give every intermediate total.
 \end{proof}
 
-The reference calculation finds shortest paths for all pairs using exact rational arithmetic. Given indexed, sorted boundaries, building the graph and finding these distances takes $O((K+1)^3+M)$ arithmetic operations and $O((K+1)^2+M)$ storage.\footnote{Here $K+1$ counts time boundaries and $M$ counts observations. Big-$O$ describes an upper bound on growth up to a constant factor.} The bit cost of an operation depends on the sizes of the fractions it uses. An independent enumeration checks the endpoints and the allocations that attain them in finite examples, including overlapping intervals and inconsistent observations.
+The reference implementation uses exact rational arithmetic. For $K+1$ sorted, indexed boundaries and $M$ observations, building the graph and computing all pairwise distances takes $O((K+1)^3+M)$ arithmetic operations and $O((K+1)^2+M)$ storage. The bit cost per operation depends on operand size. In finite examples with overlapping intervals, an independent enumeration checks the endpoints, their schedules and detection of inconsistent observations.
 
-For several task streams drawing on one person's time, Proposition~\ref{prop:cell-reduction} enforces a single capacity limit across those streams. Applying either calculation to a team requires evidence about who worked and what each interval observation covers.
+Separate graphs for tasks sharing one person's time can count the same hour twice. Proposition~\ref{prop:cell-reduction} imposes a single time limit across that person's activities. For both methods, specify the contributors and activities covered by each observation.

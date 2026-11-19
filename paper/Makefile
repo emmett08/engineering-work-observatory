@@ -1,7 +1,7 @@
 PYTHON ?= python3
 LATEXMK ?= latexmk
 
-.PHONY: all article figure formal check performance clean
+.PHONY: all article figure formal check check-planning performance clean
 
 all: article
 
@@ -22,12 +22,18 @@ check:
 	$(PYTHON) figures/shared-capacity/verify.py --review
 	$(PYTHON) check_explanatory_figures.py
 	$(PYTHON) check_measurement_examples.py
+	$(PYTHON) study/labour-measurement/check.py --check
+	$(PYTHON) study/labour-forecast-check/check.py
 	$(PYTHON) check_sharp_identification.py
 	$(PYTHON) review/mas-model-2026-11-01/calculations/check_model.py --check
 	$(PYTHON) study/ai-labour-causal/validate_protocol.py
 	$(MAKE) -C formal check-receipt
 	cd performance && cargo test --locked
 	cd performance && $(PYTHON) -m unittest discover -s tests -v
+
+check-planning:
+	$(PYTHON) study/ai-labour-causal/planning_sensitivity.py --check
+	$(PYTHON) study/ai-labour-causal/measurement_bridge.py
 
 performance:
 	cd performance && $(PYTHON) collect_benchmarks.py

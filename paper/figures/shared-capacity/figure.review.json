@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "figure_id": "shared-capacity",
-  "spec_sha256": "54432908adaf24f58738b2d37263903c48761274f73786a79612853829d0842a",
-  "audit_sha256": "0c2b28b61701abce6a8ba77ccb4ff2ff35cf41646af300bd1f5aef0f52f82f8c",
+  "spec_sha256": "ac213147e7cc93de1066e0550996efc84ff58756b393e783e4dfdb1a19045b35",
+  "audit_sha256": "2f570c4927d31a8d4dc009d815228a321fa4eaa6febd909a5ab24b11a3702c40",
   "artifacts": [
     {
       "role": "final_pdf",
@@ -66,7 +66,7 @@
       "Both axis totals at the marked point are one half of a person-hour. Their sum matches the single diamond in panel (b).",
       "The alternating half-hour task labels agree with the midpoint and the two whole-window totals.",
       "Colour and greyscale show the same task labels, diagonal, interval caps and position of the diamond.",
-      "The alternative text names both first-hour task axes and the person-hour scale, explains why points on either side of the diagonal exceed the available time, and describes the four blocks that realise the midpoint."
+      "An independent reader compared the revised caption and alternative text with the rendered figure. The diagonal runs from (0,1) to (1,0). Its points sum to one person-hour, the value shown by the diamond. The bar covers the sums from the square, from zero to two person-hours. Before the one-hour divider each task occupies half an hour, as at P."
     ],
     "findings": [
       {
@@ -75,6 +75,20 @@
         "description": "The revised text labels the diagonal and names the capacity assumption responsible for the fixed sum.",
         "disposition": "accepted",
         "reason": "The rebuilt labels fit at the intended size in the rendered figure. The caption explains why both hours must be full and identifies panel (c) as one possible schedule."
+      },
+      {
+        "id": "revised-shift-caption",
+        "severity": "minor",
+        "description": "Finishing the requirements was not an input to the two-hour example.",
+        "disposition": "resolved",
+        "reason": "The caption now says that the task totals use the entire shift. The independent reader recovered the feasible diagonal, fixed first-hour total and nonunique midpoint schedule from the revised caption and original image, then compared that reading with the specification."
+      },
+      {
+        "id": "diagonal-caption",
+        "severity": "informational",
+        "description": "The caption identifies the feasible set as the descending diagonal of the plotted square.",
+        "disposition": "accepted",
+        "reason": "An independent reviewer checked the caption against the coordinates and both one-hour capacity limits. The feasible segment, the bar endpoints at zero and two, the diamond at one and the midpoint schedule agree with the caption."
       }
     ],
     "audit_warning_dispositions": [
@@ -88,6 +102,7 @@
   "decision": "accept",
   "limitations": [
     "Human interpretation benefit remains unmeasured by agent screening.",
-    "The review compared the revised colour and greyscale rendering against the caption, the two existing layouts and the numerical construction. The proof of the full attainable set is in the article."
+    "The review compared the revised colour and greyscale rendering against the caption, the two existing layouts and the numerical construction. The proof of the full attainable set is in the article.",
+    "The original review covers the unchanged vector artwork and layout comparisons. An independent editorial review of the caption covers its account of the plotted quantities and schedules."
   ]
 }

@@ -1,0 +1,28 @@
+\section{Labour bounds and estimates for 96 known activity histories}
+\label{sec:known-labour}
+
+During a two-hour shift, an engineer spends two half-hour periods implementing a feature and zero, one or two periods repairing a defect. These activities fit into the four periods in 24 distinct schedules. A colleague reviews the feature in any one period, giving 96 equally weighted histories. Counting occupied periods for both people gives the person-hours worked in the first hour and over the full shift.
+
+For the first hour, we ask whether the two people's combined labour exceeded one person-hour. The solver receives the engineer's hours per task over the whole shift and the time spent in review both in the first hour and over the shift. The first calculation allows each activity up to one person-hour per clock hour. The second applies that limit to the engineer's combined implementation and repair time as well. If the resulting range is $[L,U]$ person-hours, $L>1$ establishes that the work exceeded the threshold, and $U\leq1$ rules out an excess. All other ranges leave the comparison open.
+
+\begin{table}[htbp]
+\centering\small
+\caption{First-hour labour across 96 work histories. Width is the mean difference between upper and lower bounds, in person-hours. The counts distinguish correct, incorrect and unresolved decisions about whether labour exceeded one person-hour.}
+\label{tab:known-hours}
+\begin{tabular}{@{}p{0.45\linewidth}rrrr@{}}
+\hline
+Evidence and capacity limits & Width & Correct & Wrong & Unresolved \\
+\hline
+Separate limit per activity                      & 1.5 & 12 & 0 & 84 \\
+Shared limit for implementation and repair        & 0.5 & 60 & 0 & 36 \\
+Engineer's first-hour total supplied, either limit & 0 & 96 & 0 & 0 \\
+Reviewer omitted, shared limit                    & 0.5 & 70 & 26 & 0 \\
+First-hour review entered as zero, shared limit   & 0.5 & 70 & 26 & 0 \\
+First-hour review between zero and half an hour, shared limit & 1 & 0 & 0 & 96 \\
+\hline
+\end{tabular}
+\end{table}
+
+With the same observations, the shared limit reduced mean width from 1.5 to 0.5 person-hours and resolved the threshold comparison correctly in 60 histories, up from 12 (Table~\ref{tab:known-hours}). Supplying the engineer's first-hour total gave the exact combined labour under either limit. Omitting the reviewer or entering zero for first-hour review excluded the true total in the same 26 histories. Allowing up to half an hour for review kept the true total within bounds in all 96 histories but left every threshold comparison open.
+
+Each contributor has two one-hour intervals in the full shift. To estimate shift labour, we select two of the four intervals and evaluate all six equally likely draws. Before sampling, we set the prediction at 0.75 person-hours per engineer interval and 0.25 per reviewer interval. With accurate replies, each estimator averages to the true shift total over the six draws for every history. Averaging each estimator's sampling variance across the 96 histories gives $49/72$ squared person-hours with inverse-probability weighting and $25/72$ with the prediction correction. If the reviewer enters zero whenever sampled, both estimators underestimate shift labour by half an hour on average. If the reviewer gives no reply for the hour containing the review, only the 288 of 576 draws that omit that hour yield an estimate under the complete-response rule.

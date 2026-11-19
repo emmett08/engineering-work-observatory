@@ -48,7 +48,7 @@ class ExplanatoryFigureChecks(unittest.TestCase):
         }
         self.assertEqual(len(times), 12)
         self.assertEqual((times["WindowStart"], times["WindowEnd"]), (0, 60))
-        human = ("PromptA", "PromptB", "ReviewB")
+        human = ("InstructA", "InstructB", "ReviewB")
         runs = ("RunA", "RunB")
         for name in human + runs:
             self.assertLess(times[name + "Start"], times[name + "End"])
@@ -57,15 +57,15 @@ class ExplanatoryFigureChecks(unittest.TestCase):
         for before, after in zip(human, human[1:]):
             self.assertLessEqual(times[before + "End"], times[after + "Start"])
 
-        # A run starts when the corresponding prompt is submitted.
-        for run, prompt in (("RunA", "PromptA"), ("RunB", "PromptB")):
-            self.assertEqual(times[run + "Start"], times[prompt + "End"])
+        # A run starts when the engineer submits its instructions.
+        for run, instructions in (("RunA", "InstructA"), ("RunB", "InstructB")):
+            self.assertEqual(times[run + "Start"], times[instructions + "End"])
         # B's completed result is available before its review begins.
         self.assertGreaterEqual(times["ReviewBStart"], times["RunBEnd"])
 
         # Check the endpoints used by the plotted rectangles, not only comments.
         for name, bottom, top in (
-            ("PromptA", 34, 42), ("PromptB", 34, 42), ("ReviewB", 34, 42),
+            ("InstructA", 34, 42), ("InstructB", 34, 42), ("ReviewB", 34, 42),
             ("RunA", 22, 28), ("RunB", 11, 17),
         ):
             self.assertIn(

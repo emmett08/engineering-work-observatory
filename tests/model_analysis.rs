@@ -378,6 +378,49 @@ fn abandonment_and_lost_observation_have_different_outcomes() {
 }
 
 #[test]
+fn retained_score_tracks_assessed_behaviour_across_pull_request_splits() {
+    // Four equally weighted checks define this synthetic requirement.
+    let checks_at_follow_up = [true, true, true, false];
+    let initial_score = checks_at_follow_up.len();
+    let surviving = checks_at_follow_up.iter().filter(|&&passed| passed).count();
+    let observed_fraction = surviving as f64 / initial_score as f64;
+    for (pull_requests, reported_fraction, expected_score) in [
+        (1, observed_fraction, 3.0),
+        (3, observed_fraction, 3.0),
+        (3, 1.0, 4.0), // The reviewer overlooks the failed check.
+    ] {
+        let mut evidence = fixture();
+        for item in &mut evidence {
+            match item.kind.as_str() {
+                "task" => item.data["frozen_score"] = json!(initial_score),
+                "assessment" => item.data["retained_fraction"] = json!(reported_fraction),
+                _ => {}
+            }
+        }
+        for number in 1..=pull_requests {
+            evidence.push(rec(
+                &format!("pr-{number}"),
+                "task_link",
+                json!({
+                    "task_id": "t",
+                    "repository": "example/service",
+                    "pull_request": number,
+                    "relation": "implements",
+                    "observed_at": "2026-10-02T00:00:00Z",
+                    "method": "explicit requirement reference"
+                }),
+            ));
+        }
+        let report = analyse(&evidence, final_cut()).unwrap();
+        assert_eq!(report.tasks[0].task_link_ids.len(), pull_requests);
+        let cohort = &report.cohorts[0];
+        assert_eq!(cohort.total_person_hours, Some(1.0));
+        assert_eq!(cohort.total_retained_output, Some(expected_score));
+        assert_eq!(cohort.retained_output_per_person_hour, Some(expected_score));
+    }
+}
+
+#[test]
 fn aggregate_productivity_is_ratio_of_totals() {
     let mut records = fixture();
     let mut second: Vec<_> = fixture()
