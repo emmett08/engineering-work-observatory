@@ -7,7 +7,9 @@ A worked example with six hypothetical team pairs sets the true mean differences
 
 Select shifts for independent verification regardless of whether contributors replied. Include external reviewers when their time falls within the task's labour window. Where separate evidence is available, use it to establish who attended and for how long. Allow a range for hours both sources could omit. At follow-up, have reviewers test the acceptance criteria independently and resolve discrepancies where evidence allows. Before the main trial, compare short requests for sampled intervals with a full daily account. Measure the time each method takes from contributors and use the independent checks to assess omissions in both.
 
-The complete-data rule requires both outcomes from every team. At the prespecified analysis, a rule using ranges can also include teams whose measurements are incomplete. Let $[\ell_i,u_i]$ contain the difference in pair $i$ under the drawn allocation, and let $[a_i,b_i]$ cover that difference under either allocation before the draw. Use separate ranges for each outcome. For $m\geq 1$ pairs with independent allocation and no interference between pairs, set the radius at error level $0<\alpha<1$ to
+The complete-data rule requires both outcomes from every team. Set the rules for bounding unobserved outcomes before the trial begins. Those bounds allow teams with incomplete measurements to contribute to the comparison.
+
+For each outcome, choose $[a_i,b_i]$ before the draw to cover the difference in pair $i$ whichever team receives AI access. After collecting the available measurements, apply the agreed rules to obtain $[\ell_i,u_i]$ for the difference under the allocation the pair received. For $m\geq 1$ pairs with independent allocation and no interference between pairs, set the radius at error level $0<\alpha<1$ to
 \[
 r_\alpha=\sqrt{\frac{\log(1/\alpha)}{2m^2}
   \sum_{i=1}^m (b_i-a_i)^2}.

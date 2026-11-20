@@ -31,6 +31,8 @@ None found. The numerical comparisons use a table with defined columns.
 8. **[Time partition](bounds.tex)**. State why an observation may bring out-of-target work into the model before introducing the time cells. The revised paragraph places the **full span of each observation** beside the shared observed total it constrains.
 9. **[Workplace checks](workplace.tex)**. Specify **who attended and for how long** before describing the follow-up checks. The revised paragraph connects independent verification to the omissions it can detect and identifies what contributors’ measurement time is used to compare.
 
+10. **[Trial planning](workplace.tex)**. “Set the rules for bounding unobserved outcomes before the trial begins.” The next paragraph defines the range covering both possible allocations before it explains how to bound the difference for the allocation the pair received.
+
 ## Word frequency
 
 | Rank | Word | Count | Editorial decision |
@@ -48,9 +50,9 @@ None found. The numerical comparisons use a table with defined columns.
 | 11 | interval | 14 | Retain for a time interval or confidence interval. Name the type where the distinction matters. |
 | 12 | limit | 14 | Retain for capacity, observation and confidence limits. Name what the limit constrains. |
 | 13 | probability | 14 | Retain for a selection chance or failure probability. Name the event locally. |
-| 14 | allocation | 13 | Retain for time allocation or random offer allocation. Name which process is involved. |
-| 15 | engineer | 13 | Retain for the person whose available time constrains the worked example. |
-| 16 | first | 13 | Retain for first acceptance and the first hour of the shift. |
+| 14 | engineer | 13 | Retain for the person whose available time constrains the worked example. |
+| 15 | first | 13 | Retain for first acceptance and the first hour of the shift. |
+| 16 | allocation | 12 | Retain for time allocation or random offer allocation. Name which process is involved. |
 | 17 | estimate | 12 | Retain for the total computed from sampled intervals. |
 | 18 | bound | 11 | Retain for a mathematically justified endpoint or enclosure. |
 | 19 | contributors | 11 | Retain for the people whose hours enter the target. |
@@ -61,7 +63,7 @@ None found. The numerical comparisons use a table with defined columns.
 | 24 | mean | 10 | Retain for averages. Identify the schedules, draws or pairs being averaged. |
 | 25 | observation | 10 | Retain for information about a measured total. The bounds follow from the observation and the constraints. |
 | 26 | task | 10 | Retain for a unit of work in the study or sampling frame. |
-| 27 | use | 10 | Retain when introducing a notation or directing the reader to apply a calculation. Name the action where it affects the conclusion. |
+| 27 | team | 10 | Retain for the unit that receives the AI offer within each pair. |
 | 28 | cell | 9 | Retain for a period between consecutive time boundaries. |
 | 29 | evidence | 9 | Retain when the available observations justify a limit or interpretation. Name the evidence where the argument depends on it. |
 | 30 | known | 9 | Retain when the calculation requires the duration, range or selection probability to be established. |
