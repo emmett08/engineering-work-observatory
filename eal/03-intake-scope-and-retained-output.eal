@@ -1,0 +1,84 @@
+language "EAL/4"
+
+environment engineering_work {
+  require true == true
+}
+
+module arg_03 {
+  evidence grounds {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "grounds",
+        "classification": "measurement_definition",
+        "details": "Fix a non-negative score for each original requirement before work starts. Score zero for a requirement known to miss the acceptance deadline. For one accepted by the deadline, multiply its original score by the fraction of the original requirement still satisfied at the scheduled assessment after acceptance."
+      }
+    }
+    require role == "grounds"
+  }
+
+  evidence backing_material {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "backing",
+        "classification": "measurement_definition",
+        "details": "Suppose a requirement worth two units has two one-unit components. One meets the deadline and remains fully satisfied at follow-up. The other misses the deadline. Prespecified additive component scoring gives one unit. Under a prespecified rule that requires acceptance of the complete requirement, the same events give zero. This difference shows why the scoring unit must be fixed before outcomes are observed."
+      }
+    }
+    require role == "backing"
+  }
+
+  evidence scope_conditions {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "scope",
+        "classification": "Conditions for applying this inference",
+        "details": "The score depends on the intake requirements, the scoring unit, the deadline and the lag after acceptance. Known labour for requirements with zero output credit still belongs in the cohort total."
+      }
+    }
+    require role == "scope"
+  }
+
+  assumption applicability {
+    statement "The score depends on the intake requirements, the scoring unit, the deadline and the lag after acceptance. Known labour for requirements with zero output credit still belongs in the cohort total."
+    environment engineering_work
+    validate scope_conditions
+  }
+
+  reasoning warrant {
+    method "structured/1"
+    rationale "A common intake rubric keeps the unit of comparison fixed even when teams implement or split requirements differently. A later assessment checks whether the delivered behaviour still holds at the stated lag."
+    backing [backing_material]
+  }
+
+  claim finding {
+    statement "Fix the scoring rule and original work scope at intake, then credit timely acceptance by the fraction of that scope still satisfied at the scheduled follow-up."
+    environment engineering_work
+  }
+
+  claim exception_applies {
+    statement "A follow-up assessment is missing, the original scoring basis changed, or reviewers cannot determine which parts of the intake requirement still hold."
+    environment engineering_work
+  }
+
+  // If no follow-up assessment was made, the retained fraction of a timely acceptance
+  // remains unknown. If material scope changed during development, judge the original
+  // requirement or disclose a different target.
+  objection challenge = [premises exception_applies] -x> argument inference
+
+  argument inference = [
+    evidence grounds,
+    assumptions applicability
+  ] via warrant => finding
+}

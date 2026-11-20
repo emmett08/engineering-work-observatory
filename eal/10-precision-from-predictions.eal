@@ -1,0 +1,83 @@
+language "EAL/4"
+
+environment engineering_work {
+  require true == true
+}
+
+module arg_10 {
+  evidence grounds {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "grounds",
+        "classification": "Variance derivation and exact synthetic verification",
+        "details": "For a uniform draw of n intervals from M intervals without replacement, both design variances equal M squared times (1 minus n divided by M) divided by n, multiplied by the population variance of the sampled quantity."
+      }
+    }
+    require role == "grounds"
+  }
+
+  evidence backing_material {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "backing",
+        "classification": "Variance derivation and exact synthetic verification",
+        "details": "For actual hours (0, 2, 4, 6), predictions (1, 3, 3, 5), and all uniform draws of two intervals, the difference and direct estimates have respective variances 16/3 and 80/3 squared person-hours. Both average to 12 hours."
+      }
+    }
+    require role == "backing"
+  }
+
+  evidence scope_conditions {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "scope",
+        "classification": "Conditions for applying this inference",
+        "details": "The exact comparison uses simple random sampling without replacement, fixed predictions and accurate sampled measurements."
+      }
+    }
+    require role == "scope"
+  }
+
+  assumption applicability {
+    statement "The exact comparison uses simple random sampling without replacement, fixed predictions and accurate sampled measurements."
+    environment engineering_work
+    validate scope_conditions
+  }
+
+  reasoning warrant {
+    method "structured/1"
+    rationale "For n less than M, this common factor is positive. Prediction correction samples residuals while the direct estimator samples labour, so comparing these population variances settles the question."
+    backing [backing_material]
+  }
+
+  claim finding {
+    statement "Under simple random sampling without replacement, prediction correction improves precision when residuals vary less than actual interval hours."
+    environment engineering_work
+  }
+
+  claim exception_applies {
+    statement "In the intended design the weighted prediction errors vary at least as much across draws as the direct estimates of hours, or the simple-random-sampling comparison is being used under a different design."
+    environment engineering_work
+  }
+
+  // Replacing predictions with (6, 4, 2, 0) in the same example raises the difference
+  // estimator's variance to 320/3 squared person-hours. It still averages to 12 hours.
+  objection challenge = [premises exception_applies] -x> argument inference
+
+  argument inference = [
+    evidence grounds,
+    assumptions applicability
+  ] via warrant => finding
+}

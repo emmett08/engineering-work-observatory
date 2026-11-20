@@ -1,0 +1,85 @@
+language "EAL/4"
+
+environment engineering_work {
+  require true == true
+}
+
+module arg_15 {
+  evidence grounds {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "grounds",
+        "classification": "Randomised design and finite-population identity",
+        "details": "Before offering a specified AI toolset, each team fixes its workload and gives each requirement an initial score. A fair coin independently selects one team in each matched pair to receive the offer. For each team, divide its post-intake person-hours and its retained requirement score by the sum of its initial scores. For each outcome separately, subtract the comparison team’s value from the offered team’s value."
+      }
+    }
+    require role == "grounds"
+  }
+
+  evidence backing_material {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "backing",
+        "classification": "Randomised design and finite-population identity",
+        "details": "Consider teams A and B. The two possible comparisons are A offered minus B unoffered and B offered minus A unoffered. Add the comparisons and regroup the four outcomes by team. Half the sum is the average of A’s offered-minus-unoffered effect and B’s corresponding effect."
+      }
+    }
+    require role == "backing"
+  }
+
+  evidence scope_conditions {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "scope",
+        "classification": "Conditions for applying this inference",
+        "details": "This is an expectation over possible allocations of the offer. It holds for the fixed requirements of the enrolled teams when every team has a positive initial score and its outcome depends only on its own access. Estimating effects on true hours and retained requirements also requires credible measurements."
+      }
+    }
+    require role == "scope"
+  }
+
+  assumption applicability {
+    statement "This is an expectation over possible allocations of the offer. It holds for the fixed requirements of the enrolled teams when every team has a positive initial score and its outcome depends only on its own access. Estimating effects on true hours and retained requirements also requires credible measurements."
+    environment engineering_work
+    validate scope_conditions
+  }
+
+  reasoning warrant {
+    method "structured/1"
+    rationale "Either team in a pair is equally likely to receive the offer. Taking the expectation over that coin toss gives half the sum of the two teams’ own offer effects. An unweighted average over pairs therefore gives every enrolled team equal weight."
+    backing [backing_material]
+  }
+
+  claim finding {
+    statement "The mean within-pair difference estimates the equally weighted effect of offering the specified AI toolset on the enrolled teams’ fixed workloads."
+    environment engineering_work
+  }
+
+  claim exception_applies {
+    statement "Teams can affect each other's outcomes through shared staff, code or computing resources, or workload eligibility changed after assignment."
+    environment engineering_work
+  }
+
+  // A reviewer who shares a technique or a compute queue serving both groups can make one
+  // team’s outcome depend on another team’s access. Randomising linked teams together
+  // changes the unit of allocation and requires a new analysis. The effect of the offer
+  // also leaves open what would happen if AI changed the incoming workload.
+  objection challenge = [premises exception_applies] -x> argument inference
+
+  argument inference = [
+    evidence grounds,
+    assumptions applicability
+  ] via warrant => finding
+}

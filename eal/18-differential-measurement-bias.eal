@@ -1,0 +1,84 @@
+language "EAL/4"
+
+environment engineering_work {
+  require true == true
+}
+
+module arg_18 {
+  evidence grounds {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "grounds",
+        "classification": "Monte Carlo bias stress test and constructed task-level example",
+        "details": "In a hypothetical trial the true labour saving is exactly one person-hour per initial requirement unit and the retained fraction falls by exactly five percentage points. Both true effects miss the strict benefit criteria. Relative measurement errors favouring AI exaggerate its saving by one hour per unit and its retained fraction by six points. The analysis allows only 0.2 hours per unit and one point. False declarations occur in 9,561 of 20,000 simulated trials with 48 teams and 15,242 of 20,000 with 96 teams."
+      }
+    }
+    require role == "grounds"
+  }
+
+  evidence backing_material {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "backing",
+        "classification": "Monte Carlo bias stress test and constructed task-level example",
+        "details": "In a separate constructed example, each of twelve teams has two fixed requirements. Accurate measurements put the mean effects at both decision thresholds, so the rule withholds a benefit declaration. Omitting one hour of review per initial unit in the AI group raises its apparent saving to two hours. Crediting six unfulfilled criteria per hundred changes an actual five-point loss into an apparent one-point gain. The rule then declares a benefit on the same work. The simulation generates latent normal labour and retention with a within-team correlation of 0.3 and within-pair correlation of 0.7 for each outcome. It transforms the baselines to 3 + 7 exp(0.35 z − 0.35²/2) for labour and 0.72 + 0.25/(1 + exp(−1.4 z)) for retention. Pair differences include independent normal measurement errors with standard deviations sqrt(2) times 0.2 and sqrt(2) times 0.005 in their respective units. All pairs are complete."
+      }
+    }
+    require role == "backing"
+  }
+
+  evidence scope_conditions {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "scope",
+        "classification": "Conditions for applying this inference",
+        "details": "The observed false-declaration rates of 47.81% and 76.21% apply to the specified simulated biases and team distributions. The constructed requirements show one way those biases could arise. Their frequency and magnitude in a workplace require independent measurements."
+      }
+    }
+    require role == "scope"
+  }
+
+  assumption applicability {
+    statement "The observed false-declaration rates of 47.81% and 76.21% apply to the specified simulated biases and team distributions. The constructed requirements show one way those biases could arise. Their frequency and magnitude in a workplace require independent measurements."
+    environment engineering_work
+    validate scope_conditions
+  }
+
+  reasoning warrant {
+    method "structured/1"
+    rationale "Systematic errors shift the average observed difference in the same direction across teams. Adding independent pairs can narrow the uncertainty interval around that shifted difference, making it more likely to cross the decision threshold."
+    backing [backing_material]
+  }
+
+  claim finding {
+    statement "Increasing trial size can increase false declarations when systematic measurement differences favour AI beyond the allowed errors."
+    environment engineering_work
+  }
+
+  claim exception_applies {
+    statement "A proposed transfer of the stress-test result to a field trial lacks evidence that the trial's differential errors are large enough to reproduce the failure mechanism."
+    environment engineering_work
+  }
+
+  // An audit that independently times review and tests the follow-up criteria can bound
+  // the difference in measurement errors between groups. If plausible corrections cross
+  // either threshold, increasing the team count alone cannot resolve the decision.
+  objection challenge = [premises exception_applies] -x> argument inference
+
+  argument inference = [
+    evidence grounds,
+    assumptions applicability
+  ] via warrant => finding
+}

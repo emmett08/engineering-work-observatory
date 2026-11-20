@@ -1,0 +1,84 @@
+language "EAL/4"
+
+environment engineering_work {
+  require true == true
+}
+
+module arg_01 {
+  evidence grounds {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "grounds",
+        "classification": "proof",
+        "details": "Consider two models of one engineer's work. Draw an activity indicator independently each minute, with probability p of activity. Conditional on activity, the engineer commits with probability c, using independent draws. The two models use (p, c) = (1/2, 1/5) and (1/4, 2/5). Over one hour their mean active times are 30 and 15 minutes respectively."
+      }
+    }
+    require role == "grounds"
+  }
+
+  evidence backing_material {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "backing",
+        "classification": "proof",
+        "details": "In either model the probability of a commit in a minute is p times c, which equals one tenth. By independence, any particular n-minute sequence with k commits has probability (1/10) raised to k times (9/10) raised to n minus k, under both models. Mean active time is n times p. Even complete commit sequences over arbitrary finite periods leave this difference unresolved."
+      }
+    }
+    require role == "backing"
+  }
+
+  evidence scope_conditions {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "scope",
+        "classification": "Conditions for applying this inference",
+        "details": "The result concerns the expected count of active person-minutes in any model class that contains both examples. A minute of activity means the engineer was working during that minute in this binary model."
+      }
+    }
+    require role == "scope"
+  }
+
+  assumption applicability {
+    statement "The result concerns the expected count of active person-minutes in any model class that contains both examples. A minute of activity means the engineer was working during that minute in this binary model."
+    environment engineering_work
+    validate scope_conditions
+  }
+
+  reasoning warrant {
+    method "structured/1"
+    rationale "When two models give exactly the same probabilities to every observable sequence, those observations cannot distinguish a quantity the models disagree about."
+    backing [backing_material]
+  }
+
+  claim finding {
+    statement "Commit observations alone do not identify mean active human time across the activity models in the counterexample."
+    environment engineering_work
+  }
+
+  claim exception_applies {
+    statement "The model class for the intended inference excludes one of the two activity processes or includes measurements that distinguish their implied human activity."
+    environment engineering_work
+  }
+
+  // A verified emission probability, a model constraint that excludes one construction,
+  // or separate observations that distinguish the two models can remove this ambiguity. A
+  // fitted hidden state requires evidence linking it to human work.
+  objection challenge = [premises exception_applies] -x> argument inference
+
+  argument inference = [
+    evidence grounds,
+    assumptions applicability
+  ] via warrant => finding
+}

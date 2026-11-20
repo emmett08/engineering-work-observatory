@@ -1,0 +1,86 @@
+language "EAL/4"
+
+environment engineering_work {
+  require true == true
+}
+
+module arg_05 {
+  evidence grounds {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "grounds",
+        "classification": "proof",
+        "details": "Split the calendar at all observation and target boundaries. Each time cell has a positive duration. The variables are non-negative hours for each person, task and activity in that cell. Their sum for a person cannot exceed the cell duration. Each observation bounds the sum of its covered variables across whole cells. The target is the sum of those variables multiplied by weights fixed within each cell."
+      }
+    }
+    require role == "grounds"
+  }
+
+  evidence backing_material {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "backing",
+        "classification": "proof",
+        "details": "The finitely many variables are bounded by their cell durations, and the linear constraints define a closed convex set. If it is nonempty, the linear target attains a minimum and maximum. Every weighted average of their feasible arrays is feasible, and its target is the same weighted average of the endpoint totals. The allocation construction realises each interior value as well."
+      }
+    }
+    require role == "backing"
+  }
+
+  evidence scope_conditions {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "scope",
+        "classification": "Conditions for applying this inference",
+        "details": "Exact attainability requires a calendar wide enough to contain all observations and a scheduling model that permits the block allocation within each cell. The observations and the target must refer to the covered contributors. If the feasible set is empty, the observations and constraints admit no history."
+      }
+    }
+    require role == "scope"
+  }
+
+  assumption applicability {
+    statement "Exact attainability requires a calendar wide enough to contain all observations and a scheduling model that permits the block allocation within each cell. The observations and the target must refer to the covered contributors. If the feasible set is empty, the observations and constraints admit no history."
+    environment engineering_work
+    validate scope_conditions
+  }
+
+  reasoning warrant {
+    method "structured/1"
+    rationale "Integrating any admissible history gives variables that meet these constraints. Conversely, take any feasible array. In each person's cell, allot one consecutive block of the specified length to each activity and leave the unused duration idle. This reproduces all observed sums and the target."
+    backing [backing_material]
+  }
+
+  claim finding {
+    statement "For a non-empty feasible allocation model, the minimum and maximum of its linear programme delimit exactly the attainable values of a cellwise linear labour target."
+    environment engineering_work
+  }
+
+  claim exception_applies {
+    statement "The scheduling constraints for the intended workplace forbid the within-cell switching or placements used to establish these endpoints."
+    environment engineering_work
+  }
+
+  // Minimum uninterrupted periods or precedence constraints can rule out some block
+  // allocations. The linear programme still encloses every total allowed by those
+  // stricter constraints if it retains all the genuine observations and capacity limits.
+  // Even when both endpoints are possible, interior values need not be possible under the
+  // stricter rules.
+  objection challenge = [premises exception_applies] -x> argument inference
+
+  argument inference = [
+    evidence grounds,
+    assumptions applicability
+  ] via warrant => finding
+}
