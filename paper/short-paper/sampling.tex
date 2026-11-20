@@ -5,46 +5,33 @@ Divide each contributor's observation period into disjoint intervals. Index the
 eligible person-intervals by $U=\{1,\ldots,M\}$. Interval $m$ lasts $d_m$ hours
 and contains $y_m\in[0,d_m]$ person-hours of work on the requirements. The target
 is $H=\sum_{m\in U}y_m$. Select a sample $s$ with known inclusion probability
-$\pi_m>0$ for every interval. Draw after the work period if asking during it could interrupt the activity. To assess the estimator under this design, keep the hours fixed and average over the possible draws.
+$\pi_m>0$ for every interval. Drawing after the work period avoids interrupting it. Treat the interval hours as fixed when averaging over possible draws.
 
 \subsection{Use predictions to reduce sampling variation}
 
-Fix a prediction $f_m\in[0,d_m]$ for each interval before the draw and write
-$r_m=y_m-f_m$ and $F=\sum_{m\in U}f_m$. If the selected hours are known, estimate
+Fix a prediction $f_m\in[0,d_m]$ for each interval before the draw. The predictions sum to $F=\sum_{m\in U}f_m$ and leave residuals $r_m=y_m-f_m$. If the selected hours are known, estimate
 the total by
 \begin{equation}
   \widehat H=F+\sum_{m\in s}\frac{r_m}{\pi_m}.
   \label{eq:short-difference}
 \end{equation}
-The indicator that interval $m$ is selected has expectation $\pi_m$. Thus the
-expected weighted correction is $\sum_{m\in U}r_m$, and
-$\mathbb{E}[\widehat H]=H$. Selections may depend on one another. Predictions
-may have systematic errors because the correction estimates their total error.
-Setting each $f_m$ to zero yields the Horvitz--Thompson estimator \cite{horvitz1952}.
-The generalised difference estimator can improve precision by replacing the sampled variation in hours with variation in prediction errors \cite{cassel1976}.
+Each interval contributes $r_m/\pi_m$ with probability $\pi_m$, so its expected correction is $r_m$. Summing gives $\mathbb{E}[\widehat H]=F+\sum_{m\in U}r_m=H$ even when selections depend on one another or predictions have systematic errors. Setting each $f_m$ to zero yields the Horvitz--Thompson estimator \cite{horvitz1952}. Sampling variation in the generalised difference estimator comes from the residuals \cite{cassel1976}.
 
-For a simple random sample drawn without replacement, suppose
-$1\le n\le M$ and $M>1$. Then the variance of \eqref{eq:short-difference} is
-$K_n S_r^2$, where $K_n=M^2(1-n/M)/n$ and $S_r^2$ is the population variance of
-the residuals with divisor $M-1$. This follows from $\pi_m=n/M$ and the
-finite-population variance of the sample mean. The direct estimator has
-variance $K_n S_y^2$, with the hours themselves in place of the residuals.
-For $n<M$, prediction correction improves precision exactly when
-$S_r^2<S_y^2$. A census has zero sampling variance.
+For a simple random sample of size $1\le n\le M$ drawn without replacement from $M>1$ intervals, $\pi_m=n/M$. The weighted correction is then $M$ times the sample mean residual. Its variance is
+$K_n S_r^2$, where $K_n=M^2(1-n/M)/n$ and $S_r^2$ is the population variance of the residuals with divisor $M-1$. Direct weighting gives variance $K_n S_y^2$, with the hours themselves in place of the residuals. For $n<M$, prediction correction improves precision exactly when $S_r^2<S_y^2$. A census has zero sampling variance.
 
 \subsection{Estimate labour when contributors do not reply}
 
-Let $A$ be the intervals with usable initial answers. Randomly select follow-up intervals $B$ from $s\setminus A$. Each interval without a usable reply must have a known conditional selection probability $\eta_m>0$. If both stages measure the hours they obtain accurately, the estimate is
+Suppose the usable initial replies, from intervals $A\subseteq s$, give the true hours. Given $s$ and $A$, draw a follow-up sample $B$ in which each remaining interval $m\in s\setminus A$ has known inclusion probability $\eta_m>0$. Obtain accurate hours for every interval in $B$. The resulting estimate is
 \[
   F+\sum_{m\in A}\frac{r_m}{\pi_m}
    +\sum_{m\in B}\frac{r_m}{\pi_m\eta_m}.
 \]
-Conditional on $s$ and $A$, the second draw recovers the complete-sample
-correction in \eqref{eq:short-difference} in expectation. Taking the expectation over the first draw recovers $H$. The calculation conditions on which initial replies were usable, so it allows workload to affect the chance of an initial reply \cite{nonresponsefollowup}.
+For any $s$ and $A$, averaging the follow-up correction over possible draws of $B$ restores the contribution from $s\setminus A$. The conditional expectation is therefore the complete-sample estimate in \eqref{eq:short-difference}, even when workload influences who replies \cite{nonresponsefollowup}. Its average over the initial draw is $H$.
 
-If exact hours remain unavailable, use the evidence to bound the hours in each selected interval by $[l_m,u_m]$. An interval with no reply can contribute any amount from zero to its duration, giving limits $[0,d_m]$ absent further evidence. The weighted estimate increases with each $y_m$. Evaluate it at the lower endpoints to obtain $\widehat H^-$ and the upper endpoints to obtain $\widehat H^+$. These enclose the estimate calculated from the true sampled hours whenever every supplied range covers its true value.
+When selected hours remain uncertain, give each interval in $s$ a range $[l_m,u_m]$. For an interval with no further evidence, use $[0,d_m]$. Every sampled hour has a positive weight in \eqref{eq:short-difference}, so using the lower and upper endpoints gives limits $\widehat H^-$ and $\widehat H^+$ on the estimate for this draw whenever the ranges contain the true hours.
 
-For simple random sampling, add a finite-sample margin for the draw itself.
+To cover the population total under simple random sampling without replacement, allow for the variation across draws.
 All residuals lie between $a=-\max_{m\in U} f_m$ and
 $b=\max_{m\in U}(d_m-f_m)$. The sum of squared deviations from their mean
 is at most the sum of squared deviations from $(a+b)/2$, so
@@ -57,7 +44,4 @@ $[\sum_{m\in s}l_m,\;\sum_{m\in s}u_m+\sum_{m\notin s}d_m]$, covers $H$ with pro
 measurement limits hold on every draw. Use $e=0$ for a census, including
 $M=1$. If the chance that any sample range excludes its true value is
 at most $\beta$, coverage is at least $1-\alpha-\beta$ by the union
-bound. A large margin can make the total too uncertain for a decision. If eligible work
-outside the list has a defensible total capacity $D$, adding $D$ to the upper
-limit covers the expanded target at the same level. A separate estimate
-requires evidence about the time those contributors spent on the requirements.
+bound. If evidence caps eligible hours outside $U$ at $D$, add $D$ to the upper limit to cover the expanded total at the same level.
