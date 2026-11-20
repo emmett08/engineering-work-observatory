@@ -1,22 +1,22 @@
 \section{Bounds from partial observations}
 \label{sec:bounds}
 
-Suppose one contributor spent $h_{\rm shift}$ person-hours on the tasks of interest during a shift. A release divides the shift into two periods lasting $t_{\rm pre}$ and $t_{\rm post}$ hours. Work beyond what fits after release must fall before it. The contributor's hours before release, $h_{\rm pre}$, therefore satisfy
+Suppose a contributor worked $h_{\rm total}$ person-hours on the tasks of interest over a period that spans a release. The period includes $t_{\rm pre}$ hours before release and $t_{\rm post}$ hours after it. Work beyond what fits after release must fall before it. The contributor's hours before release, $h_{\rm pre}$, therefore satisfy
 \[
-  \max(0,h_{\rm shift}-t_{\rm post})\le h_{\rm pre}
-  \le\min(h_{\rm shift},t_{\rm pre}).
+  \max(0,h_{\rm total}-t_{\rm post})\le h_{\rm pre}
+  \le\min(h_{\rm total},t_{\rm pre}).
 \]
 The upper bound is the smaller of the time before release and the contributor's total hours worked on those tasks.
 
-During the export shift the engineer also spends one hour fixing the order numbers. Either task could occupy the engineer throughout the hour before release (Figure~\ref{fig:shared-time}). Together they fill the shift, so the engineer worked exactly one hour before release. A colleague spends half an hour reviewing the date checks, all before release. That places the two contributors' combined labour at 1.5 person-hours before release, whichever task the engineer did first.
+Suppose the dashboard engineer spends the other hour fixing how the dashboard displays the deployed image tag. Either task could fill the hour before release (Figure~\ref{fig:shared-time}). Together they occupy the engineer from 10~am to noon, so exactly one hour of work preceded the 11~am release. A colleague spends half an hour testing the filter before release, bringing the combined labour in the first hour to 1.5 person-hours.
 
 \input{shared-time}
 
 \subsection{Compute the range on a shared time axis}
 
-A shift total can include work outside the period of interest. Cover every observation in full. Split time at the boundaries of the observed periods, the target period and each included task's labour window. Also split where evidence shows that a contributor or activity becomes available or unavailable. Each resulting cell $J_k$ lasts $d_k>0$ hours.
+The engineer's two-hour total covers work on both sides of the release. To use an observation that extends beyond the period of interest, include its full duration in the calculation. Split time at the boundaries of the observed periods, the target period and each included task's labour window. Also split where evidence shows that a contributor or activity becomes available or unavailable. Each resulting cell $J_k$ lasts $d_k>0$ hours.
 
-Use an index $g$ for each distinct combination of contributor, task and kind of activity in the observations or target. The engineer building the date filter and the colleague reviewing it have separate indices. Let $j(g)$ identify the contributor and let $x_{gk}$ be the person-hours spent on that task in that activity during cell $k$. If a person divides an hour between two tasks, the two amounts share that hour. A schedule specifies how each contributor spends their time throughout the observed periods. Summing those hours within cells gives the array $x=(x_{gk})$.
+Use an index $g$ for each distinct combination of contributor, task and kind of activity in the observations or target. The engineer building the namespace filter and the colleague testing it have separate indices. Let $j(g)$ identify the contributor and let $x_{gk}$ be the person-hours spent on that task in that activity during cell $k$. If a person divides an hour between two tasks, the two amounts share that hour. A schedule specifies how each contributor spends their time throughout the observed periods. Summing those hours within cells gives the array $x=(x_{gk})$.
 
 Observation $\nu$ covers the contributor--task--activity combinations in $G_\nu$ during the cells in $K_\nu$. Allow the corresponding sum of hours to range from $v^-_\nu$ to $v^+_\nu$ according to the precision of the observation. For an exact duration these values coincide. If rounding to the nearest ten minutes is the only error, a reading of one hour places the duration between 55 and 65 minutes. The following constraints keep each sum within its observed range and each contributor's hours within the time available.
 \begin{align}
@@ -25,9 +25,9 @@ Observation $\nu$ covers the contributor--task--activity combinations in $G_\nu$
  v^-_\nu &\le \sum_{g\in G_\nu}\sum_{k\in K_\nu}x_{gk}
  \le v^+_\nu.
 \end{align}
-Set $x_{gk}=0$ where the evidence rules out the combination, for example throughout a contributor's known absence. A shift with no commits can still contain review or repair.
+Set $x_{gk}=0$ when evidence establishes that the contributor could not perform that activity in the cell, for example during a known absence. A period with no commits can still contain review or repair.
 
-To decide which hours count, first apply the task and contributor inclusion rules from Section~\ref{sec:accounting}. Check that the kind of activity counts towards that task and that the cell falls within both its labour window and the target period. Set $w_{gk}=1$ for combinations and cells that meet all these conditions, and $w_{gk}=0$ otherwise. For example, the target before release includes a colleague's review of the date checks. A review after release could help explain a whole-shift observation even though those hours contribute zero to the first-hour target.
+Section~\ref{sec:accounting} specifies whose hours to count and which activities qualify for each task. Set $w_{gk}=1$ when the combination qualifies and the cell falls within both the task's labour window and the target period. Otherwise set $w_{gk}=0$. For a target ending at release, the colleague's time testing the namespace filter beforehand counts in full. Any testing afterwards counts towards an observation spanning both hours but contributes zero to the first-hour target.
 
 Let $\mathcal P$ contain all arrays satisfying the constraints. An empty set means the observations conflict with one another or require more time than a contributor had available. Otherwise, sum the hours counted towards the target as $\mathcal L(x)=\sum_{g,k}w_{gk}x_{gk}$. Two linear programmes give its smallest and largest possible values in the cell model,
 \begin{equation}
@@ -43,7 +43,7 @@ Suppose each contributor can switch freely within a cell among the activities th
 
 With finitely many cells and combinations, the nonempty feasible set is closed and bounded, so both extrema exist. A weighted average of the two optimising arrays still satisfies every linear constraint. Varying the weights gives a feasible array, and hence a schedule, for each intermediate total.
 
-A minimum session length or fixed task order can rule out some schedules. Every remaining schedule still satisfies the bounds in Equation~\eqref{eq:labour-bounds}. For example, an uninterrupted one-hour session must fit into one of two one-hour periods separated by an absence. The first-period total is either zero or one hour. Any intermediate total would split the session across the absence.
+A minimum session length or a fixed task order can reduce the set of feasible schedules. Every remaining schedule still satisfies the bounds in Equation~\eqref{eq:labour-bounds}. For example, an uninterrupted one-hour session must fit into one of two one-hour periods separated by an absence. The first-period total is either zero or one hour. Any intermediate total would split the session across the absence.
 
 For tasks that require two people at once, the linear programme can also restrict which activities coincide. In each cell, list the finitely many permitted configurations, each specifying an activity or idle time for every contributor. For a review requiring both reviewers, omit configurations in which only one works on the review. Give each configuration a nonnegative duration, with durations summing to $d_k$. The configurations in which $j(g)$ performs the task and activity indexed by $g$ contribute $x_{gk}$ hours in total. Every permitted schedule yields such durations. If the team can switch freely within the cell, placing the configurations in successive blocks of those lengths gives a schedule with the same hours.
 

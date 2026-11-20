@@ -10,17 +10,16 @@
   \draw[fill=feature] (1,1) rectangle (2,1.75);
   \node[anchor=east] at (-.045,2.375) {Filter first};
   \node[anchor=east] at (-.045,1.375) {Repair first};
-  \node at (.5,2.375) {Date filter};
-  \node at (1.5,2.375) {Order-number repair};
-  \node at (.5,1.375) {Order-number repair};
-  \node at (1.5,1.375) {Date filter};
+  \node at (.5,2.375) {Namespace filter};
+  \node at (1.5,2.375) {Image tag display};
+  \node at (.5,1.375) {Image tag display};
+  \node at (1.5,1.375) {Namespace filter};
   \draw (0,.38) -- (2,.38);
-  \foreach \x in {0,1,2} {
+  \foreach \x/\clocktime in {0/10~am,1/11~am,2/noon} {
     \draw (\x,.28) -- (\x,.48);
-    \node[below=1.5pt] at (\x,.28) {\x};
+    \node[below=1.5pt] at (\x,.28) {\clocktime};
   }
-  \node[anchor=west] at (2.06,.38) {Hours};
 \end{tikzpicture}
-\caption{Two ways the engineer could divide the shift between building the date filter and repairing the export of order numbers. The release at hour one divides the shift. The colleague's half-hour of review adds to the labour before that point.}
+\caption{Either dashboard task could occupy the engineer from 10 to 11~am. Each row shows a possible order. By the 11~am release, the reviewer has also spent half an hour testing the filter.}
 \label{fig:shared-time}
 \end{figure}

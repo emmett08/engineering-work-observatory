@@ -13,4 +13,4 @@ Build from this directory with LaTeX, BibTeX and `latexmk`. The check uses `pdfi
 make check
 ```
 
-The build produces `build/main.pdf`. The [work examples with known hours](../study/labour-measurement) give exact values against which to check the calculations. The [paired trial design](../study/ai-labour-causal) supplies the assumptions for the trial simulations. The alternative decision rule in the model notes requires a separate evaluation before teams use it in a trial.
+The build produces `build/main.pdf`. The [work examples with known hours](../study/labour-measurement) give exact values against which to check the calculations. The [paired trial design](../study/ai-labour-causal) supplies the assumptions for the trial simulations. The model notes show how to bound the effect of AI access when some team outcomes remain unknown. Before using that method in a trial, teams need to test how often it detects a worthwhile benefit across plausible effects and measurement errors.
