@@ -15,7 +15,7 @@ Several tasks draw on that same person's time. An engineer spends one hour imple
 
 To apply a shared limit to overlapping observations, include the full span of each observation. Work outside the target period can account for part of an observed total. Split the time axis at every observation and target boundary. In each resulting cell $J_k$ of duration $d_k>0$ hours, let $x_{gk}$ be the hours that contributor $j(g)$ spends on activity $g$. Each activity belongs to one task.
 
-An observation $\nu$ bounds the combined hours of activities $G_\nu$ over the cells $K_\nu$ by $[v^-_\nu,v^+_\nu]$. Use equal endpoints for exact hours or allow for known measurement error, including rounding. The first line below limits each contributor's time in each cell. The second applies to each observation.
+An observation $\nu$ bounds the combined hours of activities $G_\nu$ over the cells $K_\nu$ by $[v^-_\nu,v^+_\nu]$. Use equal endpoints for exact hours or allow for known measurement error, including rounding. Across all activities, one contributor's hours in a cell cannot exceed its duration. Summing the hours covered by each observation must give a value within its measured limits.
 \begin{align}
  x_{gk} &\ge 0, &
  \sum_{g:j(g)=j}x_{gk} &\le d_k,\\
@@ -46,4 +46,4 @@ For tasks that require two people at once, the linear programme can also restric
 
 The range $[L,U]$ applies to the included contributors' labour. If independent evidence caps additional eligible labour at $B$ hours, the combined total lies in $[L,U+B]$. Without a cap, the upper limit applies only to the included contributors.
 
-Suppose the capacity limits hold and a sample supplies the observation ranges. Whenever all ranges contain the corresponding true hours, the true allocation belongs to $\mathcal P$. If their failure probabilities sum to at most $\alpha$, the union bound gives target coverage of at least $1-\alpha$, even for dependent observations.
+Suppose the capacity limits hold and a sample supplies the observation ranges. Whenever all ranges contain the corresponding true hours, the true allocation belongs to $\mathcal P$. If the probabilities that individual ranges exclude the hours actually worked sum to at most $\alpha$, the union bound guarantees that $[L,U]$ contains the target hours with probability at least $1-\alpha$, even for dependent observations.

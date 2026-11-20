@@ -15,14 +15,14 @@ the total by
   \widehat H=F+\sum_{m\in s}\frac{r_m}{\pi_m}.
   \label{eq:short-difference}
 \end{equation}
-Each interval contributes $r_m/\pi_m$ with probability $\pi_m$, so its expected correction is $r_m$. Summing gives $\mathbb{E}[\widehat H]=F+\sum_{m\in U}r_m=H$ even when selections depend on one another or predictions have systematic errors. Setting each $f_m$ to zero yields the Horvitz--Thompson estimator \cite{horvitz1952}. Sampling variation in the generalised difference estimator comes from the residuals \cite{cassel1976}.
+Each interval contributes $r_m/\pi_m$ with probability $\pi_m$, so its expected correction is $r_m$. Summing gives $\mathbb{E}[\widehat H]=F+\sum_{m\in U}r_m=H$ even when selections depend on one another or predictions have systematic errors. Setting every prediction to zero gives direct weighting, the Horvitz--Thompson estimator. Divide each sampled duration by its inclusion probability and sum the results \cite{horvitz1952}. Sampling variation in the generalised difference estimator comes from the residuals \cite{cassel1976}.
 
 For a simple random sample of size $1\le n\le M$ drawn without replacement from $M>1$ intervals, $\pi_m=n/M$. The weighted correction is then $M$ times the sample mean residual. Its variance is
 $K_n S_r^2$, where $K_n=M^2(1-n/M)/n$ and $S_r^2$ is the population variance of the residuals with divisor $M-1$. Direct weighting gives variance $K_n S_y^2$, with the hours themselves in place of the residuals. For $n<M$, prediction correction improves precision exactly when $S_r^2<S_y^2$. A census has zero sampling variance.
 
 \subsection{Estimate labour when contributors do not reply}
 
-Suppose the usable initial replies, from intervals $A\subseteq s$, give the true hours. Given $s$ and $A$, draw a follow-up sample $B$ in which each remaining interval $m\in s\setminus A$ has known inclusion probability $\eta_m>0$. Obtain accurate hours for every interval in $B$. The resulting estimate is
+Ask contributors how long they worked on the requirements in each sampled interval. Let $A\subseteq s$ contain the intervals for which they supply a duration. Given $s$ and $A$, draw a follow-up sample $B$ with known selection probability $\eta_m>0$ for each remaining interval $m\in s\setminus A$. Obtain a duration for every interval in $B$. If each duration supplied in either round equals the hours actually worked, $y_m$, the unbiased estimate is
 \[
   F+\sum_{m\in A}\frac{r_m}{\pi_m}
    +\sum_{m\in B}\frac{r_m}{\pi_m\eta_m}.
@@ -39,9 +39,7 @@ $S_r^2\le M(b-a)^2/[4(M-1)]$. Chebyshev's inequality gives a margin
 \[
   e=\sqrt{\frac{K_n M(b-a)^2}{4(M-1)\alpha}}\qquad (0<\alpha<1).
 \]
-The interval $[\widehat H^--e,\widehat H^++e]$, intersected with the physical range
-$[\sum_{m\in s}l_m,\;\sum_{m\in s}u_m+\sum_{m\notin s}d_m]$, covers $H$ with probability at least $1-\alpha$ when the
-measurement limits hold on every draw. Use $e=0$ for a census, including
+Each unsampled interval can contribute anything from zero to its full duration. Combined with the sampled hours, this restricts $H$ to $[\sum_{m\in s}l_m,\;\sum_{m\in s}u_m+\sum_{m\notin s}d_m]$. Its intersection with $[\widehat H^--e,\widehat H^++e]$ covers $H$ with probability at least $1-\alpha$ when the measurement limits hold on every draw. Use $e=0$ for a census, including
 $M=1$. If the chance that any sample range excludes its true value is
 at most $\beta$, coverage is at least $1-\alpha-\beta$ by the union
 bound. If evidence caps eligible hours outside $U$ at $D$, add $D$ to the upper limit to cover the expanded total at the same level.
