@@ -8,11 +8,11 @@
   \draw[fill=repair] (1,2) rectangle (2,2.75);
   \draw[fill=repair] (0,1) rectangle (1,1.75);
   \draw[fill=feature] (1,1) rectangle (2,1.75);
-  \node[anchor=east] at (-.045,2.375) {Schedule A};
-  \node[anchor=east] at (-.045,1.375) {Schedule B};
+  \node[anchor=east] at (-.045,2.375) {Filter first};
+  \node[anchor=east] at (-.045,1.375) {Repair first};
   \node at (.5,2.375) {Date filter};
-  \node at (1.5,2.375) {Invoice-number repair};
-  \node at (.5,1.375) {Invoice-number repair};
+  \node at (1.5,2.375) {Order-number repair};
+  \node at (.5,1.375) {Order-number repair};
   \node at (1.5,1.375) {Date filter};
   \draw (0,.38) -- (2,.38);
   \foreach \x in {0,1,2} {
@@ -21,6 +21,6 @@
   }
   \node[anchor=west] at (2.06,.38) {Hours};
 \end{tikzpicture}
-\caption{Two possible orders for the engineer's hour on the date filter and hour repairing invoice numbers. The release at hour one divides the shift. The colleague's half-hour of review adds to the labour before that point.}
+\caption{Two ways the engineer could divide the shift between building the date filter and repairing the export of order numbers. The release at hour one divides the shift. The colleague's half-hour of review adds to the labour before that point.}
 \label{fig:shared-time}
 \end{figure}

@@ -1,44 +1,43 @@
 \section{Estimating labour from a sample}
 \label{sec:sampling}
 
-Divide each contributor's observation period into disjoint intervals. Index the
-eligible person-intervals by $U=\{1,\ldots,M\}$. Interval $m$ lasts $d_m$ hours
-and contains $y_m\in[0,d_m]$ person-hours of work on the requirements. For the invoice export, divide each person's shift into two one-hour intervals. The engineer works throughout both hours. The reviewer spends half an hour on the export in the first interval and none in the second. The four work durations therefore sum to 2.5 person-hours. In general, the target is $H=\sum_{m\in U}y_m$. Select a sample $s$ with known inclusion probability
-$\pi_m>0$ for every interval. Drawing after the work period avoids interrupting it. Treat the interval hours as fixed when averaging over possible draws.
+Choose the period whose labour the total should cover. List everyone who could have contributed to a task during the overlap between that period and the task's labour window. An external reviewer belongs on the list when their review would count towards an included task. Divide each person's time in scope into disjoint intervals. One contributor's interval forms one sampling unit. Intervals with zero task hours or no tool events remain available for selection. Index the $M$ units by $\mathcal I=\{1,\ldots,M\}$. Unit $m$ lasts $\lambda_m$ hours. Its contribution $y_m\in[0,\lambda_m]$ counts only the time that person spent on included tasks within their labour windows.
+
+For the order export, divide each person's shift into two one-hour intervals. The engineer works on the two tasks throughout the shift. The reviewer spends half an hour on the export in the first interval and none in the second. All four intervals enter the draw, including the reviewer's second hour. Their contributions sum to 2.5 person-hours. In general, total labour for the people and intervals in the sampling population is $H_{\mathcal I}=\sum_{m\in\mathcal I}y_m$. When these intervals cover every included contributor throughout the full task windows and count the same hours once, $H_{\mathcal I}=H$. The export example covers only the illustrated shift. Draw a sample $\mathcal S$ so that each unit $m$ has a known probability $\pi_m>0$ of inclusion. Drawing after the work period avoids interrupting it. Treat the hours as fixed when averaging over possible draws.
 
 \subsection{Use predictions to reduce sampling variation}
 
-Fix a prediction $f_m\in[0,d_m]$ for each interval before the draw. The predictions sum to $F=\sum_{m\in U}f_m$ and leave residuals $r_m=y_m-f_m$. If the selected hours are known, estimate
+Fix a prediction $f_m\in[0,\lambda_m]$ for each interval before the draw. The predictions sum to $F=\sum_{m\in\mathcal I}f_m$ and leave residuals $r_m=y_m-f_m$. If the selected hours are known, estimate
 the total by
 \begin{equation}
-  \widehat H=F+\sum_{m\in s}\frac{r_m}{\pi_m}.
+  \widehat H_{\mathcal I}=F+\sum_{m\in\mathcal S}\frac{r_m}{\pi_m}.
   \label{eq:short-difference}
 \end{equation}
-Each interval contributes $r_m/\pi_m$ with probability $\pi_m$, so its expected correction is $r_m$. Summing gives $\mathbb{E}[\widehat H]=F+\sum_{m\in U}r_m=H$ even when selections depend on one another or predictions have systematic errors. Setting every prediction to zero gives direct weighting, the Horvitz--Thompson estimator. Divide each sampled duration by its inclusion probability and sum the results \cite{horvitz1952}. Sampling variation in the generalised difference estimator comes from the residuals \cite{cassel1976}.
+Interval $m$ contributes $r_m/\pi_m$ with probability $\pi_m$ and zero otherwise. Its expected contribution to the correction is $r_m$. Summing gives $\mathbb{E}[\widehat H_{\mathcal I}]=F+\sum_{m\in\mathcal I}r_m=H_{\mathcal I}$ even when selections depend on one another or predictions have systematic errors. Setting every prediction to zero gives direct weighting, the Horvitz--Thompson estimator. Divide each sampled duration by its inclusion probability and sum the results \cite{horvitz1952}. Sampling variation in the generalised difference estimator comes from the residuals \cite{cassel1976}.
 
 For the export, predict 0.75 person-hours in each of the engineer's intervals and 0.25 in each of the reviewer's. The predicted total is two person-hours. Choose two of the four intervals uniformly without replacement. If the draw selects both of the engineer's hours, direct weighting doubles the two observed hours to four. Each sampled hour exceeds its prediction by 0.25, so the corrected prediction is $2+2(0.25+0.25)=3$ person-hours. Both estimates exceed the known 2.5 person-hours on this draw. Over all six draws, each averages to the hours actually worked.
 
 For a simple random sample of size $1\le n\le M$ drawn without replacement from $M>1$ intervals, $\pi_m=n/M$. The weighted correction is then $M$ times the sample mean residual. Its variance is
-$K_n S_r^2$, where $K_n=M^2(1-n/M)/n$ and $S_r^2$ is the population variance of the residuals with divisor $M-1$. Direct weighting gives variance $K_n S_y^2$, with the hours themselves in place of the residuals. For $n<M$, prediction correction improves precision exactly when $S_r^2<S_y^2$. A census has zero sampling variance.
+$K_n V_r$, where $K_n=M^2(1-n/M)/n$ and $V_r$ is the population variance of the residuals with divisor $M-1$. Direct weighting gives variance $K_n V_y$, with the hours themselves in place of the residuals. For $n<M$, prediction correction improves precision exactly when $V_r<V_y$. A census has zero sampling variance.
 
 \subsection{Estimate labour when contributors do not reply}
 
-Ask contributors how long they worked on the requirements in each sampled interval. Let $A\subseteq s$ contain the intervals for which they supply a duration. Given $s$ and $A$, draw a follow-up sample $B$ with known selection probability $\eta_m>0$ for each remaining interval $m\in s\setminus A$. Obtain a duration for every interval in $B$. If each duration supplied in either round equals the hours actually worked, $y_m$, the unbiased estimate is
+Ask contributors how long they worked on the included tasks in each sampled interval. Let $\mathcal A\subseteq\mathcal S$ contain the intervals for which they supply a duration. Given $\mathcal S$ and $\mathcal A$, draw a follow-up sample $\mathcal B\subseteq\mathcal S\setminus\mathcal A$ with known conditional selection probability $\eta_m>0$ for each remaining interval $m\in\mathcal S\setminus\mathcal A$. Obtain a duration for every interval in $\mathcal B$. When each supplied duration equals the task hours $y_m$ in that interval, an unbiased estimator of $H_{\mathcal I}$ is
 \[
-  F+\sum_{m\in A}\frac{r_m}{\pi_m}
-   +\sum_{m\in B}\frac{r_m}{\pi_m\eta_m}.
+  F+\sum_{m\in\mathcal A}\frac{r_m}{\pi_m}
+   +\sum_{m\in\mathcal B}\frac{r_m}{\pi_m\eta_m}.
 \]
-For any $s$ and $A$, averaging the follow-up correction over possible draws of $B$ restores the contribution from $s\setminus A$. The conditional expectation is therefore the complete-sample estimate in \eqref{eq:short-difference}, even when workload influences who replies \cite{nonresponsefollowup}. Its average over the initial draw is $H$.
+For any $\mathcal S$ and $\mathcal A$, averaging the follow-up correction over possible draws of $\mathcal B$ restores the contribution from $\mathcal S\setminus\mathcal A$. The conditional expectation is therefore the complete-sample estimate in \eqref{eq:short-difference}, even when workload influences who replies \cite{nonresponsefollowup}. Its average over the initial draw is $H_{\mathcal I}$.
 
-When selected hours remain uncertain, give each interval in $s$ a range $[l_m,u_m]$. For an interval with no further evidence, use $[0,d_m]$. Every sampled hour has a positive weight in \eqref{eq:short-difference}, so using the lower and upper endpoints gives limits $\widehat H^-$ and $\widehat H^+$ on the estimate for this draw whenever the ranges contain the true hours.
+When selected hours remain uncertain, use the evidence to bound $y_m$ by $[y_m^-,y_m^+]\subseteq[0,\lambda_m]$ for each $m\in\mathcal S$. Use $[0,\lambda_m]$ when only the interval duration is known. Every sampled duration enters \eqref{eq:short-difference} with positive weight. Substitute $y_m^-$ for each $y_m$ to obtain the lower estimate $\widehat H_{\mathcal I}^-$. Using $y_m^+$ instead gives the upper estimate $\widehat H_{\mathcal I}^+$. Those bounds enclose the estimate for this draw whenever all the ranges contain the actual task hours.
 
-These endpoints bound the estimate for the intervals drawn. Another draw can yield a different estimate of the same total. Under simple random sampling without replacement, the range of prediction errors bounds this variation.
-All residuals lie between $a=-\max_{m\in U} f_m$ and
-$b=\max_{m\in U}(d_m-f_m)$. The sum of squared deviations from their mean
-is at most the sum of squared deviations from $(a+b)/2$, so
-$S_r^2\le M(b-a)^2/[4(M-1)]$. Chebyshev's inequality gives a margin
+Another draw can yield a different estimate of the same total. Under simple random sampling without replacement, the spread of prediction errors bounds the variance across draws.
+All residuals lie between $r_-=-\max_{m\in\mathcal I} f_m$ and
+$r_+=\max_{m\in\mathcal I}(\lambda_m-f_m)$. The sum of squared deviations from their mean
+is at most the sum of squared deviations from $(r_-+r_+)/2$, so
+$V_r\le M(r_+-r_-)^2/[4(M-1)]$. Chebyshev's inequality gives a margin
 \[
-  e=\sqrt{\frac{K_n M(b-a)^2}{4(M-1)\alpha}}\qquad (0<\alpha<1).
+  e=\sqrt{\frac{K_n M(r_+-r_-)^2}{4(M-1)\alpha_{\rm s}}}\qquad (0<\alpha_{\rm s}<1).
 \]
-Each unsampled interval can contribute anything from zero to its full duration. Combined with the sampled hours, this restricts $H$ to $[\sum_{m\in s}l_m,\;\sum_{m\in s}u_m+\sum_{m\notin s}d_m]$. Its intersection with $[\widehat H^--e,\widehat H^++e]$ covers $H$ with probability at least $1-\alpha$ if, for every possible draw, each sampled range $[l_m,u_m]$ contains the hours worked in its interval. Use $e=0$ for a census, including
-$M=1$. If the chance that any sampled range excludes the hours worked is at most $\beta$, the union bound gives coverage of at least $1-\alpha-\beta$ for total labour. If evidence caps eligible hours outside $U$ at $D$, add $D$ to the upper limit to cover the expanded total at the same level.
+Each unsampled interval can contribute anything from zero to its full duration. Combined with the sampled hours, this restricts $H_{\mathcal I}$ to $[\sum_{m\in\mathcal S}y_m^-,\;\sum_{m\in\mathcal S}y_m^++\sum_{m\in\mathcal I\setminus\mathcal S}\lambda_m]$. Its intersection with $[\widehat H_{\mathcal I}^--e,\widehat H_{\mathcal I}^++e]$ covers $H_{\mathcal I}$ with probability at least $1-\alpha_{\rm s}$ if, for every possible draw, each sampled range $[y_m^-,y_m^+]$ contains the hours worked in its interval. Use $e=0$ for a census, including
+$M=1$. If the chance that any sampled range excludes the hours worked is at most $\beta_{\rm s}\in[0,1]$, the union bound gives coverage of at least $1-\alpha_{\rm s}-\beta_{\rm s}$ for total labour. Labour from people or periods omitted from $\mathcal I$ falls outside this total. If independent evidence caps their combined task hours at $H_{\rm out}^{\max}$, add that amount to the upper confidence limit. The wider interval then covers the expanded total at the same confidence level.
