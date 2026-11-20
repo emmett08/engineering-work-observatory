@@ -3,8 +3,7 @@
 
 Divide each contributor's observation period into disjoint intervals. Index the
 eligible person-intervals by $U=\{1,\ldots,M\}$. Interval $m$ lasts $d_m$ hours
-and contains $y_m\in[0,d_m]$ person-hours of work on the requirements. The target
-is $H=\sum_{m\in U}y_m$. Select a sample $s$ with known inclusion probability
+and contains $y_m\in[0,d_m]$ person-hours of work on the requirements. For the invoice export, divide each person's shift into two one-hour intervals. The engineer works throughout both hours. The reviewer spends half an hour on the export in the first interval and none in the second. The four work durations therefore sum to 2.5 person-hours. In general, the target is $H=\sum_{m\in U}y_m$. Select a sample $s$ with known inclusion probability
 $\pi_m>0$ for every interval. Drawing after the work period avoids interrupting it. Treat the interval hours as fixed when averaging over possible draws.
 
 \subsection{Use predictions to reduce sampling variation}
@@ -16,6 +15,8 @@ the total by
   \label{eq:short-difference}
 \end{equation}
 Each interval contributes $r_m/\pi_m$ with probability $\pi_m$, so its expected correction is $r_m$. Summing gives $\mathbb{E}[\widehat H]=F+\sum_{m\in U}r_m=H$ even when selections depend on one another or predictions have systematic errors. Setting every prediction to zero gives direct weighting, the Horvitz--Thompson estimator. Divide each sampled duration by its inclusion probability and sum the results \cite{horvitz1952}. Sampling variation in the generalised difference estimator comes from the residuals \cite{cassel1976}.
+
+For the export, predict 0.75 person-hours in each of the engineer's intervals and 0.25 in each of the reviewer's. The predicted total is two person-hours. Choose two of the four intervals uniformly without replacement. If the draw selects both of the engineer's hours, direct weighting doubles the two observed hours to four. Each sampled hour exceeds its prediction by 0.25, so the corrected prediction is $2+2(0.25+0.25)=3$ person-hours. Both estimates exceed the known 2.5 person-hours on this draw. Over all six draws, each averages to the hours actually worked.
 
 For a simple random sample of size $1\le n\le M$ drawn without replacement from $M>1$ intervals, $\pi_m=n/M$. The weighted correction is then $M$ times the sample mean residual. Its variance is
 $K_n S_r^2$, where $K_n=M^2(1-n/M)/n$ and $S_r^2$ is the population variance of the residuals with divisor $M-1$. Direct weighting gives variance $K_n S_y^2$, with the hours themselves in place of the residuals. For $n<M$, prediction correction improves precision exactly when $S_r^2<S_y^2$. A census has zero sampling variance.
