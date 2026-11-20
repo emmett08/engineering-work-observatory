@@ -1,0 +1,29 @@
+\section{Checks against 96 known work histories}
+\label{sec:results}
+
+During a two-hour shift, one engineer implements a feature in two half-hour slots. Repair work occupies up to two of the remaining slots, and a colleague reviews the feature in one slot. Combining the 24 engineer schedules with four possible review slots produces 96 equally weighted histories. We count the occupied slots to establish the actual person-hours.
+
+First ask whether the two contributors spent more than one person-hour in the first hour. The calculation receives the engineer's shift total for each task and the review totals for the first hour and full shift. We compare a separate capacity limit for each activity with one limit shared by the engineer's implementation and repair. A lower bound above one confirms excess labour. An upper bound of one or less rules it out. A range that permits both outcomes leaves the decision open.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Decisions about first-hour labour above one person-hour. Width is the mean range width in person-hours. Contains actual total counts the ranges that include both contributors' known labour.}
+\label{tab:short-known-hours}
+\begin{tabular}{@{}p{.38\linewidth}rrrrr@{}}
+\hline
+\shortstack[l]{Observations and capacity limit} & Width & \shortstack{Contains\\actual total} & Correct & Wrong & Open \\
+\hline
+Separate limits per activity & 1.5 & 96 & 12 & 0 & 84 \\
+Shared limit across the engineer's tasks & 0.5 & 96 & 60 & 0 & 36 \\
+Engineer's first-hour total also known & 0 & 96 & 96 & 0 & 0 \\
+Reviewer omitted, shared limit & 0.5 & 70 & 70 & 26 & 0 \\
+Review timing unknown, shared limit & 1.0 & 96 & 0 & 0 & 96 \\
+\hline
+\end{tabular}
+\end{table}
+
+The shared limit rules out overlapping uses of the engineer's time. Table~\ref{tab:short-known-hours} shows that it narrowed the mean range from 1.5 to 0.5 person-hours and increased the number of correct decisions from 12 to 60. Omitting the reviewer gave the same mean width of 0.5 person-hours and excluded the actual total in 26 histories. Entering zero for first-hour review time reproduces those errors. When the timing of the known half-hour of review is unknown, allow it to contribute anywhere from zero to half a person-hour in the first hour. For an engineer with $v\in[1,2]$ person-hours over the shift, the resulting range is $[v-1,1.5]$. This contains the actual total in every history and leaves every decision open.
+
+Next estimate labour over the full shift. Each contributor has two one-hour intervals. We enumerate all six equally likely samples of two intervals per history, fixing predictions at 0.75 person-hours per engineer interval and 0.25 per reviewer interval. With accurate replies, both estimators average to the actual total within each history. Averaged across histories, the sampling variance is $49/72$ squared person-hours for direct weighting and $25/72$ with the prediction correction. If the reviewer supplies zero hours whenever sampled, both estimates fall short by half a person-hour on average. If the reviewer omits the reply covering the review, the complete-response procedure returns an estimate for only 288 of 576 draws.
+
+These results describe the schedules and measurement failures specified in the check. A workplace audit must establish which contributors and intervals its inputs cover before the width of a range or the spread of estimates can support a decision.

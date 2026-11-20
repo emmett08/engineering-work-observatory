@@ -1,0 +1,19 @@
+\section{Checking an apparent saving}
+\label{sec:workplace}
+
+One use of these measurements is a trial in which one team in each matched pair receives a specified AI toolset. Each team fixes its workload and scores the requirements before the allocation. The two outcomes are person-hours per initial reference unit and the fraction of the initial score retained. The proposed rule requires a saving greater than one person-hour per initial unit and a loss in retention smaller than five percentage points. These thresholds illustrate a decision the teams must justify before a trial \cite{piaggio2012}. With fair allocation and no interference between teams, the mean within-pair differences estimate the effect of offering the tools on the participating teams' specified work. Shared reviewers or transferred code can let one team's allocation affect another's outcome \cite{hudgens2008}.
+
+In a synthetic comparison based on six pairs, the true mean differences sat at the two decision thresholds. With accurate measurements the rule withheld a benefit claim. Omitting one review hour per initial unit made the AI group's apparent saving two hours per unit. Crediting six failed checks per hundred shifted the measured retention difference from a five-point loss to a one-point gain. The two errors together produced a false benefit claim. Independent workplace measurements would establish how often these errors occur.
+
+An audit should sample shifts independently of whether contributors replied. Include external reviewers when their time falls within the task's labour window. For audited work, establish attendance and duration from separate evidence where possible. Keep a range for time that both sources could miss. At follow-up, have reviewers independently test the acceptance criteria and investigate disagreements. Estimate the time contributors spend on the measurement itself. This lets a pilot compare short sampled requests with a full daily account without treating the full account as a perfect reference.
+
+The full protocol requires both outcomes from every team. At the prespecified analysis, an alternative can use ranges for the missing outcomes. Let $[\ell_i,u_i]$ contain the difference in pair $i$ under the drawn allocation, and let $[a_i,b_i]$ cover that difference under either allocation before the draw. Use separate ranges for each outcome. For $m\geq 1$ pairs with independent allocation and no interference between pairs, set the radius at error level $0<\alpha<1$ to
+\[
+r_\alpha=\sqrt{\frac{\log(1/\alpha)}{2m^2}
+  \sum_{i=1}^m (b_i-a_i)^2}.
+\]
+The mean difference under the drawn allocation is at most $\overline{u}$ and at least $\overline{\ell}$. Hoeffding's inequality therefore gives a one-sided upper bound $\overline{u}+r_\alpha$ and a one-sided lower bound $\overline{\ell}-r_\alpha$ on the mean pair effect, each at confidence level at least $1-\alpha$ \cite{hoeffding1963}.
+
+If measurement intervals have a simultaneous failure probability at most $\gamma$, the failure probability of each bound is at most $\alpha+\gamma$. A benefit claim requires the upper bound for AI-minus-comparison hours to fall below $-1$ and the lower bound for retained fraction to exceed $-0.05$. If either condition fails in truth, a false benefit claim requires that outcome's bound to fail. This keeps the error probability for the combined decision within the applicable one-sided limit.
+
+This bound allows the pair distributions to differ and uses intervals for incomplete outcomes. A wide range can still leave a threshold unresolved. For example, if every labour difference lies between $-10$ and $10$ person-hours per initial unit, at $\alpha=0.025$ and with 48 pairs the radius alone is about 3.92 person-hours per initial unit. The pilot should establish defensible limits and retest the decision's operating characteristics before a full trial.

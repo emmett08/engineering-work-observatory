@@ -1,0 +1,45 @@
+\section{Bounds from partial observations}
+\label{sec:bounds}
+
+A total for a shift can constrain the hours worked before a release even when nobody knows when the work began. If one person spent $v$ hours on a task across two periods lasting $b$ and $c$ hours, the amount $x$ in the first period satisfies
+\[
+  \max(0,v-c)\le x\le\min(v,b).
+\]
+The first period has to take any work that will not fit in the second. It cannot take more than the total or its own duration.
+
+Suppose an engineer spent one hour implementing a feature and one hour repairing a defect within a two-hour shift. Either activity could occupy the entire first hour. Adding the two separate maxima would allow two person-hours in that hour. The engineer has only one hour available, and the second hour can absorb at most one hour of the two-hour total. Exactly one person-hour fell in the first hour. Either task can therefore occupy the first hour in Figure~\ref{fig:shared-time}.
+
+\input{shared-time}
+
+\subsection{Compute the range on one calendar}
+
+Use $g$ to denote one contributor's activity on one task and $j(g)$ for that contributor. Include work outside the target when an observation links it to work inside the target. Cut the calendar at the boundaries of every observed period and every target window. Each resulting cell $J_k$ has duration $d_k>0$ in hours. Keep the entire span of every observation. Let $x_{gk}$ be the person-hours of activity $g$ in cell $k$.
+
+An observation $\nu$ supplies a range $[v^-_\nu,v^+_\nu]$ for the combined hours of activities $G_\nu$ during a set $K_\nu$ of whole cells. An exact measurement sets both endpoints equal. Widen the interval to allow for rounding or other known error. The arrays $x$ must satisfy
+\begin{align}
+ x_{gk} &\ge 0, &
+ \sum_{g:j(g)=j}x_{gk} &\le d_k,\\
+ v^-_\nu &\le \sum_{g\in G_\nu}\sum_{k\in K_\nu}x_{gk}
+ \le v^+_\nu.
+\end{align}
+Nonnegativity holds for each activity in each cell. Apply the capacity limit to each contributor in each cell and the observation limit to every $\nu$. To represent an absence, cut at its boundaries and set that contributor's hours to zero in the affected cells.
+
+Write $\mathcal P$ for the set of arrays satisfying the constraints. Sum the target hours as $h(x)=\sum_{g,k}w_{gk}x_{gk}$, with $w_{gk}=1$ for work in scope and $0$ elsewhere. If $\mathcal P$ is nonempty, solve two linear programmes to obtain
+\begin{equation}
+  [L,U]=\left[\min_{x\in\mathcal P}h(x),\,
+                    \max_{x\in\mathcal P}h(x)\right].
+  \label{eq:labour-bounds}
+\end{equation}
+Integrating any history consistent with the observations and time limits yields an array in $\mathcal P$. Its total therefore lies in $[L,U]$. An empty $\mathcal P$ means that the supplied limits are inconsistent under the accounting rules.
+
+\subsection{When the endpoints can occur}
+
+The cell model recovers exactly the possible totals when people can divide their time among eligible activities within each cell. One allocation uses a constant share $x_{gk}/d_k$ for every activity in that cell. If each person must work on one activity at a time, schedule each activity in one block of length $x_{gk}$ and leave any remaining time idle. This produces the same observations and target and needs at most one block per activity per cell. The feasible set is closed and bounded, so both extrema exist. A weighted average of the two optimising arrays preserves all constraints and realises the corresponding intermediate total. The allocation argument applies to that array as well.
+
+Minimum session lengths or a fixed order can rule out some of these allocations. Equation~\eqref{eq:labour-bounds} still encloses the true total when those restrictions hold. It is exact as an enclosure of the restricted totals if its endpoints can occur under the restrictions. For example, if an uninterrupted one-hour session must fit into either of two one-hour availability periods separated by an absence, the first period contains zero or one hour. Both endpoints are possible.
+
+A rule requiring two people to review together can enter the linear programme directly. Suppose a finite set of working configurations describes the combinations allowed at each instant. A configuration specifies each person’s activity or idle time. For paired review, the permitted configurations put both named reviewers on the review whenever either is reviewing. Allocate a nonnegative duration to each permitted configuration. Require their durations to sum to $d_k$. Then $x_{gk}$ is the sum of durations for configurations containing $g$. Every permissible history supplies those durations. Placing the configurations consecutively reproduces them when switching within the cell is allowed. This adds the rule without prescribing a particular start time.
+
+\subsection{When the observations leave work uncovered}
+
+If $[L,U]$ covers the included contributors' hours and an independent check caps uncounted hours at $B$, the combined total lies in $[L,U+B]$. When the extra hours have no established upper limit, restrict the conclusion to $[L,U]$ for the included contributors. When observations come from a sample, establish the chance that their ranges hold simultaneously. Whenever every observation range covers its true value, the true array is feasible and the target range covers the true total. If the input ranges have failure probabilities that sum to at most $\alpha$, the target coverage is at least $1-\alpha$ under the capacity constraints. This argument needs no independence between observations.
