@@ -1,0 +1,85 @@
+language "EAL/4"
+
+environment engineering_work {
+  require true == true
+}
+
+module arg_15 {
+  evidence grounds {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "grounds",
+        "classification": "Randomised design and finite-population identity",
+        "details": "Before investigators offer the AI toolset, each team fixes its workload and scores each requirement. An independent fair coin toss within each matched pair determines which team receives the offer. Divide each team’s post-intake person-hours by its total initial score. Divide its retained requirement score by the same total. For each measure, subtract the comparison team’s value from the value for the team offered AI."
+      }
+    }
+    require role == "grounds"
+  }
+
+  evidence backing_material {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "backing",
+        "classification": "Randomised design and finite-population identity",
+        "details": "Suppose teams A and B form a pair. If A receives the offer, the comparison uses A’s outcome with access minus B’s outcome without access. The other coin outcome exchanges their roles. Add these two differences and group the terms by team. Dividing by two gives the average of the effects of access on A and B."
+      }
+    }
+    require role == "backing"
+  }
+
+  evidence scope_conditions {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "scope",
+        "classification": "Conditions for applying this inference",
+        "details": "The expectation averages over the two possible coin outcomes for each pair. Each enrolled team must have a positive total initial score for its fixed workload, and its outcome must depend only on its own access. An estimate of the effect on work done or requirements retained also depends on the accuracy of those measurements."
+      }
+    }
+    require role == "scope"
+  }
+
+  assumption applicability {
+    statement "The expectation averages over the two possible coin outcomes for each pair. Each enrolled team must have a positive total initial score for its fixed workload, and its outcome must depend only on its own access. An estimate of the effect on work done or requirements retained also depends on the accuracy of those measurements."
+    environment engineering_work
+    validate scope_conditions
+  }
+
+  reasoning warrant {
+    method "structured/1"
+    rationale "Each team has an equal chance of receiving the offer. The expected difference within a pair therefore equals the average of the two effects in that pair. Giving each pair the same weight gives every enrolled team the same weight."
+    backing [backing_material]
+  }
+
+  claim finding {
+    statement "The mean difference within pairs estimates the equally weighted effect of offering the specified AI toolset on the enrolled teams’ fixed workloads."
+    environment engineering_work
+  }
+
+  claim exception_applies {
+    statement "Teams influence one another’s outcomes through shared staff, code or computing resources, or the criteria for including work change after the coin toss."
+    environment engineering_work
+  }
+
+  // A reviewer may pass a technique from one team to another. Teams sharing a compute
+  // queue can delay one another’s work. Randomising linked teams together changes the
+  // unit of allocation and requires a corresponding analysis. Measuring how AI changes
+  // incoming requests would require following those requests.
+  objection challenge = [premises exception_applies] -x> argument inference
+
+  argument inference = [
+    evidence grounds,
+    assumptions applicability
+  ] via warrant => finding
+}

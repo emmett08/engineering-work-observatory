@@ -1,0 +1,63 @@
+\documentclass[12pt,a4paper]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[british]{babel}
+\usepackage{lmodern,microtype}
+\usepackage[margin=28.8mm]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{tikz}
+\usepackage[numbers]{natbib}
+\usepackage{xurl}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\newtheorem{proposition}{Proposition}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\Prb}{\mathbb P}
+\raggedbottom
+
+\title[Measuring human labour]{Measuring human labour in AI-assisted software engineering}
+\date{}
+\keywords{software engineering, labour measurement, partial identification, probability sampling, AI assistance}
+\hypersetup{pdftitle={Measuring human labour in AI-assisted software engineering}}
+\begin{document}
+
+\begin{abstract}
+The same sequence of commits can accompany different amounts of human work. We use observations of hours and each person's available time to bound labour in a specified period. These limits enclose the total even when work must proceed without interruption. They delimit exactly the possible totals when each feasible allocation can be scheduled as consecutive work blocks. We evaluated 96 two-person schedules with known hours. Applying one time limit across each person's tasks reduced the mean width of the first-hour range from 1.5 to 0.5 person-hours. When the input omitted the reviewer, the range excluded the true total in 26 schedules. Where observations come from a probability sample, weighting by selection probability estimates total hours. For simple random sampling we derive a conservative confidence interval that also allows for unanswered requests. A hypothetical comparison of AI access shows how omitted review and inflated functionality scores can produce a false benefit claim.
+\end{abstract}
+\maketitle
+
+\section{What commit sequences reveal about working hours}
+\label{sec:intro}
+
+An engineer spends three hours on a requirement during a four-hour shift. At most two hours fit in the second half, so the first half contains between one and two hours of work. Evidence that the engineer reviewed the change throughout the second half fixes the first-half total at one hour.
+
+A sequence of commits can leave even the shift total unknown. Take two models in which an engineer works in a minute with probability $p$ and, while working, commits with probability $c$. The models draw activity and conditional commit events independently across minutes. The pairs $(p,c)=(1/2,1/5)$ and $(1/4,2/5)$ both give a commit probability of $1/10$ per minute. Every finite commit sequence therefore has the same probability under both models. The corresponding expected active times over an hour are 30 and 15 minutes. Distinguishing those two activity rates requires evidence beyond commit times.
+
+A predictor trained on activity labels inferred from commits can learn to reproduce those labels \cite{wright2019}. Estimating person-hours requires evidence that links contributors to the work. A release discussion may leave no commit. An unattended AI workflow can create one without an engineer working on the task at that time. Written accounts of how contributors spent their time can help locate such gaps when checked against direct observation \cite{perry1994}. Studies of delivery answer related questions. Peng et al.\ measured elapsed time among participants who finished an exercise \cite{peng2023}. Cui et al.\ counted completed pull requests per week \cite{cui2026}. Pull-request counts depend on how teams split changes. To account for labour on all included tasks, measure hours even when the task remains unfinished or the contributor generates no tool events.
+
+Observations of work over overlapping periods can support a range of possible hours. The range is exact when the team can divide work within the time cells determined by the observation and target boundaries. It encloses valid totals when the team faces stricter scheduling constraints. If the team measures only a probability sample of intervals, the chances of selection support a total estimate. Enumerating work schedules gives us known totals against which to check both methods.
+
+\section{What the comparison must count}
+\label{sec:accounting}
+
+At intake, specify which requirements enter the comparison and fix a weight $s_i\ge 0$ for each included requirement $i$. Apply the same acceptance rule in both groups. Labour is time that people devote to those requirements. Two people reviewing together for an hour contribute two person-hours. One engineer attending to two workflows has at most one person-hour available in the same clock hour. The duration of each workflow can be measured separately.
+
+Start the elapsed-time measurement at intake. Let $T_i$ be the task age at first acceptance. If a task is accepted by the cutoff $\tau$, assess the fraction $R_i\in[0,1]$ of the original requirement that still holds $\Delta$ time after acceptance. Its scored output is $Q_i=s_i R_i$ for $T_i\le\tau$ and zero when the task remains unaccepted at the cutoff. Score the original requirement across retries and changes in pull-request structure. Without a follow-up assessment, $R_i$ remains unknown. The initial reference total stays fixed when a team drops a requirement.
+
+For every task, count its person-hours $H_i$ through age $\tau+\Delta$. This includes effort on unfinished tasks and repairs that fall within the labour window after an early follow-up. The cohort rate $\sum_i Q_i/\sum_i H_i$ is defined for positive total labour. When labour is zero, give the two totals separately. Estimating labour from a sample introduces uncertainty into the rate. A valid confidence interval for $Q-pH$, with $Q$ and $H$ the cohort totals, admits a proposed rate $p$ when that interval contains zero \cite{vonluxburg2009}. This calculation must use the sampling design for both totals. The paired trial in Section~\ref{sec:workplace} uses initial reference weights so that it can compare labour and retention directly.
+
+\input{bounds}
+\input{sampling}
+\input{results}
+\input{workplace}
+
+\section{Conclusion}
+
+Available time constrains how much of the observed work could fall within a shorter period. With probability sampling, the chances of selection determine how to estimate total hours. Either calculation can carry ranges for unresolved hours. If those ranges permit outcomes on both sides of a decision threshold, the comparison remains open. Before acting on an apparent saving, check whose labour the measurements cover. The trial also needs evidence that the accepted functionality still works at follow-up.
+
+\section*{Data and code availability}
+
+The \href{https://github.com/emmett08/engineering-work-observatory/tree/4847fee965041b1a6ac7cf26b317a9c9c9181722/paper}{full paper and reproducibility materials} contain the 96 enumerated schedules and the trial examples. The repository includes the source and model notes for this shorter paper.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}

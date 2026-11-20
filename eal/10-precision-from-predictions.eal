@@ -1,0 +1,83 @@
+language "EAL/4"
+
+environment engineering_work {
+  require true == true
+}
+
+module arg_10 {
+  evidence grounds {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "grounds",
+        "classification": "Variance derivation and enumeration of all draws",
+        "details": "For a uniform draw of n intervals from M without replacement, each estimator's design variance is the population variance of the sampled quantity multiplied by M squared times (1 minus n divided by M) divided by n."
+      }
+    }
+    require role == "grounds"
+  }
+
+  evidence backing_material {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "backing",
+        "classification": "Variance derivation and enumeration of all draws",
+        "details": "Take actual hours (0, 2, 4, 6) and predictions (1, 3, 3, 5). Across all equally likely draws of two intervals, the difference estimator has variance 16/3 squared person-hours. The direct estimator has variance 80/3 squared person-hours. Both average to 12 hours."
+      }
+    }
+    require role == "backing"
+  }
+
+  evidence scope_conditions {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "scope",
+        "classification": "Conditions for applying this inference",
+        "details": "The exact comparison uses simple random sampling without replacement, fixed predictions and accurate sampled measurements."
+      }
+    }
+    require role == "scope"
+  }
+
+  assumption applicability {
+    statement "The exact comparison uses simple random sampling without replacement, fixed predictions and accurate sampled measurements."
+    environment engineering_work
+    validate scope_conditions
+  }
+
+  reasoning warrant {
+    method "structured/1"
+    rationale "For n less than M, the common factor is positive. The difference estimator uses the population variance of the residuals. The direct estimator uses the population variance of actual interval hours. A smaller residual variance therefore means a more precise total."
+    backing [backing_material]
+  }
+
+  claim finding {
+    statement "Under simple random sampling without replacement, prediction correction improves precision when residuals vary less than actual interval hours."
+    environment engineering_work
+  }
+
+  claim exception_applies {
+    statement "The precision gain fails if the weighted residual total varies at least as much across draws as the direct labour estimate. A design other than simple random sampling requires its own variance comparison."
+    environment engineering_work
+  }
+
+  // Replacing predictions with (6, 4, 2, 0) in the same example raises the difference
+  // estimator's variance to 320/3 squared person-hours. It still averages to 12 hours.
+  objection challenge = [premises exception_applies] -x> argument inference
+
+  argument inference = [
+    evidence grounds,
+    assumptions applicability
+  ] via warrant => finding
+}

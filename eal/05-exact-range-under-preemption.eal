@@ -1,0 +1,85 @@
+language "EAL/4"
+
+environment engineering_work {
+  require true == true
+}
+
+module arg_05 {
+  evidence grounds {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "grounds",
+        "classification": "proof",
+        "details": "Take a time span containing every observation period and target window. Divide the span at each of their start and end times. Within each resulting interval, use a variable for the non-negative hours a person spends on a particular task activity. The sum for each person is at most the interval duration. Each observation bounds the sum of its covered variables over whole intervals. The target weights each variable by a fixed value for its interval and adds the results."
+      }
+    }
+    require role == "grounds"
+  }
+
+  evidence backing_material {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "backing",
+        "classification": "proof",
+        "details": "Each variable lies between zero and its interval’s duration. The linear constraints give a closed convex set, and the duration limits make it bounded. A nonempty set has a minimum and maximum for the linear target. Any weighted average of two endpoint allocations is feasible, and its target is the same weighted average of the endpoint totals. The within-interval block allocation then realises that intermediate value."
+      }
+    }
+    require role == "backing"
+  }
+
+  evidence scope_conditions {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "scope",
+        "classification": "Conditions for applying this inference",
+        "details": "Specify the contributors covered by each observation and by the labour target. Exact attainability requires the scheduling model to permit the placement of the required activity blocks within each interval. An empty feasible set means the observations and constraints admit no allocation."
+      }
+    }
+    require role == "scope"
+  }
+
+  assumption applicability {
+    statement "Specify the contributors covered by each observation and by the labour target. Exact attainability requires the scheduling model to permit the placement of the required activity blocks within each interval. An empty feasible set means the observations and constraints admit no allocation."
+    environment engineering_work
+    validate scope_conditions
+  }
+
+  reasoning warrant {
+    method "structured/1"
+    rationale "Integrating any admissible allocation over each interval gives variables that meet the constraints. To realise a feasible set of variables, give each of a person’s activities one consecutive block of the specified length inside the interval. The duration limit leaves room for every block, with any time left over idle. The resulting schedule reproduces the observations and the target."
+    backing [backing_material]
+  }
+
+  claim finding {
+    statement "In a nonempty feasible allocation model, the minimum and maximum of the linear programme give the exact endpoints of the attainable range of the weighted labour total."
+    environment engineering_work
+  }
+
+  claim exception_applies {
+    statement "Workplace rules prevent one or more of the required activity blocks or switches between them."
+    environment engineering_work
+  }
+
+  // A minimum uninterrupted duration or task dependency can exclude some block allocations.
+  // The linear programme still encloses every permissible total if it retains the true
+  // observations and capacity limits. Such workplace rules may leave gaps between attainable
+  // totals even when both endpoints are feasible.
+  objection challenge = [premises exception_applies] -x> argument inference
+
+  argument inference = [
+    evidence grounds,
+    assumptions applicability
+  ] via warrant => finding
+}

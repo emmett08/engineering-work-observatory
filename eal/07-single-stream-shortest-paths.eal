@@ -1,0 +1,83 @@
+language "EAL/4"
+
+environment engineering_work {
+  require true == true
+}
+
+module arg_07 {
+  evidence grounds {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "grounds",
+        "classification": "proof",
+        "details": "Let z_k be cumulative labour from a common start to time boundary k. Encode z_q − z_p ≤ c as a directed edge from p to q with weight c. An interval of duration d gives a forward edge of weight d between its endpoints and a reverse edge of weight zero. An observed range of l to u hours gives a forward edge of weight u and a reverse edge of weight −l."
+      }
+    }
+    require role == "grounds"
+  }
+
+  evidence backing_material {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "backing",
+        "classification": "proof",
+        "details": "Let D(r,k) be the shortest-path distance from r to k. For a root r, set z_k to D(r,k) minus D(r,0). For every edge from i to j with weight c, D(r,j) is at most D(r,i) plus c, so these cumulative values satisfy every edge constraint. The adjacent values increase by a non-negative amount that fits within the interval. Allocate that many hours, or use a constant share equal to that amount divided by the duration. The root p gives the upper bound and the root q the lower bound. Convex combinations realise the intermediate totals."
+      }
+    }
+    require role == "backing"
+  }
+
+  evidence scope_conditions {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "scope",
+        "classification": "Conditions for applying this inference",
+        "details": "The graph describes one person doing one task activity. Each observation and target period starts and ends at a vertex. Edges in both directions between consecutive vertices make all required distances finite if there is no negative cycle."
+      }
+    }
+    require role == "scope"
+  }
+
+  assumption applicability {
+    statement "The graph describes one person doing one task activity. Each observation and target period starts and ends at a vertex. Edges in both directions between consecutive vertices make all required distances finite if there is no negative cycle."
+    environment engineering_work
+    validate scope_conditions
+  }
+
+  reasoning warrant {
+    method "structured/1"
+    rationale "Adding the inequalities along a path cancels the intermediate cumulative totals. A negative cycle would require zero to be at most a negative value. In its absence the shortest path from p to q gives an upper bound of D(p,q). The reverse shortest path gives the lower bound −D(q,p)."
+    backing [backing_material]
+  }
+
+  claim finding {
+    statement "For one allocation stream, a graph of differences detects inconsistent constraints and gives the exact attainable labour range for a period whose endpoints are vertices."
+    environment engineering_work
+  }
+
+  claim exception_applies {
+    statement "The calculation treats two allocations that draw on the same person’s time as independent."
+    environment engineering_work
+  }
+
+  // Separate graphs can each allocate the same person’s time. Couple the allocations under
+  // one capacity constraint when observations or the target include competing activities.
+  objection challenge = [premises exception_applies] -x> argument inference
+
+  argument inference = [
+    evidence grounds,
+    assumptions applicability
+  ] via warrant => finding
+}

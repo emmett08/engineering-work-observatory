@@ -1,0 +1,85 @@
+language "EAL/4"
+
+environment engineering_work {
+  require true == true
+}
+
+module arg_19 {
+  evidence grounds {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "grounds",
+        "classification": "Probability bound, exact binomial limit and conditional simulation",
+        "details": "Every team must supply both its post-intake labour per initial requirement unit and the fraction of its initial score retained. If each pair independently has a 0.5% chance of lacking either outcome, the chance of complete data is 88.7% with 24 pairs and 78.6% with 48 pairs. These upper limits on the chance of declaring a benefit both fall below the 90% detection target. Of 20,000 simulated trials with 48 pairs, 4,212 lacked an outcome and could not establish a benefit."
+      }
+    }
+    require role == "grounds"
+  }
+
+  evidence backing_material {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "backing",
+        "classification": "Probability bound, exact binomial limit and conditional simulation",
+        "details": "If each pair independently has probability q of lacking an outcome, the probability that six pairs all supply complete data is (1−q)^6. Setting this probability to 0.05 gives an exact one-sided 95% upper limit on q of 1−0.05^(1/6), about 39.3%. Even six complete pairs would therefore leave plausible loss probabilities far above 0.5%."
+      }
+    }
+    require role == "backing"
+  }
+
+  evidence scope_conditions {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "scope",
+        "classification": "Conditions for applying this inference",
+        "details": "These numerical ceilings assume that the pairs lose outcomes independently at the same rate and that the decision requires every outcome. The proposed six-pair feasibility study gives each team six initial tasks. It can measure time spent reporting and identify why labour measurements or follow-up assessments are unavailable."
+      }
+    }
+    require role == "scope"
+  }
+
+  assumption applicability {
+    statement "These numerical ceilings assume that the pairs lose outcomes independently at the same rate and that the decision requires every outcome. The proposed six-pair feasibility study gives each team six initial tasks. It can measure time spent reporting and identify why labour measurements or follow-up assessments are unavailable."
+    environment engineering_work
+    validate scope_conditions
+  }
+
+  reasoning warrant {
+    method "structured/1"
+    rationale "If each of m independent pairs supplies both outcomes with probability 1−q, all m do so with probability (1−q)^m. Even a trial that detects the true benefit whenever its data are complete can declare a benefit only that often."
+    backing [backing_material]
+  }
+
+  claim finding {
+    statement "Requiring both outcomes from every pair limits the chance of establishing a benefit. Six pairs provide too little evidence to establish that losses are rare."
+    environment engineering_work
+  }
+
+  claim exception_applies {
+    statement "Dependent losses change the chance of complete data. A rule that permits decisions with incomplete pairs also changes the upper limit on the chance of establishing a benefit."
+    environment engineering_work
+  }
+
+  // Suppose a single outage removes outcomes for every pair with probability 0.5% and
+  // all outcomes are otherwise available. Each pair still has a 0.5% chance of loss, yet
+  // both trial sizes have a 99.5% chance of complete data. A procedure using partial
+  // outcomes would need prespecified bounds and an evaluation of its error rates.
+  objection challenge = [premises exception_applies] -x> argument inference
+
+  argument inference = [
+    evidence grounds,
+    assumptions applicability
+  ] via warrant => finding
+}
