@@ -1,31 +1,31 @@
-\section{Checks against 96 enumerated work schedules}
+\section{Checks against 96 possible allocations of time}
 \label{sec:results}
 
-During a two-hour shift, an engineer implements a feature in two half-hour slots and uses up to two other slots for repair. A colleague reviews the feature in any one slot. Pairing each of the 24 engineer schedules with four possible review times yields 96 equally weighted cases. Each occupied slot contributes half a person-hour to the known total.
+To check the calculations against known hours, divide the period from 10~am to noon into four half-hour slots. The implementer still spends two slots on the filter. We now vary how much time goes to the image tag repair and when each person works. There are six ways to place the implementer's two filter slots. In each remaining slot the implementer can repair the tag display or spend the time elsewhere, giving 24 sequences. The reviewer can inspect the filter's test cases in any one of the four slots. We give all 96 combinations equal weight. The first row of Figure~\ref{fig:shared-time} with the review in the second slot is one such combination. Count half a person-hour for each slot a person spends on either task.
 
-Does their combined labour exceed one person-hour in the first hour? We know the engineer's shift total for each task and the reviewer's hours over both the first hour and the full shift. From these observations we calculate a range $[L,U]$ using either separate capacity limits for the activities or one limit shared by the engineer's tasks. A lower bound $L>1$ establishes that labour exceeded one person-hour. If $U\le1$, the combined labour fits within one person-hour. All other ranges leave the decision open.
+For each combination, we ask whether the implementer and reviewer together spent more than one person-hour on the two tasks before release. We know how long the implementer spent on each task between 10~am and noon and how long the reviewer spent on the test cases. We also know how much of the review took place in the first hour. We calculate $[L,U]$ twice from these observations. The first calculation allows up to an hour for each of the implementer's activities in the first hour. The second allows up to an hour across those activities combined. A lower bound $L>1$ establishes that labour exceeded one person-hour. If $U\le1$, the combined labour fits within one person-hour. All other ranges leave the decision open.
 
 \begin{table}[htbp]
 \centering\small
-\caption{Decisions about first-hour labour above one person-hour. Width is the mean difference between endpoints in person-hours. The remaining columns count schedules.}
+\caption{Decisions about first-hour labour above one person-hour. Width is the upper labour bound minus the lower bound, averaged across the 96 patterns and expressed in person-hours. The remaining columns count patterns.}
 \label{tab:short-known-hours}
 \begin{tabular}{@{}p{.38\linewidth}rrrrr@{}}
 \hline
 \shortstack[l]{Observations and capacity limit} & Width & \shortstack{Includes\\true total} & Correct & Wrong & Open \\
 \hline
 Separate limits per activity & 1.5 & 96 & 12 & 0 & 84 \\
-Shared limit across the engineer's tasks & 0.5 & 96 & 60 & 0 & 36 \\
-Engineer's first-hour total also known & 0 & 96 & 96 & 0 & 0 \\
+One limit for the implementer & 0.5 & 96 & 60 & 0 & 36 \\
+Implementer's first-hour total also known & 0 & 96 & 96 & 0 & 0 \\
 Reviewer omitted, shared limit & 0.5 & 70 & 70 & 26 & 0 \\
 Review timing unknown, shared limit & 1.0 & 96 & 0 & 0 & 96 \\
 \hline
 \end{tabular}
 \end{table}
 
-Sharing the engineer's capacity prevents double counting. With the same observations, this change reduced the mean width from 1.5 to 0.5 person-hours and raised the number of correct decisions from 12 to 60 (Table~\ref{tab:short-known-hours}). Omitting the reviewer also gave a mean width of 0.5. Those ranges excluded the actual total in 26 cases. Entering zero for first-hour review produced the same errors.
+Sharing the implementer's capacity prevents double counting. With the same observations, this change reduced the mean width from 1.5 to 0.5 person-hours and raised the number of correct decisions from 12 to 60 (Table~\ref{tab:short-known-hours}). Omitting the reviewer subtracts the known first-hour review time from both labour bounds. The width therefore stays at 0.5 person-hours on average, even though 26 ranges now exclude the two people's actual total. Entering zero for first-hour review produced the same errors.
 
-If only the shift total for review is known, between zero and half a person-hour of review can fall in the first hour. An engineer who worked $v\in[1,2]$ person-hours over the shift spent between $v-1$ and one person-hour in the first hour. Adding the review gives $[v-1,1.5]$. Each range contains the actual total. Because $v-1\le1<1.5$, all 96 decisions remain open.
+If the time of the review is unknown, its contribution before release could be as little as zero or as much as half a person-hour. Of the implementer's $h_{\rm total}\in[1,2]$ person-hours on the two tasks, at most one could fall after release. That leaves between $h_{\rm total}-1$ and one person-hour before release. Adding the review gives $[h_{\rm total}-1,1.5]$. Each range contains the actual total. Because $h_{\rm total}-1\le1<1.5$, all 96 decisions remain open.
 
-For the full-shift estimate, divide each person's shift into two one-hour intervals. We enumerate all six equally likely draws of two of the four intervals for each schedule. The predictions fixed before sampling are 0.75 person-hours per engineer interval and 0.25 per reviewer interval. With accurate replies, both estimators average to the actual total over the six draws. Across schedules, the mean sampling variance is $49/72$ squared person-hours for direct weighting and $25/72$ for the prediction correction.
+For each pattern, repeat the six draws from Section~\ref{sec:sampling} with the same predictions for implementer and reviewer. Counting the occupied slots gives the hours worked in each sampled interval. Over the six draws, both estimates average to the time the two people spent on the dashboard tasks. Across patterns the mean sampling variances are $49/72$ squared person-hours for direct weighting and $25/72$ for the corrected prediction.
 
-Entering zero whenever the reviewer is sampled makes both estimates fall short by half a person-hour on average. The hour containing the review appears in half the draws. If the reviewer gives no reply for that hour, only the other 288 of 576 draws yield an estimate under the complete-response rule.
+Entering zero work for every sampled reviewer interval makes both estimates fall short by half a person-hour on average. Three of the six draws include the hour in which the reviewer worked. If the reviewer gives no duration for that interval and all other selected durations are known, only the other three draws provide both values needed for the estimate. Across the 96 patterns, that leaves 288 of 576 draws.
