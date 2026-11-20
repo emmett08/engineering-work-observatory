@@ -1,17 +1,17 @@
 \section{Checks against 96 enumerated work schedules}
 \label{sec:results}
 
-During a two-hour shift, one engineer implements a feature in two half-hour slots. The engineer can spend up to two of the remaining slots on repair. A colleague reviews the feature in any one slot. Combining the 24 engineer schedules with the four review placements gives 96 equally weighted cases. We count the occupied slots to establish the actual person-hours.
+During a two-hour shift, an engineer implements a feature in two half-hour slots and uses up to two other slots for repair. A colleague reviews the feature in any one slot. Pairing each of the 24 engineer schedules with four possible review times yields 96 equally weighted cases. Each occupied slot contributes half a person-hour to the known total.
 
-First ask whether the two contributors spent more than one person-hour in the first hour. The calculation receives the engineer's shift total for each task and the review totals for the first hour and full shift. We compare a separate capacity limit for each activity with one limit shared by the engineer's implementation and repair. Classify a range wholly above one person-hour as exceeding the threshold. An upper endpoint of one person-hour or less establishes that the threshold was not exceeded. If the range permits both outcomes, leave the comparison open.
+Does their combined labour exceed one person-hour in the first hour? We know the engineer's shift total for each task and the reviewer's hours over both the first hour and the full shift. From these observations we calculate a range $[L,U]$ using either separate capacity limits for the activities or one limit shared by the engineer's tasks. A lower bound $L>1$ establishes that labour exceeded one person-hour. If $U\le1$, the combined labour fits within one person-hour. All other ranges leave the decision open.
 
 \begin{table}[htbp]
 \centering\small
-\caption{Decisions about first-hour labour above one person-hour. Width is the mean range width in person-hours. Contains actual total counts the ranges that include both contributors' known labour.}
+\caption{Decisions about first-hour labour above one person-hour. Width is the mean difference between endpoints in person-hours. The remaining columns count schedules.}
 \label{tab:short-known-hours}
 \begin{tabular}{@{}p{.38\linewidth}rrrrr@{}}
 \hline
-\shortstack[l]{Observations and capacity limit} & Width & \shortstack{Contains\\actual total} & Correct & Wrong & Open \\
+\shortstack[l]{Observations and capacity limit} & Width & \shortstack{Includes\\true total} & Correct & Wrong & Open \\
 \hline
 Separate limits per activity & 1.5 & 96 & 12 & 0 & 84 \\
 Shared limit across the engineer's tasks & 0.5 & 96 & 60 & 0 & 36 \\
@@ -22,8 +22,10 @@ Review timing unknown, shared limit & 1.0 & 96 & 0 & 0 & 96 \\
 \end{tabular}
 \end{table}
 
-The shared limit prevents counting the same engineer's time twice. Table~\ref{tab:short-known-hours} shows a decrease in mean range width from 1.5 to 0.5 person-hours. Correct decisions increased from 12 to 60. Omitting the reviewer left the mean width at 0.5 person-hours and excluded the actual total in 26 cases. Entering zero for first-hour review time reproduces those errors. When the timing of the known half-hour of review is unknown, allow it to contribute anywhere from zero to half a person-hour in the first hour. For an engineer with $v\in[1,2]$ person-hours over the shift, the resulting range is $[v-1,1.5]$. Every range contains the actual total. Each includes the threshold and values above it, leaving all 96 decisions open.
+Sharing the engineer's capacity prevents double counting. With the same observations, this change reduced the mean width from 1.5 to 0.5 person-hours and raised the number of correct decisions from 12 to 60 (Table~\ref{tab:short-known-hours}). Omitting the reviewer also gave a mean width of 0.5. Those ranges excluded the actual total in 26 cases. Entering zero for first-hour review produced the same errors.
 
-Next estimate labour over the full shift. Each contributor has two one-hour intervals. For each schedule, enumerate all six equally likely samples of two intervals. Set the prediction before drawing at 0.75 person-hours for an engineer interval and 0.25 for a reviewer interval. With accurate replies, each estimator averages to the actual total for each schedule. Averaging across schedules gives a sampling variance of $49/72$ squared person-hours for direct weighting and $25/72$ for the prediction correction. If the reviewer supplies zero hours whenever sampled, both estimates fall short by half a person-hour on average. If the reviewer omits the reply covering the review, the complete-response procedure returns an estimate for only 288 of 576 draws.
+If only the shift total for review is known, between zero and half a person-hour of review can fall in the first hour. An engineer who worked $v\in[1,2]$ person-hours over the shift spent between $v-1$ and one person-hour in the first hour. Adding the review gives $[v-1,1.5]$. Each range contains the actual total. Because $v-1\le1<1.5$, all 96 decisions remain open.
 
-These results follow from the enumerated schedules and the specified omissions. A workplace check should establish which contributors and periods the measurements cover. That determines which hours the range or estimate can support.
+For the full-shift estimate, divide each person's shift into two one-hour intervals. We enumerate all six equally likely draws of two of the four intervals for each schedule. The predictions fixed before sampling are 0.75 person-hours per engineer interval and 0.25 per reviewer interval. With accurate replies, both estimators average to the actual total over the six draws. Across schedules, the mean sampling variance is $49/72$ squared person-hours for direct weighting and $25/72$ for the prediction correction.
+
+Entering zero whenever the reviewer is sampled makes both estimates fall short by half a person-hour on average. The hour containing the review appears in half the draws. If the reviewer gives no reply for that hour, only the other 288 of 576 draws yield an estimate under the complete-response rule.
