@@ -31,7 +31,7 @@ For any $s$ and $A$, averaging the follow-up correction over possible draws of $
 
 When selected hours remain uncertain, give each interval in $s$ a range $[l_m,u_m]$. For an interval with no further evidence, use $[0,d_m]$. Every sampled hour has a positive weight in \eqref{eq:short-difference}, so using the lower and upper endpoints gives limits $\widehat H^-$ and $\widehat H^+$ on the estimate for this draw whenever the ranges contain the true hours.
 
-To cover the population total under simple random sampling without replacement, allow for the variation across draws.
+These endpoints bound the estimate for the intervals drawn. Another draw can yield a different estimate of the same total. Under simple random sampling without replacement, the range of prediction errors bounds this variation.
 All residuals lie between $a=-\max_{m\in U} f_m$ and
 $b=\max_{m\in U}(d_m-f_m)$. The sum of squared deviations from their mean
 is at most the sum of squared deviations from $(a+b)/2$, so
@@ -39,7 +39,5 @@ $S_r^2\le M(b-a)^2/[4(M-1)]$. Chebyshev's inequality gives a margin
 \[
   e=\sqrt{\frac{K_n M(b-a)^2}{4(M-1)\alpha}}\qquad (0<\alpha<1).
 \]
-Each unsampled interval can contribute anything from zero to its full duration. Combined with the sampled hours, this restricts $H$ to $[\sum_{m\in s}l_m,\;\sum_{m\in s}u_m+\sum_{m\notin s}d_m]$. Its intersection with $[\widehat H^--e,\widehat H^++e]$ covers $H$ with probability at least $1-\alpha$ when the measurement limits hold on every draw. Use $e=0$ for a census, including
-$M=1$. If the chance that any sample range excludes its true value is
-at most $\beta$, coverage is at least $1-\alpha-\beta$ by the union
-bound. If evidence caps eligible hours outside $U$ at $D$, add $D$ to the upper limit to cover the expanded total at the same level.
+Each unsampled interval can contribute anything from zero to its full duration. Combined with the sampled hours, this restricts $H$ to $[\sum_{m\in s}l_m,\;\sum_{m\in s}u_m+\sum_{m\notin s}d_m]$. Its intersection with $[\widehat H^--e,\widehat H^++e]$ covers $H$ with probability at least $1-\alpha$ if, for every possible draw, each sampled range $[l_m,u_m]$ contains the hours worked in its interval. Use $e=0$ for a census, including
+$M=1$. If the chance that any sampled range excludes the hours worked is at most $\beta$, the union bound gives coverage of at least $1-\alpha-\beta$ for total labour. If evidence caps eligible hours outside $U$ at $D$, add $D$ to the upper limit to cover the expanded total at the same level.

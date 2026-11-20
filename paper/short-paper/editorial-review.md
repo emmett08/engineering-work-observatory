@@ -1,10 +1,14 @@
 # Editorial review
 
-The short paper contains 3,222 words on the counting basis below. The previous revisions contained 3,278 words at `6f270af` and 2,993 at `aeefae3`.
+The short paper contains 3,484 words on the counting basis below. Earlier counts were 3,278 at `6f270af`, 2,993 at `aeefae3` and 3,222 at `2d572b1`.
 
 In the revision at `aeefae3`, the word “may” fell from three uses to zero. Two occurrences concerned dependent selections and systematic prediction errors. In the revised sampling proof, both cases follow from the same calculation of the expected correction. [Sampling](sampling.tex)
 
 ## Measurement wording
+
+The accounting section identifies when a requirement enters the comparison. Its weight is fixed at entry. Task age is elapsed time from that event, while the follow-up date depends on first acceptance. The forecast notes use entry as the cutoff for information available to a predictor. [Accounting](main.tex) · [Forecasts](model-notes.md)
+
+For an observation of work, the lower and upper values describe the hours that could have produced it, allowing for rounding or other known error. The capacity constraint comes from the time available to the contributor. The sampling section explains what the evidence must cover for the confidence guarantee to hold. [Bounds](bounds.tex) · [Sampling](sampling.tex)
 
 The abstract now identifies the scheduling restriction that excludes some totals within the bounds. If an engineer has an hour on each side of a break, a task that needs one continuous hour must fit entirely on one side. [Abstract](main.tex) · [Bounds](bounds.tex)
 
@@ -44,33 +48,33 @@ The counts include the title, keywords, headings, prose, captions and words in t
 
 | Rank | Word | Count | Editorial decision |
 | ---: | --- | ---: | --- |
-| 1 | hours | 50 | Names measured duration. The contributor and period identify whose hours enter a total. |
-| 2 | total | 28 | Denotes a sum across the specified tasks, contributors or intervals. |
+| 1 | hours | 53 | Names measured duration. The contributor and period identify whose hours enter a total. |
+| 2 | total | 32 | Denotes a sum across the specified tasks, contributors or intervals. |
 | 3 | labour | 26 | Names the human effort counted for the included requirements. |
-| 4 | interval | 21 | Denotes either a period sampled or the limits on a quantity. Its endpoints identify which. |
-| 5 | shift | 19 | Defines the observation period in the examples. |
-| 6 | time | 18 | Qualify by its role, such as elapsed time or time available for work. |
-| 7 | limit | 17 | Identifies a capacity restriction or a confidence limit. The surrounding noun distinguishes them. |
-| 8 | hour | 16 | Defines the period or unit in the examples. |
-| 9 | two | 16 | Specifies the number of people, schedules, units or time periods in an example. |
-| 10 | gives | 14 | Names the result of a calculation. A specific verb such as “bounds” identifies its role where needed. |
-| 11 | probability | 14 | Refers to a defined event, such as inclusion in a sample or exclusion of a true difference. |
-| 12 | work | 14 | Names eligible activity. Retain the activity name where the example distinguishes implementation from repair. |
-| 13 | worked | 14 | Connects a measured duration to the time someone spent on the requirements. |
-| 14 | review | 13 | Names work on a change or a check of whether the requirement still holds. |
-| 15 | mean | 12 | Names an average. Specify whether it is over draws, schedules or pairs. |
-| 16 | person-hour | 12 | The singular unit used at a decision threshold. |
-| 17 | person-hours | 12 | The unit for labour aggregated across contributors. |
-| 18 | task | 12 | Identifies the requirement or activity to which the hours belong. |
-| 19 | zero | 12 | A measured amount or a mathematical boundary. An unknown amount needs its own range. |
-| 20 | first | 11 | Distinguishes first acceptance, the first interval or the first hour. |
-| 21 | observations | 11 | Names the evidence that constrains the possible schedules. |
-| 22 | range | 11 | Names the possible values permitted by observations or fixed before allocation. |
-| 23 | schedule | 11 | Specifies which contributor worked in each half-hour slot. |
-| 24 | activity | 10 | The indexed quantity carries both contributor and task. |
-| 25 | draw | 10 | Denotes selection of intervals or allocation within a pair. The object identifies which. |
-| 26 | duration | 10 | Identifies the time a contributor worked within a sampled interval. The interval itself has a fixed length. |
-| 27 | engineer | 10 | Identifies the contributor with a shared time budget. |
-| 28 | initial | 10 | Identifies the intake score or the first round of replies. |
-| 29 | sampled | 10 | Identifies the intervals chosen for measurement or the work time in those intervals. |
-| 30 | sampling | 10 | Identifies the source of variation across draws. |
+| 4 | interval | 21 | For time, names a period with a start and an end. For hours worked, names the values between a lower and an upper bound. |
+| 5 | shift | 21 | Defines the observation period in the examples. |
+| 6 | hour | 20 | Defines the period or unit in the examples. |
+| 7 | time | 20 | Qualify by its role, such as elapsed time or time available for work. |
+| 8 | two | 20 | Specifies the number of people, schedules, units or time periods in an example. |
+| 9 | worked | 20 | Connects a duration to the time a contributor spent on the requirements. |
+| 10 | range | 18 | Keep the endpoints with the quantity they bound, such as hours worked within a shift or the difference between two teams. |
+| 11 | gives | 17 | Names the result of a calculation. A specific verb such as “bounds” identifies its role where needed. |
+| 12 | mean | 17 | Names an average. Specify whether it is over draws, schedules or pairs. |
+| 13 | work | 16 | Names eligible activity. Retain the activity name where the example distinguishes implementation from repair. |
+| 14 | limit | 15 | Names what restricts the hours or the effect. A contributor’s available time caps labour. A one-sided confidence limit accounts for variation across random draws. |
+| 15 | task | 15 | Identifies the requirement or activity to which the hours belong. |
+| 16 | review | 14 | Names work on a change or a check of whether the requirement still holds. |
+| 17 | first | 13 | Distinguishes first acceptance, the first interval or the first hour. |
+| 18 | person-hours | 13 | The unit for labour aggregated across contributors. |
+| 19 | probability | 13 | Refers to a defined event, such as inclusion in a sample or exclusion of a true difference. |
+| 20 | draw | 12 | Denotes selection of intervals or allocation within a pair. The object identifies which. |
+| 21 | initial | 12 | Names the weight fixed when a requirement enters the comparison or a duration supplied before follow-up. |
+| 22 | person-hour | 12 | The singular unit used at a decision threshold. |
+| 23 | sampled | 12 | Names the intervals selected for measurement or the hours worked in them. |
+| 24 | schedule | 12 | Specifies which contributor worked in each half-hour slot. |
+| 25 | zero | 12 | A measured amount or a mathematical boundary. An unknown amount needs its own range. |
+| 26 | duration | 11 | Names the time a contributor spent on the requirements within an interval. |
+| 27 | estimate | 11 | Names the quantity calculated from a sample. Identify the total or rate it estimates. |
+| 28 | observations | 11 | Names the evidence that constrains the possible schedules. |
+| 29 | requirement | 11 | Names the requested behaviour whose acceptance and later operation the team checks. |
+| 30 | activity | 10 | The indexed quantity carries both contributor and task. |

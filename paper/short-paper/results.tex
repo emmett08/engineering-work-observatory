@@ -1,9 +1,9 @@
 \section{Checks against 96 enumerated work schedules}
 \label{sec:results}
 
-During a two-hour shift, an engineer implements a feature in two half-hour slots and uses up to two other slots for repair. A colleague reviews the feature in any one slot. Pairing each of the 24 engineer schedules with four possible review times yields 96 equally weighted cases. Each occupied slot contributes half a person-hour to the known total.
+During a two-hour shift, an engineer implements a feature in two half-hour slots and uses up to two other slots for repair. A colleague reviews the feature in any one slot. There are six ways to place the two feature slots. Each remaining slot can contain repair work or no work on the requirements. That gives 24 engineer schedules, each with four possible review times, for 96 equally weighted cases. Each occupied slot contributes half a person-hour to the known total.
 
-We first ask whether the engineer and reviewer together worked more than one person-hour before the midpoint of the shift. We know the engineer's shift total for each task and the reviewer's hours over both the first hour and the full shift. From these observations we calculate a range $[L,U]$ using either separate capacity limits for the activities or one limit shared by the engineer's tasks. A lower bound $L>1$ establishes that labour exceeded one person-hour. If $U\le1$, the combined labour fits within one person-hour. All other ranges leave the decision open.
+We first ask whether the engineer and reviewer together worked more than one person-hour before the midpoint of the shift. We know the engineer's shift total for each task and the reviewer's hours over both the first hour and the full shift. We calculate $[L,U]$ twice from these observations. The first calculation allows up to an hour for each of the engineer's activities in the first hour. The second allows up to an hour across those activities combined. A lower bound $L>1$ establishes that labour exceeded one person-hour. If $U\le1$, the combined labour fits within one person-hour. All other ranges leave the decision open.
 
 \begin{table}[htbp]
 \centering\small
@@ -22,7 +22,7 @@ Review timing unknown, shared limit & 1.0 & 96 & 0 & 0 & 96 \\
 \end{tabular}
 \end{table}
 
-Sharing the engineer's capacity prevents double counting. With the same observations, this change reduced the mean width from 1.5 to 0.5 person-hours and raised the number of correct decisions from 12 to 60 (Table~\ref{tab:short-known-hours}). Omitting the reviewer also gave a mean width of 0.5. Those ranges excluded the actual total in 26 cases. Entering zero for first-hour review produced the same errors.
+Sharing the engineer's capacity prevents double counting. With the same observations, this change reduced the mean width from 1.5 to 0.5 person-hours and raised the number of correct decisions from 12 to 60 (Table~\ref{tab:short-known-hours}). Omitting the reviewer subtracts the known first-hour review time from both endpoints. The width therefore stays at 0.5 person-hours on average, even though 26 ranges now exclude the two people's actual total. Entering zero for first-hour review produced the same errors.
 
 If only the shift total for review is known, between zero and half a person-hour of review can fall in the first hour. An engineer who worked $v\in[1,2]$ person-hours over the shift spent between $v-1$ and one person-hour in the first hour. Adding the review gives $[v-1,1.5]$. Each range contains the actual total. Because $v-1\le1<1.5$, all 96 decisions remain open.
 

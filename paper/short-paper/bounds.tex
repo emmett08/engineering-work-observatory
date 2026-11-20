@@ -13,9 +13,9 @@ Several tasks draw on that same person's time. An engineer spends one hour imple
 
 \subsection{Compute the range on a shared time axis}
 
-To apply a shared limit to overlapping observations, include the full span of each observation. Work outside the target period can account for part of an observed total. Split the time axis at every observation and target boundary. In each resulting cell $J_k$ of duration $d_k>0$ hours, let $x_{gk}$ be the hours that contributor $j(g)$ spends on activity $g$. Each activity belongs to one task.
+A shift total can include hours worked outside the period of interest. Include the full span of every observation and divide the time axis wherever an observation or the target period starts or ends. Each resulting cell then lies wholly inside or wholly outside each observed period. In a cell $J_k$ of duration $d_k>0$ hours, let $x_{gk}$ be the hours that contributor $j(g)$ spends on activity $g$. Each activity belongs to one task.
 
-An observation $\nu$ bounds the combined hours of activities $G_\nu$ over the cells $K_\nu$ by $[v^-_\nu,v^+_\nu]$. Use equal endpoints for exact hours or allow for known measurement error, including rounding. Across all activities, one contributor's hours in a cell cannot exceed its duration. Summing the hours covered by each observation must give a value within its measured limits.
+Observation $\nu$ concerns the total hours spent on activities $G_\nu$ during cells $K_\nu$. Let $[v^-_\nu,v^+_\nu]$ enclose the values consistent with the observation and its known error. An exact duration gives equal endpoints. For example, if rounding to the nearest ten minutes is the only error, a reading of one hour places the duration between 55 and 65 minutes. A proposed schedule must place the total for each observation between its two endpoints. Each contributor's hours across activities must also fit within each cell.
 \begin{align}
  x_{gk} &\ge 0, &
  \sum_{g:j(g)=j}x_{gk} &\le d_k,\\
@@ -24,13 +24,13 @@ An observation $\nu$ bounds the combined hours of activities $G_\nu$ over the ce
 \end{align}
 Set an activity's hours to zero in cells where it is unavailable. For a contributor's absence, split at its boundaries and set all their hours to zero there.
 
-Let $\mathcal P$ be the set of arrays satisfying these constraints. An empty set means the observations conflict with one another or with the time limits. Otherwise, give work in scope weight $w_{gk}=1$ and all other work weight $0$. For the target total $h(x)=\sum_{g,k}w_{gk}x_{gk}$, solve two linear programmes to obtain
+Let $\mathcal P$ be the set of arrays satisfying these constraints. An empty set means the observations conflict with one another or require more time than a contributor had available. Otherwise, give work in scope weight $w_{gk}=1$ and all other work weight $0$. For the target total $h(x)=\sum_{g,k}w_{gk}x_{gk}$, solve two linear programmes to obtain
 \begin{equation}
   [L,U]=\left[\min_{x\in\mathcal P}h(x),\,
                     \max_{x\in\mathcal P}h(x)\right].
   \label{eq:labour-bounds}
 \end{equation}
-Any schedule consistent with the observations and time limits gives an array in $\mathcal P$ when its hours are summed within cells. Its target total therefore lies in $[L,U]$.
+Summing a schedule's hours within cells gives an array in $\mathcal P$ whenever the schedule fits the observations and each person's availability. Its target total therefore lies in $[L,U]$.
 
 \subsection{When the endpoints can occur}
 
@@ -46,4 +46,4 @@ For tasks that require two people at once, the linear programme can also restric
 
 The range $[L,U]$ applies to the included contributors' labour. If independent evidence caps additional eligible labour at $B$ hours, the combined total lies in $[L,U+B]$. Without a cap, the upper limit applies only to the included contributors.
 
-Suppose the capacity limits hold and a sample supplies the observation ranges. Whenever all ranges contain the corresponding true hours, the true allocation belongs to $\mathcal P$. If the probabilities that individual ranges exclude the hours actually worked sum to at most $\alpha$, the union bound guarantees that $[L,U]$ contains the target hours with probability at least $1-\alpha$, even for dependent observations.
+A probability sample can supply a range for each observed total. If every range contains the hours actually worked and no contributor worked beyond the available time used in the calculation, their cell totals belong to $\mathcal P$. If the probabilities that individual ranges exclude the hours actually worked sum to at most $\alpha$, the union bound guarantees that $[L,U]$ contains the target hours with probability at least $1-\alpha$, even for dependent observations.
