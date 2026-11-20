@@ -14,7 +14,7 @@ module arg_06 {
       "material": {
         "role": "grounds",
         "classification": "proof",
-        "details": "Write the finite linear constraints as Ax ≤ b with non-negative vector x, and express the target as the weighted sum wᵀx. If non-negative multipliers λ and μ satisfy Aᵀλ ≥ w and Aᵀμ ≥ −w, every feasible target falls between −μᵀb and λᵀb. A feasible x that gives either bound proves it is the respective endpoint."
+        "details": "Write the finite linear constraints as Ax ≤ b for a non-negative vector x and let wᵀx be the target. Non-negative multipliers λ and μ satisfying Aᵀλ ≥ w and Aᵀμ ≥ −w bound every feasible target between −μᵀb and λᵀb. A feasible x attaining either bound verifies the corresponding endpoint."
       }
     }
     require role == "grounds"
@@ -29,7 +29,7 @@ module arg_06 {
       "material": {
         "role": "backing",
         "classification": "proof",
-        "details": "Linear programming duality provides matching multipliers for this nonempty bounded model. For random input ranges, the probability that at least one fails is at most the sum of their individual failure probabilities. If that sum is at most α, the event that every range covers has probability at least 1 − α, without requiring independence. On that event the true target lies between the computed extrema."
+        "details": "Linear programming duality supplies matching multipliers for this nonempty bounded model. The probability that any observation range fails to cover its true value is at most the sum of their individual failure probabilities. When this sum is at most α, all the ranges cover simultaneously with probability at least 1 − α, even when the failures are dependent. Under valid structural constraints the computed extrema then enclose the true target."
       }
     }
     require role == "backing"
@@ -44,37 +44,37 @@ module arg_06 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "Take 0 < α < 1. The coverage claim concerns repetitions of the observation procedure and requires actual joint input coverage at least 1 − α together with valid structural constraints. Count an empty feasible set as a coverage failure."
+        "details": "Take 0 < α < 1 and repeat the observation procedure. The guarantee transfers simultaneous coverage of at least 1 − α from the input ranges to the target under valid structural constraints. An empty feasible set counts as a coverage failure."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "Take 0 < α < 1. The coverage claim concerns repetitions of the observation procedure and requires actual joint input coverage at least 1 − α together with valid structural constraints. Count an empty feasible set as a coverage failure."
+    statement "Take 0 < α < 1 and repeat the observation procedure. The guarantee transfers simultaneous coverage of at least 1 − α from the input ranges to the target under valid structural constraints. An empty feasible set counts as a coverage failure."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "From x ≥ 0 we get wᵀx ≤ λᵀAx. From λ ≥ 0 and Ax ≤ b we get λᵀAx ≤ λᵀb. Applying the same reasoning to −w gives the lower bound. If all the input observation ranges cover the true observed quantities, the true hours form a feasible vector whenever the structural constraints hold."
+    rationale "Since x ≥ 0, the condition Aᵀλ ≥ w gives wᵀx ≤ λᵀAx. Since λ ≥ 0, Ax ≤ b gives λᵀAx ≤ λᵀb. Repeating the calculation with μ and −w gives the lower bound. If every input range covers its true value and the structural constraints hold, the true labour gives a feasible vector."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Feasible allocations and matching dual bounds certify labour endpoints. The resulting interval inherits a simultaneous coverage guarantee for the observation limits when the structural constraints also hold."
+    statement "A feasible allocation that matches a dual bound verifies the corresponding labour endpoint. Valid structural constraints transfer simultaneous coverage of the input ranges to coverage of the target range."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "The input intervals lack the stated simultaneous coverage or the structural constraints exclude the true work history."
+    statement "The input ranges do not have the required simultaneous coverage, or the structural constraints exclude the true allocation."
     environment engineering_work
   }
 
-  // Each observation interval can have adequate marginal coverage while their combined
-  // coverage falls below the required level. Formal endpoint checks also leave open
-  // whether the observations cover the contributors and hours of interest.
+  // Coverage for individual observations can overstate the probability that all observation
+  // ranges cover together. Checking endpoints leaves open whether the observations include
+  // all the work needed for the target.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [

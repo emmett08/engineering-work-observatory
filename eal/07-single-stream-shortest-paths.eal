@@ -14,7 +14,7 @@ module arg_07 {
       "material": {
         "role": "grounds",
         "classification": "proof",
-        "details": "Let z_k be the cumulative labour from a common starting time to calendar boundary k. Encode every constraint z_q − z_p ≤ c as a directed edge from p to q with weight c. For adjacent boundaries a cell of duration d has forward edge weight d and reverse weight zero. An observation that bounds the intervening work between l and u has forward edge weight u and reverse weight −l."
+        "details": "Let z_k be cumulative labour from a common start to time boundary k. Encode z_q − z_p ≤ c as a directed edge from p to q with weight c. An interval of duration d gives a forward edge of weight d between its endpoints and a reverse edge of weight zero. An observed range of l to u hours gives a forward edge of weight u and a reverse edge of weight −l."
       }
     }
     require role == "grounds"
@@ -29,7 +29,7 @@ module arg_07 {
       "material": {
         "role": "backing",
         "classification": "proof",
-        "details": "Given a root r, set z_k to D(r,k) minus D(r,0). Every edge from i to j of weight c satisfies D(r,j) ≤ D(r,i) + c, so z satisfies that edge constraint. Adjacent inequalities guarantee that the increase in each cell fits its duration. A constant work share equal to the increase divided by cell duration realises those hours. Rooting at p and at q attains the upper and lower bounds respectively. Convex combinations realise intermediate values."
+        "details": "Let D(r,k) be the shortest-path distance from r to k. For a root r, set z_k to D(r,k) minus D(r,0). For every edge from i to j with weight c, D(r,j) is at most D(r,i) plus c, so these cumulative values satisfy every edge constraint. The adjacent values increase by a non-negative amount that fits within the interval. Allocate that many hours, or use a constant share equal to that amount divided by the duration. The root p gives the upper bound and the root q the lower bound. Convex combinations realise the intermediate totals."
       }
     }
     require role == "backing"
@@ -44,37 +44,36 @@ module arg_07 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "The graph covers one person performing one activity on one task. The observation and target endpoints must be vertices. There are edges in both directions between consecutive vertices, so the required shortest-path distances are finite when no negative cycle exists."
+        "details": "The graph describes one person doing one task activity. Each observation and target period starts and ends at a vertex. Edges in both directions between consecutive vertices make all required distances finite if there is no negative cycle."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "The graph covers one person performing one activity on one task. The observation and target endpoints must be vertices. There are edges in both directions between consecutive vertices, so the required shortest-path distances are finite when no negative cycle exists."
+    statement "The graph describes one person doing one task activity. Each observation and target period starts and ends at a vertex. Edges in both directions between consecutive vertices make all required distances finite if there is no negative cycle."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "Adding the inequalities along a path cancels the intermediate cumulative totals. A cycle of negative sum would require zero to be no greater than a negative number. In the absence of such a cycle, the shortest path from p to q bounds the labour above by D(p,q). The reverse shortest path bounds it below by −D(q,p)."
+    rationale "Adding the inequalities along a path cancels the intermediate cumulative totals. A negative cycle would require zero to be at most a negative value. In its absence the shortest path from p to q gives an upper bound of D(p,q). The reverse shortest path gives the lower bound −D(q,p)."
     backing [backing_material]
   }
 
   claim finding {
-    statement "For one allocation stream, a difference-constraint graph detects infeasibility and gives the exact attainable labour range over any interval whose endpoints are graph vertices."
+    statement "For one allocation stream, a graph of differences detects inconsistent constraints and gives the exact attainable labour range for a period whose endpoints are vertices."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "The proposed single-stream calculation treats competing allocations of the same person's time as if they were independent."
+    statement "The calculation treats two allocations that draw on the same person’s time as independent."
     environment engineering_work
   }
 
-  // Separate graphs for concurrent tasks can each allocate the same person's available
-  // time. A shared-capacity model is needed when the target or observations couple those
-  // tasks.
+  // Separate graphs can each allocate the same person’s time. Couple the allocations under
+  // one capacity constraint when observations or the target include competing activities.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [

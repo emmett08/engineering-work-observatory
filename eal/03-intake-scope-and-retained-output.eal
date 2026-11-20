@@ -14,7 +14,7 @@ module arg_03 {
       "material": {
         "role": "grounds",
         "classification": "measurement_definition",
-        "details": "Fix a non-negative score for each original requirement before work starts. Score zero for a requirement known to miss the acceptance deadline. For one accepted by the deadline, multiply its original score by the fraction of the original requirement still satisfied at the scheduled assessment after acceptance."
+        "details": "Give each original requirement a non-negative score at intake. When a requirement is still unaccepted at the deadline, its retained score is zero. For one accepted by the deadline, multiply the intake score by the fraction of the original requirement still satisfied at the scheduled assessment after acceptance."
       }
     }
     require role == "grounds"
@@ -29,7 +29,7 @@ module arg_03 {
       "material": {
         "role": "backing",
         "classification": "measurement_definition",
-        "details": "Suppose a requirement worth two units has two one-unit components. One meets the deadline and remains fully satisfied at follow-up. The other misses the deadline. Prespecified additive component scoring gives one unit. Under a prespecified rule that requires acceptance of the complete requirement, the same events give zero. This difference shows why the scoring unit must be fixed before outcomes are observed."
+        "details": "Suppose a requirement worth two units has two one-unit components. Only the first reaches acceptance by the deadline, and all of its criteria still hold at follow-up. A scoring rule defined at intake can award one unit for that component. A rule that requires timely acceptance of the complete requirement gives zero in the same case. The scoring unit determines how the same work enters the total."
       }
     }
     require role == "backing"
@@ -44,37 +44,37 @@ module arg_03 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "The score depends on the intake requirements, the scoring unit, the deadline and the lag after acceptance. Known labour for requirements with zero output credit still belongs in the cohort total."
+        "details": "The score uses the criteria and scoring unit set at intake. The deadline determines eligibility and the lag after first acceptance sets the assessment date. Count known labour in the cohort total even when the retained score is zero."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "The score depends on the intake requirements, the scoring unit, the deadline and the lag after acceptance. Known labour for requirements with zero output credit still belongs in the cohort total."
+    statement "The score uses the criteria and scoring unit set at intake. The deadline determines eligibility and the lag after first acceptance sets the assessment date. Count known labour in the cohort total even when the retained score is zero."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "A common intake rubric keeps the unit of comparison fixed even when teams implement or split requirements differently. A later assessment checks whether the delivered behaviour still holds at the stated lag."
+    rationale "A common intake rubric fixes the unit of comparison when teams split or implement requirements differently. Assess the delivered behaviour at the stated lag against the same criteria."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Fix the scoring rule and original work scope at intake, then credit timely acceptance by the fraction of that scope still satisfied at the scheduled follow-up."
+    statement "Fix the scoring rule and original requirements at intake. For timely acceptances, base the retained score on the fraction of the original requirement still satisfied at follow-up."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "A follow-up assessment is missing, the original scoring basis changed, or reviewers cannot determine which parts of the intake requirement still hold."
+    statement "The follow-up assessment is unavailable or cannot establish which original criteria still hold. A change to the original scoring basis also changes what the score measures."
     environment engineering_work
   }
 
-  // If no follow-up assessment was made, the retained fraction of a timely acceptance
-  // remains unknown. If material scope changed during development, judge the original
-  // requirement or disclose a different target.
+  // The retained fraction of an accepted requirement remains unknown until a follow-up
+  // assessment establishes it. If the scope changed, use the original criteria to assess
+  // the original requirement or state which requirement the assessment now covers.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [

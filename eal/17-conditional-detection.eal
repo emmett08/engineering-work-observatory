@@ -14,7 +14,7 @@ module arg_17 {
       "material": {
         "role": "grounds",
         "classification": "Monte Carlo design evaluation and one-parameter sensitivity analyses",
-        "details": "In the central scenario AI saves two person-hours per initial requirement unit and leaves the retained fraction unchanged by construction. Benefit requires evidence of a saving greater than one hour per unit and a retention loss smaller than five percentage points. Of 20,000 simulated trials at each size, 8,957 passed with 48 teams and 15,450 passed with 96 teams. In the larger design, 4,541 of the 4,550 failures missed the labour threshold."
+        "details": "The central simulation sets the saving from AI at two person-hours per initial requirement unit and keeps the retained fraction unchanged. To declare a benefit, a trial must establish a saving greater than one hour per unit and rule out a retention loss of five percentage points or more. Of 20,000 trials at each size, 8,957 met both criteria with 48 teams and 15,450 did so with 96 teams. In the larger design, 4,541 of the 4,550 trials that fell short could not establish the required labour saving."
       }
     }
     require role == "grounds"
@@ -29,7 +29,7 @@ module arg_17 {
       "material": {
         "role": "backing",
         "classification": "Monte Carlo design evaluation and one-parameter sensitivity analyses",
-        "details": "Each trial draws paired team baselines, selects one team per pair by a fair coin, adds the stipulated labour and retention effects, and adds measurement error. The decision uses the resulting paired differences. With 96 teams, 15,459 trials passed the labour criterion and 19,990 passed the retention criterion. In the central design, each team has standard normal latent labour and quality values with correlation 0.3. Within a pair the latent values for a given outcome have correlation 0.7. A latent labour value z maps to baseline hours per initial unit 3 + 7 exp(0.35 z − 0.35²/2). A latent quality value z maps to baseline retention 0.72 + 0.25/(1 + exp(−1.4 z)). Pair differences receive independent zero-mean Gaussian measurement errors with standard deviations sqrt(2) times 0.2 hours per initial unit and sqrt(2) times 0.005 in retained fraction. No pair is lost in the central scenario. The one-sided paired Student t bounds allow 0.2 hours per initial unit and one percentage point for differential bias."
+        "details": "In each simulated trial, a fair coin toss determines which team in each pair receives the offer. Each team has two underlying standard normal values, one for labour and one for retention, with correlation 0.3. Values for the same outcome within a pair have correlation 0.7. An underlying labour value z gives baseline hours per initial unit of 3 + 7 exp(0.35 z − 0.35²/2). For retention the corresponding formula is 0.72 + 0.25/(1 + exp(−1.4 z)). The simulator adds the stipulated effects to the paired differences and then adds independent, zero-mean normal measurement errors. Their standard deviations are sqrt(2) times 0.2 hours per initial unit for labour and sqrt(2) times 0.005 for the retained fraction. Every pair supplies both outcomes in the central scenario. The one-sided paired Student t bounds allow 0.2 hours per initial unit and one percentage point for differences in bias between groups. With 96 teams, 15,459 trials passed the labour criterion and 19,990 passed the retention criterion."
       }
     }
     require role == "backing"
@@ -44,38 +44,39 @@ module arg_17 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "The rates concern hypothetical team-level outcomes. The simulator draws no individual tasks or forecasts, and the planned twenty tasks per team enter the collection budget only. Random simulation error and uncertainty about whether real teams resemble the simulated teams are separate sources of uncertainty."
+        "details": "The simulator generates outcomes for whole teams. The planned twenty tasks per team enter only the collection budget. These runs provide no task-level forecasts. Repeating the simulation can reduce the sampling error in its detection rates. Establishing how closely the simulated teams resemble actual teams requires workplace measurements."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "The rates concern hypothetical team-level outcomes. The simulator draws no individual tasks or forecasts, and the planned twenty tasks per team enter the collection budget only. Random simulation error and uncertainty about whether real teams resemble the simulated teams are separate sources of uncertainty."
+    statement "The simulator generates outcomes for whole teams. The planned twenty tasks per team enter only the collection budget. These runs provide no task-level forecasts. Repeating the simulation can reduce the sampling error in its detection rates. Establishing how closely the simulated teams resemble actual teams requires workplace measurements."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "Each simulated trial has a known true benefit. The fraction meeting both criteria estimates the probability of detecting that benefit under the chosen assumptions. The design requires the lower 95% Monte Carlo limit on detection to reach 90% in every required benefit scenario. Central pass rates of 44.79% and 77.25% fall short."
+    rationale "The saving is known in each simulated trial, so the proportion meeting both criteria estimates the chance of detecting that saving under the chosen assumptions. The design requires the lower 95% Monte Carlo limit to reach 90% in every required benefit scenario. Even the central estimates, 44.79% and 77.25%, fall below 90%."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Neither candidate trial size qualified under the stated planning criteria. The simulation estimates detection probabilities conditional on a stipulated effect and specified measurement assumptions."
+    statement "Both trial sizes fell short of the planning criteria. Their simulated detection probabilities depend on the stipulated effect and the assumed variation in outcomes and measurement errors."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "The intended trial differs materially from the stipulated effect, between-team variation, matching or measurement assumptions used to calculate these detection rates."
+    statement "The effect, variation between teams, similarity within pairs or measurement errors in the intended trial differ materially from the values used to calculate these detection rates."
     environment engineering_work
   }
 
-  // With 96 teams and the same random draws, lowering the correlation between teams’
-  // latent baselines from 0.7 to 0.2 gave 6,930 passes out of 20,000. Separately
-  // increasing the log-scale standard deviation of baseline labour from 0.35 to 0.65 gave
-  // 5,677. These changes retain the same stipulated AI benefit.
+  // With 96 teams and the same random draws, reducing the within-pair correlation of the
+  // underlying baselines from 0.7 to 0.2 gave 6,930 declarations out of 20,000. Starting
+  // again from the central case and increasing the labour model’s log-scale standard
+  // deviation from 0.35 to 0.65 gave 5,677 declarations. Both calculations retain the
+  // same stipulated benefit.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [

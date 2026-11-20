@@ -14,7 +14,7 @@ module arg_16 {
       "material": {
         "role": "grounds",
         "classification": "Proposed decision rule and conditional test logic",
-        "details": "For each matched pair, subtract the comparison team’s outcome from the AI team’s outcome. Labour is measured in post-intake person-hours per unit of the initial requirement score. Retention is the fraction of that initial score still satisfied at follow-up. Across pairs, take the one-sided 97.5% upper bound on the mean labour difference and add 0.2 person-hours per initial unit. Take the one-sided 97.5% lower bound on the mean retention difference and subtract one percentage point. A benefit declaration requires the first adjusted bound to fall below −1 and the second to exceed −0.05."
+        "details": "For each pair, subtract the comparison team’s outcome from the outcome of the team offered AI. Measure labour in post-intake person-hours per initial requirement-score unit. Retention is the fraction of that initial score still satisfied at follow-up. Add 0.2 person-hours per initial unit to the one-sided 97.5% upper confidence bound for the mean labour difference. Subtract one percentage point from the one-sided 97.5% lower confidence bound for the mean retention difference. The rule permits a benefit claim only when the adjusted labour bound is below −1 and the adjusted retention bound exceeds −0.05."
       }
     }
     require role == "grounds"
@@ -29,7 +29,7 @@ module arg_16 {
       "material": {
         "role": "backing",
         "classification": "Proposed decision rule and conditional test logic",
-        "details": "If at least one true effect fails its criterion, a false joint declaration must also falsely declare that criterion satisfied. When each individual procedure limits that error to 2.5%, the probability of a false joint declaration is at most 2.5%, whatever the dependence between outcomes."
+        "details": "Suppose one of the true effects fails its criterion. Declaring a benefit then requires the test for that effect to pass in error. If each test limits this error to 2.5%, the probability of a false benefit declaration is at most 2.5%, even when the outcomes depend on one another."
       }
     }
     require role == "backing"
@@ -44,37 +44,37 @@ module arg_16 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "These thresholds are provisional engineering judgements. The adjustments protect only against group differences in measurement error within their respective allowances. Student t bounds use one fewer degree of freedom than there are independent pairs and are exact for identically distributed normal pair differences. Under other distributions they are approximate."
+        "details": "The thresholds express provisional engineering judgements. The adjustments cover only differences in measurement bias within the two allowances. For independent pairs, the Student t calculation uses one fewer degree of freedom than there are pairs. Its bounds are exact for identically distributed normal pair differences and approximate under other distributions."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "These thresholds are provisional engineering judgements. The adjustments protect only against group differences in measurement error within their respective allowances. Student t bounds use one fewer degree of freedom than there are independent pairs and are exact for identically distributed normal pair differences. Under other distributions they are approximate."
+    statement "The thresholds express provisional engineering judgements. The adjustments cover only differences in measurement bias within the two allowances. For independent pairs, the Student t calculation uses one fewer degree of freedom than there are pairs. Its bounds are exact for identically distributed normal pair differences and approximate under other distributions."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "The two inequalities answer different engineering questions. The first establishes a worthwhile labour saving. The second rules out a loss of five percentage points or more in retained requirements. The proposed decision requires both results."
+    rationale "The upper labour bound must establish a worthwhile saving. Even when it does, the lower retention bound must still rule out a loss of five percentage points or more."
     backing [backing_material]
   }
 
   claim finding {
-    statement "A benefit declaration requires evidence of a saving greater than one person-hour per initial unit and a loss smaller than five percentage points in the retained fraction."
+    statement "Declaring a benefit requires evidence of a saving greater than one person-hour per initial unit and a loss smaller than five percentage points in the retained fraction."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "Independent checks show that differential measurement error can move either adjusted outcome across its benefit threshold."
+    statement "Independent measurements show that differences in bias between groups can move either adjusted bound across its threshold."
     environment engineering_work
   }
 
   // A precisely measured retention loss of four percentage points can pass. A severe
-  // defect in a particular requirement can coexist with a passing average retained score.
-  // An adoption decision that includes such defects needs separate evidence.
+  // defect in one requirement can also coexist with a passing average score. An adoption
+  // decision that takes such defects into account needs evidence of their consequences.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [

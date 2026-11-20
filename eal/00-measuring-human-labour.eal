@@ -14,7 +14,7 @@ module arg_00 {
       "material": {
         "role": "grounds",
         "classification": "Mathematical arguments with finite hypothetical examples",
-        "details": "An engineer spent three hours on one requirement during a four-hour shift. At most two hours fit in the second half, and at most two hours fit in the first, so first-half labour lies between one and two person-hours. Commit data alone do not supply that three-hour total. In independent minute models with work and conditional commit probabilities (1/2, 1/5) and (1/4, 2/5), commits occur with probability 1/10 in both models, while an hour contains 30 or 15 expected active minutes."
+        "details": "An engineer spent three hours on one requirement during a four-hour shift. The second half can hold two hours at most. At least an hour fell in the first half, which holds at most two hours. Deriving the three-hour total requires direct observations of time or other evidence about human activity. In independent minute models with work and conditional commit probabilities (1/2, 1/5) and (1/4, 2/5), commits occur with probability 1/10 in both models, while an hour contains 30 or 15 expected active minutes."
       }
     }
     require role == "grounds"
@@ -29,7 +29,7 @@ module arg_00 {
       "material": {
         "role": "backing",
         "classification": "Mathematical arguments with finite hypothetical examples",
-        "details": "For interval bounds, split time at observed and target boundaries. Integrating any feasible work history gives a cell total for each activity and never exceeds one person-hour per available hour per person. Minimising and maximising the target over those totals encloses all such histories. For sampled hours, the expectation of an inclusion indicator divided by its inclusion probability is one. Thus weighting measured hours or fixed prediction errors correctly recovers the total on average. In a hypothetical paired trial, one omitted review hour per initial unit changed a true one-hour saving into an apparent two-hour saving. Six incorrectly credited checks per hundred changed a true five-point retention loss into an apparent one-point gain. Both errors favoured a false benefit decision."
+        "details": "For interval bounds, split time at observed and target boundaries. Integrate each activity over each cell to measure how much of each person’s time it consumes. Their sum for a person cannot exceed the hours available to them in the cell. The minimum and maximum over these cell totals enclose the totals from all feasible allocations. For sampled hours, the expectation of an inclusion indicator divided by its inclusion probability is one. Thus weighting measured hours or fixed prediction errors correctly recovers the total on average. In a hypothetical paired trial, one omitted review hour per initial unit changed a true one-hour saving into an apparent two-hour saving. Counting six failed checks per hundred as passes changed a true five-point retention loss into an apparent one-point gain. Both errors favoured a false benefit decision."
       }
     }
     require role == "backing"
@@ -44,14 +44,14 @@ module arg_00 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "The time and sampling arguments require a defined population of contributors, tasks and observation windows. The enclosure depends on valid observation limits and capacity. Design-based unbiasedness requires known positive inclusion probabilities and accurate sampled hours. The prospective causal comparison concerns offering specified AI tools to the enrolled teams on their fixed workloads. The numerical cases are hypothetical."
+        "details": "Define which contributors and tasks the measurement covers. Specify the periods during which their hours count. The enclosure depends on valid observation limits and capacity. Design-based unbiasedness requires known positive inclusion probabilities and accurate sampled hours. The prospective causal comparison concerns offering specified AI tools to the enrolled teams on their fixed workloads. The numerical cases are hypothetical."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "The time and sampling arguments require a defined population of contributors, tasks and observation windows. The enclosure depends on valid observation limits and capacity. Design-based unbiasedness requires known positive inclusion probabilities and accurate sampled hours. The prospective causal comparison concerns offering specified AI tools to the enrolled teams on their fixed workloads. The numerical cases are hypothetical."
+    statement "Define which contributors and tasks the measurement covers. Specify the periods during which their hours count. The enclosure depends on valid observation limits and capacity. Design-based unbiasedness requires known positive inclusion probabilities and accurate sampled hours. The prospective causal comparison concerns offering specified AI tools to the enrolled teams on their fixed workloads. The numerical cases are hypothetical."
     environment engineering_work
     validate scope_conditions
   }
@@ -68,13 +68,13 @@ module arg_00 {
   }
 
   claim exception_applies {
-    statement "Independent checks found missing work, inaccurate task hours, scheduling restrictions or biased functionality scores that can change the assessment."
+    statement "Independent checks found a problem that can change the assessment. A labour estimate may omit part of the work or mismeasure hours. A range may rely on scheduling choices the team cannot make. A follow-up score may bias the comparison."
     environment engineering_work
   }
 
-  // Missing review time or inflated follow-up scores can change a decision. Require
-  // independent checks in both groups, and retain a supported range for any unresolved
-  // hours or functionality.
+  // Omitted review hours can change the labour comparison. Inflated follow-up
+  // scores can change the retention comparison. Independently verify both groups
+  // and bound any hours or functionality the checks leave unresolved.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [
@@ -94,7 +94,7 @@ module arg_01 {
       "material": {
         "role": "grounds",
         "classification": "proof",
-        "details": "Consider two models of one engineer's work. Draw an activity indicator independently each minute, with probability p of activity. Conditional on activity, the engineer commits with probability c, using independent draws. The two models use (p, c) = (1/2, 1/5) and (1/4, 2/5). Over one hour their mean active times are 30 and 15 minutes respectively."
+        "details": "Consider two models of one engineer’s work. In each minute the engineer is active with probability p, independently of other minutes. An active engineer commits with probability c, using separate independent draws. Both models allow commits only during activity. The first uses (p, c) = (1/2, 1/5) and averages 30 active minutes per hour. The second uses (p, c) = (1/4, 2/5) and averages 15."
       }
     }
     require role == "grounds"
@@ -109,7 +109,7 @@ module arg_01 {
       "material": {
         "role": "backing",
         "classification": "proof",
-        "details": "In either model the probability of a commit in a minute is p times c, which equals one tenth. By independence, any particular n-minute sequence with k commits has probability (1/10) raised to k times (9/10) raised to n minus k, under both models. Mean active time is n times p. Even complete commit sequences over arbitrary finite periods leave this difference unresolved."
+        "details": "In both models the probability of a commit in any minute is p times c, which equals one tenth. Independence gives the probability of any specific sequence of n minutes with k commits as (1/10) to the power k times (9/10) to the power n minus k. The expected active time is n times p, so the models give different expectations for every positive n."
       }
     }
     require role == "backing"
@@ -124,37 +124,36 @@ module arg_01 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "The result concerns the expected count of active person-minutes in any model class that contains both examples. A minute of activity means the engineer was working during that minute in this binary model."
+        "details": "The result concerns expected active person-minutes in model classes that include both examples. In the binary model, the engineer works for the full minute whenever the activity indicator is one."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "The result concerns the expected count of active person-minutes in any model class that contains both examples. A minute of activity means the engineer was working during that minute in this binary model."
+    statement "The result concerns expected active person-minutes in model classes that include both examples. In the binary model, the engineer works for the full minute whenever the activity indicator is one."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "When two models give exactly the same probabilities to every observable sequence, those observations cannot distinguish a quantity the models disagree about."
+    rationale "When two models give identical probabilities to every observable sequence, those observations cannot determine a quantity on which the models disagree."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Commit observations alone do not identify mean active human time across the activity models in the counterexample."
+    statement "Commit observations alone leave expected human working time undetermined across the two activity models."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "The model class for the intended inference excludes one of the two activity processes or includes measurements that distinguish their implied human activity."
+    statement "The assumptions exclude one of the activity models, or additional measurements distinguish the amounts of human work the models imply."
     environment engineering_work
   }
 
-  // A verified emission probability, a model constraint that excludes one construction,
-  // or separate observations that distinguish the two models can remove this ambiguity. A
-  // fitted hidden state requires evidence linking it to human work.
+  // A verified chance of committing during an active minute can distinguish these models.
+  // Interpreting a fitted hidden state as human activity requires evidence about who did the work.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [
@@ -173,7 +172,7 @@ module arg_02 {
       "material": {
         "role": "grounds",
         "classification": "measurement_definition",
-        "details": "In one elapsed hour an engineer spends 40 minutes instructing and reviewing. Two AI workflows run for 50 and 20 minutes, with 20 minutes of overlap. The overlap contributes to both runs, so the workflows account for 70 workflow-minutes. The engineer supplies 40 person-minutes."
+        "details": "During one clock hour an engineer spends 40 minutes instructing and reviewing. Two AI workflows run for 50 and 20 minutes and overlap for 20 minutes. Each run includes the overlap in its own duration, giving 70 workflow-minutes. The engineer supplies 40 person-minutes."
       }
     }
     require role == "grounds"
@@ -188,7 +187,7 @@ module arg_02 {
       "material": {
         "role": "backing",
         "classification": "measurement_definition",
-        "details": "For each contributor at each instant, give every covered activity a non-negative share of their time. The sum of those shares is at most one. Integrate each share over elapsed hours and add the results across activities and contributors. For example, two people reviewing together for one hour contribute two person-hours. Define elapsed time until first acceptance by subtracting the intake time from the first acceptance time."
+        "details": "At each instant, divide each contributor’s attention among their activities using non-negative shares that sum to at most one. Integrating the shares over elapsed hours and adding the contributions gives total person-hours. For example, two people reviewing together for one hour contribute two person-hours. Measure elapsed time to first acceptance from the moment the task enters the cohort."
       }
     }
     require role == "backing"
@@ -203,37 +202,36 @@ module arg_02 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "The labour total covers the declared contributors, activities and time windows. Distinguish permanent discontinuation from observation ending before acceptance. The latter leaves the elapsed time to acceptance unknown beyond the last observed time."
+        "details": "Define whose labour counts and the period over which to count it. Specify which activities fall within the task. A task discontinued before acceptance has no first acceptance. When observation ends while the task is still open, the time already elapsed gives a lower bound on time to first acceptance."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "The labour total covers the declared contributors, activities and time windows. Distinguish permanent discontinuation from observation ending before acceptance. The latter leaves the elapsed time to acceptance unknown beyond the last observed time."
+    statement "Define whose labour counts and the period over which to count it. Specify which activities fall within the task. A task discontinued before acceptance has no first acceptance. When observation ends while the task is still open, the time already elapsed gives a lower bound on time to first acceptance."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "A person has one minute of available attention per clock minute. Separate engineers can use their own minutes concurrently, and a workflow can continue through intervals when no engineer attends to it."
+    rationale "Each engineer can devote at most one minute of attention per clock minute. Different engineers can work at the same time. An unattended workflow can run without using anyone’s attention."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Account for each person’s labour once across concurrent activities, and report workflow duration and elapsed time until acceptance as separate quantities."
+    statement "Count each person’s labour once across concurrent activities. Measure workflow duration and elapsed time to first acceptance separately."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "The totals used for this comparison count a person's time twice, omit attention spent waiting or leave material work attribution unresolved."
+    statement "The accounting either double-counts someone’s time or excludes attention they spent waiting. Hours that cannot yet be attributed to a task also leave its labour total uncertain."
     environment engineering_work
   }
 
-  // Waiting consumes labour when a person must attend to the workflow. When known hours
-  // could belong to several tasks, carry the unresolved allocation into the bounds
-  // instead of treating those hours as zero.
+  // Waiting consumes labour when someone must attend to the workflow. Include known hours
+  // in the bounds for the tasks to which they could belong.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [
@@ -252,7 +250,7 @@ module arg_03 {
       "material": {
         "role": "grounds",
         "classification": "measurement_definition",
-        "details": "Fix a non-negative score for each original requirement before work starts. Score zero for a requirement known to miss the acceptance deadline. For one accepted by the deadline, multiply its original score by the fraction of the original requirement still satisfied at the scheduled assessment after acceptance."
+        "details": "Give each original requirement a non-negative score at intake. When a requirement is still unaccepted at the deadline, its retained score is zero. For one accepted by the deadline, multiply the intake score by the fraction of the original requirement still satisfied at the scheduled assessment after acceptance."
       }
     }
     require role == "grounds"
@@ -267,7 +265,7 @@ module arg_03 {
       "material": {
         "role": "backing",
         "classification": "measurement_definition",
-        "details": "Suppose a requirement worth two units has two one-unit components. One meets the deadline and remains fully satisfied at follow-up. The other misses the deadline. Prespecified additive component scoring gives one unit. Under a prespecified rule that requires acceptance of the complete requirement, the same events give zero. This difference shows why the scoring unit must be fixed before outcomes are observed."
+        "details": "Suppose a requirement worth two units has two one-unit components. Only the first reaches acceptance by the deadline, and all of its criteria still hold at follow-up. A scoring rule defined at intake can award one unit for that component. A rule that requires timely acceptance of the complete requirement gives zero in the same case. The scoring unit determines how the same work enters the total."
       }
     }
     require role == "backing"
@@ -282,37 +280,37 @@ module arg_03 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "The score depends on the intake requirements, the scoring unit, the deadline and the lag after acceptance. Known labour for requirements with zero output credit still belongs in the cohort total."
+        "details": "The score uses the criteria and scoring unit set at intake. The deadline determines eligibility and the lag after first acceptance sets the assessment date. Count known labour in the cohort total even when the retained score is zero."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "The score depends on the intake requirements, the scoring unit, the deadline and the lag after acceptance. Known labour for requirements with zero output credit still belongs in the cohort total."
+    statement "The score uses the criteria and scoring unit set at intake. The deadline determines eligibility and the lag after first acceptance sets the assessment date. Count known labour in the cohort total even when the retained score is zero."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "A common intake rubric keeps the unit of comparison fixed even when teams implement or split requirements differently. A later assessment checks whether the delivered behaviour still holds at the stated lag."
+    rationale "A common intake rubric fixes the unit of comparison when teams split or implement requirements differently. Assess the delivered behaviour at the stated lag against the same criteria."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Fix the scoring rule and original work scope at intake, then credit timely acceptance by the fraction of that scope still satisfied at the scheduled follow-up."
+    statement "Fix the scoring rule and original requirements at intake. For timely acceptances, base the retained score on the fraction of the original requirement still satisfied at follow-up."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "A follow-up assessment is missing, the original scoring basis changed, or reviewers cannot determine which parts of the intake requirement still hold."
+    statement "The follow-up assessment is unavailable or cannot establish which original criteria still hold. A change to the original scoring basis also changes what the score measures."
     environment engineering_work
   }
 
-  // If no follow-up assessment was made, the retained fraction of a timely acceptance
-  // remains unknown. If material scope changed during development, judge the original
-  // requirement or disclose a different target.
+  // The retained fraction of an accepted requirement remains unknown until a follow-up
+  // assessment establishes it. If the scope changed, use the original criteria to assess
+  // the original requirement or state which requirement the assessment now covers.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [
@@ -330,8 +328,8 @@ module arg_04 {
     input {
       "material": {
         "role": "grounds",
-        "classification": "synthetic_enumeration",
-        "details": "Divide a two-hour shift into four half-hour periods. Place two periods of implementation and zero, one or two periods of repair in distinct slots for one engineer. There are 6, 12 and 6 possible schedules respectively. A reviewer works in any single slot, giving 96 equally weighted histories. Observe the engineer's shift totals by activity and the reviewer's first-hour total. Count both people's occupied slots in the first hour to obtain the true labour."
+        "classification": "finite_schedule_enumeration",
+        "details": "Divide a two-hour shift into four half-hour periods. One engineer implements a feature in two periods and can use either remaining period for repair. There are 6 schedules with zero repair periods and 12 with one. Using both remaining periods gives 6. The reviewer works in any one of the four periods, giving 96 equally weighted schedules in all. The observations give the engineer’s shift totals by activity and the reviewer’s first-hour total. The known first-hour total comes from counting both people’s occupied periods and multiplying by half an hour."
       }
     }
     require role == "grounds"
@@ -345,8 +343,8 @@ module arg_04 {
     input {
       "material": {
         "role": "backing",
-        "classification": "synthetic_enumeration",
-        "details": "Let r be the engineer's total repair time in hours and s be the observed first-hour review time. Separate capacity limits give first-hour bounds [s, 1 + r + s]. Shared capacity gives [r + s, 1 + s] because one hour of total engineer labour can fit in the second hour and at most one in the first. The mean of r is 0.5. Correct decisions about exceeding one person-hour require the lower bound to exceed one or the upper bound to be at most one. Counting the cases gives 12 correct and 84 unresolved with separate limits, and 60 correct and 36 unresolved with shared capacity. Both contain the true total in every case."
+        "classification": "finite_schedule_enumeration",
+        "details": "Let r be the engineer’s total repair time in hours and s be the observed first-hour review time. Separate limits give first-hour bounds [s, 1 + r + s]. Shared capacity gives [r + s, 1 + s] because the engineer can fit at most one hour of their work into either hour. The average value of r across these schedules is 0.5. A lower bound above one establishes an excess over one person-hour. An upper bound of one or less rules out an excess. Counting the cases gives 12 correct decisions under separate limits and 60 under shared capacity. Both ranges contain the known total every time, leaving 84 and 36 decisions unresolved respectively."
       }
     }
     require role == "backing"
@@ -361,39 +359,38 @@ module arg_04 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "The mean widths of 1.5 and 0.5 person-hours and the classification counts describe this finite constructed design with these observations and the strict one-person-hour threshold. The calculation makes no claim about the frequency of these conditions in workplaces."
+        "details": "The mean widths of 1.5 and 0.5 person-hours apply to the 96 schedules with the stated observations. The decision counts come from testing a strict one-person-hour threshold in those schedules."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "The mean widths of 1.5 and 0.5 person-hours and the classification counts describe this finite constructed design with these observations and the strict one-person-hour threshold. The calculation makes no claim about the frequency of these conditions in workplaces."
+    statement "The mean widths of 1.5 and 0.5 person-hours apply to the 96 schedules with the stated observations. The decision counts come from testing a strict one-person-hour threshold in those schedules."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "An activity can reach its separate maximum in a schedule that uses time the contributor would need for another activity. Applying one capacity constraint to both activities excludes these incompatible totals."
+    rationale "Two activities can reach their separate maxima in different schedules. Combining those maxima can require a contributor to use the same time twice. One capacity constraint across both activities rules out that allocation."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Enforcing a shared time budget can narrow labour ranges and resolve threshold decisions when several activities draw on the same person."
+    statement "A shared time budget can reduce the range of possible person-hours and resolve threshold decisions when several activities draw on the same contributor."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "The proposed use of the shared-capacity range excludes a contributor whose labour belongs to the target total."
+    statement "The range excludes a contributor whose labour belongs in the target total."
     environment engineering_work
   }
 
-  // If the reviewer is omitted, the upper bound is one and all 96 cases appear to be at
-  // or below the threshold. The engineer fills both first-hour slots in 13 of their 24
-  // schedules. When the reviewer also works there, which occurs in two of the four
-  // placements, true labour exceeds one person-hour. This gives 26 wrong decisions even
-  // though the mean width stays at 0.5 person-hours.
+  // Omitting the reviewer puts the upper bound at one hour in all 96 cases. The engineer
+  // fills the first hour in 13 of their 24 schedules. The reviewer works in that hour in
+  // two of four placements. The true total exceeds one hour in the resulting 26 cases,
+  // which the bound classifies incorrectly. Its mean width is still 0.5 person-hours.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [
@@ -412,7 +409,7 @@ module arg_05 {
       "material": {
         "role": "grounds",
         "classification": "proof",
-        "details": "Split the calendar at all observation and target boundaries. Each time cell has a positive duration. The variables are non-negative hours for each person, task and activity in that cell. Their sum for a person cannot exceed the cell duration. Each observation bounds the sum of its covered variables across whole cells. The target is the sum of those variables multiplied by weights fixed within each cell."
+        "details": "Take a time span containing every observation period and target window. Divide the span at each of their start and end times. Within each resulting interval, use a variable for the non-negative hours a person spends on a particular task activity. The sum for each person is at most the interval duration. Each observation bounds the sum of its covered variables over whole intervals. The target weights each variable by a fixed value for its interval and adds the results."
       }
     }
     require role == "grounds"
@@ -427,7 +424,7 @@ module arg_05 {
       "material": {
         "role": "backing",
         "classification": "proof",
-        "details": "The finitely many variables are bounded by their cell durations, and the linear constraints define a closed convex set. If it is nonempty, the linear target attains a minimum and maximum. Every weighted average of their feasible arrays is feasible, and its target is the same weighted average of the endpoint totals. The allocation construction realises each interior value as well."
+        "details": "Each variable lies between zero and its interval’s duration. The linear constraints give a closed convex set, and the duration limits make it bounded. A nonempty set has a minimum and maximum for the linear target. Any weighted average of two endpoint allocations is feasible, and its target is the same weighted average of the endpoint totals. The within-interval block allocation then realises that intermediate value."
       }
     }
     require role == "backing"
@@ -442,39 +439,38 @@ module arg_05 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "Exact attainability requires a calendar wide enough to contain all observations and a scheduling model that permits the block allocation within each cell. The observations and the target must refer to the covered contributors. If the feasible set is empty, the observations and constraints admit no history."
+        "details": "Specify the contributors covered by each observation and by the labour target. Exact attainability requires the scheduling model to permit the placement of the required activity blocks within each interval. An empty feasible set means the observations and constraints admit no allocation."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "Exact attainability requires a calendar wide enough to contain all observations and a scheduling model that permits the block allocation within each cell. The observations and the target must refer to the covered contributors. If the feasible set is empty, the observations and constraints admit no history."
+    statement "Specify the contributors covered by each observation and by the labour target. Exact attainability requires the scheduling model to permit the placement of the required activity blocks within each interval. An empty feasible set means the observations and constraints admit no allocation."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "Integrating any admissible history gives variables that meet these constraints. Conversely, take any feasible array. In each person's cell, allot one consecutive block of the specified length to each activity and leave the unused duration idle. This reproduces all observed sums and the target."
+    rationale "Integrating any admissible allocation over each interval gives variables that meet the constraints. To realise a feasible set of variables, give each of a person’s activities one consecutive block of the specified length inside the interval. The duration limit leaves room for every block, with any time left over idle. The resulting schedule reproduces the observations and the target."
     backing [backing_material]
   }
 
   claim finding {
-    statement "For a non-empty feasible allocation model, the minimum and maximum of its linear programme delimit exactly the attainable values of a cellwise linear labour target."
+    statement "In a nonempty feasible allocation model, the minimum and maximum of the linear programme give the exact endpoints of the attainable range of the weighted labour total."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "The scheduling constraints for the intended workplace forbid the within-cell switching or placements used to establish these endpoints."
+    statement "Workplace rules prevent one or more of the required activity blocks or switches between them."
     environment engineering_work
   }
 
-  // Minimum uninterrupted periods or precedence constraints can rule out some block
-  // allocations. The linear programme still encloses every total allowed by those
-  // stricter constraints if it retains all the genuine observations and capacity limits.
-  // Even when both endpoints are possible, interior values need not be possible under the
-  // stricter rules.
+  // A minimum uninterrupted duration or task dependency can exclude some block allocations.
+  // The linear programme still encloses every permissible total if it retains the true
+  // observations and capacity limits. Such workplace rules may leave gaps between attainable
+  // totals even when both endpoints are feasible.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [
@@ -494,7 +490,7 @@ module arg_06 {
       "material": {
         "role": "grounds",
         "classification": "proof",
-        "details": "Write the finite linear constraints as Ax ≤ b with non-negative vector x, and express the target as the weighted sum wᵀx. If non-negative multipliers λ and μ satisfy Aᵀλ ≥ w and Aᵀμ ≥ −w, every feasible target falls between −μᵀb and λᵀb. A feasible x that gives either bound proves it is the respective endpoint."
+        "details": "Write the finite linear constraints as Ax ≤ b for a non-negative vector x and let wᵀx be the target. Non-negative multipliers λ and μ satisfying Aᵀλ ≥ w and Aᵀμ ≥ −w bound every feasible target between −μᵀb and λᵀb. A feasible x attaining either bound verifies the corresponding endpoint."
       }
     }
     require role == "grounds"
@@ -509,7 +505,7 @@ module arg_06 {
       "material": {
         "role": "backing",
         "classification": "proof",
-        "details": "Linear programming duality provides matching multipliers for this nonempty bounded model. For random input ranges, the probability that at least one fails is at most the sum of their individual failure probabilities. If that sum is at most α, the event that every range covers has probability at least 1 − α, without requiring independence. On that event the true target lies between the computed extrema."
+        "details": "Linear programming duality supplies matching multipliers for this nonempty bounded model. The probability that any observation range fails to cover its true value is at most the sum of their individual failure probabilities. When this sum is at most α, all the ranges cover simultaneously with probability at least 1 − α, even when the failures are dependent. Under valid structural constraints the computed extrema then enclose the true target."
       }
     }
     require role == "backing"
@@ -524,37 +520,37 @@ module arg_06 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "Take 0 < α < 1. The coverage claim concerns repetitions of the observation procedure and requires actual joint input coverage at least 1 − α together with valid structural constraints. Count an empty feasible set as a coverage failure."
+        "details": "Take 0 < α < 1 and repeat the observation procedure. The guarantee transfers simultaneous coverage of at least 1 − α from the input ranges to the target under valid structural constraints. An empty feasible set counts as a coverage failure."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "Take 0 < α < 1. The coverage claim concerns repetitions of the observation procedure and requires actual joint input coverage at least 1 − α together with valid structural constraints. Count an empty feasible set as a coverage failure."
+    statement "Take 0 < α < 1 and repeat the observation procedure. The guarantee transfers simultaneous coverage of at least 1 − α from the input ranges to the target under valid structural constraints. An empty feasible set counts as a coverage failure."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "From x ≥ 0 we get wᵀx ≤ λᵀAx. From λ ≥ 0 and Ax ≤ b we get λᵀAx ≤ λᵀb. Applying the same reasoning to −w gives the lower bound. If all the input observation ranges cover the true observed quantities, the true hours form a feasible vector whenever the structural constraints hold."
+    rationale "Since x ≥ 0, the condition Aᵀλ ≥ w gives wᵀx ≤ λᵀAx. Since λ ≥ 0, Ax ≤ b gives λᵀAx ≤ λᵀb. Repeating the calculation with μ and −w gives the lower bound. If every input range covers its true value and the structural constraints hold, the true labour gives a feasible vector."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Feasible allocations and matching dual bounds certify labour endpoints. The resulting interval inherits a simultaneous coverage guarantee for the observation limits when the structural constraints also hold."
+    statement "A feasible allocation that matches a dual bound verifies the corresponding labour endpoint. Valid structural constraints transfer simultaneous coverage of the input ranges to coverage of the target range."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "The input intervals lack the stated simultaneous coverage or the structural constraints exclude the true work history."
+    statement "The input ranges do not have the required simultaneous coverage, or the structural constraints exclude the true allocation."
     environment engineering_work
   }
 
-  // Each observation interval can have adequate marginal coverage while their combined
-  // coverage falls below the required level. Formal endpoint checks also leave open
-  // whether the observations cover the contributors and hours of interest.
+  // Coverage for individual observations can overstate the probability that all observation
+  // ranges cover together. Checking endpoints leaves open whether the observations include
+  // all the work needed for the target.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [
@@ -574,7 +570,7 @@ module arg_07 {
       "material": {
         "role": "grounds",
         "classification": "proof",
-        "details": "Let z_k be the cumulative labour from a common starting time to calendar boundary k. Encode every constraint z_q − z_p ≤ c as a directed edge from p to q with weight c. For adjacent boundaries a cell of duration d has forward edge weight d and reverse weight zero. An observation that bounds the intervening work between l and u has forward edge weight u and reverse weight −l."
+        "details": "Let z_k be cumulative labour from a common start to time boundary k. Encode z_q − z_p ≤ c as a directed edge from p to q with weight c. An interval of duration d gives a forward edge of weight d between its endpoints and a reverse edge of weight zero. An observed range of l to u hours gives a forward edge of weight u and a reverse edge of weight −l."
       }
     }
     require role == "grounds"
@@ -589,7 +585,7 @@ module arg_07 {
       "material": {
         "role": "backing",
         "classification": "proof",
-        "details": "Given a root r, set z_k to D(r,k) minus D(r,0). Every edge from i to j of weight c satisfies D(r,j) ≤ D(r,i) + c, so z satisfies that edge constraint. Adjacent inequalities guarantee that the increase in each cell fits its duration. A constant work share equal to the increase divided by cell duration realises those hours. Rooting at p and at q attains the upper and lower bounds respectively. Convex combinations realise intermediate values."
+        "details": "Let D(r,k) be the shortest-path distance from r to k. For a root r, set z_k to D(r,k) minus D(r,0). For every edge from i to j with weight c, D(r,j) is at most D(r,i) plus c, so these cumulative values satisfy every edge constraint. The adjacent values increase by a non-negative amount that fits within the interval. Allocate that many hours, or use a constant share equal to that amount divided by the duration. The root p gives the upper bound and the root q the lower bound. Convex combinations realise the intermediate totals."
       }
     }
     require role == "backing"
@@ -604,37 +600,36 @@ module arg_07 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "The graph covers one person performing one activity on one task. The observation and target endpoints must be vertices. There are edges in both directions between consecutive vertices, so the required shortest-path distances are finite when no negative cycle exists."
+        "details": "The graph describes one person doing one task activity. Each observation and target period starts and ends at a vertex. Edges in both directions between consecutive vertices make all required distances finite if there is no negative cycle."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "The graph covers one person performing one activity on one task. The observation and target endpoints must be vertices. There are edges in both directions between consecutive vertices, so the required shortest-path distances are finite when no negative cycle exists."
+    statement "The graph describes one person doing one task activity. Each observation and target period starts and ends at a vertex. Edges in both directions between consecutive vertices make all required distances finite if there is no negative cycle."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "Adding the inequalities along a path cancels the intermediate cumulative totals. A cycle of negative sum would require zero to be no greater than a negative number. In the absence of such a cycle, the shortest path from p to q bounds the labour above by D(p,q). The reverse shortest path bounds it below by −D(q,p)."
+    rationale "Adding the inequalities along a path cancels the intermediate cumulative totals. A negative cycle would require zero to be at most a negative value. In its absence the shortest path from p to q gives an upper bound of D(p,q). The reverse shortest path gives the lower bound −D(q,p)."
     backing [backing_material]
   }
 
   claim finding {
-    statement "For one allocation stream, a difference-constraint graph detects infeasibility and gives the exact attainable labour range over any interval whose endpoints are graph vertices."
+    statement "For one allocation stream, a graph of differences detects inconsistent constraints and gives the exact attainable labour range for a period whose endpoints are vertices."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "The proposed single-stream calculation treats competing allocations of the same person's time as if they were independent."
+    statement "The calculation treats two allocations that draw on the same person’s time as independent."
     environment engineering_work
   }
 
-  // Separate graphs for concurrent tasks can each allocate the same person's available
-  // time. A shared-capacity model is needed when the target or observations couple those
-  // tasks.
+  // Separate graphs can each allocate the same person’s time. Couple the allocations under
+  // one capacity constraint when observations or the target include competing activities.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [
@@ -669,7 +664,7 @@ module arg_08 {
       "material": {
         "role": "backing",
         "classification": "Mathematical derivation and worked example",
-        "details": "Every allowed pair has a rate of two units per person-hour. Dividing separate marginal limits permits 2 divided by 2 and 4 divided by 1, an outer range from one to four. Neither of those extreme pairs can occur."
+        "details": "Every feasible pair has a rate of two units per person-hour. Using separate marginal limits gives an outer range from one to four by combining the smallest output with the largest labour total and the largest output with the smallest labour total. The constraint Q equals twice H excludes both combinations."
       }
     }
     require role == "backing"
@@ -684,37 +679,36 @@ module arg_08 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "Sharpness applies to the stated feasibility constraints and the pairs with positive labour. The rate has no value at zero labour."
+        "details": "The result applies to pairs satisfying the stated constraints with positive labour. The rate is undefined at zero labour."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "Sharpness applies to the stated feasibility constraints and the pairs with positive labour. The rate has no value at zero labour."
+    statement "The result applies to pairs satisfying the stated constraints with positive labour. The rate is undefined at zero labour."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "Optimising Q divided by H over feasible pairs respects the dependence between the outcomes. For positive labour, a rate r is an upper bound exactly when Q minus r times H is nonpositive for every feasible pair."
+    rationale "Optimise Q divided by H over feasible pairs. The rate r bounds productivity from above exactly when every feasible pair with H positive satisfies Q minus r times H less than or equal to zero."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Sharp deterministic productivity bounds must respect jointly feasible output and positive labour totals."
+    statement "Sharp deterministic productivity bounds come from optimising the ratio over feasible pairs of retained output and positive labour."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "The proposed finite productivity range uses zero labour, allows labour arbitrarily close to zero at positive output, or assumes an output and labour pairing excluded by the evidence."
+    statement "Reject a purported sharp range if it includes an undefined rate at zero labour or its endpoints depend on pairs excluded by the observations. If the feasible rate is unbounded as labour approaches zero, any finite range also fails."
     environment engineering_work
   }
 
-  // If compatible positive labour approaches zero while output stays fixed and positive,
-  // the rates have no finite upper bound. If all histories have zero labour, report both
-  // totals separately.
+  // If labour can approach zero with output fixed and positive, the rate has no finite
+  // upper bound. If every feasible allocation has zero labour, report the two totals.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [
@@ -734,7 +728,7 @@ module arg_09 {
       "material": {
         "role": "grounds",
         "classification": "Proposition and proof",
-        "details": "Let U be the finite set of eligible contributor intervals. Each interval has actual labour y, known positive inclusion probability pi, and an optional prediction f fixed before the draw. Every sampled labour allocation is measured accurately."
+        "details": "Take a finite set of eligible contributor intervals. For each interval let y be actual labour and pi its known positive inclusion probability. Fix any prediction f before the draw. Measure labour accurately for every sampled interval."
       }
     }
     require role == "grounds"
@@ -749,7 +743,7 @@ module arg_09 {
       "material": {
         "role": "backing",
         "classification": "Proposition and proof",
-        "details": "Adding the weighted residuals to all fixed predictions yields an expectation equal to the sum of actual labour. Setting all predictions to zero yields the Horvitz–Thompson estimator."
+        "details": "Add the weighted residuals to the sum of the fixed predictions. The expectation equals total actual labour. Setting every prediction to zero gives the Horvitz–Thompson estimator."
       }
     }
     require role == "backing"
@@ -764,26 +758,26 @@ module arg_09 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "Unbiasedness concerns repeated draws from the stated frame with actual labour and predictions held fixed. It requires recorded inclusion probabilities reflecting the design and accurate sampled hours."
+        "details": "The expectation is over repeated draws from the stated frame, holding actual labour and predictions fixed. Use the probabilities from the sampling design and accurate measured hours."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "Unbiasedness concerns repeated draws from the stated frame with actual labour and predictions held fixed. It requires recorded inclusion probabilities reflecting the design and accurate sampled hours."
+    statement "The expectation is over repeated draws from the stated frame, holding actual labour and predictions fixed. Use the probabilities from the sampling design and accurate measured hours."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "The inclusion indicator I has expectation pi. Multiplying (y minus f) by I divided by pi thus yields expected contribution y minus f, even when interval selections are dependent."
+    rationale "The inclusion indicator I has expectation pi under the sampling design. The weighted residual I times (y minus f) divided by pi therefore has expectation y minus f. This uses only the probability of selecting the individual interval."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Inverse-probability weighting estimates finite-frame labour without design bias, with or without fixed predictions."
+    statement "Inverse-probability weighting gives a design-unbiased estimate of total labour in the stated frame. Fixed predictions can supply the starting total before residuals are added."
     environment engineering_work
   }
 
@@ -792,9 +786,9 @@ module arg_09 {
     environment engineering_work
   }
 
-  // Omitted contributors lie outside the frame. Incorrect weights, systematically
-  // inaccurate replies, or fitting predictions to eliminate residuals on the correction
-  // sample can also undermine the estimate.
+  // Contributors absent from the frame have no chance of inclusion. The argument also
+  // requires correct weights and accurate replies. Fitting the prediction to the correction
+  // sample can change the expected residual contribution.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [
@@ -812,8 +806,8 @@ module arg_10 {
     input {
       "material": {
         "role": "grounds",
-        "classification": "Variance derivation and exact synthetic verification",
-        "details": "For a uniform draw of n intervals from M intervals without replacement, both design variances equal M squared times (1 minus n divided by M) divided by n, multiplied by the population variance of the sampled quantity."
+        "classification": "Variance derivation and enumeration of all draws",
+        "details": "For a uniform draw of n intervals from M without replacement, each estimator's design variance is the population variance of the sampled quantity multiplied by M squared times (1 minus n divided by M) divided by n."
       }
     }
     require role == "grounds"
@@ -827,8 +821,8 @@ module arg_10 {
     input {
       "material": {
         "role": "backing",
-        "classification": "Variance derivation and exact synthetic verification",
-        "details": "For actual hours (0, 2, 4, 6), predictions (1, 3, 3, 5), and all uniform draws of two intervals, the difference and direct estimates have respective variances 16/3 and 80/3 squared person-hours. Both average to 12 hours."
+        "classification": "Variance derivation and enumeration of all draws",
+        "details": "Take actual hours (0, 2, 4, 6) and predictions (1, 3, 3, 5). Across all equally likely draws of two intervals, the difference estimator has variance 16/3 squared person-hours. The direct estimator has variance 80/3 squared person-hours. Both average to 12 hours."
       }
     }
     require role == "backing"
@@ -857,7 +851,7 @@ module arg_10 {
 
   reasoning warrant {
     method "structured/1"
-    rationale "For n less than M, this common factor is positive. Prediction correction samples residuals while the direct estimator samples labour, so comparing these population variances settles the question."
+    rationale "For n less than M, the common factor is positive. The difference estimator uses the population variance of the residuals. The direct estimator uses the population variance of actual interval hours. A smaller residual variance therefore means a more precise total."
     backing [backing_material]
   }
 
@@ -867,7 +861,7 @@ module arg_10 {
   }
 
   claim exception_applies {
-    statement "In the intended design the weighted prediction errors vary at least as much across draws as the direct estimates of hours, or the simple-random-sampling comparison is being used under a different design."
+    statement "The precision gain fails if the weighted residual total varies at least as much across draws as the direct labour estimate. A design other than simple random sampling requires its own variance comparison."
     environment engineering_work
   }
 
@@ -891,8 +885,8 @@ module arg_11 {
     input {
       "material": {
         "role": "grounds",
-        "classification": "Two-phase design argument and implementation scope",
-        "details": "Draw eligible intervals with known positive inclusion probabilities. Among sampled intervals with no reply, draw a follow-up sample with known positive conditional probabilities. Measure the original interval accurately in each selected follow-up."
+        "classification": "Derivation for two random draws",
+        "details": "Sample eligible intervals with known positive inclusion probabilities. Within the sampled intervals that received no reply, draw a follow-up sample with known positive conditional probabilities. Measure the original interval accurately for every selected follow-up."
       }
     }
     require role == "grounds"
@@ -906,8 +900,8 @@ module arg_11 {
     input {
       "material": {
         "role": "backing",
-        "classification": "Two-phase design argument and implementation scope",
-        "details": "When an omitted interval is followed up with probability one half, its selected contribution equals twice its initial weighted residual. Averaging that contribution with zero when omitted recovers its initial weighted residual. Performing this calculation for all omissions and averaging over the first draw recovers the total."
+        "classification": "Derivation for two random draws",
+        "details": "Suppose the follow-up draw selects an unanswered interval with probability one half. The interval contributes twice its initial weighted residual if selected and zero otherwise. Its expected contribution is the initial weighted residual. Sum the corresponding expectations for all unanswered intervals and average over the initial draw to recover the labour total."
       }
     }
     require role == "backing"
@@ -922,37 +916,37 @@ module arg_11 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "Initial response may depend on workload. The result requires accurate supplied allocations, a frame covering the work and known positive probabilities for both draws."
+        "details": "Initial response may depend on workload. The calculation requires a frame covering the work. Both draws need known positive probabilities, and every supplied allocation must accurately measure the original interval."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "Initial response may depend on workload. The result requires accurate supplied allocations, a frame covering the work and known positive probabilities for both draws."
+    statement "Initial response may depend on workload. The calculation requires a frame covering the work. Both draws need known positive probabilities, and every supplied allocation must accurately measure the original interval."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "Weight first replies by inverse initial inclusion probability, and follow-up replies by the inverse product of initial and conditional follow-up inclusion probabilities. The conditional expectation of the weighted follow-ups recovers the weighted residual total for the original omissions."
+    rationale "Divide each residual from an initial reply by its initial inclusion probability. For a follow-up reply also divide by its conditional follow-up probability. The expectation over follow-up draws, conditional on the initial sample and replies, recovers the weighted residual total for the unanswered intervals."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Random follow-up with known probabilities can correct initial non-response when follow-up measurements are accurate. Remaining unknown hours can be bounded."
+    statement "Known follow-up probabilities and accurate replies allow inverse-probability weighting to correct initial non-response. Interval durations bound any remaining unknown labour."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "The follow-up design leaves some eligible missing intervals with zero selection chance or fails to obtain accurate hours from selected follow-ups."
+    statement "The follow-up design leaves some eligible intervals without usable replies with zero selection chance or fails to obtain accurate hours from selected follow-ups."
     environment engineering_work
   }
 
-  // If a selected follow-up still leaves hours unknown, use zero and full eligible
-  // duration to bound the estimate for the observed draws. Inference for the underlying
-  // total must also account for variation across both draws.
+  // If a selected follow-up leaves labour unknown, zero and the full eligible duration
+  // bound its contribution for the observed draws. Inference about total labour also
+  // needs to account for sampling variation across both draws.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [
@@ -972,7 +966,7 @@ module arg_12 {
       "material": {
         "role": "grounds",
         "classification": "Finite counterexample and confidence-set argument",
-        "details": "Consider two intervals with one and three person-hours, and six units of cohort output. Drawing one interval uniformly gives equally likely inverse-probability labour estimates of two and six hours."
+        "details": "The cohort produces six output units. Its two intervals contain one and three person-hours. Selecting one interval uniformly and applying inverse-probability weighting gives estimates of two and six hours, each with probability one half."
       }
     }
     require role == "grounds"
@@ -987,7 +981,7 @@ module arg_12 {
       "material": {
         "role": "backing",
         "classification": "Finite counterexample and confidence-set argument",
-        "details": "The plug-in rates three and one average to two, while the true rate is six divided by four, or 1.5. The contrast variance adds output variance and p squared times labour variance, then subtracts twice p times their covariance."
+        "details": "The estimated rates are three and one, averaging two. The true rate is six divided by four, or 1.5 units per hour. The contrast variance equals output variance plus p squared times labour variance minus twice p times their covariance."
       }
     }
     require role == "backing"
@@ -1016,12 +1010,12 @@ module arg_12 {
 
   reasoning warrant {
     method "structured/1"
-    rationale "The reciprocal is nonlinear. At the true rate p and positive labour H, the contrast Q minus p times H equals zero. The set of candidate rates whose valid contrast intervals contain zero therefore covers the true rate with at least the confidence level of the contrast interval."
+    rationale "Averaging reciprocals can give a different value from taking the reciprocal of an average. When H is positive, the contrast Q minus p times H equals zero at the true rate p. A set that includes every candidate whose valid contrast interval contains zero therefore covers the true rate at least as often as the interval for its contrast covers zero."
     backing [backing_material]
   }
 
   claim finding {
-    statement "An unbiased labour estimate may bias a plug-in productivity ratio. A valid output-minus-rate-times-labour contrast supports inference on productivity."
+    statement "Dividing output by an unbiased labour estimate can yield a biased productivity rate. Confidence intervals for output minus rate times labour can identify a confidence set for the rate."
     environment engineering_work
   }
 
@@ -1030,8 +1024,8 @@ module arg_12 {
     environment engineering_work
   }
 
-  // For zero or negative estimated hours, report the component estimates without a point
-  // ratio. A valid confidence set can be unbounded.
+  // With zero or negative estimated hours, report the two component estimates.
+  // A valid confidence set for the rate can have no finite upper bound.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [
@@ -1049,8 +1043,8 @@ module arg_13 {
     input {
       "material": {
         "role": "grounds",
-        "classification": "Forecast definition and synthetic replay",
-        "details": "At task intake identify earlier tasks in the same prespecified class whose labour windows closed and whose measurements were already available. Include abandoned and unfinished tasks with measured hours."
+        "classification": "Forecast definition and worked intake sequence",
+        "details": "At intake, select earlier tasks from the prespecified class. Their labour windows must have closed and their measurements must be available. Include measured hours from abandoned and unfinished tasks."
       }
     }
     require role == "grounds"
@@ -1064,8 +1058,8 @@ module arg_13 {
     input {
       "material": {
         "role": "backing",
-        "classification": "Forecast definition and synthetic replay",
-        "details": "In a synthetic team, five tasks provided initial history for eight later intakes. A class mean requiring two measurements forecast seven tasks, versus eight for the pooled mean. On the seven common tasks their mean absolute errors were 1.19 and 2.48 person-hours respectively. The eight evaluation tasks had true hours (2, 9, 12, 2, 6, 9, 6, 9) in intake order. Their class forecasts were (3, 9, unavailable, 2, 2, 9, 8/3, 9); the pooled forecasts were (6, 6, 13/3, 5, 47/8, 49/9, 11/2, 64/11). The third task was a migration with no prior example."
+        "classification": "Forecast definition and worked intake sequence",
+        "details": "The worked sequence starts with measurements for five tasks and evaluates eight later intakes. A class mean requiring two measurements forecast seven tasks. The pooled mean forecast all eight. Their mean absolute errors on the seven common tasks were 1.19 and 2.48 person-hours respectively. The evaluation tasks took (2, 9, 12, 2, 6, 9, 6, 9) hours in intake order. The class forecasts were (3, 9, unavailable, 2, 2, 9, 8/3, 9). The pooled forecasts were (6, 6, 13/3, 5, 47/8, 49/9, 11/2, 64/11). The third task was the first migration."
       }
     }
     require role == "backing"
@@ -1080,21 +1074,21 @@ module arg_13 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "Prespecify the history window, classes, minimum measurements and comparable fallback. Use consistent labour accounting, and report coverage of eligible intakes and errors on common tasks."
+        "details": "Before evaluation, set the lookback period, define the task classes and specify how many earlier measurements each class needs. Define any fallback class using comparable tasks. Apply the same labour accounting throughout. Report the share of eligible intakes that received forecasts and compare errors on tasks both methods forecast."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "Prespecify the history window, classes, minimum measurements and comparable fallback. Use consistent labour accounting, and report coverage of eligible intakes and errors on common tasks."
+    statement "Before evaluation, set the lookback period, define the task classes and specify how many earlier measurements each class needs. Define any fallback class using comparable tasks. Apply the same labour accounting throughout. Report the share of eligible intakes that received forecasts and compare errors on tasks both methods forecast."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "A historical class mean estimates average incoming labour when the eligible history represents incoming tasks in that class. The time cutoff prevents future measurements leaking into the forecast."
+    rationale "The class mean estimates average incoming labour when eligible earlier tasks represent the work arriving in that class. Use only measurements available at intake."
     backing [backing_material]
   }
 
@@ -1104,14 +1098,13 @@ module arg_13 {
   }
 
   claim exception_applies {
-    statement "The history is too short or a change in repair effort, tools or timekeeping makes the recorded hours unrepresentative of incoming work."
+    statement "The benchmark loses its basis if too few comparable measurements are available or if changes in workload or measurement make earlier tasks unrepresentative."
     environment engineering_work
   }
 
-  // Two late fixes in that synthetic team took six hours each, against class forecasts of
-  // two and eight thirds hours. Changes in workload or measurement can break
-  // comparability. Identify missing measurements, explain adjustments and withhold the
-  // forecast when both class and fallback lack enough history.
+  // Two later fixes each took six hours. The class forecasts for those tasks were two
+  // and eight thirds hours. Identify unmeasured hours and justify adjustments.
+  // Withhold the forecast if the class and fallback both lack enough measurements.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [
@@ -1130,7 +1123,7 @@ module arg_14 {
       "material": {
         "role": "grounds",
         "classification": "Algebraic derivation and counterexamples",
-        "details": "Hold intake forecasts f and g fixed across validation draws. Compare both to the same sample estimate of fixed actual labour H, with design expectation H and finite design variance."
+        "details": "Fix intake forecasts f and g before drawing the validation sample. Score both against the same estimate of actual labour H. Under the sampling design the estimate has expectation H and finite variance."
       }
     }
     require role == "grounds"
@@ -1145,7 +1138,7 @@ module arg_14 {
       "material": {
         "role": "backing",
         "classification": "Algebraic derivation and counterexamples",
-        "details": "For one task the score difference is (f minus g) times (f plus g minus twice estimated labour). Its design variance is four times (f minus g) squared times the labour estimate's variance. Shared sampled shifts can induce covariance across task scores."
+        "details": "For one task the difference in squared errors is (f minus g) times (f plus g minus twice estimated labour). It has design variance equal to four times (f minus g) squared times the estimate's variance. If tasks share sampled shifts, their score differences can covary."
       }
     }
     require role == "backing"
@@ -1174,24 +1167,24 @@ module arg_14 {
 
   reasoning warrant {
     method "structured/1"
-    rationale "Expanding the squared forecast error against the sampled estimate adds the estimate's variance to the true squared error in expectation. Unbiased measurement makes the cross term vanish. The common variance term then cancels in the expected difference."
+    rationale "The expected squared error against an unbiased estimate equals the true squared error plus the estimate's sampling variance. Subtracting the two expected squared errors cancels that shared variance term."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Two fixed forecasts can be compared by their expected squared-error difference against a common unbiased sampled reference, while other accuracy measures may need an audit."
+    statement "Scoring two fixed forecasts against the same unbiased estimate of labour preserves their expected difference in squared errors. Measures such as absolute error and interval coverage may require independently checked hours."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "The labour reference systematically misses or overstates hours, or the comparison uses a measure for which the common squared-error calculation does not apply."
+    statement "Systematic labour measurement error can distort the comparison. A different scoring method requires its own argument about measurement uncertainty."
     environment engineering_work
   }
 
-  // Systematic labour bias b shifts the expected comparison by minus twice the product of
-  // (f minus g) and b. Omitting an hour from a four-hour task makes a three-hour forecast
-  // look exact. Absolute error and coverage require credible audit values or defensible
-  // bounds on actual labour.
+  // Bias b in measured labour shifts the expected score difference by minus twice
+  // (f minus g) times b. Omitting one hour from a four-hour task makes a three-hour
+  // forecast look exact. Check actual labour independently or bound it to assess
+  // absolute error and interval coverage.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [
@@ -1210,7 +1203,7 @@ module arg_15 {
       "material": {
         "role": "grounds",
         "classification": "Randomised design and finite-population identity",
-        "details": "Before offering a specified AI toolset, each team fixes its workload and gives each requirement an initial score. A fair coin independently selects one team in each matched pair to receive the offer. For each team, divide its post-intake person-hours and its retained requirement score by the sum of its initial scores. For each outcome separately, subtract the comparison team’s value from the offered team’s value."
+        "details": "Before investigators offer the AI toolset, each team fixes its workload and scores each requirement. An independent fair coin toss within each matched pair determines which team receives the offer. Divide each team’s post-intake person-hours by its total initial score. Divide its retained requirement score by the same total. For each measure, subtract the comparison team’s value from the value for the team offered AI."
       }
     }
     require role == "grounds"
@@ -1225,7 +1218,7 @@ module arg_15 {
       "material": {
         "role": "backing",
         "classification": "Randomised design and finite-population identity",
-        "details": "Consider teams A and B. The two possible comparisons are A offered minus B unoffered and B offered minus A unoffered. Add the comparisons and regroup the four outcomes by team. Half the sum is the average of A’s offered-minus-unoffered effect and B’s corresponding effect."
+        "details": "Suppose teams A and B form a pair. If A receives the offer, the comparison uses A’s outcome with access minus B’s outcome without access. The other coin outcome exchanges their roles. Add these two differences and group the terms by team. Dividing by two gives the average of the effects of access on A and B."
       }
     }
     require role == "backing"
@@ -1240,38 +1233,38 @@ module arg_15 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "This is an expectation over possible allocations of the offer. It holds for the fixed requirements of the enrolled teams when every team has a positive initial score and its outcome depends only on its own access. Estimating effects on true hours and retained requirements also requires credible measurements."
+        "details": "The expectation averages over the two possible coin outcomes for each pair. Each enrolled team must have a positive total initial score for its fixed workload, and its outcome must depend only on its own access. An estimate of the effect on work done or requirements retained also depends on the accuracy of those measurements."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "This is an expectation over possible allocations of the offer. It holds for the fixed requirements of the enrolled teams when every team has a positive initial score and its outcome depends only on its own access. Estimating effects on true hours and retained requirements also requires credible measurements."
+    statement "The expectation averages over the two possible coin outcomes for each pair. Each enrolled team must have a positive total initial score for its fixed workload, and its outcome must depend only on its own access. An estimate of the effect on work done or requirements retained also depends on the accuracy of those measurements."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "Either team in a pair is equally likely to receive the offer. Taking the expectation over that coin toss gives half the sum of the two teams’ own offer effects. An unweighted average over pairs therefore gives every enrolled team equal weight."
+    rationale "Each team has an equal chance of receiving the offer. The expected difference within a pair therefore equals the average of the two effects in that pair. Giving each pair the same weight gives every enrolled team the same weight."
     backing [backing_material]
   }
 
   claim finding {
-    statement "The mean within-pair difference estimates the equally weighted effect of offering the specified AI toolset on the enrolled teams’ fixed workloads."
+    statement "The mean difference within pairs estimates the equally weighted effect of offering the specified AI toolset on the enrolled teams’ fixed workloads."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "Teams can affect each other's outcomes through shared staff, code or computing resources, or workload eligibility changed after assignment."
+    statement "Teams influence one another’s outcomes through shared staff, code or computing resources, or the criteria for including work change after the coin toss."
     environment engineering_work
   }
 
-  // A reviewer who shares a technique or a compute queue serving both groups can make one
-  // team’s outcome depend on another team’s access. Randomising linked teams together
-  // changes the unit of allocation and requires a new analysis. The effect of the offer
-  // also leaves open what would happen if AI changed the incoming workload.
+  // A reviewer may pass a technique from one team to another. Teams sharing a compute
+  // queue can delay one another’s work. Randomising linked teams together changes the
+  // unit of allocation and requires a corresponding analysis. Measuring how AI changes
+  // incoming requests would require following those requests.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [
@@ -1291,7 +1284,7 @@ module arg_16 {
       "material": {
         "role": "grounds",
         "classification": "Proposed decision rule and conditional test logic",
-        "details": "For each matched pair, subtract the comparison team’s outcome from the AI team’s outcome. Labour is measured in post-intake person-hours per unit of the initial requirement score. Retention is the fraction of that initial score still satisfied at follow-up. Across pairs, take the one-sided 97.5% upper bound on the mean labour difference and add 0.2 person-hours per initial unit. Take the one-sided 97.5% lower bound on the mean retention difference and subtract one percentage point. A benefit declaration requires the first adjusted bound to fall below −1 and the second to exceed −0.05."
+        "details": "For each pair, subtract the comparison team’s outcome from the outcome of the team offered AI. Measure labour in post-intake person-hours per initial requirement-score unit. Retention is the fraction of that initial score still satisfied at follow-up. Add 0.2 person-hours per initial unit to the one-sided 97.5% upper confidence bound for the mean labour difference. Subtract one percentage point from the one-sided 97.5% lower confidence bound for the mean retention difference. The rule permits a benefit claim only when the adjusted labour bound is below −1 and the adjusted retention bound exceeds −0.05."
       }
     }
     require role == "grounds"
@@ -1306,7 +1299,7 @@ module arg_16 {
       "material": {
         "role": "backing",
         "classification": "Proposed decision rule and conditional test logic",
-        "details": "If at least one true effect fails its criterion, a false joint declaration must also falsely declare that criterion satisfied. When each individual procedure limits that error to 2.5%, the probability of a false joint declaration is at most 2.5%, whatever the dependence between outcomes."
+        "details": "Suppose one of the true effects fails its criterion. Declaring a benefit then requires the test for that effect to pass in error. If each test limits this error to 2.5%, the probability of a false benefit declaration is at most 2.5%, even when the outcomes depend on one another."
       }
     }
     require role == "backing"
@@ -1321,37 +1314,37 @@ module arg_16 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "These thresholds are provisional engineering judgements. The adjustments protect only against group differences in measurement error within their respective allowances. Student t bounds use one fewer degree of freedom than there are independent pairs and are exact for identically distributed normal pair differences. Under other distributions they are approximate."
+        "details": "The thresholds express provisional engineering judgements. The adjustments cover only differences in measurement bias within the two allowances. For independent pairs, the Student t calculation uses one fewer degree of freedom than there are pairs. Its bounds are exact for identically distributed normal pair differences and approximate under other distributions."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "These thresholds are provisional engineering judgements. The adjustments protect only against group differences in measurement error within their respective allowances. Student t bounds use one fewer degree of freedom than there are independent pairs and are exact for identically distributed normal pair differences. Under other distributions they are approximate."
+    statement "The thresholds express provisional engineering judgements. The adjustments cover only differences in measurement bias within the two allowances. For independent pairs, the Student t calculation uses one fewer degree of freedom than there are pairs. Its bounds are exact for identically distributed normal pair differences and approximate under other distributions."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "The two inequalities answer different engineering questions. The first establishes a worthwhile labour saving. The second rules out a loss of five percentage points or more in retained requirements. The proposed decision requires both results."
+    rationale "The upper labour bound must establish a worthwhile saving. Even when it does, the lower retention bound must still rule out a loss of five percentage points or more."
     backing [backing_material]
   }
 
   claim finding {
-    statement "A benefit declaration requires evidence of a saving greater than one person-hour per initial unit and a loss smaller than five percentage points in the retained fraction."
+    statement "Declaring a benefit requires evidence of a saving greater than one person-hour per initial unit and a loss smaller than five percentage points in the retained fraction."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "Independent checks show that differential measurement error can move either adjusted outcome across its benefit threshold."
+    statement "Independent measurements show that differences in bias between groups can move either adjusted bound across its threshold."
     environment engineering_work
   }
 
   // A precisely measured retention loss of four percentage points can pass. A severe
-  // defect in a particular requirement can coexist with a passing average retained score.
-  // An adoption decision that includes such defects needs separate evidence.
+  // defect in one requirement can also coexist with a passing average score. An adoption
+  // decision that takes such defects into account needs evidence of their consequences.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [
@@ -1371,7 +1364,7 @@ module arg_17 {
       "material": {
         "role": "grounds",
         "classification": "Monte Carlo design evaluation and one-parameter sensitivity analyses",
-        "details": "In the central scenario AI saves two person-hours per initial requirement unit and leaves the retained fraction unchanged by construction. Benefit requires evidence of a saving greater than one hour per unit and a retention loss smaller than five percentage points. Of 20,000 simulated trials at each size, 8,957 passed with 48 teams and 15,450 passed with 96 teams. In the larger design, 4,541 of the 4,550 failures missed the labour threshold."
+        "details": "The central simulation sets the saving from AI at two person-hours per initial requirement unit and keeps the retained fraction unchanged. To declare a benefit, a trial must establish a saving greater than one hour per unit and rule out a retention loss of five percentage points or more. Of 20,000 trials at each size, 8,957 met both criteria with 48 teams and 15,450 did so with 96 teams. In the larger design, 4,541 of the 4,550 trials that fell short could not establish the required labour saving."
       }
     }
     require role == "grounds"
@@ -1386,7 +1379,7 @@ module arg_17 {
       "material": {
         "role": "backing",
         "classification": "Monte Carlo design evaluation and one-parameter sensitivity analyses",
-        "details": "Each trial draws paired team baselines, selects one team per pair by a fair coin, adds the stipulated labour and retention effects, and adds measurement error. The decision uses the resulting paired differences. With 96 teams, 15,459 trials passed the labour criterion and 19,990 passed the retention criterion. In the central design, each team has standard normal latent labour and quality values with correlation 0.3. Within a pair the latent values for a given outcome have correlation 0.7. A latent labour value z maps to baseline hours per initial unit 3 + 7 exp(0.35 z − 0.35²/2). A latent quality value z maps to baseline retention 0.72 + 0.25/(1 + exp(−1.4 z)). Pair differences receive independent zero-mean Gaussian measurement errors with standard deviations sqrt(2) times 0.2 hours per initial unit and sqrt(2) times 0.005 in retained fraction. No pair is lost in the central scenario. The one-sided paired Student t bounds allow 0.2 hours per initial unit and one percentage point for differential bias."
+        "details": "In each simulated trial, a fair coin toss determines which team in each pair receives the offer. Each team has two underlying standard normal values, one for labour and one for retention, with correlation 0.3. Values for the same outcome within a pair have correlation 0.7. An underlying labour value z gives baseline hours per initial unit of 3 + 7 exp(0.35 z − 0.35²/2). For retention the corresponding formula is 0.72 + 0.25/(1 + exp(−1.4 z)). The simulator adds the stipulated effects to the paired differences and then adds independent, zero-mean normal measurement errors. Their standard deviations are sqrt(2) times 0.2 hours per initial unit for labour and sqrt(2) times 0.005 for the retained fraction. Every pair supplies both outcomes in the central scenario. The one-sided paired Student t bounds allow 0.2 hours per initial unit and one percentage point for differences in bias between groups. With 96 teams, 15,459 trials passed the labour criterion and 19,990 passed the retention criterion."
       }
     }
     require role == "backing"
@@ -1401,38 +1394,39 @@ module arg_17 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "The rates concern hypothetical team-level outcomes. The simulator draws no individual tasks or forecasts, and the planned twenty tasks per team enter the collection budget only. Random simulation error and uncertainty about whether real teams resemble the simulated teams are separate sources of uncertainty."
+        "details": "The simulator generates outcomes for whole teams. The planned twenty tasks per team enter only the collection budget. These runs provide no task-level forecasts. Repeating the simulation can reduce the sampling error in its detection rates. Establishing how closely the simulated teams resemble actual teams requires workplace measurements."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "The rates concern hypothetical team-level outcomes. The simulator draws no individual tasks or forecasts, and the planned twenty tasks per team enter the collection budget only. Random simulation error and uncertainty about whether real teams resemble the simulated teams are separate sources of uncertainty."
+    statement "The simulator generates outcomes for whole teams. The planned twenty tasks per team enter only the collection budget. These runs provide no task-level forecasts. Repeating the simulation can reduce the sampling error in its detection rates. Establishing how closely the simulated teams resemble actual teams requires workplace measurements."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "Each simulated trial has a known true benefit. The fraction meeting both criteria estimates the probability of detecting that benefit under the chosen assumptions. The design requires the lower 95% Monte Carlo limit on detection to reach 90% in every required benefit scenario. Central pass rates of 44.79% and 77.25% fall short."
+    rationale "The saving is known in each simulated trial, so the proportion meeting both criteria estimates the chance of detecting that saving under the chosen assumptions. The design requires the lower 95% Monte Carlo limit to reach 90% in every required benefit scenario. Even the central estimates, 44.79% and 77.25%, fall below 90%."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Neither candidate trial size qualified under the stated planning criteria. The simulation estimates detection probabilities conditional on a stipulated effect and specified measurement assumptions."
+    statement "Both trial sizes fell short of the planning criteria. Their simulated detection probabilities depend on the stipulated effect and the assumed variation in outcomes and measurement errors."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "The intended trial differs materially from the stipulated effect, between-team variation, matching or measurement assumptions used to calculate these detection rates."
+    statement "The effect, variation between teams, similarity within pairs or measurement errors in the intended trial differ materially from the values used to calculate these detection rates."
     environment engineering_work
   }
 
-  // With 96 teams and the same random draws, lowering the correlation between teams’
-  // latent baselines from 0.7 to 0.2 gave 6,930 passes out of 20,000. Separately
-  // increasing the log-scale standard deviation of baseline labour from 0.35 to 0.65 gave
-  // 5,677. These changes retain the same stipulated AI benefit.
+  // With 96 teams and the same random draws, reducing the within-pair correlation of the
+  // underlying baselines from 0.7 to 0.2 gave 6,930 declarations out of 20,000. Starting
+  // again from the central case and increasing the labour model’s log-scale standard
+  // deviation from 0.35 to 0.65 gave 5,677 declarations. Both calculations retain the
+  // same stipulated benefit.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [
@@ -1452,7 +1446,7 @@ module arg_18 {
       "material": {
         "role": "grounds",
         "classification": "Monte Carlo bias stress test and constructed task-level example",
-        "details": "In a hypothetical trial the true labour saving is exactly one person-hour per initial requirement unit and the retained fraction falls by exactly five percentage points. Both true effects miss the strict benefit criteria. Relative measurement errors favouring AI exaggerate its saving by one hour per unit and its retained fraction by six points. The analysis allows only 0.2 hours per unit and one point. False declarations occur in 9,561 of 20,000 simulated trials with 48 teams and 15,242 of 20,000 with 96 teams."
+        "details": "In these simulated trials, the true labour saving is exactly one person-hour per initial requirement unit and the retained fraction falls by exactly five percentage points. A benefit requires a greater saving and a smaller loss. Measurement errors favour the AI group by overstating its saving by one hour per unit and its retained fraction by six percentage points. The analysis allows for 0.2 hours per unit and one percentage point respectively. The rule falsely declares a benefit in 9,561 of 20,000 trials with 48 teams and in 15,242 of 20,000 with 96 teams."
       }
     }
     require role == "grounds"
@@ -1467,7 +1461,7 @@ module arg_18 {
       "material": {
         "role": "backing",
         "classification": "Monte Carlo bias stress test and constructed task-level example",
-        "details": "In a separate constructed example, each of twelve teams has two fixed requirements. Accurate measurements put the mean effects at both decision thresholds, so the rule withholds a benefit declaration. Omitting one hour of review per initial unit in the AI group raises its apparent saving to two hours. Crediting six unfulfilled criteria per hundred changes an actual five-point loss into an apparent one-point gain. The rule then declares a benefit on the same work. The simulation generates latent normal labour and retention with a within-team correlation of 0.3 and within-pair correlation of 0.7 for each outcome. It transforms the baselines to 3 + 7 exp(0.35 z − 0.35²/2) for labour and 0.72 + 0.25/(1 + exp(−1.4 z)) for retention. Pair differences include independent normal measurement errors with standard deviations sqrt(2) times 0.2 and sqrt(2) times 0.005 in their respective units. All pairs are complete."
+        "details": "The simulation draws standard normal values for labour and retention with correlation 0.3 within a team and 0.7 within a pair for the same outcome. A labour value z gives baseline hours per initial unit of 3 + 7 exp(0.35 z − 0.35²/2). For retention the corresponding formula is 0.72 + 0.25/(1 + exp(−1.4 z)). Each pair provides both outcomes. The paired differences include independent normal measurement errors with standard deviations of sqrt(2) times 0.2 hours per initial unit for labour and sqrt(2) times 0.005 for retention. A separate worked example traces the bias to individual tasks. Each of twelve teams has two fixed requirements. Accurate measurements put both mean effects exactly at their thresholds, so the rule withholds a benefit declaration. Omitting one reviewer-hour per initial unit from the AI teams’ hours raises their apparent saving to two hours per unit. Counting six unfulfilled criteria per hundred as satisfied turns the five-point loss into an apparent one-point gain. Those two measurement errors produce a benefit declaration for the same work."
       }
     }
     require role == "backing"
@@ -1482,37 +1476,38 @@ module arg_18 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "The observed false-declaration rates of 47.81% and 76.21% apply to the specified simulated biases and team distributions. The constructed requirements show one way those biases could arise. Their frequency and magnitude in a workplace require independent measurements."
+        "details": "The false-declaration rates of 47.81% and 76.21% apply to the specified biases and simulated teams. Measuring how often comparable errors occur in a workplace, and how large they are, requires an independent estimate of omitted time and wrongly scored requirements."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "The observed false-declaration rates of 47.81% and 76.21% apply to the specified simulated biases and team distributions. The constructed requirements show one way those biases could arise. Their frequency and magnitude in a workplace require independent measurements."
+    statement "The false-declaration rates of 47.81% and 76.21% apply to the specified biases and simulated teams. Measuring how often comparable errors occur in a workplace, and how large they are, requires an independent estimate of omitted time and wrongly scored requirements."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "Systematic errors shift the average observed difference in the same direction across teams. Adding independent pairs can narrow the uncertainty interval around that shifted difference, making it more likely to cross the decision threshold."
+    rationale "When measurement errors consistently favour one group, more independent pairs can reduce the sampling uncertainty around a biased mean difference. The adjusted bounds can then cross the decision thresholds more often even though the underlying effects remain at those thresholds."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Increasing trial size can increase false declarations when systematic measurement differences favour AI beyond the allowed errors."
+    statement "A larger trial can declare a benefit falsely more often when systematic measurement errors favour AI by more than the analysis allows."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "A proposed transfer of the stress-test result to a field trial lacks evidence that the trial's differential errors are large enough to reproduce the failure mechanism."
+    statement "Applying this result to a particular workforce requires evidence that differences in measurement bias between the two groups could exceed the allowances."
     environment engineering_work
   }
 
-  // An audit that independently times review and tests the follow-up criteria can bound
-  // the difference in measurement errors between groups. If plausible corrections cross
-  // either threshold, increasing the team count alone cannot resolve the decision.
+  // Time reviews independently and test whether the software satisfies the follow-up
+  // criteria. These checks can bound the difference in measurement bias between groups.
+  // If plausible corrections take either outcome across its threshold, collecting more
+  // teams’ reports alone cannot settle the decision.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [
@@ -1532,7 +1527,7 @@ module arg_19 {
       "material": {
         "role": "grounds",
         "classification": "Probability bound, exact binomial limit and conditional simulation",
-        "details": "Under the proposed benefit rule, each team must supply both post-intake labour per initial requirement unit and the fraction of the initial score retained. If each pair independently has a 0.5% chance of missing an outcome, the chance of complete data is 88.7% with 24 pairs and 78.6% with 48 pairs. Both ceilings fall below the 90% detection target. In 20,000 simulated 48-pair trials, 4,212 had incomplete outcomes and could not declare a benefit."
+        "details": "Every team must supply both its post-intake labour per initial requirement unit and the fraction of its initial score retained. If each pair independently has a 0.5% chance of lacking either outcome, the chance of complete data is 88.7% with 24 pairs and 78.6% with 48 pairs. These upper limits on the chance of declaring a benefit both fall below the 90% detection target. Of 20,000 simulated trials with 48 pairs, 4,212 lacked an outcome and could not establish a benefit."
       }
     }
     require role == "grounds"
@@ -1547,7 +1542,7 @@ module arg_19 {
       "material": {
         "role": "backing",
         "classification": "Probability bound, exact binomial limit and conditional simulation",
-        "details": "In a proposed pilot of six pairs, the chance of seeing no losses is (1−q)^6. Setting that probability to 0.05 gives a one-sided exact 95% upper limit of 1−0.05^(1/6), approximately 39.3%, after zero observed losses. A pilot of this size consequently cannot establish that the loss probability is as small as 0.5%."
+        "details": "If each pair independently has probability q of lacking an outcome, the probability that six pairs all supply complete data is (1−q)^6. Setting this probability to 0.05 gives an exact one-sided 95% upper limit on q of 1−0.05^(1/6), about 39.3%. Even six complete pairs would therefore leave plausible loss probabilities far above 0.5%."
       }
     }
     require role == "backing"
@@ -1562,38 +1557,38 @@ module arg_19 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "This numerical ceiling requires common independent pair losses and the all-complete decision rule. The proposed six-pair pilot, with six initial tasks per team, can examine contributors’ reporting burden and the causes of missing labour or follow-up assessments."
+        "details": "These numerical ceilings assume that the pairs lose outcomes independently at the same rate and that the decision requires every outcome. The proposed six-pair feasibility study gives each team six initial tasks. It can measure time spent reporting and identify why labour measurements or follow-up assessments are unavailable."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "This numerical ceiling requires common independent pair losses and the all-complete decision rule. The proposed six-pair pilot, with six initial tasks per team, can examine contributors’ reporting burden and the causes of missing labour or follow-up assessments."
+    statement "These numerical ceilings assume that the pairs lose outcomes independently at the same rate and that the decision requires every outcome. The proposed six-pair feasibility study gives each team six initial tasks. It can measure time spent reporting and identify why labour measurements or follow-up assessments are unavailable."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "A benefit declaration is possible only when every pair is complete. If each of m independent pairs has the same loss probability q, the probability of that event is (1−q)^m, even if every complete trial could detect the true benefit."
+    rationale "If each of m independent pairs supplies both outcomes with probability 1−q, all m do so with probability (1−q)^m. Even a trial that detects the true benefit whenever its data are complete can declare a benefit only that often."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Requiring complete outcomes from every pair caps the probability of declaring benefit, and a six-pair pilot cannot establish that incomplete pairs are rare."
+    statement "Requiring both outcomes from every pair limits the chance of establishing a benefit. Six pairs provide too little evidence to establish that losses are rare."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "Pair losses are dependent or the intended decision rule permits decisions with incomplete pairs, so the independent all-complete calculation does not apply."
+    statement "Dependent losses change the chance of complete data. A rule that permits decisions with incomplete pairs also changes the upper limit on the chance of establishing a benefit."
     environment engineering_work
   }
 
-  // If a single outage removes outcomes for all pairs with probability 0.5% and otherwise
-  // every pair is complete, each pair still has a 0.5% risk of loss but the chance of
-  // complete data is 99.5% at either size. A procedure permitting decisions with partial
-  // data would need prespecified bounds and an assessment of its own error rates.
+  // Suppose a single outage removes outcomes for every pair with probability 0.5% and
+  // all outcomes are otherwise available. Each pair still has a 0.5% chance of loss, yet
+  // both trial sizes have a 99.5% chance of complete data. A procedure using partial
+  // outcomes would need prespecified bounds and an evaluation of its error rates.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [

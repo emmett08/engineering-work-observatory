@@ -1,0 +1,84 @@
+language "EAL/4"
+
+environment engineering_work {
+  require true == true
+}
+
+module arg_11 {
+  evidence grounds {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "grounds",
+        "classification": "Derivation for two random draws",
+        "details": "Sample eligible intervals with known positive inclusion probabilities. Within the sampled intervals that received no reply, draw a follow-up sample with known positive conditional probabilities. Measure the original interval accurately for every selected follow-up."
+      }
+    }
+    require role == "grounds"
+  }
+
+  evidence backing_material {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "backing",
+        "classification": "Derivation for two random draws",
+        "details": "Suppose the follow-up draw selects an unanswered interval with probability one half. The interval contributes twice its initial weighted residual if selected and zero otherwise. Its expected contribution is the initial weighted residual. Sum the corresponding expectations for all unanswered intervals and average over the initial draw to recover the labour total."
+      }
+    }
+    require role == "backing"
+  }
+
+  evidence scope_conditions {
+    kind argument_material
+    environment engineering_work
+    max_age 315360000
+    derive material
+    input {
+      "material": {
+        "role": "scope",
+        "classification": "Conditions for applying this inference",
+        "details": "Initial response may depend on workload. The calculation requires a frame covering the work. Both draws need known positive probabilities, and every supplied allocation must accurately measure the original interval."
+      }
+    }
+    require role == "scope"
+  }
+
+  assumption applicability {
+    statement "Initial response may depend on workload. The calculation requires a frame covering the work. Both draws need known positive probabilities, and every supplied allocation must accurately measure the original interval."
+    environment engineering_work
+    validate scope_conditions
+  }
+
+  reasoning warrant {
+    method "structured/1"
+    rationale "Divide each residual from an initial reply by its initial inclusion probability. For a follow-up reply also divide by its conditional follow-up probability. The expectation over follow-up draws, conditional on the initial sample and replies, recovers the weighted residual total for the unanswered intervals."
+    backing [backing_material]
+  }
+
+  claim finding {
+    statement "Known follow-up probabilities and accurate replies allow inverse-probability weighting to correct initial non-response. Interval durations bound any remaining unknown labour."
+    environment engineering_work
+  }
+
+  claim exception_applies {
+    statement "The follow-up design leaves some eligible intervals without usable replies with zero selection chance or fails to obtain accurate hours from selected follow-ups."
+    environment engineering_work
+  }
+
+  // If a selected follow-up leaves labour unknown, zero and the full eligible duration
+  // bound its contribution for the observed draws. Inference about total labour also
+  // needs to account for sampling variation across both draws.
+  objection challenge = [premises exception_applies] -x> argument inference
+
+  argument inference = [
+    evidence grounds,
+    assumptions applicability
+  ] via warrant => finding
+}

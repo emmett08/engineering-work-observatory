@@ -14,7 +14,7 @@ module arg_02 {
       "material": {
         "role": "grounds",
         "classification": "measurement_definition",
-        "details": "In one elapsed hour an engineer spends 40 minutes instructing and reviewing. Two AI workflows run for 50 and 20 minutes, with 20 minutes of overlap. The overlap contributes to both runs, so the workflows account for 70 workflow-minutes. The engineer supplies 40 person-minutes."
+        "details": "During one clock hour an engineer spends 40 minutes instructing and reviewing. Two AI workflows run for 50 and 20 minutes and overlap for 20 minutes. Each run includes the overlap in its own duration, giving 70 workflow-minutes. The engineer supplies 40 person-minutes."
       }
     }
     require role == "grounds"
@@ -29,7 +29,7 @@ module arg_02 {
       "material": {
         "role": "backing",
         "classification": "measurement_definition",
-        "details": "For each contributor at each instant, give every covered activity a non-negative share of their time. The sum of those shares is at most one. Integrate each share over elapsed hours and add the results across activities and contributors. For example, two people reviewing together for one hour contribute two person-hours. Define elapsed time until first acceptance by subtracting the intake time from the first acceptance time."
+        "details": "At each instant, divide each contributor’s attention among their activities using non-negative shares that sum to at most one. Integrating the shares over elapsed hours and adding the contributions gives total person-hours. For example, two people reviewing together for one hour contribute two person-hours. Measure elapsed time to first acceptance from the moment the task enters the cohort."
       }
     }
     require role == "backing"
@@ -44,37 +44,36 @@ module arg_02 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "The labour total covers the declared contributors, activities and time windows. Distinguish permanent discontinuation from observation ending before acceptance. The latter leaves the elapsed time to acceptance unknown beyond the last observed time."
+        "details": "Define whose labour counts and the period over which to count it. Specify which activities fall within the task. A task discontinued before acceptance has no first acceptance. When observation ends while the task is still open, the time already elapsed gives a lower bound on time to first acceptance."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "The labour total covers the declared contributors, activities and time windows. Distinguish permanent discontinuation from observation ending before acceptance. The latter leaves the elapsed time to acceptance unknown beyond the last observed time."
+    statement "Define whose labour counts and the period over which to count it. Specify which activities fall within the task. A task discontinued before acceptance has no first acceptance. When observation ends while the task is still open, the time already elapsed gives a lower bound on time to first acceptance."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "A person has one minute of available attention per clock minute. Separate engineers can use their own minutes concurrently, and a workflow can continue through intervals when no engineer attends to it."
+    rationale "Each engineer can devote at most one minute of attention per clock minute. Different engineers can work at the same time. An unattended workflow can run without using anyone’s attention."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Account for each person’s labour once across concurrent activities, and report workflow duration and elapsed time until acceptance as separate quantities."
+    statement "Count each person’s labour once across concurrent activities. Measure workflow duration and elapsed time to first acceptance separately."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "The totals used for this comparison count a person's time twice, omit attention spent waiting or leave material work attribution unresolved."
+    statement "The accounting either double-counts someone’s time or excludes attention they spent waiting. Hours that cannot yet be attributed to a task also leave its labour total uncertain."
     environment engineering_work
   }
 
-  // Waiting consumes labour when a person must attend to the workflow. When known hours
-  // could belong to several tasks, carry the unresolved allocation into the bounds
-  // instead of treating those hours as zero.
+  // Waiting consumes labour when someone must attend to the workflow. Include known hours
+  // in the bounds for the tasks to which they could belong.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [

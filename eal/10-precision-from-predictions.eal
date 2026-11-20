@@ -13,8 +13,8 @@ module arg_10 {
     input {
       "material": {
         "role": "grounds",
-        "classification": "Variance derivation and exact synthetic verification",
-        "details": "For a uniform draw of n intervals from M intervals without replacement, both design variances equal M squared times (1 minus n divided by M) divided by n, multiplied by the population variance of the sampled quantity."
+        "classification": "Variance derivation and enumeration of all draws",
+        "details": "For a uniform draw of n intervals from M without replacement, each estimator's design variance is the population variance of the sampled quantity multiplied by M squared times (1 minus n divided by M) divided by n."
       }
     }
     require role == "grounds"
@@ -28,8 +28,8 @@ module arg_10 {
     input {
       "material": {
         "role": "backing",
-        "classification": "Variance derivation and exact synthetic verification",
-        "details": "For actual hours (0, 2, 4, 6), predictions (1, 3, 3, 5), and all uniform draws of two intervals, the difference and direct estimates have respective variances 16/3 and 80/3 squared person-hours. Both average to 12 hours."
+        "classification": "Variance derivation and enumeration of all draws",
+        "details": "Take actual hours (0, 2, 4, 6) and predictions (1, 3, 3, 5). Across all equally likely draws of two intervals, the difference estimator has variance 16/3 squared person-hours. The direct estimator has variance 80/3 squared person-hours. Both average to 12 hours."
       }
     }
     require role == "backing"
@@ -58,7 +58,7 @@ module arg_10 {
 
   reasoning warrant {
     method "structured/1"
-    rationale "For n less than M, this common factor is positive. Prediction correction samples residuals while the direct estimator samples labour, so comparing these population variances settles the question."
+    rationale "For n less than M, the common factor is positive. The difference estimator uses the population variance of the residuals. The direct estimator uses the population variance of actual interval hours. A smaller residual variance therefore means a more precise total."
     backing [backing_material]
   }
 
@@ -68,7 +68,7 @@ module arg_10 {
   }
 
   claim exception_applies {
-    statement "In the intended design the weighted prediction errors vary at least as much across draws as the direct estimates of hours, or the simple-random-sampling comparison is being used under a different design."
+    statement "The precision gain fails if the weighted residual total varies at least as much across draws as the direct labour estimate. A design other than simple random sampling requires its own variance comparison."
     environment engineering_work
   }
 

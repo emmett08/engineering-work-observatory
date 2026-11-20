@@ -1,10 +1,10 @@
 # Measuring human labour in AI-assisted software engineering
 
-This short methods paper develops bounds from partial observations and estimates from sampled intervals. The comparison with a hypothetical AI trial shows why checks on human hours and retained functionality belong in the measurement design.
+The paper shows how to bound person-hours from partially observed work and how to estimate them from randomly sampled intervals. A hypothetical trial of AI access illustrates how an unreliable measure of hours or retained functionality can change a decision about benefit.
 
 - [Read the paper](measuring-human-labour.pdf)
 - [Model assumptions and ways to weaken them](model-notes.md)
-- [Rhetorical and word-frequency audit](editorial-audit.md)
+- [Editorial review and word frequencies](editorial-review.md)
 - [Full paper and reproducibility materials](../README.md)
 
 Build from this directory with LaTeX, BibTeX and `latexmk`. The check uses `pdfinfo` to enforce the 12-page limit, including references.
@@ -13,4 +13,4 @@ Build from this directory with LaTeX, BibTeX and `latexmk`. The check uses `pdfi
 make check
 ```
 
-The generated file is `build/main.pdf`. The existing synthetic evidence comes from the [known work histories](../study/labour-measurement) and the [paired trial protocol](../study/ai-labour-causal). The alternative trial rule requires its own planning evaluation before field use.
+The build produces `build/main.pdf`. The [work examples with known hours](../study/labour-measurement) give exact values against which to check the calculations. The [paired trial design](../study/ai-labour-causal) supplies the assumptions for the trial simulations. The alternative decision rule in the model notes requires a separate evaluation before teams use it in a trial.

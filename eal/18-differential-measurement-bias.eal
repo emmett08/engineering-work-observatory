@@ -14,7 +14,7 @@ module arg_18 {
       "material": {
         "role": "grounds",
         "classification": "Monte Carlo bias stress test and constructed task-level example",
-        "details": "In a hypothetical trial the true labour saving is exactly one person-hour per initial requirement unit and the retained fraction falls by exactly five percentage points. Both true effects miss the strict benefit criteria. Relative measurement errors favouring AI exaggerate its saving by one hour per unit and its retained fraction by six points. The analysis allows only 0.2 hours per unit and one point. False declarations occur in 9,561 of 20,000 simulated trials with 48 teams and 15,242 of 20,000 with 96 teams."
+        "details": "In these simulated trials, the true labour saving is exactly one person-hour per initial requirement unit and the retained fraction falls by exactly five percentage points. A benefit requires a greater saving and a smaller loss. Measurement errors favour the AI group by overstating its saving by one hour per unit and its retained fraction by six percentage points. The analysis allows for 0.2 hours per unit and one percentage point respectively. The rule falsely declares a benefit in 9,561 of 20,000 trials with 48 teams and in 15,242 of 20,000 with 96 teams."
       }
     }
     require role == "grounds"
@@ -29,7 +29,7 @@ module arg_18 {
       "material": {
         "role": "backing",
         "classification": "Monte Carlo bias stress test and constructed task-level example",
-        "details": "In a separate constructed example, each of twelve teams has two fixed requirements. Accurate measurements put the mean effects at both decision thresholds, so the rule withholds a benefit declaration. Omitting one hour of review per initial unit in the AI group raises its apparent saving to two hours. Crediting six unfulfilled criteria per hundred changes an actual five-point loss into an apparent one-point gain. The rule then declares a benefit on the same work. The simulation generates latent normal labour and retention with a within-team correlation of 0.3 and within-pair correlation of 0.7 for each outcome. It transforms the baselines to 3 + 7 exp(0.35 z − 0.35²/2) for labour and 0.72 + 0.25/(1 + exp(−1.4 z)) for retention. Pair differences include independent normal measurement errors with standard deviations sqrt(2) times 0.2 and sqrt(2) times 0.005 in their respective units. All pairs are complete."
+        "details": "The simulation draws standard normal values for labour and retention with correlation 0.3 within a team and 0.7 within a pair for the same outcome. A labour value z gives baseline hours per initial unit of 3 + 7 exp(0.35 z − 0.35²/2). For retention the corresponding formula is 0.72 + 0.25/(1 + exp(−1.4 z)). Each pair provides both outcomes. The paired differences include independent normal measurement errors with standard deviations of sqrt(2) times 0.2 hours per initial unit for labour and sqrt(2) times 0.005 for retention. A separate worked example traces the bias to individual tasks. Each of twelve teams has two fixed requirements. Accurate measurements put both mean effects exactly at their thresholds, so the rule withholds a benefit declaration. Omitting one reviewer-hour per initial unit from the AI teams’ hours raises their apparent saving to two hours per unit. Counting six unfulfilled criteria per hundred as satisfied turns the five-point loss into an apparent one-point gain. Those two measurement errors produce a benefit declaration for the same work."
       }
     }
     require role == "backing"
@@ -44,37 +44,38 @@ module arg_18 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "The observed false-declaration rates of 47.81% and 76.21% apply to the specified simulated biases and team distributions. The constructed requirements show one way those biases could arise. Their frequency and magnitude in a workplace require independent measurements."
+        "details": "The false-declaration rates of 47.81% and 76.21% apply to the specified biases and simulated teams. Measuring how often comparable errors occur in a workplace, and how large they are, requires an independent estimate of omitted time and wrongly scored requirements."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "The observed false-declaration rates of 47.81% and 76.21% apply to the specified simulated biases and team distributions. The constructed requirements show one way those biases could arise. Their frequency and magnitude in a workplace require independent measurements."
+    statement "The false-declaration rates of 47.81% and 76.21% apply to the specified biases and simulated teams. Measuring how often comparable errors occur in a workplace, and how large they are, requires an independent estimate of omitted time and wrongly scored requirements."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "Systematic errors shift the average observed difference in the same direction across teams. Adding independent pairs can narrow the uncertainty interval around that shifted difference, making it more likely to cross the decision threshold."
+    rationale "When measurement errors consistently favour one group, more independent pairs can reduce the sampling uncertainty around a biased mean difference. The adjusted bounds can then cross the decision thresholds more often even though the underlying effects remain at those thresholds."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Increasing trial size can increase false declarations when systematic measurement differences favour AI beyond the allowed errors."
+    statement "A larger trial can declare a benefit falsely more often when systematic measurement errors favour AI by more than the analysis allows."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "A proposed transfer of the stress-test result to a field trial lacks evidence that the trial's differential errors are large enough to reproduce the failure mechanism."
+    statement "Applying this result to a particular workforce requires evidence that differences in measurement bias between the two groups could exceed the allowances."
     environment engineering_work
   }
 
-  // An audit that independently times review and tests the follow-up criteria can bound
-  // the difference in measurement errors between groups. If plausible corrections cross
-  // either threshold, increasing the team count alone cannot resolve the decision.
+  // Time reviews independently and test whether the software satisfies the follow-up
+  // criteria. These checks can bound the difference in measurement bias between groups.
+  // If plausible corrections take either outcome across its threshold, collecting more
+  // teams’ reports alone cannot settle the decision.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [

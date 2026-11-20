@@ -14,7 +14,7 @@ module arg_09 {
       "material": {
         "role": "grounds",
         "classification": "Proposition and proof",
-        "details": "Let U be the finite set of eligible contributor intervals. Each interval has actual labour y, known positive inclusion probability pi, and an optional prediction f fixed before the draw. Every sampled labour allocation is measured accurately."
+        "details": "Take a finite set of eligible contributor intervals. For each interval let y be actual labour and pi its known positive inclusion probability. Fix any prediction f before the draw. Measure labour accurately for every sampled interval."
       }
     }
     require role == "grounds"
@@ -29,7 +29,7 @@ module arg_09 {
       "material": {
         "role": "backing",
         "classification": "Proposition and proof",
-        "details": "Adding the weighted residuals to all fixed predictions yields an expectation equal to the sum of actual labour. Setting all predictions to zero yields the Horvitz–Thompson estimator."
+        "details": "Add the weighted residuals to the sum of the fixed predictions. The expectation equals total actual labour. Setting every prediction to zero gives the Horvitz–Thompson estimator."
       }
     }
     require role == "backing"
@@ -44,26 +44,26 @@ module arg_09 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "Unbiasedness concerns repeated draws from the stated frame with actual labour and predictions held fixed. It requires recorded inclusion probabilities reflecting the design and accurate sampled hours."
+        "details": "The expectation is over repeated draws from the stated frame, holding actual labour and predictions fixed. Use the probabilities from the sampling design and accurate measured hours."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "Unbiasedness concerns repeated draws from the stated frame with actual labour and predictions held fixed. It requires recorded inclusion probabilities reflecting the design and accurate sampled hours."
+    statement "The expectation is over repeated draws from the stated frame, holding actual labour and predictions fixed. Use the probabilities from the sampling design and accurate measured hours."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "The inclusion indicator I has expectation pi. Multiplying (y minus f) by I divided by pi thus yields expected contribution y minus f, even when interval selections are dependent."
+    rationale "The inclusion indicator I has expectation pi under the sampling design. The weighted residual I times (y minus f) divided by pi therefore has expectation y minus f. This uses only the probability of selecting the individual interval."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Inverse-probability weighting estimates finite-frame labour without design bias, with or without fixed predictions."
+    statement "Inverse-probability weighting gives a design-unbiased estimate of total labour in the stated frame. Fixed predictions can supply the starting total before residuals are added."
     environment engineering_work
   }
 
@@ -72,9 +72,9 @@ module arg_09 {
     environment engineering_work
   }
 
-  // Omitted contributors lie outside the frame. Incorrect weights, systematically
-  // inaccurate replies, or fitting predictions to eliminate residuals on the correction
-  // sample can also undermine the estimate.
+  // Contributors absent from the frame have no chance of inclusion. The argument also
+  // requires correct weights and accurate replies. Fitting the prediction to the correction
+  // sample can change the expected residual contribution.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [

@@ -14,7 +14,7 @@ module arg_14 {
       "material": {
         "role": "grounds",
         "classification": "Algebraic derivation and counterexamples",
-        "details": "Hold intake forecasts f and g fixed across validation draws. Compare both to the same sample estimate of fixed actual labour H, with design expectation H and finite design variance."
+        "details": "Fix intake forecasts f and g before drawing the validation sample. Score both against the same estimate of actual labour H. Under the sampling design the estimate has expectation H and finite variance."
       }
     }
     require role == "grounds"
@@ -29,7 +29,7 @@ module arg_14 {
       "material": {
         "role": "backing",
         "classification": "Algebraic derivation and counterexamples",
-        "details": "For one task the score difference is (f minus g) times (f plus g minus twice estimated labour). Its design variance is four times (f minus g) squared times the labour estimate's variance. Shared sampled shifts can induce covariance across task scores."
+        "details": "For one task the difference in squared errors is (f minus g) times (f plus g minus twice estimated labour). It has design variance equal to four times (f minus g) squared times the estimate's variance. If tasks share sampled shifts, their score differences can covary."
       }
     }
     require role == "backing"
@@ -58,24 +58,24 @@ module arg_14 {
 
   reasoning warrant {
     method "structured/1"
-    rationale "Expanding the squared forecast error against the sampled estimate adds the estimate's variance to the true squared error in expectation. Unbiased measurement makes the cross term vanish. The common variance term then cancels in the expected difference."
+    rationale "The expected squared error against an unbiased estimate equals the true squared error plus the estimate's sampling variance. Subtracting the two expected squared errors cancels that shared variance term."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Two fixed forecasts can be compared by their expected squared-error difference against a common unbiased sampled reference, while other accuracy measures may need an audit."
+    statement "Scoring two fixed forecasts against the same unbiased estimate of labour preserves their expected difference in squared errors. Measures such as absolute error and interval coverage may require independently checked hours."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "The labour reference systematically misses or overstates hours, or the comparison uses a measure for which the common squared-error calculation does not apply."
+    statement "Systematic labour measurement error can distort the comparison. A different scoring method requires its own argument about measurement uncertainty."
     environment engineering_work
   }
 
-  // Systematic labour bias b shifts the expected comparison by minus twice the product of
-  // (f minus g) and b. Omitting an hour from a four-hour task makes a three-hour forecast
-  // look exact. Absolute error and coverage require credible audit values or defensible
-  // bounds on actual labour.
+  // Bias b in measured labour shifts the expected score difference by minus twice
+  // (f minus g) times b. Omitting one hour from a four-hour task makes a three-hour
+  // forecast look exact. Check actual labour independently or bound it to assess
+  // absolute error and interval coverage.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [

@@ -14,7 +14,7 @@ module arg_12 {
       "material": {
         "role": "grounds",
         "classification": "Finite counterexample and confidence-set argument",
-        "details": "Consider two intervals with one and three person-hours, and six units of cohort output. Drawing one interval uniformly gives equally likely inverse-probability labour estimates of two and six hours."
+        "details": "The cohort produces six output units. Its two intervals contain one and three person-hours. Selecting one interval uniformly and applying inverse-probability weighting gives estimates of two and six hours, each with probability one half."
       }
     }
     require role == "grounds"
@@ -29,7 +29,7 @@ module arg_12 {
       "material": {
         "role": "backing",
         "classification": "Finite counterexample and confidence-set argument",
-        "details": "The plug-in rates three and one average to two, while the true rate is six divided by four, or 1.5. The contrast variance adds output variance and p squared times labour variance, then subtracts twice p times their covariance."
+        "details": "The estimated rates are three and one, averaging two. The true rate is six divided by four, or 1.5 units per hour. The contrast variance equals output variance plus p squared times labour variance minus twice p times their covariance."
       }
     }
     require role == "backing"
@@ -58,12 +58,12 @@ module arg_12 {
 
   reasoning warrant {
     method "structured/1"
-    rationale "The reciprocal is nonlinear. At the true rate p and positive labour H, the contrast Q minus p times H equals zero. The set of candidate rates whose valid contrast intervals contain zero therefore covers the true rate with at least the confidence level of the contrast interval."
+    rationale "Averaging reciprocals can give a different value from taking the reciprocal of an average. When H is positive, the contrast Q minus p times H equals zero at the true rate p. A set that includes every candidate whose valid contrast interval contains zero therefore covers the true rate at least as often as the interval for its contrast covers zero."
     backing [backing_material]
   }
 
   claim finding {
-    statement "An unbiased labour estimate may bias a plug-in productivity ratio. A valid output-minus-rate-times-labour contrast supports inference on productivity."
+    statement "Dividing output by an unbiased labour estimate can yield a biased productivity rate. Confidence intervals for output minus rate times labour can identify a confidence set for the rate."
     environment engineering_work
   }
 
@@ -72,8 +72,8 @@ module arg_12 {
     environment engineering_work
   }
 
-  // For zero or negative estimated hours, report the component estimates without a point
-  // ratio. A valid confidence set can be unbounded.
+  // With zero or negative estimated hours, report the two component estimates.
+  // A valid confidence set for the rate can have no finite upper bound.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [

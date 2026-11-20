@@ -14,7 +14,7 @@ module arg_01 {
       "material": {
         "role": "grounds",
         "classification": "proof",
-        "details": "Consider two models of one engineer's work. Draw an activity indicator independently each minute, with probability p of activity. Conditional on activity, the engineer commits with probability c, using independent draws. The two models use (p, c) = (1/2, 1/5) and (1/4, 2/5). Over one hour their mean active times are 30 and 15 minutes respectively."
+        "details": "Consider two models of one engineer’s work. In each minute the engineer is active with probability p, independently of other minutes. An active engineer commits with probability c, using separate independent draws. Both models allow commits only during activity. The first uses (p, c) = (1/2, 1/5) and averages 30 active minutes per hour. The second uses (p, c) = (1/4, 2/5) and averages 15."
       }
     }
     require role == "grounds"
@@ -29,7 +29,7 @@ module arg_01 {
       "material": {
         "role": "backing",
         "classification": "proof",
-        "details": "In either model the probability of a commit in a minute is p times c, which equals one tenth. By independence, any particular n-minute sequence with k commits has probability (1/10) raised to k times (9/10) raised to n minus k, under both models. Mean active time is n times p. Even complete commit sequences over arbitrary finite periods leave this difference unresolved."
+        "details": "In both models the probability of a commit in any minute is p times c, which equals one tenth. Independence gives the probability of any specific sequence of n minutes with k commits as (1/10) to the power k times (9/10) to the power n minus k. The expected active time is n times p, so the models give different expectations for every positive n."
       }
     }
     require role == "backing"
@@ -44,37 +44,36 @@ module arg_01 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "The result concerns the expected count of active person-minutes in any model class that contains both examples. A minute of activity means the engineer was working during that minute in this binary model."
+        "details": "The result concerns expected active person-minutes in model classes that include both examples. In the binary model, the engineer works for the full minute whenever the activity indicator is one."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "The result concerns the expected count of active person-minutes in any model class that contains both examples. A minute of activity means the engineer was working during that minute in this binary model."
+    statement "The result concerns expected active person-minutes in model classes that include both examples. In the binary model, the engineer works for the full minute whenever the activity indicator is one."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "When two models give exactly the same probabilities to every observable sequence, those observations cannot distinguish a quantity the models disagree about."
+    rationale "When two models give identical probabilities to every observable sequence, those observations cannot determine a quantity on which the models disagree."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Commit observations alone do not identify mean active human time across the activity models in the counterexample."
+    statement "Commit observations alone leave expected human working time undetermined across the two activity models."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "The model class for the intended inference excludes one of the two activity processes or includes measurements that distinguish their implied human activity."
+    statement "The assumptions exclude one of the activity models, or additional measurements distinguish the amounts of human work the models imply."
     environment engineering_work
   }
 
-  // A verified emission probability, a model constraint that excludes one construction,
-  // or separate observations that distinguish the two models can remove this ambiguity. A
-  // fitted hidden state requires evidence linking it to human work.
+  // A verified chance of committing during an active minute can distinguish these models.
+  // Interpreting a fitted hidden state as human activity requires evidence about who did the work.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [

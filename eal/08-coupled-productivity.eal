@@ -29,7 +29,7 @@ module arg_08 {
       "material": {
         "role": "backing",
         "classification": "Mathematical derivation and worked example",
-        "details": "Every allowed pair has a rate of two units per person-hour. Dividing separate marginal limits permits 2 divided by 2 and 4 divided by 1, an outer range from one to four. Neither of those extreme pairs can occur."
+        "details": "Every feasible pair has a rate of two units per person-hour. Using separate marginal limits gives an outer range from one to four by combining the smallest output with the largest labour total and the largest output with the smallest labour total. The constraint Q equals twice H excludes both combinations."
       }
     }
     require role == "backing"
@@ -44,37 +44,36 @@ module arg_08 {
       "material": {
         "role": "scope",
         "classification": "Conditions for applying this inference",
-        "details": "Sharpness applies to the stated feasibility constraints and the pairs with positive labour. The rate has no value at zero labour."
+        "details": "The result applies to pairs satisfying the stated constraints with positive labour. The rate is undefined at zero labour."
       }
     }
     require role == "scope"
   }
 
   assumption applicability {
-    statement "Sharpness applies to the stated feasibility constraints and the pairs with positive labour. The rate has no value at zero labour."
+    statement "The result applies to pairs satisfying the stated constraints with positive labour. The rate is undefined at zero labour."
     environment engineering_work
     validate scope_conditions
   }
 
   reasoning warrant {
     method "structured/1"
-    rationale "Optimising Q divided by H over feasible pairs respects the dependence between the outcomes. For positive labour, a rate r is an upper bound exactly when Q minus r times H is nonpositive for every feasible pair."
+    rationale "Optimise Q divided by H over feasible pairs. The rate r bounds productivity from above exactly when every feasible pair with H positive satisfies Q minus r times H less than or equal to zero."
     backing [backing_material]
   }
 
   claim finding {
-    statement "Sharp deterministic productivity bounds must respect jointly feasible output and positive labour totals."
+    statement "Sharp deterministic productivity bounds come from optimising the ratio over feasible pairs of retained output and positive labour."
     environment engineering_work
   }
 
   claim exception_applies {
-    statement "The proposed finite productivity range uses zero labour, allows labour arbitrarily close to zero at positive output, or assumes an output and labour pairing excluded by the evidence."
+    statement "Reject a purported sharp range if it includes an undefined rate at zero labour or its endpoints depend on pairs excluded by the observations. If the feasible rate is unbounded as labour approaches zero, any finite range also fails."
     environment engineering_work
   }
 
-  // If compatible positive labour approaches zero while output stays fixed and positive,
-  // the rates have no finite upper bound. If all histories have zero labour, report both
-  // totals separately.
+  // If labour can approach zero with output fixed and positive, the rate has no finite
+  // upper bound. If every feasible allocation has zero labour, report the two totals.
   objection challenge = [premises exception_applies] -x> argument inference
 
   argument inference = [
